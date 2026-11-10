@@ -1,7 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
-import io.github.kotlinmania.windowssys.COpaquePointer
-
 public val ABOVE_NORMAL_PRIORITY_CLASS: ProcessCreationFlags = 32768u
 
 public val ALL_PROCESSOR_GROUPS: UShort = 65535u.toUShort()
