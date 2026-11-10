@@ -2,9 +2,15 @@ package io.github.kotlinmania.windowssys.windows.win32.media.streaming
 
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 
-public data class CapturedMetadataExposureCompensation(public var flags: ULong = 0uL, public var value: Int = 0)
+public data class CapturedMetadataExposureCompensation(
+    public var flags: ULong = 0uL,
+    public var value: Int = 0,
+)
 
-public data class CapturedMetadataISOGains(public var analogGain: Float = 0.0f, public var digitalGain: Float = 0.0f)
+public data class CapturedMetadataISOGains(
+    public var analogGain: Float = 0.0f,
+    public var digitalGain: Float = 0.0f,
+)
 
 public data class CapturedMetadataWhiteBalanceGains(
     public var r: Float = 0.0f,
@@ -19,13 +25,25 @@ public data class FaceCharacterization(
     public var facialExpressionScore: UInt = 0u,
 )
 
-public data class FaceCharacterizationBlobHeader(public var size: UInt = 0u, public var count: UInt = 0u)
+public data class FaceCharacterizationBlobHeader(
+    public var size: UInt = 0u,
+    public var count: UInt = 0u,
+)
 
-public data class FaceRectInfo(public var region: Rect = Rect(), public var confidenceLevel: Int = 0)
+public data class FaceRectInfo(
+    public var region: Rect = Rect(),
+    public var confidenceLevel: Int = 0,
+)
 
-public data class FaceRectInfoBlobHeader(public var size: UInt = 0u, public var count: UInt = 0u)
+public data class FaceRectInfoBlobHeader(
+    public var size: UInt = 0u,
+    public var count: UInt = 0u,
+)
 
-public data class HistogramBlobHeader(public var size: UInt = 0u, public var histograms: UInt = 0u)
+public data class HistogramBlobHeader(
+    public var size: UInt = 0u,
+    public var histograms: UInt = 0u,
+)
 
 public data class HistogramDataHeader(
     public var size: UInt = 0u,

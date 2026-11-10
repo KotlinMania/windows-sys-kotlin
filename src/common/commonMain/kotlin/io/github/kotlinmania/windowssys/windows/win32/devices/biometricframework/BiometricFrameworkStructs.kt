@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.biometricframework
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -9,11 +10,20 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 
-public data class WinbioAccountPolicy(public var identity: WinbioIdentity = WinbioIdentity(), public var antiSpoofBehavior: WinbioAntiSpoofPolicyAction = 0)
+public data class WinbioAccountPolicy(
+    public var identity: WinbioIdentity = WinbioIdentity(),
+    public var antiSpoofBehavior: WinbioAntiSpoofPolicyAction = 0,
+)
 
-public data class WinbioAdapterInterfaceVersion(public var majorVersion: UShort = 0u, public var minorVersion: UShort = 0u)
+public data class WinbioAdapterInterfaceVersion(
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
+)
 
-public data class WinbioAntiSpoofPolicy(public var action: WinbioAntiSpoofPolicyAction = 0, public var source: WinbioPolicySource = 0)
+public data class WinbioAntiSpoofPolicy(
+    public var action: WinbioAntiSpoofPolicyAction = 0,
+    public var source: WinbioPolicySource = 0,
+)
 
 public data class WinbioAsyncResult(
     public var sessionHandle: UInt = 0u,
@@ -67,19 +77,37 @@ public data class WinbioAsyncResult011(
     public var receiveDataSize: Int = 0,
 )
 
-public data class WinbioAsyncResult07(public var identity: WinbioIdentity = WinbioIdentity(), public var subFactor: UByte = 0u)
+public data class WinbioAsyncResult07(
+    public var identity: WinbioIdentity = WinbioIdentity(),
+    public var subFactor: UByte = 0u,
+)
 
-public data class WinbioAsyncResult02(public var subFactor: UByte = 0u)
+public data class WinbioAsyncResult02(
+    public var subFactor: UByte = 0u,
+)
 
-public data class WinbioAsyncResult03(public var rejectDetail: UInt = 0u)
+public data class WinbioAsyncResult03(
+    public var rejectDetail: UInt = 0u,
+)
 
-public data class WinbioAsyncResult04(public var identity: WinbioIdentity = WinbioIdentity(), public var isNewTemplate: Boolean = false)
+public data class WinbioAsyncResult04(
+    public var identity: WinbioIdentity = WinbioIdentity(),
+    public var isNewTemplate: Boolean = false,
+)
 
-public data class WinbioAsyncResult017(public var selectorValue: ULong = 0uL)
+public data class WinbioAsyncResult017(
+    public var selectorValue: ULong = 0uL,
+)
 
-public data class WinbioAsyncResult013(public var unitCount: Int = 0, public var unitSchemaArray: WinbioUnitSchema? = null)
+public data class WinbioAsyncResult013(
+    public var unitCount: Int = 0,
+    public var unitSchemaArray: WinbioUnitSchema? = null,
+)
 
-public data class WinbioAsyncResult014(public var storageCount: Int = 0, public var storageSchemaArray: WinbioStorageSchema? = null)
+public data class WinbioAsyncResult014(
+    public var storageCount: Int = 0,
+    public var storageSchemaArray: WinbioStorageSchema? = null,
+)
 
 public data class WinbioAsyncResult05(
     public var identity: WinbioIdentity = WinbioIdentity(),
@@ -87,9 +115,14 @@ public data class WinbioAsyncResult05(
     public var subFactorArray: COpaquePointer? = null,
 )
 
-public data class WinbioAsyncResult012(public var bspCount: Int = 0, public var bspSchemaArray: WinbioBspSchema? = null)
+public data class WinbioAsyncResult012(
+    public var bspCount: Int = 0,
+    public var bspSchemaArray: WinbioBspSchema? = null,
+)
 
-public data class WinbioAsyncResult010(public var event: WinbioEvent = WinbioEvent())
+public data class WinbioAsyncResult010(
+    public var event: WinbioEvent = WinbioEvent(),
+)
 
 public data class WinbioAsyncResult08(
     public var propertyType: UInt = 0u,
@@ -100,7 +133,10 @@ public data class WinbioAsyncResult08(
     public var propertyBuffer: COpaquePointer? = null,
 )
 
-public data class WinbioAsyncResult019(public var identity: WinbioIdentity = WinbioIdentity(), public var policy: WinbioProtectionPolicy = WinbioProtectionPolicy())
+public data class WinbioAsyncResult019(
+    public var identity: WinbioIdentity = WinbioIdentity(),
+    public var policy: WinbioProtectionPolicy = WinbioProtectionPolicy(),
+)
 
 public data class WinbioAsyncResult016(
     public var identity: WinbioIdentity = WinbioIdentity(),
@@ -121,7 +157,9 @@ public data class WinbioAsyncResult018(
     public var presenceArray: WinbioPresence? = null,
 )
 
-public data class WinbioAsyncResult020(public var extendedStatus: WinbioExtendedUnitStatus = WinbioExtendedUnitStatus())
+public data class WinbioAsyncResult020(
+    public var extendedStatus: WinbioExtendedUnitStatus = WinbioExtendedUnitStatus(),
+)
 
 public data class WinbioAsyncResult09(
     public var propertyType: UInt = 0u,
@@ -138,7 +176,10 @@ public data class WinbioAsyncResult015(
     public var ticket: ULong = 0uL,
 )
 
-public data class WinbioAsyncResult00(public var match: Boolean = false, public var rejectDetail: UInt = 0u)
+public data class WinbioAsyncResult00(
+    public var match: Boolean = false,
+    public var rejectDetail: UInt = 0u,
+)
 
 public data class WinbioBdbAnsi381Header(
     public var recordLength: ULong = 0uL,
@@ -177,7 +218,10 @@ public data class WinbioBir(
     public var signatureBlock: WinbioBirData = WinbioBirData(),
 )
 
-public data class WinbioBirData(public var size: UInt = 0u, public var offset: UInt = 0u)
+public data class WinbioBirData(
+    public var size: UInt = 0u,
+    public var offset: UInt = 0u,
+)
 
 public data class WinbioBirHeader(
     public var validFields: UShort = 0u,
@@ -194,9 +238,15 @@ public data class WinbioBirHeader(
     public var productId: WinbioRegisteredFormat = WinbioRegisteredFormat(),
 )
 
-public data class WinbioBirHeader0(public var beginDate: Long = 0L, public var endDate: Long = 0L)
+public data class WinbioBirHeader0(
+    public var beginDate: Long = 0L,
+    public var endDate: Long = 0L,
+)
 
-public data class WinbioBlankPayload(public var payloadSize: UInt = 0u, public var winBioHresult: Hresult = 0)
+public data class WinbioBlankPayload(
+    public var payloadSize: UInt = 0u,
+    public var winBioHresult: Hresult = 0,
+)
 
 public data class WinbioBspSchema(
     public var biometricFactor: UInt = 0u,
@@ -248,7 +298,10 @@ public data class WinbioCaptureParameters(
     public var flags: UByte = 0u,
 )
 
-public data class WinbioData(public var size: UInt = 0u, public var data: UByteArray = UByteArray(1)) {
+public data class WinbioData(
+    public var size: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WinbioData) return false
@@ -328,7 +381,10 @@ public class WinbioEngineInterface(
     public var identifyFeatureSetAuthenticated: PibioEngineIdentifyFeatureSetAuthenticatedFn = null,
 )
 
-public data class WinbioEvent(public var type: UInt = 0u, public var parameters: WinbioEvent0 = WinbioEvent0())
+public data class WinbioEvent(
+    public var type: UInt = 0u,
+    public var parameters: WinbioEvent0 = WinbioEvent0(),
+)
 
 public data class WinbioEvent0(
     public var unclaimed: WinbioEvent00 = WinbioEvent00(),
@@ -336,7 +392,9 @@ public data class WinbioEvent0(
     public var error: WinbioEvent02 = WinbioEvent02(),
 )
 
-public data class WinbioEvent02(public var errorCode: Hresult = 0)
+public data class WinbioEvent02(
+    public var errorCode: Hresult = 0,
+)
 
 public data class WinbioEvent01(
     public var unitId: UInt = 0u,
@@ -345,7 +403,10 @@ public data class WinbioEvent01(
     public var rejectDetail: UInt = 0u,
 )
 
-public data class WinbioEvent00(public var unitId: UInt = 0u, public var rejectDetail: UInt = 0u)
+public data class WinbioEvent00(
+    public var unitId: UInt = 0u,
+    public var rejectDetail: UInt = 0u,
+)
 
 public data class WinbioExtendedEngineInfo(
     public var genericEngineCapabilities: UInt = 0u,
@@ -361,11 +422,19 @@ public data class WinbioExtendedEngineInfo0(
     public var voice: WinbioExtendedEngineInfo03 = WinbioExtendedEngineInfo03(),
 )
 
-public data class WinbioExtendedEngineInfo00(public var capabilities: UInt = 0u, public var enrollmentRequirements: WinbioExtendedEngineInfo000 = WinbioExtendedEngineInfo000())
+public data class WinbioExtendedEngineInfo00(
+    public var capabilities: UInt = 0u,
+    public var enrollmentRequirements: WinbioExtendedEngineInfo000 = WinbioExtendedEngineInfo000(),
+)
 
-public data class WinbioExtendedEngineInfo000(public var nullVal: UInt = 0u)
+public data class WinbioExtendedEngineInfo000(
+    public var nullVal: UInt = 0u,
+)
 
-public data class WinbioExtendedEngineInfo01(public var capabilities: UInt = 0u, public var enrollmentRequirements: WinbioExtendedEngineInfo010 = WinbioExtendedEngineInfo010())
+public data class WinbioExtendedEngineInfo01(
+    public var capabilities: UInt = 0u,
+    public var enrollmentRequirements: WinbioExtendedEngineInfo010 = WinbioExtendedEngineInfo010(),
+)
 
 public data class WinbioExtendedEngineInfo010(
     public var generalSamples: UInt = 0u,
@@ -376,15 +445,28 @@ public data class WinbioExtendedEngineInfo010(
     public var rightEdge: UInt = 0u,
 )
 
-public data class WinbioExtendedEngineInfo02(public var capabilities: UInt = 0u, public var enrollmentRequirements: WinbioExtendedEngineInfo020 = WinbioExtendedEngineInfo020())
+public data class WinbioExtendedEngineInfo02(
+    public var capabilities: UInt = 0u,
+    public var enrollmentRequirements: WinbioExtendedEngineInfo020 = WinbioExtendedEngineInfo020(),
+)
 
-public data class WinbioExtendedEngineInfo020(public var nullVal: UInt = 0u)
+public data class WinbioExtendedEngineInfo020(
+    public var nullVal: UInt = 0u,
+)
 
-public data class WinbioExtendedEngineInfo03(public var capabilities: UInt = 0u, public var enrollmentRequirements: WinbioExtendedEngineInfo030 = WinbioExtendedEngineInfo030())
+public data class WinbioExtendedEngineInfo03(
+    public var capabilities: UInt = 0u,
+    public var enrollmentRequirements: WinbioExtendedEngineInfo030 = WinbioExtendedEngineInfo030(),
+)
 
-public data class WinbioExtendedEngineInfo030(public var nullVal: UInt = 0u)
+public data class WinbioExtendedEngineInfo030(
+    public var nullVal: UInt = 0u,
+)
 
-public data class WinbioExtendedEnrollmentParameters(public var size: Int = 0, public var subFactor: UByte = 0u)
+public data class WinbioExtendedEnrollmentParameters(
+    public var size: Int = 0,
+    public var subFactor: UByte = 0u,
+)
 
 public data class WinbioExtendedEnrollmentStatus(
     public var templateStatus: Hresult = 0,
@@ -409,7 +491,10 @@ public data class WinbioExtendedEnrollmentStatus00(
     public var opaqueEngineData: WinbioExtendedEnrollmentStatus000 = WinbioExtendedEnrollmentStatus000(),
 )
 
-public data class WinbioExtendedEnrollmentStatus000(public var adapterId: Guid = Guid(), public var data: UIntArray = UIntArray(78)) {
+public data class WinbioExtendedEnrollmentStatus000(
+    public var adapterId: Guid = Guid(),
+    public var data: UIntArray = UIntArray(78),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WinbioExtendedEnrollmentStatus000) return false
@@ -452,7 +537,9 @@ public data class WinbioExtendedEnrollmentStatus020(
     public var z: Double = 0.0,
 )
 
-public data class WinbioExtendedEnrollmentStatus03(public var reserved: UInt = 0u)
+public data class WinbioExtendedEnrollmentStatus03(
+    public var reserved: UInt = 0u,
+)
 
 public data class WinbioExtendedSensorInfo(
     public var genericSensorCapabilities: UInt = 0u,
@@ -497,7 +584,9 @@ public data class WinbioExtendedSensorInfo000(
     }
 }
 
-public data class WinbioExtendedSensorInfo01(public var reserved: UInt = 0u)
+public data class WinbioExtendedSensorInfo01(
+    public var reserved: UInt = 0u,
+)
 
 public data class WinbioExtendedSensorInfo02(
     public var frameSize: Rect = Rect(),
@@ -505,7 +594,9 @@ public data class WinbioExtendedSensorInfo02(
     public var mandatoryOrientation: UInt = 0u,
 )
 
-public data class WinbioExtendedSensorInfo03(public var reserved: UInt = 0u)
+public data class WinbioExtendedSensorInfo03(
+    public var reserved: UInt = 0u,
+)
 
 public data class WinbioExtendedStorageInfo(
     public var genericStorageCapabilities: UInt = 0u,
@@ -521,17 +612,31 @@ public data class WinbioExtendedStorageInfo0(
     public var voice: WinbioExtendedStorageInfo03 = WinbioExtendedStorageInfo03(),
 )
 
-public data class WinbioExtendedStorageInfo00(public var capabilities: UInt = 0u)
+public data class WinbioExtendedStorageInfo00(
+    public var capabilities: UInt = 0u,
+)
 
-public data class WinbioExtendedStorageInfo01(public var capabilities: UInt = 0u)
+public data class WinbioExtendedStorageInfo01(
+    public var capabilities: UInt = 0u,
+)
 
-public data class WinbioExtendedStorageInfo02(public var capabilities: UInt = 0u)
+public data class WinbioExtendedStorageInfo02(
+    public var capabilities: UInt = 0u,
+)
 
-public data class WinbioExtendedStorageInfo03(public var capabilities: UInt = 0u)
+public data class WinbioExtendedStorageInfo03(
+    public var capabilities: UInt = 0u,
+)
 
-public data class WinbioExtendedUnitStatus(public var availability: UInt = 0u, public var reasonCode: UInt = 0u)
+public data class WinbioExtendedUnitStatus(
+    public var availability: UInt = 0u,
+    public var reasonCode: UInt = 0u,
+)
 
-public data class WinbioFpBuState(public var sensorAttached: Bool = 0, public var creationResult: Hresult = 0)
+public data class WinbioFpBuState(
+    public var sensorAttached: Bool = 0,
+    public var creationResult: Hresult = 0,
+)
 
 public class WinbioFrameworkInterface(
     public var version: WinbioAdapterInterfaceVersion = WinbioAdapterInterfaceVersion(),
@@ -597,7 +702,10 @@ public data class WinbioGetIndicator(
     public var indicatorStatus: UInt = 0u,
 )
 
-public data class WinbioIdentity(public var type: UInt = 0u, public var value: WinbioIdentity0 = WinbioIdentity0())
+public data class WinbioIdentity(
+    public var type: UInt = 0u,
+    public var value: WinbioIdentity0 = WinbioIdentity0(),
+)
 
 public data class WinbioIdentity0(
     public var nullVal: UInt = 0u,
@@ -627,7 +735,10 @@ public data class WinbioIdentity0(
     }
 }
 
-public data class WinbioIdentity00(public var size: UInt = 0u, public var data: UByteArray = UByteArray(68)) {
+public data class WinbioIdentity00(
+    public var size: UInt = 0u,
+    public var data: UByteArray = UByteArray(68),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WinbioIdentity00) return false
@@ -674,7 +785,10 @@ public data class WinbioPresence(
     public var authorization: WinbioPresence0 = WinbioPresence0(),
 )
 
-public data class WinbioPresence0(public var size: UInt = 0u, public var data: UByteArray = UByteArray(32)) {
+public data class WinbioPresence0(
+    public var size: UInt = 0u,
+    public var data: UByteArray = UByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WinbioPresence0) return false
@@ -690,7 +804,10 @@ public data class WinbioPresence0(public var size: UInt = 0u, public var data: U
     }
 }
 
-public data class WinbioPresenceProperties(public var facialFeatures: WinbioPresenceProperties0 = WinbioPresenceProperties0(), public var iris: WinbioPresenceProperties1 = WinbioPresenceProperties1())
+public data class WinbioPresenceProperties(
+    public var facialFeatures: WinbioPresenceProperties0 = WinbioPresenceProperties0(),
+    public var iris: WinbioPresenceProperties1 = WinbioPresenceProperties1(),
+)
 
 public data class WinbioPresenceProperties0(
     public var boundingBox: Rect = Rect(),
@@ -698,7 +815,10 @@ public data class WinbioPresenceProperties0(
     public var opaqueEngineData: WinbioPresenceProperties00 = WinbioPresenceProperties00(),
 )
 
-public data class WinbioPresenceProperties00(public var adapterId: Guid = Guid(), public var data: UIntArray = UIntArray(78)) {
+public data class WinbioPresenceProperties00(
+    public var adapterId: Guid = Guid(),
+    public var data: UIntArray = UIntArray(78),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WinbioPresenceProperties00) return false
@@ -759,7 +879,10 @@ public data class WinbioProtectionPolicy(
     }
 }
 
-public data class WinbioRegisteredFormat(public var owner: UShort = 0u, public var type: UShort = 0u)
+public data class WinbioRegisteredFormat(
+    public var owner: UShort = 0u,
+    public var type: UShort = 0u,
+)
 
 public data class WinbioSecureBufferHeaderV1(
     public var type: UInt = 0u,
@@ -870,7 +993,10 @@ public class WinbioSensorInterface(
     public var finishNotifyWake: PibioSensorFinishNotifyWakeFn = null,
 )
 
-public data class WinbioSetIndicator(public var payloadSize: UInt = 0u, public var indicatorStatus: UInt = 0u)
+public data class WinbioSetIndicator(
+    public var payloadSize: UInt = 0u,
+    public var indicatorStatus: UInt = 0u,
+)
 
 public class WinbioStorageInterface(
     public var version: WinbioAdapterInterfaceVersion = WinbioAdapterInterfaceVersion(),
@@ -1004,6 +1130,12 @@ public data class WinbioUnitSchema(
     }
 }
 
-public data class WinbioUpdateFirmware(public var payloadSize: UInt = 0u, public var firmwareData: WinbioData = WinbioData())
+public data class WinbioUpdateFirmware(
+    public var payloadSize: UInt = 0u,
+    public var firmwareData: WinbioData = WinbioData(),
+)
 
-public data class WinbioVersion(public var majorVersion: UInt = 0u, public var minorVersion: UInt = 0u)
+public data class WinbioVersion(
+    public var majorVersion: UInt = 0u,
+    public var minorVersion: UInt = 0u,
+)

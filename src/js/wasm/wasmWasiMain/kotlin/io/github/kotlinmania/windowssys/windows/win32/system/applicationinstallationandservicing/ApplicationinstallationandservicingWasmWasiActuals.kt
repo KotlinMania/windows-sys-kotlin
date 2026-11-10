@@ -16,9 +16,8 @@ import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
 public actual fun activateActCtx(hactctx: Handle, lpcookie: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun addRefActCtx(hactctx: Handle) {
+public actual fun addRefActCtx(hactctx: Handle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun applyDeltaA(applyflags: Long, lpsourcename: Pcstr, lpdeltaname: Pcstr, lptargetname: Pcstr): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -950,9 +949,8 @@ public actual fun queryActCtxSettingsW(dwflags: UInt, hactctx: Handle, settingsn
 public actual fun queryActCtxW(dwflags: UInt, hactctx: Handle, pvsubinstance: COpaquePointer?, ulinfoclass: UInt, pvbuffer: COpaquePointer?, cbbuffer: ULong, pcbwrittenorrequired: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun releaseActCtx(hactctx: Handle) {
+public actual fun releaseActCtx(hactctx: Handle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sfcGetNextProtectedFile(rpchandle: Handle, protfiledata: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

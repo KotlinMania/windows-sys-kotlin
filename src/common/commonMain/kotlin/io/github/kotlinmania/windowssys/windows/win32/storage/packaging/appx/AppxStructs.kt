@@ -5,7 +5,10 @@ import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class AppxEncryptedExemptions(public var count: UInt = 0u, public var plainTextFiles: Pcwstr? = null)
+public data class AppxEncryptedExemptions(
+    public var count: UInt = 0u,
+    public var plainTextFiles: Pcwstr? = null,
+)
 
 public data class AppxEncryptedPackageSettings(
     public var keyLength: UInt = 0u,
@@ -28,7 +31,10 @@ public data class AppxKeyInfo(
     public var keyId: COpaquePointer? = null,
 )
 
-public data class AppxPackageSettings(public var forceZip32: Bool = 0, public var hashMethod: COpaquePointer? = null)
+public data class AppxPackageSettings(
+    public var forceZip32: Bool = 0,
+    public var hashMethod: COpaquePointer? = null,
+)
 
 public data class AppxPackageWriterPayloadStream(
     public var inputStream: COpaquePointer? = null,
@@ -56,9 +62,14 @@ public data class PackageInfo(
     public var packageId: PackageId = PackageId(),
 )
 
-public data class PackageVersion(public var anonymous: PackageVersion0 = PackageVersion0())
+public data class PackageVersion(
+    public var anonymous: PackageVersion0 = PackageVersion0(),
+)
 
-public data class PackageVersion0(public var version: ULong = 0uL, public var anonymous: PackageVersion00 = PackageVersion00())
+public data class PackageVersion0(
+    public var version: ULong = 0uL,
+    public var anonymous: PackageVersion00 = PackageVersion00(),
+)
 
 public data class PackageVersion00(
     public var revision: UShort = 0u,
@@ -67,4 +78,6 @@ public data class PackageVersion00(
     public var major: UShort = 0u,
 )
 
-public data class PackageInfoReference(public var reserved: COpaquePointer? = null)
+public data class PackageInfoReference(
+    public var reserved: COpaquePointer? = null,
+)

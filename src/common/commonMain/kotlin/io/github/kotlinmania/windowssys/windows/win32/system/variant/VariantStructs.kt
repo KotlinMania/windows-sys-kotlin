@@ -8,9 +8,14 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.VariantBool
 import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
 
-public data class Variant(public var anonymous: Variant0 = Variant0())
+public data class Variant(
+    public var anonymous: Variant0 = Variant0(),
+)
 
-public data class Variant0(public var anonymous: Variant00 = Variant00(), public var decVal: Decimal = Decimal())
+public data class Variant0(
+    public var anonymous: Variant00 = Variant00(),
+    public var decVal: Decimal = Decimal(),
+)
 
 public data class Variant00(
     public var vt: Varenum = 0u,
@@ -69,4 +74,7 @@ public class Variant000(
     public var anonymous: Variant0000 = Variant0000(),
 )
 
-public data class Variant0000(public var pvRecord: COpaquePointer? = null, public var pRecInfo: COpaquePointer? = null)
+public data class Variant0000(
+    public var pvRecord: COpaquePointer? = null,
+    public var pRecInfo: COpaquePointer? = null,
+)

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -112,7 +113,9 @@ public data class SerialBasicSettings(
     public var txFifo: UInt = 0u,
 )
 
-public data class SerialBaudRate(public var baudRate: UInt = 0u)
+public data class SerialBaudRate(
+    public var baudRate: UInt = 0u,
+)
 
 public data class SerialChars(
     public var eofChar: UByte = 0u,
@@ -157,7 +160,10 @@ public data class SerialLineControl(
     public var wordLength: UByte = 0u,
 )
 
-public data class SerialQueueSize(public var inSize: UInt = 0u, public var outSize: UInt = 0u)
+public data class SerialQueueSize(
+    public var inSize: UInt = 0u,
+    public var outSize: UInt = 0u,
+)
 
 public data class SerialStatus(
     public var errors: UInt = 0u,

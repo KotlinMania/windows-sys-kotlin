@@ -15,9 +15,8 @@ import io.github.kotlinmania.windowssys.windows.win32.system.com.Stgm
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.PstimeFlags
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 
-public actual fun clearPropVariantArray(rgpropvar: COpaquePointer?, cvars: UInt) {
+public actual fun clearPropVariantArray(rgpropvar: COpaquePointer?, cvars: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun coGetInstanceFromFile(pserverinfo: COpaquePointer?, pclsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, grfmode: UInt, pwszname: Pcwstr, dwcount: UInt, presults: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

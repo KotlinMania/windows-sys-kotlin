@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.fax
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -620,7 +621,10 @@ public data class FaxSend(
     }
 }
 
-public data class FaxTime(public var hour: UShort = 0u, public var minute: UShort = 0u)
+public data class FaxTime(
+    public var hour: UShort = 0u,
+    public var minute: UShort = 0u,
+)
 
 public data class Stinotify(
     public var dwSize: UInt = 0u,
@@ -705,7 +709,9 @@ public data class StiDeviceStatus(
     public var dwPollingInterval: UInt = 0u,
 )
 
-public data class StiDevCaps(public var dwGeneric: UInt = 0u)
+public data class StiDevCaps(
+    public var dwGeneric: UInt = 0u,
+)
 
 public data class StiDiag(
     public var dwSize: UInt = 0u,
@@ -715,7 +721,10 @@ public data class StiDiag(
     public var sErrorInfo: ErrorInfow = ErrorInfow(),
 )
 
-public data class StiUsdCaps(public var dwVersion: UInt = 0u, public var dwGenericCaps: UInt = 0u)
+public data class StiUsdCaps(
+    public var dwVersion: UInt = 0u,
+    public var dwGenericCaps: UInt = 0u,
+)
 
 public data class StiWiaDeviceInformationw(
     public var dwSize: UInt = 0u,

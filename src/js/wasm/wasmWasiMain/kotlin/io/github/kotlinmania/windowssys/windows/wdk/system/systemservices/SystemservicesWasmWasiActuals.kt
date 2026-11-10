@@ -112,9 +112,8 @@ public actual fun clfsDeleteMarshallingArea(pvmarshalcontext: COpaquePointer?): 
 public actual fun clfsEarlierLsn(plsn: COpaquePointer?): ClsLsn =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun clfsFinalize() {
+public actual fun clfsFinalize(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun clfsFlushBuffers(pvmarshalcontext: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -248,16 +247,14 @@ public actual fun cmCallbackGetKeyObjectID(cookie: COpaquePointer?, obj: COpaque
 public actual fun cmCallbackGetKeyObjectIDEx(cookie: COpaquePointer?, obj: COpaquePointer?, objectid: COpaquePointer?, objectname: COpaquePointer?, flags: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun cmCallbackReleaseKeyObjectIDEx(objectname: COpaquePointer?) {
+public actual fun cmCallbackReleaseKeyObjectIDEx(objectname: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun cmGetBoundTransaction(cookie: COpaquePointer?, obj: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun cmGetCallbackVersion(major: COpaquePointer?, minor: COpaquePointer?) {
+public actual fun cmGetCallbackVersion(major: COpaquePointer?, minor: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun cmRegisterCallback(function: PexCallbackFunction, context: COpaquePointer?, cookie: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -271,9 +268,8 @@ public actual fun cmSetCallbackObjectContext(obj: COpaquePointer?, cookie: COpaq
 public actual fun cmUnRegisterCallback(cookie: Long): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dbgBreakPointWithStatus(status: UInt) {
+public actual fun dbgBreakPointWithStatus(status: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dbgPrint(format: Pcstr, vararg variadicArgs: Long): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -326,21 +322,17 @@ public actual fun etwWriteString(reghandle: Reghandle, level: UByte, keyword: UL
 public actual fun etwWriteTransfer(reghandle: Reghandle, eventdescriptor: COpaquePointer?, activityid: COpaquePointer?, relatedactivityid: COpaquePointer?, userdatacount: UInt, userdata: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exAcquireFastMutex(fastmutex: COpaquePointer?) {
+public actual fun exAcquireFastMutex(fastmutex: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exAcquireFastMutexUnsafe(fastmutex: COpaquePointer?) {
+public actual fun exAcquireFastMutexUnsafe(fastmutex: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exAcquirePushLockExclusiveEx(pushlock: COpaquePointer?, flags: UInt) {
+public actual fun exAcquirePushLockExclusiveEx(pushlock: COpaquePointer?, flags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exAcquirePushLockSharedEx(pushlock: COpaquePointer?, flags: UInt) {
+public actual fun exAcquirePushLockSharedEx(pushlock: COpaquePointer?, flags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exAcquireResourceExclusiveLite(resource: COpaquePointer?, wait: Boolean): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -369,16 +361,14 @@ public actual fun exAcquireSharedWaitForExclusive(resource: COpaquePointer?, wai
 public actual fun exAcquireSpinLockExclusive(spinlock: COpaquePointer?): UByte =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exAcquireSpinLockExclusiveAtDpcLevel(spinlock: COpaquePointer?) {
+public actual fun exAcquireSpinLockExclusiveAtDpcLevel(spinlock: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exAcquireSpinLockShared(spinlock: COpaquePointer?): UByte =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exAcquireSpinLockSharedAtDpcLevel(spinlock: COpaquePointer?) {
+public actual fun exAcquireSpinLockSharedAtDpcLevel(spinlock: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exAllocateCacheAwareRundownProtection(pooltype: PoolType, pooltag: UInt): PexRundownRefCacheAware =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -410,13 +400,11 @@ public actual fun exAllocateTimer(callback: PextCallback, callbackcontext: COpaq
 public actual fun exCancelTimer(timer: PexTimer, parameters: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exCleanupRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware) {
+public actual fun exCleanupRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exConvertExclusiveToSharedLite(resource: COpaquePointer?) {
+public actual fun exConvertExclusiveToSharedLite(resource: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exCreateCallback(callbackobject: COpaquePointer?, objectattributes: COpaquePointer?, create: Boolean, allowmultiplecallbacks: Boolean): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -430,9 +418,8 @@ public actual fun exDeleteResourceLite(resource: COpaquePointer?): Ntstatus =
 public actual fun exDeleteTimer(timer: PexTimer, cancel: Boolean, wait: Boolean, parameters: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exDestroyPool(poolhandle: Handle) {
+public actual fun exDestroyPool(poolhandle: Handle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exEnterCriticalRegionAndAcquireResourceExclusive(resource: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -449,21 +436,17 @@ public actual fun exEnumerateSystemFirmwareTables(firmwaretableprovidersignature
 public actual fun exExtendZone(zone: COpaquePointer?, segment: COpaquePointer?, segmentsize: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exFreeCacheAwareRundownProtection(runrefcacheaware: PexRundownRefCacheAware) {
+public actual fun exFreeCacheAwareRundownProtection(runrefcacheaware: PexRundownRefCacheAware): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exFreePool(p: COpaquePointer?) {
+public actual fun exFreePool(p: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exFreePool2(p: COpaquePointer?, tag: UInt, extendedparameters: COpaquePointer?, extendedparameterscount: UInt) {
+public actual fun exFreePool2(p: COpaquePointer?, tag: UInt, extendedparameters: COpaquePointer?, extendedparameterscount: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exFreePoolWithTag(p: COpaquePointer?, tag: UInt) {
+public actual fun exFreePoolWithTag(p: COpaquePointer?, tag: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exGetExclusiveWaiterCount(resource: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -483,24 +466,20 @@ public actual fun exGetSharedWaiterCount(resource: COpaquePointer?): UInt =
 public actual fun exGetSystemFirmwareTable(firmwaretableprovidersignature: UInt, firmwaretableid: UInt, firmwaretablebuffer: COpaquePointer?, bufferlength: UInt, returnlength: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exInitializePushLock(pushlock: COpaquePointer?) {
+public actual fun exInitializePushLock(pushlock: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exInitializeResourceLite(resource: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exInitializeRundownProtection(runref: COpaquePointer?) {
+public actual fun exInitializeRundownProtection(runref: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exInitializeRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware, runrefsize: ULong) {
+public actual fun exInitializeRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware, runrefsize: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exInitializeRundownProtectionCacheAwareEx(runrefcacheaware: PexRundownRefCacheAware, flags: UInt) {
+public actual fun exInitializeRundownProtectionCacheAwareEx(runrefcacheaware: PexRundownRefCacheAware, flags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exInitializeZone(zone: COpaquePointer?, blocksize: UInt, initialsegment: COpaquePointer?, initialsegmentsize: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -526,41 +505,32 @@ public actual fun exIsResourceAcquiredSharedLite(resource: COpaquePointer?): UIn
 public actual fun exIsSoftBoot(): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exLocalTimeToSystemTime(localtime: COpaquePointer?, systemtime: COpaquePointer?) {
+public actual fun exLocalTimeToSystemTime(localtime: COpaquePointer?, systemtime: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exNotifyCallback(callbackobject: COpaquePointer?, argument1: COpaquePointer?, argument2: COpaquePointer?) {
+public actual fun exNotifyCallback(callbackobject: COpaquePointer?, argument1: COpaquePointer?, argument2: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exQueryTimerResolution(maximumtime: COpaquePointer?, minimumtime: COpaquePointer?, currenttime: COpaquePointer?) {
+public actual fun exQueryTimerResolution(maximumtime: COpaquePointer?, minimumtime: COpaquePointer?, currenttime: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exQueueWorkItem(workitem: COpaquePointer?, queuetype: WorkQueueType) {
+public actual fun exQueueWorkItem(workitem: COpaquePointer?, queuetype: WorkQueueType): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exRaiseAccessViolation() {
+public actual fun exRaiseAccessViolation(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exRaiseDatatypeMisalignment() {
+public actual fun exRaiseDatatypeMisalignment(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exRaiseStatus(status: Ntstatus) {
+public actual fun exRaiseStatus(status: Ntstatus): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReInitializeRundownProtection(runref: COpaquePointer?) {
+public actual fun exReInitializeRundownProtection(runref: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReInitializeRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware) {
+public actual fun exReInitializeRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exRegisterCallback(callbackobject: PcallbackObject, callbackfunction: PcallbackFunction, callbackcontext: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -568,73 +538,56 @@ public actual fun exRegisterCallback(callbackobject: PcallbackObject, callbackfu
 public actual fun exReinitializeResourceLite(resource: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exReleaseFastMutex(fastmutex: COpaquePointer?) {
+public actual fun exReleaseFastMutex(fastmutex: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseFastMutexUnsafe(fastmutex: COpaquePointer?) {
+public actual fun exReleaseFastMutexUnsafe(fastmutex: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleasePushLockExclusiveEx(pushlock: COpaquePointer?, flags: UInt) {
+public actual fun exReleasePushLockExclusiveEx(pushlock: COpaquePointer?, flags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleasePushLockSharedEx(pushlock: COpaquePointer?, flags: UInt) {
+public actual fun exReleasePushLockSharedEx(pushlock: COpaquePointer?, flags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseResourceAndLeaveCriticalRegion(resource: COpaquePointer?) {
+public actual fun exReleaseResourceAndLeaveCriticalRegion(resource: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseResourceForThreadLite(resource: COpaquePointer?, resourcethreadid: ULong) {
+public actual fun exReleaseResourceForThreadLite(resource: COpaquePointer?, resourcethreadid: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseResourceLite(resource: COpaquePointer?) {
+public actual fun exReleaseResourceLite(resource: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseRundownProtection(runref: COpaquePointer?) {
+public actual fun exReleaseRundownProtection(runref: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware) {
+public actual fun exReleaseRundownProtectionCacheAware(runrefcacheaware: PexRundownRefCacheAware): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseRundownProtectionCacheAwareEx(runref: PexRundownRefCacheAware, count: UInt) {
+public actual fun exReleaseRundownProtectionCacheAwareEx(runref: PexRundownRefCacheAware, count: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseRundownProtectionEx(runref: COpaquePointer?, count: UInt) {
+public actual fun exReleaseRundownProtectionEx(runref: COpaquePointer?, count: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseSpinLockExclusive(spinlock: COpaquePointer?, oldirql: UByte) {
+public actual fun exReleaseSpinLockExclusive(spinlock: COpaquePointer?, oldirql: UByte): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseSpinLockExclusiveFromDpcLevel(spinlock: COpaquePointer?) {
+public actual fun exReleaseSpinLockExclusiveFromDpcLevel(spinlock: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseSpinLockShared(spinlock: COpaquePointer?, oldirql: UByte) {
+public actual fun exReleaseSpinLockShared(spinlock: COpaquePointer?, oldirql: UByte): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exReleaseSpinLockSharedFromDpcLevel(spinlock: COpaquePointer?) {
+public actual fun exReleaseSpinLockSharedFromDpcLevel(spinlock: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exRundownCompleted(runref: COpaquePointer?) {
+public actual fun exRundownCompleted(runref: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exRundownCompletedCacheAware(runrefcacheaware: PexRundownRefCacheAware) {
+public actual fun exRundownCompletedCacheAware(runrefcacheaware: PexRundownRefCacheAware): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exSecurePoolUpdate(securepoolhandle: Handle, tag: UInt, allocation: COpaquePointer?, cookie: ULong, offset: ULong, size: ULong, buffer: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -645,13 +598,11 @@ public actual fun exSecurePoolValidate(securepoolhandle: Handle, tag: UInt, allo
 public actual fun exSetFirmwareEnvironmentVariable(variablename: COpaquePointer?, vendorguid: COpaquePointer?, value: COpaquePointer?, valuelength: UInt, attributes: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exSetResourceOwnerPointer(resource: COpaquePointer?, ownerpointer: COpaquePointer?) {
+public actual fun exSetResourceOwnerPointer(resource: COpaquePointer?, ownerpointer: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exSetResourceOwnerPointerEx(resource: COpaquePointer?, ownerpointer: COpaquePointer?, flags: UInt) {
+public actual fun exSetResourceOwnerPointerEx(resource: COpaquePointer?, ownerpointer: COpaquePointer?, flags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exSetTimer(timer: PexTimer, duetime: Long, period: Long, parameters: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -662,9 +613,8 @@ public actual fun exSetTimerResolution(desiredtime: UInt, setresolution: Boolean
 public actual fun exSizeOfRundownProtectionCacheAware(): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exSystemTimeToLocalTime(systemtime: COpaquePointer?, localtime: COpaquePointer?) {
+public actual fun exSystemTimeToLocalTime(systemtime: COpaquePointer?, localtime: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exTryAcquireSpinLockExclusiveAtDpcLevel(spinlock: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -678,9 +628,8 @@ public actual fun exTryConvertSharedSpinLockExclusive(spinlock: COpaquePointer?)
 public actual fun exTryToAcquireFastMutex(fastmutex: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exUnregisterCallback(callbackregistration: COpaquePointer?) {
+public actual fun exUnregisterCallback(callbackregistration: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun exUuidCreate(uuid: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -688,20 +637,17 @@ public actual fun exUuidCreate(uuid: COpaquePointer?): Ntstatus =
 public actual fun exVerifySuite(suitetype: SuiteType): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun exWaitForRundownProtectionRelease(runref: COpaquePointer?) {
+public actual fun exWaitForRundownProtectionRelease(runref: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun exWaitForRundownProtectionReleaseCacheAware(runref: PexRundownRefCacheAware) {
+public actual fun exWaitForRundownProtectionReleaseCacheAware(runref: PexRundownRefCacheAware): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun fsRtlIsTotalDeviceFailure(status: Ntstatus): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun halAcquireDisplayOwnership(resetdisplayparameters: PhalResetDisplayParameters) {
+public actual fun halAcquireDisplayOwnership(resetdisplayparameters: PhalResetDisplayParameters): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun halAllocateAdapterChannel(adapterobject: COpaquePointer?, wcb: COpaquePointer?, numberofmapregisters: UInt, executionroutine: DriverControl): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -718,9 +664,8 @@ public actual fun halAllocateHardwareCounters(groupaffinty: COpaquePointer?, gro
 public actual fun halAssignSlotResources(registrypath: COpaquePointer?, driverclassname: COpaquePointer?, driverobject: COpaquePointer?, deviceobject: COpaquePointer?, bustype: InterfaceType, busnumber: UInt, slotnumber: UInt, allocatedresources: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun halBugCheckSystem(errorsource: COpaquePointer?, errorrecord: COpaquePointer?) {
+public actual fun halBugCheckSystem(errorsource: COpaquePointer?, errorrecord: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun halDmaAllocateCrashDumpRegistersEx(adapter: COpaquePointer?, numberofmapregisters: UInt, type: HalDmaCrashDumpRegisterType, mapregisterbase: COpaquePointer?, mapregistersavailable: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -728,13 +673,11 @@ public actual fun halDmaAllocateCrashDumpRegistersEx(adapter: COpaquePointer?, n
 public actual fun halDmaFreeCrashDumpRegistersEx(adapter: COpaquePointer?, type: HalDmaCrashDumpRegisterType): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun halExamineMBR(deviceobject: COpaquePointer?, sectorsize: UInt, mbrtypeidentifier: UInt, buffer: COpaquePointer?) {
+public actual fun halExamineMBR(deviceobject: COpaquePointer?, sectorsize: UInt, mbrtypeidentifier: UInt, buffer: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun halFreeCommonBuffer(adapterobject: COpaquePointer?, length: UInt, logicaladdress: Long, virtualaddress: COpaquePointer?, cacheenabled: Boolean) {
+public actual fun halFreeCommonBuffer(adapterobject: COpaquePointer?, length: UInt, logicaladdress: Long, virtualaddress: COpaquePointer?, cacheenabled: Boolean): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun halFreeHardwareCounters(countersethandle: Handle): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -772,9 +715,8 @@ public actual fun hvlRegisterWheaErrorNotification(callback: PhvlWheaErrorNotifi
 public actual fun hvlUnregisterWheaErrorNotification(callback: PhvlWheaErrorNotification): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioAcquireCancelSpinLock(irql: COpaquePointer?) {
+public actual fun ioAcquireCancelSpinLock(irql: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioAcquireKsrPersistentMemory(driverobject: COpaquePointer?, physicaldeviceobject: COpaquePointer?, buffer: COpaquePointer?, size: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -788,9 +730,8 @@ public actual fun ioAcquireRemoveLockEx(removelock: COpaquePointer?, tag: COpaqu
 public actual fun ioAllocateAdapterChannel(adapterobject: COpaquePointer?, deviceobject: COpaquePointer?, numberofmapregisters: UInt, executionroutine: DriverControl, context: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioAllocateController(controllerobject: COpaquePointer?, deviceobject: COpaquePointer?, executionroutine: DriverControl, context: COpaquePointer?) {
+public actual fun ioAllocateController(controllerobject: COpaquePointer?, deviceobject: COpaquePointer?, executionroutine: DriverControl, context: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioAllocateDriverObjectExtension(driverobject: COpaquePointer?, clientidentificationaddress: COpaquePointer?, driverobjectextensionsize: UInt, driverobjectextension: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -834,16 +775,14 @@ public actual fun ioBuildAsynchronousFsdRequest(majorfunction: UInt, deviceobjec
 public actual fun ioBuildDeviceIoControlRequest(iocontrolcode: UInt, deviceobject: COpaquePointer?, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt, internaldeviceiocontrol: Boolean, event: COpaquePointer?, iostatusblock: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioBuildPartialMdl(sourcemdl: COpaquePointer?, targetmdl: COpaquePointer?, virtualaddress: COpaquePointer?, length: UInt) {
+public actual fun ioBuildPartialMdl(sourcemdl: COpaquePointer?, targetmdl: COpaquePointer?, virtualaddress: COpaquePointer?, length: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioBuildSynchronousFsdRequest(majorfunction: UInt, deviceobject: COpaquePointer?, buffer: COpaquePointer?, length: UInt, startingoffset: COpaquePointer?, event: COpaquePointer?, iostatusblock: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioCancelFileOpen(deviceobject: COpaquePointer?, fileobject: COpaquePointer?) {
+public actual fun ioCancelFileOpen(deviceobject: COpaquePointer?, fileobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioCancelIrp(irp: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -857,17 +796,14 @@ public actual fun ioCheckShareAccess(desiredaccess: UInt, desiredshareaccess: UI
 public actual fun ioCheckShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: COpaquePointer?, shareaccess: COpaquePointer?, update: Boolean, writepermission: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioCleanupIrp(irp: COpaquePointer?) {
+public actual fun ioCleanupIrp(irp: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioClearActivityIdThread(originalid: COpaquePointer?) {
+public actual fun ioClearActivityIdThread(originalid: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioClearIrpExtraCreateParameter(irp: COpaquePointer?) {
+public actual fun ioClearIrpExtraCreateParameter(irp: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioConnectInterrupt(interruptobject: COpaquePointer?, serviceroutine: PkserviceRoutine, servicecontext: COpaquePointer?, spinlock: COpaquePointer?, vector: UInt, irql: UByte, synchronizeirql: UByte, interruptmode: KinterruptMode, sharevector: Boolean, processorenablemask: ULong, floatingsave: Boolean): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -914,9 +850,8 @@ public actual fun ioCsqInitialize(csq: COpaquePointer?, csqinsertirp: PioCsqInse
 public actual fun ioCsqInitializeEx(csq: COpaquePointer?, csqinsertirp: PioCsqInsertIrpEx, csqremoveirp: PioCsqRemoveIrp, csqpeeknextirp: PioCsqPeekNextIrp, csqacquirelock: PioCsqAcquireLock, csqreleaselock: PioCsqReleaseLock, csqcompletecanceledirp: PioCsqCompleteCanceledIrp): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioCsqInsertIrp(csq: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?) {
+public actual fun ioCsqInsertIrp(csq: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioCsqInsertIrpEx(csq: COpaquePointer?, irp: COpaquePointer?, context: COpaquePointer?, insertcontext: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -930,28 +865,23 @@ public actual fun ioCsqRemoveNextIrp(csq: COpaquePointer?, peekcontext: COpaqueP
 public actual fun ioDecrementKeepAliveCount(fileobject: COpaquePointer?, process: Peprocess): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioDeleteController(controllerobject: COpaquePointer?) {
+public actual fun ioDeleteController(controllerobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioDeleteDevice(deviceobject: COpaquePointer?) {
+public actual fun ioDeleteDevice(deviceobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioDeleteSymbolicLink(symboliclinkname: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioDetachDevice(targetdevice: COpaquePointer?) {
+public actual fun ioDetachDevice(targetdevice: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioDisconnectInterrupt(interruptobject: Pkinterrupt) {
+public actual fun ioDisconnectInterrupt(interruptobject: Pkinterrupt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioDisconnectInterruptEx(parameters: COpaquePointer?) {
+public actual fun ioDisconnectInterruptEx(parameters: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioEnumerateKsrPersistentMemoryEx(driverobject: COpaquePointer?, physicaldeviceobject: COpaquePointer?, physicaldeviceid: COpaquePointer?, callback: PioPersistedMemoryEnumerationCallback, callbackcontext: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -962,39 +892,32 @@ public actual fun ioFlushAdapterBuffers(adapterobject: COpaquePointer?, mdl: COp
 public actual fun ioForwardIrpSynchronously(deviceobject: COpaquePointer?, irp: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioFreeAdapterChannel(adapterobject: COpaquePointer?) {
+public actual fun ioFreeAdapterChannel(adapterobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioFreeController(controllerobject: COpaquePointer?) {
+public actual fun ioFreeController(controllerobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioFreeErrorLogEntry(elentry: COpaquePointer?) {
+public actual fun ioFreeErrorLogEntry(elentry: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioFreeIrp(irp: COpaquePointer?) {
+public actual fun ioFreeIrp(irp: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioFreeKsrPersistentMemory(datahandle: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioFreeMapRegisters(adapterobject: COpaquePointer?, mapregisterbase: COpaquePointer?, numberofmapregisters: UInt) {
+public actual fun ioFreeMapRegisters(adapterobject: COpaquePointer?, mapregisterbase: COpaquePointer?, numberofmapregisters: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioFreeMdl(mdl: COpaquePointer?) {
+public actual fun ioFreeMdl(mdl: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioFreeSfioStreamIdentifier(fileobject: COpaquePointer?, signature: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioFreeWorkItem(ioworkitem: PioWorkitem) {
+public actual fun ioFreeWorkItem(ioworkitem: PioWorkitem): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioGetActivityIdIrp(irp: COpaquePointer?, guid: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1098,9 +1021,8 @@ public actual fun ioGetSilo(fileobject: COpaquePointer?): Pesilo =
 public actual fun ioGetSiloParameters(fileobject: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioGetStackLimits(lowlimit: COpaquePointer?, highlimit: COpaquePointer?) {
+public actual fun ioGetStackLimits(lowlimit: COpaquePointer?, highlimit: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioGetTopLevelIrp(): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1111,32 +1033,26 @@ public actual fun ioGetTransactionParameterBlock(fileobject: COpaquePointer?): C
 public actual fun ioIncrementKeepAliveCount(fileobject: COpaquePointer?, process: Peprocess): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioInitializeIrp(irp: COpaquePointer?, packetsize: UShort, stacksize: Byte) {
+public actual fun ioInitializeIrp(irp: COpaquePointer?, packetsize: UShort, stacksize: Byte): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioInitializeIrpEx(irp: COpaquePointer?, deviceobject: COpaquePointer?, packetsize: UShort, stacksize: Byte) {
+public actual fun ioInitializeIrpEx(irp: COpaquePointer?, deviceobject: COpaquePointer?, packetsize: UShort, stacksize: Byte): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioInitializeRemoveLockEx(lock: COpaquePointer?, allocatetag: UInt, maxlockedminutes: UInt, highwatermark: UInt, remlocksize: UInt) {
+public actual fun ioInitializeRemoveLockEx(lock: COpaquePointer?, allocatetag: UInt, maxlockedminutes: UInt, highwatermark: UInt, remlocksize: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioInitializeTimer(deviceobject: COpaquePointer?, timerroutine: PioTimerRoutine, context: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioInitializeWorkItem(ioobject: COpaquePointer?, ioworkitem: PioWorkitem) {
+public actual fun ioInitializeWorkItem(ioobject: COpaquePointer?, ioworkitem: PioWorkitem): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioInvalidateDeviceRelations(deviceobject: COpaquePointer?, type: DeviceRelationType) {
+public actual fun ioInvalidateDeviceRelations(deviceobject: COpaquePointer?, type: DeviceRelationType): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioInvalidateDeviceState(physicaldeviceobject: COpaquePointer?) {
+public actual fun ioInvalidateDeviceState(physicaldeviceobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioIs32bitProcess(irp: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1192,17 +1108,14 @@ public actual fun ioQueryKsrPersistentMemorySize(driverobject: COpaquePointer?, 
 public actual fun ioQueryKsrPersistentMemorySizeEx(driverobject: COpaquePointer?, physicaldeviceobject: COpaquePointer?, physicaldeviceid: COpaquePointer?, datatag: COpaquePointer?, dataversion: COpaquePointer?, buffersize: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutine, queuetype: WorkQueueType, context: COpaquePointer?) {
+public actual fun ioQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutine, queuetype: WorkQueueType, context: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioQueueWorkItemEx(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutineEx, queuetype: WorkQueueType, context: COpaquePointer?) {
+public actual fun ioQueueWorkItemEx(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutineEx, queuetype: WorkQueueType, context: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioRaiseHardError(irp: COpaquePointer?, vpb: COpaquePointer?, realdeviceobject: COpaquePointer?) {
+public actual fun ioRaiseHardError(irp: COpaquePointer?, vpb: COpaquePointer?, realdeviceobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioRaiseInformationalHardError(errorstatus: Ntstatus, string: COpaquePointer?, thread: Pkthread): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1222,9 +1135,8 @@ public actual fun ioRecordIoAttribution(opaquehandle: COpaquePointer?, attributi
 public actual fun ioRegisterBootDriverCallback(callbackfunction: PbootDriverCallbackFunction, callbackcontext: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioRegisterBootDriverReinitialization(driverobject: COpaquePointer?, driverreinitializationroutine: DriverReinitialize, context: COpaquePointer?) {
+public actual fun ioRegisterBootDriverReinitialization(driverobject: COpaquePointer?, driverreinitializationroutine: DriverReinitialize, context: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioRegisterContainerNotification(notificationclass: IoContainerNotificationClass, callbackfunction: PioContainerNotificationFunction, notificationinformation: COpaquePointer?, notificationinformationlength: UInt, callbackregistration: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1232,9 +1144,8 @@ public actual fun ioRegisterContainerNotification(notificationclass: IoContainer
 public actual fun ioRegisterDeviceInterface(physicaldeviceobject: COpaquePointer?, interfaceclassguid: COpaquePointer?, referencestring: COpaquePointer?, symboliclinkname: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioRegisterDriverReinitialization(driverobject: COpaquePointer?, driverreinitializationroutine: DriverReinitialize, context: COpaquePointer?) {
+public actual fun ioRegisterDriverReinitialization(driverobject: COpaquePointer?, driverreinitializationroutine: DriverReinitialize, context: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioRegisterLastChanceShutdownNotification(deviceobject: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1245,29 +1156,23 @@ public actual fun ioRegisterPlugPlayNotification(eventcategory: IoNotificationEv
 public actual fun ioRegisterShutdownNotification(deviceobject: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioReleaseCancelSpinLock(irql: UByte) {
+public actual fun ioReleaseCancelSpinLock(irql: UByte): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioReleaseRemoveLockAndWaitEx(removelock: COpaquePointer?, tag: COpaquePointer?, remlocksize: UInt) {
+public actual fun ioReleaseRemoveLockAndWaitEx(removelock: COpaquePointer?, tag: COpaquePointer?, remlocksize: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioReleaseRemoveLockEx(removelock: COpaquePointer?, tag: COpaquePointer?, remlocksize: UInt) {
+public actual fun ioReleaseRemoveLockEx(removelock: COpaquePointer?, tag: COpaquePointer?, remlocksize: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioRemoveLinkShareAccess(fileobject: COpaquePointer?, shareaccess: COpaquePointer?, linkshareaccess: COpaquePointer?) {
+public actual fun ioRemoveLinkShareAccess(fileobject: COpaquePointer?, shareaccess: COpaquePointer?, linkshareaccess: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioRemoveLinkShareAccessEx(fileobject: COpaquePointer?, shareaccess: COpaquePointer?, linkshareaccess: COpaquePointer?, ioshareaccessflags: UInt) {
+public actual fun ioRemoveLinkShareAccessEx(fileobject: COpaquePointer?, shareaccess: COpaquePointer?, linkshareaccess: COpaquePointer?, ioshareaccessflags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioRemoveShareAccess(fileobject: COpaquePointer?, shareaccess: COpaquePointer?) {
+public actual fun ioRemoveShareAccess(fileobject: COpaquePointer?, shareaccess: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioReplacePartitionUnit(targetpdo: COpaquePointer?, sparepdo: COpaquePointer?, flags: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1275,13 +1180,11 @@ public actual fun ioReplacePartitionUnit(targetpdo: COpaquePointer?, sparepdo: C
 public actual fun ioReportDetectedDevice(driverobject: COpaquePointer?, legacybustype: InterfaceType, busnumber: UInt, slotnumber: UInt, resourcelist: COpaquePointer?, resourcerequirements: COpaquePointer?, resourceassigned: Boolean, deviceobject: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioReportInterruptActive(parameters: COpaquePointer?) {
+public actual fun ioReportInterruptActive(parameters: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioReportInterruptInactive(parameters: COpaquePointer?) {
+public actual fun ioReportInterruptInactive(parameters: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioReportResourceForDetection(driverobject: COpaquePointer?, driverlist: COpaquePointer?, driverlistsize: UInt, deviceobject: COpaquePointer?, devicelist: COpaquePointer?, devicelistsize: UInt, conflictdetected: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1298,9 +1201,8 @@ public actual fun ioReportTargetDeviceChange(physicaldeviceobject: COpaquePointe
 public actual fun ioReportTargetDeviceChangeAsynchronous(physicaldeviceobject: COpaquePointer?, notificationstructure: COpaquePointer?, callback: PdeviceChangeCompleteCallback, context: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioRequestDeviceEject(physicaldeviceobject: COpaquePointer?) {
+public actual fun ioRequestDeviceEject(physicaldeviceobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioRequestDeviceEjectEx(physicaldeviceobject: COpaquePointer?, callback: PioDeviceEjectCallback, context: COpaquePointer?, driverobject: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1311,9 +1213,8 @@ public actual fun ioReserveKsrPersistentMemory(driverobject: COpaquePointer?, ph
 public actual fun ioReserveKsrPersistentMemoryEx(driverobject: COpaquePointer?, physicaldeviceobject: COpaquePointer?, physicaldeviceid: COpaquePointer?, datatag: COpaquePointer?, dataversion: UInt, size: ULong, flags: UInt, datahandle: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioReuseIrp(irp: COpaquePointer?, iostatus: Ntstatus) {
+public actual fun ioReuseIrp(irp: COpaquePointer?, iostatus: Ntstatus): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioSetActivityIdIrp(irp: COpaquePointer?, guid: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1345,9 +1246,8 @@ public actual fun ioSetFsZeroingOffset(irp: COpaquePointer?, zeroingoffset: UInt
 public actual fun ioSetFsZeroingOffsetRequired(irp: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioSetHardErrorOrVerifyDevice(irp: COpaquePointer?, deviceobject: COpaquePointer?) {
+public actual fun ioSetHardErrorOrVerifyDevice(irp: COpaquePointer?, deviceobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioSetIoAttributionIrp(irp: COpaquePointer?, attributionsource: COpaquePointer?, flags: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1358,13 +1258,11 @@ public actual fun ioSetIoPriorityHint(irp: COpaquePointer?, priorityhint: IoPrio
 public actual fun ioSetIrpExtraCreateParameter(irp: COpaquePointer?, extracreateparameter: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioSetLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: COpaquePointer?, shareaccess: COpaquePointer?, linkshareaccess: COpaquePointer?, ioshareaccessflags: UInt) {
+public actual fun ioSetLinkShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: COpaquePointer?, shareaccess: COpaquePointer?, linkshareaccess: COpaquePointer?, ioshareaccessflags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioSetMasterIrpStatus(masterirp: COpaquePointer?, status: Ntstatus) {
+public actual fun ioSetMasterIrpStatus(masterirp: COpaquePointer?, status: Ntstatus): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioSetPartitionInformation(deviceobject: COpaquePointer?, sectorsize: UInt, partitionnumber: UInt, partitiontype: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1372,17 +1270,14 @@ public actual fun ioSetPartitionInformation(deviceobject: COpaquePointer?, secto
 public actual fun ioSetPartitionInformationEx(deviceobject: COpaquePointer?, partitionnumber: UInt, partitioninfo: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioSetShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: COpaquePointer?, shareaccess: COpaquePointer?) {
+public actual fun ioSetShareAccess(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: COpaquePointer?, shareaccess: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioSetShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: COpaquePointer?, shareaccess: COpaquePointer?, writepermission: COpaquePointer?) {
+public actual fun ioSetShareAccessEx(desiredaccess: UInt, desiredshareaccess: UInt, fileobject: COpaquePointer?, shareaccess: COpaquePointer?, writepermission: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioSetStartIoAttributes(deviceobject: COpaquePointer?, deferredstartio: Boolean, noncancelable: Boolean) {
+public actual fun ioSetStartIoAttributes(deviceobject: COpaquePointer?, deferredstartio: Boolean, noncancelable: Boolean): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioSetSystemPartition(volumenamestring: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1390,9 +1285,8 @@ public actual fun ioSetSystemPartition(volumenamestring: COpaquePointer?): Ntsta
 public actual fun ioSetThreadHardErrorMode(enableharderrors: Boolean): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioSetTopLevelIrp(irp: COpaquePointer?) {
+public actual fun ioSetTopLevelIrp(irp: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioSizeOfIrpEx(deviceobject: COpaquePointer?, stacksize: Byte): UShort =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1400,32 +1294,26 @@ public actual fun ioSizeOfIrpEx(deviceobject: COpaquePointer?, stacksize: Byte):
 public actual fun ioSizeofWorkItem(): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioStartNextPacket(deviceobject: COpaquePointer?, cancelable: Boolean) {
+public actual fun ioStartNextPacket(deviceobject: COpaquePointer?, cancelable: Boolean): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioStartNextPacketByKey(deviceobject: COpaquePointer?, cancelable: Boolean, key: UInt) {
+public actual fun ioStartNextPacketByKey(deviceobject: COpaquePointer?, cancelable: Boolean, key: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioStartPacket(deviceobject: COpaquePointer?, irp: COpaquePointer?, key: COpaquePointer?, cancelfunction: DriverCancel) {
+public actual fun ioStartPacket(deviceobject: COpaquePointer?, irp: COpaquePointer?, key: COpaquePointer?, cancelfunction: DriverCancel): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioStartTimer(deviceobject: COpaquePointer?) {
+public actual fun ioStartTimer(deviceobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioStopTimer(deviceobject: COpaquePointer?) {
+public actual fun ioStopTimer(deviceobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioSynchronousCallDriver(deviceobject: COpaquePointer?, irp: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioTransferActivityId(activityid: COpaquePointer?, relatedactivityid: COpaquePointer?) {
+public actual fun ioTransferActivityId(activityid: COpaquePointer?, relatedactivityid: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioTranslateBusAddress(interfacetype: InterfaceType, busnumber: UInt, busaddress: Long, addressspace: COpaquePointer?, translatedaddress: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1433,17 +1321,14 @@ public actual fun ioTranslateBusAddress(interfacetype: InterfaceType, busnumber:
 public actual fun ioTryQueueWorkItem(ioworkitem: PioWorkitem, workerroutine: PioWorkitemRoutineEx, queuetype: WorkQueueType, context: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioUninitializeWorkItem(ioworkitem: PioWorkitem) {
+public actual fun ioUninitializeWorkItem(ioworkitem: PioWorkitem): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioUnregisterBootDriverCallback(callbackhandle: COpaquePointer?) {
+public actual fun ioUnregisterBootDriverCallback(callbackhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioUnregisterContainerNotification(callbackregistration: COpaquePointer?) {
+public actual fun ioUnregisterContainerNotification(callbackregistration: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioUnregisterPlugPlayNotification(notificationentry: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1451,21 +1336,17 @@ public actual fun ioUnregisterPlugPlayNotification(notificationentry: COpaquePoi
 public actual fun ioUnregisterPlugPlayNotificationEx(notificationentry: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioUnregisterShutdownNotification(deviceobject: COpaquePointer?) {
+public actual fun ioUnregisterShutdownNotification(deviceobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioUpdateLinkShareAccess(fileobject: COpaquePointer?, shareaccess: COpaquePointer?, linkshareaccess: COpaquePointer?) {
+public actual fun ioUpdateLinkShareAccess(fileobject: COpaquePointer?, shareaccess: COpaquePointer?, linkshareaccess: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioUpdateLinkShareAccessEx(fileobject: COpaquePointer?, shareaccess: COpaquePointer?, linkshareaccess: COpaquePointer?, ioshareaccessflags: UInt) {
+public actual fun ioUpdateLinkShareAccessEx(fileobject: COpaquePointer?, shareaccess: COpaquePointer?, linkshareaccess: COpaquePointer?, ioshareaccessflags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun ioUpdateShareAccess(fileobject: COpaquePointer?, shareaccess: COpaquePointer?) {
+public actual fun ioUpdateShareAccess(fileobject: COpaquePointer?, shareaccess: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioValidateDeviceIoControlAccess(irp: COpaquePointer?, requiredaccess: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1536,9 +1417,8 @@ public actual fun ioWMIWriteEvent(wnodeeventitem: COpaquePointer?): Ntstatus =
 public actual fun ioWithinStackLimits(regionstart: ULong, regionsize: ULong): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ioWriteErrorLogEntry(elentry: COpaquePointer?) {
+public actual fun ioWriteErrorLogEntry(elentry: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ioWriteKsrPersistentMemory(datahandle: COpaquePointer?, buffer: COpaquePointer?, size: ULong): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1552,9 +1432,8 @@ public actual fun ioWritePartitionTableEx(deviceobject: COpaquePointer?, drivela
 public actual fun iofCallDriver(deviceobject: COpaquePointer?, irp: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun iofCompleteRequest(irp: COpaquePointer?, priorityboost: Byte) {
+public actual fun iofCompleteRequest(irp: COpaquePointer?, priorityboost: Byte): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun kdChangeOption(option: KdOption, inbufferbytes: UInt, inbuffer: COpaquePointer?, outbufferbytes: UInt, outbuffer: COpaquePointer?, outbufferneeded: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1568,25 +1447,20 @@ public actual fun kdEnableDebugger(): Ntstatus =
 public actual fun kdRefreshDebuggerNotPresent(): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keAcquireGuardedMutex(mutex: COpaquePointer?) {
+public actual fun keAcquireGuardedMutex(mutex: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keAcquireGuardedMutexUnsafe(fastmutex: COpaquePointer?) {
+public actual fun keAcquireGuardedMutexUnsafe(fastmutex: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keAcquireInStackQueuedSpinLock(spinlock: COpaquePointer?, lockhandle: COpaquePointer?) {
+public actual fun keAcquireInStackQueuedSpinLock(spinlock: COpaquePointer?, lockhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keAcquireInStackQueuedSpinLockAtDpcLevel(spinlock: COpaquePointer?, lockhandle: COpaquePointer?) {
+public actual fun keAcquireInStackQueuedSpinLockAtDpcLevel(spinlock: COpaquePointer?, lockhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keAcquireInStackQueuedSpinLockForDpc(spinlock: COpaquePointer?, lockhandle: COpaquePointer?) {
+public actual fun keAcquireInStackQueuedSpinLockForDpc(spinlock: COpaquePointer?, lockhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keAcquireInterruptSpinLock(interrupt: Pkinterrupt): UByte =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1603,20 +1477,17 @@ public actual fun keAreAllApcsDisabled(): Boolean =
 public actual fun keAreApcsDisabled(): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keBugCheck(bugcheckcode: BugcheckError) {
+public actual fun keBugCheck(bugcheckcode: BugcheckError): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keBugCheckEx(bugcheckcode: BugcheckError, bugcheckparameter1: ULong, bugcheckparameter2: ULong, bugcheckparameter3: ULong, bugcheckparameter4: ULong) {
+public actual fun keBugCheckEx(bugcheckcode: BugcheckError, bugcheckparameter1: ULong, bugcheckparameter2: ULong, bugcheckparameter3: ULong, bugcheckparameter4: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keCancelTimer(param0: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keClearEvent(event: COpaquePointer?) {
+public actual fun keClearEvent(event: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keConvertAuxiliaryCounterToPerformanceCounter(auxiliarycountervalue: ULong, performancecountervalue: COpaquePointer?, conversionerror: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1639,17 +1510,14 @@ public actual fun keDeregisterBugCheckReasonCallback(callbackrecord: COpaquePoin
 public actual fun keDeregisterNmiCallback(handle: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keDeregisterProcessorChangeCallback(callbackhandle: COpaquePointer?) {
+public actual fun keDeregisterProcessorChangeCallback(callbackhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keEnterCriticalRegion() {
+public actual fun keEnterCriticalRegion(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keEnterGuardedRegion() {
+public actual fun keEnterGuardedRegion(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keExpandKernelStackAndCallout(callout: PexpandStackCallout, parameter: COpaquePointer?, size: ULong): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1657,17 +1525,14 @@ public actual fun keExpandKernelStackAndCallout(callout: PexpandStackCallout, pa
 public actual fun keExpandKernelStackAndCalloutEx(callout: PexpandStackCallout, parameter: COpaquePointer?, size: ULong, wait: Boolean, context: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keFlushIoBuffers(mdl: COpaquePointer?, readoperation: Boolean, dmaoperation: Boolean) {
+public actual fun keFlushIoBuffers(mdl: COpaquePointer?, readoperation: Boolean, dmaoperation: Boolean): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keFlushQueuedDpcs() {
+public actual fun keFlushQueuedDpcs(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keFlushWriteBuffer() {
+public actual fun keFlushWriteBuffer(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keGetCurrentIrql(): UByte =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1690,45 +1555,35 @@ public actual fun keGetRecommendedSharedDataAlignment(): UInt =
 public actual fun keInitializeCrashDumpHeader(dumptype: UInt, flags: UInt, buffer: COpaquePointer?, buffersize: UInt, bufferneeded: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keInitializeDeviceQueue(devicequeue: COpaquePointer?) {
+public actual fun keInitializeDeviceQueue(devicequeue: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keInitializeDpc(dpc: COpaquePointer?, deferredroutine: PkdeferredRoutine, deferredcontext: COpaquePointer?) {
+public actual fun keInitializeDpc(dpc: COpaquePointer?, deferredroutine: PkdeferredRoutine, deferredcontext: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keInitializeEvent(event: COpaquePointer?, type: EventType, state: Boolean) {
+public actual fun keInitializeEvent(event: COpaquePointer?, type: EventType, state: Boolean): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keInitializeGuardedMutex(mutex: COpaquePointer?) {
+public actual fun keInitializeGuardedMutex(mutex: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keInitializeMutex(mutex: COpaquePointer?, level: UInt) {
+public actual fun keInitializeMutex(mutex: COpaquePointer?, level: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keInitializeSemaphore(semaphore: COpaquePointer?, count: Int, limit: Int) {
+public actual fun keInitializeSemaphore(semaphore: COpaquePointer?, count: Int, limit: Int): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keInitializeSpinLock(spinlock: COpaquePointer?) {
+public actual fun keInitializeSpinLock(spinlock: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keInitializeThreadedDpc(dpc: COpaquePointer?, deferredroutine: PkdeferredRoutine, deferredcontext: COpaquePointer?) {
+public actual fun keInitializeThreadedDpc(dpc: COpaquePointer?, deferredroutine: PkdeferredRoutine, deferredcontext: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keInitializeTimer(timer: COpaquePointer?) {
+public actual fun keInitializeTimer(timer: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keInitializeTimerEx(timer: COpaquePointer?, type: TimerType) {
+public actual fun keInitializeTimerEx(timer: COpaquePointer?, type: TimerType): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keInitializeTriageDumpDataArray(ktriagedumpdataarray: COpaquePointer?, size: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1745,9 +1600,8 @@ public actual fun keInsertQueueDpc(dpc: COpaquePointer?, systemargument1: COpaqu
 public actual fun keInvalidateAllCaches(): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keInvalidateRangeAllCaches(baseaddress: COpaquePointer?, length: UInt) {
+public actual fun keInvalidateRangeAllCaches(baseaddress: COpaquePointer?, length: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keIpiGenericCall(broadcastfunction: PkipiBroadcastWorker, context: ULong): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1755,13 +1609,11 @@ public actual fun keIpiGenericCall(broadcastfunction: PkipiBroadcastWorker, cont
 public actual fun keIsExecutingDpc(): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keLeaveCriticalRegion() {
+public actual fun keLeaveCriticalRegion(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keLeaveGuardedRegion() {
+public actual fun keLeaveGuardedRegion(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun kePulseEvent(event: COpaquePointer?, increment: Int, wait: Boolean): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1808,9 +1660,8 @@ public actual fun keQueryMaximumProcessorCount(): UInt =
 public actual fun keQueryMaximumProcessorCountEx(groupnumber: UShort): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keQueryNodeActiveAffinity(nodenumber: UShort, affinity: COpaquePointer?, count: COpaquePointer?) {
+public actual fun keQueryNodeActiveAffinity(nodenumber: UShort, affinity: COpaquePointer?, count: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keQueryNodeActiveAffinity2(nodenumber: UShort, groupaffinities: COpaquePointer?, groupaffinitiescount: UShort, groupaffinitiesrequired: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1830,9 +1681,8 @@ public actual fun keQueryPriorityThread(thread: Pkthread): Int =
 public actual fun keQueryRuntimeThread(thread: Pkthread, usertime: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keQuerySystemTimePrecise(currenttime: COpaquePointer?) {
+public actual fun keQuerySystemTimePrecise(currenttime: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keQueryTimeIncrement(): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1873,29 +1723,23 @@ public actual fun keRegisterNmiCallback(callbackroutine: PnmiCallback, context: 
 public actual fun keRegisterProcessorChangeCallback(callbackfunction: PprocessorCallbackFunction, callbackcontext: COpaquePointer?, flags: UInt): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keReleaseGuardedMutex(mutex: COpaquePointer?) {
+public actual fun keReleaseGuardedMutex(mutex: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keReleaseGuardedMutexUnsafe(fastmutex: COpaquePointer?) {
+public actual fun keReleaseGuardedMutexUnsafe(fastmutex: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keReleaseInStackQueuedSpinLock(lockhandle: COpaquePointer?) {
+public actual fun keReleaseInStackQueuedSpinLock(lockhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keReleaseInStackQueuedSpinLockForDpc(lockhandle: COpaquePointer?) {
+public actual fun keReleaseInStackQueuedSpinLockForDpc(lockhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle: COpaquePointer?) {
+public actual fun keReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keReleaseInterruptSpinLock(interrupt: Pkinterrupt, oldirql: UByte) {
+public actual fun keReleaseInterruptSpinLock(interrupt: Pkinterrupt, oldirql: UByte): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keReleaseMutex(mutex: COpaquePointer?, wait: Boolean): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1903,9 +1747,8 @@ public actual fun keReleaseMutex(mutex: COpaquePointer?, wait: Boolean): Int =
 public actual fun keReleaseSemaphore(semaphore: COpaquePointer?, increment: Int, adjustment: Int, wait: Boolean): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keReleaseSpinLockForDpc(spinlock: COpaquePointer?, oldirql: UByte) {
+public actual fun keReleaseSpinLockForDpc(spinlock: COpaquePointer?, oldirql: UByte): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keRemoveByKeyDeviceQueue(devicequeue: COpaquePointer?, sortkey: UInt): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1928,21 +1771,17 @@ public actual fun keRemoveQueueDpcEx(dpc: COpaquePointer?, waitifactive: Boolean
 public actual fun keResetEvent(event: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keRestoreExtendedProcessorState(xstatesave: COpaquePointer?) {
+public actual fun keRestoreExtendedProcessorState(xstatesave: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keRevertToUserAffinityThread() {
+public actual fun keRevertToUserAffinityThread(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keRevertToUserAffinityThreadEx(affinity: ULong) {
+public actual fun keRevertToUserAffinityThreadEx(affinity: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keRevertToUserGroupAffinityThread(previousaffinity: COpaquePointer?) {
+public actual fun keRevertToUserGroupAffinityThread(previousaffinity: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keSaveExtendedProcessorState(mask: ULong, xstatesave: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1959,27 +1798,23 @@ public actual fun keSetEvent(event: COpaquePointer?, increment: Int, wait: Boole
 public actual fun keSetHardwareCounterConfiguration(counterarray: COpaquePointer?, count: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keSetImportanceDpc(dpc: COpaquePointer?, importance: KdpcImportance) {
+public actual fun keSetImportanceDpc(dpc: COpaquePointer?, importance: KdpcImportance): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keSetPriorityThread(thread: Pkthread, priority: Int): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keSetSystemAffinityThread(affinity: ULong) {
+public actual fun keSetSystemAffinityThread(affinity: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keSetSystemAffinityThreadEx(affinity: ULong): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keSetSystemGroupAffinityThread(affinity: COpaquePointer?, previousaffinity: COpaquePointer?) {
+public actual fun keSetSystemGroupAffinityThread(affinity: COpaquePointer?, previousaffinity: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun keSetTargetProcessorDpc(dpc: COpaquePointer?, number: Byte) {
+public actual fun keSetTargetProcessorDpc(dpc: COpaquePointer?, number: Byte): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keSetTargetProcessorDpcEx(dpc: COpaquePointer?, procnumber: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1993,9 +1828,8 @@ public actual fun keSetTimerEx(timer: COpaquePointer?, duetime: Long, period: In
 public actual fun keShouldYieldProcessor(): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keStallExecutionProcessor(microseconds: UInt) {
+public actual fun keStallExecutionProcessor(microseconds: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keSynchronizeExecution(interrupt: Pkinterrupt, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2072,9 +1906,8 @@ public actual fun mmAllocatePartitionNodePagesForMdlEx(lowaddress: Long, highadd
 public actual fun mmAreMdlPagesCached(memorydescriptorlist: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mmBuildMdlForNonPagedPool(memorydescriptorlist: COpaquePointer?) {
+public actual fun mmBuildMdlForNonPagedPool(memorydescriptorlist: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun mmCopyMemory(targetaddress: COpaquePointer?, sourceaddress: MmCopyAddress, numberofbytes: ULong, flags: UInt, numberofbytestransferred: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2085,29 +1918,23 @@ public actual fun mmCreateMdl(memorydescriptorlist: COpaquePointer?, base: COpaq
 public actual fun mmCreateMirror(): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mmFreeContiguousMemory(baseaddress: COpaquePointer?) {
+public actual fun mmFreeContiguousMemory(baseaddress: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmFreeContiguousMemorySpecifyCache(baseaddress: COpaquePointer?, numberofbytes: ULong, cachetype: MemoryCachingType) {
+public actual fun mmFreeContiguousMemorySpecifyCache(baseaddress: COpaquePointer?, numberofbytes: ULong, cachetype: MemoryCachingType): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmFreeMappingAddress(baseaddress: COpaquePointer?, pooltag: UInt) {
+public actual fun mmFreeMappingAddress(baseaddress: COpaquePointer?, pooltag: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmFreeNonCachedMemory(baseaddress: COpaquePointer?, numberofbytes: ULong) {
+public actual fun mmFreeNonCachedMemory(baseaddress: COpaquePointer?, numberofbytes: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmFreePagesFromMdl(memorydescriptorlist: COpaquePointer?) {
+public actual fun mmFreePagesFromMdl(memorydescriptorlist: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmFreePagesFromMdlEx(memorydescriptorlist: COpaquePointer?, flags: UInt) {
+public actual fun mmFreePagesFromMdlEx(memorydescriptorlist: COpaquePointer?, flags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun mmGetCacheAttribute(physicaladdress: Long, cachetype: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2160,9 +1987,8 @@ public actual fun mmIsVerifierEnabled(verifierflags: COpaquePointer?): Ntstatus 
 public actual fun mmLockPagableDataSection(addresswithinsection: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mmLockPagableSectionByHandle(imagesectionhandle: COpaquePointer?) {
+public actual fun mmLockPagableSectionByHandle(imagesectionhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun mmMapIoSpace(physicaladdress: Long, numberofbytes: ULong, cachetype: MemoryCachingType): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2209,17 +2035,14 @@ public actual fun mmMdlPageContentsState(memorydescriptorlist: COpaquePointer?, 
 public actual fun mmPageEntireDriver(addresswithinsection: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mmProbeAndLockPages(memorydescriptorlist: COpaquePointer?, accessmode: Byte, operation: LockOperation) {
+public actual fun mmProbeAndLockPages(memorydescriptorlist: COpaquePointer?, accessmode: Byte, operation: LockOperation): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmProbeAndLockProcessPages(memorydescriptorlist: COpaquePointer?, process: Peprocess, accessmode: Byte, operation: LockOperation) {
+public actual fun mmProbeAndLockProcessPages(memorydescriptorlist: COpaquePointer?, process: Peprocess, accessmode: Byte, operation: LockOperation): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmProbeAndLockSelectedPages(memorydescriptorlist: COpaquePointer?, segmentarray: COpaquePointer?, accessmode: Byte, operation: LockOperation) {
+public actual fun mmProbeAndLockSelectedPages(memorydescriptorlist: COpaquePointer?, segmentarray: COpaquePointer?, accessmode: Byte, operation: LockOperation): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun mmProtectDriverSection(addresswithinsection: COpaquePointer?, size: ULong, flags: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2233,9 +2056,8 @@ public actual fun mmQuerySystemSize(): MmSystemsize =
 public actual fun mmRemovePhysicalMemory(startaddress: COpaquePointer?, numberofbytes: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mmResetDriverPaging(addresswithinsection: COpaquePointer?) {
+public actual fun mmResetDriverPaging(addresswithinsection: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun mmRotatePhysicalView(virtualaddress: COpaquePointer?, numberofbytes: COpaquePointer?, newmdl: COpaquePointer?, direction: MmRotateDirection, copyfunction: PmmRotateCopyCallbackFunction, context: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2252,29 +2074,23 @@ public actual fun mmSetPermanentCacheAttribute(startaddress: Long, numberofbytes
 public actual fun mmSizeOfMdl(base: COpaquePointer?, length: ULong): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mmUnlockPagableImageSection(imagesectionhandle: COpaquePointer?) {
+public actual fun mmUnlockPagableImageSection(imagesectionhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmUnlockPages(memorydescriptorlist: COpaquePointer?) {
+public actual fun mmUnlockPages(memorydescriptorlist: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmUnmapIoSpace(baseaddress: COpaquePointer?, numberofbytes: ULong) {
+public actual fun mmUnmapIoSpace(baseaddress: COpaquePointer?, numberofbytes: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmUnmapLockedPages(baseaddress: COpaquePointer?, memorydescriptorlist: COpaquePointer?) {
+public actual fun mmUnmapLockedPages(baseaddress: COpaquePointer?, memorydescriptorlist: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmUnmapReservedMapping(baseaddress: COpaquePointer?, pooltag: UInt, memorydescriptorlist: COpaquePointer?) {
+public actual fun mmUnmapReservedMapping(baseaddress: COpaquePointer?, pooltag: UInt, memorydescriptorlist: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mmUnmapVideoDisplay(baseaddress: COpaquePointer?, numberofbytes: ULong) {
+public actual fun mmUnmapVideoDisplay(baseaddress: COpaquePointer?, numberofbytes: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun mmUnmapViewInSessionSpace(mappedbase: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2282,9 +2098,8 @@ public actual fun mmUnmapViewInSessionSpace(mappedbase: COpaquePointer?): Ntstat
 public actual fun mmUnmapViewInSystemSpace(mappedbase: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mmUnsecureVirtualMemory(securehandle: Handle) {
+public actual fun mmUnsecureVirtualMemory(securehandle: Handle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun ntAllocateLocallyUniqueId(luid: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2424,13 +2239,11 @@ public actual fun ntUnloadDriver(driverservicename: COpaquePointer?): Ntstatus =
 public actual fun obCloseHandle(handle: Handle, previousmode: Byte): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun obDereferenceObjectDeferDelete(obj: COpaquePointer?) {
+public actual fun obDereferenceObjectDeferDelete(obj: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun obDereferenceObjectDeferDeleteWithTag(obj: COpaquePointer?, tag: UInt) {
+public actual fun obDereferenceObjectDeferDeleteWithTag(obj: COpaquePointer?, tag: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun obGetFilterVersion(): UShort =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2459,13 +2272,11 @@ public actual fun obReferenceObjectSafeWithTag(obj: COpaquePointer?, tag: UInt):
 public actual fun obRegisterCallbacks(callbackregistration: COpaquePointer?, registrationhandle: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun obReleaseObjectSecurity(securitydescriptor: PsecurityDescriptor, memoryallocated: Boolean) {
+public actual fun obReleaseObjectSecurity(securitydescriptor: PsecurityDescriptor, memoryallocated: Boolean): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun obUnRegisterCallbacks(registrationhandle: COpaquePointer?) {
+public actual fun obUnRegisterCallbacks(registrationhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun obfDereferenceObject(obj: COpaquePointer?): Long =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2482,9 +2293,8 @@ public actual fun obfReferenceObjectWithTag(obj: COpaquePointer?, tag: UInt): Lo
 public actual fun pcwAddInstance(buffer: PpcwBuffer, name: COpaquePointer?, id: UInt, count: UInt, data: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pcwCloseInstance(instance: PpcwInstance) {
+public actual fun pcwCloseInstance(instance: PpcwInstance): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun pcwCreateInstance(instance: COpaquePointer?, registration: PpcwRegistration, name: COpaquePointer?, count: UInt, data: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2492,9 +2302,8 @@ public actual fun pcwCreateInstance(instance: COpaquePointer?, registration: Ppc
 public actual fun pcwRegister(registration: COpaquePointer?, info: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pcwUnregister(registration: PpcwRegistration) {
+public actual fun pcwUnregister(registration: PpcwRegistration): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun poCallDriver(deviceobject: COpaquePointer?, irp: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2508,53 +2317,41 @@ public actual fun poCreatePowerRequest(powerrequest: COpaquePointer?, deviceobje
 public actual fun poCreateThermalRequest(thermalrequest: COpaquePointer?, targetdeviceobject: COpaquePointer?, policydeviceobject: COpaquePointer?, context: COpaquePointer?, flags: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun poDeletePowerRequest(powerrequest: COpaquePointer?) {
+public actual fun poDeletePowerRequest(powerrequest: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poDeleteThermalRequest(thermalrequest: COpaquePointer?) {
+public actual fun poDeleteThermalRequest(thermalrequest: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poEndDeviceBusy(idlepointer: COpaquePointer?) {
+public actual fun poEndDeviceBusy(idlepointer: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxActivateComponent(handle: Pohandle, component: UInt, flags: UInt) {
+public actual fun poFxActivateComponent(handle: Pohandle, component: UInt, flags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxCompleteDevicePowerNotRequired(handle: Pohandle) {
+public actual fun poFxCompleteDevicePowerNotRequired(handle: Pohandle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxCompleteDirectedPowerDown(handle: Pohandle) {
+public actual fun poFxCompleteDirectedPowerDown(handle: Pohandle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxCompleteIdleCondition(handle: Pohandle, component: UInt) {
+public actual fun poFxCompleteIdleCondition(handle: Pohandle, component: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxCompleteIdleState(handle: Pohandle, component: UInt) {
+public actual fun poFxCompleteIdleState(handle: Pohandle, component: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxIdleComponent(handle: Pohandle, component: UInt, flags: UInt) {
+public actual fun poFxIdleComponent(handle: Pohandle, component: UInt, flags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxIssueComponentPerfStateChange(handle: Pohandle, flags: UInt, component: UInt, perfchange: COpaquePointer?, context: COpaquePointer?) {
+public actual fun poFxIssueComponentPerfStateChange(handle: Pohandle, flags: UInt, component: UInt, perfchange: COpaquePointer?, context: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxIssueComponentPerfStateChangeMultiple(handle: Pohandle, flags: UInt, component: UInt, perfchangescount: UInt, perfchanges: COpaquePointer?, context: COpaquePointer?) {
+public actual fun poFxIssueComponentPerfStateChangeMultiple(handle: Pohandle, flags: UInt, component: UInt, perfchangescount: UInt, perfchanges: COpaquePointer?, context: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxNotifySurprisePowerOn(pdo: COpaquePointer?) {
+public actual fun poFxNotifySurprisePowerOn(pdo: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun poFxPowerControl(handle: Pohandle, powercontrolcode: COpaquePointer?, inbuffer: COpaquePointer?, inbuffersize: ULong, outbuffer: COpaquePointer?, outbuffersize: ULong, bytesreturned: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2574,40 +2371,32 @@ public actual fun poFxRegisterCrashdumpDevice(handle: Pohandle): Ntstatus =
 public actual fun poFxRegisterDevice(pdo: COpaquePointer?, device: COpaquePointer?, handle: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun poFxRegisterDripsWatchdogCallback(handle: Pohandle, callback: PpoFxDripsWatchdogCallback, includechilddevices: Boolean, matchingdriverobject: COpaquePointer?) {
+public actual fun poFxRegisterDripsWatchdogCallback(handle: Pohandle, callback: PpoFxDripsWatchdogCallback, includechilddevices: Boolean, matchingdriverobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxReportDevicePoweredOn(handle: Pohandle) {
+public actual fun poFxReportDevicePoweredOn(handle: Pohandle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxSetComponentLatency(handle: Pohandle, component: UInt, latency: ULong) {
+public actual fun poFxSetComponentLatency(handle: Pohandle, component: UInt, latency: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxSetComponentResidency(handle: Pohandle, component: UInt, residency: ULong) {
+public actual fun poFxSetComponentResidency(handle: Pohandle, component: UInt, residency: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxSetComponentWake(handle: Pohandle, component: UInt, wakehint: Boolean) {
+public actual fun poFxSetComponentWake(handle: Pohandle, component: UInt, wakehint: Boolean): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxSetDeviceIdleTimeout(handle: Pohandle, idletimeout: ULong) {
+public actual fun poFxSetDeviceIdleTimeout(handle: Pohandle, idletimeout: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun poFxSetTargetDripsDevicePowerState(handle: Pohandle, targetstate: DevicePowerState): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun poFxStartDevicePowerManagement(handle: Pohandle) {
+public actual fun poFxStartDevicePowerManagement(handle: Pohandle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poFxUnregisterDevice(handle: Pohandle) {
+public actual fun poFxUnregisterDevice(handle: Pohandle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun poGetSystemWake(irp: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2630,13 +2419,11 @@ public actual fun poRegisterSystemState(statehandle: COpaquePointer?, flags: UIn
 public actual fun poRequestPowerIrp(deviceobject: COpaquePointer?, minorfunction: UByte, powerstate: PowerState, completionfunction: PrequestPowerComplete, context: COpaquePointer?, irp: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun poSetDeviceBusyEx(idlepointer: COpaquePointer?) {
+public actual fun poSetDeviceBusyEx(idlepointer: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poSetHiberRange(memorymap: COpaquePointer?, flags: UInt, address: COpaquePointer?, length: ULong, tag: UInt) {
+public actual fun poSetHiberRange(memorymap: COpaquePointer?, flags: UInt, address: COpaquePointer?, length: ULong, tag: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun poSetPowerRequest(powerrequest: COpaquePointer?, type: PowerRequestType): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2644,17 +2431,14 @@ public actual fun poSetPowerRequest(powerrequest: COpaquePointer?, type: PowerRe
 public actual fun poSetPowerState(deviceobject: COpaquePointer?, type: PowerStateType, state: PowerState): PowerState =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun poSetSystemState(flags: UInt) {
+public actual fun poSetSystemState(flags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poSetSystemWake(irp: COpaquePointer?) {
+public actual fun poSetSystemWake(irp: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poSetSystemWakeDevice(deviceobject: COpaquePointer?) {
+public actual fun poSetSystemWakeDevice(deviceobject: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun poSetThermalActiveCooling(thermalrequest: COpaquePointer?, engaged: Boolean): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2662,28 +2446,23 @@ public actual fun poSetThermalActiveCooling(thermalrequest: COpaquePointer?, eng
 public actual fun poSetThermalPassiveCooling(thermalrequest: COpaquePointer?, throttle: UByte): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun poStartDeviceBusy(idlepointer: COpaquePointer?) {
+public actual fun poStartDeviceBusy(idlepointer: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun poStartNextPowerIrp(irp: COpaquePointer?) {
+public actual fun poStartNextPowerIrp(irp: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun poUnregisterPowerSettingCallback(handle: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun poUnregisterSystemState(statehandle: COpaquePointer?) {
+public actual fun poUnregisterSystemState(statehandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun probeForRead(address: COpaquePointer?, length: ULong, alignment: UInt) {
+public actual fun probeForRead(address: COpaquePointer?, length: ULong, alignment: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun probeForWrite(address: COpaquePointer?, length: ULong, alignment: UInt) {
+public actual fun probeForWrite(address: COpaquePointer?, length: ULong, alignment: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun psAcquireSiloHardReference(silo: Pesilo): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2703,17 +2482,14 @@ public actual fun psCreateSiloContext(silo: Pesilo, size: UInt, pooltype: PoolTy
 public actual fun psCreateSystemThread(threadhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, processhandle: Handle, clientid: COpaquePointer?, startroutine: PkstartRoutine, startcontext: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun psDereferenceSiloContext(silocontext: COpaquePointer?) {
+public actual fun psDereferenceSiloContext(silocontext: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun psDetachSiloFromCurrentThread(previoussilo: Pesilo) {
+public actual fun psDetachSiloFromCurrentThread(previoussilo: Pesilo): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun psFreeAffinityToken(affinitytoken: PaffinityToken) {
+public actual fun psFreeAffinityToken(affinitytoken: PaffinityToken): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun psFreeSiloContextSlot(contextslot: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2820,16 +2596,14 @@ public actual fun psMakeSiloContextPermanent(silo: Pesilo, contextslot: UInt): N
 public actual fun psQueryTotalCycleTimeProcess(process: Peprocess, cycletimestamp: COpaquePointer?): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun psReferenceSiloContext(silocontext: COpaquePointer?) {
+public actual fun psReferenceSiloContext(silocontext: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun psRegisterSiloMonitor(registration: COpaquePointer?, returnedmonitor: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun psReleaseSiloHardReference(silo: Pesilo) {
+public actual fun psReleaseSiloHardReference(silo: Pesilo): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun psRemoveCreateThreadNotifyRoutine(notifyroutine: PcreateThreadNotifyRoutine): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2843,9 +2617,8 @@ public actual fun psRemoveSiloContext(silo: Pesilo, contextslot: UInt, removedsi
 public actual fun psReplaceSiloContext(silo: Pesilo, contextslot: UInt, newsilocontext: COpaquePointer?, oldsilocontext: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun psRevertToUserMultipleGroupAffinityThread(affinitytoken: PaffinityToken) {
+public actual fun psRevertToUserMultipleGroupAffinityThread(affinitytoken: PaffinityToken): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun psSetCreateProcessNotifyRoutine(notifyroutine: PcreateProcessNotifyRoutine, remove: Boolean): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2877,16 +2650,14 @@ public actual fun psSetSystemMultipleGroupAffinityThread(groupaffinities: COpaqu
 public actual fun psStartSiloMonitor(monitor: PsiloMonitor): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun psTerminateServerSilo(serversilo: Pesilo, exitstatus: Ntstatus) {
+public actual fun psTerminateServerSilo(serversilo: Pesilo, exitstatus: Ntstatus): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun psTerminateSystemThread(exitstatus: Ntstatus): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun psUnregisterSiloMonitor(monitor: PsiloMonitor) {
+public actual fun psUnregisterSiloMonitor(monitor: PsiloMonitor): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun psWrapApcWow64Thread(apccontext: COpaquePointer?, apcroutine: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2894,9 +2665,8 @@ public actual fun psWrapApcWow64Thread(apccontext: COpaquePointer?, apcroutine: 
 public actual fun pshedAllocateMemory(size: UInt): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pshedFreeMemory(address: COpaquePointer?) {
+public actual fun pshedFreeMemory(address: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun pshedIsSystemWheaEnabled(): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2907,9 +2677,8 @@ public actual fun pshedRegisterPlugin(packet: COpaquePointer?): Ntstatus =
 public actual fun pshedSynchronizeExecution(errorsource: COpaquePointer?, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pshedUnregisterPlugin(pluginhandle: COpaquePointer?) {
+public actual fun pshedUnregisterPlugin(pluginhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlAppendUnicodeStringToString(destination: COpaquePointer?, source: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2923,24 +2692,20 @@ public actual fun rtlAreBitsClear(bitmapheader: COpaquePointer?, startingindex: 
 public actual fun rtlAreBitsSet(bitmapheader: COpaquePointer?, startingindex: UInt, length: UInt): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlAssert(voidfailedassertion: COpaquePointer?, voidfilename: COpaquePointer?, linenumber: UInt, mutablemessage: Pcstr) {
+public actual fun rtlAssert(voidfailedassertion: COpaquePointer?, voidfilename: COpaquePointer?, linenumber: UInt, mutablemessage: Pcstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlCheckRegistryKey(relativeto: UInt, path: Pcwstr): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlClearAllBits(bitmapheader: COpaquePointer?) {
+public actual fun rtlClearAllBits(bitmapheader: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlClearBit(bitmapheader: COpaquePointer?, bitnumber: UInt) {
+public actual fun rtlClearBit(bitmapheader: COpaquePointer?, bitnumber: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlClearBits(bitmapheader: COpaquePointer?, startingindex: UInt, numbertoclear: UInt) {
+public actual fun rtlClearBits(bitmapheader: COpaquePointer?, startingindex: UInt, numbertoclear: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlCmDecodeMemIoResource(descriptor: COpaquePointer?, start: COpaquePointer?): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2960,17 +2725,14 @@ public actual fun rtlCompareUnicodeStrings(string1: COpaquePointer?, string1leng
 public actual fun rtlContractHashTable(hashtable: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlCopyBitMap(source: COpaquePointer?, destination: COpaquePointer?, targetbit: UInt) {
+public actual fun rtlCopyBitMap(source: COpaquePointer?, destination: COpaquePointer?, targetbit: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlCopyString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?) {
+public actual fun rtlCopyString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlCopyUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?) {
+public actual fun rtlCopyUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlCreateHashTable(hashtable: COpaquePointer?, shift: UInt, flags: UInt): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2993,17 +2755,14 @@ public actual fun rtlDeleteElementGenericTable(table: COpaquePointer?, buffer: C
 public actual fun rtlDeleteElementGenericTableAvl(table: COpaquePointer?, buffer: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlDeleteElementGenericTableAvlEx(table: COpaquePointer?, nodeorparent: COpaquePointer?) {
+public actual fun rtlDeleteElementGenericTableAvlEx(table: COpaquePointer?, nodeorparent: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlDeleteHashTable(hashtable: COpaquePointer?) {
+public actual fun rtlDeleteHashTable(hashtable: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlDeleteNoSplay(links: COpaquePointer?, root: COpaquePointer?) {
+public actual fun rtlDeleteNoSplay(links: COpaquePointer?, root: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlDeleteRegistryValue(relativeto: UInt, path: Pcwstr, valuename: Pcwstr): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3011,17 +2770,14 @@ public actual fun rtlDeleteRegistryValue(relativeto: UInt, path: Pcwstr, valuena
 public actual fun rtlDowncaseUnicodeChar(sourcecharacter: UShort): UShort =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlEndEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?) {
+public actual fun rtlEndEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlEndStrongEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?) {
+public actual fun rtlEndStrongEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlEndWeakEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?) {
+public actual fun rtlEndWeakEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlEnumerateEntryHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3050,9 +2806,8 @@ public actual fun rtlEqualUnicodeString(string1: COpaquePointer?, string2: COpaq
 public actual fun rtlExpandHashTable(hashtable: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlExtractBitMap(source: COpaquePointer?, destination: COpaquePointer?, targetbit: UInt, numberofbits: UInt) {
+public actual fun rtlExtractBitMap(source: COpaquePointer?, destination: COpaquePointer?, targetbit: UInt, numberofbits: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlFindClearBits(bitmapheader: COpaquePointer?, numbertofind: UInt, hintindex: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3090,9 +2845,8 @@ public actual fun rtlFindSetBits(bitmapheader: COpaquePointer?, numbertofind: UI
 public actual fun rtlFindSetBitsAndClear(bitmapheader: COpaquePointer?, numbertofind: UInt, hintindex: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlFreeUTF8String(utf8string: COpaquePointer?) {
+public actual fun rtlFreeUTF8String(utf8string: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlGUIDFromString(guidstring: COpaquePointer?, guid: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3103,9 +2857,8 @@ public actual fun rtlGenerateClass5Guid(namespaceguid: COpaquePointer?, buffer: 
 public actual fun rtlGetActiveConsoleId(): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlGetCallersAddress(callersaddress: COpaquePointer?, callerscaller: COpaquePointer?) {
+public actual fun rtlGetCallersAddress(callersaddress: COpaquePointer?, callerscaller: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlGetConsoleSessionForegroundProcessId(): ULong =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3146,9 +2899,8 @@ public actual fun rtlInitEnumerationHashTable(hashtable: COpaquePointer?, enumer
 public actual fun rtlInitStrongEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlInitUTF8String(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?) {
+public actual fun rtlInitUTF8String(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlInitUTF8StringEx(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3156,17 +2908,14 @@ public actual fun rtlInitUTF8StringEx(destinationstring: COpaquePointer?, source
 public actual fun rtlInitWeakEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlInitializeBitMap(bitmapheader: COpaquePointer?, bitmapbuffer: COpaquePointer?, sizeofbitmap: UInt) {
+public actual fun rtlInitializeBitMap(bitmapheader: COpaquePointer?, bitmapbuffer: COpaquePointer?, sizeofbitmap: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlInitializeGenericTable(table: COpaquePointer?, compareroutine: PrtlGenericCompareRoutine, allocateroutine: PrtlGenericAllocateRoutine, freeroutine: PrtlGenericFreeRoutine, tablecontext: COpaquePointer?) {
+public actual fun rtlInitializeGenericTable(table: COpaquePointer?, compareroutine: PrtlGenericCompareRoutine, allocateroutine: PrtlGenericAllocateRoutine, freeroutine: PrtlGenericFreeRoutine, tablecontext: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlInitializeGenericTableAvl(table: COpaquePointer?, compareroutine: PrtlAvlCompareRoutine, allocateroutine: PrtlAvlAllocateRoutine, freeroutine: PrtlAvlFreeRoutine, tablecontext: COpaquePointer?) {
+public actual fun rtlInitializeGenericTableAvl(table: COpaquePointer?, compareroutine: PrtlAvlCompareRoutine, allocateroutine: PrtlAvlAllocateRoutine, freeroutine: PrtlAvlFreeRoutine, tablecontext: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlInsertElementGenericTable(table: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt, newelement: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3243,9 +2992,8 @@ public actual fun rtlLookupEntryHashTable(hashtable: COpaquePointer?, signature:
 public actual fun rtlLookupFirstMatchingElementGenericTableAvl(table: COpaquePointer?, buffer: COpaquePointer?, restartkey: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlMapGenericMask(accessmask: COpaquePointer?, genericmapping: COpaquePointer?) {
+public actual fun rtlMapGenericMask(accessmask: COpaquePointer?, genericmapping: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlNormalizeSecurityDescriptor(securitydescriptor: COpaquePointer?, securitydescriptorlength: UInt, newsecuritydescriptor: COpaquePointer?, newsecuritydescriptorlength: COpaquePointer?, checkonly: Boolean): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3271,9 +3019,8 @@ public actual fun rtlNumberOfSetBitsInRange(bitmapheader: COpaquePointer?, start
 public actual fun rtlNumberOfSetBitsUlongPtr(target: ULong): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlPrefetchMemoryNonTemporal(source: COpaquePointer?, length: ULong) {
+public actual fun rtlPrefetchMemoryNonTemporal(source: COpaquePointer?, length: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlPrefixUnicodeString(string1: COpaquePointer?, string2: COpaquePointer?, caseinsensitive: Boolean): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3305,21 +3052,17 @@ public actual fun rtlRunOnceComplete(runonce: COpaquePointer?, flags: UInt, cont
 public actual fun rtlRunOnceExecuteOnce(runonce: COpaquePointer?, initfn: PrtlRunOnceInitFn, parameter: COpaquePointer?, context: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlRunOnceInitialize(runonce: COpaquePointer?) {
+public actual fun rtlRunOnceInitialize(runonce: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlSetAllBits(bitmapheader: COpaquePointer?) {
+public actual fun rtlSetAllBits(bitmapheader: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlSetBit(bitmapheader: COpaquePointer?, bitnumber: UInt) {
+public actual fun rtlSetBit(bitmapheader: COpaquePointer?, bitnumber: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rtlSetBits(bitmapheader: COpaquePointer?, startingindex: UInt, numbertoset: UInt) {
+public actual fun rtlSetBits(bitmapheader: COpaquePointer?, startingindex: UInt, numbertoset: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlSetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: Boolean, dacl: COpaquePointer?, dacldefaulted: Boolean): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3351,9 +3094,8 @@ public actual fun rtlTestBit(bitmapheader: COpaquePointer?, bitnumber: UInt): Bo
 public actual fun rtlTimeFieldsToTime(timefields: COpaquePointer?, time: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlTimeToTimeFields(time: COpaquePointer?, timefields: COpaquePointer?) {
+public actual fun rtlTimeToTimeFields(time: COpaquePointer?, timefields: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlUTF8StringToUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?, allocatedestinationstring: Boolean): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3382,9 +3124,8 @@ public actual fun rtlUpcaseUnicodeString(destinationstring: COpaquePointer?, sou
 public actual fun rtlUpperChar(character: Byte): Byte =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rtlUpperString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?) {
+public actual fun rtlUpperString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rtlValidRelativeSecurityDescriptor(securitydescriptorinput: PsecurityDescriptor, securitydescriptorlength: UInt, requiredinformation: UInt): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3422,9 +3163,8 @@ public actual fun seAssignSecurity(parentdescriptor: PsecurityDescriptor, explic
 public actual fun seAssignSecurityEx(parentdescriptor: PsecurityDescriptor, explicitdescriptor: PsecurityDescriptor, newdescriptor: COpaquePointer?, objecttype: COpaquePointer?, isdirectoryobject: Boolean, autoinheritflags: UInt, subjectcontext: COpaquePointer?, genericmapping: COpaquePointer?, pooltype: PoolType): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun seCaptureSubjectContext(subjectcontext: COpaquePointer?) {
+public actual fun seCaptureSubjectContext(subjectcontext: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun seComputeAutoInheritByObjectType(objecttype: COpaquePointer?, securitydescriptor: PsecurityDescriptor, parentsecuritydescriptor: PsecurityDescriptor): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3435,16 +3175,14 @@ public actual fun seDeassignSecurity(securitydescriptor: COpaquePointer?): Ntsta
 public actual fun seEtwWriteKMCveEvent(cveid: COpaquePointer?, additionaldetails: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun seLockSubjectContext(subjectcontext: COpaquePointer?) {
+public actual fun seLockSubjectContext(subjectcontext: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun seRegisterImageVerificationCallback(imagetype: SeImageType, callbacktype: SeImageVerificationCallbackType, callbackfunction: PseImageVerificationCallbackFunction, callbackcontext: COpaquePointer?, token: COpaquePointer?, callbackhandle: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun seReleaseSubjectContext(subjectcontext: COpaquePointer?) {
+public actual fun seReleaseSubjectContext(subjectcontext: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun seReportSecurityEvent(flags: UInt, sourcename: COpaquePointer?, usersid: Psid, auditparameters: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3455,13 +3193,11 @@ public actual fun seSetAuditParameter(auditparameters: COpaquePointer?, type: Se
 public actual fun seSinglePrivilegeCheck(privilegevalue: Luid, previousmode: Byte): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun seUnlockSubjectContext(subjectcontext: COpaquePointer?) {
+public actual fun seUnlockSubjectContext(subjectcontext: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun seUnregisterImageVerificationCallback(callbackhandle: COpaquePointer?) {
+public actual fun seUnregisterImageVerificationCallback(callbackhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun seValidSecurityDescriptor(length: UInt, securitydescriptor: PsecurityDescriptor): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3484,9 +3220,8 @@ public actual fun tmDereferenceEnlistmentKey(enlistment: COpaquePointer?, lastre
 public actual fun tmEnableCallbacks(resourcemanager: COpaquePointer?, callbackroutine: PtmRmNotification, rmkey: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun tmGetTransactionId(transaction: COpaquePointer?, transactionid: COpaquePointer?) {
+public actual fun tmGetTransactionId(transaction: COpaquePointer?, transactionid: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun tmInitializeTransactionManager(transactionmanager: COpaquePointer?, logfilename: COpaquePointer?, tmid: COpaquePointer?, createoptions: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3578,9 +3313,8 @@ public actual fun wheaGetNotifyAllOfflinesPolicy(): Boolean =
 public actual fun wheaHighIrqlLogSelEventHandlerRegister(handler: PfnWheaHighIrqlLogSelEventHandler, context: COpaquePointer?): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wheaHighIrqlLogSelEventHandlerUnregister() {
+public actual fun wheaHighIrqlLogSelEventHandlerUnregister(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun wheaHwErrorReportAbandonDeviceDriver(errorhandle: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -3600,16 +3334,14 @@ public actual fun wheaInitializeRecordHeader(header: COpaquePointer?): Ntstatus 
 public actual fun wheaIsCriticalState(): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wheaLogInternalEvent(entry: COpaquePointer?) {
+public actual fun wheaLogInternalEvent(entry: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun wheaRegisterInUsePageOfflineNotification(callback: PfnInUsePageOfflineNotify, context: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wheaRemoveErrorSource(errorsourceid: UInt) {
+public actual fun wheaRemoveErrorSource(errorsourceid: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun wheaRemoveErrorSourceDeviceDriver(errorsourceid: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

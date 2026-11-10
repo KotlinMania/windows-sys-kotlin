@@ -48,9 +48,8 @@ public actual fun wintrustAddDefaultForUsage(pszusageoid: Pcstr, psdefusage: COp
 public actual fun wintrustGetDefaultForUsage(dwaction: WintrustGetDefaultForUsageAction, pszusageoid: Pcstr, psusage: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wintrustGetRegPolicyFlags(pdwpolicyflags: COpaquePointer?) {
+public actual fun wintrustGetRegPolicyFlags(pdwpolicyflags: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun wintrustLoadFunctionPointers(pgactionid: COpaquePointer?, ppfns: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -58,9 +57,8 @@ public actual fun wintrustLoadFunctionPointers(pgactionid: COpaquePointer?, ppfn
 public actual fun wintrustRemoveActionID(pgactionid: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: Bool) {
+public actual fun wintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: Bool): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun wintrustSetRegPolicyFlags(dwpolicyflags: WintrustPolicyFlags): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

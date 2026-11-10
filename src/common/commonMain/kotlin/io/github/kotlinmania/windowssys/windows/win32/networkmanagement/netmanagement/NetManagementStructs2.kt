@@ -4,7 +4,10 @@ import io.github.kotlinmania.windowssys.COpaquePointer
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class UseInfo3(public var ui3Ui2: UseInfo2 = UseInfo2(), public var ui3Flags: UInt = 0u)
+public data class UseInfo3(
+    public var ui3Ui2: UseInfo2 = UseInfo2(),
+    public var ui3Flags: UInt = 0u,
+)
 
 public data class UseInfo4(
     public var ui4Ui3: UseInfo3 = UseInfo3(),
@@ -63,15 +66,25 @@ public data class WkstaInfo101(
     public var wki101Lanroot: Pwstr = null,
 )
 
-public data class WkstaInfo1010(public var wki1010CharWait: UInt = 0u)
+public data class WkstaInfo1010(
+    public var wki1010CharWait: UInt = 0u,
+)
 
-public data class WkstaInfo1011(public var wki1011CollectionTime: UInt = 0u)
+public data class WkstaInfo1011(
+    public var wki1011CollectionTime: UInt = 0u,
+)
 
-public data class WkstaInfo1012(public var wki1012MaximumCollectionCount: UInt = 0u)
+public data class WkstaInfo1012(
+    public var wki1012MaximumCollectionCount: UInt = 0u,
+)
 
-public data class WkstaInfo1013(public var wki1013KeepConn: UInt = 0u)
+public data class WkstaInfo1013(
+    public var wki1013KeepConn: UInt = 0u,
+)
 
-public data class WkstaInfo1018(public var wki1018SessTimeout: UInt = 0u)
+public data class WkstaInfo1018(
+    public var wki1018SessTimeout: UInt = 0u,
+)
 
 public data class WkstaInfo102(
     public var wki102PlatformId: UInt = 0u,
@@ -83,59 +96,113 @@ public data class WkstaInfo102(
     public var wki102LoggedOnUsers: UInt = 0u,
 )
 
-public data class WkstaInfo1023(public var wki1023SizCharBuf: UInt = 0u)
+public data class WkstaInfo1023(
+    public var wki1023SizCharBuf: UInt = 0u,
+)
 
-public data class WkstaInfo1027(public var wki1027ErrlogSz: UInt = 0u)
+public data class WkstaInfo1027(
+    public var wki1027ErrlogSz: UInt = 0u,
+)
 
-public data class WkstaInfo1028(public var wki1028PrintBufTime: UInt = 0u)
+public data class WkstaInfo1028(
+    public var wki1028PrintBufTime: UInt = 0u,
+)
 
-public data class WkstaInfo1032(public var wki1032WrkHeuristics: UInt = 0u)
+public data class WkstaInfo1032(
+    public var wki1032WrkHeuristics: UInt = 0u,
+)
 
-public data class WkstaInfo1033(public var wki1033MaxThreads: UInt = 0u)
+public data class WkstaInfo1033(
+    public var wki1033MaxThreads: UInt = 0u,
+)
 
-public data class WkstaInfo1041(public var wki1041LockQuota: UInt = 0u)
+public data class WkstaInfo1041(
+    public var wki1041LockQuota: UInt = 0u,
+)
 
-public data class WkstaInfo1042(public var wki1042LockIncrement: UInt = 0u)
+public data class WkstaInfo1042(
+    public var wki1042LockIncrement: UInt = 0u,
+)
 
-public data class WkstaInfo1043(public var wki1043LockMaximum: UInt = 0u)
+public data class WkstaInfo1043(
+    public var wki1043LockMaximum: UInt = 0u,
+)
 
-public data class WkstaInfo1044(public var wki1044PipeIncrement: UInt = 0u)
+public data class WkstaInfo1044(
+    public var wki1044PipeIncrement: UInt = 0u,
+)
 
-public data class WkstaInfo1045(public var wki1045PipeMaximum: UInt = 0u)
+public data class WkstaInfo1045(
+    public var wki1045PipeMaximum: UInt = 0u,
+)
 
-public data class WkstaInfo1046(public var wki1046DormantFileLimit: UInt = 0u)
+public data class WkstaInfo1046(
+    public var wki1046DormantFileLimit: UInt = 0u,
+)
 
-public data class WkstaInfo1047(public var wki1047CacheFileTimeout: UInt = 0u)
+public data class WkstaInfo1047(
+    public var wki1047CacheFileTimeout: UInt = 0u,
+)
 
-public data class WkstaInfo1048(public var wki1048UseOpportunisticLocking: Bool = 0)
+public data class WkstaInfo1048(
+    public var wki1048UseOpportunisticLocking: Bool = 0,
+)
 
-public data class WkstaInfo1049(public var wki1049UseUnlockBehind: Bool = 0)
+public data class WkstaInfo1049(
+    public var wki1049UseUnlockBehind: Bool = 0,
+)
 
-public data class WkstaInfo1050(public var wki1050UseCloseBehind: Bool = 0)
+public data class WkstaInfo1050(
+    public var wki1050UseCloseBehind: Bool = 0,
+)
 
-public data class WkstaInfo1051(public var wki1051BufNamedPipes: Bool = 0)
+public data class WkstaInfo1051(
+    public var wki1051BufNamedPipes: Bool = 0,
+)
 
-public data class WkstaInfo1052(public var wki1052UseLockReadUnlock: Bool = 0)
+public data class WkstaInfo1052(
+    public var wki1052UseLockReadUnlock: Bool = 0,
+)
 
-public data class WkstaInfo1053(public var wki1053UtilizeNtCaching: Bool = 0)
+public data class WkstaInfo1053(
+    public var wki1053UtilizeNtCaching: Bool = 0,
+)
 
-public data class WkstaInfo1054(public var wki1054UseRawRead: Bool = 0)
+public data class WkstaInfo1054(
+    public var wki1054UseRawRead: Bool = 0,
+)
 
-public data class WkstaInfo1055(public var wki1055UseRawWrite: Bool = 0)
+public data class WkstaInfo1055(
+    public var wki1055UseRawWrite: Bool = 0,
+)
 
-public data class WkstaInfo1056(public var wki1056UseWriteRawData: Bool = 0)
+public data class WkstaInfo1056(
+    public var wki1056UseWriteRawData: Bool = 0,
+)
 
-public data class WkstaInfo1057(public var wki1057UseEncryption: Bool = 0)
+public data class WkstaInfo1057(
+    public var wki1057UseEncryption: Bool = 0,
+)
 
-public data class WkstaInfo1058(public var wki1058BufFilesDenyWrite: Bool = 0)
+public data class WkstaInfo1058(
+    public var wki1058BufFilesDenyWrite: Bool = 0,
+)
 
-public data class WkstaInfo1059(public var wki1059BufReadOnlyFiles: Bool = 0)
+public data class WkstaInfo1059(
+    public var wki1059BufReadOnlyFiles: Bool = 0,
+)
 
-public data class WkstaInfo1060(public var wki1060ForceCoreCreateMode: Bool = 0)
+public data class WkstaInfo1060(
+    public var wki1060ForceCoreCreateMode: Bool = 0,
+)
 
-public data class WkstaInfo1061(public var wki1061Use512ByteMaxTransfer: Bool = 0)
+public data class WkstaInfo1061(
+    public var wki1061Use512ByteMaxTransfer: Bool = 0,
+)
 
-public data class WkstaInfo1062(public var wki1062ReadAheadThroughput: UInt = 0u)
+public data class WkstaInfo1062(
+    public var wki1062ReadAheadThroughput: UInt = 0u,
+)
 
 public class WkstaInfo302(
     public var wki302CharWait: UInt = 0u,
@@ -230,7 +297,9 @@ public data class WkstaTransportInfo0(
     public var wkti0WanIsh: Bool = 0,
 )
 
-public data class WkstaUserInfo0(public var wkui0Username: Pwstr = null)
+public data class WkstaUserInfo0(
+    public var wkui0Username: Pwstr = null,
+)
 
 public data class WkstaUserInfo1(
     public var wkui1Username: Pwstr = null,
@@ -239,4 +308,6 @@ public data class WkstaUserInfo1(
     public var wkui1LogonServer: Pwstr = null,
 )
 
-public data class WkstaUserInfo1101(public var wkui1101OthDomains: Pwstr = null)
+public data class WkstaUserInfo1101(
+    public var wkui1101OthDomains: Pwstr = null,
+)

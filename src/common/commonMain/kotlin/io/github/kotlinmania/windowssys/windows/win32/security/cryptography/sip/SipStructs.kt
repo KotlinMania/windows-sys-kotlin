@@ -19,7 +19,10 @@ public data class MsAddinfoBlob(
     public var pbMemSignedMsg: COpaquePointer? = null,
 )
 
-public data class MsAddinfoFlat(public var cbStruct: UInt = 0u, public var pIndirectData: SipIndirectData? = null)
+public data class MsAddinfoFlat(
+    public var cbStruct: UInt = 0u,
+    public var pIndirectData: SipIndirectData? = null,
+)
 
 public data class SipAddNewprovider(
     public var cbStruct: UInt = 0u,
@@ -50,7 +53,10 @@ public data class SipCapSetV3(
     public var anonymous: SipCapSetV30 = SipCapSetV30(),
 )
 
-public data class SipCapSetV30(public var dwFlags: UInt = 0u, public var dwReserved: UInt = 0u)
+public data class SipCapSetV30(
+    public var dwFlags: UInt = 0u,
+    public var dwReserved: UInt = 0u,
+)
 
 public data class SipDispatchInfo(
     public var cbSize: UInt = 0u,

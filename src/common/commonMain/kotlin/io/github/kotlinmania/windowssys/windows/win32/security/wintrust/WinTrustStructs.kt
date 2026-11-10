@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security.wintrust
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -29,9 +30,15 @@ import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip.
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip.SipIndirectData
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip.SipSubjectinfo
 
-public data class CatMemberinfo(public var pwszSubjGuid: Pwstr = null, public var dwCertVersion: UInt = 0u)
+public data class CatMemberinfo(
+    public var pwszSubjGuid: Pwstr = null,
+    public var dwCertVersion: UInt = 0u,
+)
 
-public data class CatMemberinfo2(public var subjectGuid: Guid = Guid(), public var dwCertVersion: UInt = 0u)
+public data class CatMemberinfo2(
+    public var subjectGuid: Guid = Guid(),
+    public var dwCertVersion: UInt = 0u,
+)
 
 public data class CatNamevalue(
     public var pwszTag: Pwstr = null,
@@ -119,7 +126,9 @@ public class CryptProviderData(
     public var pSigSettings: WintrustSignatureSettings? = null,
 )
 
-public data class CryptProviderData0(public var pPDSip: ProvdataSip? = null)
+public data class CryptProviderData0(
+    public var pPDSip: ProvdataSip? = null,
+)
 
 public data class CryptProviderDefusage(
     public var cbStruct: UInt = 0u,
@@ -278,9 +287,15 @@ public data class DriverVerInfo(
     }
 }
 
-public data class DriverVerMajorminor(public var dwMajor: UInt = 0u, public var dwMinor: UInt = 0u)
+public data class DriverVerMajorminor(
+    public var dwMajor: UInt = 0u,
+    public var dwMinor: UInt = 0u,
+)
 
-public data class IntentToSealAttribute(public var version: UInt = 0u, public var seal: Boolean = false)
+public data class IntentToSealAttribute(
+    public var version: UInt = 0u,
+    public var seal: Boolean = false,
+)
 
 public data class ProvdataSip(
     public var cbStruct: UInt = 0u,
@@ -305,7 +320,10 @@ public data class SealingTimestampAttribute(
     public var sealTimeStampToken: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class SpcFinancialCriteria(public var fFinancialInfoAvailable: Bool = 0, public var fMeetsCriteria: Bool = 0)
+public data class SpcFinancialCriteria(
+    public var fFinancialInfoAvailable: Bool = 0,
+    public var fMeetsCriteria: Bool = 0,
+)
 
 public data class SpcImage(
     public var pImageLink: SpcLink? = null,
@@ -321,7 +339,10 @@ public data class SpcIndirectDataContent(
     public var digest: CryptIntegerBlob = CryptIntegerBlob(),
 )
 
-public data class SpcLink(public var dwLinkChoice: UInt = 0u, public var anonymous: SpcLink0 = SpcLink0())
+public data class SpcLink(
+    public var dwLinkChoice: UInt = 0u,
+    public var anonymous: SpcLink0 = SpcLink0(),
+)
 
 public data class SpcLink0(
     public var pwszUrl: Pwstr = null,
@@ -329,9 +350,15 @@ public data class SpcLink0(
     public var pwszFile: Pwstr = null,
 )
 
-public data class SpcPeImageData(public var flags: CryptBitBlob = CryptBitBlob(), public var pFile: SpcLink? = null)
+public data class SpcPeImageData(
+    public var flags: CryptBitBlob = CryptBitBlob(),
+    public var pFile: SpcLink? = null,
+)
 
-public data class SpcSerializedObject(public var classId: UByteArray = UByteArray(16), public var serializedData: CryptIntegerBlob = CryptIntegerBlob()) {
+public data class SpcSerializedObject(
+    public var classId: UByteArray = UByteArray(16),
+    public var serializedData: CryptIntegerBlob = CryptIntegerBlob(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SpcSerializedObject) return false
@@ -370,7 +397,10 @@ public data class SpcSpOpusInfo(
     public var pPublisherInfo: SpcLink? = null,
 )
 
-public data class SpcStatementType(public var cKeyPurposeId: UInt = 0u, public var rgpszKeyPurposeId: Pstr? = null)
+public data class SpcStatementType(
+    public var cKeyPurposeId: UInt = 0u,
+    public var rgpszKeyPurposeId: Pstr? = null,
+)
 
 public data class WintrustBlobInfo(
     public var cbStruct: UInt = 0u,
@@ -478,7 +508,10 @@ public data class WinCertificate(
     }
 }
 
-public data class WinSpubTrustedPublisherData(public var hClientToken: Handle = null, public var lpCertificate: WinCertificate? = null)
+public data class WinSpubTrustedPublisherData(
+    public var hClientToken: Handle = null,
+    public var lpCertificate: WinCertificate? = null,
+)
 
 public data class WinTrustActdataContextWithSubject(
     public var hClientToken: Handle = null,
@@ -486,9 +519,15 @@ public data class WinTrustActdataContextWithSubject(
     public var subject: COpaquePointer? = null,
 )
 
-public data class WinTrustActdataSubjectOnly(public var subjectType: Guid? = null, public var subject: COpaquePointer? = null)
+public data class WinTrustActdataSubjectOnly(
+    public var subjectType: Guid? = null,
+    public var subject: COpaquePointer? = null,
+)
 
-public data class WinTrustSubjectFile(public var hFile: Handle = null, public var lpPath: Pcwstr = null)
+public data class WinTrustSubjectFile(
+    public var hFile: Handle = null,
+    public var lpPath: Pcwstr = null,
+)
 
 public data class WinTrustSubjectFileAndDisplay(
     public var hFile: Handle = null,
@@ -504,7 +543,10 @@ public data class WtdGenericChainPolicyCreateInfo(
     public var pvReserved: COpaquePointer? = null,
 )
 
-public data class WtdGenericChainPolicyCreateInfo0(public var cbStruct: UInt = 0u, public var cbSize: UInt = 0u)
+public data class WtdGenericChainPolicyCreateInfo0(
+    public var cbStruct: UInt = 0u,
+    public var cbSize: UInt = 0u,
+)
 
 public data class WtdGenericChainPolicyData(
     public var anonymous: WtdGenericChainPolicyData0 = WtdGenericChainPolicyData0(),
@@ -514,7 +556,10 @@ public data class WtdGenericChainPolicyData(
     public var pvPolicyArg: COpaquePointer? = null,
 )
 
-public data class WtdGenericChainPolicyData0(public var cbStruct: UInt = 0u, public var cbSize: UInt = 0u)
+public data class WtdGenericChainPolicyData0(
+    public var cbStruct: UInt = 0u,
+    public var cbSize: UInt = 0u,
+)
 
 public data class WtdGenericChainPolicySignerInfo(
     public var anonymous: WtdGenericChainPolicySignerInfo0 = WtdGenericChainPolicySignerInfo0(),
@@ -526,4 +571,7 @@ public data class WtdGenericChainPolicySignerInfo(
     public var rgpCounterSigner: COpaquePointer? = null,
 )
 
-public data class WtdGenericChainPolicySignerInfo0(public var cbStruct: UInt = 0u, public var cbSize: UInt = 0u)
+public data class WtdGenericChainPolicySignerInfo0(
+    public var cbStruct: UInt = 0u,
+    public var cbSize: UInt = 0u,
+)

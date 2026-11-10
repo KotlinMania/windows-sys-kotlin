@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -18,7 +19,9 @@ import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ListEntry
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.NtProductType
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ProcessorNumber
 
-public data class IoFoextSiloParameters00(public var bitfield: UInt = 0u)
+public data class IoFoextSiloParameters00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class IoInterruptMessageInfo(
     public var unifiedIrql: UByte = 0u,
@@ -37,7 +40,9 @@ public data class IoInterruptMessageInfoEntry(
     public var polarity: KinterruptPolarity = 0,
 )
 
-public data class IoRemoveLock(public var common: IoRemoveLockCommonBlock = IoRemoveLockCommonBlock())
+public data class IoRemoveLock(
+    public var common: IoRemoveLockCommonBlock = IoRemoveLockCommonBlock(),
+)
 
 public data class IoRemoveLockCommonBlock(
     public var removed: Boolean = false,
@@ -107,7 +112,10 @@ public data class IoRemoveLockDbgBlock(
     }
 }
 
-public data class IoReportInterruptActiveStateParameters(public var version: UInt = 0u, public var connectionContext: IoReportInterruptActiveStateParameters0 = IoReportInterruptActiveStateParameters0())
+public data class IoReportInterruptActiveStateParameters(
+    public var version: UInt = 0u,
+    public var connectionContext: IoReportInterruptActiveStateParameters0 = IoReportInterruptActiveStateParameters0(),
+)
 
 public data class IoReportInterruptActiveStateParameters0(
     public var generic: COpaquePointer? = null,
@@ -163,7 +171,9 @@ public data class IoResourceDescriptor012(
     public var idHighPart: UInt = 0u,
 )
 
-public data class IoResourceDescriptor06(public var data: UIntArray = UIntArray(3)) {
+public data class IoResourceDescriptor06(
+    public var data: UIntArray = UIntArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IoResourceDescriptor06) return false
@@ -171,9 +181,7 @@ public data class IoResourceDescriptor06(public var data: UIntArray = UIntArray(
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.data.contentHashCode()
-    }
+    override fun hashCode(): Int = this.data.contentHashCode()
 }
 
 public data class IoResourceDescriptor04(
@@ -183,7 +191,10 @@ public data class IoResourceDescriptor04(
     public var transferWidth: UInt = 0u,
 )
 
-public data class IoResourceDescriptor03(public var minimumChannel: UInt = 0u, public var maximumChannel: UInt = 0u)
+public data class IoResourceDescriptor03(
+    public var minimumChannel: UInt = 0u,
+    public var maximumChannel: UInt = 0u,
+)
 
 public data class IoResourceDescriptor05(
     public var length: UInt = 0u,
@@ -276,7 +287,10 @@ public data class IoResourceRequirementsList(
     }
 }
 
-public data class IoSessionConnectInfo(public var sessionId: UInt = 0u, public var localSession: Boolean = false)
+public data class IoSessionConnectInfo(
+    public var sessionId: UInt = 0u,
+    public var localSession: Boolean = false,
+)
 
 public data class IoSessionStateInformation(
     public var sessionId: UInt = 0u,
@@ -292,15 +306,30 @@ public data class IoSessionStateNotification(
     public var context: COpaquePointer? = null,
 )
 
-public data class IoStatusBlock32(public var status: Ntstatus = 0, public var information: UInt = 0u)
+public data class IoStatusBlock32(
+    public var status: Ntstatus = 0,
+    public var information: UInt = 0u,
+)
 
-public data class IoStatusBlock64(public var anonymous: IoStatusBlock640 = IoStatusBlock640(), public var information: ULong = 0uL)
+public data class IoStatusBlock64(
+    public var anonymous: IoStatusBlock640 = IoStatusBlock640(),
+    public var information: ULong = 0uL,
+)
 
-public data class IoStatusBlock640(public var status: Ntstatus = 0, public var pointer: COpaquePointer? = null)
+public data class IoStatusBlock640(
+    public var status: Ntstatus = 0,
+    public var pointer: COpaquePointer? = null,
+)
 
-public data class KaddressRange(public var address: COpaquePointer? = null, public var size: Int = 0)
+public data class KaddressRange(
+    public var address: COpaquePointer? = null,
+    public var size: Int = 0,
+)
 
-public data class KaddressRangeDescriptor(public var addressRanges: KaddressRange? = null, public var addressRangeCount: Int = 0)
+public data class KaddressRangeDescriptor(
+    public var addressRanges: KaddressRange? = null,
+    public var addressRangeCount: Int = 0,
+)
 
 public data class Kapc(
     public var type: UByte = 0u,
@@ -461,7 +490,9 @@ public data class KeyCachedInformation(
     public var nameLength: UInt = 0u,
 )
 
-public data class KeyControlFlagsInformation(public var controlFlags: UInt = 0u)
+public data class KeyControlFlagsInformation(
+    public var controlFlags: UInt = 0u,
+)
 
 public data class KeyFullInformation(
     public var lastWriteTime: Long = 0L,
@@ -509,9 +540,14 @@ public data class KeyFullInformation(
     }
 }
 
-public data class KeyLayerInformation(public var bitfield: UInt = 0u)
+public data class KeyLayerInformation(
+    public var bitfield: UInt = 0u,
+)
 
-public data class KeyNameInformation(public var nameLength: UInt = 0u, public var name: UShortArray = UShortArray(1)) {
+public data class KeyNameInformation(
+    public var nameLength: UInt = 0u,
+    public var name: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is KeyNameInformation) return false
@@ -558,9 +594,13 @@ public data class KeyNodeInformation(
     }
 }
 
-public data class KeySetVirtualizationInformation(public var bitfield: UInt = 0u)
+public data class KeySetVirtualizationInformation(
+    public var bitfield: UInt = 0u,
+)
 
-public data class KeyTrustInformation(public var bitfield: UInt = 0u)
+public data class KeyTrustInformation(
+    public var bitfield: UInt = 0u,
+)
 
 public data class KeyValueBasicInformation(
     public var titleIndex: UInt = 0u,
@@ -618,7 +658,9 @@ public data class KeyValueFullInformation(
     }
 }
 
-public data class KeyValueLayerInformation(public var bitfield: UInt = 0u)
+public data class KeyValueLayerInformation(
+    public var bitfield: UInt = 0u,
+)
 
 public data class KeyValuePartialInformation(
     public var titleIndex: UInt = 0u,
@@ -667,11 +709,17 @@ public data class KeyValuePartialInformationAlign64(
     }
 }
 
-public data class KeyVirtualizationInformation(public var bitfield: UInt = 0u)
+public data class KeyVirtualizationInformation(
+    public var bitfield: UInt = 0u,
+)
 
-public data class KeyWow64FlagsInformation(public var userFlags: UInt = 0u)
+public data class KeyWow64FlagsInformation(
+    public var userFlags: UInt = 0u,
+)
 
-public data class KeyWriteTimeInformation(public var lastWriteTime: Long = 0L)
+public data class KeyWriteTimeInformation(
+    public var lastWriteTime: Long = 0L,
+)
 
 public data class KeProcessorChangeNotifyContext(
     public var state: KeProcessorChangeNotifyState = 0,
@@ -691,13 +739,24 @@ public data class KfloatingSave(
     public var spare1: UInt = 0u,
 )
 
-public data class Kgate(public var header: DispatcherHeader = DispatcherHeader())
+public data class Kgate(
+    public var header: DispatcherHeader = DispatcherHeader(),
+)
 
-public data class KlockQueueHandle(public var lockQueue: KspinLockQueue = KspinLockQueue(), public var oldIrql: UByte = 0u)
+public data class KlockQueueHandle(
+    public var lockQueue: KspinLockQueue = KspinLockQueue(),
+    public var oldIrql: UByte = 0u,
+)
 
-public data class Ksemaphore(public var header: DispatcherHeader = DispatcherHeader(), public var limit: Int = 0)
+public data class Ksemaphore(
+    public var header: DispatcherHeader = DispatcherHeader(),
+    public var limit: Int = 0,
+)
 
-public data class KspinLockQueue(public var next: KspinLockQueue? = null, public var lock: Int? = null)
+public data class KspinLockQueue(
+    public var next: KspinLockQueue? = null,
+    public var lock: Int? = null,
+)
 
 public data class KsystemTime(
     public var lowPart: UInt = 0u,
@@ -886,15 +945,27 @@ public class KuserSharedData {
     public var userPointerAuthMask: ULong = 0uL
 }
 
-public data class KuserSharedData0(public var mitigationPolicies: UByte = 0u, public var anonymous: KuserSharedData00 = KuserSharedData00())
+public data class KuserSharedData0(
+    public var mitigationPolicies: UByte = 0u,
+    public var anonymous: KuserSharedData00 = KuserSharedData00(),
+)
 
-public data class KuserSharedData00(public var bitfield: UByte = 0u)
+public data class KuserSharedData00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class KuserSharedData1(public var virtualizationFlags: UByte = 0u)
+public data class KuserSharedData1(
+    public var virtualizationFlags: UByte = 0u,
+)
 
-public data class KuserSharedData2(public var sharedDataFlags: UInt = 0u, public var anonymous: KuserSharedData20 = KuserSharedData20())
+public data class KuserSharedData2(
+    public var sharedDataFlags: UInt = 0u,
+    public var anonymous: KuserSharedData20 = KuserSharedData20(),
+)
 
-public data class KuserSharedData20(public var bitfield: UInt = 0u)
+public data class KuserSharedData20(
+    public var bitfield: UInt = 0u,
+)
 
 public data class KuserSharedData3(
     public var tickCount: KsystemTime = KsystemTime(),
@@ -902,7 +973,10 @@ public data class KuserSharedData3(
     public var anonymous: KuserSharedData30 = KuserSharedData30(),
 )
 
-public data class KuserSharedData30(public var reservedTickCountOverlay: UIntArray = UIntArray(3), public var tickCountPad: UIntArray = UIntArray(1)) {
+public data class KuserSharedData30(
+    public var reservedTickCountOverlay: UIntArray = UIntArray(3),
+    public var tickCountPad: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is KuserSharedData30) return false
@@ -918,11 +992,19 @@ public data class KuserSharedData30(public var reservedTickCountOverlay: UIntArr
     }
 }
 
-public data class KuserSharedData4(public var qpcData: UShort = 0u, public var anonymous: KuserSharedData40 = KuserSharedData40())
+public data class KuserSharedData4(
+    public var qpcData: UShort = 0u,
+    public var anonymous: KuserSharedData40 = KuserSharedData40(),
+)
 
-public data class KuserSharedData40(public var qpcBypassEnabled: UByte = 0u, public var qpcShift: UByte = 0u)
+public data class KuserSharedData40(
+    public var qpcBypassEnabled: UByte = 0u,
+    public var qpcShift: UByte = 0u,
+)
 
-public data class KwaitChain(public var head: COpaquePointer? = null)
+public data class KwaitChain(
+    public var head: COpaquePointer? = null,
+)
 
 public data class LegacyBusInformation(
     public var busTypeGuid: Guid = Guid(),
@@ -943,7 +1025,10 @@ public data class LoaderPartitionInformationEx(
     public var flags: UInt = 0u,
 )
 
-public data class LoaderPartitionInformationEx0(public var signature: UInt = 0u, public var deviceId: Guid = Guid())
+public data class LoaderPartitionInformationEx0(
+    public var signature: UInt = 0u,
+    public var deviceId: Guid = Guid(),
+)
 
 public data class MailslotCreateParameters(
     public var mailslotQuota: UInt = 0u,
@@ -952,7 +1037,10 @@ public data class MailslotCreateParameters(
     public var timeoutSpecified: Boolean = false,
 )
 
-public data class MapRegisterEntry(public var mapRegister: COpaquePointer? = null, public var writeToDevice: Boolean = false)
+public data class MapRegisterEntry(
+    public var mapRegister: COpaquePointer? = null,
+    public var writeToDevice: Boolean = false,
+)
 
 public data class McaDriverInfo(
     public var exceptionCallback: Int = 0,
@@ -1000,7 +1088,10 @@ public data class McaException(
     }
 }
 
-public data class McaException0(public var mca: McaException00 = McaException00(), public var mce: McaException01 = McaException01())
+public data class McaException0(
+    public var mca: McaException00 = McaException00(),
+    public var mce: McaException01 = McaException01(),
+)
 
 public data class McaException00(
     public var bankNumber: UByte = 0u,
@@ -1030,21 +1121,44 @@ public data class McaException00(
     }
 }
 
-public data class McaException01(public var address: ULong = 0uL, public var type: ULong = 0uL)
+public data class McaException01(
+    public var address: ULong = 0uL,
+    public var type: ULong = 0uL,
+)
 
-public data class McgCap(public var anonymous: McgCap0 = McgCap0(), public var quadPart: ULong = 0uL)
+public data class McgCap(
+    public var anonymous: McgCap0 = McgCap0(),
+    public var quadPart: ULong = 0uL,
+)
 
-public data class McgCap0(public var bitfield: ULong = 0uL)
+public data class McgCap0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class McgStatus(public var anonymous: McgStatus0 = McgStatus0(), public var quadPart: ULong = 0uL)
+public data class McgStatus(
+    public var anonymous: McgStatus0 = McgStatus0(),
+    public var quadPart: ULong = 0uL,
+)
 
-public data class McgStatus0(public var bitfield: UInt = 0u, public var reserved2: UInt = 0u)
+public data class McgStatus0(
+    public var bitfield: UInt = 0u,
+    public var reserved2: UInt = 0u,
+)
 
-public data class MciAddr(public var anonymous: MciAddr0 = MciAddr0(), public var quadPart: ULong = 0uL)
+public data class MciAddr(
+    public var anonymous: MciAddr0 = MciAddr0(),
+    public var quadPart: ULong = 0uL,
+)
 
-public data class MciAddr0(public var address: UInt = 0u, public var reserved: UInt = 0u)
+public data class MciAddr0(
+    public var address: UInt = 0u,
+    public var reserved: UInt = 0u,
+)
 
-public data class MciStats(public var mciStats: MciStats0 = MciStats0(), public var quadPart: ULong = 0uL)
+public data class MciStats(
+    public var mciStats: MciStats0 = MciStats0(),
+    public var quadPart: ULong = 0uL,
+)
 
 public data class MciStats0(
     public var mcaCod: UShort = 0u,
@@ -1059,11 +1173,17 @@ public data class MciStatus(
     public var quadPart: ULong = 0uL,
 )
 
-public data class MciStatusAmdBits(public var bitfield: ULong = 0uL)
+public data class MciStatusAmdBits(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class MciStatusBitsCommon(public var bitfield: ULong = 0uL)
+public data class MciStatusBitsCommon(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class MciStatusIntelBits(public var bitfield: ULong = 0uL)
+public data class MciStatusIntelBits(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class MemoryPartitionDedicatedMemoryOpenInformation(
     public var dedicatedMemoryTypeId: ULong = 0uL,
@@ -1072,11 +1192,19 @@ public data class MemoryPartitionDedicatedMemoryOpenInformation(
     public var dedicatedMemoryPartitionHandle: Handle = null,
 )
 
-public data class MmCopyAddress(public var anonymous: MmCopyAddress0 = MmCopyAddress0())
+public data class MmCopyAddress(
+    public var anonymous: MmCopyAddress0 = MmCopyAddress0(),
+)
 
-public data class MmCopyAddress0(public var virtualAddress: COpaquePointer? = null, public var physicalAddress: Long = 0L)
+public data class MmCopyAddress0(
+    public var virtualAddress: COpaquePointer? = null,
+    public var physicalAddress: Long = 0L,
+)
 
-public data class MmPhysicalAddressList(public var physicalAddress: Long = 0L, public var numberOfBytes: Int = 0)
+public data class MmPhysicalAddressList(
+    public var physicalAddress: Long = 0L,
+    public var numberOfBytes: Int = 0,
+)
 
 public data class MuTelemetrySection(
     public var componentID: Guid = Guid(),
@@ -1098,9 +1226,14 @@ public data class NamedPipeCreateParameters(
     public var timeoutSpecified: Boolean = false,
 )
 
-public data class NpemCapabilityStandard(public var anonymous: NpemCapabilityStandard0 = NpemCapabilityStandard0(), public var asULONG: UInt = 0u)
+public data class NpemCapabilityStandard(
+    public var anonymous: NpemCapabilityStandard0 = NpemCapabilityStandard0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class NpemCapabilityStandard0(public var bitfield: UInt = 0u)
+public data class NpemCapabilityStandard0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class NpemControlInterface(
     public var size: UShort = 0u,
@@ -1124,9 +1257,15 @@ public data class NtTib32(
     public var self: UInt = 0u,
 )
 
-public data class NtTib320(public var fiberData: UInt = 0u, public var version: UInt = 0u)
+public data class NtTib320(
+    public var fiberData: UInt = 0u,
+    public var version: UInt = 0u,
+)
 
-public data class ObjectHandleInformation(public var handleAttributes: UInt = 0u, public var grantedAccess: UInt = 0u)
+public data class ObjectHandleInformation(
+    public var handleAttributes: UInt = 0u,
+    public var grantedAccess: UInt = 0u,
+)
 
 public data class ObCallbackRegistration(
     public var version: UShort = 0u,
@@ -1143,9 +1282,13 @@ public data class ObOperationRegistration(
     public var postOperation: PobPostOperationCallback = null,
 )
 
-public data class ObPostCreateHandleInformation(public var grantedAccess: UInt = 0u)
+public data class ObPostCreateHandleInformation(
+    public var grantedAccess: UInt = 0u,
+)
 
-public data class ObPostDuplicateHandleInformation(public var grantedAccess: UInt = 0u)
+public data class ObPostDuplicateHandleInformation(
+    public var grantedAccess: UInt = 0u,
+)
 
 public data class ObPostOperationInformation(
     public var operation: UInt = 0u,
@@ -1157,13 +1300,24 @@ public data class ObPostOperationInformation(
     public var parameters: ObPostOperationParameters? = null,
 )
 
-public data class ObPostOperationInformation0(public var flags: UInt = 0u, public var anonymous: ObPostOperationInformation00 = ObPostOperationInformation00())
+public data class ObPostOperationInformation0(
+    public var flags: UInt = 0u,
+    public var anonymous: ObPostOperationInformation00 = ObPostOperationInformation00(),
+)
 
-public data class ObPostOperationInformation00(public var bitfield: UInt = 0u)
+public data class ObPostOperationInformation00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ObPostOperationParameters(public var createHandleInformation: ObPostCreateHandleInformation = ObPostCreateHandleInformation(), public var duplicateHandleInformation: ObPostDuplicateHandleInformation = ObPostDuplicateHandleInformation())
+public data class ObPostOperationParameters(
+    public var createHandleInformation: ObPostCreateHandleInformation = ObPostCreateHandleInformation(),
+    public var duplicateHandleInformation: ObPostDuplicateHandleInformation = ObPostDuplicateHandleInformation(),
+)
 
-public data class ObPreCreateHandleInformation(public var desiredAccess: UInt = 0u, public var originalDesiredAccess: UInt = 0u)
+public data class ObPreCreateHandleInformation(
+    public var desiredAccess: UInt = 0u,
+    public var originalDesiredAccess: UInt = 0u,
+)
 
 public data class ObPreDuplicateHandleInformation(
     public var desiredAccess: UInt = 0u,
@@ -1181,13 +1335,23 @@ public data class ObPreOperationInformation(
     public var parameters: ObPreOperationParameters? = null,
 )
 
-public data class ObPreOperationInformation0(public var flags: UInt = 0u, public var anonymous: ObPreOperationInformation00 = ObPreOperationInformation00())
+public data class ObPreOperationInformation0(
+    public var flags: UInt = 0u,
+    public var anonymous: ObPreOperationInformation00 = ObPreOperationInformation00(),
+)
 
-public data class ObPreOperationInformation00(public var bitfield: UInt = 0u)
+public data class ObPreOperationInformation00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ObPreOperationParameters(public var createHandleInformation: ObPreCreateHandleInformation = ObPreCreateHandleInformation(), public var duplicateHandleInformation: ObPreDuplicateHandleInformation = ObPreDuplicateHandleInformation())
+public data class ObPreOperationParameters(
+    public var createHandleInformation: ObPreCreateHandleInformation = ObPreCreateHandleInformation(),
+    public var duplicateHandleInformation: ObPreDuplicateHandleInformation = ObPreDuplicateHandleInformation(),
+)
 
-public data class PagePriorityInformation(public var pagePriority: UInt = 0u)
+public data class PagePriorityInformation(
+    public var pagePriority: UInt = 0u,
+)
 
 public data class Pcibusdata(
     public var tag: UInt = 0u,
@@ -1214,17 +1378,32 @@ public data class PcixBridgeCapability(
     public var eccAttribute: UInt = 0u,
 )
 
-public data class PcixBridgeCapability1(public var anonymous: PcixBridgeCapability10 = PcixBridgeCapability10(), public var asULONG: UInt = 0u)
+public data class PcixBridgeCapability1(
+    public var anonymous: PcixBridgeCapability10 = PcixBridgeCapability10(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PcixBridgeCapability10(public var bitfield: UInt = 0u)
+public data class PcixBridgeCapability10(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PcixBridgeCapability2(public var anonymous: PcixBridgeCapability20 = PcixBridgeCapability20(), public var asULONG: UInt = 0u)
+public data class PcixBridgeCapability2(
+    public var anonymous: PcixBridgeCapability20 = PcixBridgeCapability20(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PcixBridgeCapability20(public var bitfield: UInt = 0u)
+public data class PcixBridgeCapability20(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PcixBridgeCapability0(public var anonymous: PcixBridgeCapability00 = PcixBridgeCapability00(), public var asUSHORT: UShort = 0u)
+public data class PcixBridgeCapability0(
+    public var anonymous: PcixBridgeCapability00 = PcixBridgeCapability00(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PcixBridgeCapability00(public var bitfield: UShort = 0u)
+public data class PcixBridgeCapability00(
+    public var bitfield: UShort = 0u,
+)
 
 public data class PciAdvancedFeaturesCapability(
     public var header: PciCapabilitiesHeader = PciCapabilitiesHeader(),
@@ -1234,19 +1413,36 @@ public data class PciAdvancedFeaturesCapability(
     public var status: PciAdvancedFeaturesCapability2 = PciAdvancedFeaturesCapability2(),
 )
 
-public data class PciAdvancedFeaturesCapability0(public var anonymous: PciAdvancedFeaturesCapability00 = PciAdvancedFeaturesCapability00(), public var asUCHAR: UByte = 0u)
+public data class PciAdvancedFeaturesCapability0(
+    public var anonymous: PciAdvancedFeaturesCapability00 = PciAdvancedFeaturesCapability00(),
+    public var asUCHAR: UByte = 0u,
+)
 
-public data class PciAdvancedFeaturesCapability00(public var bitfield: UByte = 0u)
+public data class PciAdvancedFeaturesCapability00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class PciAdvancedFeaturesCapability1(public var anonymous: PciAdvancedFeaturesCapability10 = PciAdvancedFeaturesCapability10(), public var asUCHAR: UByte = 0u)
+public data class PciAdvancedFeaturesCapability1(
+    public var anonymous: PciAdvancedFeaturesCapability10 = PciAdvancedFeaturesCapability10(),
+    public var asUCHAR: UByte = 0u,
+)
 
-public data class PciAdvancedFeaturesCapability10(public var bitfield: UByte = 0u)
+public data class PciAdvancedFeaturesCapability10(
+    public var bitfield: UByte = 0u,
+)
 
-public data class PciAdvancedFeaturesCapability2(public var anonymous: PciAdvancedFeaturesCapability20 = PciAdvancedFeaturesCapability20(), public var asUCHAR: UByte = 0u)
+public data class PciAdvancedFeaturesCapability2(
+    public var anonymous: PciAdvancedFeaturesCapability20 = PciAdvancedFeaturesCapability20(),
+    public var asUCHAR: UByte = 0u,
+)
 
-public data class PciAdvancedFeaturesCapability20(public var bitfield: UByte = 0u)
+public data class PciAdvancedFeaturesCapability20(
+    public var bitfield: UByte = 0u,
+)
 
-public data class PciAgpAperturePageSize(public var bitfield: UShort = 0u)
+public data class PciAgpAperturePageSize(
+    public var bitfield: UShort = 0u,
+)
 
 public data class PciAgpCapability(
     public var header: PciCapabilitiesHeader = PciCapabilitiesHeader(),
@@ -1255,11 +1451,17 @@ public data class PciAgpCapability(
     public var aGPCommand: PciAgpCapability1 = PciAgpCapability1(),
 )
 
-public data class PciAgpCapability1(public var bitfield: UInt = 0u)
+public data class PciAgpCapability1(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciAgpCapability0(public var bitfield: UInt = 0u)
+public data class PciAgpCapability0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciAgpControl(public var bitfield: UInt = 0u)
+public data class PciAgpControl(
+    public var bitfield: UInt = 0u,
+)
 
 public data class PciAgpExtendedCapability(
     public var isochStatus: PciAgpIsochStatus = PciAgpIsochStatus(),
@@ -1271,9 +1473,13 @@ public data class PciAgpExtendedCapability(
     public var isochCommand: PciAgpIsochCommand = PciAgpIsochCommand(),
 )
 
-public data class PciAgpIsochCommand(public var bitfield: UShort = 0u)
+public data class PciAgpIsochCommand(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciAgpIsochStatus(public var bitfield: UInt = 0u)
+public data class PciAgpIsochStatus(
+    public var bitfield: UInt = 0u,
+)
 
 public data class PciAtsInterface(
     public var size: UShort = 0u,
@@ -1300,9 +1506,15 @@ public data class PciBusInterfaceStandard(
     public var prepareMultistageResume: PpciPrepareMultistageResume = null,
 )
 
-public data class PciCapabilitiesHeader(public var capabilityID: UByte = 0u, public var next: UByte = 0u)
+public data class PciCapabilitiesHeader(
+    public var capabilityID: UByte = 0u,
+    public var next: UByte = 0u,
+)
 
-public data class PciCommonConfig(public var base: PciCommonHeader = PciCommonHeader(), public var deviceSpecific: UByteArray = UByteArray(192)) {
+public data class PciCommonConfig(
+    public var base: PciCommonHeader = PciCommonHeader(),
+    public var deviceSpecific: UByteArray = UByteArray(192),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PciCommonConfig) return false
@@ -1429,7 +1641,10 @@ public data class PciCommonHeader02(
     public var bridgeControl: UShort = 0u,
 )
 
-public data class PciCommonHeader020(public var base: UInt = 0u, public var limit: UInt = 0u)
+public data class PciCommonHeader020(
+    public var base: UInt = 0u,
+    public var limit: UInt = 0u,
+)
 
 public data class PciDebuggingDeviceInUse(
     public var segment: UShort = 0u,
@@ -1485,17 +1700,32 @@ public data class PciExpressAcsCapability(
     }
 }
 
-public data class PciExpressAcsCapabilityRegister(public var anonymous: PciExpressAcsCapabilityRegister0 = PciExpressAcsCapabilityRegister0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressAcsCapabilityRegister(
+    public var anonymous: PciExpressAcsCapabilityRegister0 = PciExpressAcsCapabilityRegister0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressAcsCapabilityRegister0(public var bitfield: UShort = 0u)
+public data class PciExpressAcsCapabilityRegister0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressAcsControl(public var anonymous: PciExpressAcsControl0 = PciExpressAcsControl0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressAcsControl(
+    public var anonymous: PciExpressAcsControl0 = PciExpressAcsControl0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressAcsControl0(public var bitfield: UShort = 0u)
+public data class PciExpressAcsControl0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressAerCapabilities(public var anonymous: PciExpressAerCapabilities0 = PciExpressAerCapabilities0(), public var asULONG: UInt = 0u)
+public data class PciExpressAerCapabilities(
+    public var anonymous: PciExpressAerCapabilities0 = PciExpressAerCapabilities0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressAerCapabilities0(public var bitfield: UInt = 0u)
+public data class PciExpressAerCapabilities0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class PciExpressAerCapability(
     public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
@@ -1555,9 +1785,13 @@ public data class PciExpressAriCapability(
     public var control: PciExpressAriControlRegister = PciExpressAriControlRegister(),
 )
 
-public data class PciExpressAriCapabilityRegister(public var bitfield: UShort = 0u)
+public data class PciExpressAriCapabilityRegister(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressAriControlRegister(public var bitfield: UShort = 0u)
+public data class PciExpressAriControlRegister(
+    public var bitfield: UShort = 0u,
+)
 
 public data class PciExpressAtsCapability(
     public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
@@ -1565,11 +1799,18 @@ public data class PciExpressAtsCapability(
     public var control: PciExpressAtsControlRegister = PciExpressAtsControlRegister(),
 )
 
-public data class PciExpressAtsCapabilityRegister(public var bitfield: UShort = 0u)
+public data class PciExpressAtsCapabilityRegister(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressAtsControlRegister(public var anonymous: PciExpressAtsControlRegister0 = PciExpressAtsControlRegister0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressAtsControlRegister(
+    public var anonymous: PciExpressAtsControlRegister0 = PciExpressAtsControlRegister0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressAtsControlRegister0(public var bitfield: UShort = 0u)
+public data class PciExpressAtsControlRegister0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class PciExpressBridgeAerCapability(
     public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
@@ -1623,9 +1864,14 @@ public data class PciExpressBridgeAerCapability(
     }
 }
 
-public data class PciExpressCapabilitiesRegister(public var anonymous: PciExpressCapabilitiesRegister0 = PciExpressCapabilitiesRegister0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressCapabilitiesRegister(
+    public var anonymous: PciExpressCapabilitiesRegister0 = PciExpressCapabilitiesRegister0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressCapabilitiesRegister0(public var bitfield: UShort = 0u)
+public data class PciExpressCapabilitiesRegister0(
+    public var bitfield: UShort = 0u,
+)
 
 public class PciExpressCapability(
     public var header: PciCapabilitiesHeader = PciCapabilitiesHeader(),
@@ -1650,13 +1896,23 @@ public class PciExpressCapability(
     public var linkStatus2: PciExpressLinkStatus2Register = PciExpressLinkStatus2Register(),
 )
 
-public data class PciExpressCorrectableErrorMask(public var anonymous: PciExpressCorrectableErrorMask0 = PciExpressCorrectableErrorMask0(), public var asULONG: UInt = 0u)
+public data class PciExpressCorrectableErrorMask(
+    public var anonymous: PciExpressCorrectableErrorMask0 = PciExpressCorrectableErrorMask0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressCorrectableErrorMask0(public var bitfield: UInt = 0u)
+public data class PciExpressCorrectableErrorMask0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciExpressCorrectableErrorStatus(public var anonymous: PciExpressCorrectableErrorStatus0 = PciExpressCorrectableErrorStatus0(), public var asULONG: UInt = 0u)
+public data class PciExpressCorrectableErrorStatus(
+    public var anonymous: PciExpressCorrectableErrorStatus0 = PciExpressCorrectableErrorStatus0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressCorrectableErrorStatus0(public var bitfield: UInt = 0u)
+public data class PciExpressCorrectableErrorStatus0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class PciExpressCxlDvsecCapability(
     public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
@@ -1683,9 +1939,14 @@ public data class PciExpressCxlDvsecCapability(
     }
 }
 
-public data class PciExpressCxlDvsecCapabilityRegisterV11(public var anonymous: PciExpressCxlDvsecCapabilityRegisterV110 = PciExpressCxlDvsecCapabilityRegisterV110(), public var asUSHORT: UShort = 0u)
+public data class PciExpressCxlDvsecCapabilityRegisterV11(
+    public var anonymous: PciExpressCxlDvsecCapabilityRegisterV110 = PciExpressCxlDvsecCapabilityRegisterV110(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressCxlDvsecCapabilityRegisterV110(public var bitfield: UShort = 0u)
+public data class PciExpressCxlDvsecCapabilityRegisterV110(
+    public var bitfield: UShort = 0u,
+)
 
 public class PciExpressCxlDvsecCapabilityV11(
     public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
@@ -1708,29 +1969,58 @@ public class PciExpressCxlDvsecCapabilityV11(
     public var range2BaseLow: PciExpressCxlDvsecRangeBaseLowRegister = PciExpressCxlDvsecRangeBaseLowRegister(),
 )
 
-public data class PciExpressCxlDvsecControlRegister(public var anonymous: PciExpressCxlDvsecControlRegister0 = PciExpressCxlDvsecControlRegister0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressCxlDvsecControlRegister(
+    public var anonymous: PciExpressCxlDvsecControlRegister0 = PciExpressCxlDvsecControlRegister0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressCxlDvsecControlRegister0(public var bitfield: UShort = 0u)
+public data class PciExpressCxlDvsecControlRegister0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressCxlDvsecLockRegister(public var anonymous: PciExpressCxlDvsecLockRegister0 = PciExpressCxlDvsecLockRegister0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressCxlDvsecLockRegister(
+    public var anonymous: PciExpressCxlDvsecLockRegister0 = PciExpressCxlDvsecLockRegister0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressCxlDvsecLockRegister0(public var bitfield: UShort = 0u)
+public data class PciExpressCxlDvsecLockRegister0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressCxlDvsecRangeBaseHighRegister(public var memBaseHigh: UInt = 0u)
+public data class PciExpressCxlDvsecRangeBaseHighRegister(
+    public var memBaseHigh: UInt = 0u,
+)
 
-public data class PciExpressCxlDvsecRangeBaseLowRegister(public var anonymous: PciExpressCxlDvsecRangeBaseLowRegister0 = PciExpressCxlDvsecRangeBaseLowRegister0(), public var asULONG: UInt = 0u)
+public data class PciExpressCxlDvsecRangeBaseLowRegister(
+    public var anonymous: PciExpressCxlDvsecRangeBaseLowRegister0 = PciExpressCxlDvsecRangeBaseLowRegister0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressCxlDvsecRangeBaseLowRegister0(public var bitfield: UInt = 0u)
+public data class PciExpressCxlDvsecRangeBaseLowRegister0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciExpressCxlDvsecRangeSizeHighRegister(public var memSizeHigh: UInt = 0u)
+public data class PciExpressCxlDvsecRangeSizeHighRegister(
+    public var memSizeHigh: UInt = 0u,
+)
 
-public data class PciExpressCxlDvsecRangeSizeLowRegisterV11(public var anonymous: PciExpressCxlDvsecRangeSizeLowRegisterV110 = PciExpressCxlDvsecRangeSizeLowRegisterV110(), public var asULONG: UInt = 0u)
+public data class PciExpressCxlDvsecRangeSizeLowRegisterV11(
+    public var anonymous: PciExpressCxlDvsecRangeSizeLowRegisterV110 = PciExpressCxlDvsecRangeSizeLowRegisterV110(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressCxlDvsecRangeSizeLowRegisterV110(public var bitfield: UInt = 0u)
+public data class PciExpressCxlDvsecRangeSizeLowRegisterV110(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciExpressCxlDvsecStatusRegister(public var anonymous: PciExpressCxlDvsecStatusRegister0 = PciExpressCxlDvsecStatusRegister0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressCxlDvsecStatusRegister(
+    public var anonymous: PciExpressCxlDvsecStatusRegister0 = PciExpressCxlDvsecStatusRegister0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressCxlDvsecStatusRegister0(public var bitfield: UShort = 0u)
+public data class PciExpressCxlDvsecStatusRegister0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class PciExpressDesignatedVendorSpecificCapability(
     public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
@@ -1757,25 +2047,50 @@ public data class PciExpressDesignatedVendorSpecificCapability(
     }
 }
 
-public data class PciExpressDesignatedVendorSpecificHeader1(public var anonymous: PciExpressDesignatedVendorSpecificHeader10 = PciExpressDesignatedVendorSpecificHeader10(), public var asULONG: UInt = 0u)
+public data class PciExpressDesignatedVendorSpecificHeader1(
+    public var anonymous: PciExpressDesignatedVendorSpecificHeader10 = PciExpressDesignatedVendorSpecificHeader10(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressDesignatedVendorSpecificHeader10(public var bitfield: UInt = 0u)
+public data class PciExpressDesignatedVendorSpecificHeader10(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciExpressDesignatedVendorSpecificHeader2(public var anonymous: PciExpressDesignatedVendorSpecificHeader20 = PciExpressDesignatedVendorSpecificHeader20(), public var asUSHORT: UShort = 0u)
+public data class PciExpressDesignatedVendorSpecificHeader2(
+    public var anonymous: PciExpressDesignatedVendorSpecificHeader20 = PciExpressDesignatedVendorSpecificHeader20(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressDesignatedVendorSpecificHeader20(public var bitfield: UShort = 0u)
+public data class PciExpressDesignatedVendorSpecificHeader20(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressDeviceCapabilities2Register(public var anonymous: PciExpressDeviceCapabilities2Register0 = PciExpressDeviceCapabilities2Register0(), public var asULONG: UInt = 0u)
+public data class PciExpressDeviceCapabilities2Register(
+    public var anonymous: PciExpressDeviceCapabilities2Register0 = PciExpressDeviceCapabilities2Register0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressDeviceCapabilities2Register0(public var bitfield: UInt = 0u)
+public data class PciExpressDeviceCapabilities2Register0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciExpressDeviceCapabilitiesRegister(public var anonymous: PciExpressDeviceCapabilitiesRegister0 = PciExpressDeviceCapabilitiesRegister0(), public var asULONG: UInt = 0u)
+public data class PciExpressDeviceCapabilitiesRegister(
+    public var anonymous: PciExpressDeviceCapabilitiesRegister0 = PciExpressDeviceCapabilitiesRegister0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressDeviceCapabilitiesRegister0(public var bitfield: UInt = 0u)
+public data class PciExpressDeviceCapabilitiesRegister0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciExpressDeviceControl2Register(public var anonymous: PciExpressDeviceControl2Register0 = PciExpressDeviceControl2Register0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressDeviceControl2Register(
+    public var anonymous: PciExpressDeviceControl2Register0 = PciExpressDeviceControl2Register0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressDeviceControl2Register0(public var bitfield: UShort = 0u)
+public data class PciExpressDeviceControl2Register0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class PciExpressDeviceControlRegister(
     public var anonymous1: PciExpressDeviceControlRegister0 = PciExpressDeviceControlRegister0(),
@@ -1783,17 +2098,31 @@ public data class PciExpressDeviceControlRegister(
     public var asUSHORT: UShort = 0u,
 )
 
-public data class PciExpressDeviceControlRegister0(public var bitfield: UShort = 0u)
+public data class PciExpressDeviceControlRegister0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressDeviceControlRegister1(public var bitfield: UShort = 0u)
+public data class PciExpressDeviceControlRegister1(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressDeviceStatus2Register(public var anonymous: PciExpressDeviceStatus2Register0 = PciExpressDeviceStatus2Register0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressDeviceStatus2Register(
+    public var anonymous: PciExpressDeviceStatus2Register0 = PciExpressDeviceStatus2Register0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressDeviceStatus2Register0(public var bitfield: UShort = 0u)
+public data class PciExpressDeviceStatus2Register0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressDeviceStatusRegister(public var anonymous: PciExpressDeviceStatusRegister0 = PciExpressDeviceStatusRegister0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressDeviceStatusRegister(
+    public var anonymous: PciExpressDeviceStatusRegister0 = PciExpressDeviceStatusRegister0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressDeviceStatusRegister0(public var bitfield: UShort = 0u)
+public data class PciExpressDeviceStatusRegister0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class PciExpressDpcCapability(
     public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
@@ -1811,23 +2140,45 @@ public data class PciExpressDpcCapability(
     public var rpPioPrefixLog: PciExpressDpcRpPioTlpprefixlogRegister = PciExpressDpcRpPioTlpprefixlogRegister(),
 )
 
-public data class PciExpressDpcCapsRegister(public var anonymous: PciExpressDpcCapsRegister0 = PciExpressDpcCapsRegister0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressDpcCapsRegister(
+    public var anonymous: PciExpressDpcCapsRegister0 = PciExpressDpcCapsRegister0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressDpcCapsRegister0(public var bitfield: UShort = 0u)
+public data class PciExpressDpcCapsRegister0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressDpcControlRegister(public var anonymous: PciExpressDpcControlRegister0 = PciExpressDpcControlRegister0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressDpcControlRegister(
+    public var anonymous: PciExpressDpcControlRegister0 = PciExpressDpcControlRegister0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressDpcControlRegister0(public var bitfield: UShort = 0u)
+public data class PciExpressDpcControlRegister0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressDpcErrorSourceId(public var anonymous: PciExpressDpcErrorSourceId0 = PciExpressDpcErrorSourceId0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressDpcErrorSourceId(
+    public var anonymous: PciExpressDpcErrorSourceId0 = PciExpressDpcErrorSourceId0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressDpcErrorSourceId0(public var bitfield: UShort = 0u)
+public data class PciExpressDpcErrorSourceId0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressDpcRpPioExceptionRegister(public var anonymous: PciExpressDpcRpPioExceptionRegister0 = PciExpressDpcRpPioExceptionRegister0(), public var asULONG: UInt = 0u)
+public data class PciExpressDpcRpPioExceptionRegister(
+    public var anonymous: PciExpressDpcRpPioExceptionRegister0 = PciExpressDpcRpPioExceptionRegister0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressDpcRpPioExceptionRegister0(public var bitfield: UInt = 0u)
+public data class PciExpressDpcRpPioExceptionRegister0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciExpressDpcRpPioHeaderlogRegister(public var pioHeaderLogRegister: UIntArray = UIntArray(4)) {
+public data class PciExpressDpcRpPioHeaderlogRegister(
+    public var pioHeaderLogRegister: UIntArray = UIntArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PciExpressDpcRpPioHeaderlogRegister) return false
@@ -1835,30 +2186,52 @@ public data class PciExpressDpcRpPioHeaderlogRegister(public var pioHeaderLogReg
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.pioHeaderLogRegister.contentHashCode()
-    }
+    override fun hashCode(): Int = this.pioHeaderLogRegister.contentHashCode()
 }
 
-public data class PciExpressDpcRpPioImpspeclogRegister(public var pioImpSpecLog: UInt = 0u)
+public data class PciExpressDpcRpPioImpspeclogRegister(
+    public var pioImpSpecLog: UInt = 0u,
+)
 
-public data class PciExpressDpcRpPioMaskRegister(public var anonymous: PciExpressDpcRpPioMaskRegister0 = PciExpressDpcRpPioMaskRegister0(), public var asULONG: UInt = 0u)
+public data class PciExpressDpcRpPioMaskRegister(
+    public var anonymous: PciExpressDpcRpPioMaskRegister0 = PciExpressDpcRpPioMaskRegister0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressDpcRpPioMaskRegister0(public var bitfield: UInt = 0u)
+public data class PciExpressDpcRpPioMaskRegister0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciExpressDpcRpPioSeverityRegister(public var anonymous: PciExpressDpcRpPioSeverityRegister0 = PciExpressDpcRpPioSeverityRegister0(), public var asULONG: UInt = 0u)
+public data class PciExpressDpcRpPioSeverityRegister(
+    public var anonymous: PciExpressDpcRpPioSeverityRegister0 = PciExpressDpcRpPioSeverityRegister0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressDpcRpPioSeverityRegister0(public var bitfield: UInt = 0u)
+public data class PciExpressDpcRpPioSeverityRegister0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciExpressDpcRpPioStatusRegister(public var anonymous: PciExpressDpcRpPioStatusRegister0 = PciExpressDpcRpPioStatusRegister0(), public var asULONG: UInt = 0u)
+public data class PciExpressDpcRpPioStatusRegister(
+    public var anonymous: PciExpressDpcRpPioStatusRegister0 = PciExpressDpcRpPioStatusRegister0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressDpcRpPioStatusRegister0(public var bitfield: UInt = 0u)
+public data class PciExpressDpcRpPioStatusRegister0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciExpressDpcRpPioSyserrRegister(public var anonymous: PciExpressDpcRpPioSyserrRegister0 = PciExpressDpcRpPioSyserrRegister0(), public var asULONG: UInt = 0u)
+public data class PciExpressDpcRpPioSyserrRegister(
+    public var anonymous: PciExpressDpcRpPioSyserrRegister0 = PciExpressDpcRpPioSyserrRegister0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class PciExpressDpcRpPioSyserrRegister0(public var bitfield: UInt = 0u)
+public data class PciExpressDpcRpPioSyserrRegister0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PciExpressDpcRpPioTlpprefixlogRegister(public var pioTlpPrefixLogRegister: UIntArray = UIntArray(4)) {
+public data class PciExpressDpcRpPioTlpprefixlogRegister(
+    public var pioTlpPrefixLogRegister: UIntArray = UIntArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PciExpressDpcRpPioTlpprefixlogRegister) return false
@@ -1866,15 +2239,24 @@ public data class PciExpressDpcRpPioTlpprefixlogRegister(public var pioTlpPrefix
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.pioTlpPrefixLogRegister.contentHashCode()
-    }
+    override fun hashCode(): Int = this.pioTlpPrefixLogRegister.contentHashCode()
 }
 
-public data class PciExpressDpcStatusRegister(public var anonymous: PciExpressDpcStatusRegister0 = PciExpressDpcStatusRegister0(), public var asUSHORT: UShort = 0u)
+public data class PciExpressDpcStatusRegister(
+    public var anonymous: PciExpressDpcStatusRegister0 = PciExpressDpcStatusRegister0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class PciExpressDpcStatusRegister0(public var bitfield: UShort = 0u)
+public data class PciExpressDpcStatusRegister0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressEnhancedCapabilityHeader(public var capabilityID: UShort = 0u, public var bitfield: UShort = 0u)
+public data class PciExpressEnhancedCapabilityHeader(
+    public var capabilityID: UShort = 0u,
+    public var bitfield: UShort = 0u,
+)
 
-public data class PciExpressErrorSourceId(public var anonymous: PciExpressErrorSourceId0 = PciExpressErrorSourceId0(), public var asULONG: UInt = 0u)
+public data class PciExpressErrorSourceId(
+    public var anonymous: PciExpressErrorSourceId0 = PciExpressErrorSourceId0(),
+    public var asULONG: UInt = 0u,
+)

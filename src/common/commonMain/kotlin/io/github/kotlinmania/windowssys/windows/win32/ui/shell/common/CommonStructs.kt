@@ -1,12 +1,18 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell.common
 
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class ComdlgFilterspec(public var pszName: Pcwstr = null, public var pszSpec: Pcwstr = null)
+public data class ComdlgFilterspec(
+    public var pszName: Pcwstr = null,
+    public var pszSpec: Pcwstr = null,
+)
 
-public data class Itemidlist(public var mkid: Shitemid = Shitemid())
+public data class Itemidlist(
+    public var mkid: Shitemid = Shitemid(),
+)
 
 public data class Shelldetails(
     public var fmt: Int = 0,
@@ -14,7 +20,10 @@ public data class Shelldetails(
     public var str: Strret = Strret(),
 )
 
-public data class Shitemid(public var cb: UShort = 0u, public var abID: UByteArray = UByteArray(1)) {
+public data class Shitemid(
+    public var cb: UShort = 0u,
+    public var abID: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Shitemid) return false
@@ -30,7 +39,10 @@ public data class Shitemid(public var cb: UShort = 0u, public var abID: UByteArr
     }
 }
 
-public data class Strret(public var uType: UInt = 0u, public var anonymous: Strret0 = Strret0())
+public data class Strret(
+    public var uType: UInt = 0u,
+    public var anonymous: Strret0 = Strret0(),
+)
 
 public data class Strret0(
     public var pOleStr: Pwstr = null,

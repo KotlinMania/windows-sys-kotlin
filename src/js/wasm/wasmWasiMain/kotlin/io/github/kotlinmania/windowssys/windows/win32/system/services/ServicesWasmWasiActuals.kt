@@ -180,9 +180,8 @@ public actual fun subscribeServiceChangeNotifications(hservice: ScHandle, eevent
 public actual fun unlockServiceDatabase(sclock: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun unsubscribeServiceChangeNotifications(psubscription: PscNotificationRegistration) {
+public actual fun unsubscribeServiceChangeNotifications(psubscription: PscNotificationRegistration): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun waitServiceState(hservice: ScHandle, dwnotify: UInt, dwtimeout: UInt, hcancelevent: Handle): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

@@ -42,9 +42,15 @@ public data class NsContextAttributes(
     public var pfnOsVersionCheck: PnsOsversioncheck = null,
 )
 
-public data class NsContextAttributes0(public var anonymous: NsContextAttributes00 = NsContextAttributes00(), public var ullAlign: ULong = 0uL)
+public data class NsContextAttributes0(
+    public var anonymous: NsContextAttributes00 = NsContextAttributes00(),
+    public var ullAlign: ULong = 0uL,
+)
 
-public data class NsContextAttributes00(public var dwVersion: UInt = 0u, public var dwReserved: UInt = 0u)
+public data class NsContextAttributes00(
+    public var dwVersion: UInt = 0u,
+    public var dwReserved: UInt = 0u,
+)
 
 public data class NsHelperAttributes(
     public var anonymous: NsHelperAttributes0 = NsHelperAttributes0(),
@@ -53,9 +59,15 @@ public data class NsHelperAttributes(
     public var pfnStop: PnsHelperStopFn = null,
 )
 
-public data class NsHelperAttributes0(public var anonymous: NsHelperAttributes00 = NsHelperAttributes00(), public var ullAlign: ULong = 0uL)
+public data class NsHelperAttributes0(
+    public var anonymous: NsHelperAttributes00 = NsHelperAttributes00(),
+    public var ullAlign: ULong = 0uL,
+)
 
-public data class NsHelperAttributes00(public var dwVersion: UInt = 0u, public var dwReserved: UInt = 0u)
+public data class NsHelperAttributes00(
+    public var dwVersion: UInt = 0u,
+    public var dwReserved: UInt = 0u,
+)
 
 public data class TagType(
     public var pwszTag: Pcwstr = null,
@@ -63,4 +75,7 @@ public data class TagType(
     public var bPresent: Bool = 0,
 )
 
-public data class TokenValue(public var pwszToken: Pcwstr = null, public var dwValue: UInt = 0u)
+public data class TokenValue(
+    public var pwszToken: Pcwstr = null,
+    public var dwValue: UInt = 0u,
+)

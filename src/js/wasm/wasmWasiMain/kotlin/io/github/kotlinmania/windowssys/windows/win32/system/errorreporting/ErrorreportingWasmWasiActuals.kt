@@ -22,9 +22,8 @@ public actual fun reportFault(pep: COpaquePointer?, dwopt: UInt): EFaultRepRetVa
 public actual fun werAddExcludedApplication(pwzexename: Pcwstr, ballusers: Bool): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun werFreeString(pwszstr: Pcwstr) {
+public actual fun werFreeString(pwszstr: Pcwstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun werGetFlags(hprocess: Handle, pdwflags: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -80,9 +79,8 @@ public actual fun werReportSubmit(hreporthandle: Hreport, consent: WerConsent, d
 public actual fun werSetFlags(dwflags: WerFaultReporting): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun werStoreClose(hreportstore: Hreportstore) {
+public actual fun werStoreClose(hreportstore: Hreportstore): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun werStoreGetFirstReportKey(hreportstore: Hreportstore, ppszreportkey: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -13,7 +14,10 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 
-public data class Cpoint(public var lP: Int = 0, public var dwLog: UInt = 0u)
+public data class Cpoint(
+    public var lP: Int = 0,
+    public var dwLog: UInt = 0u,
+)
 
 public data class Diactiona(
     public var uAppData: Int = 0,
@@ -25,7 +29,10 @@ public data class Diactiona(
     public var dwHow: UInt = 0u,
 )
 
-public data class Diactiona0(public var lptszActionName: Pcstr = null, public var uResIdString: UInt = 0u)
+public data class Diactiona0(
+    public var lptszActionName: Pcstr = null,
+    public var uResIdString: UInt = 0u,
+)
 
 public data class Diactionformata(
     public var dwSize: UInt = 0u,
@@ -147,7 +154,10 @@ public data class Diactionw(
     public var dwHow: UInt = 0u,
 )
 
-public data class Diactionw0(public var lptszActionName: Pcwstr = null, public var uResIdString: UInt = 0u)
+public data class Diactionw0(
+    public var lptszActionName: Pcwstr = null,
+    public var uResIdString: UInt = 0u,
+)
 
 public data class Dicolorset(
     public var dwSize: UInt = 0u,
@@ -192,7 +202,9 @@ public data class Diconfiguredevicesparamsw(
     public var lpUnkDDSTarget: COpaquePointer? = null,
 )
 
-public data class Diconstantforce(public var lMagnitude: Int = 0)
+public data class Diconstantforce(
+    public var lMagnitude: Int = 0,
+)
 
 public data class Dicustomforce(
     public var cChannels: UInt = 0u,
@@ -811,7 +823,10 @@ public data class Diffdeviceattributes(
     public var dwFFMinTimeResolution: UInt = 0u,
 )
 
-public data class Diffobjectattributes(public var dwFFMaxForce: UInt = 0u, public var dwFFForceResolution: UInt = 0u)
+public data class Diffobjectattributes(
+    public var dwFFMaxForce: UInt = 0u,
+    public var dwFFForceResolution: UInt = 0u,
+)
 
 public data class Difileeffect(
     public var dwSize: UInt = 0u,
@@ -1185,7 +1200,10 @@ public data class Diperiodic(
     public var dwPeriod: UInt = 0u,
 )
 
-public data class Dipovcalibration(public var lMin: IntArray = IntArray(5), public var lMax: IntArray = IntArray(5)) {
+public data class Dipovcalibration(
+    public var lMin: IntArray = IntArray(5),
+    public var lMax: IntArray = IntArray(5),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dipovcalibration) return false
@@ -1236,7 +1254,10 @@ public data class Dipropcpoints(
     public var cp: List<Cpoint> = List(8) { Cpoint() },
 )
 
-public data class Dipropdword(public var diph: Dipropheader = Dipropheader(), public var dwData: UInt = 0u)
+public data class Dipropdword(
+    public var diph: Dipropheader = Dipropheader(),
+    public var dwData: UInt = 0u,
+)
 
 public data class Dipropguidandpath(
     public var diph: Dipropheader = Dipropheader(),
@@ -1267,7 +1288,10 @@ public data class Dipropheader(
     public var dwHow: UInt = 0u,
 )
 
-public data class Diproppointer(public var diph: Dipropheader = Dipropheader(), public var uData: Int = 0)
+public data class Diproppointer(
+    public var diph: Dipropheader = Dipropheader(),
+    public var uData: Int = 0,
+)
 
 public data class Diproprange(
     public var diph: Dipropheader = Dipropheader(),
@@ -1275,7 +1299,10 @@ public data class Diproprange(
     public var lMax: Int = 0,
 )
 
-public data class Dipropstring(public var diph: Dipropheader = Dipropheader(), public var wsz: UShortArray = UShortArray(260)) {
+public data class Dipropstring(
+    public var diph: Dipropheader = Dipropheader(),
+    public var wsz: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dipropstring) return false
@@ -1291,7 +1318,10 @@ public data class Dipropstring(public var diph: Dipropheader = Dipropheader(), p
     }
 }
 
-public data class Dirampforce(public var lStart: Int = 0, public var lEnd: Int = 0)
+public data class Dirampforce(
+    public var lStart: Int = 0,
+    public var lEnd: Int = 0,
+)
 
 public data class HiddAttributes(
     public var size: UInt = 0u,
@@ -1306,7 +1336,10 @@ public data class HiddConfiguration(
     public var ringBufferSize: UInt = 0u,
 )
 
-public data class HidpButtonArrayData(public var arrayIndex: UShort = 0u, public var on: Boolean = false)
+public data class HidpButtonArrayData(
+    public var arrayIndex: UShort = 0u,
+    public var on: Boolean = false,
+)
 
 public data class HidpButtonCaps(
     public var usagePage: UShort = 0u,
@@ -1366,7 +1399,10 @@ public data class HidpButtonCaps(
     }
 }
 
-public data class HidpButtonCaps0(public var range: HidpButtonCaps00 = HidpButtonCaps00(), public var notRange: HidpButtonCaps01 = HidpButtonCaps01())
+public data class HidpButtonCaps0(
+    public var range: HidpButtonCaps00 = HidpButtonCaps00(),
+    public var notRange: HidpButtonCaps01 = HidpButtonCaps01(),
+)
 
 public data class HidpButtonCaps01(
     public var usage: UShort = 0u,
@@ -1457,7 +1493,10 @@ public data class HidpData(
     public var anonymous: HidpData0 = HidpData0(),
 )
 
-public data class HidpData0(public var rawValue: UInt = 0u, public var on: Boolean = false)
+public data class HidpData0(
+    public var rawValue: UInt = 0u,
+    public var on: Boolean = false,
+)
 
 public data class HidpExtendedAttributes(
     public var numGlobalUnknowns: UByte = 0u,
@@ -1484,11 +1523,18 @@ public data class HidpExtendedAttributes(
     }
 }
 
-public data class HidpKeyboardModifierState(public var anonymous: HidpKeyboardModifierState0 = HidpKeyboardModifierState0())
+public data class HidpKeyboardModifierState(
+    public var anonymous: HidpKeyboardModifierState0 = HidpKeyboardModifierState0(),
+)
 
-public data class HidpKeyboardModifierState0(public var anonymous: HidpKeyboardModifierState00 = HidpKeyboardModifierState00(), public var ul: UInt = 0u)
+public data class HidpKeyboardModifierState0(
+    public var anonymous: HidpKeyboardModifierState00 = HidpKeyboardModifierState00(),
+    public var ul: UInt = 0u,
+)
 
-public data class HidpKeyboardModifierState00(public var bitfield: UInt = 0u)
+public data class HidpKeyboardModifierState00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class HidpLinkCollectionNode(
     public var linkUsage: UShort = 0u,
@@ -1549,7 +1595,10 @@ public class HidpValueCaps(
     public var anonymous: HidpValueCaps0 = HidpValueCaps0(),
 )
 
-public data class HidpValueCaps0(public var range: HidpValueCaps00 = HidpValueCaps00(), public var notRange: HidpValueCaps01 = HidpValueCaps01())
+public data class HidpValueCaps0(
+    public var range: HidpValueCaps00 = HidpValueCaps00(),
+    public var notRange: HidpValueCaps01 = HidpValueCaps01(),
+)
 
 public data class HidpValueCaps01(
     public var usage: UShort = 0u,
@@ -1604,7 +1653,10 @@ public data class HidCollectionInformation(
     }
 }
 
-public data class HidDriverConfig(public var size: UInt = 0u, public var ringBufferSize: UInt = 0u)
+public data class HidDriverConfig(
+    public var size: UInt = 0u,
+    public var ringBufferSize: UInt = 0u,
+)
 
 public data class HidXferPacket(
     public var reportBuffer: COpaquePointer? = null,
@@ -1612,9 +1664,15 @@ public data class HidXferPacket(
     public var reportId: UByte = 0u,
 )
 
-public data class IndicatorList(public var makeCode: UShort = 0u, public var indicatorFlags: UShort = 0u)
+public data class IndicatorList(
+    public var makeCode: UShort = 0u,
+    public var indicatorFlags: UShort = 0u,
+)
 
-public data class InputButtonEnableInfo(public var buttonType: GpiobuttonsButtonType = 0, public var enabled: Boolean = false)
+public data class InputButtonEnableInfo(
+    public var buttonType: GpiobuttonsButtonType = 0,
+    public var enabled: Boolean = false,
+)
 
 public data class Joycalibrate(
     public var wXbase: UInt = 0u,
@@ -1648,7 +1706,10 @@ public data class Joyreghwconfig(
     public var dwReserved: UInt = 0u,
 )
 
-public data class Joyreghwsettings(public var dwFlags: UInt = 0u, public var dwNumButtons: UInt = 0u)
+public data class Joyreghwsettings(
+    public var dwFlags: UInt = 0u,
+    public var dwNumButtons: UInt = 0u,
+)
 
 public data class Joyreghwvalues(
     public var jrvHardware: Joyrange = Joyrange(),
@@ -1699,7 +1760,10 @@ public data class KeyboardExtendedAttributes(
     public var implementedInputAssistControls: UByte = 0u,
 )
 
-public data class KeyboardId(public var type: UByte = 0u, public var subtype: UByte = 0u)
+public data class KeyboardId(
+    public var type: UByte = 0u,
+    public var subtype: UByte = 0u,
+)
 
 public data class KeyboardImeStatus(
     public var unitId: UShort = 0u,
@@ -1707,9 +1771,15 @@ public data class KeyboardImeStatus(
     public var imeConvMode: UInt = 0u,
 )
 
-public data class KeyboardIndicatorParameters(public var unitId: UShort = 0u, public var ledFlags: UShort = 0u)
+public data class KeyboardIndicatorParameters(
+    public var unitId: UShort = 0u,
+    public var ledFlags: UShort = 0u,
+)
 
-public data class KeyboardIndicatorTranslation(public var numberOfIndicatorKeys: UShort = 0u, public var indicatorList: List<IndicatorList> = List(1) { IndicatorList() })
+public data class KeyboardIndicatorTranslation(
+    public var numberOfIndicatorKeys: UShort = 0u,
+    public var indicatorList: List<IndicatorList> = List(1) { IndicatorList() },
+)
 
 public data class KeyboardInputData(
     public var unitId: UShort = 0u,
@@ -1725,7 +1795,9 @@ public data class KeyboardTypematicParameters(
     public var delay: UShort = 0u,
 )
 
-public data class KeyboardUnitIdParameter(public var unitId: UShort = 0u)
+public data class KeyboardUnitIdParameter(
+    public var unitId: UShort = 0u,
+)
 
 public data class MouseAttributes(
     public var mouseIdentifier: UShort = 0u,
@@ -1744,10 +1816,21 @@ public data class MouseInputData(
     public var extraInformation: UInt = 0u,
 )
 
-public data class MouseInputData0(public var buttons: UInt = 0u, public var anonymous: MouseInputData00 = MouseInputData00())
+public data class MouseInputData0(
+    public var buttons: UInt = 0u,
+    public var anonymous: MouseInputData00 = MouseInputData00(),
+)
 
-public data class MouseInputData00(public var buttonFlags: UShort = 0u, public var buttonData: UShort = 0u)
+public data class MouseInputData00(
+    public var buttonFlags: UShort = 0u,
+    public var buttonData: UShort = 0u,
+)
 
-public data class MouseUnitIdParameter(public var unitId: UShort = 0u)
+public data class MouseUnitIdParameter(
+    public var unitId: UShort = 0u,
+)
 
-public data class UsageAndPage(public var usage: UShort = 0u, public var usagePage: UShort = 0u)
+public data class UsageAndPage(
+    public var usage: UShort = 0u,
+    public var usagePage: UShort = 0u,
+)

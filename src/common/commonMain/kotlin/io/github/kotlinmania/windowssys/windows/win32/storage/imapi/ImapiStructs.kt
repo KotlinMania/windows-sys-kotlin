@@ -1,11 +1,17 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.storage.imapi
 
 import io.github.kotlinmania.windowssys.core.Guid
 
-public data class ImmpMpvStoreDriverHandle(public var guidSignature: Guid = Guid())
+public data class ImmpMpvStoreDriverHandle(
+    public var guidSignature: Guid = Guid(),
+)
 
-public data class SPropAttrArray(public var cValues: UInt = 0u, public var aPropAttr: UIntArray = UIntArray(1)) {
+public data class SPropAttrArray(
+    public var cValues: UInt = 0u,
+    public var aPropAttr: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SPropAttrArray) return false

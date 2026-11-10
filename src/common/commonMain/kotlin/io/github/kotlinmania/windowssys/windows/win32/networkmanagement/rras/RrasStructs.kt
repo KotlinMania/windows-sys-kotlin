@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.rras
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -45,7 +46,10 @@ public data class AuthValidationEx(
     }
 }
 
-public data class GreConfigParams0(public var dwNumPorts: UInt = 0u, public var dwPortFlags: UInt = 0u)
+public data class GreConfigParams0(
+    public var dwNumPorts: UInt = 0u,
+    public var dwPortFlags: UInt = 0u,
+)
 
 public data class Ikev2ConfigParams(
     public var dwNumPorts: UInt = 0u,
@@ -219,7 +223,10 @@ public data class Ikev2TunnelConfigParams4(
     public var dwMmSaLifeTime: UInt = 0u,
 )
 
-public data class L2tpConfigParams0(public var dwNumPorts: UInt = 0u, public var dwPortFlags: UInt = 0u)
+public data class L2tpConfigParams0(
+    public var dwNumPorts: UInt = 0u,
+    public var dwPortFlags: UInt = 0u,
+)
 
 public data class L2tpConfigParams1(
     public var dwNumPorts: UInt = 0u,
@@ -295,11 +302,20 @@ public data class MprCertEku(
     public var pwszEKU: Pwstr = null,
 )
 
-public data class MprCredentialsex0(public var dwSize: UInt = 0u, public var lpbCredentialsInfo: COpaquePointer? = null)
+public data class MprCredentialsex0(
+    public var dwSize: UInt = 0u,
+    public var lpbCredentialsInfo: COpaquePointer? = null,
+)
 
-public data class MprCredentialsex1(public var dwSize: UInt = 0u, public var lpbCredentialsInfo: COpaquePointer? = null)
+public data class MprCredentialsex1(
+    public var dwSize: UInt = 0u,
+    public var lpbCredentialsInfo: COpaquePointer? = null,
+)
 
-public data class MprDevice0(public var szDeviceType: UShortArray = UShortArray(17), public var szDeviceName: UShortArray = UShortArray(129)) {
+public data class MprDevice0(
+    public var szDeviceType: UShortArray = UShortArray(17),
+    public var szDeviceName: UShortArray = UShortArray(129),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is MprDevice0) return false
@@ -340,7 +356,9 @@ public data class MprDevice1(
     }
 }
 
-public data class MprFilter0(public var fEnable: Bool = 0)
+public data class MprFilter0(
+    public var fEnable: Bool = 0,
+)
 
 public data class MprIftransport0(
     public var dwTransportId: UInt = 0u,
@@ -537,7 +555,10 @@ public class MprInterface3(
     public var ipv6addr: In6Addr? = null,
 )
 
-public data class MprIpinipInterface0(public var wszFriendlyName: UShortArray = UShortArray(257), public var guid: Guid = Guid()) {
+public data class MprIpinipInterface0(
+    public var wszFriendlyName: UShortArray = UShortArray(257),
+    public var guid: Guid = Guid(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is MprIpinipInterface0) return false
@@ -647,7 +668,10 @@ public data class MprVpnTrafficSelectors(
     public var tsR: MprVpnTrafficSelector? = null,
 )
 
-public data class PppAtcpInfo(public var dwError: UInt = 0u, public var wszAddress: UShortArray = UShortArray(33)) {
+public data class PppAtcpInfo(
+    public var dwError: UInt = 0u,
+    public var wszAddress: UShortArray = UShortArray(33),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PppAtcpInfo) return false
@@ -785,7 +809,10 @@ public data class PppIpv6CpInfo(
     }
 }
 
-public data class PppIpxcpInfo(public var dwError: UInt = 0u, public var wszAddress: UShortArray = UShortArray(23)) {
+public data class PppIpxcpInfo(
+    public var dwError: UInt = 0u,
+    public var wszAddress: UShortArray = UShortArray(23),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PppIpxcpInfo) return false
@@ -815,7 +842,10 @@ public data class PppLcpInfo(
     public var dwRemoteEapTypeId: UInt = 0u,
 )
 
-public data class PppNbfcpInfo(public var dwError: UInt = 0u, public var wszWksta: UShortArray = UShortArray(17)) {
+public data class PppNbfcpInfo(
+    public var dwError: UInt = 0u,
+    public var wszWksta: UShortArray = UShortArray(17),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PppNbfcpInfo) return false
@@ -894,15 +924,30 @@ public class PppProjectionInfo2(
     public var dwCcpRemoteOptions: UInt = 0u,
 )
 
-public data class PptpConfigParams(public var dwNumPorts: UInt = 0u, public var dwPortFlags: UInt = 0u)
+public data class PptpConfigParams(
+    public var dwNumPorts: UInt = 0u,
+    public var dwPortFlags: UInt = 0u,
+)
 
-public data class ProjectionInfo(public var projectionInfoType: UByte = 0u, public var anonymous: ProjectionInfo0 = ProjectionInfo0())
+public data class ProjectionInfo(
+    public var projectionInfoType: UByte = 0u,
+    public var anonymous: ProjectionInfo0 = ProjectionInfo0(),
+)
 
-public data class ProjectionInfo0(public var pppProjectionInfo: PppProjectionInfo = PppProjectionInfo(), public var ikev2ProjectionInfo: Ikev2ProjectionInfo = Ikev2ProjectionInfo())
+public data class ProjectionInfo0(
+    public var pppProjectionInfo: PppProjectionInfo = PppProjectionInfo(),
+    public var ikev2ProjectionInfo: Ikev2ProjectionInfo = Ikev2ProjectionInfo(),
+)
 
-public data class ProjectionInfo2(public var projectionInfoType: UByte = 0u, public var anonymous: ProjectionInfo20 = ProjectionInfo20())
+public data class ProjectionInfo2(
+    public var projectionInfoType: UByte = 0u,
+    public var anonymous: ProjectionInfo20 = ProjectionInfo20(),
+)
 
-public data class ProjectionInfo20(public var pppProjectionInfo: PppProjectionInfo2 = PppProjectionInfo2(), public var ikev2ProjectionInfo: Ikev2ProjectionInfo2 = Ikev2ProjectionInfo2())
+public data class ProjectionInfo20(
+    public var pppProjectionInfo: PppProjectionInfo2 = PppProjectionInfo2(),
+    public var ikev2ProjectionInfo: Ikev2ProjectionInfo2 = Ikev2ProjectionInfo2(),
+)
 
 public data class Rasadparams(
     public var dwSize: UInt = 0u,
@@ -1256,7 +1301,10 @@ public data class Rasctryinfo(
     public var dwCountryNameOffset: UInt = 0u,
 )
 
-public data class Rascustomscriptextensions(public var dwSize: UInt = 0u, public var pfnRasSetCommSettings: Pfnrassetcommsettings = null)
+public data class Rascustomscriptextensions(
+    public var dwSize: UInt = 0u,
+    public var pfnRasSetCommSettings: Pfnrassetcommsettings = null,
+)
 
 public data class Rasdevinfoa(
     public var dwSize: UInt = 0u,
@@ -1302,7 +1350,10 @@ public data class Rasdevinfow(
     }
 }
 
-public data class Rasdevspecificinfo(public var dwSize: UInt = 0u, public var pbDevSpecificInfo: COpaquePointer? = null)
+public data class Rasdevspecificinfo(
+    public var dwSize: UInt = 0u,
+    public var pbDevSpecificInfo: COpaquePointer? = null,
+)
 
 public data class Rasdialdlg(
     public var dwSize: UInt = 0u,
@@ -1419,7 +1470,10 @@ public data class Rasdialparamsw(
     }
 }
 
-public data class Raseapinfo(public var dwSizeofEapInfo: UInt = 0u, public var pbEapInfo: COpaquePointer? = null)
+public data class Raseapinfo(
+    public var dwSizeofEapInfo: UInt = 0u,
+    public var pbEapInfo: COpaquePointer? = null,
+)
 
 public data class Raseapuseridentitya(
     public var szUserName: ByteArray = ByteArray(257),
@@ -2248,9 +2302,15 @@ public data class Rassubentryw(
     }
 }
 
-public data class Rastunnelendpoint(public var dwType: UInt = 0u, public var anonymous: Rastunnelendpoint0 = Rastunnelendpoint0())
+public data class Rastunnelendpoint(
+    public var dwType: UInt = 0u,
+    public var anonymous: Rastunnelendpoint0 = Rastunnelendpoint0(),
+)
 
-public data class Rastunnelendpoint0(public var ipv4: InAddr = InAddr(), public var ipv6: In6Addr = In6Addr())
+public data class Rastunnelendpoint0(
+    public var ipv4: InAddr = InAddr(),
+    public var ipv6: In6Addr = In6Addr(),
+)
 
 public data class Rasupdateconn(
     public var version: Rasapiversion = 0,
@@ -2547,7 +2607,10 @@ public data class RasProjectionInfo(
     public var anonymous: RasProjectionInfo0 = RasProjectionInfo0(),
 )
 
-public data class RasProjectionInfo0(public var ppp: RaspppProjectionInfo = RaspppProjectionInfo(), public var ikev2: Rasikev2ProjectionInfo = Rasikev2ProjectionInfo())
+public data class RasProjectionInfo0(
+    public var ppp: RaspppProjectionInfo = RaspppProjectionInfo(),
+    public var ikev2: Rasikev2ProjectionInfo = Rasikev2ProjectionInfo(),
+)
 
 public data class RasSecurityInfo(
     public var lastError: UInt = 0u,
@@ -2614,7 +2677,10 @@ public data class RasUpdateConnection(
     }
 }
 
-public data class RasUser0(public var bfPrivilege: UByte = 0u, public var wszPhoneNumber: UShortArray = UShortArray(129)) {
+public data class RasUser0(
+    public var bfPrivilege: UByte = 0u,
+    public var wszPhoneNumber: UShortArray = UShortArray(129),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is RasUser0) return false
@@ -2717,13 +2783,24 @@ public data class RtmDestInfo0(
     public var holdRoute: Int = 0,
 )
 
-public data class RtmEntityExportMethods(public var numMethods: UInt = 0u, public var methods: List<RtmEntityExportMethod> = List(1) { null })
+public data class RtmEntityExportMethods(
+    public var numMethods: UInt = 0u,
+    public var methods: List<RtmEntityExportMethod> = List(1) { null },
+)
 
-public data class RtmEntityId(public var anonymous: RtmEntityId0 = RtmEntityId0())
+public data class RtmEntityId(
+    public var anonymous: RtmEntityId0 = RtmEntityId0(),
+)
 
-public data class RtmEntityId0(public var anonymous: RtmEntityId00 = RtmEntityId00(), public var entityId: ULong = 0uL)
+public data class RtmEntityId0(
+    public var anonymous: RtmEntityId00 = RtmEntityId00(),
+    public var entityId: ULong = 0uL,
+)
 
-public data class RtmEntityId00(public var entityProtocolId: UInt = 0u, public var entityInstanceId: UInt = 0u)
+public data class RtmEntityId00(
+    public var entityProtocolId: UInt = 0u,
+    public var entityInstanceId: UInt = 0u,
+)
 
 public data class RtmEntityInfo(
     public var rtmInstanceId: UShort = 0u,
@@ -2810,7 +2887,10 @@ public data class RtmNexthopInfo(
     public var remoteNextHop: Int = 0,
 )
 
-public data class RtmNexthopList(public var numNextHops: UShort = 0u, public var nextHops: IntArray = IntArray(1)) {
+public data class RtmNexthopList(
+    public var numNextHops: UShort = 0u,
+    public var nextHops: IntArray = IntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is RtmNexthopList) return false
@@ -2826,7 +2906,10 @@ public data class RtmNexthopList(public var numNextHops: UShort = 0u, public var
     }
 }
 
-public data class RtmPrefInfo(public var metric: UInt = 0u, public var preference: UInt = 0u)
+public data class RtmPrefInfo(
+    public var metric: UInt = 0u,
+    public var preference: UInt = 0u,
+)
 
 public data class RtmRegnProfile(
     public var maxNextHopsInRoute: UInt = 0u,
@@ -2883,7 +2966,10 @@ public data class SourceGroupEntry(
     public var dwGroupMask: UInt = 0u,
 )
 
-public data class SstpCertInfo(public var isDefault: Bool = 0, public var certBlob: CryptIntegerBlob = CryptIntegerBlob())
+public data class SstpCertInfo(
+    public var isDefault: Bool = 0,
+    public var certBlob: CryptIntegerBlob = CryptIntegerBlob(),
+)
 
 public data class SstpConfigParams(
     public var dwNumPorts: UInt = 0u,
@@ -2893,6 +2979,12 @@ public data class SstpConfigParams(
     public var sstpCertDetails: SstpCertInfo = SstpCertInfo(),
 )
 
-public data class VpnTsIpAddress(public var type: UShort = 0u, public var anonymous: VpnTsIpAddress0 = VpnTsIpAddress0())
+public data class VpnTsIpAddress(
+    public var type: UShort = 0u,
+    public var anonymous: VpnTsIpAddress0 = VpnTsIpAddress0(),
+)
 
-public data class VpnTsIpAddress0(public var v4: InAddr = InAddr(), public var v6: In6Addr = In6Addr())
+public data class VpnTsIpAddress0(
+    public var v4: InAddr = InAddr(),
+    public var v6: In6Addr = In6Addr(),
+)

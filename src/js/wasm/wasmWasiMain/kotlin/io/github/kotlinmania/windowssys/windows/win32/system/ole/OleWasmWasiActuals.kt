@@ -30,9 +30,8 @@ import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hme
 public actual fun bstrFromVector(psa: COpaquePointer?, pbstr: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun clearCustData(pcustdata: COpaquePointer?) {
+public actual fun clearCustData(pcustdata: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun createDispTypeInfo(pidata: COpaquePointer?, lcid: UInt, pptinfo: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -79,13 +78,11 @@ public actual fun getRecordInfoFromGuids(rguidtypelib: COpaquePointer?, uvermajo
 public actual fun getRecordInfoFromTypeInfo(ptypeinfo: COpaquePointer?, pprecinfo: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun hrgnUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+public actual fun hrgnUserFree(param0: COpaquePointer?, param1: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun hrgnUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+public actual fun hrgnUserFree64(param0: COpaquePointer?, param1: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun hrgnUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -126,9 +123,8 @@ public actual fun loadTypeLibEx(szfile: Pcwstr, regkind: Regkind, pptlib: COpaqu
 public actual fun oaBuildVersion(): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun oaEnablePerUserTLibRegistration() {
+public actual fun oaEnablePerUserTLibRegistration(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun oleBuildVersion(): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -388,9 +384,8 @@ public actual fun oleUIUpdateLinksA(lpoleuilinkcntr: COpaquePointer?, hwndparent
 public actual fun oleUIUpdateLinksW(lpoleuilinkcntr: COpaquePointer?, hwndparent: Hwnd, lpsztitle: Pcwstr, clinks: Int): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun oleUninitialize() {
+public actual fun oleUninitialize(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun queryPathOfRegTypeLib(guid: COpaquePointer?, wmaj: UShort, wmin: UShort, lcid: UInt, lpbstrpathname: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -407,9 +402,8 @@ public actual fun registerTypeLib(ptlib: COpaquePointer?, szfullpath: Pcwstr, sz
 public actual fun registerTypeLibForUser(ptlib: COpaquePointer?, szfullpath: Pcwstr, szhelpdir: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun releaseStgMedium(param0: COpaquePointer?) {
+public actual fun releaseStgMedium(param0: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun revokeActiveObject(dwregister: UInt, pvreserved: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -495,13 +489,11 @@ public actual fun safeArrayPutElement(psa: COpaquePointer?, rgindices: COpaquePo
 public actual fun safeArrayRedim(psa: COpaquePointer?, psaboundnew: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun safeArrayReleaseData(pdata: COpaquePointer?) {
+public actual fun safeArrayReleaseData(pdata: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun safeArrayReleaseDescriptor(psa: COpaquePointer?) {
+public actual fun safeArrayReleaseDescriptor(psa: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun safeArraySetIID(psa: COpaquePointer?, guid: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

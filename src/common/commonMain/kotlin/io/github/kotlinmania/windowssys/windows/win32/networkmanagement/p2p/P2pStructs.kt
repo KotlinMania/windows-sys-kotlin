@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -20,7 +21,10 @@ public data class DrtAddress(
     public var latency: UInt = 0u,
 )
 
-public data class DrtAddressList(public var addressCount: UInt = 0u, public var addressList: List<DrtAddress> = List(1) { DrtAddress() })
+public data class DrtAddressList(
+    public var addressCount: UInt = 0u,
+    public var addressList: List<DrtAddress> = List(1) { DrtAddress() },
+)
 
 public data class DrtBootstrapProvider(
     public var pvContext: COpaquePointer? = null,
@@ -33,7 +37,10 @@ public data class DrtBootstrapProvider(
     public var unregister: Int = 0,
 )
 
-public data class DrtData(public var cb: UInt = 0u, public var pb: COpaquePointer? = null)
+public data class DrtData(
+    public var cb: UInt = 0u,
+    public var pb: COpaquePointer? = null,
+)
 
 public data class DrtEventData(
     public var type: DrtEventType = 0,
@@ -54,13 +61,25 @@ public data class DrtEventData00(
     public var remoteKey: DrtData = DrtData(),
 )
 
-public data class DrtEventData01(public var state: DrtRegistrationState = 0, public var localKey: DrtData = DrtData())
+public data class DrtEventData01(
+    public var state: DrtRegistrationState = 0,
+    public var localKey: DrtData = DrtData(),
+)
 
-public data class DrtEventData02(public var status: DrtStatus = 0, public var bootstrapAddresses: DrtEventData020 = DrtEventData020())
+public data class DrtEventData02(
+    public var status: DrtStatus = 0,
+    public var bootstrapAddresses: DrtEventData020 = DrtEventData020(),
+)
 
-public data class DrtEventData020(public var cntAddress: UInt = 0u, public var pAddresses: SockaddrStorage? = null)
+public data class DrtEventData020(
+    public var cntAddress: UInt = 0u,
+    public var pAddresses: SockaddrStorage? = null,
+)
 
-public data class DrtRegistration(public var key: DrtData = DrtData(), public var appData: DrtData = DrtData())
+public data class DrtRegistration(
+    public var key: DrtData = DrtData(),
+    public var appData: DrtData = DrtData(),
+)
 
 public data class DrtSearchInfo(
     public var dwSize: UInt = 0u,
@@ -109,9 +128,13 @@ public data class DrtSettings(
     public var eSecurityMode: DrtSecurityMode = 0,
 )
 
-public data class PeerdistClientBasicInfo(public var fFlashCrowd: Bool = 0)
+public data class PeerdistClientBasicInfo(
+    public var fFlashCrowd: Bool = 0,
+)
 
-public data class PeerdistContentTag(public var data: UByteArray = UByteArray(16)) {
+public data class PeerdistContentTag(
+    public var data: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PeerdistContentTag) return false
@@ -119,12 +142,13 @@ public data class PeerdistContentTag(public var data: UByteArray = UByteArray(16
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.data.contentHashCode()
-    }
+    override fun hashCode(): Int = this.data.contentHashCode()
 }
 
-public data class PeerdistPublicationOptions(public var dwVersion: UInt = 0u, public var dwFlags: UInt = 0u)
+public data class PeerdistPublicationOptions(
+    public var dwVersion: UInt = 0u,
+    public var dwFlags: UInt = 0u,
+)
 
 public data class PeerdistRetrievalOptions(
     public var cbSize: UInt = 0u,
@@ -140,7 +164,10 @@ public data class PeerdistStatusInfo(
     public var dwMaxVer: PeerdistRetrievalOptionsContentinfoVersionValue = 0u,
 )
 
-public data class PeerAddress(public var dwSize: UInt = 0u, public var sin6: SockaddrIn6 = SockaddrIn6())
+public data class PeerAddress(
+    public var dwSize: UInt = 0u,
+    public var sin6: SockaddrIn6 = SockaddrIn6(),
+)
 
 public data class PeerApplication(
     public var id: Guid = Guid(),
@@ -161,7 +188,10 @@ public data class PeerAppLaunchInfo(
     public var pInvitation: PeerInvitation? = null,
 )
 
-public data class PeerCollabEventData(public var eventType: PeerCollabEventType = 0, public var anonymous: PeerCollabEventData0 = PeerCollabEventData0())
+public data class PeerCollabEventData(
+    public var eventType: PeerCollabEventType = 0,
+    public var anonymous: PeerCollabEventData0 = PeerCollabEventData0(),
+)
 
 public data class PeerCollabEventData0(
     public var watchListChangedData: PeerEventWatchlistChangedData = PeerEventWatchlistChangedData(),
@@ -173,7 +203,10 @@ public data class PeerCollabEventData0(
     public var requestStatusChangedData: PeerEventRequestStatusChangedData = PeerEventRequestStatusChangedData(),
 )
 
-public data class PeerCollabEventRegistration(public var eventType: PeerCollabEventType = 0, public var pInstance: Guid? = null)
+public data class PeerCollabEventRegistration(
+    public var eventType: PeerCollabEventType = 0,
+    public var pInstance: Guid? = null,
+)
 
 public data class PeerConnectionInfo(
     public var dwSize: UInt = 0u,
@@ -207,9 +240,15 @@ public data class PeerCredentialInfo(
     public var pRoles: Guid? = null,
 )
 
-public data class PeerData(public var cbData: UInt = 0u, public var pbData: COpaquePointer? = null)
+public data class PeerData(
+    public var cbData: UInt = 0u,
+    public var pbData: COpaquePointer? = null,
+)
 
-public data class PeerEndpoint(public var address: PeerAddress = PeerAddress(), public var pwzEndpointName: Pwstr = null)
+public data class PeerEndpoint(
+    public var address: PeerAddress = PeerAddress(),
+    public var pwzEndpointName: Pwstr = null,
+)
 
 public data class PeerEventApplicationChangedData(
     public var pContact: PeerContact? = null,
@@ -227,7 +266,10 @@ public data class PeerEventConnectionChangeData(
     public var hrConnectionFailedReason: Hresult = 0,
 )
 
-public data class PeerEventEndpointChangedData(public var pContact: PeerContact? = null, public var pEndpoint: PeerEndpoint? = null)
+public data class PeerEventEndpointChangedData(
+    public var pContact: PeerContact? = null,
+    public var pEndpoint: PeerEndpoint? = null,
+)
 
 public data class PeerEventIncomingData(
     public var dwSize: UInt = 0u,
@@ -256,7 +298,10 @@ public data class PeerEventObjectChangedData(
     public var pObject: PeerObject? = null,
 )
 
-public data class PeerEventPeopleNearMeChangedData(public var changeType: PeerChangeType = 0, public var pPeopleNearMe: PeerPeopleNearMe? = null)
+public data class PeerEventPeopleNearMeChangedData(
+    public var changeType: PeerChangeType = 0,
+    public var pPeopleNearMe: PeerPeopleNearMe? = null,
+)
 
 public data class PeerEventPresenceChangedData(
     public var pContact: PeerContact? = null,
@@ -272,13 +317,25 @@ public data class PeerEventRecordChangeData(
     public var recordType: Guid = Guid(),
 )
 
-public data class PeerEventRequestStatusChangedData(public var pEndpoint: PeerEndpoint? = null, public var hrChange: Hresult = 0)
+public data class PeerEventRequestStatusChangedData(
+    public var pEndpoint: PeerEndpoint? = null,
+    public var hrChange: Hresult = 0,
+)
 
-public data class PeerEventSynchronizedData(public var dwSize: UInt = 0u, public var recordType: Guid = Guid())
+public data class PeerEventSynchronizedData(
+    public var dwSize: UInt = 0u,
+    public var recordType: Guid = Guid(),
+)
 
-public data class PeerEventWatchlistChangedData(public var pContact: PeerContact? = null, public var changeType: PeerChangeType = 0)
+public data class PeerEventWatchlistChangedData(
+    public var pContact: PeerContact? = null,
+    public var changeType: PeerChangeType = 0,
+)
 
-public data class PeerGraphEventData(public var eventType: PeerGraphEventType = 0, public var anonymous: PeerGraphEventData0 = PeerGraphEventData0())
+public data class PeerGraphEventData(
+    public var eventType: PeerGraphEventType = 0,
+    public var anonymous: PeerGraphEventData0 = PeerGraphEventData0(),
+)
 
 public data class PeerGraphEventData0(
     public var dwStatus: PeerGraphStatusFlags = 0,
@@ -289,7 +346,10 @@ public data class PeerGraphEventData0(
     public var synchronizedData: PeerEventSynchronizedData = PeerEventSynchronizedData(),
 )
 
-public data class PeerGraphEventRegistration(public var eventType: PeerGraphEventType = 0, public var pType: Guid? = null)
+public data class PeerGraphEventRegistration(
+    public var eventType: PeerGraphEventType = 0,
+    public var pType: Guid? = null,
+)
 
 public data class PeerGraphProperties(
     public var dwSize: UInt = 0u,
@@ -304,7 +364,10 @@ public data class PeerGraphProperties(
     public var cPresenceMax: UInt = 0u,
 )
 
-public data class PeerGroupEventData(public var eventType: PeerGroupEventType = 0, public var anonymous: PeerGroupEventData0 = PeerGroupEventData0())
+public data class PeerGroupEventData(
+    public var eventType: PeerGroupEventType = 0,
+    public var anonymous: PeerGroupEventData0 = PeerGroupEventData0(),
+)
 
 public data class PeerGroupEventData0(
     public var dwStatus: PeerGroupStatus = 0,
@@ -315,7 +378,10 @@ public data class PeerGroupEventData0(
     public var hrConnectionFailedReason: Hresult = 0,
 )
 
-public data class PeerGroupEventRegistration(public var eventType: PeerGroupEventType = 0, public var pType: Guid? = null)
+public data class PeerGroupEventRegistration(
+    public var eventType: PeerGroupEventType = 0,
+    public var pType: Guid? = null,
+)
 
 public data class PeerGroupProperties(
     public var dwSize: UInt = 0u,
@@ -429,7 +495,10 @@ public data class PeerPnrpRegistrationInfo(
     public var payload: PeerData = PeerData(),
 )
 
-public data class PeerPresenceInfo(public var status: PeerPresenceStatus = 0, public var pwzDescriptiveText: Pwstr = null)
+public data class PeerPresenceInfo(
+    public var status: PeerPresenceStatus = 0,
+    public var pwzDescriptiveText: Pwstr = null,
+)
 
 public data class PeerRecord(
     public var dwSize: UInt = 0u,
@@ -460,7 +529,10 @@ public data class PeerSecurityInterface(
     public var pfnAuthFailed: PfnpeerOnPasswordAuthFailed = null,
 )
 
-public data class PeerVersionData(public var wVersion: UShort = 0u, public var wHighestVersion: UShort = 0u)
+public data class PeerVersionData(
+    public var wVersion: UShort = 0u,
+    public var wHighestVersion: UShort = 0u,
+)
 
 public data class Pnrpcloudinfo(
     public var dwSize: UInt = 0u,
@@ -495,7 +567,10 @@ public data class PnrpinfoV2(
     public var anonymous: PnrpinfoV20 = PnrpinfoV20(),
 )
 
-public data class PnrpinfoV20(public var blobPayload: Blob = Blob(), public var pwszPayload: Pwstr = null)
+public data class PnrpinfoV20(
+    public var blobPayload: Blob = Blob(),
+    public var pwszPayload: Pwstr = null,
+)
 
 public data class PnrpCloudId(
     public var addressFamily: Int = 0,

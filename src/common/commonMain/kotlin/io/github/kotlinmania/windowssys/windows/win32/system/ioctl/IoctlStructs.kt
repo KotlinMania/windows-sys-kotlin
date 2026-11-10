@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -17,17 +18,34 @@ public data class AsyncDuplicateExtentsStatus(
     public var bytesDuplicated: ULong = 0uL,
 )
 
-public data class BinCount(public var binRange: BinRange = BinRange(), public var binCount: UInt = 0u)
+public data class BinCount(
+    public var binRange: BinRange = BinRange(),
+    public var binCount: UInt = 0u,
+)
 
-public data class BinRange(public var startValue: Long = 0L, public var length: Long = 0L)
+public data class BinRange(
+    public var startValue: Long = 0L,
+    public var length: Long = 0L,
+)
 
-public data class BinResults(public var numberOfBins: UInt = 0u, public var binCounts: List<BinCount> = List(1) { BinCount() })
+public data class BinResults(
+    public var numberOfBins: UInt = 0u,
+    public var binCounts: List<BinCount> = List(1) { BinCount() },
+)
 
-public data class BootAreaInfo(public var bootSectorCount: UInt = 0u, public var bootSectors: List<BootAreaInfo0> = List(2) { BootAreaInfo0() })
+public data class BootAreaInfo(
+    public var bootSectorCount: UInt = 0u,
+    public var bootSectors: List<BootAreaInfo0> = List(2) { BootAreaInfo0() },
+)
 
-public data class BootAreaInfo0(public var offset: Long = 0L)
+public data class BootAreaInfo0(
+    public var offset: Long = 0L,
+)
 
-public data class BulkSecurityTestData(public var desiredAccess: UInt = 0u, public var securityIds: UIntArray = UIntArray(1)) {
+public data class BulkSecurityTestData(
+    public var desiredAccess: UInt = 0u,
+    public var securityIds: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is BulkSecurityTestData) return false
@@ -43,9 +61,15 @@ public data class BulkSecurityTestData(public var desiredAccess: UInt = 0u, publ
     }
 }
 
-public data class ChangerElement(public var elementType: ElementType = 0, public var elementAddress: UInt = 0u)
+public data class ChangerElement(
+    public var elementType: ElementType = 0,
+    public var elementAddress: UInt = 0u,
+)
 
-public data class ChangerElementList(public var element: ChangerElement = ChangerElement(), public var numberOfElements: UInt = 0u)
+public data class ChangerElementList(
+    public var element: ChangerElement = ChangerElement(),
+    public var numberOfElements: UInt = 0u,
+)
 
 public data class ChangerElementStatus(
     public var element: ChangerElement = ChangerElement(),
@@ -145,7 +169,10 @@ public data class ChangerExchangeMedium(
     public var flip2: Boolean = false,
 )
 
-public data class ChangerInitializeElementStatus(public var elementList: ChangerElementList = ChangerElementList(), public var barCodeScan: Boolean = false)
+public data class ChangerInitializeElementStatus(
+    public var elementList: ChangerElementList = ChangerElementList(),
+    public var barCodeScan: Boolean = false,
+)
 
 public data class ChangerMoveMedium(
     public var transport: ChangerElement = ChangerElement(),
@@ -182,7 +209,10 @@ public data class ChangerProductData(
     }
 }
 
-public data class ChangerReadElementStatus(public var elementList: ChangerElementList = ChangerElementList(), public var volumeTagInfo: Boolean = false)
+public data class ChangerReadElementStatus(
+    public var elementList: ChangerElementList = ChangerElementList(),
+    public var volumeTagInfo: Boolean = false,
+)
 
 public data class ChangerSendVolumeTagInformation(
     public var startingElement: ChangerElement = ChangerElement(),
@@ -206,7 +236,10 @@ public data class ChangerSendVolumeTagInformation(
     }
 }
 
-public data class ChangerSetAccess(public var element: ChangerElement = ChangerElement(), public var control: UInt = 0u)
+public data class ChangerSetAccess(
+    public var element: ChangerElement = ChangerElement(),
+    public var control: UInt = 0u,
+)
 
 public data class ChangerSetPosition(
     public var transport: ChangerElement = ChangerElement(),
@@ -214,13 +247,24 @@ public data class ChangerSetPosition(
     public var flip: Boolean = false,
 )
 
-public data class ClassMediaChangeContext(public var mediaChangeCount: UInt = 0u, public var newState: UInt = 0u)
+public data class ClassMediaChangeContext(
+    public var mediaChangeCount: UInt = 0u,
+    public var newState: UInt = 0u,
+)
 
-public data class ClusterRange(public var startingCluster: Long = 0L, public var clusterCount: Long = 0L)
+public data class ClusterRange(
+    public var startingCluster: Long = 0L,
+    public var clusterCount: Long = 0L,
+)
 
-public data class ContainerRootInfoInput(public var flags: UInt = 0u)
+public data class ContainerRootInfoInput(
+    public var flags: UInt = 0u,
+)
 
-public data class ContainerRootInfoOutput(public var containerRootIdLength: UShort = 0u, public var containerRootId: UByteArray = UByteArray(1)) {
+public data class ContainerRootInfoOutput(
+    public var containerRootIdLength: UShort = 0u,
+    public var containerRootId: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ContainerRootInfoOutput) return false
@@ -236,23 +280,46 @@ public data class ContainerRootInfoOutput(public var containerRootIdLength: USho
     }
 }
 
-public data class ContainerVolumeState(public var flags: UInt = 0u)
+public data class ContainerVolumeState(
+    public var flags: UInt = 0u,
+)
 
-public data class CreateDisk(public var partitionStyle: PartitionStyle = 0, public var anonymous: CreateDisk0 = CreateDisk0())
+public data class CreateDisk(
+    public var partitionStyle: PartitionStyle = 0,
+    public var anonymous: CreateDisk0 = CreateDisk0(),
+)
 
-public data class CreateDisk0(public var mbr: CreateDiskMbr = CreateDiskMbr(), public var gpt: CreateDiskGpt = CreateDiskGpt())
+public data class CreateDisk0(
+    public var mbr: CreateDiskMbr = CreateDiskMbr(),
+    public var gpt: CreateDiskGpt = CreateDiskGpt(),
+)
 
-public data class CreateDiskGpt(public var diskId: Guid = Guid(), public var maxPartitionCount: UInt = 0u)
+public data class CreateDiskGpt(
+    public var diskId: Guid = Guid(),
+    public var maxPartitionCount: UInt = 0u,
+)
 
-public data class CreateDiskMbr(public var signature: UInt = 0u)
+public data class CreateDiskMbr(
+    public var signature: UInt = 0u,
+)
 
-public data class CreateUsnJournalData(public var maximumSize: ULong = 0uL, public var allocationDelta: ULong = 0uL)
+public data class CreateUsnJournalData(
+    public var maximumSize: ULong = 0uL,
+    public var allocationDelta: ULong = 0uL,
+)
 
-public data class CsvControlParam(public var operation: CsvControlOp = 0, public var unused: Long = 0L)
+public data class CsvControlParam(
+    public var operation: CsvControlOp = 0,
+    public var unused: Long = 0L,
+)
 
-public data class CsvIsOwnedByCsvfs(public var ownedByCSVFS: Boolean = false)
+public data class CsvIsOwnedByCsvfs(
+    public var ownedByCSVFS: Boolean = false,
+)
 
-public data class CsvMgmtLock(public var flags: UInt = 0u)
+public data class CsvMgmtLock(
+    public var flags: UInt = 0u,
+)
 
 public data class CsvNamespaceInfo(
     public var version: UInt = 0u,
@@ -261,7 +328,10 @@ public data class CsvNamespaceInfo(
     public var sectorSize: UInt = 0u,
 )
 
-public data class CsvQueryFileRevision(public var fileId: Long = 0L, public var fileRevision: LongArray = LongArray(3)) {
+public data class CsvQueryFileRevision(
+    public var fileId: Long = 0L,
+    public var fileRevision: LongArray = LongArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CsvQueryFileRevision) return false
@@ -277,7 +347,10 @@ public data class CsvQueryFileRevision(public var fileId: Long = 0L, public var 
     }
 }
 
-public data class CsvQueryFileRevisionFileId128(public var fileId: FileId128 = FileId128(), public var fileRevision: LongArray = LongArray(3)) {
+public data class CsvQueryFileRevisionFileId128(
+    public var fileId: FileId128 = FileId128(),
+    public var fileRevision: LongArray = LongArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CsvQueryFileRevisionFileId128) return false
@@ -360,7 +433,9 @@ public data class CsvQueryVetoFileDirectIoOutput(
     }
 }
 
-public data class CsvQueryVolumeId(public var volumeId: Guid = Guid())
+public data class CsvQueryVolumeId(
+    public var volumeId: Guid = Guid(),
+)
 
 public data class CsvQueryVolumeRedirectState(
     public var mdsNodeId: UInt = 0u,
@@ -370,11 +445,18 @@ public data class CsvQueryVolumeRedirectState(
     public var diskConnectivity: CsvfsDiskConnectivity = 0,
 )
 
-public data class CsvSetVolumeId(public var volumeId: Guid = Guid())
+public data class CsvSetVolumeId(
+    public var volumeId: Guid = Guid(),
+)
 
-public data class DecryptionStatusBuffer(public var noEncryptedStreams: Boolean = false)
+public data class DecryptionStatusBuffer(
+    public var noEncryptedStreams: Boolean = false,
+)
 
-public data class DeleteUsnJournalData(public var usnJournalID: ULong = 0uL, public var deleteFlags: UsnDeleteFlags = 0u)
+public data class DeleteUsnJournalData(
+    public var usnJournalID: ULong = 0uL,
+    public var deleteFlags: UsnDeleteFlags = 0u,
+)
 
 public data class DevicedumpPrivateSubsection(
     public var dwFlags: UInt = 0u,
@@ -423,7 +505,9 @@ public data class DevicedumpPublicSubsection(
     }
 }
 
-public data class DevicedumpRestrictedSubsection(public var bData: UByteArray = UByteArray(1)) {
+public data class DevicedumpRestrictedSubsection(
+    public var bData: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DevicedumpRestrictedSubsection) return false
@@ -431,9 +515,7 @@ public data class DevicedumpRestrictedSubsection(public var bData: UByteArray = 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.bData.contentHashCode()
-    }
+    override fun hashCode(): Int = this.bData.contentHashCode()
 }
 
 public data class DevicedumpSectionHeader(
@@ -554,11 +636,17 @@ public data class DevicedumpStoragestackPublicStateRecord0(
     public var storPort: DevicedumpStoragestackPublicStateRecord02 = DevicedumpStoragestackPublicStateRecord02(),
 )
 
-public data class DevicedumpStoragestackPublicStateRecord01(public var dwAtaPortSpecific: UInt = 0u)
+public data class DevicedumpStoragestackPublicStateRecord01(
+    public var dwAtaPortSpecific: UInt = 0u,
+)
 
-public data class DevicedumpStoragestackPublicStateRecord00(public var dwReserved: UInt = 0u)
+public data class DevicedumpStoragestackPublicStateRecord00(
+    public var dwReserved: UInt = 0u,
+)
 
-public data class DevicedumpStoragestackPublicStateRecord02(public var srbTag: UInt = 0u)
+public data class DevicedumpStoragestackPublicStateRecord02(
+    public var srbTag: UInt = 0u,
+)
 
 public data class DevicedumpStructureVersion(
     public var dwSignature: UInt = 0u,
@@ -693,9 +781,14 @@ public data class DeviceDataSetLbProvisioningStateV2(
     }
 }
 
-public data class DeviceDataSetRange(public var startingOffset: Long = 0L, public var lengthInBytes: ULong = 0uL)
+public data class DeviceDataSetRange(
+    public var startingOffset: Long = 0L,
+    public var lengthInBytes: ULong = 0uL,
+)
 
-public data class DeviceDataSetRepairOutput(public var parityExtent: DeviceDataSetRange = DeviceDataSetRange())
+public data class DeviceDataSetRepairOutput(
+    public var parityExtent: DeviceDataSetRange = DeviceDataSetRange(),
+)
 
 public data class DeviceDataSetRepairParameters(
     public var numberOfRepairCopies: UInt = 0u,
@@ -733,7 +826,10 @@ public data class DeviceDataSetScrubOutput(
     public var bytesFailed: ULong = 0uL,
 )
 
-public data class DeviceDataSetTopologyIdQueryOutput(public var topologyRangeBytes: ULong = 0uL, public var topologyId: UByteArray = UByteArray(16)) {
+public data class DeviceDataSetTopologyIdQueryOutput(
+    public var topologyRangeBytes: ULong = 0uL,
+    public var topologyId: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DeviceDataSetTopologyIdQueryOutput) return false
@@ -749,7 +845,10 @@ public data class DeviceDataSetTopologyIdQueryOutput(public var topologyRangeByt
     }
 }
 
-public data class DeviceDsmConversionOutput(public var version: UInt = 0u, public var source: Guid = Guid())
+public data class DeviceDsmConversionOutput(
+    public var version: UInt = 0u,
+    public var source: Guid = Guid(),
+)
 
 public data class DeviceDsmDefinition(
     public var action: UInt = 0u,
@@ -761,7 +860,10 @@ public data class DeviceDsmDefinition(
     public var outputBlockLength: UInt = 0u,
 )
 
-public data class DeviceDsmFreeSpaceOutput(public var version: UInt = 0u, public var freeSpace: ULong = 0uL)
+public data class DeviceDsmFreeSpaceOutput(
+    public var version: UInt = 0u,
+    public var freeSpace: ULong = 0uL,
+)
 
 public data class DeviceDsmLostQueryOutput(
     public var version: UInt = 0u,
@@ -791,7 +893,10 @@ public data class DeviceDsmLostQueryOutput(
     }
 }
 
-public data class DeviceDsmLostQueryParameters(public var version: UInt = 0u, public var granularity: ULong = 0uL)
+public data class DeviceDsmLostQueryParameters(
+    public var version: UInt = 0u,
+    public var granularity: ULong = 0uL,
+)
 
 public data class DeviceDsmNotificationParameters(
     public var size: UInt = 0u,
@@ -1013,11 +1118,20 @@ public data class DeviceLocation(
     public var anonymous: DeviceLocation0 = DeviceLocation0(),
 )
 
-public data class DeviceLocation0(public var anonymous1: DeviceLocation00 = DeviceLocation00(), public var anonymous2: DeviceLocation01 = DeviceLocation01())
+public data class DeviceLocation0(
+    public var anonymous1: DeviceLocation00 = DeviceLocation00(),
+    public var anonymous2: DeviceLocation01 = DeviceLocation01(),
+)
 
-public data class DeviceLocation00(public var channel: UInt = 0u, public var device: UInt = 0u)
+public data class DeviceLocation00(
+    public var channel: UInt = 0u,
+    public var device: UInt = 0u,
+)
 
-public data class DeviceLocation01(public var target: UInt = 0u, public var lun: UInt = 0u)
+public data class DeviceLocation01(
+    public var target: UInt = 0u,
+    public var lun: UInt = 0u,
+)
 
 public data class DeviceManageDataSetAttributes(
     public var size: UInt = 0u,
@@ -1041,7 +1155,9 @@ public data class DeviceManageDataSetAttributesOutput(
     public var outputBlockLength: UInt = 0u,
 )
 
-public data class DeviceMediaInfo(public var deviceSpecific: DeviceMediaInfo0 = DeviceMediaInfo0())
+public data class DeviceMediaInfo(
+    public var deviceSpecific: DeviceMediaInfo0 = DeviceMediaInfo0(),
+)
 
 public data class DeviceMediaInfo0(
     public var diskInfo: DeviceMediaInfo00 = DeviceMediaInfo00(),
@@ -1077,9 +1193,14 @@ public data class DeviceMediaInfo02(
     public var busSpecificData: DeviceMediaInfo020 = DeviceMediaInfo020(),
 )
 
-public data class DeviceMediaInfo020(public var scsiInformation: DeviceMediaInfo0200 = DeviceMediaInfo0200())
+public data class DeviceMediaInfo020(
+    public var scsiInformation: DeviceMediaInfo0200 = DeviceMediaInfo0200(),
+)
 
-public data class DeviceMediaInfo0200(public var mediumType: UByte = 0u, public var densityCode: UByte = 0u)
+public data class DeviceMediaInfo0200(
+    public var mediumType: UByte = 0u,
+    public var densityCode: UByte = 0u,
+)
 
 public data class DevicePowerDescriptor(
     public var version: UInt = 0u,
@@ -1130,7 +1251,10 @@ public data class DeviceSeekPenaltyDescriptor(
     public var incursSeekPenalty: Boolean = false,
 )
 
-public data class DeviceStorageAddressRange(public var startAddress: Long = 0L, public var lengthInBytes: ULong = 0uL)
+public data class DeviceStorageAddressRange(
+    public var startAddress: Long = 0L,
+    public var lengthInBytes: ULong = 0uL,
+)
 
 public data class DeviceStorageRangeAttributes(
     public var lengthInBytes: ULong = 0uL,
@@ -1138,9 +1262,14 @@ public data class DeviceStorageRangeAttributes(
     public var reserved: UInt = 0u,
 )
 
-public data class DeviceStorageRangeAttributes0(public var allFlags: UInt = 0u, public var anonymous: DeviceStorageRangeAttributes00 = DeviceStorageRangeAttributes00())
+public data class DeviceStorageRangeAttributes0(
+    public var allFlags: UInt = 0u,
+    public var anonymous: DeviceStorageRangeAttributes00 = DeviceStorageRangeAttributes00(),
+)
 
-public data class DeviceStorageRangeAttributes00(public var bitfield: UInt = 0u)
+public data class DeviceStorageRangeAttributes00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DeviceTrimDescriptor(
     public var version: UInt = 0u,
@@ -1165,9 +1294,15 @@ public data class DiskCacheInformation(
     public var anonymous: DiskCacheInformation0 = DiskCacheInformation0(),
 )
 
-public data class DiskCacheInformation0(public var scalarPrefetch: DiskCacheInformation00 = DiskCacheInformation00(), public var blockPrefetch: DiskCacheInformation01 = DiskCacheInformation01())
+public data class DiskCacheInformation0(
+    public var scalarPrefetch: DiskCacheInformation00 = DiskCacheInformation00(),
+    public var blockPrefetch: DiskCacheInformation01 = DiskCacheInformation01(),
+)
 
-public data class DiskCacheInformation01(public var minimum: UShort = 0u, public var maximum: UShort = 0u)
+public data class DiskCacheInformation01(
+    public var minimum: UShort = 0u,
+    public var maximum: UShort = 0u,
+)
 
 public data class DiskCacheInformation00(
     public var minimum: UShort = 0u,
@@ -1175,7 +1310,10 @@ public data class DiskCacheInformation00(
     public var maximumBlocks: UShort = 0u,
 )
 
-public data class DiskControllerNumber(public var controllerNumber: UInt = 0u, public var diskNumber: UInt = 0u)
+public data class DiskControllerNumber(
+    public var controllerNumber: UInt = 0u,
+    public var diskNumber: UInt = 0u,
+)
 
 public data class DiskDetectionInfo(
     public var sizeOfDetectInfo: UInt = 0u,
@@ -1183,9 +1321,14 @@ public data class DiskDetectionInfo(
     public var anonymous: DiskDetectionInfo0 = DiskDetectionInfo0(),
 )
 
-public data class DiskDetectionInfo0(public var anonymous: DiskDetectionInfo00 = DiskDetectionInfo00())
+public data class DiskDetectionInfo0(
+    public var anonymous: DiskDetectionInfo00 = DiskDetectionInfo00(),
+)
 
-public data class DiskDetectionInfo00(public var int13: DiskInt13Info = DiskInt13Info(), public var exInt13: DiskExInt13Info = DiskExInt13Info())
+public data class DiskDetectionInfo00(
+    public var int13: DiskInt13Info = DiskInt13Info(),
+    public var exInt13: DiskExInt13Info = DiskExInt13Info(),
+)
 
 public data class DiskExtent(
     public var diskNumber: UInt = 0u,
@@ -1234,7 +1377,10 @@ public data class DiskGeometryEx(
     }
 }
 
-public data class DiskGrowPartition(public var partitionNumber: UInt = 0u, public var bytesToGrow: Long = 0L)
+public data class DiskGrowPartition(
+    public var partitionNumber: UInt = 0u,
+    public var bytesToGrow: Long = 0L,
+)
 
 public data class DiskHistogram(
     public var diskSize: Long = 0L,
@@ -1270,11 +1416,19 @@ public data class DiskPartitionInfo(
     public var anonymous: DiskPartitionInfo0 = DiskPartitionInfo0(),
 )
 
-public data class DiskPartitionInfo0(public var mbr: DiskPartitionInfo00 = DiskPartitionInfo00(), public var gpt: DiskPartitionInfo01 = DiskPartitionInfo01())
+public data class DiskPartitionInfo0(
+    public var mbr: DiskPartitionInfo00 = DiskPartitionInfo00(),
+    public var gpt: DiskPartitionInfo01 = DiskPartitionInfo01(),
+)
 
-public data class DiskPartitionInfo01(public var diskId: Guid = Guid())
+public data class DiskPartitionInfo01(
+    public var diskId: Guid = Guid(),
+)
 
-public data class DiskPartitionInfo00(public var signature: UInt = 0u, public var checkSum: UInt = 0u)
+public data class DiskPartitionInfo00(
+    public var signature: UInt = 0u,
+    public var checkSum: UInt = 0u,
+)
 
 public data class DiskPerformance(
     public var bytesRead: Long = 0L,
@@ -1373,7 +1527,10 @@ public data class DriveLayoutInformationEx(
     public var partitionEntry: List<PartitionInformationEx> = List(1) { PartitionInformationEx() },
 )
 
-public data class DriveLayoutInformationEx0(public var mbr: DriveLayoutInformationMbr = DriveLayoutInformationMbr(), public var gpt: DriveLayoutInformationGpt = DriveLayoutInformationGpt())
+public data class DriveLayoutInformationEx0(
+    public var mbr: DriveLayoutInformationMbr = DriveLayoutInformationMbr(),
+    public var gpt: DriveLayoutInformationGpt = DriveLayoutInformationGpt(),
+)
 
 public data class DriveLayoutInformationGpt(
     public var diskId: Guid = Guid(),
@@ -1382,7 +1539,10 @@ public data class DriveLayoutInformationGpt(
     public var maxPartitionCount: UInt = 0u,
 )
 
-public data class DriveLayoutInformationMbr(public var signature: UInt = 0u, public var checkSum: UInt = 0u)
+public data class DriveLayoutInformationMbr(
+    public var signature: UInt = 0u,
+    public var checkSum: UInt = 0u,
+)
 
 public data class DuplicateExtentsData(
     public var fileHandle: Handle = null,
@@ -1462,7 +1622,10 @@ public data class EncryptedDataInfo(
     }
 }
 
-public data class EncryptionBuffer(public var encryptionOperation: UInt = 0u, public var private: UByteArray = UByteArray(1)) {
+public data class EncryptionBuffer(
+    public var encryptionOperation: UInt = 0u,
+    public var private: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is EncryptionBuffer) return false
@@ -1555,9 +1718,15 @@ public data class FilesystemStatisticsEx(
     public var metaDataDiskWrites: ULong = 0uL,
 )
 
-public data class FileAllocatedRangeBuffer(public var fileOffset: Long = 0L, public var length: Long = 0L)
+public data class FileAllocatedRangeBuffer(
+    public var fileOffset: Long = 0L,
+    public var length: Long = 0L,
+)
 
-public data class FileDesiredStorageClassInformation(public var cls: FileStorageTierClass = 0, public var flags: UInt = 0u)
+public data class FileDesiredStorageClassInformation(
+    public var cls: FileStorageTierClass = 0,
+    public var flags: UInt = 0u,
+)
 
 public data class FileFsPersistentVolumeInformation(
     public var volumeFlags: UInt = 0u,
@@ -1638,13 +1807,23 @@ public data class FileLevelTrim(
     public var ranges: List<FileLevelTrimRange> = List(1) { FileLevelTrimRange() },
 )
 
-public data class FileLevelTrimOutput(public var numRangesProcessed: UInt = 0u)
+public data class FileLevelTrimOutput(
+    public var numRangesProcessed: UInt = 0u,
+)
 
-public data class FileLevelTrimRange(public var offset: ULong = 0uL, public var length: ULong = 0uL)
+public data class FileLevelTrimRange(
+    public var offset: ULong = 0uL,
+    public var length: ULong = 0uL,
+)
 
-public data class FileMakeCompatibleBuffer(public var closeDisc: Boolean = false)
+public data class FileMakeCompatibleBuffer(
+    public var closeDisc: Boolean = false,
+)
 
-public data class FileObjectidBuffer(public var objectId: UByteArray = UByteArray(16), public var anonymous: FileObjectidBuffer0 = FileObjectidBuffer0()) {
+public data class FileObjectidBuffer(
+    public var objectId: UByteArray = UByteArray(16),
+    public var anonymous: FileObjectidBuffer0 = FileObjectidBuffer0(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileObjectidBuffer) return false
@@ -1660,7 +1839,10 @@ public data class FileObjectidBuffer(public var objectId: UByteArray = UByteArra
     }
 }
 
-public data class FileObjectidBuffer0(public var anonymous: FileObjectidBuffer00 = FileObjectidBuffer00(), public var extendedInfo: UByteArray = UByteArray(48)) {
+public data class FileObjectidBuffer0(
+    public var anonymous: FileObjectidBuffer00 = FileObjectidBuffer00(),
+    public var extendedInfo: UByteArray = UByteArray(48),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileObjectidBuffer0) return false
@@ -1745,7 +1927,10 @@ public data class FilePrefetchEx(
     }
 }
 
-public data class FileProviderExternalInfoV0(public var version: UInt = 0u, public var algorithm: UInt = 0u)
+public data class FileProviderExternalInfoV0(
+    public var version: UInt = 0u,
+    public var algorithm: UInt = 0u,
+)
 
 public data class FileProviderExternalInfoV1(
     public var version: UInt = 0u,
@@ -1806,7 +1991,10 @@ public data class FileQuerySparingBuffer(
     public var freeSpareBlocks: UInt = 0u,
 )
 
-public data class FileReferenceRange(public var startingFileReferenceNumber: ULong = 0uL, public var endingFileReferenceNumber: ULong = 0uL)
+public data class FileReferenceRange(
+    public var startingFileReferenceNumber: ULong = 0uL,
+    public var endingFileReferenceNumber: ULong = 0uL,
+)
 
 public data class FileRegionInfo(
     public var fileOffset: Long = 0L,
@@ -1829,9 +2017,13 @@ public data class FileRegionOutput(
     public var region: List<FileRegionInfo> = List(1) { FileRegionInfo() },
 )
 
-public data class FileSetDefectMgmtBuffer(public var disable: Boolean = false)
+public data class FileSetDefectMgmtBuffer(
+    public var disable: Boolean = false,
+)
 
-public data class FileSetSparseBuffer(public var setSparse: Boolean = false)
+public data class FileSetSparseBuffer(
+    public var setSparse: Boolean = false,
+)
 
 public data class FileStorageTier(
     public var id: Guid = Guid(),
@@ -1873,7 +2065,9 @@ public data class FileStorageTierRegion(
     public var length: ULong = 0uL,
 )
 
-public data class FileSystemRecognitionInformation(public var fileSystem: ByteArray = ByteArray(9)) {
+public data class FileSystemRecognitionInformation(
+    public var fileSystem: ByteArray = ByteArray(9),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileSystemRecognitionInformation) return false
@@ -1881,9 +2075,7 @@ public data class FileSystemRecognitionInformation(public var fileSystem: ByteAr
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.fileSystem.contentHashCode()
-    }
+    override fun hashCode(): Int = this.fileSystem.contentHashCode()
 }
 
 public data class FileTypeNotificationInput(
@@ -1892,7 +2084,10 @@ public data class FileTypeNotificationInput(
     public var fileTypeID: List<Guid> = List(1) { Guid() },
 )
 
-public data class FileZeroDataInformation(public var fileOffset: Long = 0L, public var beyondFinalZero: Long = 0L)
+public data class FileZeroDataInformation(
+    public var fileOffset: Long = 0L,
+    public var beyondFinalZero: Long = 0L,
+)
 
 public data class FileZeroDataInformationEx(
     public var fileOffset: Long = 0L,
@@ -1900,7 +2095,10 @@ public data class FileZeroDataInformationEx(
     public var flags: UInt = 0u,
 )
 
-public data class FindBySidData(public var restart: UInt = 0u, public var sid: Sid = Sid())
+public data class FindBySidData(
+    public var restart: UInt = 0u,
+    public var sid: Sid = Sid(),
+)
 
 public data class FindBySidOutput(
     public var nextEntryOffset: UInt = 0u,
@@ -2051,7 +2249,9 @@ public data class FsctlOffloadWriteOutput(
     public var lengthWritten: ULong = 0uL,
 )
 
-public data class FsctlQueryFatBpbBuffer(public var first0x24BytesOfBootSector: UByteArray = UByteArray(36)) {
+public data class FsctlQueryFatBpbBuffer(
+    public var first0x24BytesOfBootSector: UByteArray = UByteArray(36),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FsctlQueryFatBpbBuffer) return false
@@ -2059,9 +2259,7 @@ public data class FsctlQueryFatBpbBuffer(public var first0x24BytesOfBootSector: 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.first0x24BytesOfBootSector.contentHashCode()
-    }
+    override fun hashCode(): Int = this.first0x24BytesOfBootSector.contentHashCode()
 }
 
 public data class FsctlQueryRegionInfoInput(
@@ -2277,7 +2475,10 @@ public data class GetDiskAttributes(
     public var attributes: ULong = 0uL,
 )
 
-public data class GetFilterFileIdentifierInput(public var altitudeLength: UShort = 0u, public var altitude: UShortArray = UShortArray(1)) {
+public data class GetFilterFileIdentifierInput(
+    public var altitudeLength: UShort = 0u,
+    public var altitude: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is GetFilterFileIdentifierInput) return false
@@ -2293,7 +2494,10 @@ public data class GetFilterFileIdentifierInput(public var altitudeLength: UShort
     }
 }
 
-public data class GetFilterFileIdentifierOutput(public var filterFileIdentifierLength: UShort = 0u, public var filterFileIdentifier: UByteArray = UByteArray(1)) {
+public data class GetFilterFileIdentifierOutput(
+    public var filterFileIdentifierLength: UShort = 0u,
+    public var filterFileIdentifier: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is GetFilterFileIdentifierOutput) return false
@@ -2309,7 +2513,9 @@ public data class GetFilterFileIdentifierOutput(public var filterFileIdentifierL
     }
 }
 
-public data class GetLengthInformation(public var length: Long = 0L)
+public data class GetLengthInformation(
+    public var length: Long = 0L,
+)
 
 public data class GetMediaTypes(
     public var deviceType: UInt = 0u,
@@ -2317,9 +2523,15 @@ public data class GetMediaTypes(
     public var mediaInfo: List<DeviceMediaInfo> = List(1) { DeviceMediaInfo() },
 )
 
-public data class GpLogPageDescriptor(public var logAddress: UShort = 0u, public var logSectors: UShort = 0u)
+public data class GpLogPageDescriptor(
+    public var logAddress: UShort = 0u,
+    public var logSectors: UShort = 0u,
+)
 
-public data class HistogramBucket(public var reads: UInt = 0u, public var writes: UInt = 0u)
+public data class HistogramBucket(
+    public var reads: UInt = 0u,
+    public var writes: UInt = 0u,
+)
 
 public data class Ideregs(
     public var bFeaturesReg: UByte = 0u,
@@ -2338,9 +2550,13 @@ public data class IoIrpExtTrackOffsetHeader(
     public var trackedOffsetCallback: PioIrpExtProcessTrackedOffsetCallback = null,
 )
 
-public data class LmrQueryInfoParam(public var operation: LmrQueryInfoClass = 0)
+public data class LmrQueryInfoParam(
+    public var operation: LmrQueryInfoClass = 0,
+)
 
-public data class LmrQuerySessionInfo(public var sessionId: ULong = 0uL)
+public data class LmrQuerySessionInfo(
+    public var sessionId: ULong = 0uL,
+)
 
 public data class LookupStreamFromClusterEntry(
     public var offsetToNext: UInt = 0u,
@@ -2404,7 +2620,10 @@ public data class MarkHandleInfo(
     public var handleInfo: UInt = 0u,
 )
 
-public data class MarkHandleInfo0(public var usnSourceInfo: UInt = 0u, public var copyNumber: UInt = 0u)
+public data class MarkHandleInfo0(
+    public var usnSourceInfo: UInt = 0u,
+    public var copyNumber: UInt = 0u,
+)
 
 public data class MarkHandleInfo32(
     public var anonymous: MarkHandleInfo320 = MarkHandleInfo320(),
@@ -2412,7 +2631,10 @@ public data class MarkHandleInfo32(
     public var handleInfo: UInt = 0u,
 )
 
-public data class MarkHandleInfo320(public var usnSourceInfo: UInt = 0u, public var copyNumber: UInt = 0u)
+public data class MarkHandleInfo320(
+    public var usnSourceInfo: UInt = 0u,
+    public var copyNumber: UInt = 0u,
+)
 
 public data class MftEnumDataV0(
     public var startFileReferenceNumber: ULong = 0uL,
@@ -2461,7 +2683,9 @@ public data class NtfsExtendedVolumeData(
     public var maxVolumeTrimByteCount: UInt = 0u,
 )
 
-public data class NtfsFileRecordInputBuffer(public var fileReferenceNumber: Long = 0L)
+public data class NtfsFileRecordInputBuffer(
+    public var fileReferenceNumber: Long = 0L,
+)
 
 public data class NtfsFileRecordOutputBuffer(
     public var fileReferenceNumber: Long = 0L,
@@ -2713,7 +2937,10 @@ public data class PartitionInformationEx(
     public var anonymous: PartitionInformationEx0 = PartitionInformationEx0(),
 )
 
-public data class PartitionInformationEx0(public var mbr: PartitionInformationMbr = PartitionInformationMbr(), public var gpt: PartitionInformationGpt = PartitionInformationGpt())
+public data class PartitionInformationEx0(
+    public var mbr: PartitionInformationMbr = PartitionInformationMbr(),
+    public var gpt: PartitionInformationGpt = PartitionInformationGpt(),
+)
 
 public data class PartitionInformationGpt(
     public var partitionType: Guid = Guid(),
@@ -2748,7 +2975,10 @@ public data class PartitionInformationMbr(
     public var partitionId: Guid = Guid(),
 )
 
-public data class PathnameBuffer(public var pathNameLength: UInt = 0u, public var name: UShortArray = UShortArray(1)) {
+public data class PathnameBuffer(
+    public var pathNameLength: UInt = 0u,
+    public var name: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PathnameBuffer) return false
@@ -2776,6 +3006,12 @@ public data class PersistentReserveCommand(
     public var anonymous: PersistentReserveCommand0 = PersistentReserveCommand0(),
 )
 
-public data class PersistentReserveCommand0(public var prIn: PersistentReserveCommand00 = PersistentReserveCommand00(), public var prOut: PersistentReserveCommand01 = PersistentReserveCommand01())
+public data class PersistentReserveCommand0(
+    public var prIn: PersistentReserveCommand00 = PersistentReserveCommand00(),
+    public var prOut: PersistentReserveCommand01 = PersistentReserveCommand01(),
+)
 
-public data class PersistentReserveCommand00(public var bitfield: UByte = 0u, public var allocationLength: UShort = 0u)
+public data class PersistentReserveCommand00(
+    public var bitfield: UByte = 0u,
+    public var allocationLength: UShort = 0u,
+)

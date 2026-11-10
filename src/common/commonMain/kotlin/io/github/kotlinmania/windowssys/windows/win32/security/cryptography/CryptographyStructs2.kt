@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -12,7 +13,10 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public data class CryptAsyncRetrievalCompletion(public var pfnCompletion: PfnCryptAsyncRetrievalCompletionFunc = null, public var pvCompletion: COpaquePointer? = null)
+public data class CryptAsyncRetrievalCompletion(
+    public var pfnCompletion: PfnCryptAsyncRetrievalCompletionFunc = null,
+    public var pvCompletion: COpaquePointer? = null,
+)
 
 public data class CryptAttribute(
     public var pszObjId: Pstr = null,
@@ -20,9 +24,15 @@ public data class CryptAttribute(
     public var rgValue: CryptIntegerBlob? = null,
 )
 
-public data class CryptAttributes(public var cAttr: UInt = 0u, public var rgAttr: CryptAttribute? = null)
+public data class CryptAttributes(
+    public var cAttr: UInt = 0u,
+    public var rgAttr: CryptAttribute? = null,
+)
 
-public data class CryptAttributeTypeValue(public var pszObjId: Pstr = null, public var value: CryptIntegerBlob = CryptIntegerBlob())
+public data class CryptAttributeTypeValue(
+    public var pszObjId: Pstr = null,
+    public var value: CryptIntegerBlob = CryptIntegerBlob(),
+)
 
 public data class CryptBitBlob(
     public var cbData: UInt = 0u,
@@ -30,9 +40,15 @@ public data class CryptBitBlob(
     public var cUnusedBits: UInt = 0u,
 )
 
-public data class CryptBlobArray(public var cBlob: UInt = 0u, public var rgBlob: CryptIntegerBlob? = null)
+public data class CryptBlobArray(
+    public var cBlob: UInt = 0u,
+    public var rgBlob: CryptIntegerBlob? = null,
+)
 
-public data class CryptContentInfo(public var pszObjId: Pstr = null, public var content: CryptIntegerBlob = CryptIntegerBlob())
+public data class CryptContentInfo(
+    public var pszObjId: Pstr = null,
+    public var content: CryptIntegerBlob = CryptIntegerBlob(),
+)
 
 public data class CryptContentInfoSequenceOfAny(
     public var pszObjId: Pstr = null,
@@ -40,15 +56,30 @@ public data class CryptContentInfoSequenceOfAny(
     public var rgValue: CryptIntegerBlob? = null,
 )
 
-public data class CryptContexts(public var cContexts: UInt = 0u, public var rgpszContexts: Pwstr? = null)
+public data class CryptContexts(
+    public var cContexts: UInt = 0u,
+    public var rgpszContexts: Pwstr? = null,
+)
 
-public data class CryptContextConfig(public var dwFlags: CryptContextConfigFlags = 0u, public var dwReserved: UInt = 0u)
+public data class CryptContextConfig(
+    public var dwFlags: CryptContextConfigFlags = 0u,
+    public var dwReserved: UInt = 0u,
+)
 
-public data class CryptContextFunctions(public var cFunctions: UInt = 0u, public var rgpszFunctions: Pwstr? = null)
+public data class CryptContextFunctions(
+    public var cFunctions: UInt = 0u,
+    public var rgpszFunctions: Pwstr? = null,
+)
 
-public data class CryptContextFunctionConfig(public var dwFlags: UInt = 0u, public var dwReserved: UInt = 0u)
+public data class CryptContextFunctionConfig(
+    public var dwFlags: UInt = 0u,
+    public var dwReserved: UInt = 0u,
+)
 
-public data class CryptContextFunctionProviders(public var cProviders: UInt = 0u, public var rgpszProviders: Pwstr? = null)
+public data class CryptContextFunctionProviders(
+    public var cProviders: UInt = 0u,
+    public var rgpszProviders: Pwstr? = null,
+)
 
 public data class CryptCredentials(
     public var cbSize: UInt = 0u,
@@ -75,7 +106,10 @@ public data class CryptDecryptMessagePara(
     public var rghCertStore: COpaquePointer? = null,
 )
 
-public data class CryptDefaultContextMultiOidPara(public var cOID: UInt = 0u, public var rgpszOID: Pstr? = null)
+public data class CryptDefaultContextMultiOidPara(
+    public var cOID: UInt = 0u,
+    public var rgpszOID: Pstr? = null,
+)
 
 public data class CryptDesKeyState(
     public var key: UByteArray = UByteArray(8),
@@ -134,7 +168,10 @@ public data class CryptEncodePara(
     public var pfnFree: PfnCryptFree = null,
 )
 
-public data class CryptEncryptedPrivateKeyInfo(public var encryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(), public var encryptedPrivateKey: CryptIntegerBlob = CryptIntegerBlob())
+public data class CryptEncryptedPrivateKeyInfo(
+    public var encryptionAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var encryptedPrivateKey: CryptIntegerBlob = CryptIntegerBlob(),
+)
 
 public data class CryptEncryptMessagePara(
     public var cbSize: UInt = 0u,
@@ -146,7 +183,10 @@ public data class CryptEncryptMessagePara(
     public var dwInnerContentType: UInt = 0u,
 )
 
-public data class CryptEnrollmentNameValuePair(public var pwszName: Pwstr = null, public var pwszValue: Pwstr = null)
+public data class CryptEnrollmentNameValuePair(
+    public var pwszName: Pwstr = null,
+    public var pwszValue: Pwstr = null,
+)
 
 public data class CryptGetTimeValidObjectExtraInfo(
     public var cbSize: UInt = 0u,
@@ -158,7 +198,10 @@ public data class CryptGetTimeValidObjectExtraInfo(
     public var pDeltaCrlIndicator: CryptIntegerBlob? = null,
 )
 
-public data class CryptHashInfo(public var hashAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(), public var hash: CryptIntegerBlob = CryptIntegerBlob())
+public data class CryptHashInfo(
+    public var hashAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var hash: CryptIntegerBlob = CryptIntegerBlob(),
+)
 
 public data class CryptHashMessagePara(
     public var cbSize: UInt = 0u,
@@ -168,7 +211,10 @@ public data class CryptHashMessagePara(
     public var pvHashAuxInfo: COpaquePointer? = null,
 )
 
-public data class CryptImageRef(public var pszImage: Pwstr = null, public var dwFlags: CryptImageRefFlags = 0u)
+public data class CryptImageRef(
+    public var pszImage: Pwstr = null,
+    public var dwFlags: CryptImageRefFlags = 0u,
+)
 
 public data class CryptImageReg(
     public var pszImage: Pwstr = null,
@@ -176,7 +222,10 @@ public data class CryptImageReg(
     public var rgpInterfaces: COpaquePointer? = null,
 )
 
-public data class CryptIntegerBlob(public var cbData: UInt = 0u, public var pbData: COpaquePointer? = null)
+public data class CryptIntegerBlob(
+    public var cbData: UInt = 0u,
+    public var pbData: COpaquePointer? = null,
+)
 
 public data class CryptInterfaceReg(
     public var dwInterface: BcryptInterface = 0u,
@@ -212,7 +261,10 @@ public data class CryptKeySignMessagePara(
     public var pubKeyAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
 )
 
-public data class CryptKeySignMessagePara0(public var hCryptProv: Int = 0, public var hNCryptKey: NcryptKeyHandle = 0uL)
+public data class CryptKeySignMessagePara0(
+    public var hCryptProv: Int = 0,
+    public var hNCryptKey: NcryptKeyHandle = 0uL,
+)
 
 public data class CryptKeyVerifyMessagePara(
     public var cbSize: UInt = 0u,
@@ -220,7 +272,10 @@ public data class CryptKeyVerifyMessagePara(
     public var hCryptProv: HcryptprovLegacy = 0uL,
 )
 
-public data class CryptMaskGenAlgorithm(public var pszObjId: Pstr = null, public var hashAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier())
+public data class CryptMaskGenAlgorithm(
+    public var pszObjId: Pstr = null,
+    public var hashAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+)
 
 public data class CryptObjectLocatorProviderTable(
     public var cbSize: UInt = 0u,
@@ -231,9 +286,15 @@ public data class CryptObjectLocatorProviderTable(
     public var pfnFreeIdentifier: PfnCryptObjectLocatorProviderFreeIdentifier = null,
 )
 
-public data class CryptObjidTable(public var dwAlgId: UInt = 0u, public var pszObjId: Pcstr = null)
+public data class CryptObjidTable(
+    public var dwAlgId: UInt = 0u,
+    public var pszObjId: Pcstr = null,
+)
 
-public data class CryptOidFuncEntry(public var pszOID: Pcstr = null, public var pvFuncAddr: COpaquePointer? = null)
+public data class CryptOidFuncEntry(
+    public var pszOID: Pcstr = null,
+    public var pvFuncAddr: COpaquePointer? = null,
+)
 
 public data class CryptOidInfo(
     public var cbSize: UInt = 0u,
@@ -262,7 +323,10 @@ public data class CryptPasswordCredentialsw(
     public var pszPassword: Pwstr = null,
 )
 
-public data class CryptPkcs12PbeParams(public var iIterations: Int = 0, public var cbSalt: UInt = 0u)
+public data class CryptPkcs12PbeParams(
+    public var iIterations: Int = 0,
+    public var cbSalt: UInt = 0u,
+)
 
 public data class CryptPkcs8ExportParams(
     public var hCryptProv: Int = 0,
@@ -293,7 +357,10 @@ public data class CryptPropertyRef(
     public var pbValue: COpaquePointer? = null,
 )
 
-public data class CryptProviders(public var cProviders: UInt = 0u, public var rgpszProviders: Pwstr? = null)
+public data class CryptProviders(
+    public var cProviders: UInt = 0u,
+    public var rgpszProviders: Pwstr? = null,
+)
 
 public data class CryptProviderRef(
     public var dwInterface: UInt = 0u,
@@ -305,7 +372,10 @@ public data class CryptProviderRef(
     public var pKM: CryptImageRef? = null,
 )
 
-public data class CryptProviderRefs(public var cProviders: UInt = 0u, public var rgpProviders: COpaquePointer? = null)
+public data class CryptProviderRefs(
+    public var cProviders: UInt = 0u,
+    public var rgpProviders: COpaquePointer? = null,
+)
 
 public data class CryptProviderReg(
     public var cAliases: UInt = 0u,
@@ -314,7 +384,10 @@ public data class CryptProviderReg(
     public var pKM: CryptImageReg? = null,
 )
 
-public data class CryptPsourceAlgorithm(public var pszObjId: Pstr = null, public var encodingParameters: CryptIntegerBlob = CryptIntegerBlob())
+public data class CryptPsourceAlgorithm(
+    public var pszObjId: Pstr = null,
+    public var encodingParameters: CryptIntegerBlob = CryptIntegerBlob(),
+)
 
 public data class CryptRc2CbcParameters(
     public var dwVersion: UInt = 0u,
@@ -391,7 +464,10 @@ public data class CryptRsaSsaPssParameters(
     public var dwTrailerField: UInt = 0u,
 )
 
-public data class CryptSequenceOfAny(public var cValue: UInt = 0u, public var rgValue: CryptIntegerBlob? = null)
+public data class CryptSequenceOfAny(
+    public var cValue: UInt = 0u,
+    public var rgValue: CryptIntegerBlob? = null,
+)
 
 public data class CryptSignMessagePara(
     public var cbSize: UInt = 0u,
@@ -411,7 +487,10 @@ public data class CryptSignMessagePara(
     public var dwInnerContentType: UInt = 0u,
 )
 
-public data class CryptSmartCardRootInfo(public var rgbCardID: UByteArray = UByteArray(16), public var luid: RootInfoLuid = RootInfoLuid()) {
+public data class CryptSmartCardRootInfo(
+    public var rgbCardID: UByteArray = UByteArray(16),
+    public var luid: RootInfoLuid = RootInfoLuid(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CryptSmartCardRootInfo) return false
@@ -427,9 +506,15 @@ public data class CryptSmartCardRootInfo(public var rgbCardID: UByteArray = UByt
     }
 }
 
-public data class CryptSmimeCapabilities(public var cCapability: UInt = 0u, public var rgCapability: CryptSmimeCapability? = null)
+public data class CryptSmimeCapabilities(
+    public var cCapability: UInt = 0u,
+    public var rgCapability: CryptSmimeCapability? = null,
+)
 
-public data class CryptSmimeCapability(public var pszObjId: Pstr = null, public var parameters: CryptIntegerBlob = CryptIntegerBlob())
+public data class CryptSmimeCapability(
+    public var pszObjId: Pstr = null,
+    public var parameters: CryptIntegerBlob = CryptIntegerBlob(),
+)
 
 public data class CryptTimestampAccuracy(
     public var dwSeconds: UInt = 0u,
@@ -493,7 +578,10 @@ public data class CryptTimeStampRequestInfo(
     public var rgAttribute: CryptAttribute? = null,
 )
 
-public data class CryptUrlArray(public var cUrl: UInt = 0u, public var rgwszUrl: Pwstr? = null)
+public data class CryptUrlArray(
+    public var cUrl: UInt = 0u,
+    public var rgwszUrl: Pwstr? = null,
+)
 
 public data class CryptUrlInfo(
     public var cbSize: UInt = 0u,
@@ -502,7 +590,10 @@ public data class CryptUrlInfo(
     public var rgcGroupEntry: UInt? = null,
 )
 
-public data class CryptVerifyCertSignStrongPropertiesInfo(public var certSignHashCNGAlgPropData: CryptIntegerBlob = CryptIntegerBlob(), public var certIssuerPubKeyBitLengthPropData: CryptIntegerBlob = CryptIntegerBlob())
+public data class CryptVerifyCertSignStrongPropertiesInfo(
+    public var certSignHashCNGAlgPropData: CryptIntegerBlob = CryptIntegerBlob(),
+    public var certIssuerPubKeyBitLengthPropData: CryptIntegerBlob = CryptIntegerBlob(),
+)
 
 public data class CryptVerifyCertSignWeakHashInfo(
     public var cCNGHashAlgid: UInt = 0u,
@@ -580,7 +671,10 @@ public data class CryptXmlCryptographicInterface(
     public var fpCryptXmlGetAlgorithmInfo: CryptXmlDllGetAlgorithmInfo = null,
 )
 
-public data class CryptXmlDataBlob(public var cbData: UInt = 0u, public var pbData: COpaquePointer? = null)
+public data class CryptXmlDataBlob(
+    public var cbData: UInt = 0u,
+    public var pbData: COpaquePointer? = null,
+)
 
 public data class CryptXmlDataProvider(
     public var pvCallbackState: COpaquePointer? = null,
@@ -597,7 +691,10 @@ public data class CryptXmlDocCtxt(
     public var rgpSignature: COpaquePointer? = null,
 )
 
-public data class CryptXmlIssuerSerial(public var wszIssuer: Pcwstr = null, public var wszSerial: Pcwstr = null)
+public data class CryptXmlIssuerSerial(
+    public var wszIssuer: Pcwstr = null,
+    public var wszSerial: Pcwstr = null,
+)
 
 public data class CryptXmlKeyinfoParam(
     public var wszId: Pcwstr = null,
@@ -635,7 +732,10 @@ public data class CryptXmlKeyInfo(
     public var hVerifyKey: BcryptKeyHandle = null,
 )
 
-public data class CryptXmlKeyInfoItem(public var dwType: CryptXmlKeyinfoType = 0u, public var anonymous: CryptXmlKeyInfoItem0 = CryptXmlKeyInfoItem0())
+public data class CryptXmlKeyInfoItem(
+    public var dwType: CryptXmlKeyinfoType = 0u,
+    public var anonymous: CryptXmlKeyInfoItem0 = CryptXmlKeyInfoItem0(),
+)
 
 public data class CryptXmlKeyInfoItem0(
     public var wszKeyName: Pcwstr = null,
@@ -645,9 +745,15 @@ public data class CryptXmlKeyInfoItem0(
     public var custom: CryptXmlBlob = CryptXmlBlob(),
 )
 
-public data class CryptXmlKeyRsaKeyValue(public var modulus: CryptXmlDataBlob = CryptXmlDataBlob(), public var exponent: CryptXmlDataBlob = CryptXmlDataBlob())
+public data class CryptXmlKeyRsaKeyValue(
+    public var modulus: CryptXmlDataBlob = CryptXmlDataBlob(),
+    public var exponent: CryptXmlDataBlob = CryptXmlDataBlob(),
+)
 
-public data class CryptXmlKeyValue(public var dwType: CryptXmlKeyValueType = 0u, public var anonymous: CryptXmlKeyValue0 = CryptXmlKeyValue0())
+public data class CryptXmlKeyValue(
+    public var dwType: CryptXmlKeyValueType = 0u,
+    public var anonymous: CryptXmlKeyValue0 = CryptXmlKeyValue0(),
+)
 
 public data class CryptXmlKeyValue0(
     public var dSAKeyValue: CryptXmlKeyDsaKeyValue = CryptXmlKeyDsaKeyValue(),
@@ -684,7 +790,10 @@ public data class CryptXmlReference(
     public var rgTransform: CryptXmlAlgorithm? = null,
 )
 
-public data class CryptXmlReferences(public var cReference: UInt = 0u, public var rgpReference: COpaquePointer? = null)
+public data class CryptXmlReferences(
+    public var cReference: UInt = 0u,
+    public var rgpReference: COpaquePointer? = null,
+)
 
 public data class CryptXmlSignature(
     public var cbSize: UInt = 0u,
@@ -727,9 +836,15 @@ public data class CryptXmlTransformInfo(
     public var pfnCreateTransform: PfnCryptXmlCreateTransform = null,
 )
 
-public data class CryptXmlX509data(public var cX509Data: UInt = 0u, public var rgX509Data: CryptXmlX509dataItem? = null)
+public data class CryptXmlX509data(
+    public var cX509Data: UInt = 0u,
+    public var rgX509Data: CryptXmlX509dataItem? = null,
+)
 
-public data class CryptXmlX509dataItem(public var dwType: CryptXmlX509dataType = 0u, public var anonymous: CryptXmlX509dataItem0 = CryptXmlX509dataItem0())
+public data class CryptXmlX509dataItem(
+    public var dwType: CryptXmlX509dataType = 0u,
+    public var anonymous: CryptXmlX509dataItem0 = CryptXmlX509dataItem0(),
+)
 
 public data class CryptXmlX509dataItem0(
     public var issuerSerial: CryptXmlIssuerSerial = CryptXmlIssuerSerial(),
@@ -740,7 +855,10 @@ public data class CryptXmlX509dataItem0(
     public var custom: CryptXmlBlob = CryptXmlBlob(),
 )
 
-public data class CtlAnySubjectInfo(public var subjectAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(), public var subjectIdentifier: CryptIntegerBlob = CryptIntegerBlob())
+public data class CtlAnySubjectInfo(
+    public var subjectAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
+    public var subjectIdentifier: CryptIntegerBlob = CryptIntegerBlob(),
+)
 
 public data class CtlContext(
     public var dwMsgAndCertEncodingType: UInt = 0u,
@@ -787,9 +905,15 @@ public data class CtlInfo(
     public var rgExtension: CertExtension? = null,
 )
 
-public data class CtlUsage(public var cUsageIdentifier: UInt = 0u, public var rgpszUsageIdentifier: Pstr? = null)
+public data class CtlUsage(
+    public var cUsageIdentifier: UInt = 0u,
+    public var rgpszUsageIdentifier: Pstr? = null,
+)
 
-public data class CtlUsageMatch(public var dwType: UInt = 0u, public var usage: CtlUsage = CtlUsage())
+public data class CtlUsageMatch(
+    public var dwType: UInt = 0u,
+    public var usage: CtlUsage = CtlUsage(),
+)
 
 public data class CtlVerifyUsagePara(
     public var cbSize: UInt = 0u,
@@ -810,7 +934,10 @@ public data class CtlVerifyUsageStatus(
     public var dwSignerIndex: UInt = 0u,
 )
 
-public data class Dssseed(public var counter: UInt = 0u, public var seed: UByteArray = UByteArray(20)) {
+public data class Dssseed(
+    public var counter: UInt = 0u,
+    public var seed: UByteArray = UByteArray(20),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dssseed) return false
@@ -839,7 +966,10 @@ public data class Endpointaddress2(
     public var identityBytes: COpaquePointer? = null,
 )
 
-public data class EvExtraCertChainPolicyPara(public var cbSize: UInt = 0u, public var dwRootProgramQualifierFlags: CertRootProgramFlags = 0u)
+public data class EvExtraCertChainPolicyPara(
+    public var cbSize: UInt = 0u,
+    public var dwRootProgramQualifierFlags: CertRootProgramFlags = 0u,
+)
 
 public data class EvExtraCertChainPolicyStatus(
     public var cbSize: UInt = 0u,
@@ -870,12 +1000,19 @@ public data class HTTPSPolicyCallbackData(
     public var pwszServerName: Pwstr = null,
 )
 
-public data class HttpspolicyCallbackData0(public var cbStruct: UInt = 0u, public var cbSize: UInt = 0u)
+public data class HttpspolicyCallbackData0(
+    public var cbStruct: UInt = 0u,
+    public var cbSize: UInt = 0u,
+)
 
-public data class HandleType(public var value: Int = 0) {
+public data class HandleType(
+    public var value: Int = 0,
+) {
     public var field0: Int
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 
     public companion object {
         public val ASYMMETRIC: HandleType = HandleType(1)
@@ -900,7 +1037,10 @@ public data class InformationcardCryptoHandle(
     public var cryptoParameters: COpaquePointer? = null,
 )
 
-public data class InformationcardHashCryptoParameters(public var hashSize: Int = 0, public var transform: InformationcardTransformCryptoParameters = InformationcardTransformCryptoParameters())
+public data class InformationcardHashCryptoParameters(
+    public var hashSize: Int = 0,
+    public var transform: InformationcardTransformCryptoParameters = InformationcardTransformCryptoParameters(),
+)
 
 public data class InformationcardSymmetricCryptoParameters(
     public var keySize: Int = 0,
@@ -958,7 +1098,9 @@ public data class NcryptCipherPaddingInfo(
     public var cbOtherInfo: UInt = 0u,
 )
 
-public data class NcryptExportedIsolatedKeyEnvelope(public var header: NcryptExportedIsolatedKeyHeader = NcryptExportedIsolatedKeyHeader())
+public data class NcryptExportedIsolatedKeyEnvelope(
+    public var header: NcryptExportedIsolatedKeyHeader = NcryptExportedIsolatedKeyHeader(),
+)
 
 public data class NcryptExportedIsolatedKeyHeader(
     public var version: UInt = 0u,
@@ -1060,7 +1202,10 @@ public data class NcryptPcpHmacAuthSignatureInfo(
     }
 }
 
-public data class NcryptPcpRawPolicydigestInfo(public var dwVersion: UInt = 0u, public var cbDigest: UInt = 0u)
+public data class NcryptPcpRawPolicydigestInfo(
+    public var dwVersion: UInt = 0u,
+    public var cbDigest: UInt = 0u,
+)
 
 public data class NcryptPcpTpmFwVersionInfo(
     public var major1: UShort = 0u,
@@ -1078,11 +1223,20 @@ public data class NcryptPcpTpmWebAuthnAttestationStatement(
     public var cbTpmPublic: UInt = 0u,
 )
 
-public data class NcryptPlatformAttestPaddingInfo(public var magic: UInt = 0u, public var pcrMask: UInt = 0u)
+public data class NcryptPlatformAttestPaddingInfo(
+    public var magic: UInt = 0u,
+    public var pcrMask: UInt = 0u,
+)
 
-public data class NcryptProtectStreamInfo(public var pfnStreamOutput: PFNCryptStreamOutputCallback = null, public var pvCallbackCtxt: COpaquePointer? = null)
+public data class NcryptProtectStreamInfo(
+    public var pfnStreamOutput: PFNCryptStreamOutputCallback = null,
+    public var pvCallbackCtxt: COpaquePointer? = null,
+)
 
-public data class NcryptProtectStreamInfoEx(public var pfnStreamOutput: PFNCryptStreamOutputCallbackEx = null, public var pvCallbackCtxt: COpaquePointer? = null)
+public data class NcryptProtectStreamInfoEx(
+    public var pfnStreamOutput: PFNCryptStreamOutputCallbackEx = null,
+    public var pvCallbackCtxt: COpaquePointer? = null,
+)
 
 public data class NcryptSslCipherLengths(
     public var cbLength: UInt = 0u,
@@ -1352,7 +1506,10 @@ public data class NCryptKeyName(
     public var dwFlags: UInt = 0u,
 )
 
-public data class NCryptProviderName(public var pszName: Pwstr = null, public var pszComment: Pwstr = null)
+public data class NCryptProviderName(
+    public var pszName: Pwstr = null,
+    public var pszComment: Pwstr = null,
+)
 
 public data class OcspBasicResponseEntry(
     public var certId: OcspCertId = OcspCertId(),
@@ -1364,7 +1521,9 @@ public data class OcspBasicResponseEntry(
     public var rgExtension: CertExtension? = null,
 )
 
-public data class OcspBasicResponseEntry0(public var pRevokedInfo: OcspBasicRevokedInfo? = null)
+public data class OcspBasicResponseEntry0(
+    public var pRevokedInfo: OcspBasicRevokedInfo? = null,
+)
 
 public data class OcspBasicResponseInfo(
     public var dwVersion: UInt = 0u,
@@ -1377,11 +1536,20 @@ public data class OcspBasicResponseInfo(
     public var rgExtension: CertExtension? = null,
 )
 
-public data class OcspBasicResponseInfo0(public var byNameResponderId: CryptIntegerBlob = CryptIntegerBlob(), public var byKeyResponderId: CryptIntegerBlob = CryptIntegerBlob())
+public data class OcspBasicResponseInfo0(
+    public var byNameResponderId: CryptIntegerBlob = CryptIntegerBlob(),
+    public var byKeyResponderId: CryptIntegerBlob = CryptIntegerBlob(),
+)
 
-public data class OcspBasicRevokedInfo(public var revocationDate: Filetime = Filetime(), public var dwCrlReasonCode: CertRevocationStatusReason = 0u)
+public data class OcspBasicRevokedInfo(
+    public var revocationDate: Filetime = Filetime(),
+    public var dwCrlReasonCode: CertRevocationStatusReason = 0u,
+)
 
-public data class OcspBasicSignedResponseInfo(public var toBeSigned: CryptIntegerBlob = CryptIntegerBlob(), public var signatureInfo: OcspSignatureInfo = OcspSignatureInfo())
+public data class OcspBasicSignedResponseInfo(
+    public var toBeSigned: CryptIntegerBlob = CryptIntegerBlob(),
+    public var signatureInfo: OcspSignatureInfo = OcspSignatureInfo(),
+)
 
 public data class OcspCertId(
     public var hashAlgorithm: CryptAlgorithmIdentifier = CryptAlgorithmIdentifier(),
@@ -1418,7 +1586,10 @@ public data class OcspSignatureInfo(
     public var rgCertEncoded: CryptIntegerBlob? = null,
 )
 
-public data class OcspSignedRequestInfo(public var toBeSigned: CryptIntegerBlob = CryptIntegerBlob(), public var pOptionalSignatureInfo: OcspSignatureInfo? = null)
+public data class OcspSignedRequestInfo(
+    public var toBeSigned: CryptIntegerBlob = CryptIntegerBlob(),
+    public var pOptionalSignatureInfo: OcspSignatureInfo? = null,
+)
 
 public data class OffloadPrivateKey(
     public var dwVersion: UInt = 0u,
@@ -1533,7 +1704,10 @@ public data class ProvEnumalgsEx(
     }
 }
 
-public data class Pubkey(public var magic: UInt = 0u, public var bitlen: UInt = 0u)
+public data class Pubkey(
+    public var magic: UInt = 0u,
+    public var bitlen: UInt = 0u,
+)
 
 public data class Pubkeyver3(
     public var magic: UInt = 0u,
@@ -1550,10 +1724,14 @@ public data class Publickeystruc(
     public var aiKeyAlg: AlgId = 0u,
 )
 
-public data class PaddingMode(public var value: Int = 0) {
+public data class PaddingMode(
+    public var value: Int = 0,
+) {
     public var field0: Int
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 
     public companion object {
         public val NONE: PaddingMode = PaddingMode(1)
@@ -1588,7 +1766,10 @@ public data class Recipientpolicy2(
     public var privacyVersion: UInt = 0u,
 )
 
-public data class RootInfoLuid(public var lowPart: UInt = 0u, public var highPart: Int = 0)
+public data class RootInfoLuid(
+    public var lowPart: UInt = 0u,
+    public var highPart: Int = 0,
+)
 
 public data class Rsapubkey(
     public var magic: UInt = 0u,
@@ -1691,7 +1872,10 @@ public data class SignerProviderInfo(
     public var anonymous: SignerProviderInfo0 = SignerProviderInfo0(),
 )
 
-public data class SignerProviderInfo0(public var pwszPvkFileName: Pwstr = null, public var pwszKeyContainer: Pwstr = null)
+public data class SignerProviderInfo0(
+    public var pwszPvkFileName: Pwstr = null,
+    public var pwszKeyContainer: Pwstr = null,
+)
 
 public data class SignerSignatureInfo(
     public var cbSize: UInt = 0u,
@@ -1702,7 +1886,9 @@ public data class SignerSignatureInfo(
     public var psUnauthenticated: CryptAttributes? = null,
 )
 
-public data class SignerSignatureInfo0(public var pAttrAuthcode: SignerAttrAuthcode? = null)
+public data class SignerSignatureInfo0(
+    public var pAttrAuthcode: SignerAttrAuthcode? = null,
+)
 
 public data class SignerSpcChainInfo(
     public var cbSize: UInt = 0u,
@@ -1718,9 +1904,15 @@ public data class SignerSubjectInfo(
     public var anonymous: SignerSubjectInfo0 = SignerSubjectInfo0(),
 )
 
-public data class SignerSubjectInfo0(public var pSignerFileInfo: SignerFileInfo? = null, public var pSignerBlobInfo: SignerBlobInfo? = null)
+public data class SignerSubjectInfo0(
+    public var pSignerFileInfo: SignerFileInfo? = null,
+    public var pSignerBlobInfo: SignerBlobInfo? = null,
+)
 
-public data class SslEcckeyBlob(public var dwCurveType: UInt = 0u, public var cbKey: UInt = 0u)
+public data class SslEcckeyBlob(
+    public var dwCurveType: UInt = 0u,
+    public var cbKey: UInt = 0u,
+)
 
 public data class SslF12ExtraCertChainPolicyStatus(
     public var cbSize: UInt = 0u,

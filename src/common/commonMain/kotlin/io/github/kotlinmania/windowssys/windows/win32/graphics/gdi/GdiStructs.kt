@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdi
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -28,7 +29,9 @@ public data class Abcfloat(
     public var abcfC: Float = 0.0f,
 )
 
-public data class Abortpath(public var emr: Emr = Emr())
+public data class Abortpath(
+    public var emr: Emr = Emr(),
+)
 
 public data class Axeslista(
     public var axlReserved: UInt = 0u,
@@ -104,7 +107,10 @@ public data class Bitmapcoreheader(
     public var bcBitCount: UShort = 0u,
 )
 
-public data class Bitmapcoreinfo(public var bmciHeader: Bitmapcoreheader = Bitmapcoreheader(), public var bmciColors: List<Rgbtriple> = List(1) { Rgbtriple() })
+public data class Bitmapcoreinfo(
+    public var bmciHeader: Bitmapcoreheader = Bitmapcoreheader(),
+    public var bmciColors: List<Rgbtriple> = List(1) { Rgbtriple() },
+)
 
 public data class Bitmapfileheader(
     public var bfType: UShort = 0u,
@@ -114,7 +120,10 @@ public data class Bitmapfileheader(
     public var bfOffBits: UInt = 0u,
 )
 
-public data class Bitmapinfo(public var bmiHeader: Bitmapinfoheader = Bitmapinfoheader(), public var bmiColors: List<Rgbquad> = List(1) { Rgbquad() })
+public data class Bitmapinfo(
+    public var bmiHeader: Bitmapinfoheader = Bitmapinfoheader(),
+    public var bmiColors: List<Rgbquad> = List(1) { Rgbquad() },
+)
 
 public data class Bitmapinfoheader(
     public var biSize: UInt = 0u,
@@ -266,7 +275,10 @@ public class Devmodea(
     public var dmPanningHeight: UInt = 0u,
 )
 
-public data class Devmodea0(public var anonymous1: Devmodea00 = Devmodea00(), public var anonymous2: Devmodea01 = Devmodea01())
+public data class Devmodea0(
+    public var anonymous1: Devmodea00 = Devmodea00(),
+    public var anonymous2: Devmodea01 = Devmodea01(),
+)
 
 public data class Devmodea00(
     public var dmOrientation: Short = 0,
@@ -285,7 +297,10 @@ public data class Devmodea01(
     public var dmDisplayFixedOutput: DevmodeDisplayFixedOutput = 0u,
 )
 
-public data class Devmodea1(public var dmDisplayFlags: UInt = 0u, public var dmNup: UInt = 0u)
+public data class Devmodea1(
+    public var dmDisplayFlags: UInt = 0u,
+    public var dmNup: UInt = 0u,
+)
 
 public class Devmodew(
     public var dmDeviceName: UShortArray = UShortArray(32),
@@ -317,7 +332,10 @@ public class Devmodew(
     public var dmPanningHeight: UInt = 0u,
 )
 
-public data class Devmodew0(public var anonymous1: Devmodew00 = Devmodew00(), public var anonymous2: Devmodew01 = Devmodew01())
+public data class Devmodew0(
+    public var anonymous1: Devmodew00 = Devmodew00(),
+    public var anonymous2: Devmodew01 = Devmodew01(),
+)
 
 public data class Devmodew00(
     public var dmOrientation: Short = 0,
@@ -336,7 +354,10 @@ public data class Devmodew01(
     public var dmDisplayFixedOutput: DevmodeDisplayFixedOutput = 0u,
 )
 
-public data class Devmodew1(public var dmDisplayFlags: UInt = 0u, public var dmNup: UInt = 0u)
+public data class Devmodew1(
+    public var dmDisplayFlags: UInt = 0u,
+    public var dmNup: UInt = 0u,
+)
 
 public data class Dibsection(
     public var dsBm: Bitmap = Bitmap(),
@@ -436,7 +457,10 @@ public data class Drawtextparams(
     public var uiLengthDrawn: UInt = 0u,
 )
 
-public data class Emr(public var iType: EnhancedMetafileRecordType = 0u, public var nSize: UInt = 0u)
+public data class Emr(
+    public var iType: EnhancedMetafileRecordType = 0u,
+    public var nSize: UInt = 0u,
+)
 
 public class Emralphablend(
     public var emr: Emr = Emr(),
@@ -570,7 +594,10 @@ public data class Emrcreatepen(
     public var lopn: Logpen = Logpen(),
 )
 
-public data class Emrellipse(public var emr: Emr = Emr(), public var rclBox: Rectl = Rectl())
+public data class Emrellipse(
+    public var emr: Emr = Emr(),
+    public var rclBox: Rectl = Rectl(),
+)
 
 public data class Emreof(
     public var emr: Emr = Emr(),
@@ -579,7 +606,10 @@ public data class Emreof(
     public var nSizeLast: UInt = 0u,
 )
 
-public data class Emrexcludecliprect(public var emr: Emr = Emr(), public var rclClip: Rectl = Rectl())
+public data class Emrexcludecliprect(
+    public var emr: Emr = Emr(),
+    public var rclClip: Rectl = Rectl(),
+)
 
 public data class Emrextcreatefontindirectw(
     public var emr: Emr = Emr(),
@@ -663,7 +693,10 @@ public data class Emrexttextouta(
     public var emrtext: Emrtext = Emrtext(),
 )
 
-public data class Emrfillpath(public var emr: Emr = Emr(), public var rclBounds: Rectl = Rectl())
+public data class Emrfillpath(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
+)
 
 public data class Emrfillrgn(
     public var emr: Emr = Emr(),
@@ -834,7 +867,10 @@ public data class Emrinvertrgn(
     }
 }
 
-public data class Emrlineto(public var emr: Emr = Emr(), public var ptl: Pointl = Pointl())
+public data class Emrlineto(
+    public var emr: Emr = Emr(),
+    public var ptl: Pointl = Pointl(),
+)
 
 public class Emrmaskblt(
     public var emr: Emr = Emr(),
@@ -896,7 +932,10 @@ public data class Emrnamedescape(
     }
 }
 
-public data class Emroffsetcliprgn(public var emr: Emr = Emr(), public var ptlOffset: Pointl = Pointl())
+public data class Emroffsetcliprgn(
+    public var emr: Emr = Emr(),
+    public var ptlOffset: Pointl = Pointl(),
+)
 
 public class Emrplgblt(
     public var emr: Emr = Emr(),
@@ -1070,7 +1109,10 @@ public data class Emrresizepalette(
     public var cEntries: UInt = 0u,
 )
 
-public data class Emrrestoredc(public var emr: Emr = Emr(), public var iRelative: Int = 0)
+public data class Emrrestoredc(
+    public var emr: Emr = Emr(),
+    public var iRelative: Int = 0,
+)
 
 public data class Emrroundrect(
     public var emr: Emr = Emr(),
@@ -1086,17 +1128,35 @@ public data class Emrscaleviewportextex(
     public var yDenom: Int = 0,
 )
 
-public data class Emrselectclippath(public var emr: Emr = Emr(), public var iMode: UInt = 0u)
+public data class Emrselectclippath(
+    public var emr: Emr = Emr(),
+    public var iMode: UInt = 0u,
+)
 
-public data class Emrselectobject(public var emr: Emr = Emr(), public var ihObject: UInt = 0u)
+public data class Emrselectobject(
+    public var emr: Emr = Emr(),
+    public var ihObject: UInt = 0u,
+)
 
-public data class Emrselectpalette(public var emr: Emr = Emr(), public var ihPal: UInt = 0u)
+public data class Emrselectpalette(
+    public var emr: Emr = Emr(),
+    public var ihPal: UInt = 0u,
+)
 
-public data class Emrsetarcdirection(public var emr: Emr = Emr(), public var iArcDirection: UInt = 0u)
+public data class Emrsetarcdirection(
+    public var emr: Emr = Emr(),
+    public var iArcDirection: UInt = 0u,
+)
 
-public data class Emrsetcoloradjustment(public var emr: Emr = Emr(), public var colorAdjustment: Coloradjustment = Coloradjustment())
+public data class Emrsetcoloradjustment(
+    public var emr: Emr = Emr(),
+    public var colorAdjustment: Coloradjustment = Coloradjustment(),
+)
 
-public data class Emrsetcolorspace(public var emr: Emr = Emr(), public var ihCS: UInt = 0u)
+public data class Emrsetcolorspace(
+    public var emr: Emr = Emr(),
+    public var ihCS: UInt = 0u,
+)
 
 public data class Emrsetdibitstodevice(
     public var emr: Emr = Emr(),
@@ -1144,9 +1204,15 @@ public data class Emrseticmprofile(
     }
 }
 
-public data class Emrsetmapperflags(public var emr: Emr = Emr(), public var dwFlags: UInt = 0u)
+public data class Emrsetmapperflags(
+    public var emr: Emr = Emr(),
+    public var dwFlags: UInt = 0u,
+)
 
-public data class Emrsetmiterlimit(public var emr: Emr = Emr(), public var eMiterLimit: Float = 0.0f)
+public data class Emrsetmiterlimit(
+    public var emr: Emr = Emr(),
+    public var eMiterLimit: Float = 0.0f,
+)
 
 public data class Emrsetpaletteentries(
     public var emr: Emr = Emr(),
@@ -1162,13 +1228,25 @@ public data class Emrsetpixelv(
     public var crColor: Colorref = 0u,
 )
 
-public data class Emrsettextcolor(public var emr: Emr = Emr(), public var crColor: Colorref = 0u)
+public data class Emrsettextcolor(
+    public var emr: Emr = Emr(),
+    public var crColor: Colorref = 0u,
+)
 
-public data class Emrsetviewportextex(public var emr: Emr = Emr(), public var szlExtent: Size = Size())
+public data class Emrsetviewportextex(
+    public var emr: Emr = Emr(),
+    public var szlExtent: Size = Size(),
+)
 
-public data class Emrsetviewportorgex(public var emr: Emr = Emr(), public var ptlOrigin: Pointl = Pointl())
+public data class Emrsetviewportorgex(
+    public var emr: Emr = Emr(),
+    public var ptlOrigin: Pointl = Pointl(),
+)
 
-public data class Emrsetworldtransform(public var emr: Emr = Emr(), public var xform: Xform = Xform())
+public data class Emrsetworldtransform(
+    public var emr: Emr = Emr(),
+    public var xform: Xform = Xform(),
+)
 
 public class Emrstretchblt(
     public var emr: Emr = Emr(),
@@ -1331,9 +1409,15 @@ public data class Enumlogfontexa(
     }
 }
 
-public data class Enumlogfontexdva(public var elfEnumLogfontEx: Enumlogfontexa = Enumlogfontexa(), public var elfDesignVector: Designvector = Designvector())
+public data class Enumlogfontexdva(
+    public var elfEnumLogfontEx: Enumlogfontexa = Enumlogfontexa(),
+    public var elfDesignVector: Designvector = Designvector(),
+)
 
-public data class Enumlogfontexdvw(public var elfEnumLogfontEx: Enumlogfontexw = Enumlogfontexw(), public var elfDesignVector: Designvector = Designvector())
+public data class Enumlogfontexdvw(
+    public var elfEnumLogfontEx: Enumlogfontexw = Enumlogfontexw(),
+    public var elfDesignVector: Designvector = Designvector(),
+)
 
 public data class Enumlogfontexw(
     public var elfLogFont: Logfontw = Logfontw(),
@@ -1536,7 +1620,10 @@ public data class Extlogpen32(
     }
 }
 
-public data class Fixed(public var fract: UShort = 0u, public var value: Short = 0)
+public data class Fixed(
+    public var fract: UShort = 0u,
+    public var value: Short = 0,
+)
 
 public data class GcpResultsa(
     public var lStructSize: UInt = 0u,
@@ -1578,7 +1665,10 @@ public data class Glyphset(
     public var ranges: List<Wcrange> = List(1) { Wcrange() },
 )
 
-public data class GradientRect(public var upperLeft: UInt = 0u, public var lowerRight: UInt = 0u)
+public data class GradientRect(
+    public var upperLeft: UInt = 0u,
+    public var lowerRight: UInt = 0u,
+)
 
 public data class GradientTriangle(
     public var vertex1: UInt = 0u,
@@ -1586,7 +1676,9 @@ public data class GradientTriangle(
     public var vertex3: UInt = 0u,
 )
 
-public data class Handletable(public var objectHandle: List<COpaquePointer> = List(1) { COpaquePointer(0L) })
+public data class Handletable(
+    public var objectHandle: List<COpaquePointer> = List(1) { COpaquePointer(0L) },
+)
 
 public data class Kerningpair(
     public var wFirst: UShort = 0u,
@@ -1774,7 +1866,10 @@ public data class Monitorinfo(
     public var dwFlags: UInt = 0u,
 )
 
-public data class Monitorinfoexa(public var monitorInfo: Monitorinfo = Monitorinfo(), public var szDevice: ByteArray = ByteArray(32)) {
+public data class Monitorinfoexa(
+    public var monitorInfo: Monitorinfo = Monitorinfo(),
+    public var szDevice: ByteArray = ByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Monitorinfoexa) return false
@@ -1790,7 +1885,10 @@ public data class Monitorinfoexa(public var monitorInfo: Monitorinfo = Monitorin
     }
 }
 
-public data class Monitorinfoexw(public var monitorInfo: Monitorinfo = Monitorinfo(), public var szDevice: UShortArray = UShortArray(32)) {
+public data class Monitorinfoexw(
+    public var monitorInfo: Monitorinfo = Monitorinfo(),
+    public var szDevice: UShortArray = UShortArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Monitorinfoexw) return false
@@ -1989,7 +2087,10 @@ public data class Pelarray(
     public var paRGBs: UByte = 0u,
 )
 
-public data class Pointfx(public var x: Fixed = Fixed(), public var y: Fixed = Fixed())
+public data class Pointfx(
+    public var x: Fixed = Fixed(),
+    public var y: Fixed = Fixed(),
+)
 
 public data class Polytexta(
     public var x: Int = 0,
@@ -2030,7 +2131,10 @@ public data class Rgbtriple(
     public var rgbtRed: UByte = 0u,
 )
 
-public data class Rgndata(public var rdh: Rgndataheader = Rgndataheader(), public var buffer: ByteArray = ByteArray(1)) {
+public data class Rgndata(
+    public var rdh: Rgndataheader = Rgndataheader(),
+    public var buffer: ByteArray = ByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Rgndata) return false
@@ -2153,9 +2257,15 @@ public data class Ttvalidationtestsparamsex(
     public var pulCharCodeSet: UInt? = null,
 )
 
-public data class Wcrange(public var wcLow: UShort = 0u, public var cGlyphs: UShort = 0u)
+public data class Wcrange(
+    public var wcLow: UShort = 0u,
+    public var cGlyphs: UShort = 0u,
+)
 
-public data class Wglswap(public var hdc: Hdc = null, public var uiFlags: UInt = 0u)
+public data class Wglswap(
+    public var hdc: Hdc = null,
+    public var uiFlags: UInt = 0u,
+)
 
 public data class Xform(
     public var eM11: Float = 0.0f,

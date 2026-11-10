@@ -1,6 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.xboxcontroller
 
-public data class XinputBatteryInformation(public var batteryType: BatteryType = 0u, public var batteryLevel: BatteryLevel = 0u)
+public data class XinputBatteryInformation(
+    public var batteryType: BatteryType = 0u,
+    public var batteryLevel: BatteryLevel = 0u,
+)
 
 public data class XinputCapabilities(
     public var type: XinputDevtype = 0u,
@@ -28,6 +31,12 @@ public data class XinputKeystroke(
     public var hidCode: UByte = 0u,
 )
 
-public data class XinputState(public var dwPacketNumber: UInt = 0u, public var gamepad: XinputGamepad = XinputGamepad())
+public data class XinputState(
+    public var dwPacketNumber: UInt = 0u,
+    public var gamepad: XinputGamepad = XinputGamepad(),
+)
 
-public data class XinputVibration(public var wLeftMotorSpeed: UShort = 0u, public var wRightMotorSpeed: UShort = 0u)
+public data class XinputVibration(
+    public var wLeftMotorSpeed: UShort = 0u,
+    public var wRightMotorSpeed: UShort = 0u,
+)

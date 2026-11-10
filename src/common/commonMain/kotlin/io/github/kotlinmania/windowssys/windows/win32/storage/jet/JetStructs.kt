@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.storage.jet
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -16,7 +17,10 @@ public data class JetBkinfo(
     public var genHigh: UInt = 0u,
 )
 
-public data class JetBkinfo0(public var logtimeMark: JetLogtime = JetLogtime(), public var bklogtimeMark: JetBklogtime = JetBklogtime())
+public data class JetBkinfo0(
+    public var logtimeMark: JetLogtime = JetLogtime(),
+    public var bklogtimeMark: JetBklogtime = JetBklogtime(),
+)
 
 public data class JetBklogtime(
     public var bSeconds: Byte = 0,
@@ -29,13 +33,23 @@ public data class JetBklogtime(
     public var anonymous2: JetBklogtime1 = JetBklogtime1(),
 )
 
-public data class JetBklogtime0(public var bFiller1: Byte = 0, public var anonymous: JetBklogtime00 = JetBklogtime00())
+public data class JetBklogtime0(
+    public var bFiller1: Byte = 0,
+    public var anonymous: JetBklogtime00 = JetBklogtime00(),
+)
 
-public data class JetBklogtime00(public var bitfield: UByte = 0u)
+public data class JetBklogtime00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class JetBklogtime1(public var bFiller2: Byte = 0, public var anonymous: JetBklogtime10 = JetBklogtime10())
+public data class JetBklogtime1(
+    public var bFiller2: Byte = 0,
+    public var anonymous: JetBklogtime10 = JetBklogtime10(),
+)
 
-public data class JetBklogtime10(public var bitfield: UByte = 0u)
+public data class JetBklogtime10(
+    public var bitfield: UByte = 0u,
+)
 
 public data class JetColumnbaseA(
     public var cbStruct: UInt = 0u,
@@ -205,17 +219,33 @@ public data class JetConditionalcolumnW(
     public var grbit: UInt = 0u,
 )
 
-public data class JetConvertA(public var szOldDll: Pstr = null, public var anonymous: JetConvertA0 = JetConvertA0())
+public data class JetConvertA(
+    public var szOldDll: Pstr = null,
+    public var anonymous: JetConvertA0 = JetConvertA0(),
+)
 
-public data class JetConvertA0(public var fFlags: UInt = 0u, public var anonymous: JetConvertA00 = JetConvertA00())
+public data class JetConvertA0(
+    public var fFlags: UInt = 0u,
+    public var anonymous: JetConvertA00 = JetConvertA00(),
+)
 
-public data class JetConvertA00(public var bitfield: UInt = 0u)
+public data class JetConvertA00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class JetConvertW(public var szOldDll: Pwstr = null, public var anonymous: JetConvertW0 = JetConvertW0())
+public data class JetConvertW(
+    public var szOldDll: Pwstr = null,
+    public var anonymous: JetConvertW0 = JetConvertW0(),
+)
 
-public data class JetConvertW0(public var fFlags: UInt = 0u, public var anonymous: JetConvertW00 = JetConvertW00())
+public data class JetConvertW0(
+    public var fFlags: UInt = 0u,
+    public var anonymous: JetConvertW00 = JetConvertW00(),
+)
 
-public data class JetConvertW00(public var bitfield: UInt = 0u)
+public data class JetConvertW00(
+    public var bitfield: UInt = 0u,
+)
 
 public class JetDbinfomisc(
     public var ulVersion: UInt = 0u,
@@ -372,9 +402,14 @@ public data class JetDbinfoupgrade(
     public var anonymous: JetDbinfoupgrade0 = JetDbinfoupgrade0(),
 )
 
-public data class JetDbinfoupgrade0(public var ulFlags: UInt = 0u, public var anonymous: JetDbinfoupgrade00 = JetDbinfoupgrade00())
+public data class JetDbinfoupgrade0(
+    public var ulFlags: UInt = 0u,
+    public var anonymous: JetDbinfoupgrade00 = JetDbinfoupgrade00(),
+)
 
-public data class JetDbinfoupgrade00(public var bitfield: UInt = 0u)
+public data class JetDbinfoupgrade00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class JetEnumcolumn(
     public var columnid: UInt = 0u,
@@ -382,11 +417,20 @@ public data class JetEnumcolumn(
     public var anonymous: JetEnumcolumn0 = JetEnumcolumn0(),
 )
 
-public data class JetEnumcolumn0(public var anonymous1: JetEnumcolumn00 = JetEnumcolumn00(), public var anonymous2: JetEnumcolumn01 = JetEnumcolumn01())
+public data class JetEnumcolumn0(
+    public var anonymous1: JetEnumcolumn00 = JetEnumcolumn00(),
+    public var anonymous2: JetEnumcolumn01 = JetEnumcolumn01(),
+)
 
-public data class JetEnumcolumn00(public var cEnumColumnValue: UInt = 0u, public var rgEnumColumnValue: JetEnumcolumnvalue? = null)
+public data class JetEnumcolumn00(
+    public var cEnumColumnValue: UInt = 0u,
+    public var rgEnumColumnValue: JetEnumcolumnvalue? = null,
+)
 
-public data class JetEnumcolumn01(public var cbData: UInt = 0u, public var pvData: COpaquePointer? = null)
+public data class JetEnumcolumn01(
+    public var cbData: UInt = 0u,
+    public var pvData: COpaquePointer? = null,
+)
 
 public data class JetEnumcolumnid(
     public var columnid: UInt = 0u,
@@ -448,9 +492,15 @@ public data class JetIndexcreate2A(
     public var pSpacehints: JetSpacehints? = null,
 )
 
-public data class JetIndexcreate2A0(public var lcid: UInt = 0u, public var pidxunicode: JetUnicodeindex? = null)
+public data class JetIndexcreate2A0(
+    public var lcid: UInt = 0u,
+    public var pidxunicode: JetUnicodeindex? = null,
+)
 
-public data class JetIndexcreate2A1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
+public data class JetIndexcreate2A1(
+    public var cbVarSegMac: UInt = 0u,
+    public var ptuplelimits: JetTuplelimits? = null,
+)
 
 public data class JetIndexcreate2W(
     public var cbStruct: UInt = 0u,
@@ -468,9 +518,15 @@ public data class JetIndexcreate2W(
     public var pSpacehints: JetSpacehints? = null,
 )
 
-public data class JetIndexcreate2W0(public var lcid: UInt = 0u, public var pidxunicode: JetUnicodeindex? = null)
+public data class JetIndexcreate2W0(
+    public var lcid: UInt = 0u,
+    public var pidxunicode: JetUnicodeindex? = null,
+)
 
-public data class JetIndexcreate2W1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
+public data class JetIndexcreate2W1(
+    public var cbVarSegMac: UInt = 0u,
+    public var ptuplelimits: JetTuplelimits? = null,
+)
 
 public data class JetIndexcreate3A(
     public var cbStruct: UInt = 0u,
@@ -488,7 +544,10 @@ public data class JetIndexcreate3A(
     public var pSpacehints: JetSpacehints? = null,
 )
 
-public data class JetIndexcreate3A0(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
+public data class JetIndexcreate3A0(
+    public var cbVarSegMac: UInt = 0u,
+    public var ptuplelimits: JetTuplelimits? = null,
+)
 
 public data class JetIndexcreate3W(
     public var cbStruct: UInt = 0u,
@@ -506,7 +565,10 @@ public data class JetIndexcreate3W(
     public var pSpacehints: JetSpacehints? = null,
 )
 
-public data class JetIndexcreate3W0(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
+public data class JetIndexcreate3W0(
+    public var cbVarSegMac: UInt = 0u,
+    public var ptuplelimits: JetTuplelimits? = null,
+)
 
 public data class JetIndexcreateA(
     public var cbStruct: UInt = 0u,
@@ -523,9 +585,15 @@ public data class JetIndexcreateA(
     public var cbKeyMost: UInt = 0u,
 )
 
-public data class JetIndexcreateA0(public var lcid: UInt = 0u, public var pidxunicode: JetUnicodeindex? = null)
+public data class JetIndexcreateA0(
+    public var lcid: UInt = 0u,
+    public var pidxunicode: JetUnicodeindex? = null,
+)
 
-public data class JetIndexcreateA1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
+public data class JetIndexcreateA1(
+    public var cbVarSegMac: UInt = 0u,
+    public var ptuplelimits: JetTuplelimits? = null,
+)
 
 public data class JetIndexcreateW(
     public var cbStruct: UInt = 0u,
@@ -542,11 +610,20 @@ public data class JetIndexcreateW(
     public var cbKeyMost: UInt = 0u,
 )
 
-public data class JetIndexcreateW0(public var lcid: UInt = 0u, public var pidxunicode: JetUnicodeindex? = null)
+public data class JetIndexcreateW0(
+    public var lcid: UInt = 0u,
+    public var pidxunicode: JetUnicodeindex? = null,
+)
 
-public data class JetIndexcreateW1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
+public data class JetIndexcreateW1(
+    public var cbVarSegMac: UInt = 0u,
+    public var ptuplelimits: JetTuplelimits? = null,
+)
 
-public data class JetIndexid(public var cbStruct: UInt = 0u, public var rgbIndexId: UByteArray = UByteArray(16)) {
+public data class JetIndexid(
+    public var cbStruct: UInt = 0u,
+    public var rgbIndexId: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is JetIndexid) return false
@@ -690,13 +767,23 @@ public data class JetLogtime(
     public var anonymous2: JetLogtime1 = JetLogtime1(),
 )
 
-public data class JetLogtime0(public var bFiller1: Byte = 0, public var anonymous: JetLogtime00 = JetLogtime00())
+public data class JetLogtime0(
+    public var bFiller1: Byte = 0,
+    public var anonymous: JetLogtime00 = JetLogtime00(),
+)
 
-public data class JetLogtime00(public var bitfield: UByte = 0u)
+public data class JetLogtime00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class JetLogtime1(public var bFiller2: Byte = 0, public var anonymous: JetLogtime10 = JetLogtime10())
+public data class JetLogtime1(
+    public var bFiller2: Byte = 0,
+    public var anonymous: JetLogtime10 = JetLogtime10(),
+)
 
-public data class JetLogtime10(public var bitfield: UByte = 0u)
+public data class JetLogtime10(
+    public var bitfield: UByte = 0u,
+)
 
 public data class JetObjectinfo(
     public var cbStruct: UInt = 0u,
@@ -841,9 +928,15 @@ public data class JetRstinfoW(
     public var pfnStatus: JetPfnstatus = null,
 )
 
-public data class JetRstmapA(public var szDatabaseName: Pstr = null, public var szNewDatabaseName: Pstr = null)
+public data class JetRstmapA(
+    public var szDatabaseName: Pstr = null,
+    public var szNewDatabaseName: Pstr = null,
+)
 
-public data class JetRstmapW(public var szDatabaseName: Pwstr = null, public var szNewDatabaseName: Pwstr = null)
+public data class JetRstmapW(
+    public var szDatabaseName: Pwstr = null,
+    public var szNewDatabaseName: Pwstr = null,
+)
 
 public data class JetSetcolumn(
     public var columnid: UInt = 0u,
@@ -1090,9 +1183,15 @@ public data class JetTuplelimits(
     public var ichStart: UInt = 0u,
 )
 
-public data class JetUnicodeindex(public var lcid: UInt = 0u, public var dwMapFlags: UInt = 0u)
+public data class JetUnicodeindex(
+    public var lcid: UInt = 0u,
+    public var dwMapFlags: UInt = 0u,
+)
 
-public data class JetUnicodeindex2(public var szLocaleName: Pwstr = null, public var dwMapFlags: UInt = 0u)
+public data class JetUnicodeindex2(
+    public var szLocaleName: Pwstr = null,
+    public var dwMapFlags: UInt = 0u,
+)
 
 public data class JetUserdefineddefaultA(
     public var szCallback: Pstr = null,

@@ -3,7 +3,9 @@ package io.github.kotlinmania.windowssys.windows.win32.devices.sensors
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Propertykey
 import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
 
-public data class Matrix3x3(public var anonymous: Matrix3x30 = Matrix3x30())
+public data class Matrix3x3(
+    public var anonymous: Matrix3x30 = Matrix3x30(),
+)
 
 public data class Matrix3x30(
     public var anonymous1: Matrix3x300 = Matrix3x300(),
@@ -64,7 +66,10 @@ public data class SensorPropertyList(
     public var list: List<Propertykey> = List(1) { Propertykey() },
 )
 
-public data class SensorValuePair(public var key: Propertykey = Propertykey(), public var value: Propvariant = Propvariant())
+public data class SensorValuePair(
+    public var key: Propertykey = Propertykey(),
+    public var value: Propvariant = Propvariant(),
+)
 
 public data class Vec3d(
     public var x: Float = 0.0f,

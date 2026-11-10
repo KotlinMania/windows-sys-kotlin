@@ -198,9 +198,8 @@ public actual fun mprAdminMIBEntrySet(hmibserver: Long, dwprotocolid: UInt, dwro
 public actual fun mprAdminMIBServerConnect(lpwsservername: Pcwstr, phmibserver: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mprAdminMIBServerDisconnect(hmibserver: Long) {
+public actual fun mprAdminMIBServerDisconnect(hmibserver: Long): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun mprAdminPortClearStats(hrasserver: Long, hport: Handle): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -226,9 +225,8 @@ public actual fun mprAdminSendUserMessage(hmprserver: Long, hconnection: Handle,
 public actual fun mprAdminServerConnect(lpwsservername: Pcwstr, phmprserver: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mprAdminServerDisconnect(hmprserver: Long) {
+public actual fun mprAdminServerDisconnect(hmprserver: Long): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun mprAdminServerGetCredentials(hmprserver: Long, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -329,9 +327,8 @@ public actual fun mprConfigServerBackup(hmprconfig: Handle, lpwspath: Pcwstr): U
 public actual fun mprConfigServerConnect(lpwsservername: Pcwstr, phmprconfig: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mprConfigServerDisconnect(hmprconfig: Handle) {
+public actual fun mprConfigServerDisconnect(hmprconfig: Handle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun mprConfigServerGetInfo(hmprconfig: Handle, dwlevel: UInt, lplpbbuffer: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -477,13 +474,11 @@ public actual fun rasEnumEntriesA(param0: Pcstr, param1: Pcstr, param2: COpaqueP
 public actual fun rasEnumEntriesW(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun rasFreeEapUserIdentityA(praseapuseridentity: COpaquePointer?) {
+public actual fun rasFreeEapUserIdentityA(praseapuseridentity: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun rasFreeEapUserIdentityW(praseapuseridentity: COpaquePointer?) {
+public actual fun rasFreeEapUserIdentityW(praseapuseridentity: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun rasGetAutodialAddressA(param0: Pcstr, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

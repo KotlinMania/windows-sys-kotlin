@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.ole
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -49,11 +50,20 @@ public data class Arraydesc(
     public var rgbounds: List<Safearraybound> = List(1) { Safearraybound() },
 )
 
-public data class Cadword(public var cElems: UInt = 0u, public var pElems: UInt? = null)
+public data class Cadword(
+    public var cElems: UInt = 0u,
+    public var pElems: UInt? = null,
+)
 
-public data class Calpolestr(public var cElems: UInt = 0u, public var pElems: Pwstr? = null)
+public data class Calpolestr(
+    public var cElems: UInt = 0u,
+    public var pElems: Pwstr? = null,
+)
 
-public data class Cauuid(public var cElems: UInt = 0u, public var pElems: Guid? = null)
+public data class Cauuid(
+    public var cElems: UInt = 0u,
+    public var pElems: Guid? = null,
+)
 
 public data class Cleanlocalstorage(
     public var pInterface: COpaquePointer? = null,
@@ -68,7 +78,10 @@ public data class Controlinfo(
     public var dwFlags: UInt = 0u,
 )
 
-public data class Dvaspectinfo(public var cb: UInt = 0u, public var dwFlags: UInt = 0u)
+public data class Dvaspectinfo(
+    public var cb: UInt = 0u,
+    public var dwFlags: UInt = 0u,
+)
 
 public data class Dvextentinfo(
     public var cb: UInt = 0u,
@@ -87,7 +100,10 @@ public data class Fontdesc(
     public var fStrikethrough: Bool = 0,
 )
 
-public data class Interfacedata(public var pmethdata: Methoddata? = null, public var cMembers: UInt = 0u)
+public data class Interfacedata(
+    public var pmethdata: Methoddata? = null,
+    public var cMembers: UInt = 0u,
+)
 
 public data class Licinfo(
     public var cbLicInfo: Int = 0,
@@ -140,7 +156,10 @@ public data class Ocpfiparams(
     public var dispidInitialProperty: Int = 0,
 )
 
-public data class Olecmd(public var cmdID: UInt = 0u, public var cmdf: UInt = 0u)
+public data class Olecmd(
+    public var cmdID: UInt = 0u,
+    public var cmdf: UInt = 0u,
+)
 
 public data class Olecmdtext(
     public var cmdtextf: UInt = 0u,
@@ -175,7 +194,9 @@ public data class Oleinplaceframeinfo(
     public var cAccelEntries: UInt = 0u,
 )
 
-public data class Olemenugroupwidths(public var width: IntArray = IntArray(6)) {
+public data class Olemenugroupwidths(
+    public var width: IntArray = IntArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Olemenugroupwidths) return false
@@ -183,9 +204,7 @@ public data class Olemenugroupwidths(public var width: IntArray = IntArray(6)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.width.contentHashCode()
-    }
+    override fun hashCode(): Int = this.width.contentHashCode()
 }
 
 public data class Oleuibusya(
@@ -797,7 +816,10 @@ public data class Oleverb(
     public var grfAttribs: UInt = 0u,
 )
 
-public data class Pagerange(public var nFromPage: Int = 0, public var nToPage: Int = 0)
+public data class Pagerange(
+    public var nFromPage: Int = 0,
+    public var nToPage: Int = 0,
+)
 
 public data class Pageset(
     public var cbStruct: UInt = 0u,
@@ -807,11 +829,20 @@ public data class Pageset(
     public var rgPages: List<Pagerange> = List(1) { Pagerange() },
 )
 
-public data class Paramdata(public var szName: Pwstr = null, public var vt: Varenum = 0u)
+public data class Paramdata(
+    public var szName: Pwstr = null,
+    public var vt: Varenum = 0u,
+)
 
-public data class Paramdesc(public var pparamdescex: Paramdescex? = null, public var wParamFlags: Paramflags = 0u)
+public data class Paramdesc(
+    public var pparamdescex: Paramdescex? = null,
+    public var wParamFlags: Paramflags = 0u,
+)
 
-public data class Paramdescex(public var cBytes: UInt = 0u, public var varDefaultValue: Variant = Variant())
+public data class Paramdescex(
+    public var cBytes: UInt = 0u,
+    public var varDefaultValue: Variant = Variant(),
+)
 
 public data class Pictdesc(
     public var cbSizeofstruct: UInt = 0u,
@@ -826,11 +857,18 @@ public data class Pictdesc0(
     public var emf: Pictdesc03 = Pictdesc03(),
 )
 
-public data class Pictdesc00(public var hbitmap: Hbitmap = null, public var hpal: Hpalette = null)
+public data class Pictdesc00(
+    public var hbitmap: Hbitmap = null,
+    public var hpal: Hpalette = null,
+)
 
-public data class Pictdesc03(public var hemf: Henhmetafile = null)
+public data class Pictdesc03(
+    public var hemf: Henhmetafile = null,
+)
 
-public data class Pictdesc02(public var hicon: Hicon = null)
+public data class Pictdesc02(
+    public var hicon: Hicon = null,
+)
 
 public data class Pictdesc01(
     public var hmeta: Hmetafile = null,
@@ -838,7 +876,10 @@ public data class Pictdesc01(
     public var yExt: Int = 0,
 )
 
-public data class Pointf(public var x: Float = 0.0f, public var y: Float = 0.0f)
+public data class Pointf(
+    public var x: Float = 0.0f,
+    public var y: Float = 0.0f,
+)
 
 public data class Proppageinfo(
     public var cb: UInt = 0u,
@@ -877,7 +918,10 @@ public data class Qacontrol(
     public var dwPointerActivationPolicy: UInt = 0u,
 )
 
-public data class Safearrayunion(public var sfType: UInt = 0u, public var u: Safearrayunion0 = Safearrayunion0())
+public data class Safearrayunion(
+    public var sfType: UInt = 0u,
+    public var u: Safearrayunion0 = Safearrayunion0(),
+)
 
 public data class Safearrayunion0(
     public var bstrStr: SafearrBstr = SafearrBstr(),
@@ -892,11 +936,20 @@ public data class Safearrayunion0(
     public var hyperStr: HyperSizedarr = HyperSizedarr(),
 )
 
-public data class SafearrBrecord(public var size: UInt = 0u, public var aRecord: COpaquePointer? = null)
+public data class SafearrBrecord(
+    public var size: UInt = 0u,
+    public var aRecord: COpaquePointer? = null,
+)
 
-public data class SafearrBstr(public var size: UInt = 0u, public var aBstr: COpaquePointer? = null)
+public data class SafearrBstr(
+    public var size: UInt = 0u,
+    public var aBstr: COpaquePointer? = null,
+)
 
-public data class SafearrDispatch(public var size: UInt = 0u, public var apDispatch: COpaquePointer? = null)
+public data class SafearrDispatch(
+    public var size: UInt = 0u,
+    public var apDispatch: COpaquePointer? = null,
+)
 
 public data class SafearrHaveiid(
     public var size: UInt = 0u,
@@ -904,11 +957,20 @@ public data class SafearrHaveiid(
     public var iid: Guid = Guid(),
 )
 
-public data class SafearrUnknown(public var size: UInt = 0u, public var apUnknown: COpaquePointer? = null)
+public data class SafearrUnknown(
+    public var size: UInt = 0u,
+    public var apUnknown: COpaquePointer? = null,
+)
 
-public data class SafearrVariant(public var size: UInt = 0u, public var aVariant: COpaquePointer? = null)
+public data class SafearrVariant(
+    public var size: UInt = 0u,
+    public var aVariant: COpaquePointer? = null,
+)
 
-public data class Udate(public var st: Systemtime = Systemtime(), public var wDayOfYear: UShort = 0u)
+public data class Udate(
+    public var st: Systemtime = Systemtime(),
+    public var wDayOfYear: UShort = 0u,
+)
 
 public data class WireBrecord(
     public var fFlags: UInt = 0u,

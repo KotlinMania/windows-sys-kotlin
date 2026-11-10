@@ -20,9 +20,15 @@ public data class FwDynamicKeywordAddressData0(
     public var originType: FwDynamicKeywordOriginType = 0,
 )
 
-public data class InetFirewallAcBinaries(public var count: UInt = 0u, public var binaries: Pwstr? = null)
+public data class InetFirewallAcBinaries(
+    public var count: UInt = 0u,
+    public var binaries: Pwstr? = null,
+)
 
-public data class InetFirewallAcCapabilities(public var count: UInt = 0u, public var capabilities: SidAndAttributes? = null)
+public data class InetFirewallAcCapabilities(
+    public var count: UInt = 0u,
+    public var capabilities: SidAndAttributes? = null,
+)
 
 public data class InetFirewallAcChange(
     public var changeType: InetFirewallAcChangeType = 0,
@@ -33,7 +39,10 @@ public data class InetFirewallAcChange(
     public var anonymous: InetFirewallAcChange0 = InetFirewallAcChange0(),
 )
 
-public data class InetFirewallAcChange0(public var capabilities: InetFirewallAcCapabilities = InetFirewallAcCapabilities(), public var binaries: InetFirewallAcBinaries = InetFirewallAcBinaries())
+public data class InetFirewallAcChange0(
+    public var capabilities: InetFirewallAcCapabilities = InetFirewallAcCapabilities(),
+    public var binaries: InetFirewallAcBinaries = InetFirewallAcBinaries(),
+)
 
 public data class InetFirewallAppContainer(
     public var appContainerSid: Sid? = null,

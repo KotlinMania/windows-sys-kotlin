@@ -28,9 +28,8 @@ public actual fun hidDGetConfiguration(hiddeviceobject: Handle, configuration: C
 public actual fun hidDGetFeature(hiddeviceobject: Handle, reportbuffer: COpaquePointer?, reportbufferlength: UInt): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun hidDGetHidGuid(hidguid: COpaquePointer?) {
+public actual fun hidDGetHidGuid(hidguid: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun hidDGetIndexedString(hiddeviceobject: Handle, stringindex: UInt, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

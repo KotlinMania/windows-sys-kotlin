@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsnetworkvirtualization
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -18,7 +19,9 @@ public data class WnvCustomerAddressChangeParam(
     public var notificationReason: WnvCaNotificationType = 0,
 )
 
-public data class WnvIpAddress(public var ip: WnvIpAddress0 = WnvIpAddress0())
+public data class WnvIpAddress(
+    public var ip: WnvIpAddress0 = WnvIpAddress0(),
+)
 
 public data class WnvIpAddress0(
     public var v4: InAddr = InAddr(),
@@ -49,9 +52,15 @@ public data class WnvNotificationParam(
     public var buffer: COpaquePointer? = null,
 )
 
-public data class WnvObjectChangeParam(public var objectType: WnvObjectType = 0, public var objectParam: WnvObjectChangeParam0 = WnvObjectChangeParam0())
+public data class WnvObjectChangeParam(
+    public var objectType: WnvObjectType = 0,
+    public var objectParam: WnvObjectChangeParam0 = WnvObjectChangeParam0(),
+)
 
-public data class WnvObjectChangeParam0(public var providerAddressChange: WnvProviderAddressChangeParam = WnvProviderAddressChangeParam(), public var customerAddressChange: WnvCustomerAddressChangeParam = WnvCustomerAddressChangeParam())
+public data class WnvObjectChangeParam0(
+    public var providerAddressChange: WnvProviderAddressChangeParam = WnvProviderAddressChangeParam(),
+    public var customerAddressChange: WnvCustomerAddressChangeParam = WnvCustomerAddressChangeParam(),
+)
 
 public data class WnvObjectHeader(
     public var majorVersion: UByte = 0u,

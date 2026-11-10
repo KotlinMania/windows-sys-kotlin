@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -39,7 +40,10 @@ public data class Adspropinitparams(
     public var pWritableAttrs: AdsAttrInfo? = null,
 )
 
-public data class Adsvalue(public var dwType: Adstype = 0, public var anonymous: Adsvalue0 = Adsvalue0())
+public data class Adsvalue(
+    public var dwType: Adstype = 0,
+    public var anonymous: Adsvalue0 = Adsvalue0(),
+)
 
 public class Adsvalue0(
     public var dNString: UShort? = null,
@@ -87,9 +91,15 @@ public data class AdsAttrInfo(
     public var dwNumValues: UInt = 0u,
 )
 
-public data class AdsBacklink(public var remoteID: UInt = 0u, public var objectName: Pwstr = null)
+public data class AdsBacklink(
+    public var remoteID: UInt = 0u,
+    public var objectName: Pwstr = null,
+)
 
-public data class AdsCaseignoreList(public var next: AdsCaseignoreList? = null, public var string: Pwstr = null)
+public data class AdsCaseignoreList(
+    public var next: AdsCaseignoreList? = null,
+    public var string: Pwstr = null,
+)
 
 public data class AdsClassDef(
     public var pszClassName: Pwstr = null,
@@ -110,9 +120,15 @@ public data class AdsDnWithBinary(
     public var pszDNString: Pwstr = null,
 )
 
-public data class AdsDnWithString(public var pszStringValue: Pwstr = null, public var pszDNString: Pwstr = null)
+public data class AdsDnWithString(
+    public var pszStringValue: Pwstr = null,
+    public var pszDNString: Pwstr = null,
+)
 
-public data class AdsEmail(public var address: Pwstr = null, public var type: UInt = 0u)
+public data class AdsEmail(
+    public var address: Pwstr = null,
+    public var type: UInt = 0u,
+)
 
 public data class AdsFaxnumber(
     public var telephoneNumber: Pwstr = null,
@@ -120,7 +136,10 @@ public data class AdsFaxnumber(
     public var parameters: COpaquePointer? = null,
 )
 
-public data class AdsHold(public var objectName: Pwstr = null, public var amount: UInt = 0u)
+public data class AdsHold(
+    public var objectName: Pwstr = null,
+    public var amount: UInt = 0u,
+)
 
 public data class AdsNetaddress(
     public var addressType: UInt = 0u,
@@ -128,7 +147,10 @@ public data class AdsNetaddress(
     public var address: COpaquePointer? = null,
 )
 
-public data class AdsNtSecurityDescriptor(public var dwLength: UInt = 0u, public var lpValue: COpaquePointer? = null)
+public data class AdsNtSecurityDescriptor(
+    public var dwLength: UInt = 0u,
+    public var lpValue: COpaquePointer? = null,
+)
 
 public data class AdsObjectInfo(
     public var pszRDN: Pwstr = null,
@@ -144,7 +166,10 @@ public data class AdsOctetList(
     public var data: COpaquePointer? = null,
 )
 
-public data class AdsOctetString(public var dwLength: UInt = 0u, public var lpValue: COpaquePointer? = null)
+public data class AdsOctetString(
+    public var dwLength: UInt = 0u,
+    public var lpValue: COpaquePointer? = null,
+)
 
 public data class AdsPath(
     public var type: UInt = 0u,
@@ -152,9 +177,14 @@ public data class AdsPath(
     public var path: Pwstr = null,
 )
 
-public data class AdsPostaladdress(public var postalAddress: List<COpaquePointer> = List(6) { COpaquePointer(0L) })
+public data class AdsPostaladdress(
+    public var postalAddress: List<COpaquePointer> = List(6) { COpaquePointer(0L) },
+)
 
-public data class AdsProvSpecific(public var dwLength: UInt = 0u, public var lpValue: COpaquePointer? = null)
+public data class AdsProvSpecific(
+    public var dwLength: UInt = 0u,
+    public var lpValue: COpaquePointer? = null,
+)
 
 public data class AdsReplicapointer(
     public var serverName: Pwstr = null,
@@ -184,7 +214,10 @@ public data class AdsSortkey(
     public var fReverseorder: Boolean = false,
 )
 
-public data class AdsTimestamp(public var wholeSeconds: UInt = 0u, public var eventID: UInt = 0u)
+public data class AdsTimestamp(
+    public var wholeSeconds: UInt = 0u,
+    public var eventID: UInt = 0u,
+)
 
 public data class AdsTypedname(
     public var objectName: Pwstr = null,
@@ -426,7 +459,10 @@ public data class Dsobjectnames(
     public var aObjects: List<Dsobject> = List(1) { Dsobject() },
 )
 
-public data class DsopFilterFlags(public var uplevel: DsopUplevelFilterFlags = DsopUplevelFilterFlags(), public var flDownlevel: UInt = 0u)
+public data class DsopFilterFlags(
+    public var uplevel: DsopUplevelFilterFlags = DsopUplevelFilterFlags(),
+    public var flDownlevel: UInt = 0u,
+)
 
 public data class DsopInitInfo(
     public var cbSize: UInt = 0u,
@@ -454,7 +490,9 @@ public data class DsopUplevelFilterFlags(
     public var flNativeModeOnly: UInt = 0u,
 )
 
-public data class Dspropertypageinfo(public var offsetString: UInt = 0u)
+public data class Dspropertypageinfo(
+    public var offsetString: UInt = 0u,
+)
 
 public data class Dsqueryclasslist(
     public var cbStruct: UInt = 0u,
@@ -498,7 +536,9 @@ public data class Dsqueryparams(
     public var aColumns: List<Dscolumn> = List(1) { Dscolumn() },
 )
 
-public data class DsroleOperationStateInfo(public var operationState: DsroleOperationState = 0)
+public data class DsroleOperationStateInfo(
+    public var operationState: DsroleOperationState = 0,
+)
 
 public data class DsrolePrimaryDomainInfoBasic(
     public var machineRole: DsroleMachineRole = 0,
@@ -509,7 +549,10 @@ public data class DsrolePrimaryDomainInfoBasic(
     public var domainGuid: Guid = Guid(),
 )
 
-public data class DsroleUpgradeStatusInfo(public var operationState: UInt = 0u, public var previousServerState: DsroleServerState = 0)
+public data class DsroleUpgradeStatusInfo(
+    public var operationState: UInt = 0u,
+    public var previousServerState: DsroleServerState = 0,
+)
 
 public data class DsDomainControllerInfo1a(
     public var netbiosName: Pstr = null,
@@ -623,9 +666,15 @@ public data class DsDomainTrustsw(
     public var domainGuid: Guid = Guid(),
 )
 
-public data class DsNameResulta(public var cItems: UInt = 0u, public var rItems: DsNameResultItema? = null)
+public data class DsNameResulta(
+    public var cItems: UInt = 0u,
+    public var rItems: DsNameResultItema? = null,
+)
 
-public data class DsNameResultw(public var cItems: UInt = 0u, public var rItems: DsNameResultItemw? = null)
+public data class DsNameResultw(
+    public var cItems: UInt = 0u,
+    public var rItems: DsNameResultItemw? = null,
+)
 
 public data class DsNameResultItema(
     public var status: UInt = 0u,
@@ -686,7 +735,10 @@ public data class DsReplAttrValueMetaDataExt(
     public var rgMetaData: List<DsReplValueMetaDataExt> = List(1) { DsReplValueMetaDataExt() },
 )
 
-public data class DsReplCursor(public var uuidSourceDsaInvocationID: Guid = Guid(), public var usnAttributeFilter: Long = 0L)
+public data class DsReplCursor(
+    public var uuidSourceDsaInvocationID: Guid = Guid(),
+    public var usnAttributeFilter: Long = 0L,
+)
 
 public data class DsReplCursors(
     public var cNumCursors: UInt = 0u,
@@ -995,7 +1047,10 @@ public data class DsSelectionList(
     public var aDsSelection: List<DsSelection> = List(1) { DsSelection() },
 )
 
-public data class DsSiteCostInfo(public var errorCode: UInt = 0u, public var cost: UInt = 0u)
+public data class DsSiteCostInfo(
+    public var errorCode: UInt = 0u,
+    public var cost: UInt = 0u,
+)
 
 public data class Openquerywindow(
     public var cbStruct: UInt = 0u,
@@ -1007,7 +1062,10 @@ public data class Openquerywindow(
     public var anonymous: Openquerywindow0 = Openquerywindow0(),
 )
 
-public data class Openquerywindow0(public var pFormParameters: COpaquePointer? = null, public var ppbFormParameters: COpaquePointer? = null)
+public data class Openquerywindow0(
+    public var pFormParameters: COpaquePointer? = null,
+    public var ppbFormParameters: COpaquePointer? = null,
+)
 
 public data class Schedule(
     public var size: UInt = 0u,
@@ -1016,4 +1074,7 @@ public data class Schedule(
     public var schedules: List<ScheduleHeader> = List(1) { ScheduleHeader() },
 )
 
-public data class ScheduleHeader(public var type: UInt = 0u, public var offset: UInt = 0u)
+public data class ScheduleHeader(
+    public var type: UInt = 0u,
+    public var offset: UInt = 0u,
+)

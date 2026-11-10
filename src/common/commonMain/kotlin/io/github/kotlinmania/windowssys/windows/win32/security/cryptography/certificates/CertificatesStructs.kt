@@ -16,7 +16,10 @@ public data class Cainfo(
     public var fAdvancedServer: UInt = 0u,
 )
 
-public data class Certtransblob(public var cb: UInt = 0u, public var pb: COpaquePointer? = null)
+public data class Certtransblob(
+    public var cb: UInt = 0u,
+    public var pb: COpaquePointer? = null,
+)
 
 public data class Certviewrestriction(
     public var columnIndex: UInt = 0u,
@@ -26,4 +29,7 @@ public data class Certviewrestriction(
     public var cbValue: UInt = 0u,
 )
 
-public data class CsedbRstmapw(public var pwszDatabaseName: Pwstr = null, public var pwszNewDatabaseName: Pwstr = null)
+public data class CsedbRstmapw(
+    public var pwszDatabaseName: Pwstr = null,
+    public var pwszNewDatabaseName: Pwstr = null,
+)

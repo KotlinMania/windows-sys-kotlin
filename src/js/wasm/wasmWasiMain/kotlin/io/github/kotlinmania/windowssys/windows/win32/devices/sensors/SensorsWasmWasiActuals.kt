@@ -124,6 +124,5 @@ public actual fun sensorCollectionGetAt(index: UInt, psensorslist: COpaquePointe
 public actual fun serializationBufferAllocate(sizeinbytes: UInt, pbuffer: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun serializationBufferFree(buffer: COpaquePointer?) {
+public actual fun serializationBufferFree(buffer: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}

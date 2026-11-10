@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security.credentials
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -12,9 +13,15 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
-public data class BinaryBlobCredentialInfo(public var cbBlob: UInt = 0u, public var pbBlob: COpaquePointer? = null)
+public data class BinaryBlobCredentialInfo(
+    public var cbBlob: UInt = 0u,
+    public var pbBlob: COpaquePointer? = null,
+)
 
-public data class CertCredentialInfo(public var cbSize: UInt = 0u, public var rgbHashOfCert: UByteArray = UByteArray(20)) {
+public data class CertCredentialInfo(
+    public var cbSize: UInt = 0u,
+    public var rgbHashOfCert: UByteArray = UByteArray(20),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CertCredentialInfo) return false
@@ -130,7 +137,9 @@ public data class CreduiInfow(
     public var hbmBanner: Hbitmap = null,
 )
 
-public data class KeyCredentialManagerInfo(public var containerId: Guid = Guid())
+public data class KeyCredentialManagerInfo(
+    public var containerId: Guid = Guid(),
+)
 
 public class Opencardnamea(
     public var dwStructSize: UInt = 0u,
@@ -265,7 +274,10 @@ public data class ReaderSelRequest(
     public var anonymous: ReaderSelRequest0 = ReaderSelRequest0(),
 )
 
-public data class ReaderSelRequest0(public var readerAndContainerParameter: ReaderSelRequest00 = ReaderSelRequest00(), public var serialNumberParameter: ReaderSelRequest01 = ReaderSelRequest01())
+public data class ReaderSelRequest0(
+    public var readerAndContainerParameter: ReaderSelRequest00 = ReaderSelRequest00(),
+    public var serialNumberParameter: ReaderSelRequest01 = ReaderSelRequest01(),
+)
 
 public data class ReaderSelRequest00(
     public var cbReaderNameOffset: UInt = 0u,
@@ -311,7 +323,10 @@ public data class ScardAtrmask(
     }
 }
 
-public data class ScardIoRequest(public var dwProtocol: UInt = 0u, public var cbPciLength: UInt = 0u)
+public data class ScardIoRequest(
+    public var dwProtocol: UInt = 0u,
+    public var cbPciLength: UInt = 0u,
+)
 
 public data class ScardReaderstatea(
     public var szReader: Pcstr = null,
@@ -390,7 +405,10 @@ public data class ScardT0Request(
     public var anonymous: ScardT0Request0 = ScardT0Request0(),
 )
 
-public data class ScardT0Request0(public var cmdBytes: ScardT0Command = ScardT0Command(), public var rgbHeader: UByteArray = UByteArray(5)) {
+public data class ScardT0Request0(
+    public var cmdBytes: ScardT0Command = ScardT0Command(),
+    public var rgbHeader: UByteArray = UByteArray(5),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ScardT0Request0) return false
@@ -406,10 +424,20 @@ public data class ScardT0Request0(public var cmdBytes: ScardT0Command = ScardT0C
     }
 }
 
-public data class ScardT1Request(public var ioRequest: ScardIoRequest = ScardIoRequest())
+public data class ScardT1Request(
+    public var ioRequest: ScardIoRequest = ScardIoRequest(),
+)
 
-public data class SecHandle(public var dwLower: Int = 0, public var dwUpper: Int = 0)
+public data class SecHandle(
+    public var dwLower: Int = 0,
+    public var dwUpper: Int = 0,
+)
 
-public data class SecPkgContextClientCreds(public var authBufferLen: UInt = 0u, public var authBuffer: COpaquePointer? = null)
+public data class SecPkgContextClientCreds(
+    public var authBufferLen: UInt = 0u,
+    public var authBuffer: COpaquePointer? = null,
+)
 
-public data class UsernameTargetCredentialInfo(public var userName: Pwstr = null)
+public data class UsernameTargetCredentialInfo(
+    public var userName: Pwstr = null,
+)

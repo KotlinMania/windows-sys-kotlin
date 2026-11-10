@@ -1,11 +1,14 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networking.ldap
 
 import io.github.kotlinmania.windowssys.COpaquePointer
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class BerElement(public var opaque: Pstr = null)
+public data class BerElement(
+    public var opaque: Pstr = null,
+)
 
 public data class Ldap(
     public var ldSb: Ldap0 = Ldap0(),
@@ -157,7 +160,10 @@ public data class LDAPModA(
     public var modVals: LdapmodA0 = LdapmodA0(),
 )
 
-public data class LdapmodA0(public var modvStrvals: Pstr? = null, public var modvBvals: COpaquePointer? = null)
+public data class LdapmodA0(
+    public var modvStrvals: Pstr? = null,
+    public var modvBvals: COpaquePointer? = null,
+)
 
 public data class LDAPModW(
     public var modOp: UInt = 0u,
@@ -165,7 +171,10 @@ public data class LDAPModW(
     public var modVals: LdapmodW0 = LdapmodW0(),
 )
 
-public data class LdapmodW0(public var modvStrvals: Pwstr? = null, public var modvBvals: COpaquePointer? = null)
+public data class LdapmodW0(
+    public var modvStrvals: Pwstr? = null,
+    public var modvBvals: COpaquePointer? = null,
+)
 
 public data class LDAPSortKeyA(
     public var skAttrtype: Pstr = null,
@@ -190,7 +199,10 @@ public data class LDAPVLVInfo(
     public var ldvlvExtradata: COpaquePointer? = null,
 )
 
-public data class LdapBerval(public var bvLen: UInt = 0u, public var bvVal: Pstr = null)
+public data class LdapBerval(
+    public var bvLen: UInt = 0u,
+    public var bvVal: Pstr = null,
+)
 
 public data class LdapReferralCallback(
     public var sizeOfCallbacks: UInt = 0u,
@@ -199,7 +211,10 @@ public data class LdapReferralCallback(
     public var dereferenceRoutine: Dereferenceconnection = null,
 )
 
-public data class LdapTimeval(public var tvSec: Int = 0, public var tvUsec: Int = 0)
+public data class LdapTimeval(
+    public var tvSec: Int = 0,
+    public var tvUsec: Int = 0,
+)
 
 public data class LdapVersionInfo(
     public var lvSize: UInt = 0u,

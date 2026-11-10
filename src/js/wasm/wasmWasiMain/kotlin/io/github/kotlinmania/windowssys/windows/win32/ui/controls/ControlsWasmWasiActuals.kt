@@ -108,13 +108,11 @@ public actual fun dpaDeletePtr(hdpa: Hdpa, i: Int): COpaquePointer? =
 public actual fun dpaDestroy(hdpa: Hdpa): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dpaDestroyCallback(hdpa: Hdpa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?) {
+public actual fun dpaDestroyCallback(hdpa: Hdpa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dpaEnumCallback(hdpa: Hdpa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?) {
+public actual fun dpaEnumCallback(hdpa: Hdpa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dpaGetPtr(hdpa: Hdpa, i: Long): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -164,13 +162,11 @@ public actual fun dsaDeleteItem(hdsa: Hdsa, i: Int): Bool =
 public actual fun dsaDestroy(hdsa: Hdsa): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dsaDestroyCallback(hdsa: Hdsa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?) {
+public actual fun dsaDestroyCallback(hdsa: Hdsa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dsaEnumCallback(hdsa: Hdsa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?) {
+public actual fun dsaEnumCallback(hdsa: Hdsa, pfncb: Pfndaenumcallback, pdata: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dsaGetItem(hdsa: Hdsa, i: Int, pitem: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -193,9 +189,8 @@ public actual fun dsaSort(pdsa: Hdsa, pfncompare: Pfndacompare, lparam: Lparam):
 public actual fun destroyPropertySheetPage(param0: Hpropsheetpage): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun destroySyntheticPointerDevice(device: Hsyntheticpointerdevice) {
+public actual fun destroySyntheticPointerDevice(device: Hsyntheticpointerdevice): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dlgDirListA(hdlg: Hwnd, lppathspec: Pstr, nidlistbox: Int, nidstaticpath: Int, ufiletype: DlgDirListFileType): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -221,20 +216,17 @@ public actual fun dlgDirSelectExA(hwnddlg: Hwnd, lpstring: Pstr, chcount: Int, i
 public actual fun dlgDirSelectExW(hwnddlg: Hwnd, lpstring: Pwstr, chcount: Int, idlistbox: Int): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun drawInsert(handparent: Hwnd, hlb: Hwnd, nitem: Int) {
+public actual fun drawInsert(handparent: Hwnd, hlb: Hwnd, nitem: Int): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun drawShadowText(hdc: Hdc, psztext: Pcwstr, cch: UInt, prc: COpaquePointer?, dwflags: UInt, crtext: Colorref, crshadow: Colorref, ixoffset: Int, iyoffset: Int): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun drawStatusTextA(hdc: Hdc, lprc: COpaquePointer?, psztext: Pcstr, uflags: UInt) {
+public actual fun drawStatusTextA(hdc: Hdc, lprc: COpaquePointer?, psztext: Pcstr, uflags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun drawStatusTextW(hdc: Hdc, lprc: COpaquePointer?, psztext: Pcwstr, uflags: UInt) {
+public actual fun drawStatusTextW(hdc: Hdc, lprc: COpaquePointer?, psztext: Pcwstr, uflags: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun drawThemeBackground(htheme: Htheme, hdc: Hdc, ipartid: Int, istateid: Int, prect: COpaquePointer?, pcliprect: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -332,9 +324,8 @@ public actual fun getComboBoxInfo(hwndcombo: Hwnd, pcbi: COpaquePointer?): Bool 
 public actual fun getCurrentThemeName(pszthemefilename: Pwstr, cchmaxnamechars: Int, pszcolorbuff: Pwstr, cchmaxcolorchars: Int, pszsizebuff: Pwstr, cchmaxsizechars: Int): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun getEffectiveClientRect(hwnd: Hwnd, lprc: COpaquePointer?, lpinfo: COpaquePointer?) {
+public actual fun getEffectiveClientRect(hwnd: Hwnd, lprc: COpaquePointer?, lpinfo: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun getListBoxInfo(hwnd: Hwnd): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -501,9 +492,8 @@ public actual fun imageListDrawIndirect(pimldp: COpaquePointer?): Bool =
 public actual fun imageListDuplicate(himl: Himagelist): Himagelist =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun imageListEndDrag() {
+public actual fun imageListEndDrag(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun imageListGetBkColor(himl: Himagelist): Colorref =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -568,16 +558,14 @@ public actual fun imageListWrite(himl: Himagelist, pstm: COpaquePointer?): Bool 
 public actual fun imageListWriteEx(himl: Himagelist, dwflags: ImageListWriteStreamFlags, pstm: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun initCommonControls() {
+public actual fun initCommonControls(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun initCommonControlsEx(picce: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun initMUILanguage(uilang: UShort) {
+public actual fun initMUILanguage(uilang: UShort): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun initializeFlatSB(param0: Hwnd): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -618,9 +606,8 @@ public actual fun loadIconWithScaleDown(hinst: Hinstance, pszname: Pcwstr, cx: I
 public actual fun makeDragList(hlb: Hwnd): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun menuHelp(umsg: UInt, wparam: Wparam, lparam: Lparam, hmainmenu: Hmenu, hinst: Hinstance, hwndstatus: Hwnd, lpwids: COpaquePointer?) {
+public actual fun menuHelp(umsg: UInt, wparam: Wparam, lparam: Lparam, hmainmenu: Hmenu, hinst: Hinstance, hwndstatus: Hwnd, lpwids: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun openThemeData(hwnd: Hwnd, pszclasslist: Pcwstr): Htheme =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -652,9 +639,8 @@ public actual fun setScrollPos(hwnd: Hwnd, nbar: ScrollbarConstants, npos: Int, 
 public actual fun setScrollRange(hwnd: Hwnd, nbar: ScrollbarConstants, nminpos: Int, nmaxpos: Int, bredraw: Bool): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun setThemeAppProperties(dwflags: SetThemeAppPropertiesFlags) {
+public actual fun setThemeAppProperties(dwflags: SetThemeAppPropertiesFlags): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun setWindowFeedbackSetting(hwnd: Hwnd, feedback: FeedbackType, dwflags: UInt, size: UInt, configuration: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

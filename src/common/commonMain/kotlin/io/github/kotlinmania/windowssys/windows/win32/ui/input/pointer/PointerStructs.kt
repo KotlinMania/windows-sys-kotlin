@@ -13,9 +13,14 @@ public data class InputInjectionValue(
     public var index: UShort = 0u,
 )
 
-public data class InputTransform(public var anonymous: InputTransform0 = InputTransform0())
+public data class InputTransform(
+    public var anonymous: InputTransform0 = InputTransform0(),
+)
 
-public data class InputTransform0(public var anonymous: InputTransform00 = InputTransform00(), public var m: FloatArray = FloatArray(16)) {
+public data class InputTransform0(
+    public var anonymous: InputTransform00 = InputTransform00(),
+    public var m: FloatArray = FloatArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is InputTransform0) return false

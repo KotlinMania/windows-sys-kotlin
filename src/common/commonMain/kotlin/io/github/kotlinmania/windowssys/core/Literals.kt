@@ -74,11 +74,12 @@ public fun utf16Len(bytes: List<UByte>): Int {
         val codePoint = matchVal.first
         val newPos = matchVal.second
         pos = newPos
-        len += if (codePoint <= 0xffffu) {
-            1
-        } else {
-            2
-        }
+        len +=
+            if (codePoint <= 0xffffu) {
+                1
+            } else {
+                2
+            }
     }
     return len
 }

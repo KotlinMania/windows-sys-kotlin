@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -248,4 +249,7 @@ public data class VbsEnclaveReportPkgHeader(
     public var reserved: UInt = 0u,
 )
 
-public data class VbsEnclaveReportVardataHeader(public var dataType: UInt = 0u, public var size: UInt = 0u)
+public data class VbsEnclaveReportVardataHeader(
+    public var dataType: UInt = 0u,
+    public var size: UInt = 0u,
+)

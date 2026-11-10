@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -17,17 +18,32 @@ public data class BitmapData(
     public var reserved: Int = 0,
 )
 
-public data class Blur(public var base: Effect = Effect())
+public data class Blur(
+    public var base: Effect = Effect(),
+)
 
-public data class BlurParams(public var radius: Float = 0.0f, public var expandEdge: Bool = 0)
+public data class BlurParams(
+    public var radius: Float = 0.0f,
+    public var expandEdge: Bool = 0,
+)
 
-public data class BrightnessContrast(public var base: Effect = Effect())
+public data class BrightnessContrast(
+    public var base: Effect = Effect(),
+)
 
-public data class BrightnessContrastParams(public var brightnessLevel: Int = 0, public var contrastLevel: Int = 0)
+public data class BrightnessContrastParams(
+    public var brightnessLevel: Int = 0,
+    public var contrastLevel: Int = 0,
+)
 
-public data class CharacterRange(public var first: Int = 0, public var length: Int = 0)
+public data class CharacterRange(
+    public var first: Int = 0,
+    public var length: Int = 0,
+)
 
-public data class Color(public var argb: UInt = 0u) {
+public data class Color(
+    public var argb: UInt = 0u,
+) {
     public companion object {
         public val ALICE_BLUE: Int = -984833
 
@@ -329,7 +345,9 @@ public data class Color(public var argb: UInt = 0u) {
     }
 }
 
-public data class ColorBalance(public var base: Effect = Effect())
+public data class ColorBalance(
+    public var base: Effect = Effect(),
+)
 
 public data class ColorBalanceParams(
     public var cyanRed: Int = 0,
@@ -337,7 +355,9 @@ public data class ColorBalanceParams(
     public var yellowBlue: Int = 0,
 )
 
-public data class ColorCurve(public var base: Effect = Effect())
+public data class ColorCurve(
+    public var base: Effect = Effect(),
+)
 
 public data class ColorCurveParams(
     public var adjustment: CurveAdjustments = 0,
@@ -345,7 +365,9 @@ public data class ColorCurveParams(
     public var adjustValue: Int = 0,
 )
 
-public data class ColorLUT(public var base: Effect = Effect())
+public data class ColorLUT(
+    public var base: Effect = Effect(),
+)
 
 public data class ColorLUTParams(
     public var lutB: UByteArray = UByteArray(256),
@@ -372,9 +394,14 @@ public data class ColorLUTParams(
     }
 }
 
-public data class ColorMap(public var oldColor: Color = Color(), public var newColor: Color = Color())
+public data class ColorMap(
+    public var oldColor: Color = Color(),
+    public var newColor: Color = Color(),
+)
 
-public data class ColorMatrix(public var m: FloatArray = FloatArray(25)) {
+public data class ColorMatrix(
+    public var m: FloatArray = FloatArray(25),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ColorMatrix) return false
@@ -382,12 +409,12 @@ public data class ColorMatrix(public var m: FloatArray = FloatArray(25)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.m.contentHashCode()
-    }
+    override fun hashCode(): Int = this.m.contentHashCode()
 }
 
-public data class ColorMatrixEffect(public var base: Effect = Effect())
+public data class ColorMatrixEffect(
+    public var base: Effect = Effect(),
+)
 
 public data class ColorPalette(
     public var flags: UInt = 0u,
@@ -444,7 +471,10 @@ public data class EncoderParameter(
     public var value: COpaquePointer? = null,
 )
 
-public data class EncoderParameters(public var count: UInt = 0u, public var parameter: List<EncoderParameter> = List(1) { EncoderParameter() })
+public data class EncoderParameters(
+    public var count: UInt = 0u,
+    public var parameter: List<EncoderParameter> = List(1) { EncoderParameter() },
+)
 
 public data class GdiplusStartupInput(
     public var gdiplusVersion: UInt = 0u,
@@ -453,155 +483,259 @@ public data class GdiplusStartupInput(
     public var suppressExternalCodecs: Bool = 0,
 )
 
-public data class GdiplusStartupInputEx(public var base: GdiplusStartupInput = GdiplusStartupInput(), public var startupParameters: Int = 0)
+public data class GdiplusStartupInputEx(
+    public var base: GdiplusStartupInput = GdiplusStartupInput(),
+    public var startupParameters: Int = 0,
+)
 
-public data class GdiplusStartupOutput(public var notificationHook: Int = 0, public var notificationUnhook: Int = 0)
+public data class GdiplusStartupOutput(
+    public var notificationHook: Int = 0,
+    public var notificationUnhook: Int = 0,
+)
 
-public data class GpAdjustableArrowCap(public var value: UByte = 0u) {
+public data class GpAdjustableArrowCap(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpBitmap(public var value: UByte = 0u) {
+public data class GpBitmap(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpBrush(public var value: UByte = 0u) {
+public data class GpBrush(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpCachedBitmap(public var value: UByte = 0u) {
+public data class GpCachedBitmap(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpCustomLineCap(public var value: UByte = 0u) {
+public data class GpCustomLineCap(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpFont(public var value: UByte = 0u) {
+public data class GpFont(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpFontCollection(public var value: UByte = 0u) {
+public data class GpFontCollection(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpFontFamily(public var value: UByte = 0u) {
+public data class GpFontFamily(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpGraphics(public var value: UByte = 0u) {
+public data class GpGraphics(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpHatch(public var value: UByte = 0u) {
+public data class GpHatch(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpImage(public var value: UByte = 0u) {
+public data class GpImage(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpImageAttributes(public var value: UByte = 0u) {
+public data class GpImageAttributes(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpInstalledFontCollection(public var value: UByte = 0u) {
+public data class GpInstalledFontCollection(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpLineGradient(public var value: UByte = 0u) {
+public data class GpLineGradient(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpMetafile(public var value: UByte = 0u) {
+public data class GpMetafile(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpPath(public var value: UByte = 0u) {
+public data class GpPath(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpPathGradient(public var value: UByte = 0u) {
+public data class GpPathGradient(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpPathIterator(public var value: UByte = 0u) {
+public data class GpPathIterator(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpPen(public var value: UByte = 0u) {
+public data class GpPen(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpPrivateFontCollection(public var value: UByte = 0u) {
+public data class GpPrivateFontCollection(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpRegion(public var value: UByte = 0u) {
+public data class GpRegion(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpSolidFill(public var value: UByte = 0u) {
+public data class GpSolidFill(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpStringFormat(public var value: UByte = 0u) {
+public data class GpStringFormat(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class GpTexture(public var value: UByte = 0u) {
+public data class GpTexture(
+    public var value: UByte = 0u,
+) {
     public var field0: UByte
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 }
 
-public data class HueSaturationLightness(public var base: Effect = Effect())
+public data class HueSaturationLightness(
+    public var base: Effect = Effect(),
+)
 
 public data class HueSaturationLightnessParams(
     public var hueLevel: Int = 0,
@@ -635,7 +769,9 @@ public data class ImageItemData(
     public var cookie: UInt = 0u,
 )
 
-public data class Levels(public var base: Effect = Effect())
+public data class Levels(
+    public var base: Effect = Effect(),
+)
 
 public data class LevelsParams(
     public var highlight: Int = 0,
@@ -660,7 +796,10 @@ public data class MetafileHeader(
     public var logicalDpiY: Int = 0,
 )
 
-public data class MetafileHeader0(public var wmfHeader: Metaheader = Metaheader(), public var emfHeader: Enhmetaheader3 = Enhmetaheader3())
+public data class MetafileHeader0(
+    public var wmfHeader: Metaheader = Metaheader(),
+    public var emfHeader: Enhmetaheader3 = Enhmetaheader3(),
+)
 
 public data class PWMFRect16(
     public var left: Short = 0,
@@ -669,9 +808,15 @@ public data class PWMFRect16(
     public var bottom: Short = 0,
 )
 
-public data class Point(public var x: Int = 0, public var y: Int = 0)
+public data class Point(
+    public var x: Int = 0,
+    public var y: Int = 0,
+)
 
-public data class PointF(public var x: Float = 0.0f, public var y: Float = 0.0f)
+public data class PointF(
+    public var x: Float = 0.0f,
+    public var y: Float = 0.0f,
+)
 
 public data class PropertyItem(
     public var id: UInt = 0u,
@@ -694,21 +839,42 @@ public data class RectF(
     public var height: Float = 0.0f,
 )
 
-public data class RedEyeCorrection(public var base: Effect = Effect())
+public data class RedEyeCorrection(
+    public var base: Effect = Effect(),
+)
 
-public data class RedEyeCorrectionParams(public var numberOfAreas: UInt = 0u, public var areas: io.github.kotlinmania.windowssys.windows.win32.foundation.Rect? = null)
+public data class RedEyeCorrectionParams(
+    public var numberOfAreas: UInt = 0u,
+    public var areas: io.github.kotlinmania.windowssys.windows.win32.foundation.Rect? = null,
+)
 
-public data class Sharpen(public var base: Effect = Effect())
+public data class Sharpen(
+    public var base: Effect = Effect(),
+)
 
-public data class SharpenParams(public var radius: Float = 0.0f, public var amount: Float = 0.0f)
+public data class SharpenParams(
+    public var radius: Float = 0.0f,
+    public var amount: Float = 0.0f,
+)
 
-public data class Size(public var width: Int = 0, public var height: Int = 0)
+public data class Size(
+    public var width: Int = 0,
+    public var height: Int = 0,
+)
 
-public data class SizeF(public var width: Float = 0.0f, public var height: Float = 0.0f)
+public data class SizeF(
+    public var width: Float = 0.0f,
+    public var height: Float = 0.0f,
+)
 
-public data class Tint(public var base: Effect = Effect())
+public data class Tint(
+    public var base: Effect = Effect(),
+)
 
-public data class TintParams(public var hue: Int = 0, public var amount: Int = 0)
+public data class TintParams(
+    public var hue: Int = 0,
+    public var amount: Int = 0,
+)
 
 public data class WmfPlaceableFileHeader(
     public var key: UInt = 0u,

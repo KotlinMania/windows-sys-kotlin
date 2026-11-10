@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.dataexchange
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -45,9 +46,14 @@ public data class Copydatastruct(
     public var lpData: COpaquePointer? = null,
 )
 
-public data class Ddeack(public var bitfield: UShort = 0u)
+public data class Ddeack(
+    public var bitfield: UShort = 0u,
+)
 
-public data class Ddeadvise(public var bitfield: UShort = 0u, public var cfFormat: Short = 0)
+public data class Ddeadvise(
+    public var bitfield: UShort = 0u,
+    public var cfFormat: Short = 0,
+)
 
 public data class Ddedata(
     public var bitfield: UShort = 0u,
@@ -71,7 +77,10 @@ public data class Ddedata(
     }
 }
 
-public data class Ddeln(public var bitfield: UShort = 0u, public var cfFormat: Short = 0)
+public data class Ddeln(
+    public var bitfield: UShort = 0u,
+    public var cfFormat: Short = 0,
+)
 
 public data class DdemlMsgHookData(
     public var uiLo: Int = 0,
@@ -142,7 +151,10 @@ public data class Ddeup(
     }
 }
 
-public data class Hszpair(public var hszSvc: Hsz = null, public var hszTopic: Hsz = null)
+public data class Hszpair(
+    public var hszSvc: Hsz = null,
+    public var hszTopic: Hsz = null,
+)
 
 public data class Metafilepict(
     public var mm: Int = 0,

@@ -726,9 +726,8 @@ public actual fun gdipFlattenPath(path: COpaquePointer?, matrix: COpaquePointer?
 public actual fun gdipFlush(graphics: COpaquePointer?, intention: FlushIntention): Status =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun gdipFree(ptr: COpaquePointer?) {
+public actual fun gdipFree(ptr: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun gdipGetAdjustableArrowCapFillState(cap: COpaquePointer?, fillstate: COpaquePointer?): Status =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1894,13 +1893,11 @@ public actual fun gdipWindingModeOutline(path: COpaquePointer?, matrix: COpaqueP
 public actual fun gdiplusNotificationHook(token: COpaquePointer?): Status =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun gdiplusNotificationUnhook(token: ULong) {
+public actual fun gdiplusNotificationUnhook(token: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun gdiplusShutdown(token: ULong) {
+public actual fun gdiplusShutdown(token: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun gdiplusStartup(token: COpaquePointer?, input: COpaquePointer?, output: COpaquePointer?): Status =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

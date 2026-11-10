@@ -8,7 +8,10 @@ import io.github.kotlinmania.windowssys.windows.win32.security.TokenGroups
 import io.github.kotlinmania.windowssys.windows.win32.security.TokenPrivileges
 import io.github.kotlinmania.windowssys.windows.win32.system.threading.IoCounters
 
-public data class JobobjectAssociateCompletionPort(public var completionKey: COpaquePointer? = null, public var completionPort: Handle = null)
+public data class JobobjectAssociateCompletionPort(
+    public var completionKey: COpaquePointer? = null,
+    public var completionPort: Handle = null,
+)
 
 public data class JobobjectBasicAccountingInformation(
     public var totalUserTime: Long = 0L,
@@ -21,7 +24,10 @@ public data class JobobjectBasicAccountingInformation(
     public var totalTerminatedProcesses: UInt = 0u,
 )
 
-public data class JobobjectBasicAndIoAccountingInformation(public var basicInfo: JobobjectBasicAccountingInformation = JobobjectBasicAccountingInformation(), public var ioInfo: IoCounters = IoCounters())
+public data class JobobjectBasicAndIoAccountingInformation(
+    public var basicInfo: JobobjectBasicAccountingInformation = JobobjectBasicAccountingInformation(),
+    public var ioInfo: IoCounters = IoCounters(),
+)
 
 public data class JobobjectBasicLimitInformation(
     public var perProcessUserTimeLimit: Long = 0L,
@@ -57,9 +63,14 @@ public data class JobobjectBasicProcessIdList(
     }
 }
 
-public data class JobobjectBasicUiRestrictions(public var uIRestrictionsClass: JobObjectUilimit = 0u)
+public data class JobobjectBasicUiRestrictions(
+    public var uIRestrictionsClass: JobObjectUilimit = 0u,
+)
 
-public data class JobobjectCpuRateControlInformation(public var controlFlags: JobObjectCpuRateControl = 0u, public var anonymous: JobobjectCpuRateControlInformation0 = JobobjectCpuRateControlInformation0())
+public data class JobobjectCpuRateControlInformation(
+    public var controlFlags: JobObjectCpuRateControl = 0u,
+    public var anonymous: JobobjectCpuRateControlInformation0 = JobobjectCpuRateControlInformation0(),
+)
 
 public data class JobobjectCpuRateControlInformation0(
     public var cpuRate: UInt = 0u,
@@ -67,9 +78,14 @@ public data class JobobjectCpuRateControlInformation0(
     public var anonymous: JobobjectCpuRateControlInformation00 = JobobjectCpuRateControlInformation00(),
 )
 
-public data class JobobjectCpuRateControlInformation00(public var minRate: UShort = 0u, public var maxRate: UShort = 0u)
+public data class JobobjectCpuRateControlInformation00(
+    public var minRate: UShort = 0u,
+    public var maxRate: UShort = 0u,
+)
 
-public data class JobobjectEndOfJobTimeInformation(public var endOfJobTimeAction: JobObjectTerminateAtEndAction = 0u)
+public data class JobobjectEndOfJobTimeInformation(
+    public var endOfJobTimeAction: JobObjectTerminateAtEndAction = 0u,
+)
 
 public data class JobobjectExtendedLimitInformation(
     public var basicLimitInformation: JobobjectBasicLimitInformation = JobobjectBasicLimitInformation(),
@@ -150,7 +166,9 @@ public class JobobjectIoRateControlInformationNativeV3(
     public var limitExcessNotifyTimePercent: Long = 0L,
 )
 
-public data class JobobjectJobsetInformation(public var memberLevel: UInt = 0u)
+public data class JobobjectJobsetInformation(
+    public var memberLevel: UInt = 0u,
+)
 
 public data class JobobjectLimitViolationInformation(
     public var limitFlags: JobObjectLimit = 0u,
@@ -187,11 +205,20 @@ public class JobobjectLimitViolationInformation2(
     public var netRateControlToleranceLimit: JobobjectRateControlTolerance = 0,
 )
 
-public data class JobobjectLimitViolationInformation20(public var jobHighMemoryLimit: ULong = 0uL, public var jobMemoryLimit: ULong = 0uL)
+public data class JobobjectLimitViolationInformation20(
+    public var jobHighMemoryLimit: ULong = 0uL,
+    public var jobMemoryLimit: ULong = 0uL,
+)
 
-public data class JobobjectLimitViolationInformation21(public var rateControlTolerance: JobobjectRateControlTolerance = 0, public var cpuRateControlTolerance: JobobjectRateControlTolerance = 0)
+public data class JobobjectLimitViolationInformation21(
+    public var rateControlTolerance: JobobjectRateControlTolerance = 0,
+    public var cpuRateControlTolerance: JobobjectRateControlTolerance = 0,
+)
 
-public data class JobobjectLimitViolationInformation22(public var rateControlToleranceLimit: JobobjectRateControlTolerance = 0, public var cpuRateControlToleranceLimit: JobobjectRateControlTolerance = 0)
+public data class JobobjectLimitViolationInformation22(
+    public var rateControlToleranceLimit: JobobjectRateControlTolerance = 0,
+    public var cpuRateControlToleranceLimit: JobobjectRateControlTolerance = 0,
+)
 
 public data class JobobjectNetRateControlInformation(
     public var maxBandwidth: ULong = 0uL,
@@ -224,11 +251,20 @@ public data class JobobjectNotificationLimitInformation2(
     public var netRateControlToleranceInterval: JobobjectRateControlToleranceInterval = 0,
 )
 
-public data class JobobjectNotificationLimitInformation20(public var jobHighMemoryLimit: ULong = 0uL, public var jobMemoryLimit: ULong = 0uL)
+public data class JobobjectNotificationLimitInformation20(
+    public var jobHighMemoryLimit: ULong = 0uL,
+    public var jobMemoryLimit: ULong = 0uL,
+)
 
-public data class JobobjectNotificationLimitInformation21(public var rateControlTolerance: JobobjectRateControlTolerance = 0, public var cpuRateControlTolerance: JobobjectRateControlTolerance = 0)
+public data class JobobjectNotificationLimitInformation21(
+    public var rateControlTolerance: JobobjectRateControlTolerance = 0,
+    public var cpuRateControlTolerance: JobobjectRateControlTolerance = 0,
+)
 
-public data class JobobjectNotificationLimitInformation22(public var rateControlToleranceInterval: JobobjectRateControlToleranceInterval = 0, public var cpuRateControlToleranceInterval: JobobjectRateControlToleranceInterval = 0)
+public data class JobobjectNotificationLimitInformation22(
+    public var rateControlToleranceInterval: JobobjectRateControlToleranceInterval = 0,
+    public var cpuRateControlToleranceInterval: JobobjectRateControlToleranceInterval = 0,
+)
 
 public data class JobobjectSecurityLimitInformation(
     public var securityLimitFlags: JobObjectSecurity = 0u,

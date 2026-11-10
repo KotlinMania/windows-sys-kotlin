@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -9,9 +10,15 @@ import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.InAddr
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Sockaddr
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetworkAddressList
 
-public data class AddressListDescriptor(public var mediaType: UInt = 0u, public var addressList: NetworkAddressList = NetworkAddressList())
+public data class AddressListDescriptor(
+    public var mediaType: UInt = 0u,
+    public var addressList: NetworkAddressList = NetworkAddressList(),
+)
 
-public data class Adspec(public var adspecHeader: RsvpObjHdr = RsvpObjHdr(), public var adspecBody: IsAdspecBody = IsAdspecBody())
+public data class Adspec(
+    public var adspecHeader: RsvpObjHdr = RsvpObjHdr(),
+    public var adspecBody: IsAdspecBody = IsAdspecBody(),
+)
 
 public data class AdGeneralParams(
     public var intServAwareHopCount: UInt = 0u,
@@ -35,7 +42,10 @@ public data class ControlService(
     public var anonymous: ControlService0 = ControlService0(),
 )
 
-public data class ControlService0(public var guaranteed: AdGuaranteed = AdGuaranteed(), public var paramBuffer: List<ParamBuffer> = List(1) { ParamBuffer() })
+public data class ControlService0(
+    public var guaranteed: AdGuaranteed = AdGuaranteed(),
+    public var paramBuffer: List<ParamBuffer> = List(1) { ParamBuffer() },
+)
 
 public data class CtrlLoadFlowspec(
     public var clSpecServHdr: IntServServiceHdr = IntServServiceHdr(),
@@ -77,9 +87,14 @@ public data class EnumerationBuffer(
     }
 }
 
-public data class ErrorSpec(public var errsHeader: RsvpObjHdr = RsvpObjHdr(), public var errsU: ErrorSpec0 = ErrorSpec0())
+public data class ErrorSpec(
+    public var errsHeader: RsvpObjHdr = RsvpObjHdr(),
+    public var errsU: ErrorSpec0 = ErrorSpec0(),
+)
 
-public data class ErrorSpec0(public var errsIpv4: ErrorSpecIpv4 = ErrorSpecIpv4())
+public data class ErrorSpec0(
+    public var errsIpv4: ErrorSpecIpv4 = ErrorSpecIpv4(),
+)
 
 public data class ErrorSpecIpv4(
     public var errsErrnode: InAddr = InAddr(),
@@ -88,9 +103,15 @@ public data class ErrorSpecIpv4(
     public var errsValue: UShort = 0u,
 )
 
-public data class FilterSpec(public var filtHeader: RsvpObjHdr = RsvpObjHdr(), public var filtU: FilterSpec0 = FilterSpec0())
+public data class FilterSpec(
+    public var filtHeader: RsvpObjHdr = RsvpObjHdr(),
+    public var filtU: FilterSpec0 = FilterSpec0(),
+)
 
-public data class FilterSpec0(public var filtIpv4: FilterSpecIpv4 = FilterSpecIpv4(), public var filtIpv4gpi: FilterSpecIpv4Gpi = FilterSpecIpv4Gpi())
+public data class FilterSpec0(
+    public var filtIpv4: FilterSpecIpv4 = FilterSpecIpv4(),
+    public var filtIpv4gpi: FilterSpecIpv4Gpi = FilterSpecIpv4Gpi(),
+)
 
 public data class Flowdescriptor(
     public var flowSpec: Flowspec = Flowspec(),
@@ -98,11 +119,20 @@ public data class Flowdescriptor(
     public var filterList: RsvpFilterspec? = null,
 )
 
-public data class FlowDesc(public var u1: FlowDesc0 = FlowDesc0(), public var u2: FlowDesc1 = FlowDesc1())
+public data class FlowDesc(
+    public var u1: FlowDesc0 = FlowDesc0(),
+    public var u2: FlowDesc1 = FlowDesc1(),
+)
 
-public data class FlowDesc0(public var stspec: SenderTspec? = null, public var isflow: IsFlowspec? = null)
+public data class FlowDesc0(
+    public var stspec: SenderTspec? = null,
+    public var isflow: IsFlowspec? = null,
+)
 
-public data class FlowDesc1(public var stemp: FilterSpec? = null, public var fspec: FilterSpec? = null)
+public data class FlowDesc1(
+    public var stemp: FilterSpec? = null,
+    public var fspec: FilterSpec? = null,
+)
 
 public data class FilterSpecIpv4(
     public var filtIpaddr: InAddr = InAddr(),
@@ -110,7 +140,10 @@ public data class FilterSpecIpv4(
     public var filtPort: UShort = 0u,
 )
 
-public data class FilterSpecIpv4Gpi(public var filtIpaddr: InAddr = InAddr(), public var filtGpi: UInt = 0u)
+public data class FilterSpecIpv4Gpi(
+    public var filtIpaddr: InAddr = InAddr(),
+    public var filtGpi: UInt = 0u,
+)
 
 public data class GadsParmsT(
     public var gadsServHdr: IntServServiceHdr = IntServServiceHdr(),
@@ -157,7 +190,10 @@ public data class GuarFlowSpec(
     public var guarRspec: GuarRspec = GuarRspec(),
 )
 
-public data class GuarRspec(public var guarR: Float = 0.0f, public var guarS: UInt = 0u)
+public data class GuarRspec(
+    public var guarR: Float = 0.0f,
+    public var guarS: UInt = 0u,
+)
 
 public data class HspUpgradeImagedata(
     public var hashAlgID: UShort = 0u,
@@ -240,7 +276,10 @@ public data class IdErrorObject(
     }
 }
 
-public data class InAddrIpv4(public var addr: UInt = 0u, public var addrBytes: UByteArray = UByteArray(4)) {
+public data class InAddrIpv4(
+    public var addr: UInt = 0u,
+    public var addrBytes: UByteArray = UByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is InAddrIpv4) return false
@@ -256,7 +295,9 @@ public data class InAddrIpv4(public var addr: UInt = 0u, public var addrBytes: U
     }
 }
 
-public data class InAddrIpv6(public var addr: UByteArray = UByteArray(16)) {
+public data class InAddrIpv6(
+    public var addr: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is InAddrIpv6) return false
@@ -264,12 +305,13 @@ public data class InAddrIpv6(public var addr: UByteArray = UByteArray(16)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.addr.contentHashCode()
-    }
+    override fun hashCode(): Int = this.addr.contentHashCode()
 }
 
-public data class IpxPattern(public var src: IpxPattern0 = IpxPattern0(), public var dest: IpxPattern0 = IpxPattern0())
+public data class IpxPattern(
+    public var src: IpxPattern0 = IpxPattern0(),
+    public var dest: IpxPattern0 = IpxPattern0(),
+)
 
 public data class IpxPattern0(
     public var networkAddress: UInt = 0u,
@@ -339,13 +381,25 @@ public data class IpPattern01(
     public var filler: UShort = 0u,
 )
 
-public data class IpPattern00(public var sSrcport: UShort = 0u, public var sDstport: UShort = 0u)
+public data class IpPattern00(
+    public var sSrcport: UShort = 0u,
+    public var sDstport: UShort = 0u,
+)
 
-public data class IsAdspecBody(public var adspecMh: IntServMainHdr = IntServMainHdr(), public var adspecGenparms: GenAdspecParams = GenAdspecParams())
+public data class IsAdspecBody(
+    public var adspecMh: IntServMainHdr = IntServMainHdr(),
+    public var adspecGenparms: GenAdspecParams = GenAdspecParams(),
+)
 
-public data class IsFlowspec(public var flowHeader: RsvpObjHdr = RsvpObjHdr(), public var flowBody: IntServFlowSpec = IntServFlowSpec())
+public data class IsFlowspec(
+    public var flowHeader: RsvpObjHdr = RsvpObjHdr(),
+    public var flowBody: IntServFlowSpec = IntServFlowSpec(),
+)
 
-public data class IntServFlowSpec(public var specMh: IntServMainHdr = IntServMainHdr(), public var specU: IntServFlowSpec0 = IntServFlowSpec0())
+public data class IntServFlowSpec(
+    public var specMh: IntServMainHdr = IntServMainHdr(),
+    public var specU: IntServFlowSpec0 = IntServFlowSpec0(),
+)
 
 public data class IntServFlowSpec0(
     public var clSpec: CtrlLoadFlowspec = CtrlLoadFlowspec(),
@@ -371,9 +425,15 @@ public data class IntServServiceHdr(
     public var isshLen32b: UShort = 0u,
 )
 
-public data class IntServTspecBody(public var stMh: IntServMainHdr = IntServMainHdr(), public var tspecU: IntServTspecBody0 = IntServTspecBody0())
+public data class IntServTspecBody(
+    public var stMh: IntServMainHdr = IntServMainHdr(),
+    public var tspecU: IntServTspecBody0 = IntServTspecBody0(),
+)
 
-public data class IntServTspecBody0(public var genStspec: GenTspec = GenTspec(), public var qualStspec: QualTspec = QualTspec())
+public data class IntServTspecBody0(
+    public var genStspec: GenTspec = GenTspec(),
+    public var qualStspec: QualTspec = QualTspec(),
+)
 
 public data class Lpmiptable(
     public var ulIfIndex: UInt = 0u,
@@ -484,7 +544,10 @@ public data class QosDiffservRule(
     public var nonConformingUserPriority: UByte = 0u,
 )
 
-public data class QosDsClass(public var objectHdr: QosObjectHdr = QosObjectHdr(), public var dSField: UInt = 0u)
+public data class QosDsClass(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+    public var dSField: UInt = 0u,
+)
 
 public data class QosFlowrateOutgoing(
     public var bandwidth: ULong = 0uL,
@@ -501,7 +564,10 @@ public data class QosFlowFundamentals(
     public var rtt: UInt = 0u,
 )
 
-public data class QosFriendlyName(public var objectHdr: QosObjectHdr = QosObjectHdr(), public var friendlyName: UShortArray = UShortArray(256)) {
+public data class QosFriendlyName(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+    public var friendlyName: UShortArray = UShortArray(256),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is QosFriendlyName) return false
@@ -517,7 +583,10 @@ public data class QosFriendlyName(public var objectHdr: QosObjectHdr = QosObject
     }
 }
 
-public data class QosObjectHdr(public var objectType: UInt = 0u, public var objectLength: UInt = 0u)
+public data class QosObjectHdr(
+    public var objectType: UInt = 0u,
+    public var objectLength: UInt = 0u,
+)
 
 public data class QosPacketPriority(
     public var conformantDSCPValue: UInt = 0u,
@@ -526,15 +595,29 @@ public data class QosPacketPriority(
     public var nonConformantL2Value: UInt = 0u,
 )
 
-public data class QosSdMode(public var objectHdr: QosObjectHdr = QosObjectHdr(), public var shapeDiscardMode: UInt = 0u)
+public data class QosSdMode(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+    public var shapeDiscardMode: UInt = 0u,
+)
 
-public data class QosShapingRate(public var objectHdr: QosObjectHdr = QosObjectHdr(), public var shapingRate: UInt = 0u)
+public data class QosShapingRate(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+    public var shapingRate: UInt = 0u,
+)
 
-public data class QosTcpTraffic(public var objectHdr: QosObjectHdr = QosObjectHdr())
+public data class QosTcpTraffic(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+)
 
-public data class QosTrafficClass(public var objectHdr: QosObjectHdr = QosObjectHdr(), public var trafficClass: UInt = 0u)
+public data class QosTrafficClass(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+    public var trafficClass: UInt = 0u,
+)
 
-public data class QosVersion(public var majorVersion: UShort = 0u, public var minorVersion: UShort = 0u)
+public data class QosVersion(
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
+)
 
 public data class QualAppFlowSpec(
     public var qSpecServHdr: IntServServiceHdr = IntServServiceHdr(),
@@ -548,9 +631,14 @@ public data class QualTspec(
     public var qualTspecParms: QualTspecParms = QualTspecParms(),
 )
 
-public data class QualTspecParms(public var tbTspecM: UInt = 0u)
+public data class QualTspecParms(
+    public var tbTspecM: UInt = 0u,
+)
 
-public data class ResvStyle(public var styleHeader: RsvpObjHdr = RsvpObjHdr(), public var styleWord: UInt = 0u)
+public data class ResvStyle(
+    public var styleHeader: RsvpObjHdr = RsvpObjHdr(),
+    public var styleWord: UInt = 0u,
+)
 
 public data class RsvpAdspec(
     public var objectHdr: QosObjectHdr = QosObjectHdr(),
@@ -559,7 +647,10 @@ public data class RsvpAdspec(
     public var services: List<ControlService> = List(1) { ControlService() },
 )
 
-public data class RsvpFilterspec(public var type: FilterType = 0, public var anonymous: RsvpFilterspec0 = RsvpFilterspec0())
+public data class RsvpFilterspec(
+    public var type: FilterType = 0,
+    public var anonymous: RsvpFilterspec0 = RsvpFilterspec0(),
+)
 
 public data class RsvpFilterspec0(
     public var filterSpecV4: RsvpFilterspecV4 = RsvpFilterspecV4(),
@@ -575,7 +666,10 @@ public data class RsvpFilterspecV4(
     public var port: UShort = 0u,
 )
 
-public data class RsvpFilterspecV4Gpi(public var address: InAddrIpv4 = InAddrIpv4(), public var generalPortId: UInt = 0u)
+public data class RsvpFilterspecV4Gpi(
+    public var address: InAddrIpv4 = InAddrIpv4(),
+    public var generalPortId: UInt = 0u,
+)
 
 public data class RsvpFilterspecV6(
     public var address: InAddrIpv6 = InAddrIpv6(),
@@ -605,11 +699,19 @@ public data class RsvpFilterspecV6Flow(
     }
 }
 
-public data class RsvpFilterspecV6Gpi(public var address: InAddrIpv6 = InAddrIpv6(), public var generalPortId: UInt = 0u)
+public data class RsvpFilterspecV6Gpi(
+    public var address: InAddrIpv6 = InAddrIpv6(),
+    public var generalPortId: UInt = 0u,
+)
 
-public data class RsvpHop(public var hopHeader: RsvpObjHdr = RsvpObjHdr(), public var hopU: RsvpHop0 = RsvpHop0())
+public data class RsvpHop(
+    public var hopHeader: RsvpObjHdr = RsvpObjHdr(),
+    public var hopU: RsvpHop0 = RsvpHop0(),
+)
 
-public data class RsvpHop0(public var hopIpv4: RsvpHopIpv4 = RsvpHopIpv4())
+public data class RsvpHop0(
+    public var hopIpv4: RsvpHopIpv4 = RsvpHopIpv4(),
+)
 
 public data class RsvpMsgObjs(
     public var rsvpMsgType: Int = 0,
@@ -663,13 +765,23 @@ public data class RsvpReserveInfo(
     public var flowDescList: Flowdescriptor? = null,
 )
 
-public data class RsvpScope(public var scoplHeader: RsvpObjHdr = RsvpObjHdr(), public var scopeU: RsvpScope0 = RsvpScope0())
+public data class RsvpScope(
+    public var scoplHeader: RsvpObjHdr = RsvpObjHdr(),
+    public var scopeU: RsvpScope0 = RsvpScope0(),
+)
 
-public data class RsvpScope0(public var scoplIpv4: ScopeListIpv4 = ScopeListIpv4())
+public data class RsvpScope0(
+    public var scoplIpv4: ScopeListIpv4 = ScopeListIpv4(),
+)
 
-public data class RsvpSession(public var sessHeader: RsvpObjHdr = RsvpObjHdr(), public var sessU: RsvpSession0 = RsvpSession0())
+public data class RsvpSession(
+    public var sessHeader: RsvpObjHdr = RsvpObjHdr(),
+    public var sessU: RsvpSession0 = RsvpSession0(),
+)
 
-public data class RsvpSession0(public var sessIpv4: SessionIpv4 = SessionIpv4())
+public data class RsvpSession0(
+    public var sessIpv4: SessionIpv4 = SessionIpv4(),
+)
 
 public data class RsvpStatusInfo(
     public var objectHdr: QosObjectHdr = QosObjectHdr(),
@@ -684,9 +796,15 @@ public data class RsvpObjHdr(
     public var objCtype: UByte = 0u,
 )
 
-public data class RsvpHopIpv4(public var hopIpaddr: InAddr = InAddr(), public var hopLih: UInt = 0u)
+public data class RsvpHopIpv4(
+    public var hopIpaddr: InAddr = InAddr(),
+    public var hopLih: UInt = 0u,
+)
 
-public data class SenderTspec(public var stspecHeader: RsvpObjHdr = RsvpObjHdr(), public var stspecBody: IntServTspecBody = IntServTspecBody())
+public data class SenderTspec(
+    public var stspecHeader: RsvpObjHdr = RsvpObjHdr(),
+    public var stspecBody: IntServTspecBody = IntServTspecBody(),
+)
 
 public data class SipaeventKsrSignaturePayload(
     public var signAlgID: UInt = 0u,
@@ -797,9 +915,14 @@ public data class SipaeventSiPolicyPayload(
     }
 }
 
-public data class SipaeventVsmIdkInfoPayload(public var keyAlgID: UInt = 0u, public var anonymous: SipaeventVsmIdkInfoPayload0 = SipaeventVsmIdkInfoPayload0())
+public data class SipaeventVsmIdkInfoPayload(
+    public var keyAlgID: UInt = 0u,
+    public var anonymous: SipaeventVsmIdkInfoPayload0 = SipaeventVsmIdkInfoPayload0(),
+)
 
-public data class SipaeventVsmIdkInfoPayload0(public var rsaKeyInfo: SipaeventVsmIdkRsaInfo = SipaeventVsmIdkRsaInfo())
+public data class SipaeventVsmIdkInfoPayload0(
+    public var rsaKeyInfo: SipaeventVsmIdkRsaInfo = SipaeventVsmIdkRsaInfo(),
+)
 
 public data class SipaeventVsmIdkRsaInfo(
     public var keyBitLength: UInt = 0u,
@@ -826,7 +949,9 @@ public data class SipaeventVsmIdkRsaInfo(
     }
 }
 
-public data class ScopeListIpv4(public var scoplIpaddr: List<InAddr> = List(1) { InAddr() })
+public data class ScopeListIpv4(
+    public var scoplIpaddr: List<InAddr> = List(1) { InAddr() },
+)
 
 public data class SessionIpv4(
     public var sessDestaddr: InAddr = InAddr(),

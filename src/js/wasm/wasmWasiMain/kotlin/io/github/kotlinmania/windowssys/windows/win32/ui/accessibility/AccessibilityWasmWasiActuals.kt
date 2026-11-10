@@ -55,9 +55,8 @@ public actual fun expandCollapsePatternCollapse(hobj: Huiapatternobject): Hresul
 public actual fun expandCollapsePatternExpand(hobj: Huiapatternobject): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun getOleaccVersionInfo(pver: COpaquePointer?, pbuild: COpaquePointer?) {
+public actual fun getOleaccVersionInfo(pver: COpaquePointer?, pbuild: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun getRoleTextA(lrole: UInt, lpszrole: Pstr, cchrolemax: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -104,9 +103,8 @@ public actual fun multipleViewPatternGetViewName(hobj: Huiapatternobject, viewid
 public actual fun multipleViewPatternSetCurrentView(hobj: Huiapatternobject, viewid: Int): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun notifyWinEvent(event: UInt, hwnd: Hwnd, idobject: Int, idchild: Int) {
+public actual fun notifyWinEvent(event: UInt, hwnd: Hwnd, idobject: Int, idchild: Int): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun objectFromLresult(lresult: Lresult, riid: COpaquePointer?, wparam: Wparam, ppvobject: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -348,9 +346,8 @@ public actual fun uiaRaiseStructureChangedEvent(pprovider: COpaquePointer?, stru
 public actual fun uiaRaiseTextEditTextChangedEvent(pprovider: COpaquePointer?, texteditchangetype: TextEditChangeType, pchangeddata: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun uiaRegisterProviderCallback(pcallback: COpaquePointer?) {
+public actual fun uiaRegisterProviderCallback(pcallback: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun uiaRemoveEvent(hevent: Huiaevent): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

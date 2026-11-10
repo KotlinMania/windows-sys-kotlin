@@ -2,7 +2,9 @@ package io.github.kotlinmania.windowssys.windows.win32.ui.magnification
 
 import io.github.kotlinmania.windowssys.core.Guid
 
-public data class Magcoloreffect(public var transform: FloatArray = FloatArray(25)) {
+public data class Magcoloreffect(
+    public var transform: FloatArray = FloatArray(25),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Magcoloreffect) return false
@@ -10,9 +12,7 @@ public data class Magcoloreffect(public var transform: FloatArray = FloatArray(2
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.transform.contentHashCode()
-    }
+    override fun hashCode(): Int = this.transform.contentHashCode()
 }
 
 public data class Magimageheader(
@@ -24,7 +24,9 @@ public data class Magimageheader(
     public var cbSize: Int = 0,
 )
 
-public data class Magtransform(public var v: FloatArray = FloatArray(9)) {
+public data class Magtransform(
+    public var v: FloatArray = FloatArray(9),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Magtransform) return false
@@ -32,7 +34,5 @@ public data class Magtransform(public var v: FloatArray = FloatArray(9)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.v.contentHashCode()
-    }
+    override fun hashCode(): Int = this.v.contentHashCode()
 }

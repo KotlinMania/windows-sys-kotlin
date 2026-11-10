@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.media.kernelstreaming
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -8,9 +9,15 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 
-public data class Ksrelativeevent0(public var objectHandle: Handle = null, public var objectPointer: COpaquePointer? = null)
+public data class Ksrelativeevent0(
+    public var objectHandle: Handle = null,
+    public var objectPointer: COpaquePointer? = null,
+)
 
-public data class Ksresolution(public var granularity: Long = 0L, public var error: Long = 0L)
+public data class Ksresolution(
+    public var granularity: Long = 0L,
+    public var error: Long = 0L,
+)
 
 public data class KsrtaudioBuffer(
     public var bufferAddress: COpaquePointer? = null,
@@ -79,13 +86,25 @@ public data class KsrtaudioHwregister32(
     public var accuracy: UInt = 0u,
 )
 
-public data class KsrtaudioHwregisterProperty(public var property: Ksidentifier = Ksidentifier(), public var baseAddress: COpaquePointer? = null)
+public data class KsrtaudioHwregisterProperty(
+    public var property: Ksidentifier = Ksidentifier(),
+    public var baseAddress: COpaquePointer? = null,
+)
 
-public data class KsrtaudioHwregisterProperty32(public var property: Ksidentifier = Ksidentifier(), public var baseAddress: UInt = 0u)
+public data class KsrtaudioHwregisterProperty32(
+    public var property: Ksidentifier = Ksidentifier(),
+    public var baseAddress: UInt = 0u,
+)
 
-public data class KsrtaudioNotificationEventProperty(public var property: Ksidentifier = Ksidentifier(), public var notificationEvent: Handle = null)
+public data class KsrtaudioNotificationEventProperty(
+    public var property: Ksidentifier = Ksidentifier(),
+    public var notificationEvent: Handle = null,
+)
 
-public data class KsrtaudioNotificationEventProperty32(public var property: Ksidentifier = Ksidentifier(), public var notificationEvent: UInt = 0u)
+public data class KsrtaudioNotificationEventProperty32(
+    public var property: Ksidentifier = Ksidentifier(),
+    public var notificationEvent: UInt = 0u,
+)
 
 public data class KsrtaudioPacketvregister(
     public var completedPacketCount: ULong? = null,
@@ -93,7 +112,10 @@ public data class KsrtaudioPacketvregister(
     public var completedPacketHash: ULong? = null,
 )
 
-public data class KsrtaudioPacketvregisterProperty(public var property: Ksidentifier = Ksidentifier(), public var baseAddress: COpaquePointer? = null)
+public data class KsrtaudioPacketvregisterProperty(
+    public var property: Ksidentifier = Ksidentifier(),
+    public var baseAddress: COpaquePointer? = null,
+)
 
 public data class KsrtaudioSetwritepacketInfo(
     public var packetNumber: UInt = 0u,
@@ -101,7 +123,10 @@ public data class KsrtaudioSetwritepacketInfo(
     public var eosPacketLength: UInt = 0u,
 )
 
-public data class Kssounddetectorproperty(public var property: Ksidentifier = Ksidentifier(), public var eventId: Guid = Guid())
+public data class Kssounddetectorproperty(
+    public var property: Ksidentifier = Ksidentifier(),
+    public var eventId: Guid = Guid(),
+)
 
 public data class KsstreamallocatorStatus(
     public var framing: KsallocatorFraming = KsallocatorFraming(),
@@ -143,7 +168,10 @@ public data class KsstreamSegment(
     public var completionEvent: Handle = null,
 )
 
-public data class KsstreamUvcMetadata(public var startOfFrameTimestamp: KsstreamUvcMetadatatypeTimestamp = KsstreamUvcMetadatatypeTimestamp(), public var endOfFrameTimestamp: KsstreamUvcMetadatatypeTimestamp = KsstreamUvcMetadatatypeTimestamp())
+public data class KsstreamUvcMetadata(
+    public var startOfFrameTimestamp: KsstreamUvcMetadatatypeTimestamp = KsstreamUvcMetadatatypeTimestamp(),
+    public var endOfFrameTimestamp: KsstreamUvcMetadatatypeTimestamp = KsstreamUvcMetadatatypeTimestamp(),
+)
 
 public data class KsstreamUvcMetadatatypeTimestamp(
     public var presentationTimeStamp: UInt = 0u,
@@ -153,15 +181,29 @@ public data class KsstreamUvcMetadatatypeTimestamp(
     public var reserved1: UInt = 0u,
 )
 
-public data class KsstreamUvcMetadatatypeTimestamp0(public var anonymous: KsstreamUvcMetadatatypeTimestamp00 = KsstreamUvcMetadatatypeTimestamp00(), public var sCRToken: UShort = 0u)
+public data class KsstreamUvcMetadatatypeTimestamp0(
+    public var anonymous: KsstreamUvcMetadatatypeTimestamp00 = KsstreamUvcMetadatatypeTimestamp00(),
+    public var sCRToken: UShort = 0u,
+)
 
-public data class KsstreamUvcMetadatatypeTimestamp00(public var bitfield: UShort = 0u)
+public data class KsstreamUvcMetadatatypeTimestamp00(
+    public var bitfield: UShort = 0u,
+)
 
-public data class KstelephonyCallcontrol(public var callType: TelephonyCalltype = 0, public var callControlOp: TelephonyCallcontrolop = 0)
+public data class KstelephonyCallcontrol(
+    public var callType: TelephonyCalltype = 0,
+    public var callControlOp: TelephonyCallcontrolop = 0,
+)
 
-public data class KstelephonyCallinfo(public var callType: TelephonyCalltype = 0, public var callState: TelephonyCallstate = 0)
+public data class KstelephonyCallinfo(
+    public var callType: TelephonyCalltype = 0,
+    public var callState: TelephonyCallstate = 0,
+)
 
-public data class KstelephonyProviderchange(public var callType: TelephonyCalltype = 0, public var providerChangeOp: TelephonyProviderchangeop = 0)
+public data class KstelephonyProviderchange(
+    public var callType: TelephonyCalltype = 0,
+    public var providerChangeOp: TelephonyProviderchangeop = 0,
+)
 
 public data class Kstime(
     public var time: Long = 0L,
@@ -187,7 +229,10 @@ public data class KstopologyConnection(
     public var toNodePin: UInt = 0u,
 )
 
-public data class KstopologyEndpointid(public var topologyName: UShortArray = UShortArray(260), public var pinId: UInt = 0u) {
+public data class KstopologyEndpointid(
+    public var topologyName: UShortArray = UShortArray(260),
+    public var pinId: UInt = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is KstopologyEndpointid) return false
@@ -203,7 +248,10 @@ public data class KstopologyEndpointid(public var topologyName: UShortArray = US
     }
 }
 
-public data class KstopologyEndpointidpair(public var renderEndpoint: KstopologyEndpointid = KstopologyEndpointid(), public var captureEndpoint: KstopologyEndpointid = KstopologyEndpointid())
+public data class KstopologyEndpointidpair(
+    public var renderEndpoint: KstopologyEndpointid = KstopologyEndpointid(),
+    public var captureEndpoint: KstopologyEndpointid = KstopologyEndpointid(),
+)
 
 public data class Ksvpmaxpixelrate(
     public var size: KsAmvpsize = KsAmvpsize(),
@@ -211,7 +259,10 @@ public data class Ksvpmaxpixelrate(
     public var reserved: UInt = 0u,
 )
 
-public data class KsvpsizeProp(public var property: Ksidentifier = Ksidentifier(), public var size: KsAmvpsize = KsAmvpsize())
+public data class KsvpsizeProp(
+    public var property: Ksidentifier = Ksidentifier(),
+    public var size: KsAmvpsize = KsAmvpsize(),
+)
 
 public data class Ksvpsurfaceparams(
     public var dwPitch: UInt = 0u,
@@ -234,7 +285,9 @@ public data class KswaveBuffer(
     public var bufferAddress: COpaquePointer? = null,
 )
 
-public data class KswaveCompatcaps(public var ulDeviceType: UInt = 0u)
+public data class KswaveCompatcaps(
+    public var ulDeviceType: UInt = 0u,
+)
 
 public data class KswaveInputCapabilities(
     public var maximumChannelsPerConnection: UInt = 0u,
@@ -269,7 +322,10 @@ public class KswaveOutputCapabilities(
     public var largestFreeContiguousSampleMemory: UInt = 0u,
 )
 
-public data class KswaveVolume(public var leftAttenuation: Int = 0, public var rightAttenuation: Int = 0)
+public data class KswaveVolume(
+    public var leftAttenuation: Int = 0,
+    public var rightAttenuation: Int = 0,
+)
 
 public data class KsAmvpdatainfo(
     public var dwSize: UInt = 0u,
@@ -295,11 +351,20 @@ public data class KsAmvpdiminfo(
     public var rcValidRegion: Rect = Rect(),
 )
 
-public data class KsAmvpsize(public var dwWidth: UInt = 0u, public var dwHeight: UInt = 0u)
+public data class KsAmvpsize(
+    public var dwWidth: UInt = 0u,
+    public var dwHeight: UInt = 0u,
+)
 
-public data class KsAmExactRateChange(public var outputZeroTime: Long = 0L, public var rate: Int = 0)
+public data class KsAmExactRateChange(
+    public var outputZeroTime: Long = 0L,
+    public var rate: Int = 0,
+)
 
-public data class KsAmSimpleRateChange(public var startTime: Long = 0L, public var rate: Int = 0)
+public data class KsAmSimpleRateChange(
+    public var startTime: Long = 0L,
+    public var rate: Int = 0,
+)
 
 public data class KsAnalogvideoinfo(
     public var rcSource: Rect = Rect(),
@@ -336,23 +401,49 @@ public data class KsCompression(
     public var ratioConstantMargin: UInt = 0u,
 )
 
-public data class KsCopyMacrovision(public var mACROVISIONLevel: UInt = 0u)
+public data class KsCopyMacrovision(
+    public var mACROVISIONLevel: UInt = 0u,
+)
 
-public data class KsDataformatH264videoinfo(public var dataFormat: Ksdataformat = Ksdataformat(), public var h264VideoInfoHeader: KsH264videoinfo = KsH264videoinfo())
+public data class KsDataformatH264videoinfo(
+    public var dataFormat: Ksdataformat = Ksdataformat(),
+    public var h264VideoInfoHeader: KsH264videoinfo = KsH264videoinfo(),
+)
 
-public data class KsDataformatImageinfo(public var dataFormat: Ksdataformat = Ksdataformat(), public var imageInfoHeader: KsBitmapinfoheader = KsBitmapinfoheader())
+public data class KsDataformatImageinfo(
+    public var dataFormat: Ksdataformat = Ksdataformat(),
+    public var imageInfoHeader: KsBitmapinfoheader = KsBitmapinfoheader(),
+)
 
-public data class KsDataformatMpegvideoinfo2(public var dataFormat: Ksdataformat = Ksdataformat(), public var mpegVideoInfoHeader2: KsMpegvideoinfo2 = KsMpegvideoinfo2())
+public data class KsDataformatMpegvideoinfo2(
+    public var dataFormat: Ksdataformat = Ksdataformat(),
+    public var mpegVideoInfoHeader2: KsMpegvideoinfo2 = KsMpegvideoinfo2(),
+)
 
-public data class KsDataformatVbiinfoheader(public var dataFormat: Ksdataformat = Ksdataformat(), public var vBIInfoHeader: KsVbiinfoheader = KsVbiinfoheader())
+public data class KsDataformatVbiinfoheader(
+    public var dataFormat: Ksdataformat = Ksdataformat(),
+    public var vBIInfoHeader: KsVbiinfoheader = KsVbiinfoheader(),
+)
 
-public data class KsDataformatVideoinfoheader(public var dataFormat: Ksdataformat = Ksdataformat(), public var videoInfoHeader: KsVideoinfoheader = KsVideoinfoheader())
+public data class KsDataformatVideoinfoheader(
+    public var dataFormat: Ksdataformat = Ksdataformat(),
+    public var videoInfoHeader: KsVideoinfoheader = KsVideoinfoheader(),
+)
 
-public data class KsDataformatVideoinfoheader2(public var dataFormat: Ksdataformat = Ksdataformat(), public var videoInfoHeader2: KsVideoinfoheader2 = KsVideoinfoheader2())
+public data class KsDataformatVideoinfoheader2(
+    public var dataFormat: Ksdataformat = Ksdataformat(),
+    public var videoInfoHeader2: KsVideoinfoheader2 = KsVideoinfoheader2(),
+)
 
-public data class KsDataformatVideoinfoPalette(public var dataFormat: Ksdataformat = Ksdataformat(), public var videoInfo: KsVideoinfo = KsVideoinfo())
+public data class KsDataformatVideoinfoPalette(
+    public var dataFormat: Ksdataformat = Ksdataformat(),
+    public var videoInfo: KsVideoinfo = KsVideoinfo(),
+)
 
-public data class KsDatarangeAnalogvideo(public var dataRange: Ksdataformat = Ksdataformat(), public var analogVideoInfo: KsAnalogvideoinfo = KsAnalogvideoinfo())
+public data class KsDatarangeAnalogvideo(
+    public var dataRange: Ksdataformat = Ksdataformat(),
+    public var analogVideoInfo: KsAnalogvideoinfo = KsAnalogvideoinfo(),
+)
 
 public data class KsDatarangeH264Video(
     public var dataRange: Ksdataformat = Ksdataformat(),
@@ -430,7 +521,10 @@ public data class KsDatarangeVideoVbi(
     public var vBIInfoHeader: KsVbiinfoheader = KsVbiinfoheader(),
 )
 
-public data class KsDvdcopyBuskey(public var busKey: UByteArray = UByteArray(5), public var reserved: UByteArray = UByteArray(1)) {
+public data class KsDvdcopyBuskey(
+    public var busKey: UByteArray = UByteArray(5),
+    public var reserved: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is KsDvdcopyBuskey) return false
@@ -446,7 +540,10 @@ public data class KsDvdcopyBuskey(public var busKey: UByteArray = UByteArray(5),
     }
 }
 
-public data class KsDvdcopyChlgkey(public var chlgKey: UByteArray = UByteArray(10), public var reserved: UByteArray = UByteArray(2)) {
+public data class KsDvdcopyChlgkey(
+    public var chlgKey: UByteArray = UByteArray(10),
+    public var reserved: UByteArray = UByteArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is KsDvdcopyChlgkey) return false
@@ -462,7 +559,9 @@ public data class KsDvdcopyChlgkey(public var chlgKey: UByteArray = UByteArray(1
     }
 }
 
-public data class KsDvdcopyDisckey(public var discKey: UByteArray = UByteArray(2048)) {
+public data class KsDvdcopyDisckey(
+    public var discKey: UByteArray = UByteArray(2048),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is KsDvdcopyDisckey) return false
@@ -470,9 +569,7 @@ public data class KsDvdcopyDisckey(public var discKey: UByteArray = UByteArray(2
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.discKey.contentHashCode()
-    }
+    override fun hashCode(): Int = this.discKey.contentHashCode()
 }
 
 public data class KsDvdcopyRegion(
@@ -497,7 +594,9 @@ public data class KsDvdcopyRegion(
     }
 }
 
-public data class KsDvdcopySetCopyState(public var dVDCopyState: UInt = 0u)
+public data class KsDvdcopySetCopyState(
+    public var dVDCopyState: UInt = 0u,
+)
 
 public data class KsDvdcopyTitlekey(
     public var keyFlags: UInt = 0u,
@@ -551,11 +650,20 @@ public data class KsFrameInfo(
     public var anonymous2: KsFrameInfo1 = KsFrameInfo1(),
 )
 
-public data class KsFrameInfo0(public var lSurfacePitch: Int = 0, public var reserved1: UInt = 0u)
+public data class KsFrameInfo0(
+    public var lSurfacePitch: Int = 0,
+    public var reserved1: UInt = 0u,
+)
 
-public data class KsFrameInfo1(public var anonymous: KsFrameInfo10 = KsFrameInfo10(), public var frameCompletionNumber: ULong = 0uL)
+public data class KsFrameInfo1(
+    public var anonymous: KsFrameInfo10 = KsFrameInfo10(),
+    public var frameCompletionNumber: ULong = 0uL,
+)
 
-public data class KsFrameInfo10(public var reserved3: UInt = 0u, public var reserved4: UInt = 0u)
+public data class KsFrameInfo10(
+    public var reserved3: UInt = 0u,
+    public var reserved4: UInt = 0u,
+)
 
 public data class KsFramingItem(
     public var memoryType: Guid = Guid(),
@@ -570,7 +678,10 @@ public data class KsFramingItem(
     public var framingRange: KsFramingRangeWeighted = KsFramingRangeWeighted(),
 )
 
-public data class KsFramingItem0(public var fileAlignment: UInt = 0u, public var framePitch: Int = 0)
+public data class KsFramingItem0(
+    public var fileAlignment: UInt = 0u,
+    public var framePitch: Int = 0,
+)
 
 public data class KsFramingRange(
     public var minFrameSize: UInt = 0u,
@@ -698,7 +809,10 @@ public data class KsRgbquad(
     public var rgbReserved: UByte = 0u,
 )
 
-public data class KsTruecolorinfo(public var dwBitMasks: UIntArray = UIntArray(3), public var bmiColors: List<KsRgbquad> = List(256) { KsRgbquad() }) {
+public data class KsTruecolorinfo(
+    public var dwBitMasks: UIntArray = UIntArray(3),
+    public var bmiColors: List<KsRgbquad> = List(256) { KsRgbquad() },
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is KsTruecolorinfo) return false
@@ -801,7 +915,10 @@ public data class KsVideoinfoheader2(
     public var bmiHeader: KsBitmapinfoheader = KsBitmapinfoheader(),
 )
 
-public data class KsVideoinfoheader20(public var dwControlFlags: UInt = 0u, public var dwReserved1: UInt = 0u)
+public data class KsVideoinfoheader20(
+    public var dwControlFlags: UInt = 0u,
+    public var dwReserved1: UInt = 0u,
+)
 
 public class KsVideoStreamConfigCaps(
     public var guid: Guid = Guid(),
@@ -827,7 +944,10 @@ public class KsVideoStreamConfigCaps(
     public var maxBitsPerSecond: Int = 0,
 )
 
-public data class LoopedstreamingPositionEventData(public var ksEventData: Kseventdata = Kseventdata(), public var position: ULong = 0uL)
+public data class LoopedstreamingPositionEventData(
+    public var ksEventData: Kseventdata = Kseventdata(),
+    public var position: ULong = 0uL,
+)
 
 public data class MediumInfo(
     public var mediaPresent: Bool = 0,
@@ -835,7 +955,10 @@ public data class MediumInfo(
     public var recordInhibit: Bool = 0,
 )
 
-public data class MfMdlSharedPayloadKey(public var combined: MfMdlSharedPayloadKey0 = MfMdlSharedPayloadKey0(), public var gMDLHandle: Guid = Guid())
+public data class MfMdlSharedPayloadKey(
+    public var combined: MfMdlSharedPayloadKey0 = MfMdlSharedPayloadKey0(),
+    public var gMDLHandle: Guid = Guid(),
+)
 
 public data class MfMdlSharedPayloadKey0(
     public var pHandle: UInt = 0u,
@@ -874,7 +997,10 @@ public data class NabtsBuffer(
     public var nabtsLines: List<NabtsBufferLine> = List(11) { NabtsBufferLine() },
 )
 
-public data class NabtsBufferLine(public var confidence: UByte = 0u, public var bytes: UByteArray = UByteArray(36)) {
+public data class NabtsBufferLine(
+    public var confidence: UByte = 0u,
+    public var bytes: UByteArray = UByteArray(36),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NabtsBufferLine) return false
@@ -936,7 +1062,10 @@ public data class SecureBufferInfo(
     }
 }
 
-public data class SounddetectorPatternheader(public var size: UInt = 0u, public var patternType: Guid = Guid())
+public data class SounddetectorPatternheader(
+    public var size: UInt = 0u,
+    public var patternType: Guid = Guid(),
+)
 
 public data class Transportaudioparms(
     public var enableOutput: Int = 0,
@@ -995,9 +1124,15 @@ public data class Transportstatus(
     public var notifyOn: Int = 0,
 )
 
-public data class Transportvideoparms(public var outputMode: Int = 0, public var input: Int = 0)
+public data class Transportvideoparms(
+    public var outputMode: Int = 0,
+    public var input: Int = 0,
+)
 
-public data class TransportState(public var mode: UInt = 0u, public var state: UInt = 0u)
+public data class TransportState(
+    public var mode: UInt = 0u,
+    public var state: UInt = 0u,
+)
 
 public data class TunerAnalogCapsS(
     public var mode: UInt = 0u,
@@ -1016,9 +1151,13 @@ public data class VbicapPropertiesProtectionS(
     public var status: UInt = 0u,
 )
 
-public data class VbicodecfilteringCcSubstreams(public var substreamMask: UInt = 0u)
+public data class VbicodecfilteringCcSubstreams(
+    public var substreamMask: UInt = 0u,
+)
 
-public data class VbicodecfilteringNabtsSubstreams(public var substreamMask: UIntArray = UIntArray(128)) {
+public data class VbicodecfilteringNabtsSubstreams(
+    public var substreamMask: UIntArray = UIntArray(128),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VbicodecfilteringNabtsSubstreams) return false
@@ -1026,12 +1165,12 @@ public data class VbicodecfilteringNabtsSubstreams(public var substreamMask: UIn
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.substreamMask.contentHashCode()
-    }
+    override fun hashCode(): Int = this.substreamMask.contentHashCode()
 }
 
-public data class VbicodecfilteringScanlines(public var dwordBitArray: UIntArray = UIntArray(32)) {
+public data class VbicodecfilteringScanlines(
+    public var dwordBitArray: UIntArray = UIntArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VbicodecfilteringScanlines) return false
@@ -1039,14 +1178,16 @@ public data class VbicodecfilteringScanlines(public var dwordBitArray: UIntArray
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.dwordBitArray.contentHashCode()
-    }
+    override fun hashCode(): Int = this.dwordBitArray.contentHashCode()
 }
 
-public data class VbicodecfilteringStatisticsCc(public var common: VbicodecfilteringStatisticsCommon = VbicodecfilteringStatisticsCommon())
+public data class VbicodecfilteringStatisticsCc(
+    public var common: VbicodecfilteringStatisticsCommon = VbicodecfilteringStatisticsCommon(),
+)
 
-public data class VbicodecfilteringStatisticsCcPin(public var common: VbicodecfilteringStatisticsCommonPin = VbicodecfilteringStatisticsCommonPin())
+public data class VbicodecfilteringStatisticsCcPin(
+    public var common: VbicodecfilteringStatisticsCommonPin = VbicodecfilteringStatisticsCommonPin(),
+)
 
 public data class VbicodecfilteringStatisticsCommon(
     public var inputSRBsProcessed: UInt = 0u,
@@ -1087,11 +1228,17 @@ public data class VbicodecfilteringStatisticsNabts(
     public var filteredLines: UInt = 0u,
 )
 
-public data class VbicodecfilteringStatisticsNabtsPin(public var common: VbicodecfilteringStatisticsCommonPin = VbicodecfilteringStatisticsCommonPin())
+public data class VbicodecfilteringStatisticsNabtsPin(
+    public var common: VbicodecfilteringStatisticsCommonPin = VbicodecfilteringStatisticsCommonPin(),
+)
 
-public data class VbicodecfilteringStatisticsTeletext(public var common: VbicodecfilteringStatisticsCommon = VbicodecfilteringStatisticsCommon())
+public data class VbicodecfilteringStatisticsTeletext(
+    public var common: VbicodecfilteringStatisticsCommon = VbicodecfilteringStatisticsCommon(),
+)
 
-public data class VbicodecfilteringStatisticsTeletextPin(public var common: VbicodecfilteringStatisticsCommonPin = VbicodecfilteringStatisticsCommonPin())
+public data class VbicodecfilteringStatisticsTeletextPin(
+    public var common: VbicodecfilteringStatisticsCommonPin = VbicodecfilteringStatisticsCommonPin(),
+)
 
 public data class VramSurfaceInfo(
     public var hSurface: Int = 0,
@@ -1130,7 +1277,10 @@ public data class VramSurfaceInfo(
     }
 }
 
-public data class VramSurfaceInfoPropertyS(public var property: Ksidentifier = Ksidentifier(), public var pVramSurfaceInfo: VramSurfaceInfo? = null)
+public data class VramSurfaceInfoPropertyS(
+    public var property: Ksidentifier = Ksidentifier(),
+    public var pVramSurfaceInfo: VramSurfaceInfo? = null,
+)
 
 public data class WnfKscameraStreamstateInfo(
     public var processId: UInt = 0u,
@@ -1139,9 +1289,15 @@ public data class WnfKscameraStreamstateInfo(
     public var reserved: UInt = 0u,
 )
 
-public data class WstBuffer(public var scanlinesRequested: VbicodecfilteringScanlines = VbicodecfilteringScanlines(), public var wstLines: List<WstBufferLine> = List(17) { WstBufferLine() })
+public data class WstBuffer(
+    public var scanlinesRequested: VbicodecfilteringScanlines = VbicodecfilteringScanlines(),
+    public var wstLines: List<WstBufferLine> = List(17) { WstBufferLine() },
+)
 
-public data class WstBufferLine(public var confidence: UByte = 0u, public var bytes: UByteArray = UByteArray(42)) {
+public data class WstBufferLine(
+    public var confidence: UByte = 0u,
+    public var bytes: UByteArray = UByteArray(42),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WstBufferLine) return false

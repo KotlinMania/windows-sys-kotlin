@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.applicationinstallationandservicing
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -75,7 +76,10 @@ public class ActivationContextAssemblyDetailedInformation(
     public var ulFileCount: UInt = 0u,
 )
 
-public data class ActivationContextCompatibilityInformation(public var elementCount: UInt = 0u, public var elements: List<CompatibilityContextElement> = List(1) { CompatibilityContextElement() })
+public data class ActivationContextCompatibilityInformation(
+    public var elementCount: UInt = 0u,
+    public var elements: List<CompatibilityContextElement> = List(1) { CompatibilityContextElement() },
+)
 
 public data class ActivationContextDetailedInformation(
     public var dwFlags: UInt = 0u,
@@ -92,7 +96,10 @@ public data class ActivationContextDetailedInformation(
     public var lpAppDirPath: Pcwstr = null,
 )
 
-public data class ActivationContextQueryIndex(public var ulAssemblyIndex: UInt = 0u, public var ulFileIndexInAssembly: UInt = 0u)
+public data class ActivationContextQueryIndex(
+    public var ulAssemblyIndex: UInt = 0u,
+    public var ulFileIndexInAssembly: UInt = 0u,
+)
 
 public data class ActivationContextRunLevelInformation(
     public var ulFlags: UInt = 0u,
@@ -122,7 +129,10 @@ public data class CompatibilityContextElement(
     public var maxVersionTested: ULong = 0uL,
 )
 
-public data class DeltaHash(public var hashSize: UInt = 0u, public var hashValue: UByteArray = UByteArray(32)) {
+public data class DeltaHash(
+    public var hashSize: UInt = 0u,
+    public var hashValue: UByteArray = UByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DeltaHash) return false
@@ -154,9 +164,15 @@ public data class DeltaInput(
     public var editable: Bool = 0,
 )
 
-public data class DeltaInput0(public var lpcStart: COpaquePointer? = null, public var lpStart: COpaquePointer? = null)
+public data class DeltaInput0(
+    public var lpcStart: COpaquePointer? = null,
+    public var lpStart: COpaquePointer? = null,
+)
 
-public data class DeltaOutput(public var lpStart: COpaquePointer? = null, public var uSize: Int = 0)
+public data class DeltaOutput(
+    public var lpStart: COpaquePointer? = null,
+    public var uSize: Int = 0,
+)
 
 public data class FusionInstallReference(
     public var cbSize: UInt = 0u,
@@ -166,7 +182,10 @@ public data class FusionInstallReference(
     public var szNonCannonicalData: Pcwstr = null,
 )
 
-public data class Msifilehashinfo(public var dwFileHashInfoSize: UInt = 0u, public var dwData: UIntArray = UIntArray(4)) {
+public data class Msifilehashinfo(
+    public var dwFileHashInfoSize: UInt = 0u,
+    public var dwData: UIntArray = UIntArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Msifilehashinfo) return false
@@ -196,9 +215,15 @@ public data class Msipatchsequenceinfow(
     public var uStatus: UInt = 0u,
 )
 
-public data class PatchIgnoreRange(public var offsetInOldFile: UInt = 0u, public var lengthInBytes: UInt = 0u)
+public data class PatchIgnoreRange(
+    public var offsetInOldFile: UInt = 0u,
+    public var lengthInBytes: UInt = 0u,
+)
 
-public data class PatchInterleaveMap(public var countRanges: UInt = 0u, public var range: List<PatchInterleaveMap0> = List(1) { PatchInterleaveMap0() })
+public data class PatchInterleaveMap(
+    public var countRanges: UInt = 0u,
+    public var range: List<PatchInterleaveMap0> = List(1) { PatchInterleaveMap0() },
+)
 
 public data class PatchInterleaveMap0(
     public var oldOffset: UInt = 0u,
@@ -266,15 +291,29 @@ public data class PatchRetainRange(
     public var offsetInNewFile: UInt = 0u,
 )
 
-public data class Pmsihandle(public var mH: Msihandle = 0u)
+public data class Pmsihandle(
+    public var mH: Msihandle = 0u,
+)
 
-public data class PmApptasktype(public var productID: Guid = Guid(), public var taskType: PmTaskType = 0)
+public data class PmApptasktype(
+    public var productID: Guid = Guid(),
+    public var taskType: PmTaskType = 0,
+)
 
-public data class PmBsataskid(public var productID: Guid = Guid(), public var taskID: Bstr = null)
+public data class PmBsataskid(
+    public var productID: Guid = Guid(),
+    public var taskID: Bstr = null,
+)
 
-public data class PmBwtaskid(public var productID: Guid = Guid(), public var taskID: Bstr = null)
+public data class PmBwtaskid(
+    public var productID: Guid = Guid(),
+    public var taskID: Bstr = null,
+)
 
-public data class PmEnumFilter(public var filterType: Int = 0, public var filterParameter: PmEnumFilter0 = PmEnumFilter0())
+public data class PmEnumFilter(
+    public var filterType: Int = 0,
+    public var filterParameter: PmEnumFilter0 = PmEnumFilter0(),
+)
 
 public class PmEnumFilter0(
     public var dummy: Int = 0,
@@ -296,7 +335,10 @@ public class PmEnumFilter0(
     public var shareTargetFileType: Bstr = null,
 )
 
-public data class PmExtensionconsumer(public var consumerPID: Guid = Guid(), public var extensionID: Bstr = null)
+public data class PmExtensionconsumer(
+    public var consumerPID: Guid = Guid(),
+    public var extensionID: Bstr = null,
+)
 
 public data class PmInstallinfo(
     public var productID: Guid = Guid(),
@@ -310,7 +352,10 @@ public data class PmInstallinfo(
     public var marketplaceAppVersion: Bstr = null,
 )
 
-public data class PmInvocationinfo(public var uRIBaseOrAUMID: Bstr = null, public var uRIFragmentOrArgs: Bstr = null)
+public data class PmInvocationinfo(
+    public var uRIBaseOrAUMID: Bstr = null,
+    public var uRIFragmentOrArgs: Bstr = null,
+)
 
 public data class PmStartappblob(
     public var cbSize: UInt = 0u,
@@ -397,7 +442,10 @@ public data class PmUpdateinfoLegacy(
     public var marketplaceAppVersion: Bstr = null,
 )
 
-public data class ProtectedFileData(public var fileName: UShortArray = UShortArray(260), public var fileNumber: UInt = 0u) {
+public data class ProtectedFileData(
+    public var fileName: UShortArray = UShortArray(260),
+    public var fileNumber: UInt = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ProtectedFileData) return false

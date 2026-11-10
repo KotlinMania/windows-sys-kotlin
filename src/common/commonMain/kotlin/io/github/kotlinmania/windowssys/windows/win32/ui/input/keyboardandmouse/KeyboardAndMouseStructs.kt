@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -17,7 +18,10 @@ public data class Hardwareinput(
     public var wParamH: UShort = 0u,
 )
 
-public data class Input(public var type: InputType = 0u, public var anonymous: Input0 = Input0())
+public data class Input(
+    public var type: InputType = 0u,
+    public var anonymous: Input0 = Input0(),
+)
 
 public data class Input0(
     public var mi: Mouseinput = Mouseinput(),
@@ -75,7 +79,10 @@ public data class KbdtableDesc(
     }
 }
 
-public data class KbdtableMulti(public var nTables: UInt = 0u, public var aKbdTables: List<KbdtableDesc> = List(8) { KbdtableDesc() })
+public data class KbdtableMulti(
+    public var nTables: UInt = 0u,
+    public var aKbdTables: List<KbdtableDesc> = List(8) { KbdtableDesc() },
+)
 
 public data class KbdTypeInfo(
     public var dwVersion: UInt = 0u,
@@ -91,7 +98,10 @@ public data class Keybdinput(
     public var dwExtraInfo: Int = 0,
 )
 
-public data class Lastinputinfo(public var cbSize: UInt = 0u, public var dwTime: UInt = 0u)
+public data class Lastinputinfo(
+    public var cbSize: UInt = 0u,
+    public var dwTime: UInt = 0u,
+)
 
 public data class Ligature1(
     public var virtualKey: UByte = 0u,
@@ -257,9 +267,15 @@ public data class VkF(
     public var nLSFEProcAlt: List<VkFparam> = List(8) { VkFparam() },
 )
 
-public data class VkFparam(public var nLSFEProcIndex: UByte = 0u, public var nLSFEProcParam: UInt = 0u)
+public data class VkFparam(
+    public var nLSFEProcIndex: UByte = 0u,
+    public var nLSFEProcParam: UInt = 0u,
+)
 
-public data class VkToBit(public var vk: UByte = 0u, public var modBits: UByte = 0u)
+public data class VkToBit(
+    public var vk: UByte = 0u,
+    public var modBits: UByte = 0u,
+)
 
 public data class VkToWchars1(
     public var virtualKey: UByte = 0u,
@@ -487,8 +503,17 @@ public data class VkToWcharTable(
     public var cbSize: UByte = 0u,
 )
 
-public data class VkVsc(public var vk: UByte = 0u, public var vsc: UByte = 0u)
+public data class VkVsc(
+    public var vk: UByte = 0u,
+    public var vsc: UByte = 0u,
+)
 
-public data class VscLpwstr(public var vsc: UByte = 0u, public var pwsz: Pwstr = null)
+public data class VscLpwstr(
+    public var vsc: UByte = 0u,
+    public var pwsz: Pwstr = null,
+)
 
-public data class VscVk(public var vsc: UByte = 0u, public var vk: UShort = 0u)
+public data class VscVk(
+    public var vsc: UByte = 0u,
+    public var vk: UShort = 0u,
+)

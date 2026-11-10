@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -10,13 +11,23 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Nmhdr
 
-public data class CharacterRange(public var wcLow: UShort = 0u, public var cChars: UShort = 0u)
+public data class CharacterRange(
+    public var wcLow: UShort = 0u,
+    public var cChars: UShort = 0u,
+)
 
-public data class DynamicRendererCachedData(public var strokeId: Int = 0, public var dynamicRenderer: COpaquePointer? = null)
+public data class DynamicRendererCachedData(
+    public var strokeId: Int = 0,
+    public var dynamicRenderer: COpaquePointer? = null,
+)
 
-public data class FlickData(public var bitfield: Int = 0)
+public data class FlickData(
+    public var bitfield: Int = 0,
+)
 
-public data class FlickPoint(public var bitfield: Int = 0)
+public data class FlickPoint(
+    public var bitfield: Int = 0,
+)
 
 public data class GestureData(
     public var gestureId: Int = 0,
@@ -31,7 +42,10 @@ public data class IecGestureinfo(
     public var gestures: Variant = Variant(),
 )
 
-public data class IecRecognitionresultinfo(public var nmhdr: Nmhdr = Nmhdr(), public var recognitionResult: COpaquePointer? = null)
+public data class IecRecognitionresultinfo(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var recognitionResult: COpaquePointer? = null,
+)
 
 public data class IecStrokeinfo(
     public var nmhdr: Nmhdr = Nmhdr(),
@@ -55,9 +69,15 @@ public data class InkRecoGuide(
     public var midline: Int = 0,
 )
 
-public data class LatticeMetrics(public var lsBaseline: LineSegment = LineSegment(), public var iMidlineOffset: Short = 0)
+public data class LatticeMetrics(
+    public var lsBaseline: LineSegment = LineSegment(),
+    public var iMidlineOffset: Short = 0,
+)
 
-public data class LineSegment(public var ptA: Point = Point(), public var ptB: Point = Point())
+public data class LineSegment(
+    public var ptA: Point = Point(),
+    public var ptB: Point = Point(),
+)
 
 public data class PacketDescription(
     public var cbPacketSize: UInt = 0u,
@@ -67,7 +87,10 @@ public data class PacketDescription(
     public var pguidButtons: Guid? = null,
 )
 
-public data class PacketProperty(public var guid: Guid = Guid(), public var propertyMetrics: PropertyMetrics = PropertyMetrics())
+public data class PacketProperty(
+    public var guid: Guid = Guid(),
+    public var propertyMetrics: PropertyMetrics = PropertyMetrics(),
+)
 
 public data class PropertyMetrics(
     public var nLogicalMin: Int = 0,
@@ -141,7 +164,10 @@ public data class RecoLatticeElement(
     public var epProp: RecoLatticeProperties = RecoLatticeProperties(),
 )
 
-public data class RecoLatticeProperties(public var cProperties: UInt = 0u, public var apProps: COpaquePointer? = null)
+public data class RecoLatticeProperties(
+    public var cProperties: UInt = 0u,
+    public var apProps: COpaquePointer? = null,
+)
 
 public data class RecoLatticeProperty(
     public var guidProperty: Guid = Guid(),
@@ -149,9 +175,15 @@ public data class RecoLatticeProperty(
     public var pPropertyValue: COpaquePointer? = null,
 )
 
-public data class RecoRange(public var iwcBegin: UInt = 0u, public var cCount: UInt = 0u)
+public data class RecoRange(
+    public var iwcBegin: UInt = 0u,
+    public var cCount: UInt = 0u,
+)
 
-public data class StrokeRange(public var iStrokeBegin: UInt = 0u, public var iStrokeEnd: UInt = 0u)
+public data class StrokeRange(
+    public var iStrokeBegin: UInt = 0u,
+    public var iStrokeEnd: UInt = 0u,
+)
 
 public data class SystemEventData(
     public var bModifier: UByte = 0u,

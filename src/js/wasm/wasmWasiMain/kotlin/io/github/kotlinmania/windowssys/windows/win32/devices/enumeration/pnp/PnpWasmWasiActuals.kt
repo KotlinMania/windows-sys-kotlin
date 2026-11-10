@@ -7,9 +7,8 @@ import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public actual fun swDeviceClose(hswdevice: Hswdevice) {
+public actual fun swDeviceClose(hswdevice: Hswdevice): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun swDeviceCreate(pszenumeratorname: Pcwstr, pszparentdeviceinstance: Pcwstr, pcreateinfo: COpaquePointer?, cpropertycount: UInt, pproperties: COpaquePointer?, pcallback: SwDeviceCreateCallback, pcontext: COpaquePointer?, phswdevice: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -32,6 +31,5 @@ public actual fun swDevicePropertySet(hswdevice: Hswdevice, cpropertycount: UInt
 public actual fun swDeviceSetLifetime(hswdevice: Hswdevice, lifetime: SwDeviceLifetime): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun swMemFree(pmem: COpaquePointer?) {
+public actual fun swMemFree(pmem: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}

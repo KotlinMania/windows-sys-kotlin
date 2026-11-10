@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -43,7 +44,10 @@ public data class Alttabinfo(
     public var ptStart: Point = Point(),
 )
 
-public data class Animationinfo(public var cbSize: UInt = 0u, public var iMinAnimate: Int = 0)
+public data class Animationinfo(
+    public var cbSize: UInt = 0u,
+    public var iMinAnimate: Int = 0,
+)
 
 public data class Audiodescription(
     public var cbSize: UInt = 0u,
@@ -51,15 +55,30 @@ public data class Audiodescription(
     public var locale: UInt = 0u,
 )
 
-public data class Cbtactivatestruct(public var fMouse: Bool = 0, public var hWndActive: Hwnd = null)
+public data class Cbtactivatestruct(
+    public var fMouse: Bool = 0,
+    public var hWndActive: Hwnd = null,
+)
 
-public data class CbtCreatewnda(public var lpcs: Createstructa? = null, public var hwndInsertAfter: Hwnd = null)
+public data class CbtCreatewnda(
+    public var lpcs: Createstructa? = null,
+    public var hwndInsertAfter: Hwnd = null,
+)
 
-public data class CbtCreatewndw(public var lpcs: Createstructw? = null, public var hwndInsertAfter: Hwnd = null)
+public data class CbtCreatewndw(
+    public var lpcs: Createstructw? = null,
+    public var hwndInsertAfter: Hwnd = null,
+)
 
-public data class Changefilterstruct(public var cbSize: UInt = 0u, public var extStatus: MsgfltinfoStatus = 0u)
+public data class Changefilterstruct(
+    public var cbSize: UInt = 0u,
+    public var extStatus: MsgfltinfoStatus = 0u,
+)
 
-public data class Clientcreatestruct(public var hWindowMenu: Handle = null, public var idFirstChild: UInt = 0u)
+public data class Clientcreatestruct(
+    public var hWindowMenu: Handle = null,
+    public var idFirstChild: UInt = 0u,
+)
 
 public data class Createstructa(
     public var lpCreateParams: COpaquePointer? = null,
@@ -145,7 +164,9 @@ public data class DeviceEventExternalRequest(
     public var systemTime: Long = 0L,
 )
 
-public data class DeviceEventGenericData(public var eventNumber: UInt = 0u)
+public data class DeviceEventGenericData(
+    public var eventNumber: UInt = 0u,
+)
 
 public data class DeviceEventMount(
     public var version: UInt = 0u,
@@ -417,7 +438,9 @@ public data class DevBroadcastVolume(
     public var dbcvFlags: DevBroadcastVolumeFlags = 0u,
 )
 
-public data class DiskHealthNotificationData(public var deviceGuid: Guid = Guid())
+public data class DiskHealthNotificationData(
+    public var deviceGuid: Guid = Guid(),
+)
 
 public data class Dlgitemtemplate(
     public var style: UInt = 0u,
@@ -470,7 +493,9 @@ public data class Getclipbmetadata(
     public var isSynthetic: Bool = 0,
 )
 
-public data class GuidIoDiskCloneArrivalInformation(public var diskNumber: UInt = 0u)
+public data class GuidIoDiskCloneArrivalInformation(
+    public var diskNumber: UInt = 0u,
+)
 
 public data class Guithreadinfo(
     public var cbSize: UInt = 0u,
@@ -595,7 +620,10 @@ public data class Iconmetricsw(
     public var lfFont: Logfontw = Logfontw(),
 )
 
-public data class IndexedResourceQualifier(public var name: Pwstr = null, public var value: Pwstr = null)
+public data class IndexedResourceQualifier(
+    public var name: Pwstr = null,
+    public var value: Pwstr = null,
+)
 
 public data class Kbdllhookstruct(
     public var vkCode: UInt = 0u,
@@ -747,15 +775,29 @@ public data class Menuitemtemplate(
     }
 }
 
-public data class Menuitemtemplateheader(public var versionNumber: UShort = 0u, public var offset: UShort = 0u)
+public data class Menuitemtemplateheader(
+    public var versionNumber: UShort = 0u,
+    public var offset: UShort = 0u,
+)
 
-public data class Menutemplateex(public var anonymous: Menutemplateex0 = Menutemplateex0())
+public data class Menutemplateex(
+    public var anonymous: Menutemplateex0 = Menutemplateex0(),
+)
 
-public data class Menutemplateex0(public var menu: Menutemplateex00 = Menutemplateex00(), public var menuEx: Menutemplateex01 = Menutemplateex01())
+public data class Menutemplateex0(
+    public var menu: Menutemplateex00 = Menutemplateex00(),
+    public var menuEx: Menutemplateex01 = Menutemplateex01(),
+)
 
-public data class Menutemplateex01(public var mexHeader: MenuexTemplateHeader = MenuexTemplateHeader(), public var mexItem: List<MenuexTemplateItem> = List(1) { MenuexTemplateItem() })
+public data class Menutemplateex01(
+    public var mexHeader: MenuexTemplateHeader = MenuexTemplateHeader(),
+    public var mexItem: List<MenuexTemplateItem> = List(1) { MenuexTemplateItem() },
+)
 
-public data class Menutemplateex00(public var mitHeader: Menuitemtemplateheader = Menuitemtemplateheader(), public var miTemplate: List<Menuitemtemplate> = List(1) { Menuitemtemplate() })
+public data class Menutemplateex00(
+    public var mitHeader: Menuitemtemplateheader = Menuitemtemplateheader(),
+    public var miTemplate: List<Menuitemtemplate> = List(1) { Menuitemtemplate() },
+)
 
 public data class MessageResourceBlock(
     public var lowId: UInt = 0u,
@@ -763,7 +805,10 @@ public data class MessageResourceBlock(
     public var offsetToEntries: UInt = 0u,
 )
 
-public data class MessageResourceData(public var numberOfBlocks: UInt = 0u, public var blocks: List<MessageResourceBlock> = List(1) { MessageResourceBlock() })
+public data class MessageResourceData(
+    public var numberOfBlocks: UInt = 0u,
+    public var blocks: List<MessageResourceBlock> = List(1) { MessageResourceBlock() },
+)
 
 public data class MessageResourceEntry(
     public var length: UShort = 0u,
@@ -810,7 +855,10 @@ public data class Mousehookstruct(
     public var dwExtraInfo: Int = 0,
 )
 
-public data class Mousehookstructex(public var base: Mousehookstruct = Mousehookstruct(), public var mouseData: UInt = 0u)
+public data class Mousehookstructex(
+    public var base: Mousehookstruct = Mousehookstruct(),
+    public var mouseData: UInt = 0u,
+)
 
 public data class Msg(
     public var hwnd: Hwnd = null,
@@ -855,7 +903,9 @@ public data class Msllhookstruct(
     public var dwExtraInfo: Int = 0,
 )
 
-public data class MrmResourceIndexerHandle(public var handle: COpaquePointer? = null)
+public data class MrmResourceIndexerHandle(
+    public var handle: COpaquePointer? = null,
+)
 
 public data class MrmResourceIndexerMessage(
     public var severity: MrmResourceIndexerMessageSeverity = 0,
@@ -863,7 +913,10 @@ public data class MrmResourceIndexerMessage(
     public var text: Pcwstr = null,
 )
 
-public data class NccalcsizeParams(public var rgrc: List<Rect> = List(3) { Rect() }, public var lppos: Windowpos? = null)
+public data class NccalcsizeParams(
+    public var rgrc: List<Rect> = List(3) { Rect() },
+    public var lppos: Windowpos? = null,
+)
 
 public data class Nonclientmetricsa(
     public var cbSize: UInt = 0u,
@@ -947,9 +1000,15 @@ public data class Scrollinfo(
     public var nTrackPos: Int = 0,
 )
 
-public data class Shellhookinfo(public var hwnd: Hwnd = null, public var rc: Rect = Rect())
+public data class Shellhookinfo(
+    public var hwnd: Hwnd = null,
+    public var rc: Rect = Rect(),
+)
 
-public data class Stylestruct(public var styleOld: UInt = 0u, public var styleNew: UInt = 0u)
+public data class Stylestruct(
+    public var styleOld: UInt = 0u,
+    public var styleNew: UInt = 0u,
+)
 
 public data class Titlebarinfo(
     public var cbSize: UInt = 0u,
@@ -1005,7 +1064,10 @@ public data class Touchpredictionparameters(
     public var bUseHWTimeStamp: UInt = 0u,
 )
 
-public data class Tpmparams(public var cbSize: UInt = 0u, public var rcExclude: Rect = Rect())
+public data class Tpmparams(
+    public var cbSize: UInt = 0u,
+    public var rcExclude: Rect = Rect(),
+)
 
 public data class Updatelayeredwindowinfo(
     public var cbSize: UInt = 0u,
@@ -1123,7 +1185,10 @@ public data class DevBroadcastHeader(
     public var dbcdReserved: UInt = 0u,
 )
 
-public data class DevBroadcastUserdefined(public var dbudDbh: DevBroadcastHdr = DevBroadcastHdr(), public var dbudSzName: ByteArray = ByteArray(1)) {
+public data class DevBroadcastUserdefined(
+    public var dbudDbh: DevBroadcastHdr = DevBroadcastHdr(),
+    public var dbudSzName: ByteArray = ByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DevBroadcastUserdefined) return false

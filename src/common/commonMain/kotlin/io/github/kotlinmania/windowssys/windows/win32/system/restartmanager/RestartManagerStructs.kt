@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.restartmanager
 
 import io.github.kotlinmania.windowssys.core.Bool
@@ -52,4 +53,7 @@ public data class RmProcessInfo(
     }
 }
 
-public data class RmUniqueProcess(public var dwProcessId: UInt = 0u, public var processStartTime: Filetime = Filetime())
+public data class RmUniqueProcess(
+    public var dwProcessId: UInt = 0u,
+    public var processStartTime: Filetime = Filetime(),
+)

@@ -81,21 +81,17 @@ public actual fun coFileTimeNow(lpfiletime: COpaquePointer?): Hresult =
 public actual fun coFileTimeToDosDateTime(lpfiletime: COpaquePointer?, lpdosdate: COpaquePointer?, lpdostime: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun coFreeAllLibraries() {
+public actual fun coFreeAllLibraries(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun coFreeLibrary(hinst: Hinstance) {
+public actual fun coFreeLibrary(hinst: Hinstance): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun coFreeUnusedLibraries() {
+public actual fun coFreeUnusedLibraries(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun coFreeUnusedLibrariesEx(dwunloaddelay: UInt, dwreserved: UInt) {
+public actual fun coFreeUnusedLibrariesEx(dwunloaddelay: UInt, dwreserved: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun coGetApartmentType(papttype: COpaquePointer?, paptqualifier: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -241,9 +237,8 @@ public actual fun coSwitchCallContext(pnewobject: COpaquePointer?, ppoldobject: 
 public actual fun coTaskMemAlloc(cb: ULong): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun coTaskMemFree(pv: COpaquePointer?) {
+public actual fun coTaskMemFree(pv: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun coTaskMemRealloc(pv: COpaquePointer?, cb: ULong): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -254,9 +249,8 @@ public actual fun coTestCancel(): Hresult =
 public actual fun coTreatAsClass(clsidold: COpaquePointer?, clsidnew: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun coUninitialize() {
+public actual fun coUninitialize(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun coWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: COpaquePointer?, lpdwindex: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

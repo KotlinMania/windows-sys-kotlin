@@ -8,4 +8,7 @@ public data class PerceptionPayloadField(
     public var sizeInBytes: UInt = 0u,
 )
 
-public data class PerceptionStateStreamTimestamps(public var inputTimestampInQpcCounts: Long = 0L, public var availableTimestampInQpcCounts: Long = 0L)
+public data class PerceptionStateStreamTimestamps(
+    public var inputTimestampInQpcCounts: Long = 0L,
+    public var availableTimestampInQpcCounts: Long = 0L,
+)

@@ -8,9 +8,14 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.Hcertstore
 
-public data class RequestbodyGetStatus(public var any: WsdxmlElement? = null)
+public data class RequestbodyGetStatus(
+    public var any: WsdxmlElement? = null,
+)
 
-public data class RequestbodyRenew(public var expires: WsdEventingExpires? = null, public var any: WsdxmlElement? = null)
+public data class RequestbodyRenew(
+    public var expires: WsdEventingExpires? = null,
+    public var any: WsdxmlElement? = null,
+)
 
 public data class RequestbodySubscribe(
     public var endTo: WsdEndpointReference? = null,
@@ -20,13 +25,23 @@ public data class RequestbodySubscribe(
     public var any: WsdxmlElement? = null,
 )
 
-public data class RequestbodyUnsubscribe(public var any: WsdxmlElement? = null)
+public data class RequestbodyUnsubscribe(
+    public var any: WsdxmlElement? = null,
+)
 
-public data class ResponsebodyGetMetadata(public var metadata: WsdMetadataSectionList? = null)
+public data class ResponsebodyGetMetadata(
+    public var metadata: WsdMetadataSectionList? = null,
+)
 
-public data class ResponsebodyGetStatus(public var expires: WsdEventingExpires? = null, public var any: WsdxmlElement? = null)
+public data class ResponsebodyGetStatus(
+    public var expires: WsdEventingExpires? = null,
+    public var any: WsdxmlElement? = null,
+)
 
-public data class ResponsebodyRenew(public var expires: WsdEventingExpires? = null, public var any: WsdxmlElement? = null)
+public data class ResponsebodyRenew(
+    public var expires: WsdEventingExpires? = null,
+    public var any: WsdxmlElement? = null,
+)
 
 public data class ResponsebodySubscribe(
     public var subscriptionManager: WsdEndpointReference? = null,
@@ -64,9 +79,15 @@ public data class WsdxmlElement(
     public var prefixMappings: WsdxmlPrefixMapping? = null,
 )
 
-public data class WsdxmlElementList(public var next: WsdxmlElementList? = null, public var element: WsdxmlElement? = null)
+public data class WsdxmlElementList(
+    public var next: WsdxmlElementList? = null,
+    public var element: WsdxmlElement? = null,
+)
 
-public data class WsdxmlName(public var space: WsdxmlNamespace? = null, public var localName: Pwstr = null)
+public data class WsdxmlName(
+    public var space: WsdxmlNamespace? = null,
+    public var localName: Pwstr = null,
+)
 
 public data class WsdxmlNamespace(
     public var uri: Pcwstr = null,
@@ -95,9 +116,15 @@ public data class WsdxmlPrefixMapping(
     public var prefix: Pwstr = null,
 )
 
-public data class WsdxmlText(public var node: WsdxmlNode = WsdxmlNode(), public var text: Pwstr = null)
+public data class WsdxmlText(
+    public var node: WsdxmlNode = WsdxmlNode(),
+    public var text: Pwstr = null,
+)
 
-public data class WsdxmlType(public var uri: Pcwstr = null, public var table: COpaquePointer? = null)
+public data class WsdxmlType(
+    public var uri: Pcwstr = null,
+    public var table: COpaquePointer? = null,
+)
 
 public data class WsdAppSequence(
     public var instanceId: ULong = 0uL,
@@ -105,9 +132,15 @@ public data class WsdAppSequence(
     public var messageNumber: ULong = 0uL,
 )
 
-public data class WsdBye(public var endpointReference: WsdEndpointReference? = null, public var any: WsdxmlElement? = null)
+public data class WsdBye(
+    public var endpointReference: WsdEndpointReference? = null,
+    public var any: WsdxmlElement? = null,
+)
 
-public data class WsdConfigAddresses(public var addresses: COpaquePointer? = null, public var dwAddressCount: UInt = 0u)
+public data class WsdConfigAddresses(
+    public var addresses: COpaquePointer? = null,
+    public var dwAddressCount: UInt = 0u,
+)
 
 public data class WsdConfigParam(
     public var configParamType: WsdConfigParamType = 0,
@@ -150,7 +183,10 @@ public data class WsdEndpointReference(
     public var any: WsdxmlElement? = null,
 )
 
-public data class WsdEndpointReferenceList(public var next: WsdEndpointReferenceList? = null, public var element: WsdEndpointReference? = null)
+public data class WsdEndpointReferenceList(
+    public var next: WsdEndpointReferenceList? = null,
+    public var element: WsdEndpointReference? = null,
+)
 
 public data class WsdEvent(
     public var hr: Hresult = 0,
@@ -168,9 +204,14 @@ public data class WsdEventingDeliveryMode(
     public var data: COpaquePointer? = null,
 )
 
-public data class WsdEventingDeliveryModePush(public var notifyTo: WsdEndpointReference? = null)
+public data class WsdEventingDeliveryModePush(
+    public var notifyTo: WsdEndpointReference? = null,
+)
 
-public data class WsdEventingExpires(public var duration: WsdDuration? = null, public var dateTime: WsdDatetime? = null)
+public data class WsdEventingExpires(
+    public var duration: WsdDuration? = null,
+    public var dateTime: WsdDatetime? = null,
+)
 
 public data class WsdEventingFilter(
     public var dialect: Pcwstr = null,
@@ -178,7 +219,9 @@ public data class WsdEventingFilter(
     public var data: COpaquePointer? = null,
 )
 
-public data class WsdEventingFilterAction(public var actions: WsdUriList? = null)
+public data class WsdEventingFilterAction(
+    public var actions: WsdUriList? = null,
+)
 
 public data class WsdHandlerContext(
     public var handler: PwsdSoapMessageHandler = null,
@@ -186,7 +229,10 @@ public data class WsdHandlerContext(
     public var unknown: COpaquePointer? = null,
 )
 
-public data class WsdHeaderRelatesto(public var relationshipType: WsdxmlName? = null, public var messageID: Pcwstr = null)
+public data class WsdHeaderRelatesto(
+    public var relationshipType: WsdxmlName? = null,
+    public var messageID: Pcwstr = null,
+)
 
 public data class WsdHello(
     public var endpointReference: WsdEndpointReference? = null,
@@ -197,11 +243,20 @@ public data class WsdHello(
     public var any: WsdxmlElement? = null,
 )
 
-public data class WsdHostMetadata(public var host: WsdServiceMetadata? = null, public var hosted: WsdServiceMetadataList? = null)
+public data class WsdHostMetadata(
+    public var host: WsdServiceMetadata? = null,
+    public var hosted: WsdServiceMetadataList? = null,
+)
 
-public data class WsdLocalizedString(public var lang: Pcwstr = null, public var string: Pcwstr = null)
+public data class WsdLocalizedString(
+    public var lang: Pcwstr = null,
+    public var string: Pcwstr = null,
+)
 
-public data class WsdLocalizedStringList(public var next: WsdLocalizedStringList? = null, public var element: WsdLocalizedString? = null)
+public data class WsdLocalizedStringList(
+    public var next: WsdLocalizedStringList? = null,
+    public var element: WsdLocalizedString? = null,
+)
 
 public data class WsdMetadataSection(
     public var dialect: Pcwstr = null,
@@ -212,9 +267,15 @@ public data class WsdMetadataSection(
     public var any: WsdxmlElement? = null,
 )
 
-public data class WsdMetadataSectionList(public var next: WsdMetadataSectionList? = null, public var element: WsdMetadataSection? = null)
+public data class WsdMetadataSectionList(
+    public var next: WsdMetadataSectionList? = null,
+    public var element: WsdMetadataSection? = null,
+)
 
-public data class WsdNameList(public var next: WsdNameList? = null, public var element: WsdxmlName? = null)
+public data class WsdNameList(
+    public var next: WsdNameList? = null,
+    public var element: WsdxmlName? = null,
+)
 
 public data class WsdOperation(
     public var requestType: WsdxmlType? = null,
@@ -244,13 +305,23 @@ public data class WsdProbeMatch(
     public var any: WsdxmlElement? = null,
 )
 
-public data class WsdProbeMatches(public var probeMatch: WsdProbeMatchList? = null, public var any: WsdxmlElement? = null)
+public data class WsdProbeMatches(
+    public var probeMatch: WsdProbeMatchList? = null,
+    public var any: WsdxmlElement? = null,
+)
 
-public data class WsdProbeMatchList(public var next: WsdProbeMatchList? = null, public var element: WsdProbeMatch? = null)
+public data class WsdProbeMatchList(
+    public var next: WsdProbeMatchList? = null,
+    public var element: WsdProbeMatch? = null,
+)
 
-public data class WsdReferenceParameters(public var any: WsdxmlElement? = null)
+public data class WsdReferenceParameters(
+    public var any: WsdxmlElement? = null,
+)
 
-public data class WsdReferenceProperties(public var any: WsdxmlElement? = null)
+public data class WsdReferenceProperties(
+    public var any: WsdxmlElement? = null,
+)
 
 public data class WsdRelationshipMetadata(
     public var type: Pcwstr = null,
@@ -258,7 +329,10 @@ public data class WsdRelationshipMetadata(
     public var any: WsdxmlElement? = null,
 )
 
-public data class WsdResolve(public var endpointReference: WsdEndpointReference? = null, public var any: WsdxmlElement? = null)
+public data class WsdResolve(
+    public var endpointReference: WsdEndpointReference? = null,
+    public var any: WsdxmlElement? = null,
+)
 
 public data class WsdResolveMatch(
     public var endpointReference: WsdEndpointReference? = null,
@@ -269,9 +343,15 @@ public data class WsdResolveMatch(
     public var any: WsdxmlElement? = null,
 )
 
-public data class WsdResolveMatches(public var resolveMatch: WsdResolveMatch? = null, public var any: WsdxmlElement? = null)
+public data class WsdResolveMatches(
+    public var resolveMatch: WsdResolveMatch? = null,
+    public var any: WsdxmlElement? = null,
+)
 
-public data class WsdScopes(public var matchBy: Pcwstr = null, public var scopes: WsdUriList? = null)
+public data class WsdScopes(
+    public var matchBy: Pcwstr = null,
+    public var scopes: WsdUriList? = null,
+)
 
 public data class WsdSecurityCertValidation(
     public var certMatchArray: COpaquePointer? = null,
@@ -306,7 +386,10 @@ public data class WsdServiceMetadata(
     public var any: WsdxmlElement? = null,
 )
 
-public data class WsdServiceMetadataList(public var next: WsdServiceMetadataList? = null, public var element: WsdServiceMetadata? = null)
+public data class WsdServiceMetadataList(
+    public var next: WsdServiceMetadataList? = null,
+    public var element: WsdServiceMetadata? = null,
+)
 
 public data class WsdSoapFault(
     public var code: WsdSoapFaultCode? = null,
@@ -316,11 +399,19 @@ public data class WsdSoapFault(
     public var detail: WsdxmlElement? = null,
 )
 
-public data class WsdSoapFaultCode(public var value: WsdxmlName? = null, public var subcode: WsdSoapFaultSubcode? = null)
+public data class WsdSoapFaultCode(
+    public var value: WsdxmlName? = null,
+    public var subcode: WsdSoapFaultSubcode? = null,
+)
 
-public data class WsdSoapFaultReason(public var text: WsdLocalizedStringList? = null)
+public data class WsdSoapFaultReason(
+    public var text: WsdLocalizedStringList? = null,
+)
 
-public data class WsdSoapFaultSubcode(public var value: WsdxmlName? = null, public var subcode: WsdSoapFaultSubcode? = null)
+public data class WsdSoapFaultSubcode(
+    public var value: WsdxmlName? = null,
+    public var subcode: WsdSoapFaultSubcode? = null,
+)
 
 public data class WsdSoapHeader(
     public var to: Pcwstr = null,
@@ -364,6 +455,11 @@ public data class WsdThisModelMetadata(
     public var any: WsdxmlElement? = null,
 )
 
-public data class WsdUnknownLookup(public var any: WsdxmlElement? = null)
+public data class WsdUnknownLookup(
+    public var any: WsdxmlElement? = null,
+)
 
-public data class WsdUriList(public var next: WsdUriList? = null, public var element: Pcwstr = null)
+public data class WsdUriList(
+    public var next: WsdUriList? = null,
+    public var element: Pcwstr = null,
+)

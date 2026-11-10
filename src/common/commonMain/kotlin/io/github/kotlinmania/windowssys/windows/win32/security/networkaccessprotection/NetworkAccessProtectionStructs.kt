@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security.networkaccessprotection
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -7,11 +8,19 @@ import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 
-public data class CorrelationId(public var connId: Guid = Guid(), public var timeStamp: Filetime = Filetime())
+public data class CorrelationId(
+    public var connId: Guid = Guid(),
+    public var timeStamp: Filetime = Filetime(),
+)
 
-public data class CountedString(public var length: UShort = 0u, public var string: Pwstr = null)
+public data class CountedString(
+    public var length: UShort = 0u,
+    public var string: Pwstr = null,
+)
 
-public data class FailureCategoryMapping(public var mappingCompliance: IntArray = IntArray(5)) {
+public data class FailureCategoryMapping(
+    public var mappingCompliance: IntArray = IntArray(5),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FailureCategoryMapping) return false
@@ -19,9 +28,7 @@ public data class FailureCategoryMapping(public var mappingCompliance: IntArray 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.mappingCompliance.contentHashCode()
-    }
+    override fun hashCode(): Int = this.mappingCompliance.contentHashCode()
 }
 
 public data class FixupInfo(
@@ -31,7 +38,9 @@ public data class FixupInfo(
     public var fixupMsgId: UInt = 0u,
 )
 
-public data class Ipv4Address(public var addr: UByteArray = UByteArray(4)) {
+public data class Ipv4Address(
+    public var addr: UByteArray = UByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Ipv4Address) return false
@@ -39,12 +48,12 @@ public data class Ipv4Address(public var addr: UByteArray = UByteArray(4)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.addr.contentHashCode()
-    }
+    override fun hashCode(): Int = this.addr.contentHashCode()
 }
 
-public data class Ipv6Address(public var addr: UByteArray = UByteArray(16)) {
+public data class Ipv6Address(
+    public var addr: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Ipv6Address) return false
@@ -52,9 +61,7 @@ public data class Ipv6Address(public var addr: UByteArray = UByteArray(16)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.addr.contentHashCode()
-    }
+    override fun hashCode(): Int = this.addr.contentHashCode()
 }
 
 public data class IsolationInfo(
@@ -82,13 +89,25 @@ public data class NapComponentRegistrationInfo(
     public var componentType: UInt = 0u,
 )
 
-public data class NetworkSoH(public var size: UShort = 0u, public var data: COpaquePointer? = null)
+public data class NetworkSoH(
+    public var size: UShort = 0u,
+    public var data: COpaquePointer? = null,
+)
 
-public data class PrivateData(public var size: UShort = 0u, public var data: COpaquePointer? = null)
+public data class PrivateData(
+    public var size: UShort = 0u,
+    public var data: COpaquePointer? = null,
+)
 
-public data class ResultCodes(public var count: UShort = 0u, public var results: Hresult? = null)
+public data class ResultCodes(
+    public var count: UShort = 0u,
+    public var results: Hresult? = null,
+)
 
-public data class SoH(public var count: UShort = 0u, public var attributes: SoHAttribute? = null)
+public data class SoH(
+    public var count: UShort = 0u,
+    public var attributes: SoHAttribute? = null,
+)
 
 public data class SoHAttribute(
     public var type: UShort = 0u,

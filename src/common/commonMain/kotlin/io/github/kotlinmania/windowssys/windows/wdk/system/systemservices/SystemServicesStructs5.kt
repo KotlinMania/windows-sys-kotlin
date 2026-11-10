@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -8,7 +9,10 @@ import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.M
 import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.XsaveArea
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SingleListEntry
 
-public data class WheaRecoveryContext0(public var memoryError: WheaRecoveryContext00 = WheaRecoveryContext00(), public var pmemError: WheaRecoveryContext01 = WheaRecoveryContext01())
+public data class WheaRecoveryContext0(
+    public var memoryError: WheaRecoveryContext00 = WheaRecoveryContext00(),
+    public var pmemError: WheaRecoveryContext01 = WheaRecoveryContext01(),
+)
 
 public data class WheaRecoveryContext00(
     public var address: Int = 0,
@@ -19,17 +23,32 @@ public data class WheaRecoveryContext00(
     public var clearPoison: Boolean = false,
 )
 
-public data class WheaRecoveryContext01(public var pmemErrInfo: Int = 0)
+public data class WheaRecoveryContext01(
+    public var pmemErrInfo: Int = 0,
+)
 
-public data class WheaRegisterKeyNotificationFailedEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
+public data class WheaRegisterKeyNotificationFailedEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+)
 
-public data class WheaReportHwErrorDeviceDriverFlags(public var anonymous: WheaReportHwErrorDeviceDriverFlags0 = WheaReportHwErrorDeviceDriverFlags0(), public var asULONG: UInt = 0u)
+public data class WheaReportHwErrorDeviceDriverFlags(
+    public var anonymous: WheaReportHwErrorDeviceDriverFlags0 = WheaReportHwErrorDeviceDriverFlags0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaReportHwErrorDeviceDriverFlags0(public var bitfield: UInt = 0u)
+public data class WheaReportHwErrorDeviceDriverFlags0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class WheaRevision(public var anonymous: WheaRevision0 = WheaRevision0(), public var asUSHORT: UShort = 0u)
+public data class WheaRevision(
+    public var anonymous: WheaRevision0 = WheaRevision0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class WheaRevision0(public var minorRevision: UByte = 0u, public var majorRevision: UByte = 0u)
+public data class WheaRevision0(
+    public var minorRevision: UByte = 0u,
+    public var majorRevision: UByte = 0u,
+)
 
 public data class WheaSeaSection(
     public var esr: UInt = 0u,
@@ -38,7 +57,10 @@ public data class WheaSeaSection(
     public var wasKernel: Boolean = false,
 )
 
-public data class WheaSeiSection(public var esr: UInt = 0u, public var far: ULong = 0uL)
+public data class WheaSeiSection(
+    public var esr: UInt = 0u,
+    public var far: ULong = 0uL,
+)
 
 public data class WheaSelBugcheckProgress(
     public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
@@ -61,7 +83,10 @@ public data class WheaSelBugcheckRecoveryStatusPhase1Event(
     public var data: WheaSelBugcheckRecoveryStatusPhase1Event0 = WheaSelBugcheckRecoveryStatusPhase1Event0(),
 )
 
-public data class WheaSelBugcheckRecoveryStatusPhase1Event0(public var dumpPolicy: UByte = 0u, public var reserved: UByteArray = UByteArray(3)) {
+public data class WheaSelBugcheckRecoveryStatusPhase1Event0(
+    public var dumpPolicy: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WheaSelBugcheckRecoveryStatusPhase1Event0) return false
@@ -83,7 +108,10 @@ public data class WheaSelBugcheckRecoveryStatusPhase2Event(
     public var success: Boolean = false,
 )
 
-public data class WheaSelBugcheckRecoveryStatusStartEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var startingIrql: UByte = 0u)
+public data class WheaSelBugcheckRecoveryStatusStartEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var startingIrql: UByte = 0u,
+)
 
 public data class WheaSrarDetailEvent(
     public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
@@ -118,11 +146,17 @@ public data class WheaSrasTableEntriesEvent(
     }
 }
 
-public data class WheaSrasTableError(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
+public data class WheaSrasTableError(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+)
 
-public data class WheaSrasTableNotFound(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
+public data class WheaSrasTableNotFound(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+)
 
-public data class WheaThrottleAddErrSrcFailedEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
+public data class WheaThrottleAddErrSrcFailedEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+)
 
 public data class WheaThrottleMemoryAddOrRemoveEvent(
     public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
@@ -145,13 +179,24 @@ public data class WheaThrottlePcieRemoveEvent(
     public var mask: UInt = 0u,
 )
 
-public data class WheaThrottleRegistryCorruptEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var throttleType: WheaThrottleType = 0)
+public data class WheaThrottleRegistryCorruptEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var throttleType: WheaThrottleType = 0,
+)
 
-public data class WheaThrottleRegDataIgnoredEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var throttleType: WheaThrottleType = 0)
+public data class WheaThrottleRegDataIgnoredEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var throttleType: WheaThrottleType = 0,
+)
 
-public data class WheaTimestamp(public var anonymous: WheaTimestamp0 = WheaTimestamp0(), public var asLargeInteger: Long = 0L)
+public data class WheaTimestamp(
+    public var anonymous: WheaTimestamp0 = WheaTimestamp0(),
+    public var asLargeInteger: Long = 0L,
+)
 
-public data class WheaTimestamp0(public var bitfield: ULong = 0uL)
+public data class WheaTimestamp0(
+    public var bitfield: ULong = 0uL,
+)
 
 public class WheaX64RegisterState(
     public var rax: ULong = 0uL,
@@ -219,13 +264,23 @@ public class WheaX86RegisterState(
     public var tr: UShort = 0u,
 )
 
-public data class WheaXpfBusCheck(public var anonymous: WheaXpfBusCheck0 = WheaXpfBusCheck0(), public var xpfBusCheck: ULong = 0uL)
+public data class WheaXpfBusCheck(
+    public var anonymous: WheaXpfBusCheck0 = WheaXpfBusCheck0(),
+    public var xpfBusCheck: ULong = 0uL,
+)
 
-public data class WheaXpfBusCheck0(public var bitfield: ULong = 0uL)
+public data class WheaXpfBusCheck0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WheaXpfCacheCheck(public var anonymous: WheaXpfCacheCheck0 = WheaXpfCacheCheck0(), public var xpfCacheCheck: ULong = 0uL)
+public data class WheaXpfCacheCheck(
+    public var anonymous: WheaXpfCacheCheck0 = WheaXpfCacheCheck0(),
+    public var xpfCacheCheck: ULong = 0uL,
+)
 
-public data class WheaXpfCacheCheck0(public var bitfield: ULong = 0uL)
+public data class WheaXpfCacheCheck0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WheaXpfContextInfo(
     public var registerContextType: UShort = 0u,
@@ -252,7 +307,10 @@ public data class WheaXpfMcaSection(
     public var recoveryInfo: XpfRecoveryInfo = XpfRecoveryInfo(),
 )
 
-public data class WheaXpfMcaSection0(public var extendedRegisters: ULongArray = ULongArray(24), public var aMDExtendedRegisters: WheaAmdExtendedRegisters = WheaAmdExtendedRegisters()) {
+public data class WheaXpfMcaSection0(
+    public var extendedRegisters: ULongArray = ULongArray(24),
+    public var aMDExtendedRegisters: WheaAmdExtendedRegisters = WheaAmdExtendedRegisters(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WheaXpfMcaSection0) return false
@@ -268,9 +326,14 @@ public data class WheaXpfMcaSection0(public var extendedRegisters: ULongArray = 
     }
 }
 
-public data class WheaXpfMsCheck(public var anonymous: WheaXpfMsCheck0 = WheaXpfMsCheck0(), public var xpfMsCheck: ULong = 0uL)
+public data class WheaXpfMsCheck(
+    public var anonymous: WheaXpfMsCheck0 = WheaXpfMsCheck0(),
+    public var xpfMsCheck: ULong = 0uL,
+)
 
-public data class WheaXpfMsCheck0(public var bitfield: ULong = 0uL)
+public data class WheaXpfMsCheck0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WheaXpfProcessorErrorSection(
     public var validBits: WheaXpfProcessorErrorSectionValidbits = WheaXpfProcessorErrorSectionValidbits(),
@@ -297,9 +360,14 @@ public data class WheaXpfProcessorErrorSection(
     }
 }
 
-public data class WheaXpfProcessorErrorSectionValidbits(public var anonymous: WheaXpfProcessorErrorSectionValidbits0 = WheaXpfProcessorErrorSectionValidbits0(), public var validBits: ULong = 0uL)
+public data class WheaXpfProcessorErrorSectionValidbits(
+    public var anonymous: WheaXpfProcessorErrorSectionValidbits0 = WheaXpfProcessorErrorSectionValidbits0(),
+    public var validBits: ULong = 0uL,
+)
 
-public data class WheaXpfProcessorErrorSectionValidbits0(public var bitfield: ULong = 0uL)
+public data class WheaXpfProcessorErrorSectionValidbits0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WheaXpfProcinfo(
     public var checkInfoId: Guid = Guid(),
@@ -319,13 +387,23 @@ public data class WheaXpfProcinfo0(
     public var asULONGLONG: ULong = 0uL,
 )
 
-public data class WheaXpfProcinfoValidbits(public var anonymous: WheaXpfProcinfoValidbits0 = WheaXpfProcinfoValidbits0(), public var validBits: ULong = 0uL)
+public data class WheaXpfProcinfoValidbits(
+    public var anonymous: WheaXpfProcinfoValidbits0 = WheaXpfProcinfoValidbits0(),
+    public var validBits: ULong = 0uL,
+)
 
-public data class WheaXpfProcinfoValidbits0(public var bitfield: ULong = 0uL)
+public data class WheaXpfProcinfoValidbits0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WheaXpfTlbCheck(public var anonymous: WheaXpfTlbCheck0 = WheaXpfTlbCheck0(), public var xpfTLBCheck: ULong = 0uL)
+public data class WheaXpfTlbCheck(
+    public var anonymous: WheaXpfTlbCheck0 = WheaXpfTlbCheck0(),
+    public var xpfTLBCheck: ULong = 0uL,
+)
 
-public data class WheaXpfTlbCheck0(public var bitfield: ULong = 0uL)
+public data class WheaXpfTlbCheck0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class XpfRecoveryInfo(
     public var failureReason: XpfRecoveryInfo0 = XpfRecoveryInfo0(),
@@ -339,9 +417,13 @@ public data class XpfRecoveryInfo(
     public var reserved4: UInt = 0u,
 )
 
-public data class XpfRecoveryInfo1(public var bitfield: UInt = 0u)
+public data class XpfRecoveryInfo1(
+    public var bitfield: UInt = 0u,
+)
 
-public data class XpfRecoveryInfo0(public var bitfield: UInt = 0u)
+public data class XpfRecoveryInfo0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class XsaveFormat(
     public var controlWord: UShort = 0u,
@@ -414,9 +496,14 @@ public data class XstateContext(
     public var reserved3: UInt = 0u,
 )
 
-public data class XstateSave(public var anonymous: XstateSave0 = XstateSave0())
+public data class XstateSave(
+    public var anonymous: XstateSave0 = XstateSave0(),
+)
 
-public data class XstateSave0(public var anonymous: XstateSave00 = XstateSave00(), public var xStateContext: XstateContext = XstateContext())
+public data class XstateSave0(
+    public var anonymous: XstateSave00 = XstateSave00(),
+    public var xStateContext: XstateContext = XstateContext(),
+)
 
 public data class XstateSave00(
     public var reserved1: Long = 0L,
@@ -435,7 +522,10 @@ public data class ZoneHeader(
     public var totalSegmentSize: UInt = 0u,
 )
 
-public data class ZoneSegmentHeader(public var segmentList: SingleListEntry = SingleListEntry(), public var reserved: COpaquePointer? = null)
+public data class ZoneSegmentHeader(
+    public var segmentList: SingleListEntry = SingleListEntry(),
+    public var reserved: COpaquePointer? = null,
+)
 
 public data class ExtSetParametersV0(
     public var version: UInt = 0u,

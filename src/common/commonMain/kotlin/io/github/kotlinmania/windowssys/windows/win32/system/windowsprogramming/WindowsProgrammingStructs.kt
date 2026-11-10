@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -38,7 +39,10 @@ public data class ActctxSectionKeyedDataAssemblyMetadata(
     public var ulSectionGlobalDataLength: UInt = 0u,
 )
 
-public data class ActivationContextBasicInformation(public var hActCtx: Handle = null, public var dwFlags: UInt = 0u)
+public data class ActivationContextBasicInformation(
+    public var hActCtx: Handle = null,
+    public var dwFlags: UInt = 0u,
+)
 
 public data class Cabinfoa(
     public var pszCab: Pstr = null,
@@ -96,14 +100,24 @@ public data class Cabinfow(
     }
 }
 
-public data class ClientId(public var uniqueProcess: Handle = null, public var uniqueThread: Handle = null)
+public data class ClientId(
+    public var uniqueProcess: Handle = null,
+    public var uniqueThread: Handle = null,
+)
 
-public data class CustomSystemEventTriggerConfig(public var size: UInt = 0u, public var triggerId: Pcwstr = null)
+public data class CustomSystemEventTriggerConfig(
+    public var size: UInt = 0u,
+    public var triggerId: Pcwstr = null,
+)
 
-public data class CameraUIControlCaptureMode(public var value: Int = 0) {
+public data class CameraUIControlCaptureMode(
+    public var value: Int = 0,
+) {
     public var field0: Int
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 
     public companion object {
         public val PHOTO_OR_VIDEO: CameraUIControlCaptureMode = CameraUIControlCaptureMode(0)
@@ -114,10 +128,14 @@ public data class CameraUIControlCaptureMode(public var value: Int = 0) {
     }
 }
 
-public data class CameraUIControlLinearSelectionMode(public var value: Int = 0) {
+public data class CameraUIControlLinearSelectionMode(
+    public var value: Int = 0,
+) {
     public var field0: Int
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 
     public companion object {
         public val SINGLE: CameraUIControlLinearSelectionMode = CameraUIControlLinearSelectionMode(0)
@@ -126,10 +144,14 @@ public data class CameraUIControlLinearSelectionMode(public var value: Int = 0) 
     }
 }
 
-public data class CameraUIControlMode(public var value: Int = 0) {
+public data class CameraUIControlMode(
+    public var value: Int = 0,
+) {
     public var field0: Int
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 
     public companion object {
         public val BROWSE: CameraUIControlMode = CameraUIControlMode(0)
@@ -138,10 +160,14 @@ public data class CameraUIControlMode(public var value: Int = 0) {
     }
 }
 
-public data class CameraUIControlPhotoFormat(public var value: Int = 0) {
+public data class CameraUIControlPhotoFormat(
+    public var value: Int = 0,
+) {
     public var field0: Int
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 
     public companion object {
         public val JPEG: CameraUIControlPhotoFormat = CameraUIControlPhotoFormat(0)
@@ -152,10 +178,14 @@ public data class CameraUIControlPhotoFormat(public var value: Int = 0) {
     }
 }
 
-public data class CameraUIControlVideoFormat(public var value: Int = 0) {
+public data class CameraUIControlVideoFormat(
+    public var value: Int = 0,
+) {
     public var field0: Int
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 
     public companion object {
         public val MP4: CameraUIControlVideoFormat = CameraUIControlVideoFormat(0)
@@ -164,10 +194,14 @@ public data class CameraUIControlVideoFormat(public var value: Int = 0) {
     }
 }
 
-public data class CameraUIControlViewType(public var value: Int = 0) {
+public data class CameraUIControlViewType(
+    public var value: Int = 0,
+) {
     public var field0: Int
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 
     public companion object {
         public val SINGLE_ITEM: CameraUIControlViewType = CameraUIControlViewType(0)
@@ -282,9 +316,15 @@ public data class DelayloadInfo(
     public var lastError: UInt = 0u,
 )
 
-public data class DelayloadProcDescriptor(public var importDescribedByName: UInt = 0u, public var description: DelayloadProcDescriptor0 = DelayloadProcDescriptor0())
+public data class DelayloadProcDescriptor(
+    public var importDescribedByName: UInt = 0u,
+    public var description: DelayloadProcDescriptor0 = DelayloadProcDescriptor0(),
+)
 
-public data class DelayloadProcDescriptor0(public var name: Pcstr = null, public var ordinal: UInt = 0u)
+public data class DelayloadProcDescriptor0(
+    public var name: Pcstr = null,
+    public var ordinal: UInt = 0u,
+)
 
 public data class FeatureError(
     public var hr: Hresult = 0,
@@ -358,11 +398,18 @@ public data class ImageDelayloadDescriptor(
     public var timeDateStamp: UInt = 0u,
 )
 
-public data class ImageDelayloadDescriptor0(public var allAttributes: UInt = 0u, public var anonymous: ImageDelayloadDescriptor00 = ImageDelayloadDescriptor00())
+public data class ImageDelayloadDescriptor0(
+    public var allAttributes: UInt = 0u,
+    public var anonymous: ImageDelayloadDescriptor00 = ImageDelayloadDescriptor00(),
+)
 
-public data class ImageDelayloadDescriptor00(public var bitfield: UInt = 0u)
+public data class ImageDelayloadDescriptor00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ImageThunkData32(public var u1: ImageThunkData320 = ImageThunkData320())
+public data class ImageThunkData32(
+    public var u1: ImageThunkData320 = ImageThunkData320(),
+)
 
 public data class ImageThunkData320(
     public var forwarderString: UInt = 0u,
@@ -371,7 +418,9 @@ public data class ImageThunkData320(
     public var addressOfData: UInt = 0u,
 )
 
-public data class ImageThunkData64(public var u1: ImageThunkData640 = ImageThunkData640())
+public data class ImageThunkData64(
+    public var u1: ImageThunkData640 = ImageThunkData640(),
+)
 
 public data class ImageThunkData640(
     public var forwarderString: ULong = 0uL,
@@ -521,7 +570,10 @@ public data class LdrDataTableEntry(
     }
 }
 
-public data class LdrDataTableEntry0(public var checkSum: UInt = 0u, public var reserved6: COpaquePointer? = null)
+public data class LdrDataTableEntry0(
+    public var checkSum: UInt = 0u,
+    public var reserved6: COpaquePointer? = null,
+)
 
 public data class Perusersectiona(
     public var szGUID: ByteArray = ByteArray(59),
@@ -625,7 +677,10 @@ public data class PublicObjectBasicInformation(
     }
 }
 
-public data class PublicObjectTypeInformation(public var typeName: UnicodeString = UnicodeString(), public var reserved: UIntArray = UIntArray(22)) {
+public data class PublicObjectTypeInformation(
+    public var typeName: UnicodeString = UnicodeString(),
+    public var reserved: UIntArray = UIntArray(22),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PublicObjectTypeInformation) return false
@@ -641,9 +696,15 @@ public data class PublicObjectTypeInformation(public var typeName: UnicodeString
     }
 }
 
-public data class Strentrya(public var pszName: Pstr = null, public var pszValue: Pstr = null)
+public data class Strentrya(
+    public var pszName: Pstr = null,
+    public var pszValue: Pstr = null,
+)
 
-public data class Strentryw(public var pszName: Pwstr = null, public var pszValue: Pwstr = null)
+public data class Strentryw(
+    public var pszName: Pwstr = null,
+    public var pszValue: Pwstr = null,
+)
 
 public data class Stringexstruct(
     public var dwSize: UInt = 0u,
@@ -653,9 +714,15 @@ public data class Stringexstruct(
     public var uYomiDelimPos: UInt = 0u,
 )
 
-public data class Strtablea(public var cEntries: UInt = 0u, public var pse: Strentrya? = null)
+public data class Strtablea(
+    public var cEntries: UInt = 0u,
+    public var pse: Strentrya? = null,
+)
 
-public data class Strtablew(public var cEntries: UInt = 0u, public var pse: Strentryw? = null)
+public data class Strtablew(
+    public var cEntries: UInt = 0u,
+    public var pse: Strentryw? = null,
+)
 
 public data class SystemBasicInformation(
     public var reserved1: UByteArray = UByteArray(24),
@@ -679,9 +746,14 @@ public data class SystemBasicInformation(
     }
 }
 
-public data class SystemCodeintegrityInformation(public var length: UInt = 0u, public var codeIntegrityOptions: UInt = 0u)
+public data class SystemCodeintegrityInformation(
+    public var length: UInt = 0u,
+    public var codeIntegrityOptions: UInt = 0u,
+)
 
-public data class SystemExceptionInformation(public var reserved1: UByteArray = UByteArray(16)) {
+public data class SystemExceptionInformation(
+    public var reserved1: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SystemExceptionInformation) return false
@@ -689,12 +761,12 @@ public data class SystemExceptionInformation(public var reserved1: UByteArray = 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.reserved1.contentHashCode()
-    }
+    override fun hashCode(): Int = this.reserved1.contentHashCode()
 }
 
-public data class SystemInterruptInformation(public var reserved1: UByteArray = UByteArray(24)) {
+public data class SystemInterruptInformation(
+    public var reserved1: UByteArray = UByteArray(24),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SystemInterruptInformation) return false
@@ -702,12 +774,12 @@ public data class SystemInterruptInformation(public var reserved1: UByteArray = 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.reserved1.contentHashCode()
-    }
+    override fun hashCode(): Int = this.reserved1.contentHashCode()
 }
 
-public data class SystemLookasideInformation(public var reserved1: UByteArray = UByteArray(32)) {
+public data class SystemLookasideInformation(
+    public var reserved1: UByteArray = UByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SystemLookasideInformation) return false
@@ -715,12 +787,12 @@ public data class SystemLookasideInformation(public var reserved1: UByteArray = 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.reserved1.contentHashCode()
-    }
+    override fun hashCode(): Int = this.reserved1.contentHashCode()
 }
 
-public data class SystemPerformanceInformation(public var reserved1: UByteArray = UByteArray(312)) {
+public data class SystemPerformanceInformation(
+    public var reserved1: UByteArray = UByteArray(312),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SystemPerformanceInformation) return false
@@ -728,12 +800,13 @@ public data class SystemPerformanceInformation(public var reserved1: UByteArray 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.reserved1.contentHashCode()
-    }
+    override fun hashCode(): Int = this.reserved1.contentHashCode()
 }
 
-public data class SystemPolicyInformation(public var reserved1: List<COpaquePointer> = List(2) { COpaquePointer(0L) }, public var reserved2: UIntArray = UIntArray(3)) {
+public data class SystemPolicyInformation(
+    public var reserved1: List<COpaquePointer> = List(2) { COpaquePointer(0L) },
+    public var reserved2: UIntArray = UIntArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SystemPolicyInformation) return false
@@ -849,7 +922,9 @@ public data class SystemThreadInformation(
     }
 }
 
-public data class SystemTimeofdayInformation(public var reserved1: UByteArray = UByteArray(48)) {
+public data class SystemTimeofdayInformation(
+    public var reserved1: UByteArray = UByteArray(48),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SystemTimeofdayInformation) return false
@@ -857,12 +932,13 @@ public data class SystemTimeofdayInformation(public var reserved1: UByteArray = 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.reserved1.contentHashCode()
-    }
+    override fun hashCode(): Int = this.reserved1.contentHashCode()
 }
 
-public data class TcpRequestQueryInformationEx32Xp(public var id: TDIObjectID = TDIObjectID(), public var context: UIntArray = UIntArray(4)) {
+public data class TcpRequestQueryInformationEx32Xp(
+    public var id: TDIObjectID = TDIObjectID(),
+    public var context: UIntArray = UIntArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is TcpRequestQueryInformationEx32Xp) return false
@@ -878,7 +954,10 @@ public data class TcpRequestQueryInformationEx32Xp(public var id: TDIObjectID = 
     }
 }
 
-public data class TcpRequestQueryInformationExW2k(public var id: TDIObjectID = TDIObjectID(), public var context: UByteArray = UByteArray(16)) {
+public data class TcpRequestQueryInformationExW2k(
+    public var id: TDIObjectID = TDIObjectID(),
+    public var context: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is TcpRequestQueryInformationExW2k) return false
@@ -894,7 +973,10 @@ public data class TcpRequestQueryInformationExW2k(public var id: TDIObjectID = T
     }
 }
 
-public data class TcpRequestQueryInformationExXp(public var id: TDIObjectID = TDIObjectID(), public var context: IntArray = IntArray(4)) {
+public data class TcpRequestQueryInformationExXp(
+    public var id: TDIObjectID = TDIObjectID(),
+    public var context: IntArray = IntArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is TcpRequestQueryInformationExXp) return false
@@ -932,7 +1014,10 @@ public data class TcpRequestSetInformationEx(
     }
 }
 
-public data class TDIEntityID(public var teiEntity: TdientityEntityType = 0u, public var teiInstance: UInt = 0u)
+public data class TDIEntityID(
+    public var teiEntity: TdientityEntityType = 0u,
+    public var teiInstance: UInt = 0u,
+)
 
 public data class TDIObjectID(
     public var toiEntity: TDIEntityID = TDIEntityID(),
@@ -951,9 +1036,14 @@ public data class TdiTlIoControlEndpoint(
     public var outputBufferLength: UInt = 0u,
 )
 
-public data class TdiTlIoControlEndpoint0(public var ioControlCode: UInt = 0u, public var optionName: UInt = 0u)
+public data class TdiTlIoControlEndpoint0(
+    public var ioControlCode: UInt = 0u,
+    public var optionName: UInt = 0u,
+)
 
-public data class ThreadNameInformation(public var threadName: UnicodeString = UnicodeString())
+public data class ThreadNameInformation(
+    public var threadName: UnicodeString = UnicodeString(),
+)
 
 public data class Undeterminestruct(
     public var dwSize: UInt = 0u,

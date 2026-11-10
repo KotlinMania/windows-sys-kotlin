@@ -49,9 +49,8 @@ public actual fun closePackageInfo(packageinforeference: COpaquePointer?): Win32
 public actual fun createPackageVirtualizationContext(packagefamilyname: Pcwstr, context: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun deactivatePackageVirtualizationContext(cookie: ULong) {
+public actual fun deactivatePackageVirtualizationContext(cookie: ULong): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun deletePackageDependency(packagedependencyid: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -182,9 +181,8 @@ public actual fun packageNameAndPublisherIdFromFamilyName(packagefamilyname: Pcw
 public actual fun parseApplicationUserModelId(applicationusermodelid: Pcwstr, packagefamilynamelength: COpaquePointer?, packagefamilyname: Pwstr, packagerelativeapplicationidlength: COpaquePointer?, packagerelativeapplicationid: Pwstr): Win32Error =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun releasePackageVirtualizationContext(context: PackageVirtualizationContextHandle) {
+public actual fun releasePackageVirtualizationContext(context: PackageVirtualizationContextHandle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun removePackageDependency(packagedependencycontext: PackagedependencyContext): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

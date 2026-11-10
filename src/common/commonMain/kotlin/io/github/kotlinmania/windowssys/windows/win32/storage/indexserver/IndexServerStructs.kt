@@ -28,9 +28,15 @@ public data class Dbid(
     public var uName: Dbid1 = Dbid1(),
 )
 
-public data class Dbid0(public var guid: Guid = Guid(), public var pguid: Guid? = null)
+public data class Dbid0(
+    public var guid: Guid = Guid(),
+    public var pguid: Guid? = null,
+)
 
-public data class Dbid1(public var pwszName: Pwstr = null, public var ulPropid: UInt = 0u)
+public data class Dbid1(
+    public var pwszName: Pwstr = null,
+    public var ulPropid: UInt = 0u,
+)
 
 public data class Filterregion(
     public var idChunk: UInt = 0u,
@@ -38,7 +44,10 @@ public data class Filterregion(
     public var cwcExtent: UInt = 0u,
 )
 
-public data class Fullpropspec(public var guidPropSet: Guid = Guid(), public var psProperty: Propspec = Propspec())
+public data class Fullpropspec(
+    public var guidPropSet: Guid = Guid(),
+    public var psProperty: Propspec = Propspec(),
+)
 
 public data class StatChunk(
     public var idChunk: UInt = 0u,

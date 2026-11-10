@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -20,7 +21,10 @@ public data class SlNongenuineUiOptions(
     public var hResultUI: Hresult = 0,
 )
 
-public data class SlSystemPolicyInformation(public var reserved1: List<COpaquePointer> = List(2) { COpaquePointer(0L) }, public var reserved2: UIntArray = UIntArray(3)) {
+public data class SlSystemPolicyInformation(
+    public var reserved1: List<COpaquePointer> = List(2) { COpaquePointer(0L) },
+    public var reserved2: UIntArray = UIntArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SlSystemPolicyInformation) return false
@@ -36,7 +40,10 @@ public data class SlSystemPolicyInformation(public var reserved1: List<COpaquePo
     }
 }
 
-public data class SrSecurityDescriptor(public var length: UInt = 0u, public var securityDescriptor: COpaquePointer? = null)
+public data class SrSecurityDescriptor(
+    public var length: UInt = 0u,
+    public var securityDescriptor: COpaquePointer? = null,
+)
 
 public data class SslCredentialCertificate(
     public var cbPrivateKey: UInt = 0u,
@@ -64,7 +71,9 @@ public data class SecBufferDesc(
     public var pBuffers: SecBuffer? = null,
 )
 
-public data class SecPkgContextAccessToken(public var accessToken: COpaquePointer? = null)
+public data class SecPkgContextAccessToken(
+    public var accessToken: COpaquePointer? = null,
+)
 
 public data class SecPkgContextApplicationProtocol(
     public var protoNegoStatus: SecApplicationProtocolNegotiationStatus = 0,
@@ -91,13 +100,23 @@ public data class SecPkgContextApplicationProtocol(
     }
 }
 
-public data class SecPkgContextAuthorityA(public var sAuthorityName: COpaquePointer? = null)
+public data class SecPkgContextAuthorityA(
+    public var sAuthorityName: COpaquePointer? = null,
+)
 
-public data class SecPkgContextAuthorityW(public var sAuthorityName: UShort? = null)
+public data class SecPkgContextAuthorityW(
+    public var sAuthorityName: UShort? = null,
+)
 
-public data class SecPkgContextAuthzId(public var authzIDLength: UInt = 0u, public var authzID: Pstr = null)
+public data class SecPkgContextAuthzId(
+    public var authzIDLength: UInt = 0u,
+    public var authzID: Pstr = null,
+)
 
-public data class SecPkgContextBindings(public var bindingsLength: UInt = 0u, public var bindings: SecChannelBindings? = null)
+public data class SecPkgContextBindings(
+    public var bindingsLength: UInt = 0u,
+    public var bindings: SecChannelBindings? = null,
+)
 
 public data class SecPkgContextCertInfo(
     public var dwVersion: UInt = 0u,
@@ -108,7 +127,10 @@ public data class SecPkgContextCertInfo(
     public var dwKeySize: UInt = 0u,
 )
 
-public data class SecPkgContextCertificateValidationResult(public var dwChainErrorStatus: UInt = 0u, public var hrVerifyChainStatus: Hresult = 0)
+public data class SecPkgContextCertificateValidationResult(
+    public var dwChainErrorStatus: UInt = 0u,
+    public var hrVerifyChainStatus: Hresult = 0,
+)
 
 public data class SecPkgContextCertificates(
     public var cCertificates: UInt = 0u,
@@ -174,9 +196,14 @@ public data class SecPkgContextCipherInfo(
     }
 }
 
-public data class SecPkgContextClientCertPolicyResult(public var dwPolicyResult: Hresult = 0, public var guidPolicyId: Guid = Guid())
+public data class SecPkgContextClientCertPolicyResult(
+    public var dwPolicyResult: Hresult = 0,
+    public var guidPolicyId: Guid = Guid(),
+)
 
-public data class SecPkgContextClientSpecifiedTarget(public var sTargetName: UShort? = null)
+public data class SecPkgContextClientSpecifiedTarget(
+    public var sTargetName: UShort? = null,
+)
 
 public data class SecPkgContextConnectionInfo(
     public var dwProtocol: UInt = 0u,
@@ -225,15 +252,30 @@ public data class SecPkgContextConnectionInfoEx(
     }
 }
 
-public data class SecPkgContextCredInfo(public var credClass: SecpkgCredClass = 0, public var isPromptingNeeded: UInt = 0u)
+public data class SecPkgContextCredInfo(
+    public var credClass: SecpkgCredClass = 0,
+    public var isPromptingNeeded: UInt = 0u,
+)
 
-public data class SecPkgContextCredentialNameA(public var credentialType: UInt = 0u, public var sCredentialName: COpaquePointer? = null)
+public data class SecPkgContextCredentialNameA(
+    public var credentialType: UInt = 0u,
+    public var sCredentialName: COpaquePointer? = null,
+)
 
-public data class SecPkgContextCredentialNameW(public var credentialType: UInt = 0u, public var sCredentialName: UShort? = null)
+public data class SecPkgContextCredentialNameW(
+    public var credentialType: UInt = 0u,
+    public var sCredentialName: UShort? = null,
+)
 
-public data class SecPkgContextDceInfo(public var authzSvc: UInt = 0u, public var pPac: COpaquePointer? = null)
+public data class SecPkgContextDceInfo(
+    public var authzSvc: UInt = 0u,
+    public var pPac: COpaquePointer? = null,
+)
 
-public data class SecPkgContextEapKeyBlock(public var rgbKeys: UByteArray = UByteArray(128), public var rgbIVs: UByteArray = UByteArray(64)) {
+public data class SecPkgContextEapKeyBlock(
+    public var rgbKeys: UByteArray = UByteArray(128),
+    public var rgbIVs: UByteArray = UByteArray(64),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SecPkgContextEapKeyBlock) return false
@@ -255,11 +297,18 @@ public data class SecPkgContextEapPrfInfo(
     public var pbPrfData: COpaquePointer? = null,
 )
 
-public data class SecPkgContextEarlyStart(public var dwEarlyStartFlags: UInt = 0u)
+public data class SecPkgContextEarlyStart(
+    public var dwEarlyStartFlags: UInt = 0u,
+)
 
-public data class SecPkgContextFlags(public var flags: UInt = 0u)
+public data class SecPkgContextFlags(
+    public var flags: UInt = 0u,
+)
 
-public data class SecPkgContextIssuerListInfoEx(public var aIssuers: CryptIntegerBlob? = null, public var cIssuers: UInt = 0u)
+public data class SecPkgContextIssuerListInfoEx(
+    public var aIssuers: CryptIntegerBlob? = null,
+    public var cIssuers: UInt = 0u,
+)
 
 public data class SecPkgContextKeyInfoA(
     public var sSignatureAlgorithmName: COpaquePointer? = null,
@@ -277,7 +326,10 @@ public data class SecPkgContextKeyInfoW(
     public var encryptAlgorithm: UInt = 0u,
 )
 
-public data class SecPkgContextKeyingMaterial(public var cbKeyingMaterial: UInt = 0u, public var pbKeyingMaterial: COpaquePointer? = null)
+public data class SecPkgContextKeyingMaterial(
+    public var cbKeyingMaterial: UInt = 0u,
+    public var pbKeyingMaterial: COpaquePointer? = null,
+)
 
 public data class SecPkgContextKeyingMaterialInfo(
     public var cbLabel: UShort = 0u,
@@ -296,9 +348,14 @@ public data class SecPkgContextKeyingMaterialInproc(
     public var pbKeyingMaterial: COpaquePointer? = null,
 )
 
-public data class SecPkgContextLastClientTokenStatus(public var lastClientTokenStatus: SecpkgAttrLctStatus = 0)
+public data class SecPkgContextLastClientTokenStatus(
+    public var lastClientTokenStatus: SecpkgAttrLctStatus = 0,
+)
 
-public data class SecPkgContextLifespan(public var tsStart: Long = 0L, public var tsExpiry: Long = 0L)
+public data class SecPkgContextLifespan(
+    public var tsStart: Long = 0L,
+    public var tsExpiry: Long = 0L,
+)
 
 public data class SecPkgContextLocalCredentialInfo(
     public var cbCertificateChain: UInt = 0u,
@@ -308,17 +365,32 @@ public data class SecPkgContextLocalCredentialInfo(
     public var dwBits: UInt = 0u,
 )
 
-public data class SecPkgContextLogoffTime(public var tsLogoffTime: Long = 0L)
+public data class SecPkgContextLogoffTime(
+    public var tsLogoffTime: Long = 0L,
+)
 
-public data class SecPkgContextMappedCredAttr(public var dwAttribute: UInt = 0u, public var pvBuffer: COpaquePointer? = null)
+public data class SecPkgContextMappedCredAttr(
+    public var dwAttribute: UInt = 0u,
+    public var pvBuffer: COpaquePointer? = null,
+)
 
-public data class SecPkgContextNamesA(public var sUserName: COpaquePointer? = null)
+public data class SecPkgContextNamesA(
+    public var sUserName: COpaquePointer? = null,
+)
 
-public data class SecPkgContextNamesW(public var sUserName: UShort? = null)
+public data class SecPkgContextNamesW(
+    public var sUserName: UShort? = null,
+)
 
-public data class SecPkgContextNativeNamesA(public var sClientName: COpaquePointer? = null, public var sServerName: COpaquePointer? = null)
+public data class SecPkgContextNativeNamesA(
+    public var sClientName: COpaquePointer? = null,
+    public var sServerName: COpaquePointer? = null,
+)
 
-public data class SecPkgContextNativeNamesW(public var sClientName: UShort? = null, public var sServerName: UShort? = null)
+public data class SecPkgContextNativeNamesW(
+    public var sClientName: UShort? = null,
+    public var sServerName: UShort? = null,
+)
 
 public data class SecPkgContextNegoKeys(
     public var keyType: UInt = 0u,
@@ -329,21 +401,40 @@ public data class SecPkgContextNegoKeys(
     public var verifyKeyValue: COpaquePointer? = null,
 )
 
-public data class SecPkgContextNegoPackageInfo(public var packageMask: UInt = 0u)
+public data class SecPkgContextNegoPackageInfo(
+    public var packageMask: UInt = 0u,
+)
 
-public data class SecPkgContextNegoStatus(public var lastStatus: UInt = 0u)
+public data class SecPkgContextNegoStatus(
+    public var lastStatus: UInt = 0u,
+)
 
-public data class SecPkgContextNegotiatedTlsExtensions(public var extensionsCount: UInt = 0u, public var extensions: UShort? = null)
+public data class SecPkgContextNegotiatedTlsExtensions(
+    public var extensionsCount: UInt = 0u,
+    public var extensions: UShort? = null,
+)
 
-public data class SecPkgContextNegotiationInfoA(public var packageInfo: SecPkgInfoA? = null, public var negotiationState: UInt = 0u)
+public data class SecPkgContextNegotiationInfoA(
+    public var packageInfo: SecPkgInfoA? = null,
+    public var negotiationState: UInt = 0u,
+)
 
-public data class SecPkgContextNegotiationInfoW(public var packageInfo: SecPkgInfoW? = null, public var negotiationState: UInt = 0u)
+public data class SecPkgContextNegotiationInfoW(
+    public var packageInfo: SecPkgInfoW? = null,
+    public var negotiationState: UInt = 0u,
+)
 
-public data class SecPkgContextPackageInfoA(public var packageInfo: SecPkgInfoA? = null)
+public data class SecPkgContextPackageInfoA(
+    public var packageInfo: SecPkgInfoA? = null,
+)
 
-public data class SecPkgContextPackageInfoW(public var packageInfo: SecPkgInfoW? = null)
+public data class SecPkgContextPackageInfoW(
+    public var packageInfo: SecPkgInfoW? = null,
+)
 
-public data class SecPkgContextPasswordExpiry(public var tsPasswordExpires: Long = 0L)
+public data class SecPkgContextPasswordExpiry(
+    public var tsPasswordExpires: Long = 0L,
+)
 
 public data class SecPkgContextProtoInfoA(
     public var sProtocolName: COpaquePointer? = null,
@@ -365,7 +456,9 @@ public data class SecPkgContextRemoteCredentialInfo(
     public var dwBits: UInt = 0u,
 )
 
-public data class SecPkgContextSaslContext(public var saslContext: COpaquePointer? = null)
+public data class SecPkgContextSaslContext(
+    public var saslContext: COpaquePointer? = null,
+)
 
 public data class SecPkgContextSessionAppData(
     public var dwFlags: UInt = 0u,
@@ -395,7 +488,10 @@ public data class SecPkgContextSessionInfo(
     }
 }
 
-public data class SecPkgContextSessionKey(public var sessionKeyLength: UInt = 0u, public var sessionKey: COpaquePointer? = null)
+public data class SecPkgContextSessionKey(
+    public var sessionKeyLength: UInt = 0u,
+    public var sessionKey: COpaquePointer? = null,
+)
 
 public data class SecPkgContextSizes(
     public var cbMaxToken: UInt = 0u,
@@ -418,13 +514,24 @@ public data class SecPkgContextStreamSizes(
     public var cbBlockSize: UInt = 0u,
 )
 
-public data class SecPkgContextSubjectAttributes(public var attributeInfo: COpaquePointer? = null)
+public data class SecPkgContextSubjectAttributes(
+    public var attributeInfo: COpaquePointer? = null,
+)
 
-public data class SecPkgContextSupportedSignatures(public var cSignatureAndHashAlgorithms: UShort = 0u, public var pSignatureAndHashAlgorithms: UShort? = null)
+public data class SecPkgContextSupportedSignatures(
+    public var cSignatureAndHashAlgorithms: UShort = 0u,
+    public var pSignatureAndHashAlgorithms: UShort? = null,
+)
 
-public data class SecPkgContextTarget(public var targetLength: UInt = 0u, public var target: Pstr = null)
+public data class SecPkgContextTarget(
+    public var targetLength: UInt = 0u,
+    public var target: Pstr = null,
+)
 
-public data class SecPkgContextTargetInformation(public var marshalledTargetInfoLength: UInt = 0u, public var marshalledTargetInfo: COpaquePointer? = null)
+public data class SecPkgContextTargetInformation(
+    public var marshalledTargetInfoLength: UInt = 0u,
+    public var marshalledTargetInfo: COpaquePointer? = null,
+)
 
 public data class SecPkgContextTokenBinding(
     public var majorVersion: UByte = 0u,
@@ -433,11 +540,18 @@ public data class SecPkgContextTokenBinding(
     public var keyParameters: COpaquePointer? = null,
 )
 
-public data class SecPkgContextUiInfo(public var hParentWindow: Hwnd = null)
+public data class SecPkgContextUiInfo(
+    public var hParentWindow: Hwnd = null,
+)
 
-public data class SecPkgContextUserFlags(public var userFlags: UInt = 0u)
+public data class SecPkgContextUserFlags(
+    public var userFlags: UInt = 0u,
+)
 
-public data class SecPkgCredCipherStrengths(public var dwMinimumCipherStrength: UInt = 0u, public var dwMaximumCipherStrength: UInt = 0u)
+public data class SecPkgCredCipherStrengths(
+    public var dwMinimumCipherStrength: UInt = 0u,
+    public var dwMaximumCipherStrength: UInt = 0u,
+)
 
 public data class SecPkgCredClientCertPolicy(
     public var dwFlags: UInt = 0u,
@@ -476,13 +590,24 @@ public data class SecPkgCredSessionTicketKey(
     }
 }
 
-public data class SecPkgCredSessionTicketKeys(public var cSessionTicketKeys: UInt = 0u, public var pSessionTicketKeys: SecPkgCredSessionTicketKey? = null)
+public data class SecPkgCredSessionTicketKeys(
+    public var cSessionTicketKeys: UInt = 0u,
+    public var pSessionTicketKeys: SecPkgCredSessionTicketKey? = null,
+)
 
-public data class SecPkgCredSupportedAlgs(public var cSupportedAlgs: UInt = 0u, public var palgSupportedAlgs: AlgId? = null)
+public data class SecPkgCredSupportedAlgs(
+    public var cSupportedAlgs: UInt = 0u,
+    public var palgSupportedAlgs: AlgId? = null,
+)
 
-public data class SecPkgCredSupportedProtocols(public var grbitProtocol: UInt = 0u)
+public data class SecPkgCredSupportedProtocols(
+    public var grbitProtocol: UInt = 0u,
+)
 
-public data class SecPkgCredentialsCert(public var encodedCertSize: UInt = 0u, public var encodedCert: COpaquePointer? = null)
+public data class SecPkgCredentialsCert(
+    public var encodedCertSize: UInt = 0u,
+    public var encodedCert: COpaquePointer? = null,
+)
 
 public data class SecPkgCredentialsKdcProxySettingsW(
     public var version: UInt = 0u,
@@ -493,9 +618,13 @@ public data class SecPkgCredentialsKdcProxySettingsW(
     public var clientTlsCredLength: UShort = 0u,
 )
 
-public data class SecPkgCredentialsNamesA(public var sUserName: COpaquePointer? = null)
+public data class SecPkgCredentialsNamesA(
+    public var sUserName: COpaquePointer? = null,
+)
 
-public data class SecPkgCredentialsNamesW(public var sUserName: UShort? = null)
+public data class SecPkgCredentialsNamesW(
+    public var sUserName: UShort? = null,
+)
 
 public data class SecPkgCredentialsSsiproviderA(
     public var sProviderName: COpaquePointer? = null,
@@ -597,7 +726,10 @@ public class SecurityFunctionTableW(
     public var queryCredentialsAttributesExW: QueryCredentialsAttributesExFnW = null,
 )
 
-public data class TlsExtensionSubscription(public var extensionType: UShort = 0u, public var handshakeType: UShort = 0u)
+public data class TlsExtensionSubscription(
+    public var extensionType: UShort = 0u,
+    public var handshakeType: UShort = 0u,
+)
 
 public data class TlsParameters(
     public var cAlpnIds: UInt = 0u,
@@ -608,9 +740,14 @@ public data class TlsParameters(
     public var dwFlags: UInt = 0u,
 )
 
-public data class TokenbindingIdentifier(public var keyType: UByte = 0u)
+public data class TokenbindingIdentifier(
+    public var keyType: UByte = 0u,
+)
 
-public data class TokenbindingKeyTypes(public var keyCount: UInt = 0u, public var keyType: Int? = null)
+public data class TokenbindingKeyTypes(
+    public var keyCount: UInt = 0u,
+    public var keyType: Int? = null,
+)
 
 public data class TokenbindingResultData(
     public var bindingType: TokenbindingType = 0,
@@ -621,9 +758,15 @@ public data class TokenbindingResultData(
     public var extensionData: COpaquePointer? = null,
 )
 
-public data class TokenbindingResultList(public var resultCount: UInt = 0u, public var resultData: TokenbindingResultData? = null)
+public data class TokenbindingResultList(
+    public var resultCount: UInt = 0u,
+    public var resultData: TokenbindingResultData? = null,
+)
 
-public data class TrustedControllersInfo(public var entries: UInt = 0u, public var names: LsaUnicodeString? = null)
+public data class TrustedControllersInfo(
+    public var entries: UInt = 0u,
+    public var names: LsaUnicodeString? = null,
+)
 
 public data class TrustedDomainAuthInformation(
     public var incomingAuthInfos: UInt = 0u,
@@ -666,13 +809,22 @@ public data class TrustedDomainInformationEx2(
     public var forestTrustInfo: COpaquePointer? = null,
 )
 
-public data class TrustedDomainNameInfo(public var name: LsaUnicodeString = LsaUnicodeString())
+public data class TrustedDomainNameInfo(
+    public var name: LsaUnicodeString = LsaUnicodeString(),
+)
 
-public data class TrustedDomainSupportedEncryptionTypes(public var supportedEncryptionTypes: UInt = 0u)
+public data class TrustedDomainSupportedEncryptionTypes(
+    public var supportedEncryptionTypes: UInt = 0u,
+)
 
-public data class TrustedPasswordInfo(public var password: LsaUnicodeString = LsaUnicodeString(), public var oldPassword: LsaUnicodeString = LsaUnicodeString())
+public data class TrustedPasswordInfo(
+    public var password: LsaUnicodeString = LsaUnicodeString(),
+    public var oldPassword: LsaUnicodeString = LsaUnicodeString(),
+)
 
-public data class TrustedPosixOffsetInfo(public var offset: UInt = 0u)
+public data class TrustedPosixOffsetInfo(
+    public var offset: UInt = 0u,
+)
 
 public class UserAllInformation(
     public var lastLogon: Long = 0L,
@@ -710,7 +862,9 @@ public class UserAllInformation(
     public var privateDataSensitive: Boolean = false,
 )
 
-public data class UserSessionKey(public var data: List<CypherBlock> = List(2) { CypherBlock() })
+public data class UserSessionKey(
+    public var data: List<CypherBlock> = List(2) { CypherBlock() },
+)
 
 public data class X509Certificate(
     public var version: UInt = 0u,

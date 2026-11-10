@@ -26,7 +26,10 @@ public data class MiApplicationFt(
     public var newClass: Int = 0,
 )
 
-public data class MiArray(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiArray(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiArrayField(
     public var value: MiArray = MiArray(),
@@ -34,7 +37,10 @@ public data class MiArrayField(
     public var flags: UByte = 0u,
 )
 
-public data class MiBooleanA(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiBooleanA(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiBooleanAfield(
     public var value: MiBooleanA = MiBooleanA(),
@@ -48,7 +54,10 @@ public data class MiBooleanField(
     public var flags: UByte = 0u,
 )
 
-public data class MiChar16A(public var data: UShort? = null, public var size: UInt = 0u)
+public data class MiChar16A(
+    public var data: UShort? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiChar16Afield(
     public var value: MiChar16A = MiChar16A(),
@@ -138,7 +147,10 @@ public data class MiClientFtV1(
     public var utilitiesFT: MiUtilitiesFt? = null,
 )
 
-public data class MiConstBooleanA(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiConstBooleanA(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstBooleanAfield(
     public var value: MiConstBooleanA = MiConstBooleanA(),
@@ -152,7 +164,10 @@ public data class MiConstBooleanField(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstChar16A(public var data: UShort? = null, public var size: UInt = 0u)
+public data class MiConstChar16A(
+    public var data: UShort? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstChar16Afield(
     public var value: MiConstChar16A = MiConstChar16A(),
@@ -166,7 +181,10 @@ public data class MiConstChar16Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstDatetimeA(public var data: MiDatetime? = null, public var size: UInt = 0u)
+public data class MiConstDatetimeA(
+    public var data: MiDatetime? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstDatetimeAfield(
     public var value: MiConstDatetimeA = MiConstDatetimeA(),
@@ -180,7 +198,10 @@ public data class MiConstDatetimeField(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstInstanceA(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiConstInstanceA(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstInstanceAfield(
     public var value: MiConstInstanceA = MiConstInstanceA(),
@@ -194,7 +215,10 @@ public data class MiConstInstanceField(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstReal32A(public var data: Float? = null, public var size: UInt = 0u)
+public data class MiConstReal32A(
+    public var data: Float? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstReal32Afield(
     public var value: MiConstReal32A = MiConstReal32A(),
@@ -208,7 +232,10 @@ public data class MiConstReal32Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstReal64A(public var data: Double? = null, public var size: UInt = 0u)
+public data class MiConstReal64A(
+    public var data: Double? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstReal64Afield(
     public var value: MiConstReal64A = MiConstReal64A(),
@@ -222,7 +249,10 @@ public data class MiConstReal64Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstReferenceA(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiConstReferenceA(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstReferenceAfield(
     public var value: MiConstReferenceA = MiConstReferenceA(),
@@ -236,7 +266,10 @@ public data class MiConstReferenceField(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstSint16A(public var data: Short? = null, public var size: UInt = 0u)
+public data class MiConstSint16A(
+    public var data: Short? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstSint16Afield(
     public var value: MiConstSint16A = MiConstSint16A(),
@@ -250,7 +283,10 @@ public data class MiConstSint16Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstSint32A(public var data: Int? = null, public var size: UInt = 0u)
+public data class MiConstSint32A(
+    public var data: Int? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstSint32Afield(
     public var value: MiConstSint32A = MiConstSint32A(),
@@ -264,7 +300,10 @@ public data class MiConstSint32Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstSint64A(public var data: Long? = null, public var size: UInt = 0u)
+public data class MiConstSint64A(
+    public var data: Long? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstSint64Afield(
     public var value: MiConstSint64A = MiConstSint64A(),
@@ -278,7 +317,10 @@ public data class MiConstSint64Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstSint8A(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiConstSint8A(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstSint8Afield(
     public var value: MiConstSint8A = MiConstSint8A(),
@@ -292,7 +334,10 @@ public data class MiConstSint8Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstStringA(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiConstStringA(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstStringAfield(
     public var value: MiConstStringA = MiConstStringA(),
@@ -306,7 +351,10 @@ public data class MiConstStringField(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstUint16A(public var data: UShort? = null, public var size: UInt = 0u)
+public data class MiConstUint16A(
+    public var data: UShort? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstUint16Afield(
     public var value: MiConstUint16A = MiConstUint16A(),
@@ -320,7 +368,10 @@ public data class MiConstUint16Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstUint32A(public var data: UInt? = null, public var size: UInt = 0u)
+public data class MiConstUint32A(
+    public var data: UInt? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstUint32Afield(
     public var value: MiConstUint32A = MiConstUint32A(),
@@ -334,7 +385,10 @@ public data class MiConstUint32Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstUint64A(public var data: ULong? = null, public var size: UInt = 0u)
+public data class MiConstUint64A(
+    public var data: ULong? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstUint64Afield(
     public var value: MiConstUint64A = MiConstUint64A(),
@@ -348,7 +402,10 @@ public data class MiConstUint64Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiConstUint8A(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiConstUint8A(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiConstUint8Afield(
     public var value: MiConstUint8A = MiConstUint8A(),
@@ -362,7 +419,10 @@ public data class MiConstUint8Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiContext(public var ft: MiContextFt? = null, public var reserved: IntArray = IntArray(3)) {
+public data class MiContext(
+    public var ft: MiContextFt? = null,
+    public var reserved: IntArray = IntArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is MiContext) return false
@@ -411,11 +471,20 @@ public class MiContextFt(
     public var writeError: Int = 0,
 )
 
-public data class MiDatetime(public var isTimestamp: UInt = 0u, public var u: MiDatetime0 = MiDatetime0())
+public data class MiDatetime(
+    public var isTimestamp: UInt = 0u,
+    public var u: MiDatetime0 = MiDatetime0(),
+)
 
-public data class MiDatetime0(public var timestamp: MiTimestamp = MiTimestamp(), public var interval: MiInterval = MiInterval())
+public data class MiDatetime0(
+    public var timestamp: MiTimestamp = MiTimestamp(),
+    public var interval: MiInterval = MiInterval(),
+)
 
-public data class MiDatetimeA(public var data: MiDatetime? = null, public var size: UInt = 0u)
+public data class MiDatetimeA(
+    public var data: MiDatetime? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiDatetimeAfield(
     public var value: MiDatetimeA = MiDatetimeA(),
@@ -429,7 +498,10 @@ public data class MiDatetimeField(
     public var flags: UByte = 0u,
 )
 
-public data class MiDeserializer(public var reserved1: ULong = 0uL, public var reserved2: Int = 0)
+public data class MiDeserializer(
+    public var reserved1: ULong = 0uL,
+    public var reserved2: Int = 0,
+)
 
 public data class MiDeserializerFt(
     public var close: Int = 0,
@@ -472,7 +544,10 @@ public data class MiFeatureDecl(
     public var numQualifiers: UInt = 0u,
 )
 
-public data class MiFilter(public var ft: MiFilterFt? = null, public var reserved: IntArray = IntArray(3)) {
+public data class MiFilter(
+    public var ft: MiFilterFt? = null,
+    public var reserved: IntArray = IntArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is MiFilter) return false
@@ -488,7 +563,10 @@ public data class MiFilter(public var ft: MiFilterFt? = null, public var reserve
     }
 }
 
-public data class MiFilterFt(public var evaluate: Int = 0, public var getExpression: Int = 0)
+public data class MiFilterFt(
+    public var evaluate: Int = 0,
+    public var getExpression: Int = 0,
+)
 
 public data class MiHostedProvider(
     public var reserved1: ULong = 0uL,
@@ -496,7 +574,10 @@ public data class MiHostedProvider(
     public var ft: MiHostedProviderFt? = null,
 )
 
-public data class MiHostedProviderFt(public var close: Int = 0, public var getApplication: Int = 0)
+public data class MiHostedProviderFt(
+    public var close: Int = 0,
+    public var getApplication: Int = 0,
+)
 
 public data class MiInstance(
     public var ft: MiInstanceFt? = null,
@@ -526,7 +607,10 @@ public data class MiInstance(
     }
 }
 
-public data class MiInstanceA(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiInstanceA(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiInstanceAfield(
     public var value: MiInstanceA = MiInstanceA(),
@@ -534,7 +618,10 @@ public data class MiInstanceAfield(
     public var flags: UByte = 0u,
 )
 
-public data class MiInstanceExFt(public var parent: MiInstanceFt = MiInstanceFt(), public var normalize: Int = 0)
+public data class MiInstanceExFt(
+    public var parent: MiInstanceFt = MiInstanceFt(),
+    public var normalize: Int = 0,
+)
 
 public class MiInstanceFt(
     public var clone: Int = 0,
@@ -701,7 +788,10 @@ public data class MiPropertyDecl(
     public var value: COpaquePointer? = null,
 )
 
-public data class MiPropertySet(public var ft: MiPropertySetFt? = null, public var reserved: IntArray = IntArray(3)) {
+public data class MiPropertySet(
+    public var ft: MiPropertySetFt? = null,
+    public var reserved: IntArray = IntArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is MiPropertySet) return false
@@ -773,7 +863,10 @@ public data class MiQualifierSetFt(
     public var getQualifier: Int = 0,
 )
 
-public data class MiReal32A(public var data: Float? = null, public var size: UInt = 0u)
+public data class MiReal32A(
+    public var data: Float? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiReal32Afield(
     public var value: MiReal32A = MiReal32A(),
@@ -787,7 +880,10 @@ public data class MiReal32Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiReal64A(public var data: Double? = null, public var size: UInt = 0u)
+public data class MiReal64A(
+    public var data: Double? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiReal64Afield(
     public var value: MiReal64A = MiReal64A(),
@@ -801,7 +897,10 @@ public data class MiReal64Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiReferenceA(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiReferenceA(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiReferenceAfield(
     public var value: MiReferenceA = MiReferenceA(),
@@ -822,7 +921,10 @@ public data class MiSchemaDecl(
     public var numClassDecls: UInt = 0u,
 )
 
-public data class MiSerializer(public var reserved1: ULong = 0uL, public var reserved2: Int = 0)
+public data class MiSerializer(
+    public var reserved1: ULong = 0uL,
+    public var reserved2: Int = 0,
+)
 
 public data class MiSerializerFt(
     public var close: Int = 0,
@@ -838,7 +940,10 @@ public data class MiServer(
     public var filterFT: MiFilterFt? = null,
 )
 
-public data class MiServerFt(public var getVersion: Int = 0, public var getSystemName: Int = 0)
+public data class MiServerFt(
+    public var getVersion: Int = 0,
+    public var getSystemName: Int = 0,
+)
 
 public data class MiSession(
     public var reserved1: ULong = 0uL,
@@ -870,7 +975,10 @@ public data class MiSessionFt(
     public var testConnection: Int = 0,
 )
 
-public data class MiSint16A(public var data: Short? = null, public var size: UInt = 0u)
+public data class MiSint16A(
+    public var data: Short? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiSint16Afield(
     public var value: MiSint16A = MiSint16A(),
@@ -884,7 +992,10 @@ public data class MiSint16Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiSint32A(public var data: Int? = null, public var size: UInt = 0u)
+public data class MiSint32A(
+    public var data: Int? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiSint32Afield(
     public var value: MiSint32A = MiSint32A(),
@@ -898,7 +1009,10 @@ public data class MiSint32Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiSint64A(public var data: Long? = null, public var size: UInt = 0u)
+public data class MiSint64A(
+    public var data: Long? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiSint64Afield(
     public var value: MiSint64A = MiSint64A(),
@@ -912,7 +1026,10 @@ public data class MiSint64Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiSint8A(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiSint8A(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiSint8Afield(
     public var value: MiSint8A = MiSint8A(),
@@ -926,7 +1043,10 @@ public data class MiSint8Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiStringA(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiStringA(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiStringAfield(
     public var value: MiStringA = MiStringA(),
@@ -977,7 +1097,10 @@ public data class MiTimestamp(
     public var utc: Int = 0,
 )
 
-public data class MiUint16A(public var data: UShort? = null, public var size: UInt = 0u)
+public data class MiUint16A(
+    public var data: UShort? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiUint16Afield(
     public var value: MiUint16A = MiUint16A(),
@@ -991,7 +1114,10 @@ public data class MiUint16Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiUint32A(public var data: UInt? = null, public var size: UInt = 0u)
+public data class MiUint32A(
+    public var data: UInt? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiUint32Afield(
     public var value: MiUint32A = MiUint32A(),
@@ -1005,7 +1131,10 @@ public data class MiUint32Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiUint64A(public var data: ULong? = null, public var size: UInt = 0u)
+public data class MiUint64A(
+    public var data: ULong? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiUint64Afield(
     public var value: MiUint64A = MiUint64A(),
@@ -1019,7 +1148,10 @@ public data class MiUint64Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiUint8A(public var data: COpaquePointer? = null, public var size: UInt = 0u)
+public data class MiUint8A(
+    public var data: COpaquePointer? = null,
+    public var size: UInt = 0u,
+)
 
 public data class MiUint8Afield(
     public var value: MiUint8A = MiUint8A(),
@@ -1033,9 +1165,15 @@ public data class MiUint8Field(
     public var flags: UByte = 0u,
 )
 
-public data class MiUserCredentials(public var authenticationType: UShort? = null, public var credentials: MiUserCredentials0 = MiUserCredentials0())
+public data class MiUserCredentials(
+    public var authenticationType: UShort? = null,
+    public var credentials: MiUserCredentials0 = MiUserCredentials0(),
+)
 
-public data class MiUserCredentials0(public var usernamePassword: MiUsernamePasswordCreds = MiUsernamePasswordCreds(), public var certificateThumbprint: UShort? = null)
+public data class MiUserCredentials0(
+    public var usernamePassword: MiUsernamePasswordCreds = MiUsernamePasswordCreds(),
+    public var certificateThumbprint: UShort? = null,
+)
 
 public data class MiUsernamePasswordCreds(
     public var domain: UShort? = null,
@@ -1043,7 +1181,10 @@ public data class MiUsernamePasswordCreds(
     public var password: UShort? = null,
 )
 
-public data class MiUtilitiesFt(public var mapErrorToMiErrorCategory: Int = 0, public var cimErrorFromErrorCode: Int = 0)
+public data class MiUtilitiesFt(
+    public var mapErrorToMiErrorCategory: Int = 0,
+    public var cimErrorFromErrorCode: Int = 0,
+)
 
 public class MiValue(
     public var boolean: UByte = 0u,

@@ -699,9 +699,8 @@ public actual fun fltLoadFilter(filtername: COpaquePointer?): Ntstatus =
 public actual fun fltLockUserBuffer(callbackdata: COpaquePointer?): Ntstatus =
     if (_windowsWdkStorageFilesystemMinifiltersNapiAddon != null) (_windowsWdkStorageFilesystemMinifiltersNapiAddon.windowssys_windows_wdk_storage_filesystem_minifilters_fltLockUserBuffer((callbackdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun fltNotifyFilterChangeDirectory(notifysync: PnotifySync, notifylist: COpaquePointer?, fscontext: COpaquePointer?, fulldirectoryname: COpaquePointer?, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifycallbackdata: COpaquePointer?, traversecallback: PcheckForTraverseAccess, subjectcontext: COpaquePointer?, filtercallback: PfilterReportChange) {
+public actual fun fltNotifyFilterChangeDirectory(notifysync: PnotifySync, notifylist: COpaquePointer?, fscontext: COpaquePointer?, fulldirectoryname: COpaquePointer?, watchtree: Boolean, ignorebuffer: Boolean, completionfilter: UInt, notifycallbackdata: COpaquePointer?, traversecallback: PcheckForTraverseAccess, subjectcontext: COpaquePointer?, filtercallback: PfilterReportChange): Unit =
     throw UnsupportedOperationException("Native FFI addon is not available")
-}
 
 public actual fun fltObjectDereference(fltobject: COpaquePointer?) {
     if (_windowsWdkStorageFilesystemMinifiltersNapiAddon != null) {

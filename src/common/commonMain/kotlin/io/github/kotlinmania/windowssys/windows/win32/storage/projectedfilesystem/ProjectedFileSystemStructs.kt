@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -30,13 +31,23 @@ public data class PrjCallbackData(
     public var instanceContext: COpaquePointer? = null,
 )
 
-public data class PrjCompleteCommandExtendedParameters(public var commandType: PrjCompleteCommandType = 0, public var anonymous: PrjCompleteCommandExtendedParameters0 = PrjCompleteCommandExtendedParameters0())
+public data class PrjCompleteCommandExtendedParameters(
+    public var commandType: PrjCompleteCommandType = 0,
+    public var anonymous: PrjCompleteCommandExtendedParameters0 = PrjCompleteCommandExtendedParameters0(),
+)
 
-public data class PrjCompleteCommandExtendedParameters0(public var notification: PrjCompleteCommandExtendedParameters00 = PrjCompleteCommandExtendedParameters00(), public var enumeration: PrjCompleteCommandExtendedParameters01 = PrjCompleteCommandExtendedParameters01())
+public data class PrjCompleteCommandExtendedParameters0(
+    public var notification: PrjCompleteCommandExtendedParameters00 = PrjCompleteCommandExtendedParameters00(),
+    public var enumeration: PrjCompleteCommandExtendedParameters01 = PrjCompleteCommandExtendedParameters01(),
+)
 
-public data class PrjCompleteCommandExtendedParameters01(public var dirEntryBufferHandle: PrjDirEntryBufferHandle = null)
+public data class PrjCompleteCommandExtendedParameters01(
+    public var dirEntryBufferHandle: PrjDirEntryBufferHandle = null,
+)
 
-public data class PrjCompleteCommandExtendedParameters00(public var notificationMask: PrjNotifyTypes = 0u)
+public data class PrjCompleteCommandExtendedParameters00(
+    public var notificationMask: PrjNotifyTypes = 0u,
+)
 
 public data class PrjExtendedInfo(
     public var infoType: PrjExtInfoType = 0,
@@ -44,9 +55,13 @@ public data class PrjExtendedInfo(
     public var anonymous: PrjExtendedInfo0 = PrjExtendedInfo0(),
 )
 
-public data class PrjExtendedInfo0(public var symlink: PrjExtendedInfo00 = PrjExtendedInfo00())
+public data class PrjExtendedInfo0(
+    public var symlink: PrjExtendedInfo00 = PrjExtendedInfo00(),
+)
 
-public data class PrjExtendedInfo00(public var targetName: Pcwstr = null)
+public data class PrjExtendedInfo00(
+    public var targetName: Pcwstr = null,
+)
 
 public data class PrjFileBasicInfo(
     public var isDirectory: Boolean = false,
@@ -58,7 +73,10 @@ public data class PrjFileBasicInfo(
     public var fileAttributes: UInt = 0u,
 )
 
-public data class PrjNotificationMapping(public var notificationBitMask: PrjNotifyTypes = 0u, public var notificationRoot: Pcwstr = null)
+public data class PrjNotificationMapping(
+    public var notificationBitMask: PrjNotifyTypes = 0u,
+    public var notificationRoot: Pcwstr = null,
+)
 
 public data class PrjNotificationParameters(
     public var postCreate: PrjNotificationParameters0 = PrjNotificationParameters0(),
@@ -66,11 +84,17 @@ public data class PrjNotificationParameters(
     public var fileDeletedOnHandleClose: PrjNotificationParameters2 = PrjNotificationParameters2(),
 )
 
-public data class PrjNotificationParameters2(public var isFileModified: Boolean = false)
+public data class PrjNotificationParameters2(
+    public var isFileModified: Boolean = false,
+)
 
-public data class PrjNotificationParameters1(public var notificationMask: PrjNotifyTypes = 0u)
+public data class PrjNotificationParameters1(
+    public var notificationMask: PrjNotifyTypes = 0u,
+)
 
-public data class PrjNotificationParameters0(public var notificationMask: PrjNotifyTypes = 0u)
+public data class PrjNotificationParameters0(
+    public var notificationMask: PrjNotifyTypes = 0u,
+)
 
 public data class PrjPlaceholderInfo(
     public var fileBasicInfo: PrjFileBasicInfo = PrjFileBasicInfo(),
@@ -103,13 +127,25 @@ public data class PrjPlaceholderInfo(
     }
 }
 
-public data class PrjPlaceholderInfo0(public var eaBufferSize: UInt = 0u, public var offsetToFirstEa: UInt = 0u)
+public data class PrjPlaceholderInfo0(
+    public var eaBufferSize: UInt = 0u,
+    public var offsetToFirstEa: UInt = 0u,
+)
 
-public data class PrjPlaceholderInfo1(public var securityBufferSize: UInt = 0u, public var offsetToSecurityDescriptor: UInt = 0u)
+public data class PrjPlaceholderInfo1(
+    public var securityBufferSize: UInt = 0u,
+    public var offsetToSecurityDescriptor: UInt = 0u,
+)
 
-public data class PrjPlaceholderInfo2(public var streamsInfoBufferSize: UInt = 0u, public var offsetToFirstStreamInfo: UInt = 0u)
+public data class PrjPlaceholderInfo2(
+    public var streamsInfoBufferSize: UInt = 0u,
+    public var offsetToFirstStreamInfo: UInt = 0u,
+)
 
-public data class PrjPlaceholderVersionInfo(public var providerID: UByteArray = UByteArray(128), public var contentID: UByteArray = UByteArray(128)) {
+public data class PrjPlaceholderVersionInfo(
+    public var providerID: UByteArray = UByteArray(128),
+    public var contentID: UByteArray = UByteArray(128),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PrjPlaceholderVersionInfo) return false
@@ -133,4 +169,7 @@ public data class PrjStartvirtualizingOptions(
     public var notificationMappingsCount: UInt = 0u,
 )
 
-public data class PrjVirtualizationInstanceInfo(public var instanceID: Guid = Guid(), public var writeAlignment: UInt = 0u)
+public data class PrjVirtualizationInstanceInfo(
+    public var instanceID: Guid = Guid(),
+    public var writeAlignment: UInt = 0u,
+)

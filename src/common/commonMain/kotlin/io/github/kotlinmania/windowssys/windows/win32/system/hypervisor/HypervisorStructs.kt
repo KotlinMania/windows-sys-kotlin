@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.hypervisor
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -15,7 +16,10 @@ public data class DosImageInfo(
     public var timestamp: UInt = 0u,
 )
 
-public data class GpaMemoryChunk(public var guestPhysicalStartPageIndex: ULong = 0uL, public var pageCount: ULong = 0uL)
+public data class GpaMemoryChunk(
+    public var guestPhysicalStartPageIndex: ULong = 0uL,
+    public var pageCount: ULong = 0uL,
+)
 
 public data class GuestOsInfo(
     public var asUINT64: ULong = 0uL,
@@ -23,9 +27,13 @@ public data class GuestOsInfo(
     public var openSource: GuestOsInfo1 = GuestOsInfo1(),
 )
 
-public data class GuestOsInfo0(public var bitfield: ULong = 0uL)
+public data class GuestOsInfo0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class GuestOsInfo1(public var bitfield: ULong = 0uL)
+public data class GuestOsInfo1(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class HdvPciDeviceInterface(
     public var version: HdvPciInterfaceVersion = 0,
@@ -59,7 +67,10 @@ public data class HvsocketAddressInfo(
     public var flags: UInt = 0u,
 )
 
-public data class ModuleInfo(public var processImageName: Pcstr = null, public var image: DosImageInfo = DosImageInfo())
+public data class ModuleInfo(
+    public var processImageName: Pcstr = null,
+    public var image: DosImageInfo = DosImageInfo(),
+)
 
 public data class SockaddrHv(
     public var family: AddressFamily = 0u,
@@ -77,7 +88,10 @@ public data class VirtualProcessorRegister(
     public var x64: VirtualProcessorRegister1 = VirtualProcessorRegister1(),
 )
 
-public data class VirtualProcessorRegister0(public var low64: ULong = 0uL, public var high64: ULong = 0uL)
+public data class VirtualProcessorRegister0(
+    public var low64: ULong = 0uL,
+    public var high64: ULong = 0uL,
+)
 
 public data class VirtualProcessorRegister1(
     public var segment: VirtualProcessorRegister10 = VirtualProcessorRegister10(),
@@ -95,9 +109,15 @@ public data class VirtualProcessorRegister12(
     public var anonymous: VirtualProcessorRegister120 = VirtualProcessorRegister120(),
 )
 
-public data class VirtualProcessorRegister120(public var lastFpRip: ULong = 0uL, public var anonymous: VirtualProcessorRegister1200 = VirtualProcessorRegister1200())
+public data class VirtualProcessorRegister120(
+    public var lastFpRip: ULong = 0uL,
+    public var anonymous: VirtualProcessorRegister1200 = VirtualProcessorRegister1200(),
+)
 
-public data class VirtualProcessorRegister1200(public var lastFpEip: UInt = 0u, public var lastFpCs: UShort = 0u)
+public data class VirtualProcessorRegister1200(
+    public var lastFpEip: UInt = 0u,
+    public var lastFpCs: UShort = 0u,
+)
 
 public data class VirtualProcessorRegister10(
     public var base: ULong = 0uL,
@@ -106,11 +126,19 @@ public data class VirtualProcessorRegister10(
     public var anonymous: VirtualProcessorRegister100 = VirtualProcessorRegister100(),
 )
 
-public data class VirtualProcessorRegister100(public var attributes: UShort = 0u, public var anonymous: VirtualProcessorRegister1000 = VirtualProcessorRegister1000())
+public data class VirtualProcessorRegister100(
+    public var attributes: UShort = 0u,
+    public var anonymous: VirtualProcessorRegister1000 = VirtualProcessorRegister1000(),
+)
 
-public data class VirtualProcessorRegister1000(public var bitfield: UShort = 0u)
+public data class VirtualProcessorRegister1000(
+    public var bitfield: UShort = 0u,
+)
 
-public data class VirtualProcessorRegister11(public var limit: UShort = 0u, public var base: ULong = 0uL)
+public data class VirtualProcessorRegister11(
+    public var limit: UShort = 0u,
+    public var base: ULong = 0uL,
+)
 
 public data class VirtualProcessorRegister13(
     public var anonymous: VirtualProcessorRegister130 = VirtualProcessorRegister130(),
@@ -118,23 +146,48 @@ public data class VirtualProcessorRegister13(
     public var xmmStatusControlMask: UInt = 0u,
 )
 
-public data class VirtualProcessorRegister130(public var lastFpRdp: ULong = 0uL, public var anonymous: VirtualProcessorRegister1300 = VirtualProcessorRegister1300())
+public data class VirtualProcessorRegister130(
+    public var lastFpRdp: ULong = 0uL,
+    public var anonymous: VirtualProcessorRegister1300 = VirtualProcessorRegister1300(),
+)
 
-public data class VirtualProcessorRegister1300(public var lastFpDp: UInt = 0u, public var lastFpDs: UShort = 0u)
+public data class VirtualProcessorRegister1300(
+    public var lastFpDp: UInt = 0u,
+    public var lastFpDs: UShort = 0u,
+)
 
-public data class VmGencounter(public var generationCount: ULong = 0uL, public var generationCountHigh: ULong = 0uL)
+public data class VmGencounter(
+    public var generationCount: ULong = 0uL,
+    public var generationCountHigh: ULong = 0uL,
+)
 
-public data class WhvAccessGpaControls(public var asUINT64: ULong = 0uL, public var anonymous: WhvAccessGpaControls0 = WhvAccessGpaControls0())
+public data class WhvAccessGpaControls(
+    public var asUINT64: ULong = 0uL,
+    public var anonymous: WhvAccessGpaControls0 = WhvAccessGpaControls0(),
+)
 
-public data class WhvAccessGpaControls0(public var cacheType: WhvCacheType = 0, public var reserved: UInt = 0u)
+public data class WhvAccessGpaControls0(
+    public var cacheType: WhvCacheType = 0,
+    public var reserved: UInt = 0u,
+)
 
-public data class WhvAdviseGpaRange(public var populate: WhvAdviseGpaRangePopulate = WhvAdviseGpaRangePopulate())
+public data class WhvAdviseGpaRange(
+    public var populate: WhvAdviseGpaRangePopulate = WhvAdviseGpaRangePopulate(),
+)
 
-public data class WhvAdviseGpaRangePopulate(public var flags: WhvAdviseGpaRangePopulateFlags = WhvAdviseGpaRangePopulateFlags(), public var accessType: WhvMemoryAccessType = 0)
+public data class WhvAdviseGpaRangePopulate(
+    public var flags: WhvAdviseGpaRangePopulateFlags = WhvAdviseGpaRangePopulateFlags(),
+    public var accessType: WhvMemoryAccessType = 0,
+)
 
-public data class WhvAdviseGpaRangePopulateFlags(public var asUINT32: UInt = 0u, public var anonymous: WhvAdviseGpaRangePopulateFlags0 = WhvAdviseGpaRangePopulateFlags0())
+public data class WhvAdviseGpaRangePopulateFlags(
+    public var asUINT32: UInt = 0u,
+    public var anonymous: WhvAdviseGpaRangePopulateFlags0 = WhvAdviseGpaRangePopulateFlags0(),
+)
 
-public data class WhvAdviseGpaRangePopulateFlags0(public var bitfield: UInt = 0u)
+public data class WhvAdviseGpaRangePopulateFlags0(
+    public var bitfield: UInt = 0u,
+)
 
 public class WhvCapability(
     public var hypervisorPresent: Bool = 0,
@@ -156,9 +209,14 @@ public class WhvCapability(
     public var schedulerFeatures: WhvSchedulerFeatures = WhvSchedulerFeatures(),
 )
 
-public data class WhvCapabilityFeatures(public var anonymous: WhvCapabilityFeatures0 = WhvCapabilityFeatures0(), public var asUINT64: ULong = 0uL)
+public data class WhvCapabilityFeatures(
+    public var anonymous: WhvCapabilityFeatures0 = WhvCapabilityFeatures0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvCapabilityFeatures0(public var bitfield: ULong = 0uL)
+public data class WhvCapabilityFeatures0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WhvCapabilityProcessorFrequencyCap(
     public var bitfield: UInt = 0u,
@@ -224,13 +282,23 @@ public data class WhvEmulatorMemoryAccessInfo(
     }
 }
 
-public data class WhvEmulatorStatus(public var anonymous: WhvEmulatorStatus0 = WhvEmulatorStatus0(), public var asUINT32: UInt = 0u)
+public data class WhvEmulatorStatus(
+    public var anonymous: WhvEmulatorStatus0 = WhvEmulatorStatus0(),
+    public var asUINT32: UInt = 0u,
+)
 
-public data class WhvEmulatorStatus0(public var bitfield: UInt = 0u)
+public data class WhvEmulatorStatus0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class WhvExtendedVmExits(public var anonymous: WhvExtendedVmExits0 = WhvExtendedVmExits0(), public var asUINT64: ULong = 0uL)
+public data class WhvExtendedVmExits(
+    public var anonymous: WhvExtendedVmExits0 = WhvExtendedVmExits0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvExtendedVmExits0(public var bitfield: ULong = 0uL)
+public data class WhvExtendedVmExits0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WhvHypercallContext(
     public var rax: ULong = 0uL,
@@ -275,9 +343,14 @@ public data class WhvHypercallContext(
     }
 }
 
-public data class WhvInternalActivityRegister(public var anonymous: WhvInternalActivityRegister0 = WhvInternalActivityRegister0(), public var asUINT64: ULong = 0uL)
+public data class WhvInternalActivityRegister(
+    public var anonymous: WhvInternalActivityRegister0 = WhvInternalActivityRegister0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvInternalActivityRegister0(public var bitfield: ULong = 0uL)
+public data class WhvInternalActivityRegister0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WhvInterruptControl(
     public var bitfield: ULong = 0uL,
@@ -316,11 +389,19 @@ public data class WhvMemoryAccessContext(
     }
 }
 
-public data class WhvMemoryAccessInfo(public var anonymous: WhvMemoryAccessInfo0 = WhvMemoryAccessInfo0(), public var asUINT32: UInt = 0u)
+public data class WhvMemoryAccessInfo(
+    public var anonymous: WhvMemoryAccessInfo0 = WhvMemoryAccessInfo0(),
+    public var asUINT32: UInt = 0u,
+)
 
-public data class WhvMemoryAccessInfo0(public var bitfield: UInt = 0u)
+public data class WhvMemoryAccessInfo0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class WhvMemoryRangeEntry(public var guestAddress: ULong = 0uL, public var sizeInBytes: ULong = 0uL)
+public data class WhvMemoryRangeEntry(
+    public var guestAddress: ULong = 0uL,
+    public var sizeInBytes: ULong = 0uL,
+)
 
 public data class WhvMsrActionEntry(
     public var index: UInt = 0u,
@@ -335,9 +416,14 @@ public data class WhvNotificationPortParameters(
     public var anonymous: WhvNotificationPortParameters0 = WhvNotificationPortParameters0(),
 )
 
-public data class WhvNotificationPortParameters0(public var doorbell: WhvDoorbellMatchData = WhvDoorbellMatchData(), public var event: WhvNotificationPortParameters00 = WhvNotificationPortParameters00())
+public data class WhvNotificationPortParameters0(
+    public var doorbell: WhvDoorbellMatchData = WhvDoorbellMatchData(),
+    public var event: WhvNotificationPortParameters00 = WhvNotificationPortParameters00(),
+)
 
-public data class WhvNotificationPortParameters00(public var connectionId: UInt = 0u)
+public data class WhvNotificationPortParameters00(
+    public var connectionId: UInt = 0u,
+)
 
 public data class WhvPartitionMemoryCounters(
     public var mapped4KPageCount: ULong = 0uL,
@@ -392,13 +478,23 @@ public data class WhvProcessorEventCounters(
     public var interruptCount: ULong = 0uL,
 )
 
-public data class WhvProcessorFeatures(public var anonymous: WhvProcessorFeatures0 = WhvProcessorFeatures0(), public var asUINT64: ULong = 0uL)
+public data class WhvProcessorFeatures(
+    public var anonymous: WhvProcessorFeatures0 = WhvProcessorFeatures0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvProcessorFeatures0(public var bitfield: ULong = 0uL)
+public data class WhvProcessorFeatures0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WhvProcessorFeatures1(public var anonymous: WhvProcessorFeatures10 = WhvProcessorFeatures10(), public var asUINT64: ULong = 0uL)
+public data class WhvProcessorFeatures1(
+    public var anonymous: WhvProcessorFeatures10 = WhvProcessorFeatures10(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvProcessorFeatures10(public var bitfield: ULong = 0uL)
+public data class WhvProcessorFeatures10(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WhvProcessorFeaturesBanks(
     public var banksCount: UInt = 0u,
@@ -406,7 +502,10 @@ public data class WhvProcessorFeaturesBanks(
     public var anonymous: WhvProcessorFeaturesBanks0 = WhvProcessorFeaturesBanks0(),
 )
 
-public data class WhvProcessorFeaturesBanks0(public var anonymous: WhvProcessorFeaturesBanks00 = WhvProcessorFeaturesBanks00(), public var asUINT64: ULongArray = ULongArray(2)) {
+public data class WhvProcessorFeaturesBanks0(
+    public var anonymous: WhvProcessorFeaturesBanks00 = WhvProcessorFeaturesBanks00(),
+    public var asUINT64: ULongArray = ULongArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WhvProcessorFeaturesBanks0) return false
@@ -422,9 +521,15 @@ public data class WhvProcessorFeaturesBanks0(public var anonymous: WhvProcessorF
     }
 }
 
-public data class WhvProcessorFeaturesBanks00(public var bank0: WhvProcessorFeatures = WhvProcessorFeatures(), public var bank1: WhvProcessorFeatures1 = WhvProcessorFeatures1())
+public data class WhvProcessorFeaturesBanks00(
+    public var bank0: WhvProcessorFeatures = WhvProcessorFeatures(),
+    public var bank1: WhvProcessorFeatures1 = WhvProcessorFeatures1(),
+)
 
-public data class WhvProcessorInterceptCounter(public var count: ULong = 0uL, public var time100ns: ULong = 0uL)
+public data class WhvProcessorInterceptCounter(
+    public var count: ULong = 0uL,
+    public var time100ns: ULong = 0uL,
+)
 
 public data class WhvProcessorInterceptCounters(
     public var pageInvalidations: WhvProcessorInterceptCounter = WhvProcessorInterceptCounter(),
@@ -443,11 +548,19 @@ public data class WhvProcessorInterceptCounters(
     public var rdpmcInstructions: WhvProcessorInterceptCounter = WhvProcessorInterceptCounter(),
 )
 
-public data class WhvProcessorPerfmonFeatures(public var anonymous: WhvProcessorPerfmonFeatures0 = WhvProcessorPerfmonFeatures0(), public var asUINT64: ULong = 0uL)
+public data class WhvProcessorPerfmonFeatures(
+    public var anonymous: WhvProcessorPerfmonFeatures0 = WhvProcessorPerfmonFeatures0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvProcessorPerfmonFeatures0(public var bitfield: ULong = 0uL)
+public data class WhvProcessorPerfmonFeatures0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WhvProcessorRuntimeCounters(public var totalRuntime100ns: ULong = 0uL, public var hypervisorRuntime100ns: ULong = 0uL)
+public data class WhvProcessorRuntimeCounters(
+    public var totalRuntime100ns: ULong = 0uL,
+    public var hypervisorRuntime100ns: ULong = 0uL,
+)
 
 public data class WhvProcessorSyntheticFeaturesCounters(
     public var syntheticInterruptsCount: ULong = 0uL,
@@ -458,9 +571,14 @@ public data class WhvProcessorSyntheticFeaturesCounters(
     public var virtualMmuHypercallsCount: ULong = 0uL,
 )
 
-public data class WhvProcessorXsaveFeatures(public var anonymous: WhvProcessorXsaveFeatures0 = WhvProcessorXsaveFeatures0(), public var asUINT64: ULong = 0uL)
+public data class WhvProcessorXsaveFeatures(
+    public var anonymous: WhvProcessorXsaveFeatures0 = WhvProcessorXsaveFeatures0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvProcessorXsaveFeatures0(public var bitfield: ULong = 0uL)
+public data class WhvProcessorXsaveFeatures0(
+    public var bitfield: ULong = 0uL,
+)
 
 public class WhvRegisterValue(
     public var reg128: WhvUint128 = WhvUint128(),
@@ -482,7 +600,9 @@ public class WhvRegisterValue(
     public var pendingDebugException: WhvX64PendingDebugException = WhvX64PendingDebugException(),
 )
 
-public data class WhvRunVpCanceledContext(public var cancelReason: WhvRunVpCancelReason = 0)
+public data class WhvRunVpCanceledContext(
+    public var cancelReason: WhvRunVpCancelReason = 0,
+)
 
 public data class WhvRunVpExitContext(
     public var exitReason: WhvRunVpExitReason = 0,
@@ -509,9 +629,14 @@ public data class WhvRunVpExitContext0(
     public var synicSintDeliverable: WhvSynicSintDeliverableContext = WhvSynicSintDeliverableContext(),
 )
 
-public data class WhvSchedulerFeatures(public var anonymous: WhvSchedulerFeatures0 = WhvSchedulerFeatures0(), public var asUINT64: ULong = 0uL)
+public data class WhvSchedulerFeatures(
+    public var anonymous: WhvSchedulerFeatures0 = WhvSchedulerFeatures0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvSchedulerFeatures0(public var bitfield: ULong = 0uL)
+public data class WhvSchedulerFeatures0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WhvSriovResourceDescriptor(
     public var pnpInstanceId: UShortArray = UShortArray(200),
@@ -551,9 +676,14 @@ public data class WhvSynicSintDeliverableContext(
     public var reserved2: UInt = 0u,
 )
 
-public data class WhvSyntheticProcessorFeatures(public var anonymous: WhvSyntheticProcessorFeatures0 = WhvSyntheticProcessorFeatures0(), public var asUINT64: ULong = 0uL)
+public data class WhvSyntheticProcessorFeatures(
+    public var anonymous: WhvSyntheticProcessorFeatures0 = WhvSyntheticProcessorFeatures0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvSyntheticProcessorFeatures0(public var bitfield: ULong = 0uL)
+public data class WhvSyntheticProcessorFeatures0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WhvSyntheticProcessorFeaturesBanks(
     public var banksCount: UInt = 0u,
@@ -561,7 +691,10 @@ public data class WhvSyntheticProcessorFeaturesBanks(
     public var anonymous: WhvSyntheticProcessorFeaturesBanks0 = WhvSyntheticProcessorFeaturesBanks0(),
 )
 
-public data class WhvSyntheticProcessorFeaturesBanks0(public var anonymous: WhvSyntheticProcessorFeaturesBanks00 = WhvSyntheticProcessorFeaturesBanks00(), public var asUINT64: ULongArray = ULongArray(1)) {
+public data class WhvSyntheticProcessorFeaturesBanks0(
+    public var anonymous: WhvSyntheticProcessorFeaturesBanks00 = WhvSyntheticProcessorFeaturesBanks00(),
+    public var asUINT64: ULongArray = ULongArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WhvSyntheticProcessorFeaturesBanks0) return false
@@ -577,9 +710,14 @@ public data class WhvSyntheticProcessorFeaturesBanks0(public var anonymous: WhvS
     }
 }
 
-public data class WhvSyntheticProcessorFeaturesBanks00(public var bank0: WhvSyntheticProcessorFeatures = WhvSyntheticProcessorFeatures())
+public data class WhvSyntheticProcessorFeaturesBanks00(
+    public var bank0: WhvSyntheticProcessorFeatures = WhvSyntheticProcessorFeatures(),
+)
 
-public data class WhvTranslateGvaResult(public var resultCode: WhvTranslateGvaResultCode = 0, public var reserved: UInt = 0u)
+public data class WhvTranslateGvaResult(
+    public var resultCode: WhvTranslateGvaResultCode = 0,
+    public var reserved: UInt = 0u,
+)
 
 public data class WhvTriggerParameters(
     public var triggerType: WhvTriggerType = 0,
@@ -600,7 +738,10 @@ public data class WhvTriggerParameters00(
     public var reserved: UInt = 0u,
 )
 
-public data class WhvUint128(public var anonymous: WhvUint1280 = WhvUint1280(), public var dword: UIntArray = UIntArray(4)) {
+public data class WhvUint128(
+    public var anonymous: WhvUint1280 = WhvUint1280(),
+    public var dword: UIntArray = UIntArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WhvUint128) return false
@@ -616,7 +757,10 @@ public data class WhvUint128(public var anonymous: WhvUint1280 = WhvUint1280(), 
     }
 }
 
-public data class WhvUint1280(public var low64: ULong = 0uL, public var high64: ULong = 0uL)
+public data class WhvUint1280(
+    public var low64: ULong = 0uL,
+    public var high64: ULong = 0uL,
+)
 
 public data class WhvVirtualProcessorProperty(
     public var propertyCode: WhvVirtualProcessorPropertyCode = 0,
@@ -624,7 +768,10 @@ public data class WhvVirtualProcessorProperty(
     public var anonymous: WhvVirtualProcessorProperty0 = WhvVirtualProcessorProperty0(),
 )
 
-public data class WhvVirtualProcessorProperty0(public var numaNode: UShort = 0u, public var padding: ULong = 0uL)
+public data class WhvVirtualProcessorProperty0(
+    public var numaNode: UShort = 0u,
+    public var padding: ULong = 0uL,
+)
 
 public data class WhvVpciDeviceNotification(
     public var notificationType: WhvVpciDeviceNotificationType = 0,
@@ -632,7 +779,9 @@ public data class WhvVpciDeviceNotification(
     public var anonymous: WhvVpciDeviceNotification0 = WhvVpciDeviceNotification0(),
 )
 
-public data class WhvVpciDeviceNotification0(public var reserved2: ULong = 0uL)
+public data class WhvVpciDeviceNotification0(
+    public var reserved2: ULong = 0uL,
+)
 
 public data class WhvVpciDeviceRegister(
     public var location: WhvVpciDeviceRegisterSpace = 0,
@@ -684,7 +833,9 @@ public data class WhvVpciMmioMapping(
     public var virtualAddress: COpaquePointer? = null,
 )
 
-public data class WhvVpciProbedBars(public var value: UIntArray = UIntArray(6)) {
+public data class WhvVpciProbedBars(
+    public var value: UIntArray = UIntArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WhvVpciProbedBars) return false
@@ -692,9 +843,7 @@ public data class WhvVpciProbedBars(public var value: UIntArray = UIntArray(6)) 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.value.contentHashCode()
-    }
+    override fun hashCode(): Int = this.value.contentHashCode()
 }
 
 public data class WhvVpExceptionContext(
@@ -734,9 +883,14 @@ public data class WhvVpExceptionContext(
     }
 }
 
-public data class WhvVpExceptionInfo(public var anonymous: WhvVpExceptionInfo0 = WhvVpExceptionInfo0(), public var asUINT32: UInt = 0u)
+public data class WhvVpExceptionInfo(
+    public var anonymous: WhvVpExceptionInfo0 = WhvVpExceptionInfo0(),
+    public var asUINT32: UInt = 0u,
+)
 
-public data class WhvVpExceptionInfo0(public var bitfield: UInt = 0u)
+public data class WhvVpExceptionInfo0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class WhvVpExitContext(
     public var executionState: WhvX64VpExecutionState = WhvX64VpExecutionState(),
@@ -748,11 +902,17 @@ public data class WhvVpExitContext(
     public var rflags: ULong = 0uL,
 )
 
-public data class WhvX64ApicEoiContext(public var interruptVector: UInt = 0u)
+public data class WhvX64ApicEoiContext(
+    public var interruptVector: UInt = 0u,
+)
 
-public data class WhvX64ApicInitSipiContext(public var apicIcr: ULong = 0uL)
+public data class WhvX64ApicInitSipiContext(
+    public var apicIcr: ULong = 0uL,
+)
 
-public data class WhvX64ApicSmiContext(public var apicIcr: ULong = 0uL)
+public data class WhvX64ApicSmiContext(
+    public var apicIcr: ULong = 0uL,
+)
 
 public data class WhvX64ApicWriteContext(
     public var type: WhvX64ApicWriteType = 0,
@@ -811,11 +971,19 @@ public data class WhvX64CpuidResult2(
     public var mask: WhvCpuidOutput = WhvCpuidOutput(),
 )
 
-public data class WhvX64DeliverabilityNotificationsRegister(public var anonymous: WhvX64DeliverabilityNotificationsRegister0 = WhvX64DeliverabilityNotificationsRegister0(), public var asUINT64: ULong = 0uL)
+public data class WhvX64DeliverabilityNotificationsRegister(
+    public var anonymous: WhvX64DeliverabilityNotificationsRegister0 = WhvX64DeliverabilityNotificationsRegister0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvX64DeliverabilityNotificationsRegister0(public var bitfield: ULong = 0uL)
+public data class WhvX64DeliverabilityNotificationsRegister0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WhvX64FpControlStatusRegister(public var anonymous: WhvX64FpControlStatusRegister0 = WhvX64FpControlStatusRegister0(), public var asUINT128: WhvUint128 = WhvUint128())
+public data class WhvX64FpControlStatusRegister(
+    public var anonymous: WhvX64FpControlStatusRegister0 = WhvX64FpControlStatusRegister0(),
+    public var asUINT128: WhvUint128 = WhvUint128(),
+)
 
 public data class WhvX64FpControlStatusRegister0(
     public var fpControl: UShort = 0u,
@@ -826,7 +994,10 @@ public data class WhvX64FpControlStatusRegister0(
     public var anonymous: WhvX64FpControlStatusRegister00 = WhvX64FpControlStatusRegister00(),
 )
 
-public data class WhvX64FpControlStatusRegister00(public var lastFpRip: ULong = 0uL, public var anonymous: WhvX64FpControlStatusRegister000 = WhvX64FpControlStatusRegister000())
+public data class WhvX64FpControlStatusRegister00(
+    public var lastFpRip: ULong = 0uL,
+    public var anonymous: WhvX64FpControlStatusRegister000 = WhvX64FpControlStatusRegister000(),
+)
 
 public data class WhvX64FpControlStatusRegister000(
     public var lastFpEip: UInt = 0u,
@@ -834,15 +1005,28 @@ public data class WhvX64FpControlStatusRegister000(
     public var reserved2: UShort = 0u,
 )
 
-public data class WhvX64FpRegister(public var anonymous: WhvX64FpRegister0 = WhvX64FpRegister0(), public var asUINT128: WhvUint128 = WhvUint128())
+public data class WhvX64FpRegister(
+    public var anonymous: WhvX64FpRegister0 = WhvX64FpRegister0(),
+    public var asUINT128: WhvUint128 = WhvUint128(),
+)
 
-public data class WhvX64FpRegister0(public var mantissa: ULong = 0uL, public var bitfield: ULong = 0uL)
+public data class WhvX64FpRegister0(
+    public var mantissa: ULong = 0uL,
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WhvX64InterruptionDeliverableContext(public var deliverableType: WhvX64PendingInterruptionType = 0)
+public data class WhvX64InterruptionDeliverableContext(
+    public var deliverableType: WhvX64PendingInterruptionType = 0,
+)
 
-public data class WhvX64InterruptStateRegister(public var anonymous: WhvX64InterruptStateRegister0 = WhvX64InterruptStateRegister0(), public var asUINT64: ULong = 0uL)
+public data class WhvX64InterruptStateRegister(
+    public var anonymous: WhvX64InterruptStateRegister0 = WhvX64InterruptStateRegister0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvX64InterruptStateRegister0(public var bitfield: ULong = 0uL)
+public data class WhvX64InterruptStateRegister0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WhvX64IoPortAccessContext(
     public var instructionByteCount: UByte = 0u,
@@ -893,9 +1077,14 @@ public data class WhvX64IoPortAccessContext(
     }
 }
 
-public data class WhvX64IoPortAccessInfo(public var anonymous: WhvX64IoPortAccessInfo0 = WhvX64IoPortAccessInfo0(), public var asUINT32: UInt = 0u)
+public data class WhvX64IoPortAccessInfo(
+    public var anonymous: WhvX64IoPortAccessInfo0 = WhvX64IoPortAccessInfo0(),
+    public var asUINT32: UInt = 0u,
+)
 
-public data class WhvX64IoPortAccessInfo0(public var bitfield: UInt = 0u)
+public data class WhvX64IoPortAccessInfo0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class WhvX64MsrAccessContext(
     public var accessInfo: WhvX64MsrAccessInfo = WhvX64MsrAccessInfo(),
@@ -904,19 +1093,37 @@ public data class WhvX64MsrAccessContext(
     public var rdx: ULong = 0uL,
 )
 
-public data class WhvX64MsrAccessInfo(public var anonymous: WhvX64MsrAccessInfo0 = WhvX64MsrAccessInfo0(), public var asUINT32: UInt = 0u)
+public data class WhvX64MsrAccessInfo(
+    public var anonymous: WhvX64MsrAccessInfo0 = WhvX64MsrAccessInfo0(),
+    public var asUINT32: UInt = 0u,
+)
 
-public data class WhvX64MsrAccessInfo0(public var bitfield: UInt = 0u)
+public data class WhvX64MsrAccessInfo0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class WhvX64MsrExitBitmap(public var asUINT64: ULong = 0uL, public var anonymous: WhvX64MsrExitBitmap0 = WhvX64MsrExitBitmap0())
+public data class WhvX64MsrExitBitmap(
+    public var asUINT64: ULong = 0uL,
+    public var anonymous: WhvX64MsrExitBitmap0 = WhvX64MsrExitBitmap0(),
+)
 
-public data class WhvX64MsrExitBitmap0(public var bitfield: ULong = 0uL)
+public data class WhvX64MsrExitBitmap0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WhvX64PendingDebugException(public var asUINT64: ULong = 0uL, public var anonymous: WhvX64PendingDebugException0 = WhvX64PendingDebugException0())
+public data class WhvX64PendingDebugException(
+    public var asUINT64: ULong = 0uL,
+    public var anonymous: WhvX64PendingDebugException0 = WhvX64PendingDebugException0(),
+)
 
-public data class WhvX64PendingDebugException0(public var bitfield: ULong = 0uL)
+public data class WhvX64PendingDebugException0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WhvX64PendingExceptionEvent(public var anonymous: WhvX64PendingExceptionEvent0 = WhvX64PendingExceptionEvent0(), public var asUINT128: WhvUint128 = WhvUint128())
+public data class WhvX64PendingExceptionEvent(
+    public var anonymous: WhvX64PendingExceptionEvent0 = WhvX64PendingExceptionEvent0(),
+    public var asUINT128: WhvUint128 = WhvUint128(),
+)
 
 public data class WhvX64PendingExceptionEvent0(
     public var bitfield: UInt = 0u,
@@ -924,13 +1131,25 @@ public data class WhvX64PendingExceptionEvent0(
     public var exceptionParameter: ULong = 0uL,
 )
 
-public data class WhvX64PendingExtIntEvent(public var anonymous: WhvX64PendingExtIntEvent0 = WhvX64PendingExtIntEvent0(), public var asUINT128: WhvUint128 = WhvUint128())
+public data class WhvX64PendingExtIntEvent(
+    public var anonymous: WhvX64PendingExtIntEvent0 = WhvX64PendingExtIntEvent0(),
+    public var asUINT128: WhvUint128 = WhvUint128(),
+)
 
-public data class WhvX64PendingExtIntEvent0(public var bitfield: ULong = 0uL, public var reserved2: ULong = 0uL)
+public data class WhvX64PendingExtIntEvent0(
+    public var bitfield: ULong = 0uL,
+    public var reserved2: ULong = 0uL,
+)
 
-public data class WhvX64PendingInterruptionRegister(public var anonymous: WhvX64PendingInterruptionRegister0 = WhvX64PendingInterruptionRegister0(), public var asUINT64: ULong = 0uL)
+public data class WhvX64PendingInterruptionRegister(
+    public var anonymous: WhvX64PendingInterruptionRegister0 = WhvX64PendingInterruptionRegister0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvX64PendingInterruptionRegister0(public var bitfield: UInt = 0u, public var errorCode: UInt = 0u)
+public data class WhvX64PendingInterruptionRegister0(
+    public var bitfield: UInt = 0u,
+    public var errorCode: UInt = 0u,
+)
 
 public data class WhvX64RdtscContext(
     public var tscAux: ULong = 0uL,
@@ -940,9 +1159,14 @@ public data class WhvX64RdtscContext(
     public var rdtscInfo: WhvX64RdtscInfo = WhvX64RdtscInfo(),
 )
 
-public data class WhvX64RdtscInfo(public var anonymous: WhvX64RdtscInfo0 = WhvX64RdtscInfo0(), public var asUINT64: ULong = 0uL)
+public data class WhvX64RdtscInfo(
+    public var anonymous: WhvX64RdtscInfo0 = WhvX64RdtscInfo0(),
+    public var asUINT64: ULong = 0uL,
+)
 
-public data class WhvX64RdtscInfo0(public var bitfield: ULong = 0uL)
+public data class WhvX64RdtscInfo0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WhvX64SegmentRegister(
     public var base: ULong = 0uL,
@@ -951,9 +1175,14 @@ public data class WhvX64SegmentRegister(
     public var anonymous: WhvX64SegmentRegister0 = WhvX64SegmentRegister0(),
 )
 
-public data class WhvX64SegmentRegister0(public var anonymous: WhvX64SegmentRegister00 = WhvX64SegmentRegister00(), public var attributes: UShort = 0u)
+public data class WhvX64SegmentRegister0(
+    public var anonymous: WhvX64SegmentRegister00 = WhvX64SegmentRegister00(),
+    public var attributes: UShort = 0u,
+)
 
-public data class WhvX64SegmentRegister00(public var bitfield: UShort = 0u)
+public data class WhvX64SegmentRegister00(
+    public var bitfield: UShort = 0u,
+)
 
 public data class WhvX64TableRegister(
     public var pad: UShortArray = UShortArray(3),
@@ -983,11 +1212,19 @@ public data class WhvX64UnsupportedFeatureContext(
     public var featureParameter: ULong = 0uL,
 )
 
-public data class WhvX64VpExecutionState(public var anonymous: WhvX64VpExecutionState0 = WhvX64VpExecutionState0(), public var asUINT16: UShort = 0u)
+public data class WhvX64VpExecutionState(
+    public var anonymous: WhvX64VpExecutionState0 = WhvX64VpExecutionState0(),
+    public var asUINT16: UShort = 0u,
+)
 
-public data class WhvX64VpExecutionState0(public var bitfield: UShort = 0u)
+public data class WhvX64VpExecutionState0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class WhvX64XmmControlStatusRegister(public var anonymous: WhvX64XmmControlStatusRegister0 = WhvX64XmmControlStatusRegister0(), public var asUINT128: WhvUint128 = WhvUint128())
+public data class WhvX64XmmControlStatusRegister(
+    public var anonymous: WhvX64XmmControlStatusRegister0 = WhvX64XmmControlStatusRegister0(),
+    public var asUINT128: WhvUint128 = WhvUint128(),
+)
 
 public data class WhvX64XmmControlStatusRegister0(
     public var anonymous: WhvX64XmmControlStatusRegister00 = WhvX64XmmControlStatusRegister00(),
@@ -995,7 +1232,10 @@ public data class WhvX64XmmControlStatusRegister0(
     public var xmmStatusControlMask: UInt = 0u,
 )
 
-public data class WhvX64XmmControlStatusRegister00(public var lastFpRdp: ULong = 0uL, public var anonymous: WhvX64XmmControlStatusRegister000 = WhvX64XmmControlStatusRegister000())
+public data class WhvX64XmmControlStatusRegister00(
+    public var lastFpRdp: ULong = 0uL,
+    public var anonymous: WhvX64XmmControlStatusRegister000 = WhvX64XmmControlStatusRegister000(),
+)
 
 public data class WhvX64XmmControlStatusRegister000(
     public var lastFpDp: UInt = 0u,

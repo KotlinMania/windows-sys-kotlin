@@ -162,7 +162,10 @@ public data class CryptuiCertMgrStruct(
     public var pszInitUsageOID: Pcstr = null,
 )
 
-public data class CryptuiInitdialogStruct(public var lParam: Lparam = 0L, public var pCertContext: CertContext? = null)
+public data class CryptuiInitdialogStruct(
+    public var lParam: Lparam = 0L,
+    public var pCertContext: CertContext? = null,
+)
 
 public class CryptuiViewcertificateStructa(
     public var dwSize: UInt = 0u,
@@ -185,7 +188,10 @@ public class CryptuiViewcertificateStructa(
     public var nStartPage: UInt = 0u,
 )
 
-public data class CryptuiViewcertificateStructa0(public var pCryptProviderData: CryptProviderData? = null, public var hWVTStateData: Handle = null)
+public data class CryptuiViewcertificateStructa0(
+    public var pCryptProviderData: CryptProviderData? = null,
+    public var hWVTStateData: Handle = null,
+)
 
 public class CryptuiViewcertificateStructw(
     public var dwSize: UInt = 0u,
@@ -208,7 +214,10 @@ public class CryptuiViewcertificateStructw(
     public var nStartPage: UInt = 0u,
 )
 
-public data class CryptuiViewcertificateStructw0(public var pCryptProviderData: CryptProviderData? = null, public var hWVTStateData: Handle = null)
+public data class CryptuiViewcertificateStructw0(
+    public var pCryptProviderData: CryptProviderData? = null,
+    public var hWVTStateData: Handle = null,
+)
 
 public data class CryptuiWizDigitalSignBlobInfo(
     public var dwSize: UInt = 0u,
@@ -225,7 +234,10 @@ public data class CryptuiWizDigitalSignCertPvkInfo(
     public var anonymous: CryptuiWizDigitalSignCertPvkInfo0 = CryptuiWizDigitalSignCertPvkInfo0(),
 )
 
-public data class CryptuiWizDigitalSignCertPvkInfo0(public var pPvkFileInfo: CryptuiWizDigitalSignPvkFileInfo? = null, public var pPvkProvInfo: CryptKeyProvInfo? = null)
+public data class CryptuiWizDigitalSignCertPvkInfo0(
+    public var pPvkFileInfo: CryptuiWizDigitalSignPvkFileInfo? = null,
+    public var pPvkProvInfo: CryptKeyProvInfo? = null,
+)
 
 public data class CryptuiWizDigitalSignContext(
     public var dwSize: UInt = 0u,
@@ -256,7 +268,10 @@ public data class CryptuiWizDigitalSignInfo(
     public var pSignExtInfo: CryptuiWizDigitalSignExtendedInfo? = null,
 )
 
-public data class CryptuiWizDigitalSignInfo0(public var pwszFileName: Pcwstr = null, public var pSignBlobInfo: CryptuiWizDigitalSignBlobInfo? = null)
+public data class CryptuiWizDigitalSignInfo0(
+    public var pwszFileName: Pcwstr = null,
+    public var pSignBlobInfo: CryptuiWizDigitalSignBlobInfo? = null,
+)
 
 public data class CryptuiWizDigitalSignInfo1(
     public var pSigningCertContext: CertContext? = null,

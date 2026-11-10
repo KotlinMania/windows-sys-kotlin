@@ -2,9 +2,14 @@ package io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext
 
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
 
-public data class CrossSlideParameter(public var threshold: CrossSlideThreshold = 0, public var distance: Float = 0.0f)
+public data class CrossSlideParameter(
+    public var threshold: CrossSlideThreshold = 0,
+    public var distance: Float = 0.0f,
+)
 
-public data class InteractionArgumentsCrossSlide(public var flags: CrossSlideFlags = 0u)
+public data class InteractionArgumentsCrossSlide(
+    public var flags: CrossSlideFlags = 0u,
+)
 
 public data class InteractionArgumentsManipulation(
     public var delta: ManipulationTransform = ManipulationTransform(),
@@ -13,9 +18,14 @@ public data class InteractionArgumentsManipulation(
     public var railsState: ManipulationRailsState = 0,
 )
 
-public data class InteractionArgumentsTap(public var count: UInt = 0u)
+public data class InteractionArgumentsTap(
+    public var count: UInt = 0u,
+)
 
-public data class InteractionContextConfiguration(public var interactionId: InteractionId = 0, public var enable: InteractionConfigurationFlags = 0u)
+public data class InteractionContextConfiguration(
+    public var interactionId: InteractionId = 0,
+    public var enable: InteractionConfigurationFlags = 0u,
+)
 
 public data class InteractionContextOutput(
     public var interactionId: InteractionId = 0,

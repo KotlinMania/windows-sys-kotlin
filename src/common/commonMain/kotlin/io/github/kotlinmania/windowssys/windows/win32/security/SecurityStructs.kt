@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -69,7 +70,9 @@ public data class AccessDeniedObjectAce(
     public var sidStart: UInt = 0u,
 )
 
-public data class AccessReasons(public var data: UIntArray = UIntArray(32)) {
+public data class AccessReasons(
+    public var data: UIntArray = UIntArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is AccessReasons) return false
@@ -77,9 +80,7 @@ public data class AccessReasons(public var data: UIntArray = UIntArray(32)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.data.contentHashCode()
-    }
+    override fun hashCode(): Int = this.data.contentHashCode()
 }
 
 public data class AceHeader(
@@ -96,7 +97,9 @@ public data class Acl(
     public var sbz2: UShort = 0u,
 )
 
-public data class AclRevisionInformation(public var aclRevision: UInt = 0u)
+public data class AclRevisionInformation(
+    public var aclRevision: UInt = 0u,
+)
 
 public data class AclSizeInformation(
     public var aceCount: UInt = 0u,
@@ -111,11 +114,19 @@ public data class ClaimSecurityAttributesInformation(
     public var attribute: ClaimSecurityAttributesInformation0 = ClaimSecurityAttributesInformation0(),
 )
 
-public data class ClaimSecurityAttributesInformation0(public var pAttributeV1: ClaimSecurityAttributeV1? = null)
+public data class ClaimSecurityAttributesInformation0(
+    public var pAttributeV1: ClaimSecurityAttributeV1? = null,
+)
 
-public data class ClaimSecurityAttributeFqbnValue(public var version: ULong = 0uL, public var name: Pwstr = null)
+public data class ClaimSecurityAttributeFqbnValue(
+    public var version: ULong = 0uL,
+    public var name: Pwstr = null,
+)
 
-public data class ClaimSecurityAttributeOctetStringValue(public var pValue: COpaquePointer? = null, public var valueLength: UInt = 0u)
+public data class ClaimSecurityAttributeOctetStringValue(
+    public var pValue: COpaquePointer? = null,
+    public var valueLength: UInt = 0u,
+)
 
 public data class ClaimSecurityAttributeRelativeV1(
     public var name: UInt = 0u,
@@ -178,11 +189,19 @@ public data class GenericMapping(
     public var genericAll: UInt = 0u,
 )
 
-public data class Llfiletime(public var anonymous: Llfiletime0 = Llfiletime0())
+public data class Llfiletime(
+    public var anonymous: Llfiletime0 = Llfiletime0(),
+)
 
-public data class Llfiletime0(public var ll: Long = 0L, public var ft: Filetime = Filetime())
+public data class Llfiletime0(
+    public var ll: Long = 0L,
+    public var ft: Filetime = Filetime(),
+)
 
-public data class LuidAndAttributes(public var luid: Luid = Luid(), public var attributes: TokenPrivilegesAttributes = 0u)
+public data class LuidAndAttributes(
+    public var luid: Luid = Luid(),
+    public var attributes: TokenPrivilegesAttributes = 0u,
+)
 
 public data class ObjectTypeList(
     public var level: UShort = 0u,
@@ -278,7 +297,10 @@ public data class SeSecurityDescriptor(
     public var securityDescriptor: PsecurityDescriptor = null,
 )
 
-public data class SeSid(public var sid: Sid = Sid(), public var buffer: UByteArray = UByteArray(68)) {
+public data class SeSid(
+    public var sid: Sid = Sid(),
+    public var buffer: UByteArray = UByteArray(68),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SeSid) return false
@@ -319,7 +341,10 @@ public data class Sid(
     }
 }
 
-public data class SidAndAttributes(public var sid: Psid = null, public var attributes: UInt = 0u)
+public data class SidAndAttributes(
+    public var sid: Psid = null,
+    public var attributes: UInt = 0u,
+)
 
 public data class SidAndAttributesHash(
     public var sidCount: UInt = 0u,
@@ -343,7 +368,9 @@ public data class SidAndAttributesHash(
     }
 }
 
-public data class SidIdentifierAuthority(public var value: UByteArray = UByteArray(6)) {
+public data class SidIdentifierAuthority(
+    public var value: UByteArray = UByteArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SidIdentifierAuthority) return false
@@ -351,9 +378,7 @@ public data class SidIdentifierAuthority(public var value: UByteArray = UByteArr
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.value.contentHashCode()
-    }
+    override fun hashCode(): Int = this.value.contentHashCode()
 }
 
 public data class SystemAccessFilterAce(
@@ -462,9 +487,13 @@ public data class TokenAccessInformation(
     public var securityAttributes: COpaquePointer? = null,
 )
 
-public data class TokenAppcontainerInformation(public var tokenAppContainer: Psid = null)
+public data class TokenAppcontainerInformation(
+    public var tokenAppContainer: Psid = null,
+)
 
-public data class TokenAuditPolicy(public var perUserPolicy: UByteArray = UByteArray(30)) {
+public data class TokenAuditPolicy(
+    public var perUserPolicy: UByteArray = UByteArray(30),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is TokenAuditPolicy) return false
@@ -472,9 +501,7 @@ public data class TokenAuditPolicy(public var perUserPolicy: UByteArray = UByteA
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.perUserPolicy.contentHashCode()
-    }
+    override fun hashCode(): Int = this.perUserPolicy.contentHashCode()
 }
 
 public data class TokenControl(
@@ -484,13 +511,22 @@ public data class TokenControl(
     public var tokenSource: TokenSource = TokenSource(),
 )
 
-public data class TokenDefaultDacl(public var defaultDacl: Acl? = null)
+public data class TokenDefaultDacl(
+    public var defaultDacl: Acl? = null,
+)
 
-public data class TokenDeviceClaims(public var deviceClaims: COpaquePointer? = null)
+public data class TokenDeviceClaims(
+    public var deviceClaims: COpaquePointer? = null,
+)
 
-public data class TokenElevation(public var tokenIsElevated: UInt = 0u)
+public data class TokenElevation(
+    public var tokenIsElevated: UInt = 0u,
+)
 
-public data class TokenGroups(public var groupCount: UInt = 0u, public var groups: List<SidAndAttributes> = List(1) { SidAndAttributes() })
+public data class TokenGroups(
+    public var groupCount: UInt = 0u,
+    public var groups: List<SidAndAttributes> = List(1) { SidAndAttributes() },
+)
 
 public data class TokenGroupsAndPrivileges(
     public var sidCount: UInt = 0u,
@@ -505,21 +541,39 @@ public data class TokenGroupsAndPrivileges(
     public var authenticationId: Luid = Luid(),
 )
 
-public data class TokenLinkedToken(public var linkedToken: Handle = null)
+public data class TokenLinkedToken(
+    public var linkedToken: Handle = null,
+)
 
-public data class TokenMandatoryLabel(public var label: SidAndAttributes = SidAndAttributes())
+public data class TokenMandatoryLabel(
+    public var label: SidAndAttributes = SidAndAttributes(),
+)
 
-public data class TokenMandatoryPolicy(public var policy: TokenMandatoryPolicyId = 0u)
+public data class TokenMandatoryPolicy(
+    public var policy: TokenMandatoryPolicyId = 0u,
+)
 
-public data class TokenOrigin(public var originatingLogonSession: Luid = Luid())
+public data class TokenOrigin(
+    public var originatingLogonSession: Luid = Luid(),
+)
 
-public data class TokenOwner(public var owner: Psid = null)
+public data class TokenOwner(
+    public var owner: Psid = null,
+)
 
-public data class TokenPrimaryGroup(public var primaryGroup: Psid = null)
+public data class TokenPrimaryGroup(
+    public var primaryGroup: Psid = null,
+)
 
-public data class TokenPrivileges(public var privilegeCount: UInt = 0u, public var privileges: List<LuidAndAttributes> = List(1) { LuidAndAttributes() })
+public data class TokenPrivileges(
+    public var privilegeCount: UInt = 0u,
+    public var privileges: List<LuidAndAttributes> = List(1) { LuidAndAttributes() },
+)
 
-public data class TokenSource(public var sourceName: ByteArray = ByteArray(8), public var sourceIdentifier: Luid = Luid()) {
+public data class TokenSource(
+    public var sourceName: ByteArray = ByteArray(8),
+    public var sourceIdentifier: Luid = Luid(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is TokenSource) return false
@@ -548,6 +602,10 @@ public data class TokenStatistics(
     public var modifiedId: Luid = Luid(),
 )
 
-public data class TokenUser(public var user: SidAndAttributes = SidAndAttributes())
+public data class TokenUser(
+    public var user: SidAndAttributes = SidAndAttributes(),
+)
 
-public data class TokenUserClaims(public var userClaims: COpaquePointer? = null)
+public data class TokenUserClaims(
+    public var userClaims: COpaquePointer? = null,
+)

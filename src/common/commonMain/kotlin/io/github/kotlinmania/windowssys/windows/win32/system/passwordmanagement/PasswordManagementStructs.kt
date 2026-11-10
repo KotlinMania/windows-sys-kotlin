@@ -1,7 +1,10 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.passwordmanagement
 
-public data class CypherBlock(public var data: ByteArray = ByteArray(8)) {
+public data class CypherBlock(
+    public var data: ByteArray = ByteArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CypherBlock) return false
@@ -9,16 +12,20 @@ public data class CypherBlock(public var data: ByteArray = ByteArray(8)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.data.contentHashCode()
-    }
+    override fun hashCode(): Int = this.data.contentHashCode()
 }
 
-public data class EncryptedLmOwfPassword(public var data: List<CypherBlock> = List(2) { CypherBlock() })
+public data class EncryptedLmOwfPassword(
+    public var data: List<CypherBlock> = List(2) { CypherBlock() },
+)
 
-public data class LmOwfPassword(public var data: List<CypherBlock> = List(2) { CypherBlock() })
+public data class LmOwfPassword(
+    public var data: List<CypherBlock> = List(2) { CypherBlock() },
+)
 
-public data class SamprEncryptedUserPassword(public var buffer: UByteArray = UByteArray(516)) {
+public data class SamprEncryptedUserPassword(
+    public var buffer: UByteArray = UByteArray(516),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SamprEncryptedUserPassword) return false
@@ -26,7 +33,5 @@ public data class SamprEncryptedUserPassword(public var buffer: UByteArray = UBy
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.buffer.contentHashCode()
-    }
+    override fun hashCode(): Int = this.buffer.contentHashCode()
 }

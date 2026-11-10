@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.errorreporting
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -172,7 +173,10 @@ public data class WerDumpCustomOptionsV3(
     }
 }
 
-public data class WerExceptionInformation(public var pExceptionPointers: ExceptionPointers? = null, public var bClientPointers: Bool = 0)
+public data class WerExceptionInformation(
+    public var pExceptionPointers: ExceptionPointers? = null,
+    public var bClientPointers: Bool = 0,
+)
 
 public data class WerReportInformation(
     public var dwSize: UInt = 0u,
@@ -435,7 +439,10 @@ public class WerReportMetadataV3(
     public var legacyBucketId: ULong = 0uL,
 )
 
-public data class WerReportParameter(public var name: UShortArray = UShortArray(129), public var value: UShortArray = UShortArray(260)) {
+public data class WerReportParameter(
+    public var name: UShortArray = UShortArray(129),
+    public var value: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WerReportParameter) return false
@@ -451,7 +458,10 @@ public data class WerReportParameter(public var name: UShortArray = UShortArray(
     }
 }
 
-public data class WerReportSignature(public var eventName: UShortArray = UShortArray(65), public var parameters: List<WerReportParameter> = List(10) { WerReportParameter() }) {
+public data class WerReportSignature(
+    public var eventName: UShortArray = UShortArray(65),
+    public var parameters: List<WerReportParameter> = List(10) { WerReportParameter() },
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WerReportSignature) return false

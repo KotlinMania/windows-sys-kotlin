@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverinstallation
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -29,7 +30,10 @@ public data class BusnumberRange(
     public var busrFlags: UInt = 0u,
 )
 
-public data class BusnumberResource(public var busNumberHeader: BusnumberDes = BusnumberDes(), public var busNumberData: List<BusnumberRange> = List(1) { BusnumberRange() })
+public data class BusnumberResource(
+    public var busNumberHeader: BusnumberDes = BusnumberDes(),
+    public var busNumberData: List<BusnumberRange> = List(1) { BusnumberRange() },
+)
 
 public data class CabinetInfoA(
     public var cabinetPath: Pcstr = null,
@@ -84,7 +88,9 @@ public data class CmNotifyEventData01(
     }
 }
 
-public data class CmNotifyEventData02(public var instanceId: UShortArray = UShortArray(1)) {
+public data class CmNotifyEventData02(
+    public var instanceId: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CmNotifyEventData02) return false
@@ -92,12 +98,13 @@ public data class CmNotifyEventData02(public var instanceId: UShortArray = UShor
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.instanceId.contentHashCode()
-    }
+    override fun hashCode(): Int = this.instanceId.contentHashCode()
 }
 
-public data class CmNotifyEventData00(public var classGuid: Guid = Guid(), public var symbolicLink: UShortArray = UShortArray(1)) {
+public data class CmNotifyEventData00(
+    public var classGuid: Guid = Guid(),
+    public var symbolicLink: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CmNotifyEventData00) return false
@@ -127,9 +134,13 @@ public data class CmNotifyFilter0(
     public var deviceInstance: CmNotifyFilter02 = CmNotifyFilter02(),
 )
 
-public data class CmNotifyFilter01(public var hTarget: Handle = null)
+public data class CmNotifyFilter01(
+    public var hTarget: Handle = null,
+)
 
-public data class CmNotifyFilter02(public var instanceId: UShortArray = UShortArray(200)) {
+public data class CmNotifyFilter02(
+    public var instanceId: UShortArray = UShortArray(200),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CmNotifyFilter02) return false
@@ -137,12 +148,12 @@ public data class CmNotifyFilter02(public var instanceId: UShortArray = UShortAr
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.instanceId.contentHashCode()
-    }
+    override fun hashCode(): Int = this.instanceId.contentHashCode()
 }
 
-public data class CmNotifyFilter00(public var classGuid: Guid = Guid())
+public data class CmNotifyFilter00(
+    public var classGuid: Guid = Guid(),
+)
 
 public data class CoinstallerContextData(
     public var postProcessing: Bool = 0,
@@ -222,7 +233,9 @@ public data class ConnectionDes(
     public var condId: Long = 0L,
 )
 
-public data class ConnectionResource(public var connectionHeader: ConnectionDes = ConnectionDes())
+public data class ConnectionResource(
+    public var connectionHeader: ConnectionDes = ConnectionDes(),
+)
 
 public data class CsDes(
     public var csdSignatureLength: UInt = 0u,
@@ -255,7 +268,9 @@ public data class CsDes(
     }
 }
 
-public data class CsResource(public var csHeader: CsDes = CsDes())
+public data class CsResource(
+    public var csHeader: CsDes = CsDes(),
+)
 
 public data class DevprivateDes(
     public var pdCount: UInt = 0u,
@@ -272,7 +287,10 @@ public data class DevprivateRange(
     public var prData3: UInt = 0u,
 )
 
-public data class DevprivateResource(public var prvHeader: DevprivateDes = DevprivateDes(), public var prvData: List<DevprivateRange> = List(1) { DevprivateRange() })
+public data class DevprivateResource(
+    public var prvHeader: DevprivateDes = DevprivateDes(),
+    public var prvData: List<DevprivateRange> = List(1) { DevprivateRange() },
+)
 
 public data class DmaDes(
     public var ddCount: UInt = 0u,
@@ -287,7 +305,10 @@ public data class DmaRange(
     public var drFlags: DdFlags = 0u,
 )
 
-public data class DmaResource(public var dmaHeader: DmaDes = DmaDes(), public var dmaData: List<DmaRange> = List(1) { DmaRange() })
+public data class DmaResource(
+    public var dmaHeader: DmaDes = DmaDes(),
+    public var dmaData: List<DmaRange> = List(1) { DmaRange() },
+)
 
 public data class FilepathsA(
     public var target: Pcstr = null,
@@ -459,7 +480,10 @@ public data class IoRange(
     public var iorAlias: ULong = 0uL,
 )
 
-public data class IoResource(public var ioHeader: IoDes = IoDes(), public var ioData: List<IoRange> = List(1) { IoRange() })
+public data class IoResource(
+    public var ioHeader: IoDes = IoDes(),
+    public var ioData: List<IoRange> = List(1) { IoRange() },
+)
 
 public data class IrqDes32(
     public var irqdCount: UInt = 0u,
@@ -483,9 +507,15 @@ public data class IrqRange(
     public var irqrFlags: IrqdFlags = 0u,
 )
 
-public data class IrqResource32(public var irqHeader: IrqDes32 = IrqDes32(), public var irqData: List<IrqRange> = List(1) { IrqRange() })
+public data class IrqResource32(
+    public var irqHeader: IrqDes32 = IrqDes32(),
+    public var irqData: List<IrqRange> = List(1) { IrqRange() },
+)
 
-public data class IrqResource64(public var irqHeader: IrqDes64 = IrqDes64(), public var irqData: List<IrqRange> = List(1) { IrqRange() })
+public data class IrqResource64(
+    public var irqHeader: IrqDes64 = IrqDes64(),
+    public var irqData: List<IrqRange> = List(1) { IrqRange() },
+)
 
 public data class MemDes(
     public var mdCount: UInt = 0u,
@@ -514,7 +544,10 @@ public data class MemLargeRange(
     public var mlrReserved: UInt = 0u,
 )
 
-public data class MemLargeResource(public var memLargeHeader: MemLargeDes = MemLargeDes(), public var memLargeData: List<MemLargeRange> = List(1) { MemLargeRange() })
+public data class MemLargeResource(
+    public var memLargeHeader: MemLargeDes = MemLargeDes(),
+    public var memLargeData: List<MemLargeRange> = List(1) { MemLargeRange() },
+)
 
 public data class MemRange(
     public var mrAlign: ULong = 0uL,
@@ -525,7 +558,10 @@ public data class MemRange(
     public var mrReserved: UInt = 0u,
 )
 
-public data class MemResource(public var memHeader: MemDes = MemDes(), public var memData: List<MemRange> = List(1) { MemRange() })
+public data class MemResource(
+    public var memHeader: MemDes = MemDes(),
+    public var memData: List<MemRange> = List(1) { MemRange() },
+)
 
 public data class MfcardDes(
     public var pmfCount: UInt = 0u,
@@ -561,7 +597,9 @@ public data class MfcardDes(
     }
 }
 
-public data class MfcardResource(public var mfCardHeader: MfcardDes = MfcardDes())
+public data class MfcardResource(
+    public var mfCardHeader: MfcardDes = MfcardDes(),
+)
 
 public data class PccardDes(
     public var pcdCount: UInt = 0u,
@@ -606,7 +644,9 @@ public data class PccardDes(
     }
 }
 
-public data class PccardResource(public var pcCardHeader: PccardDes = PccardDes())
+public data class PccardResource(
+    public var pcCardHeader: PccardDes = PccardDes(),
+)
 
 public data class SourceMediaA(
     public var reserved: Pcstr = null,
@@ -646,7 +686,10 @@ public data class SpAltplatformInfoV2(
     public var firstValidatedMinorVersion: UInt = 0u,
 )
 
-public data class SpAltplatformInfoV20(public var reserved: UShort = 0u, public var flags: UShort = 0u)
+public data class SpAltplatformInfoV20(
+    public var reserved: UShort = 0u,
+    public var flags: UShort = 0u,
+)
 
 public data class SpAltplatformInfoV3(
     public var cbSize: UInt = 0u,
@@ -662,7 +705,10 @@ public data class SpAltplatformInfoV3(
     public var buildNumber: UInt = 0u,
 )
 
-public data class SpAltplatformInfoV30(public var reserved: UShort = 0u, public var flags: UShort = 0u)
+public data class SpAltplatformInfoV30(
+    public var reserved: UShort = 0u,
+    public var flags: UShort = 0u,
+)
 
 public data class SpBackupQueueParamsV1A(
     public var cbSize: UInt = 0u,
@@ -764,7 +810,10 @@ public data class SpClassimagelistData(
     public var reserved: Int = 0,
 )
 
-public data class SpClassinstallHeader(public var cbSize: UInt = 0u, public var installFunction: DiFunction = 0u)
+public data class SpClassinstallHeader(
+    public var cbSize: UInt = 0u,
+    public var installFunction: DiFunction = 0u,
+)
 
 public data class SpDetectdeviceParams(
     public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
@@ -779,7 +828,10 @@ public data class SpDeviceInterfaceData(
     public var reserved: Int = 0,
 )
 
-public data class SpDeviceInterfaceDetailDataA(public var cbSize: UInt = 0u, public var devicePath: ByteArray = ByteArray(1)) {
+public data class SpDeviceInterfaceDetailDataA(
+    public var cbSize: UInt = 0u,
+    public var devicePath: ByteArray = ByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SpDeviceInterfaceDetailDataA) return false
@@ -795,7 +847,10 @@ public data class SpDeviceInterfaceDetailDataA(public var cbSize: UInt = 0u, pub
     }
 }
 
-public data class SpDeviceInterfaceDetailDataW(public var cbSize: UInt = 0u, public var devicePath: UShortArray = UShortArray(1)) {
+public data class SpDeviceInterfaceDetailDataW(
+    public var cbSize: UInt = 0u,
+    public var devicePath: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SpDeviceInterfaceDetailDataW) return false
@@ -1405,7 +1460,10 @@ public data class SpOriginalFileInfoW(
     }
 }
 
-public data class SpPowermessagewakeParamsA(public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(), public var powerMessageWake: ByteArray = ByteArray(512)) {
+public data class SpPowermessagewakeParamsA(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var powerMessageWake: ByteArray = ByteArray(512),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SpPowermessagewakeParamsA) return false
@@ -1421,7 +1479,10 @@ public data class SpPowermessagewakeParamsA(public var classInstallHeader: SpCla
     }
 }
 
-public data class SpPowermessagewakeParamsW(public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(), public var powerMessageWake: UShortArray = UShortArray(512)) {
+public data class SpPowermessagewakeParamsW(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var powerMessageWake: UShortArray = UShortArray(512),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SpPowermessagewakeParamsW) return false

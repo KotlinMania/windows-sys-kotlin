@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -30,7 +31,9 @@ public data class ClassicEventId(
     }
 }
 
-public data class ControltraceHandle(public var value: ULong = 0uL)
+public data class ControltraceHandle(
+    public var value: ULong = 0uL,
+)
 
 public data class EnableTraceParameters(
     public var version: UInt = 0u,
@@ -55,11 +58,20 @@ public data class EtwBufferCallbackInformation(
     public var buffersRead: UInt = 0u,
 )
 
-public data class EtwBufferContext(public var anonymous: EtwBufferContext0 = EtwBufferContext0(), public var loggerId: UShort = 0u)
+public data class EtwBufferContext(
+    public var anonymous: EtwBufferContext0 = EtwBufferContext0(),
+    public var loggerId: UShort = 0u,
+)
 
-public data class EtwBufferContext0(public var anonymous: EtwBufferContext00 = EtwBufferContext00(), public var processorIndex: UShort = 0u)
+public data class EtwBufferContext0(
+    public var anonymous: EtwBufferContext00 = EtwBufferContext00(),
+    public var processorIndex: UShort = 0u,
+)
 
-public data class EtwBufferContext00(public var processorNumber: UByte = 0u, public var alignment: UByte = 0u)
+public data class EtwBufferContext00(
+    public var processorNumber: UByte = 0u,
+    public var alignment: UByte = 0u,
+)
 
 public data class EtwBufferHeader(
     public var reserved1: UIntArray = UIntArray(4),
@@ -143,7 +155,10 @@ public data class EventDataDescriptor(
     public var anonymous: EventDataDescriptor0 = EventDataDescriptor0(),
 )
 
-public data class EventDataDescriptor0(public var reserved: UInt = 0u, public var anonymous: EventDataDescriptor00 = EventDataDescriptor00())
+public data class EventDataDescriptor0(
+    public var reserved: UInt = 0u,
+    public var anonymous: EventDataDescriptor00 = EventDataDescriptor00(),
+)
 
 public data class EventDataDescriptor00(
     public var type: UByte = 0u,
@@ -161,7 +176,9 @@ public data class EventDescriptor(
     public var keyword: ULong = 0uL,
 )
 
-public data class EventExtendedItemEventKey(public var key: ULong = 0uL)
+public data class EventExtendedItemEventKey(
+    public var key: ULong = 0uL,
+)
 
 public data class EventExtendedItemInstance(
     public var instanceId: UInt = 0u,
@@ -169,9 +186,13 @@ public data class EventExtendedItemInstance(
     public var parentGuid: Guid = Guid(),
 )
 
-public data class EventExtendedItemPebsIndex(public var pebsIndex: ULong = 0uL)
+public data class EventExtendedItemPebsIndex(
+    public var pebsIndex: ULong = 0uL,
+)
 
-public data class EventExtendedItemPmcCounters(public var counter: ULongArray = ULongArray(1)) {
+public data class EventExtendedItemPmcCounters(
+    public var counter: ULongArray = ULongArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is EventExtendedItemPmcCounters) return false
@@ -179,14 +200,16 @@ public data class EventExtendedItemPmcCounters(public var counter: ULongArray = 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.counter.contentHashCode()
-    }
+    override fun hashCode(): Int = this.counter.contentHashCode()
 }
 
-public data class EventExtendedItemProcessStartKey(public var processStartKey: ULong = 0uL)
+public data class EventExtendedItemProcessStartKey(
+    public var processStartKey: ULong = 0uL,
+)
 
-public data class EventExtendedItemRelatedActivityid(public var relatedActivityId: Guid = Guid())
+public data class EventExtendedItemRelatedActivityid(
+    public var relatedActivityId: Guid = Guid(),
+)
 
 public data class EventExtendedItemStackKey32(
     public var matchId: ULong = 0uL,
@@ -194,9 +217,15 @@ public data class EventExtendedItemStackKey32(
     public var padding: UInt = 0u,
 )
 
-public data class EventExtendedItemStackKey64(public var matchId: ULong = 0uL, public var stackKey: ULong = 0uL)
+public data class EventExtendedItemStackKey64(
+    public var matchId: ULong = 0uL,
+    public var stackKey: ULong = 0uL,
+)
 
-public data class EventExtendedItemStackTrace32(public var matchId: ULong = 0uL, public var address: UIntArray = UIntArray(1)) {
+public data class EventExtendedItemStackTrace32(
+    public var matchId: ULong = 0uL,
+    public var address: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is EventExtendedItemStackTrace32) return false
@@ -212,7 +241,10 @@ public data class EventExtendedItemStackTrace32(public var matchId: ULong = 0uL,
     }
 }
 
-public data class EventExtendedItemStackTrace64(public var matchId: ULong = 0uL, public var address: ULongArray = ULongArray(1)) {
+public data class EventExtendedItemStackTrace64(
+    public var matchId: ULong = 0uL,
+    public var address: ULongArray = ULongArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is EventExtendedItemStackTrace64) return false
@@ -228,7 +260,9 @@ public data class EventExtendedItemStackTrace64(public var matchId: ULong = 0uL,
     }
 }
 
-public data class EventExtendedItemTsId(public var sessionId: UInt = 0u)
+public data class EventExtendedItemTsId(
+    public var sessionId: UInt = 0u,
+)
 
 public data class EventFilterDescriptor(
     public var ptr: ULong = 0uL,
@@ -344,9 +378,15 @@ public data class EventHeader(
     public var activityId: Guid = Guid(),
 )
 
-public data class EventHeader0(public var anonymous: EventHeader00 = EventHeader00(), public var processorTime: ULong = 0uL)
+public data class EventHeader0(
+    public var anonymous: EventHeader00 = EventHeader00(),
+    public var processorTime: ULong = 0uL,
+)
 
-public data class EventHeader00(public var kernelTime: UInt = 0u, public var userTime: UInt = 0u)
+public data class EventHeader00(
+    public var kernelTime: UInt = 0u,
+    public var userTime: UInt = 0u,
+)
 
 public data class EventHeaderExtendedDataItem(
     public var reserved1: UShort = 0u,
@@ -356,7 +396,9 @@ public data class EventHeaderExtendedDataItem(
     public var dataPtr: ULong = 0uL,
 )
 
-public data class EventHeaderExtendedDataItem0(public var bitfield: UShort = 0u)
+public data class EventHeaderExtendedDataItem0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class EventInstanceHeader(
     public var size: UShort = 0u,
@@ -372,11 +414,20 @@ public data class EventInstanceHeader(
     public var parentRegHandle: ULong = 0uL,
 )
 
-public data class EventInstanceHeader0(public var fieldTypeFlags: UShort = 0u, public var anonymous: EventInstanceHeader00 = EventInstanceHeader00())
+public data class EventInstanceHeader0(
+    public var fieldTypeFlags: UShort = 0u,
+    public var anonymous: EventInstanceHeader00 = EventInstanceHeader00(),
+)
 
-public data class EventInstanceHeader00(public var headerType: UByte = 0u, public var markerFlags: UByte = 0u)
+public data class EventInstanceHeader00(
+    public var headerType: UByte = 0u,
+    public var markerFlags: UByte = 0u,
+)
 
-public data class EventInstanceHeader1(public var version: UInt = 0u, public var cls: EventInstanceHeader10 = EventInstanceHeader10())
+public data class EventInstanceHeader1(
+    public var version: UInt = 0u,
+    public var cls: EventInstanceHeader10 = EventInstanceHeader10(),
+)
 
 public data class EventInstanceHeader10(
     public var type: UByte = 0u,
@@ -390,15 +441,30 @@ public data class EventInstanceHeader2(
     public var anonymous2: EventInstanceHeader21 = EventInstanceHeader21(),
 )
 
-public data class EventInstanceHeader20(public var kernelTime: UInt = 0u, public var userTime: UInt = 0u)
+public data class EventInstanceHeader20(
+    public var kernelTime: UInt = 0u,
+    public var userTime: UInt = 0u,
+)
 
-public data class EventInstanceHeader21(public var eventId: UInt = 0u, public var flags: UInt = 0u)
+public data class EventInstanceHeader21(
+    public var eventId: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
-public data class EventInstanceInfo(public var regHandle: Handle = null, public var instanceId: UInt = 0u)
+public data class EventInstanceInfo(
+    public var regHandle: Handle = null,
+    public var instanceId: UInt = 0u,
+)
 
-public data class EventMapEntry(public var outputOffset: UInt = 0u, public var anonymous: EventMapEntry0 = EventMapEntry0())
+public data class EventMapEntry(
+    public var outputOffset: UInt = 0u,
+    public var anonymous: EventMapEntry0 = EventMapEntry0(),
+)
 
-public data class EventMapEntry0(public var value: UInt = 0u, public var inputOffset: UInt = 0u)
+public data class EventMapEntry0(
+    public var value: UInt = 0u,
+    public var inputOffset: UInt = 0u,
+)
 
 public data class EventMapInfo(
     public var nameOffset: UInt = 0u,
@@ -408,7 +474,10 @@ public data class EventMapInfo(
     public var mapEntryArray: List<EventMapEntry> = List(1) { EventMapEntry() },
 )
 
-public data class EventMapInfo0(public var mapEntryValueType: MapValuetype = 0, public var formatStringOffset: UInt = 0u)
+public data class EventMapInfo0(
+    public var mapEntryValueType: MapValuetype = 0,
+    public var formatStringOffset: UInt = 0u,
+)
 
 public data class EventPropertyInfo(
     public var flags: PropertyFlags = 0,
@@ -443,13 +512,24 @@ public data class EventPropertyInfo01(
     public var padding: UInt = 0u,
 )
 
-public data class EventPropertyInfo1(public var count: UShort = 0u, public var countPropertyIndex: UShort = 0u)
+public data class EventPropertyInfo1(
+    public var count: UShort = 0u,
+    public var countPropertyIndex: UShort = 0u,
+)
 
-public data class EventPropertyInfo2(public var length: UShort = 0u, public var lengthPropertyIndex: UShort = 0u)
+public data class EventPropertyInfo2(
+    public var length: UShort = 0u,
+    public var lengthPropertyIndex: UShort = 0u,
+)
 
-public data class EventPropertyInfo3(public var reserved: UInt = 0u, public var anonymous: EventPropertyInfo30 = EventPropertyInfo30())
+public data class EventPropertyInfo3(
+    public var reserved: UInt = 0u,
+    public var anonymous: EventPropertyInfo30 = EventPropertyInfo30(),
+)
 
-public data class EventPropertyInfo30(public var bitfield: UInt = 0u)
+public data class EventPropertyInfo30(
+    public var bitfield: UInt = 0u,
+)
 
 public data class EventRecord(
     public var eventHeader: EventHeader = EventHeader(),
@@ -471,7 +551,10 @@ public data class EventTrace(
     public var anonymous: EventTrace0 = EventTrace0(),
 )
 
-public data class EventTrace0(public var clientContext: UInt = 0u, public var bufferContext: EtwBufferContext = EtwBufferContext())
+public data class EventTrace0(
+    public var clientContext: UInt = 0u,
+    public var bufferContext: EtwBufferContext = EtwBufferContext(),
+)
 
 public data class EventTraceHeader(
     public var size: UShort = 0u,
@@ -484,11 +567,20 @@ public data class EventTraceHeader(
     public var anonymous4: EventTraceHeader3 = EventTraceHeader3(),
 )
 
-public data class EventTraceHeader0(public var fieldTypeFlags: UShort = 0u, public var anonymous: EventTraceHeader00 = EventTraceHeader00())
+public data class EventTraceHeader0(
+    public var fieldTypeFlags: UShort = 0u,
+    public var anonymous: EventTraceHeader00 = EventTraceHeader00(),
+)
 
-public data class EventTraceHeader00(public var headerType: UByte = 0u, public var markerFlags: UByte = 0u)
+public data class EventTraceHeader00(
+    public var headerType: UByte = 0u,
+    public var markerFlags: UByte = 0u,
+)
 
-public data class EventTraceHeader1(public var version: UInt = 0u, public var cls: EventTraceHeader10 = EventTraceHeader10())
+public data class EventTraceHeader1(
+    public var version: UInt = 0u,
+    public var cls: EventTraceHeader10 = EventTraceHeader10(),
+)
 
 public data class EventTraceHeader10(
     public var type: UByte = 0u,
@@ -496,7 +588,10 @@ public data class EventTraceHeader10(
     public var version: UShort = 0u,
 )
 
-public data class EventTraceHeader2(public var guid: Guid = Guid(), public var guidPtr: ULong = 0uL)
+public data class EventTraceHeader2(
+    public var guid: Guid = Guid(),
+    public var guidPtr: ULong = 0uL,
+)
 
 public data class EventTraceHeader3(
     public var anonymous1: EventTraceHeader30 = EventTraceHeader30(),
@@ -504,9 +599,15 @@ public data class EventTraceHeader3(
     public var anonymous2: EventTraceHeader31 = EventTraceHeader31(),
 )
 
-public data class EventTraceHeader30(public var kernelTime: UInt = 0u, public var userTime: UInt = 0u)
+public data class EventTraceHeader30(
+    public var kernelTime: UInt = 0u,
+    public var userTime: UInt = 0u,
+)
 
-public data class EventTraceHeader31(public var clientContext: UInt = 0u, public var flags: UInt = 0u)
+public data class EventTraceHeader31(
+    public var clientContext: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
 public data class EventTraceLogfilea(
     public var logFileName: Pstr = null,
@@ -525,9 +626,15 @@ public data class EventTraceLogfilea(
     public var context: COpaquePointer? = null,
 )
 
-public data class EventTraceLogfilea0(public var logFileMode: UInt = 0u, public var processTraceMode: UInt = 0u)
+public data class EventTraceLogfilea0(
+    public var logFileMode: UInt = 0u,
+    public var processTraceMode: UInt = 0u,
+)
 
-public data class EventTraceLogfilea1(public var eventCallback: PeventCallback = null, public var eventRecordCallback: PeventRecordCallback = null)
+public data class EventTraceLogfilea1(
+    public var eventCallback: PeventCallback = null,
+    public var eventRecordCallback: PeventRecordCallback = null,
+)
 
 public data class EventTraceLogfilew(
     public var logFileName: Pwstr = null,
@@ -546,9 +653,15 @@ public data class EventTraceLogfilew(
     public var context: COpaquePointer? = null,
 )
 
-public data class EventTraceLogfilew0(public var logFileMode: UInt = 0u, public var processTraceMode: UInt = 0u)
+public data class EventTraceLogfilew0(
+    public var logFileMode: UInt = 0u,
+    public var processTraceMode: UInt = 0u,
+)
 
-public data class EventTraceLogfilew1(public var eventCallback: PeventCallback = null, public var eventRecordCallback: PeventRecordCallback = null)
+public data class EventTraceLogfilew1(
+    public var eventCallback: PeventCallback = null,
+    public var eventRecordCallback: PeventRecordCallback = null,
+)
 
 public class EventTraceProperties(
     public var wnode: WnodeHeader = WnodeHeader(),
@@ -571,7 +684,10 @@ public class EventTraceProperties(
     public var loggerNameOffset: UInt = 0u,
 )
 
-public data class EventTraceProperties0(public var ageLimit: Int = 0, public var flushThreshold: Int = 0)
+public data class EventTraceProperties0(
+    public var ageLimit: Int = 0,
+    public var flushThreshold: Int = 0,
+)
 
 public class EventTracePropertiesV2(
     public var wnode: WnodeHeader = WnodeHeader(),
@@ -598,15 +714,28 @@ public class EventTracePropertiesV2(
     public var anonymous3: EventTracePropertiesV22 = EventTracePropertiesV22(),
 )
 
-public data class EventTracePropertiesV20(public var ageLimit: Int = 0, public var flushThreshold: Int = 0)
+public data class EventTracePropertiesV20(
+    public var ageLimit: Int = 0,
+    public var flushThreshold: Int = 0,
+)
 
-public data class EventTracePropertiesV21(public var anonymous: EventTracePropertiesV210 = EventTracePropertiesV210(), public var v2Control: UInt = 0u)
+public data class EventTracePropertiesV21(
+    public var anonymous: EventTracePropertiesV210 = EventTracePropertiesV210(),
+    public var v2Control: UInt = 0u,
+)
 
-public data class EventTracePropertiesV210(public var bitfield: UInt = 0u)
+public data class EventTracePropertiesV210(
+    public var bitfield: UInt = 0u,
+)
 
-public data class EventTracePropertiesV22(public var anonymous: EventTracePropertiesV220 = EventTracePropertiesV220(), public var v2Options: ULong = 0uL)
+public data class EventTracePropertiesV22(
+    public var anonymous: EventTracePropertiesV220 = EventTracePropertiesV220(),
+    public var v2Options: ULong = 0uL,
+)
 
-public data class EventTracePropertiesV220(public var bitfield: UInt = 0u)
+public data class EventTracePropertiesV220(
+    public var bitfield: UInt = 0u,
+)
 
 public data class MofField(
     public var dataPtr: ULong = 0uL,
@@ -614,7 +743,10 @@ public data class MofField(
     public var dataType: UInt = 0u,
 )
 
-public data class Offsetinstancedataandlength(public var offsetInstanceData: UInt = 0u, public var lengthInstanceData: UInt = 0u)
+public data class Offsetinstancedataandlength(
+    public var offsetInstanceData: UInt = 0u,
+    public var lengthInstanceData: UInt = 0u,
+)
 
 public data class PayloadFilterPredicate(
     public var fieldName: Pwstr = null,
@@ -622,7 +754,9 @@ public data class PayloadFilterPredicate(
     public var value: Pwstr = null,
 )
 
-public data class ProcesstraceHandle(public var value: ULong = 0uL)
+public data class ProcesstraceHandle(
+    public var value: ULong = 0uL,
+)
 
 public data class ProfileSourceInfo(
     public var nextEntryOffset: UInt = 0u,
@@ -694,7 +828,9 @@ public data class ProviderFilterInfo(
     public var eventPropertyInfoArray: List<EventPropertyInfo> = List(1) { EventPropertyInfo() },
 )
 
-public data class RelogstreamHandle(public var value: ULong = 0uL)
+public data class RelogstreamHandle(
+    public var value: ULong = 0uL,
+)
 
 public data class TdhContext(
     public var parameterValue: ULong = 0uL,
@@ -736,15 +872,29 @@ public class TraceEventInfo(
     public var eventPropertyInfoArray: List<EventPropertyInfo> = List(1) { EventPropertyInfo() },
 )
 
-public data class TraceEventInfo0(public var eventNameOffset: UInt = 0u, public var activityIDNameOffset: UInt = 0u)
+public data class TraceEventInfo0(
+    public var eventNameOffset: UInt = 0u,
+    public var activityIDNameOffset: UInt = 0u,
+)
 
-public data class TraceEventInfo1(public var eventAttributesOffset: UInt = 0u, public var relatedActivityIDNameOffset: UInt = 0u)
+public data class TraceEventInfo1(
+    public var eventAttributesOffset: UInt = 0u,
+    public var relatedActivityIDNameOffset: UInt = 0u,
+)
 
-public data class TraceEventInfo2(public var flags: TemplateFlags = 0, public var anonymous: TraceEventInfo20 = TraceEventInfo20())
+public data class TraceEventInfo2(
+    public var flags: TemplateFlags = 0,
+    public var anonymous: TraceEventInfo20 = TraceEventInfo20(),
+)
 
-public data class TraceEventInfo20(public var bitfield: UInt = 0u)
+public data class TraceEventInfo20(
+    public var bitfield: UInt = 0u,
+)
 
-public data class TraceGuidInfo(public var instanceCount: UInt = 0u, public var reserved: UInt = 0u)
+public data class TraceGuidInfo(
+    public var instanceCount: UInt = 0u,
+    public var reserved: UInt = 0u,
+)
 
 public data class TraceGuidProperties(
     public var guid: Guid = Guid(),
@@ -755,7 +905,10 @@ public data class TraceGuidProperties(
     public var isEnable: Boolean = false,
 )
 
-public data class TraceGuidRegistration(public var guid: Guid? = null, public var regHandle: Handle = null)
+public data class TraceGuidRegistration(
+    public var guid: Guid? = null,
+    public var regHandle: Handle = null,
+)
 
 public class TraceLogfileHeader(
     public var bufferSize: UInt = 0u,
@@ -778,7 +931,10 @@ public class TraceLogfileHeader(
     public var buffersLost: UInt = 0u,
 )
 
-public data class TraceLogfileHeader0(public var version: UInt = 0u, public var versionDetail: TraceLogfileHeader00 = TraceLogfileHeader00())
+public data class TraceLogfileHeader0(
+    public var version: UInt = 0u,
+    public var versionDetail: TraceLogfileHeader00 = TraceLogfileHeader00(),
+)
 
 public data class TraceLogfileHeader00(
     public var majorVersion: UByte = 0u,
@@ -787,7 +943,10 @@ public data class TraceLogfileHeader00(
     public var subMinorVersion: UByte = 0u,
 )
 
-public data class TraceLogfileHeader1(public var logInstanceGuid: Guid = Guid(), public var anonymous: TraceLogfileHeader10 = TraceLogfileHeader10())
+public data class TraceLogfileHeader1(
+    public var logInstanceGuid: Guid = Guid(),
+    public var anonymous: TraceLogfileHeader10 = TraceLogfileHeader10(),
+)
 
 public data class TraceLogfileHeader10(
     public var startBuffers: UInt = 0u,
@@ -817,7 +976,10 @@ public class TraceLogfileHeader32(
     public var buffersLost: UInt = 0u,
 )
 
-public data class TraceLogfileHeader320(public var version: UInt = 0u, public var versionDetail: TraceLogfileHeader3200 = TraceLogfileHeader3200())
+public data class TraceLogfileHeader320(
+    public var version: UInt = 0u,
+    public var versionDetail: TraceLogfileHeader3200 = TraceLogfileHeader3200(),
+)
 
 public data class TraceLogfileHeader3200(
     public var majorVersion: UByte = 0u,
@@ -826,7 +988,10 @@ public data class TraceLogfileHeader3200(
     public var subMinorVersion: UByte = 0u,
 )
 
-public data class TraceLogfileHeader321(public var logInstanceGuid: Guid = Guid(), public var anonymous: TraceLogfileHeader3210 = TraceLogfileHeader3210())
+public data class TraceLogfileHeader321(
+    public var logInstanceGuid: Guid = Guid(),
+    public var anonymous: TraceLogfileHeader3210 = TraceLogfileHeader3210(),
+)
 
 public data class TraceLogfileHeader3210(
     public var startBuffers: UInt = 0u,
@@ -856,7 +1021,10 @@ public class TraceLogfileHeader64(
     public var buffersLost: UInt = 0u,
 )
 
-public data class TraceLogfileHeader640(public var version: UInt = 0u, public var versionDetail: TraceLogfileHeader6400 = TraceLogfileHeader6400())
+public data class TraceLogfileHeader640(
+    public var version: UInt = 0u,
+    public var versionDetail: TraceLogfileHeader6400 = TraceLogfileHeader6400(),
+)
 
 public data class TraceLogfileHeader6400(
     public var majorVersion: UByte = 0u,
@@ -865,7 +1033,10 @@ public data class TraceLogfileHeader6400(
     public var subMinorVersion: UByte = 0u,
 )
 
-public data class TraceLogfileHeader641(public var logInstanceGuid: Guid = Guid(), public var anonymous: TraceLogfileHeader6410 = TraceLogfileHeader6410())
+public data class TraceLogfileHeader641(
+    public var logInstanceGuid: Guid = Guid(),
+    public var anonymous: TraceLogfileHeader6410 = TraceLogfileHeader6410(),
+)
 
 public data class TraceLogfileHeader6410(
     public var startBuffers: UInt = 0u,
@@ -880,7 +1051,10 @@ public data class TracePeriodicCaptureStateInfo(
     public var reserved: UShort = 0u,
 )
 
-public data class TraceProfileInterval(public var source: UInt = 0u, public var interval: UInt = 0u)
+public data class TraceProfileInterval(
+    public var source: UInt = 0u,
+    public var interval: UInt = 0u,
+)
 
 public data class TraceProviderInfo(
     public var providerGuid: Guid = Guid(),
@@ -901,7 +1075,10 @@ public data class TraceStackCachingInfo(
     public var bucketCount: UInt = 0u,
 )
 
-public data class TraceVersionInfo(public var etwTraceProcessingVersion: UInt = 0u, public var reserved: UInt = 0u)
+public data class TraceVersionInfo(
+    public var etwTraceProcessingVersion: UInt = 0u,
+    public var reserved: UInt = 0u,
+)
 
 public data class Wmiregguidw(
     public var guid: Guid = Guid(),
@@ -934,9 +1111,14 @@ public data class WnodeAllData(
     public var anonymous: WnodeAllData0 = WnodeAllData0(),
 )
 
-public data class WnodeAllData0(public var fixedInstanceSize: UInt = 0u, public var offsetInstanceDataAndLength: List<Offsetinstancedataandlength> = List(1) { Offsetinstancedataandlength() })
+public data class WnodeAllData0(
+    public var fixedInstanceSize: UInt = 0u,
+    public var offsetInstanceDataAndLength: List<Offsetinstancedataandlength> = List(1) { Offsetinstancedataandlength() },
+)
 
-public data class WnodeEventItem(public var wnodeHeader: WnodeHeader = WnodeHeader())
+public data class WnodeEventItem(
+    public var wnodeHeader: WnodeHeader = WnodeHeader(),
+)
 
 public data class WnodeEventReference(
     public var wnodeHeader: WnodeHeader = WnodeHeader(),
@@ -945,7 +1127,10 @@ public data class WnodeEventReference(
     public var anonymous: WnodeEventReference0 = WnodeEventReference0(),
 )
 
-public data class WnodeEventReference0(public var targetInstanceIndex: UInt = 0u, public var targetInstanceName: UShortArray = UShortArray(1)) {
+public data class WnodeEventReference0(
+    public var targetInstanceIndex: UInt = 0u,
+    public var targetInstanceName: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WnodeEventReference0) return false
@@ -971,9 +1156,15 @@ public data class WnodeHeader(
     public var flags: UInt = 0u,
 )
 
-public data class WnodeHeader0(public var historicalContext: ULong = 0uL, public var anonymous: WnodeHeader00 = WnodeHeader00())
+public data class WnodeHeader0(
+    public var historicalContext: ULong = 0uL,
+    public var anonymous: WnodeHeader00 = WnodeHeader00(),
+)
 
-public data class WnodeHeader00(public var version: UInt = 0u, public var linkage: UInt = 0u)
+public data class WnodeHeader00(
+    public var version: UInt = 0u,
+    public var linkage: UInt = 0u,
+)
 
 public data class WnodeHeader1(
     public var countLost: UInt = 0u,
@@ -1080,4 +1271,7 @@ public data class WnodeSingleItem(
     }
 }
 
-public data class WnodeTooSmall(public var wnodeHeader: WnodeHeader = WnodeHeader(), public var sizeNeeded: UInt = 0u)
+public data class WnodeTooSmall(
+    public var wnodeHeader: WnodeHeader = WnodeHeader(),
+    public var sizeNeeded: UInt = 0u,
+)

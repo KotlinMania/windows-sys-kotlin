@@ -76,23 +76,47 @@ public data class ProcessMemoryCountersEx2(
     public var sharedCommitUsage: ULong = 0uL,
 )
 
-public data class PsapiWorkingSetBlock(public var flags: Int = 0, public var anonymous: PsapiWorkingSetBlock0 = PsapiWorkingSetBlock0())
+public data class PsapiWorkingSetBlock(
+    public var flags: Int = 0,
+    public var anonymous: PsapiWorkingSetBlock0 = PsapiWorkingSetBlock0(),
+)
 
-public data class PsapiWorkingSetBlock0(public var bitfield: Int = 0)
+public data class PsapiWorkingSetBlock0(
+    public var bitfield: Int = 0,
+)
 
-public data class PsapiWorkingSetExBlock(public var flags: Int = 0, public var anonymous: PsapiWorkingSetExBlock0 = PsapiWorkingSetExBlock0())
+public data class PsapiWorkingSetExBlock(
+    public var flags: Int = 0,
+    public var anonymous: PsapiWorkingSetExBlock0 = PsapiWorkingSetExBlock0(),
+)
 
-public data class PsapiWorkingSetExBlock0(public var anonymous: PsapiWorkingSetExBlock00 = PsapiWorkingSetExBlock00(), public var invalid: PsapiWorkingSetExBlock01 = PsapiWorkingSetExBlock01())
+public data class PsapiWorkingSetExBlock0(
+    public var anonymous: PsapiWorkingSetExBlock00 = PsapiWorkingSetExBlock00(),
+    public var invalid: PsapiWorkingSetExBlock01 = PsapiWorkingSetExBlock01(),
+)
 
-public data class PsapiWorkingSetExBlock00(public var bitfield: Int = 0)
+public data class PsapiWorkingSetExBlock00(
+    public var bitfield: Int = 0,
+)
 
-public data class PsapiWorkingSetExBlock01(public var bitfield: Int = 0)
+public data class PsapiWorkingSetExBlock01(
+    public var bitfield: Int = 0,
+)
 
-public data class PsapiWorkingSetExInformation(public var virtualAddress: COpaquePointer? = null, public var virtualAttributes: PsapiWorkingSetExBlock = PsapiWorkingSetExBlock())
+public data class PsapiWorkingSetExInformation(
+    public var virtualAddress: COpaquePointer? = null,
+    public var virtualAttributes: PsapiWorkingSetExBlock = PsapiWorkingSetExBlock(),
+)
 
-public data class PsapiWorkingSetInformation(public var numberOfEntries: Int = 0, public var workingSetInfo: List<PsapiWorkingSetBlock> = List(1) { PsapiWorkingSetBlock() })
+public data class PsapiWorkingSetInformation(
+    public var numberOfEntries: Int = 0,
+    public var workingSetInfo: List<PsapiWorkingSetBlock> = List(1) { PsapiWorkingSetBlock() },
+)
 
-public data class PsapiWsWatchInformation(public var faultingPc: COpaquePointer? = null, public var faultingVa: COpaquePointer? = null)
+public data class PsapiWsWatchInformation(
+    public var faultingPc: COpaquePointer? = null,
+    public var faultingVa: COpaquePointer? = null,
+)
 
 public data class PsapiWsWatchInformationEx(
     public var basicInfo: PsapiWsWatchInformation = PsapiWsWatchInformation(),

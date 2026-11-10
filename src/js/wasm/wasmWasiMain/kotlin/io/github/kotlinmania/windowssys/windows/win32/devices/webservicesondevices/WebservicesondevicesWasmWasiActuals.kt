@@ -9,9 +9,8 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 public actual fun wSDAllocateLinkedMemory(pparent: COpaquePointer?, cbsize: ULong): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wSDAttachLinkedMemory(pparent: COpaquePointer?, pchild: COpaquePointer?) {
+public actual fun wSDAttachLinkedMemory(pparent: COpaquePointer?, pchild: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun wSDCreateDeviceHost(pszlocalid: Pcwstr, pcontext: COpaquePointer?, ppdevicehost: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -58,13 +57,11 @@ public actual fun wSDCreateUdpAddress(ppaddress: COpaquePointer?): Hresult =
 public actual fun wSDCreateUdpMessageParameters(pptxparams: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wSDDetachLinkedMemory(pvoid: COpaquePointer?) {
+public actual fun wSDDetachLinkedMemory(pvoid: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun wSDFreeLinkedMemory(pvoid: COpaquePointer?) {
+public actual fun wSDFreeLinkedMemory(pvoid: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun wSDGenerateFault(pszcode: Pcwstr, pszsubcode: Pcwstr, pszreason: Pcwstr, pszdetail: Pcwstr, pcontext: COpaquePointer?, ppfault: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

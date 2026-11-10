@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -13,7 +14,10 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Nmhdr
 
-public data class Columnstatus(public var cPropCount: Int = 0, public var cPropsLoaded: Int = 0)
+public data class Columnstatus(
+    public var cPropCount: Int = 0,
+    public var cPropsLoaded: Int = 0,
+)
 
 public data class CProperty(
     public var dwPropID: UInt = 0u,
@@ -36,7 +40,10 @@ public data class Hhntrack(
     public var phhWinType: HhWintype? = null,
 )
 
-public data class HhnNotify(public var hdr: Nmhdr = Nmhdr(), public var pszUrl: Pcstr = null)
+public data class HhnNotify(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var pszUrl: Pcstr = null,
+)
 
 public data class HhAklink(
     public var cbStruct: Int = 0,
@@ -74,7 +81,10 @@ public data class HhFtsQuery(
     public var pszWindow: COpaquePointer? = null,
 )
 
-public data class HhGlobalProperty(public var id: HhGpropid = 0, public var variable: Variant = Variant())
+public data class HhGlobalProperty(
+    public var id: HhGpropid = 0,
+    public var variable: Variant = Variant(),
+)
 
 public data class HhPopup(
     public var cbStruct: Int = 0,

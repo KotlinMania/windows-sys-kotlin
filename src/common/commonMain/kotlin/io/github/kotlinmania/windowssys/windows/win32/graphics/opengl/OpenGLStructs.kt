@@ -3,7 +3,10 @@ package io.github.kotlinmania.windowssys.windows.win32.graphics.opengl
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Emr
 
-public data class Emrpixelformat(public var emr: Emr = Emr(), public var pfd: Pixelformatdescriptor = Pixelformatdescriptor())
+public data class Emrpixelformat(
+    public var emr: Emr = Emr(),
+    public var pfd: Pixelformatdescriptor = Pixelformatdescriptor(),
+)
 
 public data class Glyphmetricsfloat(
     public var gmfBlackBoxX: Float = 0.0f,
@@ -69,4 +72,7 @@ public class Pixelformatdescriptor(
     public var dwDamageMask: UInt = 0u,
 )
 
-public data class Pointfloat(public var x: Float = 0.0f, public var y: Float = 0.0f)
+public data class Pointfloat(
+    public var x: Float = 0.0f,
+    public var y: Float = 0.0f,
+)

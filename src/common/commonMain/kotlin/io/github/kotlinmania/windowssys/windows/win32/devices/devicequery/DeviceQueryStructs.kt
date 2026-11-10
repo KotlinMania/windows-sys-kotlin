@@ -6,7 +6,10 @@ import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devprop
 import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devproptype
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
-public data class DevpropFilterExpression(public var operator: DevpropOperator = 0u, public var property: Devproperty = Devproperty())
+public data class DevpropFilterExpression(
+    public var operator: DevpropOperator = 0u,
+    public var property: Devproperty = Devproperty(),
+)
 
 public data class DevObject(
     public var objectType: DevObjectType = 0,
@@ -22,6 +25,12 @@ public data class DevQueryParameter(
     public var buffer: COpaquePointer? = null,
 )
 
-public data class DevQueryResultActionData(public var action: DevQueryResultAction = 0, public var data: DevQueryResultActionData0 = DevQueryResultActionData0())
+public data class DevQueryResultActionData(
+    public var action: DevQueryResultAction = 0,
+    public var data: DevQueryResultActionData0 = DevQueryResultActionData0(),
+)
 
-public data class DevQueryResultActionData0(public var state: DevQueryState = 0, public var deviceObject: DevObject = DevObject())
+public data class DevQueryResultActionData0(
+    public var state: DevQueryState = 0,
+    public var deviceObject: DevObject = DevObject(),
+)

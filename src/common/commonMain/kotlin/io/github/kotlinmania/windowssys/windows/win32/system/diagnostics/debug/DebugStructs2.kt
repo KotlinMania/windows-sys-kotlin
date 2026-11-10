@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -15,7 +16,10 @@ public data class WheaXpfMcBankDescriptor(
     public var controlData: ULong = 0uL,
 )
 
-public data class WheaXpfNmiDescriptor(public var type: UShort = 0u, public var enabled: Boolean = false)
+public data class WheaXpfNmiDescriptor(
+    public var type: UShort = 0u,
+    public var enabled: Boolean = false,
+)
 
 public class Wow64Context(
     public var contextFlags: Wow64ContextFlags = 0u,
@@ -45,7 +49,10 @@ public class Wow64Context(
     public var extendedRegisters: UByteArray = UByteArray(512),
 )
 
-public data class Wow64DescriptorTableEntry(public var selector: UInt = 0u, public var descriptor: Wow64LdtEntry = Wow64LdtEntry())
+public data class Wow64DescriptorTableEntry(
+    public var selector: UInt = 0u,
+    public var descriptor: Wow64LdtEntry = Wow64LdtEntry(),
+)
 
 public data class Wow64FloatingSaveArea(
     public var controlWord: UInt = 0u,
@@ -93,9 +100,14 @@ public data class Wow64LdtEntry(
     public var highWord: Wow64LdtEntry0 = Wow64LdtEntry0(),
 )
 
-public data class Wow64LdtEntry0(public var bytes: Wow64LdtEntry00 = Wow64LdtEntry00(), public var bits: Wow64LdtEntry01 = Wow64LdtEntry01())
+public data class Wow64LdtEntry0(
+    public var bytes: Wow64LdtEntry00 = Wow64LdtEntry00(),
+    public var bits: Wow64LdtEntry01 = Wow64LdtEntry01(),
+)
 
-public data class Wow64LdtEntry01(public var bitfield: UInt = 0u)
+public data class Wow64LdtEntry01(
+    public var bitfield: UInt = 0u,
+)
 
 public data class Wow64LdtEntry00(
     public var baseMid: UByte = 0u,
@@ -104,15 +116,28 @@ public data class Wow64LdtEntry00(
     public var baseHi: UByte = 0u,
 )
 
-public data class XpfMceFlags(public var anonymous: XpfMceFlags0 = XpfMceFlags0(), public var asULONG: UInt = 0u)
+public data class XpfMceFlags(
+    public var anonymous: XpfMceFlags0 = XpfMceFlags0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class XpfMceFlags0(public var bitfield: UInt = 0u)
+public data class XpfMceFlags0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class XpfMcBankFlags(public var anonymous: XpfMcBankFlags0 = XpfMcBankFlags0(), public var asUCHAR: UByte = 0u)
+public data class XpfMcBankFlags(
+    public var anonymous: XpfMcBankFlags0 = XpfMcBankFlags0(),
+    public var asUCHAR: UByte = 0u,
+)
 
-public data class XpfMcBankFlags0(public var bitfield: UByte = 0u)
+public data class XpfMcBankFlags0(
+    public var bitfield: UByte = 0u,
+)
 
-public data class XsaveArea(public var legacyState: XsaveFormat = XsaveFormat(), public var header: XsaveAreaHeader = XsaveAreaHeader())
+public data class XsaveArea(
+    public var legacyState: XsaveFormat = XsaveFormat(),
+    public var header: XsaveAreaHeader = XsaveAreaHeader(),
+)
 
 public data class XsaveAreaHeader(
     public var mask: ULong = 0uL,
@@ -249,9 +274,14 @@ public data class XstateConfiguration(
     }
 }
 
-public data class XstateConfiguration0(public var controlFlags: UInt = 0u, public var anonymous: XstateConfiguration00 = XstateConfiguration00())
+public data class XstateConfiguration0(
+    public var controlFlags: UInt = 0u,
+    public var anonymous: XstateConfiguration00 = XstateConfiguration00(),
+)
 
-public data class XstateConfiguration00(public var bitfield: UInt = 0u)
+public data class XstateConfiguration00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class XstateConfigFeatureMscInfo(
     public var sizeOfInfo: UInt = 0u,
@@ -268,4 +298,7 @@ public data class XstateContext(
     public var buffer: COpaquePointer? = null,
 )
 
-public data class XstateFeature(public var offset: UInt = 0u, public var size: UInt = 0u)
+public data class XstateFeature(
+    public var offset: UInt = 0u,
+    public var size: UInt = 0u,
+)

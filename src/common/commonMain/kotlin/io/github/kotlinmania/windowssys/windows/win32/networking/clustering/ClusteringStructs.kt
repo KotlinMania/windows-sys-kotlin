@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -105,7 +106,10 @@ public data class ClresV4Functions(
     public var beginResourceTypeControlAsUser: PbeginRestypecallAsUserRoutine = null,
 )
 
-public data class ClusapiReasonHandler(public var lpParameter: COpaquePointer? = null, public var pfnHandler: PclusapiPfnReasonHandler = null)
+public data class ClusapiReasonHandler(
+    public var lpParameter: COpaquePointer? = null,
+    public var pfnHandler: PclusapiPfnReasonHandler = null,
+)
 
 public data class ClusctlGroupGetLastMoveTimeOutput(
     public var getTickCount64: ULong = 0uL,
@@ -119,9 +123,15 @@ public data class ClusctlResourceStateChangeReasonStruct(
     public var eReason: ClusterResourceStateChangeReason = 0,
 )
 
-public data class ClusctlResourceTypeStorageGetAvailableDisksEx2Input(public var dwFlags: UInt = 0u, public var guidPoolFilter: Guid = Guid())
+public data class ClusctlResourceTypeStorageGetAvailableDisksEx2Input(
+    public var dwFlags: UInt = 0u,
+    public var guidPoolFilter: Guid = Guid(),
+)
 
-public data class CluspropBinary(public var base: CluspropValue = CluspropValue(), public var rgb: UByteArray = UByteArray(1)) {
+public data class CluspropBinary(
+    public var base: CluspropValue = CluspropValue(),
+    public var rgb: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CluspropBinary) return false
@@ -168,23 +178,50 @@ public class CluspropBufferHelper(
     public var pFileTimeValue: CluspropFiletime? = null,
 )
 
-public data class CluspropDword(public var base: CluspropValue = CluspropValue(), public var dw: UInt = 0u)
+public data class CluspropDword(
+    public var base: CluspropValue = CluspropValue(),
+    public var dw: UInt = 0u,
+)
 
-public data class CluspropFiletime(public var base: CluspropValue = CluspropValue(), public var ft: Filetime = Filetime())
+public data class CluspropFiletime(
+    public var base: CluspropValue = CluspropValue(),
+    public var ft: Filetime = Filetime(),
+)
 
-public data class CluspropFtsetInfo(public var base: CluspropValue = CluspropValue(), public var base2: ClusFtsetInfo = ClusFtsetInfo())
+public data class CluspropFtsetInfo(
+    public var base: CluspropValue = CluspropValue(),
+    public var base2: ClusFtsetInfo = ClusFtsetInfo(),
+)
 
-public data class CluspropLargeInteger(public var base: CluspropValue = CluspropValue(), public var li: Long = 0L)
+public data class CluspropLargeInteger(
+    public var base: CluspropValue = CluspropValue(),
+    public var li: Long = 0L,
+)
 
-public data class CluspropList(public var nPropertyCount: UInt = 0u, public var propertyName: CluspropSz = CluspropSz())
+public data class CluspropList(
+    public var nPropertyCount: UInt = 0u,
+    public var propertyName: CluspropSz = CluspropSz(),
+)
 
-public data class CluspropLong(public var base: CluspropValue = CluspropValue(), public var l: Int = 0)
+public data class CluspropLong(
+    public var base: CluspropValue = CluspropValue(),
+    public var l: Int = 0,
+)
 
-public data class CluspropPartitionInfo(public var base: CluspropValue = CluspropValue(), public var base2: ClusPartitionInfo = ClusPartitionInfo())
+public data class CluspropPartitionInfo(
+    public var base: CluspropValue = CluspropValue(),
+    public var base2: ClusPartitionInfo = ClusPartitionInfo(),
+)
 
-public data class CluspropPartitionInfoEx(public var base: CluspropValue = CluspropValue(), public var base2: ClusPartitionInfoEx = ClusPartitionInfoEx())
+public data class CluspropPartitionInfoEx(
+    public var base: CluspropValue = CluspropValue(),
+    public var base2: ClusPartitionInfoEx = ClusPartitionInfoEx(),
+)
 
-public data class CluspropPartitionInfoEx2(public var base: CluspropPartitionInfoEx = CluspropPartitionInfoEx(), public var base2: ClusPartitionInfoEx2 = ClusPartitionInfoEx2())
+public data class CluspropPartitionInfoEx2(
+    public var base: CluspropPartitionInfoEx = CluspropPartitionInfoEx(),
+    public var base2: ClusPartitionInfoEx2 = ClusPartitionInfoEx2(),
+)
 
 public data class CluspropRequiredDependency(
     public var value: CluspropValue = CluspropValue(),
@@ -192,15 +229,30 @@ public data class CluspropRequiredDependency(
     public var resTypeName: CluspropSz = CluspropSz(),
 )
 
-public data class CluspropResourceClass(public var base: CluspropValue = CluspropValue(), public var rc: ClusterResourceClass = 0)
+public data class CluspropResourceClass(
+    public var base: CluspropValue = CluspropValue(),
+    public var rc: ClusterResourceClass = 0,
+)
 
-public data class CluspropResourceClassInfo(public var base: CluspropValue = CluspropValue(), public var base2: ClusResourceClassInfo = ClusResourceClassInfo())
+public data class CluspropResourceClassInfo(
+    public var base: CluspropValue = CluspropValue(),
+    public var base2: ClusResourceClassInfo = ClusResourceClassInfo(),
+)
 
-public data class CluspropScsiAddress(public var base: CluspropValue = CluspropValue(), public var base2: ClusScsiAddress = ClusScsiAddress())
+public data class CluspropScsiAddress(
+    public var base: CluspropValue = CluspropValue(),
+    public var base2: ClusScsiAddress = ClusScsiAddress(),
+)
 
-public data class CluspropSecurityDescriptor(public var base: CluspropValue = CluspropValue(), public var anonymous: CluspropSecurityDescriptor0 = CluspropSecurityDescriptor0())
+public data class CluspropSecurityDescriptor(
+    public var base: CluspropValue = CluspropValue(),
+    public var anonymous: CluspropSecurityDescriptor0 = CluspropSecurityDescriptor0(),
+)
 
-public data class CluspropSecurityDescriptor0(public var sd: SecurityDescriptorRelative = SecurityDescriptorRelative(), public var rgbSecurityDescriptor: UByteArray = UByteArray(1)) {
+public data class CluspropSecurityDescriptor0(
+    public var sd: SecurityDescriptorRelative = SecurityDescriptorRelative(),
+    public var rgbSecurityDescriptor: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CluspropSecurityDescriptor0) return false
@@ -216,11 +268,20 @@ public data class CluspropSecurityDescriptor0(public var sd: SecurityDescriptorR
     }
 }
 
-public data class CluspropSyntax(public var dw: UInt = 0u, public var anonymous: CluspropSyntax0 = CluspropSyntax0())
+public data class CluspropSyntax(
+    public var dw: UInt = 0u,
+    public var anonymous: CluspropSyntax0 = CluspropSyntax0(),
+)
 
-public data class CluspropSyntax0(public var wFormat: UShort = 0u, public var wType: UShort = 0u)
+public data class CluspropSyntax0(
+    public var wFormat: UShort = 0u,
+    public var wType: UShort = 0u,
+)
 
-public data class CluspropSz(public var base: CluspropValue = CluspropValue(), public var sz: UShortArray = UShortArray(1)) {
+public data class CluspropSz(
+    public var base: CluspropValue = CluspropValue(),
+    public var sz: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CluspropSz) return false
@@ -236,11 +297,20 @@ public data class CluspropSz(public var base: CluspropValue = CluspropValue(), p
     }
 }
 
-public data class CluspropUlargeInteger(public var base: CluspropValue = CluspropValue(), public var li: ULong = 0uL)
+public data class CluspropUlargeInteger(
+    public var base: CluspropValue = CluspropValue(),
+    public var li: ULong = 0uL,
+)
 
-public data class CluspropValue(public var syntax: CluspropSyntax = CluspropSyntax(), public var cbLength: UInt = 0u)
+public data class CluspropValue(
+    public var syntax: CluspropSyntax = CluspropSyntax(),
+    public var cbLength: UInt = 0u,
+)
 
-public data class CluspropWord(public var base: CluspropValue = CluspropValue(), public var w: UShort = 0u)
+public data class CluspropWord(
+    public var base: CluspropValue = CluspropValue(),
+    public var w: UShort = 0u,
+)
 
 public data class Clusterversioninfo(
     public var dwVersionInfoSize: UInt = 0u,
@@ -331,7 +401,10 @@ public data class ClusterBatchCommand(
     public var cbData: UInt = 0u,
 )
 
-public data class ClusterCreateGroupInfo(public var dwVersion: UInt = 0u, public var groupType: ClusgroupType = 0)
+public data class ClusterCreateGroupInfo(
+    public var dwVersion: UInt = 0u,
+    public var groupType: ClusgroupType = 0,
+)
 
 public data class ClusterEnumItem(
     public var dwVersion: UInt = 0u,
@@ -368,9 +441,15 @@ public data class ClusterHealthFault(
     public var reserved: UInt = 0u,
 )
 
-public data class ClusterHealthFaultArray(public var numFaults: UInt = 0u, public var faults: ClusterHealthFault? = null)
+public data class ClusterHealthFaultArray(
+    public var numFaults: UInt = 0u,
+    public var faults: ClusterHealthFault? = null,
+)
 
-public data class ClusterIpEntry(public var lpszIpAddress: Pcwstr = null, public var dwPrefixLength: UInt = 0u)
+public data class ClusterIpEntry(
+    public var lpszIpAddress: Pcwstr = null,
+    public var dwPrefixLength: UInt = 0u,
+)
 
 public data class ClusterMembershipInfo(
     public var hasQuorum: Bool = 0,
@@ -425,11 +504,20 @@ public data class ClusterSetPasswordStatus(
     public var returnStatus: UInt = 0u,
 )
 
-public data class ClusterSharedVolumeRenameGuidInput(public var base: ClusterSharedVolumeRenameInputVolume = ClusterSharedVolumeRenameInputVolume(), public var base2: ClusterSharedVolumeRenameInputGuidName = ClusterSharedVolumeRenameInputGuidName())
+public data class ClusterSharedVolumeRenameGuidInput(
+    public var base: ClusterSharedVolumeRenameInputVolume = ClusterSharedVolumeRenameInputVolume(),
+    public var base2: ClusterSharedVolumeRenameInputGuidName = ClusterSharedVolumeRenameInputGuidName(),
+)
 
-public data class ClusterSharedVolumeRenameInput(public var base: ClusterSharedVolumeRenameInputVolume = ClusterSharedVolumeRenameInputVolume(), public var base2: ClusterSharedVolumeRenameInputName = ClusterSharedVolumeRenameInputName())
+public data class ClusterSharedVolumeRenameInput(
+    public var base: ClusterSharedVolumeRenameInputVolume = ClusterSharedVolumeRenameInputVolume(),
+    public var base2: ClusterSharedVolumeRenameInputName = ClusterSharedVolumeRenameInputName(),
+)
 
-public data class ClusterSharedVolumeRenameInputGuidName(public var newVolumeName: UShortArray = UShortArray(260), public var newVolumeGuid: UShortArray = UShortArray(50)) {
+public data class ClusterSharedVolumeRenameInputGuidName(
+    public var newVolumeName: UShortArray = UShortArray(260),
+    public var newVolumeGuid: UShortArray = UShortArray(50),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClusterSharedVolumeRenameInputGuidName) return false
@@ -445,7 +533,9 @@ public data class ClusterSharedVolumeRenameInputGuidName(public var newVolumeNam
     }
 }
 
-public data class ClusterSharedVolumeRenameInputName(public var newVolumeName: UShortArray = UShortArray(260)) {
+public data class ClusterSharedVolumeRenameInputName(
+    public var newVolumeName: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClusterSharedVolumeRenameInputName) return false
@@ -453,12 +543,13 @@ public data class ClusterSharedVolumeRenameInputName(public var newVolumeName: U
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.newVolumeName.contentHashCode()
-    }
+    override fun hashCode(): Int = this.newVolumeName.contentHashCode()
 }
 
-public data class ClusterSharedVolumeRenameInputVolume(public var inputType: ClusterSharedVolumeRenameInputType = 0, public var anonymous: ClusterSharedVolumeRenameInputVolume0 = ClusterSharedVolumeRenameInputVolume0())
+public data class ClusterSharedVolumeRenameInputVolume(
+    public var inputType: ClusterSharedVolumeRenameInputType = 0,
+    public var anonymous: ClusterSharedVolumeRenameInputVolume0 = ClusterSharedVolumeRenameInputVolume0(),
+)
 
 public data class ClusterSharedVolumeRenameInputVolume0(
     public var volumeOffset: ULong = 0uL,
@@ -538,7 +629,9 @@ public data class ClusterSharedVolumeStateInfoEx(
     }
 }
 
-public data class ClusterValidateCsvFilename(public var szFileName: UShortArray = UShortArray(1)) {
+public data class ClusterValidateCsvFilename(
+    public var szFileName: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClusterValidateCsvFilename) return false
@@ -546,12 +639,12 @@ public data class ClusterValidateCsvFilename(public var szFileName: UShortArray 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.szFileName.contentHashCode()
-    }
+    override fun hashCode(): Int = this.szFileName.contentHashCode()
 }
 
-public data class ClusterValidateDirectory(public var szPath: UShortArray = UShortArray(1)) {
+public data class ClusterValidateDirectory(
+    public var szPath: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClusterValidateDirectory) return false
@@ -559,12 +652,12 @@ public data class ClusterValidateDirectory(public var szPath: UShortArray = USho
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.szPath.contentHashCode()
-    }
+    override fun hashCode(): Int = this.szPath.contentHashCode()
 }
 
-public data class ClusterValidateNetname(public var szNetworkName: UShortArray = UShortArray(1)) {
+public data class ClusterValidateNetname(
+    public var szNetworkName: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClusterValidateNetname) return false
@@ -572,12 +665,12 @@ public data class ClusterValidateNetname(public var szNetworkName: UShortArray =
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.szNetworkName.contentHashCode()
-    }
+    override fun hashCode(): Int = this.szNetworkName.contentHashCode()
 }
 
-public data class ClusterValidatePath(public var szPath: UShortArray = UShortArray(1)) {
+public data class ClusterValidatePath(
+    public var szPath: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClusterValidatePath) return false
@@ -585,9 +678,7 @@ public data class ClusterValidatePath(public var szPath: UShortArray = UShortArr
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.szPath.contentHashCode()
-    }
+    override fun hashCode(): Int = this.szPath.contentHashCode()
 }
 
 public data class ClusChkdskInfo(
@@ -615,7 +706,9 @@ public data class ClusChkdskInfo(
     }
 }
 
-public data class ClusCreateInfrastructureFileserverInput(public var fileServerName: UShortArray = UShortArray(16)) {
+public data class ClusCreateInfrastructureFileserverInput(
+    public var fileServerName: UShortArray = UShortArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClusCreateInfrastructureFileserverInput) return false
@@ -623,12 +716,12 @@ public data class ClusCreateInfrastructureFileserverInput(public var fileServerN
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.fileServerName.contentHashCode()
-    }
+    override fun hashCode(): Int = this.fileServerName.contentHashCode()
 }
 
-public data class ClusCreateInfrastructureFileserverOutput(public var fileServerName: UShortArray = UShortArray(260)) {
+public data class ClusCreateInfrastructureFileserverOutput(
+    public var fileServerName: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClusCreateInfrastructureFileserverOutput) return false
@@ -636,12 +729,13 @@ public data class ClusCreateInfrastructureFileserverOutput(public var fileServer
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.fileServerName.contentHashCode()
-    }
+    override fun hashCode(): Int = this.fileServerName.contentHashCode()
 }
 
-public data class ClusCsvMaintenanceModeInfo(public var inMaintenance: Bool = 0, public var volumeName: UShortArray = UShortArray(260)) {
+public data class ClusCsvMaintenanceModeInfo(
+    public var inMaintenance: Bool = 0,
+    public var volumeName: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClusCsvMaintenanceModeInfo) return false
@@ -710,11 +804,20 @@ public data class ClusCsvVolumeName(
     }
 }
 
-public data class ClusDiskNumberInfo(public var diskNumber: UInt = 0u, public var bytesPerSector: UInt = 0u)
+public data class ClusDiskNumberInfo(
+    public var diskNumber: UInt = 0u,
+    public var bytesPerSector: UInt = 0u,
+)
 
-public data class ClusDnnLeaderStatus(public var isOnline: Bool = 0, public var isFileServerPresent: Bool = 0)
+public data class ClusDnnLeaderStatus(
+    public var isOnline: Bool = 0,
+    public var isFileServerPresent: Bool = 0,
+)
 
-public data class ClusDnnSodafsCloneStatus(public var nodeId: UInt = 0u, public var status: ClusterResourceState = 0)
+public data class ClusDnnSodafsCloneStatus(
+    public var nodeId: UInt = 0u,
+    public var status: ClusterResourceState = 0,
+)
 
 public data class ClusForceQuorumInfo(
     public var dwSize: UInt = 0u,
@@ -741,9 +844,14 @@ public data class ClusForceQuorumInfo(
     }
 }
 
-public data class ClusFtsetInfo(public var dwRootSignature: UInt = 0u, public var dwFtType: UInt = 0u)
+public data class ClusFtsetInfo(
+    public var dwRootSignature: UInt = 0u,
+    public var dwFtType: UInt = 0u,
+)
 
-public data class ClusMaintenanceModeInfo(public var inMaintenance: Bool = 0)
+public data class ClusMaintenanceModeInfo(
+    public var inMaintenance: Bool = 0,
+)
 
 public data class ClusMaintenanceModeInfoex(
     public var inMaintenance: Bool = 0,
@@ -979,17 +1087,33 @@ public data class ClusProviderStateChangeInfo(
     }
 }
 
-public data class ClusResourceClassInfo(public var anonymous: ClusResourceClassInfo0 = ClusResourceClassInfo0())
+public data class ClusResourceClassInfo(
+    public var anonymous: ClusResourceClassInfo0 = ClusResourceClassInfo0(),
+)
 
-public data class ClusResourceClassInfo0(public var anonymous: ClusResourceClassInfo00 = ClusResourceClassInfo00(), public var li: ULong = 0uL)
+public data class ClusResourceClassInfo0(
+    public var anonymous: ClusResourceClassInfo00 = ClusResourceClassInfo00(),
+    public var li: ULong = 0uL,
+)
 
-public data class ClusResourceClassInfo00(public var anonymous: ClusResourceClassInfo000 = ClusResourceClassInfo000(), public var subClass: UInt = 0u)
+public data class ClusResourceClassInfo00(
+    public var anonymous: ClusResourceClassInfo000 = ClusResourceClassInfo000(),
+    public var subClass: UInt = 0u,
+)
 
-public data class ClusResourceClassInfo000(public var dw: UInt = 0u, public var rc: ClusterResourceClass = 0)
+public data class ClusResourceClassInfo000(
+    public var dw: UInt = 0u,
+    public var rc: ClusterResourceClass = 0,
+)
 
-public data class ClusScsiAddress(public var anonymous: ClusScsiAddress0 = ClusScsiAddress0())
+public data class ClusScsiAddress(
+    public var anonymous: ClusScsiAddress0 = ClusScsiAddress0(),
+)
 
-public data class ClusScsiAddress0(public var anonymous: ClusScsiAddress00 = ClusScsiAddress00(), public var dw: UInt = 0u)
+public data class ClusScsiAddress0(
+    public var anonymous: ClusScsiAddress00 = ClusScsiAddress00(),
+    public var dw: UInt = 0u,
+)
 
 public data class ClusScsiAddress00(
     public var portNumber: UByte = 0u,
@@ -1048,13 +1172,24 @@ public data class ClusStartingParams(
     public var bFirst: Bool = 0,
 )
 
-public data class ClusStorageGetAvailableDriveletters(public var availDrivelettersMask: UInt = 0u)
+public data class ClusStorageGetAvailableDriveletters(
+    public var availDrivelettersMask: UInt = 0u,
+)
 
-public data class ClusStorageRemapDriveletter(public var currentDriveLetterMask: UInt = 0u, public var targetDriveLetterMask: UInt = 0u)
+public data class ClusStorageRemapDriveletter(
+    public var currentDriveLetterMask: UInt = 0u,
+    public var targetDriveLetterMask: UInt = 0u,
+)
 
-public data class ClusStorageSetDriveletter(public var partitionNumber: UInt = 0u, public var driveLetterMask: UInt = 0u)
+public data class ClusStorageSetDriveletter(
+    public var partitionNumber: UInt = 0u,
+    public var driveLetterMask: UInt = 0u,
+)
 
-public data class ClusWorker(public var hThread: Handle = null, public var terminate: Bool = 0)
+public data class ClusWorker(
+    public var hThread: Handle = null,
+    public var terminate: Bool = 0,
+)
 
 public data class CreateClusterConfig(
     public var dwVersion: UInt = 0u,
@@ -1080,7 +1215,10 @@ public data class CreateClusterNameAccount(
     public var bUpgradeVCOs: Boolean = false,
 )
 
-public data class FileshareChange(public var change: FileshareChangeEnum = 0, public var shareName: UShortArray = UShortArray(84)) {
+public data class FileshareChange(
+    public var change: FileshareChangeEnum = 0,
+    public var shareName: UShortArray = UShortArray(84),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileshareChange) return false
@@ -1096,7 +1234,10 @@ public data class FileshareChange(public var change: FileshareChangeEnum = 0, pu
     }
 }
 
-public data class FileshareChangeList(public var numEntries: UInt = 0u, public var changeEntry: List<FileshareChange> = List(1) { FileshareChange() })
+public data class FileshareChangeList(
+    public var numEntries: UInt = 0u,
+    public var changeEntry: List<FileshareChange> = List(1) { FileshareChange() },
+)
 
 public data class GetOperationContextParams(
     public var size: UInt = 0u,
@@ -1105,9 +1246,15 @@ public data class GetOperationContextParams(
     public var priority: UInt = 0u,
 )
 
-public data class GroupFailureInfo(public var dwFailoverAttemptsRemaining: UInt = 0u, public var dwFailoverPeriodRemaining: UInt = 0u)
+public data class GroupFailureInfo(
+    public var dwFailoverAttemptsRemaining: UInt = 0u,
+    public var dwFailoverPeriodRemaining: UInt = 0u,
+)
 
-public data class GroupFailureInfoBuffer(public var dwVersion: UInt = 0u, public var info: GroupFailureInfo = GroupFailureInfo())
+public data class GroupFailureInfoBuffer(
+    public var dwVersion: UInt = 0u,
+    public var info: GroupFailureInfo = GroupFailureInfo(),
+)
 
 public data class MonitorState(
     public var lastUpdate: Long = 0L,
@@ -1116,7 +1263,10 @@ public data class MonitorState(
     public var resmonStop: Bool = 0,
 )
 
-public data class NotifyFilterAndType(public var dwObjectType: UInt = 0u, public var filterFlags: Long = 0L)
+public data class NotifyFilterAndType(
+    public var dwObjectType: UInt = 0u,
+    public var filterFlags: Long = 0L,
+)
 
 public data class NodeUtilizationInfoElement(
     public var id: ULong = 0uL,
@@ -1148,9 +1298,15 @@ public data class PaxosTagCStruct(
     public var paddingBoundrySequence: UInt = 0u,
 )
 
-public data class ResourceFailureInfo(public var dwRestartAttemptsRemaining: UInt = 0u, public var dwRestartPeriodRemaining: UInt = 0u)
+public data class ResourceFailureInfo(
+    public var dwRestartAttemptsRemaining: UInt = 0u,
+    public var dwRestartPeriodRemaining: UInt = 0u,
+)
 
-public data class ResourceFailureInfoBuffer(public var dwVersion: UInt = 0u, public var info: ResourceFailureInfo = ResourceFailureInfo())
+public data class ResourceFailureInfoBuffer(
+    public var dwVersion: UInt = 0u,
+    public var info: ResourceFailureInfo = ResourceFailureInfo(),
+)
 
 public data class ResourceStatus(
     public var resourceState: ClusterResourceState = 0,
@@ -1168,7 +1324,10 @@ public data class ResourceStatusEx(
     public var waitHint: UInt = 0u,
 )
 
-public data class ResourceTerminalFailureInfoBuffer(public var isTerminalFailure: Bool = 0, public var restartPeriodRemaining: UInt = 0u)
+public data class ResourceTerminalFailureInfoBuffer(
+    public var isTerminalFailure: Bool = 0,
+    public var restartPeriodRemaining: UInt = 0u,
+)
 
 public data class ResutilFiletimeData(
     public var default: Filetime = Filetime(),
@@ -1208,7 +1367,10 @@ public data class ResutilUlargeintData(
     public var maximum: ULong = 0uL,
 )
 
-public data class ResourceUtilizationInfoElement(public var physicalNumaId: ULong = 0uL, public var currentMemory: ULong = 0uL)
+public data class ResourceUtilizationInfoElement(
+    public var physicalNumaId: ULong = 0uL,
+    public var currentMemory: ULong = 0uL,
+)
 
 public data class SrResourceTypeAddReplicationGroup(
     public var replicationGroupName: UShortArray = UShortArray(260),
@@ -1262,7 +1424,10 @@ public data class SrResourceTypeAddReplicationGroup(
     }
 }
 
-public data class SrResourceTypeAddReplicationGroupResult(public var result: UInt = 0u, public var errorString: UShortArray = UShortArray(260)) {
+public data class SrResourceTypeAddReplicationGroupResult(
+    public var result: UInt = 0u,
+    public var errorString: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SrResourceTypeAddReplicationGroupResult) return false
@@ -1278,13 +1443,25 @@ public data class SrResourceTypeAddReplicationGroupResult(public var result: UIn
     }
 }
 
-public data class SrResourceTypeDiskInfo(public var reason: SrDiskReplicationEligible = 0, public var diskGuid: Guid = Guid())
+public data class SrResourceTypeDiskInfo(
+    public var reason: SrDiskReplicationEligible = 0,
+    public var diskGuid: Guid = Guid(),
+)
 
-public data class SrResourceTypeEligibleDisksResult(public var count: UShort = 0u, public var diskInfo: List<SrResourceTypeDiskInfo> = List(1) { SrResourceTypeDiskInfo() })
+public data class SrResourceTypeEligibleDisksResult(
+    public var count: UShort = 0u,
+    public var diskInfo: List<SrResourceTypeDiskInfo> = List(1) { SrResourceTypeDiskInfo() },
+)
 
-public data class SrResourceTypeQueryEligibleLogdisks(public var dataDiskGuid: Guid = Guid(), public var includeOfflineDisks: Boolean = false)
+public data class SrResourceTypeQueryEligibleLogdisks(
+    public var dataDiskGuid: Guid = Guid(),
+    public var includeOfflineDisks: Boolean = false,
+)
 
-public data class SrResourceTypeQueryEligibleSourceDatadisks(public var dataDiskGuid: Guid = Guid(), public var includeAvailableStoargeDisks: Boolean = false)
+public data class SrResourceTypeQueryEligibleSourceDatadisks(
+    public var dataDiskGuid: Guid = Guid(),
+    public var includeAvailableStoargeDisks: Boolean = false,
+)
 
 public data class SrResourceTypeQueryEligibleTargetDatadisks(
     public var sourceDataDiskGuid: Guid = Guid(),
@@ -1318,13 +1495,25 @@ public data class SrResourceTypeReplicatedDisk(
     }
 }
 
-public data class SrResourceTypeReplicatedDisksResult(public var count: UShort = 0u, public var replicatedDisks: List<SrResourceTypeReplicatedDisk> = List(1) { SrResourceTypeReplicatedDisk() })
+public data class SrResourceTypeReplicatedDisksResult(
+    public var count: UShort = 0u,
+    public var replicatedDisks: List<SrResourceTypeReplicatedDisk> = List(1) { SrResourceTypeReplicatedDisk() },
+)
 
-public data class SrResourceTypeReplicatedPartitionArray(public var count: UInt = 0u, public var partitionArray: List<SrResourceTypeReplicatedPartitionInfo> = List(1) { SrResourceTypeReplicatedPartitionInfo() })
+public data class SrResourceTypeReplicatedPartitionArray(
+    public var count: UInt = 0u,
+    public var partitionArray: List<SrResourceTypeReplicatedPartitionInfo> = List(1) { SrResourceTypeReplicatedPartitionInfo() },
+)
 
-public data class SrResourceTypeReplicatedPartitionInfo(public var partitionOffset: ULong = 0uL, public var capabilities: UInt = 0u)
+public data class SrResourceTypeReplicatedPartitionInfo(
+    public var partitionOffset: ULong = 0uL,
+    public var capabilities: UInt = 0u,
+)
 
-public data class WitnessTagHelper(public var version: Int = 0, public var paxosToValidate: PaxosTagCStruct = PaxosTagCStruct())
+public data class WitnessTagHelper(
+    public var version: Int = 0,
+    public var paxosToValidate: PaxosTagCStruct = PaxosTagCStruct(),
+)
 
 public data class WitnessTagUpdateHelper(
     public var version: Int = 0,

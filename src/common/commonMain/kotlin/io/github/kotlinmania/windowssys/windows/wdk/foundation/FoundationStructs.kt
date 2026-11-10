@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.wdk.foundation
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -63,7 +64,10 @@ public data class AccessState(
     public var objectTypeName: UnicodeString = UnicodeString(),
 )
 
-public data class AccessState0(public var initialPrivilegeSet: InitialPrivilegeSet = InitialPrivilegeSet(), public var privilegeSet: PrivilegeSet = PrivilegeSet())
+public data class AccessState0(
+    public var initialPrivilegeSet: InitialPrivilegeSet = InitialPrivilegeSet(),
+    public var privilegeSet: PrivilegeSet = PrivilegeSet(),
+)
 
 public class DeviceObject(
     public var type: Short = 0,
@@ -93,7 +97,10 @@ public class DeviceObject(
     public var reserved: COpaquePointer? = null,
 )
 
-public data class DeviceObject0(public var listEntry: ListEntry = ListEntry(), public var wcb: WaitContextBlock = WaitContextBlock())
+public data class DeviceObject0(
+    public var listEntry: ListEntry = ListEntry(),
+    public var wcb: WaitContextBlock = WaitContextBlock(),
+)
 
 public data class DevobjExtension(
     public var type: Short = 0,
@@ -130,7 +137,10 @@ public data class DispatcherHeader0(
     public var anonymous7: DispatcherHeader06 = DispatcherHeader06(),
 )
 
-public data class DispatcherHeader00(public var lock: Int = 0, public var lockNV: Int = 0)
+public data class DispatcherHeader00(
+    public var lock: Int = 0,
+    public var lockNV: Int = 0,
+)
 
 public data class DispatcherHeader01(
     public var type: UByte = 0u,
@@ -146,13 +156,23 @@ public data class DispatcherHeader02(
     public var anonymous2: DispatcherHeader021 = DispatcherHeader021(),
 )
 
-public data class DispatcherHeader020(public var timerControlFlags: UByte = 0u, public var anonymous: DispatcherHeader0200 = DispatcherHeader0200())
+public data class DispatcherHeader020(
+    public var timerControlFlags: UByte = 0u,
+    public var anonymous: DispatcherHeader0200 = DispatcherHeader0200(),
+)
 
-public data class DispatcherHeader0200(public var bitfield: UByte = 0u)
+public data class DispatcherHeader0200(
+    public var bitfield: UByte = 0u,
+)
 
-public data class DispatcherHeader021(public var timerMiscFlags: UByte = 0u, public var anonymous: DispatcherHeader0210 = DispatcherHeader0210())
+public data class DispatcherHeader021(
+    public var timerMiscFlags: UByte = 0u,
+    public var anonymous: DispatcherHeader0210 = DispatcherHeader0210(),
+)
 
-public data class DispatcherHeader0210(public var bitfield: UByte = 0u)
+public data class DispatcherHeader0210(
+    public var bitfield: UByte = 0u,
+)
 
 public data class DispatcherHeader03(
     public var timer2Type: UByte = 0u,
@@ -161,9 +181,14 @@ public data class DispatcherHeader03(
     public var timer2RelativeId: UByte = 0u,
 )
 
-public data class DispatcherHeader030(public var timer2Flags: UByte = 0u, public var anonymous: DispatcherHeader0300 = DispatcherHeader0300())
+public data class DispatcherHeader030(
+    public var timer2Flags: UByte = 0u,
+    public var anonymous: DispatcherHeader0300 = DispatcherHeader0300(),
+)
 
-public data class DispatcherHeader0300(public var bitfield: UByte = 0u)
+public data class DispatcherHeader0300(
+    public var bitfield: UByte = 0u,
+)
 
 public data class DispatcherHeader04(
     public var queueType: UByte = 0u,
@@ -172,9 +197,14 @@ public data class DispatcherHeader04(
     public var queueReserved: UByte = 0u,
 )
 
-public data class DispatcherHeader040(public var queueControlFlags: UByte = 0u, public var anonymous: DispatcherHeader0400 = DispatcherHeader0400())
+public data class DispatcherHeader040(
+    public var queueControlFlags: UByte = 0u,
+    public var anonymous: DispatcherHeader0400 = DispatcherHeader0400(),
+)
 
-public data class DispatcherHeader0400(public var bitfield: UByte = 0u)
+public data class DispatcherHeader0400(
+    public var bitfield: UByte = 0u,
+)
 
 public data class DispatcherHeader05(
     public var threadType: UByte = 0u,
@@ -183,11 +213,18 @@ public data class DispatcherHeader05(
     public var anonymous2: DispatcherHeader051 = DispatcherHeader051(),
 )
 
-public data class DispatcherHeader050(public var threadControlFlags: UByte = 0u, public var anonymous: DispatcherHeader0500 = DispatcherHeader0500())
+public data class DispatcherHeader050(
+    public var threadControlFlags: UByte = 0u,
+    public var anonymous: DispatcherHeader0500 = DispatcherHeader0500(),
+)
 
-public data class DispatcherHeader0500(public var bitfield: UByte = 0u)
+public data class DispatcherHeader0500(
+    public var bitfield: UByte = 0u,
+)
 
-public data class DispatcherHeader051(public var debugActive: UByte = 0u)
+public data class DispatcherHeader051(
+    public var debugActive: UByte = 0u,
+)
 
 public data class DispatcherHeader06(
     public var mutantType: UByte = 0u,
@@ -237,11 +274,20 @@ public data class Eresource(
     public var spinLock: Int = 0,
 )
 
-public data class Eresource0(public var flag: UShort = 0u, public var anonymous: Eresource00 = Eresource00())
+public data class Eresource0(
+    public var flag: UShort = 0u,
+    public var anonymous: Eresource00 = Eresource00(),
+)
 
-public data class Eresource00(public var reservedLowFlags: UByte = 0u, public var waiterPriority: UByte = 0u)
+public data class Eresource00(
+    public var reservedLowFlags: UByte = 0u,
+    public var waiterPriority: UByte = 0u,
+)
 
-public data class Eresource1(public var address: COpaquePointer? = null, public var creatorBackTraceIndex: Int = 0)
+public data class Eresource1(
+    public var address: COpaquePointer? = null,
+    public var creatorBackTraceIndex: Int = 0,
+)
 
 public class FastIoDispatch(
     public var sizeOfFastIoDispatch: UInt = 0u,
@@ -406,7 +452,9 @@ public data class IoStackLocation00(
     public var eaLength: UInt = 0u,
 )
 
-public data class IoStackLocation026(public var capabilities: DeviceCapabilities? = null)
+public data class IoStackLocation026(
+    public var capabilities: DeviceCapabilities? = null,
+)
 
 public data class IoStackLocation016(
     public var outputBufferLength: UInt = 0u,
@@ -422,7 +470,9 @@ public data class IoStackLocation014(
     public var type3InputBuffer: COpaquePointer? = null,
 )
 
-public data class IoStackLocation027(public var ioResourceRequirementList: IoResourceRequirementsList? = null)
+public data class IoStackLocation027(
+    public var ioResourceRequirementList: IoResourceRequirementsList? = null,
+)
 
 public data class IoStackLocation015(
     public var length: Long? = null,
@@ -430,7 +480,10 @@ public data class IoStackLocation015(
     public var byteOffset: Long = 0L,
 )
 
-public data class IoStackLocation019(public var vpb: Vpb? = null, public var deviceObject: DeviceObject? = null)
+public data class IoStackLocation019(
+    public var vpb: Vpb? = null,
+    public var deviceObject: DeviceObject? = null,
+)
 
 public data class IoStackLocation07(
     public var length: UInt = 0u,
@@ -438,7 +491,10 @@ public data class IoStackLocation07(
     public var directoryNotifyInformationClass: DirectoryNotifyInformationClass = 0,
 )
 
-public data class IoStackLocation06(public var length: UInt = 0u, public var completionFilter: UInt = 0u)
+public data class IoStackLocation06(
+    public var length: UInt = 0u,
+    public var completionFilter: UInt = 0u,
+)
 
 public data class IoStackLocation038(
     public var argument1: COpaquePointer? = null,
@@ -447,7 +503,9 @@ public data class IoStackLocation038(
     public var argument4: COpaquePointer? = null,
 )
 
-public data class IoStackLocation034(public var powerSequence: PowerSequence? = null)
+public data class IoStackLocation034(
+    public var powerSequence: PowerSequence? = null,
+)
 
 public data class IoStackLocation035(
     public var anonymous: IoStackLocation0350 = IoStackLocation0350(),
@@ -456,11 +514,19 @@ public data class IoStackLocation035(
     public var shutdownType: PowerAction = 0,
 )
 
-public data class IoStackLocation0350(public var systemContext: UInt = 0u, public var systemPowerStateContext: SystemPowerStateContext = SystemPowerStateContext())
+public data class IoStackLocation0350(
+    public var systemContext: UInt = 0u,
+    public var systemPowerStateContext: SystemPowerStateContext = SystemPowerStateContext(),
+)
 
-public data class IoStackLocation024(public var type: DeviceRelationType = 0)
+public data class IoStackLocation024(
+    public var type: DeviceRelationType = 0,
+)
 
-public data class IoStackLocation031(public var deviceTextType: DeviceTextType = 0, public var localeId: UInt = 0u)
+public data class IoStackLocation031(
+    public var deviceTextType: DeviceTextType = 0,
+    public var localeId: UInt = 0u,
+)
 
 public data class IoStackLocation05(
     public var length: UInt = 0u,
@@ -476,9 +542,14 @@ public data class IoStackLocation010(
     public var eaIndex: UInt = 0u,
 )
 
-public data class IoStackLocation08(public var length: UInt = 0u, public var fileInformationClass: FileInformationClass = 0)
+public data class IoStackLocation08(
+    public var length: UInt = 0u,
+    public var fileInformationClass: FileInformationClass = 0,
+)
 
-public data class IoStackLocation030(public var idType: BusQueryIdType = 0)
+public data class IoStackLocation030(
+    public var idType: BusQueryIdType = 0,
+)
 
 public data class IoStackLocation025(
     public var interfaceType: Guid? = null,
@@ -495,9 +566,15 @@ public data class IoStackLocation022(
     public var sidListLength: UInt = 0u,
 )
 
-public data class IoStackLocation017(public var securityInformation: UInt = 0u, public var length: UInt = 0u)
+public data class IoStackLocation017(
+    public var securityInformation: UInt = 0u,
+    public var length: UInt = 0u,
+)
 
-public data class IoStackLocation012(public var length: UInt = 0u, public var fsInformationClass: FsInformationClass = 0)
+public data class IoStackLocation012(
+    public var length: UInt = 0u,
+    public var fsInformationClass: FsInformationClass = 0,
+)
 
 public data class IoStackLocation028(
     public var whichSpace: UInt = 0u,
@@ -512,9 +589,13 @@ public data class IoStackLocation03(
     public var byteOffset: Long = 0L,
 )
 
-public data class IoStackLocation021(public var srb: Int? = null)
+public data class IoStackLocation021(
+    public var srb: Int? = null,
+)
 
-public data class IoStackLocation011(public var length: UInt = 0u)
+public data class IoStackLocation011(
+    public var length: UInt = 0u,
+)
 
 public data class IoStackLocation09(
     public var length: UInt = 0u,
@@ -529,17 +610,33 @@ public data class IoStackLocation090(
     public var deleteHandle: Handle = null,
 )
 
-public data class IoStackLocation0900(public var replaceIfExists: Boolean = false, public var advanceOnly: Boolean = false)
+public data class IoStackLocation0900(
+    public var replaceIfExists: Boolean = false,
+    public var advanceOnly: Boolean = false,
+)
 
-public data class IoStackLocation029(public var lock: Boolean = false)
+public data class IoStackLocation029(
+    public var lock: Boolean = false,
+)
 
-public data class IoStackLocation023(public var length: UInt = 0u)
+public data class IoStackLocation023(
+    public var length: UInt = 0u,
+)
 
-public data class IoStackLocation018(public var securityInformation: UInt = 0u, public var securityDescriptor: PsecurityDescriptor = null)
+public data class IoStackLocation018(
+    public var securityInformation: UInt = 0u,
+    public var securityDescriptor: PsecurityDescriptor = null,
+)
 
-public data class IoStackLocation013(public var length: UInt = 0u, public var fsInformationClass: FsInformationClass = 0)
+public data class IoStackLocation013(
+    public var length: UInt = 0u,
+    public var fsInformationClass: FsInformationClass = 0,
+)
 
-public data class IoStackLocation036(public var allocatedResources: CmResourceList? = null, public var allocatedResourcesTranslated: CmResourceList? = null)
+public data class IoStackLocation036(
+    public var allocatedResources: CmResourceList? = null,
+    public var allocatedResourcesTranslated: CmResourceList? = null,
+)
 
 public data class IoStackLocation032(
     public var inPath: Boolean = false,
@@ -563,7 +660,10 @@ public data class IoStackLocation032(
     }
 }
 
-public data class IoStackLocation020(public var vpb: Vpb? = null, public var deviceObject: DeviceObject? = null)
+public data class IoStackLocation020(
+    public var vpb: Vpb? = null,
+    public var deviceObject: DeviceObject? = null,
+)
 
 public data class IoStackLocation037(
     public var providerId: Int = 0,
@@ -572,7 +672,9 @@ public data class IoStackLocation037(
     public var buffer: COpaquePointer? = null,
 )
 
-public data class IoStackLocation033(public var powerState: SystemPowerState = 0)
+public data class IoStackLocation033(
+    public var powerState: SystemPowerState = 0,
+)
 
 public data class IoStackLocation04(
     public var length: UInt = 0u,
@@ -604,7 +706,10 @@ public class Irp(
     public var tail: Irp3 = Irp3(),
 )
 
-public data class Irp1(public var userIosb: IoStatusBlock? = null, public var ioRingContext: COpaquePointer? = null)
+public data class Irp1(
+    public var userIosb: IoStatusBlock? = null,
+    public var ioRingContext: COpaquePointer? = null,
+)
 
 public data class Irp0(
     public var masterIrp: Irp? = null,
@@ -612,13 +717,25 @@ public data class Irp0(
     public var systemBuffer: COpaquePointer? = null,
 )
 
-public data class Irp2(public var asynchronousParameters: Irp20 = Irp20(), public var allocationSize: Long = 0L)
+public data class Irp2(
+    public var asynchronousParameters: Irp20 = Irp20(),
+    public var allocationSize: Long = 0L,
+)
 
-public data class Irp20(public var anonymous1: Irp200 = Irp200(), public var anonymous2: Irp201 = Irp201())
+public data class Irp20(
+    public var anonymous1: Irp200 = Irp200(),
+    public var anonymous2: Irp201 = Irp201(),
+)
 
-public data class Irp200(public var userApcRoutine: PioApcRoutine = null, public var issuingProcess: COpaquePointer? = null)
+public data class Irp200(
+    public var userApcRoutine: PioApcRoutine = null,
+    public var issuingProcess: COpaquePointer? = null,
+)
 
-public data class Irp201(public var userApcContext: COpaquePointer? = null, public var ioRing: Int? = null)
+public data class Irp201(
+    public var userApcContext: COpaquePointer? = null,
+    public var ioRing: Int? = null,
+)
 
 public data class Irp3(
     public var overlay: Irp30 = Irp30(),
@@ -634,13 +751,24 @@ public data class Irp30(
     public var originalFileObject: FileObject? = null,
 )
 
-public data class Irp300(public var deviceQueueEntry: KdeviceQueueEntry = KdeviceQueueEntry(), public var anonymous: Irp3000 = Irp3000())
+public data class Irp300(
+    public var deviceQueueEntry: KdeviceQueueEntry = KdeviceQueueEntry(),
+    public var anonymous: Irp3000 = Irp3000(),
+)
 
-public data class Irp3000(public var driverContext: List<COpaquePointer> = List(4) { COpaquePointer(0L) })
+public data class Irp3000(
+    public var driverContext: List<COpaquePointer> = List(4) { COpaquePointer(0L) },
+)
 
-public data class Irp301(public var listEntry: ListEntry = ListEntry(), public var anonymous: Irp3010 = Irp3010())
+public data class Irp301(
+    public var listEntry: ListEntry = ListEntry(),
+    public var anonymous: Irp3010 = Irp3010(),
+)
 
-public data class Irp3010(public var currentStackLocation: IoStackLocation? = null, public var packetType: UInt = 0u)
+public data class Irp3010(
+    public var currentStackLocation: IoStackLocation? = null,
+    public var packetType: UInt = 0u,
+)
 
 public data class KdeviceQueue(
     public var type: Short = 0,
@@ -661,7 +789,10 @@ public data class Kdpc(
     public var dpcData: COpaquePointer? = null,
 )
 
-public data class Kdpc0(public var targetInfoAsUlong: UInt = 0u, public var anonymous: Kdpc00 = Kdpc00())
+public data class Kdpc0(
+    public var targetInfoAsUlong: UInt = 0u,
+    public var anonymous: Kdpc00 = Kdpc00(),
+)
 
 public data class Kdpc00(
     public var type: UByte = 0u,
@@ -669,7 +800,9 @@ public data class Kdpc00(
     public var number: UShort = 0u,
 )
 
-public data class Kevent(public var header: DispatcherHeader = DispatcherHeader())
+public data class Kevent(
+    public var header: DispatcherHeader = DispatcherHeader(),
+)
 
 public data class Kmutant(
     public var header: DispatcherHeader = DispatcherHeader(),
@@ -679,9 +812,14 @@ public data class Kmutant(
     public var apcDisable: UByte = 0u,
 )
 
-public data class Kmutant0(public var mutantFlags: UByte = 0u, public var anonymous: Kmutant00 = Kmutant00())
+public data class Kmutant0(
+    public var mutantFlags: UByte = 0u,
+    public var anonymous: Kmutant00 = Kmutant00(),
+)
 
-public data class Kmutant00(public var bitfield: UByte = 0u)
+public data class Kmutant00(
+    public var bitfield: UByte = 0u,
+)
 
 public data class Kqueue(
     public var header: DispatcherHeader = DispatcherHeader(),
@@ -745,13 +883,23 @@ public data class ObjectAttributes64(
     public var securityQualityOfService: SecurityQualityOfService? = null,
 )
 
-public data class ObjectNameInformation(public var name: UnicodeString = UnicodeString())
+public data class ObjectNameInformation(
+    public var name: UnicodeString = UnicodeString(),
+)
 
-public data class OwnerEntry(public var ownerThread: Int = 0, public var anonymous: OwnerEntry0 = OwnerEntry0())
+public data class OwnerEntry(
+    public var ownerThread: Int = 0,
+    public var anonymous: OwnerEntry0 = OwnerEntry0(),
+)
 
-public data class OwnerEntry0(public var anonymous: OwnerEntry00 = OwnerEntry00(), public var tableSize: UInt = 0u)
+public data class OwnerEntry0(
+    public var anonymous: OwnerEntry00 = OwnerEntry00(),
+    public var tableSize: UInt = 0u,
+)
 
-public data class OwnerEntry00(public var bitfield: UInt = 0u)
+public data class OwnerEntry00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class RtlSplayLinks(
     public var parent: RtlSplayLinks? = null,

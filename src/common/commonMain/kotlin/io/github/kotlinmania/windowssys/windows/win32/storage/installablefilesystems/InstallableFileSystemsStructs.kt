@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.storage.installablefilesystems
 
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
@@ -9,9 +10,15 @@ public data class FilterAggregateBasicInformation(
     public var type: FilterAggregateBasicInformation0 = FilterAggregateBasicInformation0(),
 )
 
-public data class FilterAggregateBasicInformation0(public var miniFilter: FilterAggregateBasicInformation00 = FilterAggregateBasicInformation00(), public var legacyFilter: FilterAggregateBasicInformation01 = FilterAggregateBasicInformation01())
+public data class FilterAggregateBasicInformation0(
+    public var miniFilter: FilterAggregateBasicInformation00 = FilterAggregateBasicInformation00(),
+    public var legacyFilter: FilterAggregateBasicInformation01 = FilterAggregateBasicInformation01(),
+)
 
-public data class FilterAggregateBasicInformation01(public var filterNameLength: UShort = 0u, public var filterNameBufferOffset: UShort = 0u)
+public data class FilterAggregateBasicInformation01(
+    public var filterNameLength: UShort = 0u,
+    public var filterNameBufferOffset: UShort = 0u,
+)
 
 public data class FilterAggregateBasicInformation00(
     public var frameID: UInt = 0u,
@@ -28,7 +35,10 @@ public data class FilterAggregateStandardInformation(
     public var type: FilterAggregateStandardInformation0 = FilterAggregateStandardInformation0(),
 )
 
-public data class FilterAggregateStandardInformation0(public var miniFilter: FilterAggregateStandardInformation00 = FilterAggregateStandardInformation00(), public var legacyFilter: FilterAggregateStandardInformation01 = FilterAggregateStandardInformation01())
+public data class FilterAggregateStandardInformation0(
+    public var miniFilter: FilterAggregateStandardInformation00 = FilterAggregateStandardInformation00(),
+    public var legacyFilter: FilterAggregateStandardInformation01 = FilterAggregateStandardInformation01(),
+)
 
 public data class FilterAggregateStandardInformation01(
     public var flags: UInt = 0u,
@@ -76,11 +86,20 @@ public data class FilterFullInformation(
     }
 }
 
-public data class FilterMessageHeader(public var replyLength: UInt = 0u, public var messageId: ULong = 0uL)
+public data class FilterMessageHeader(
+    public var replyLength: UInt = 0u,
+    public var messageId: ULong = 0uL,
+)
 
-public data class FilterReplyHeader(public var status: Ntstatus = 0, public var messageId: ULong = 0uL)
+public data class FilterReplyHeader(
+    public var status: Ntstatus = 0,
+    public var messageId: ULong = 0uL,
+)
 
-public data class FilterVolumeBasicInformation(public var filterVolumeNameLength: UShort = 0u, public var filterVolumeName: UShortArray = UShortArray(1)) {
+public data class FilterVolumeBasicInformation(
+    public var filterVolumeNameLength: UShort = 0u,
+    public var filterVolumeName: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FilterVolumeBasicInformation) return false
@@ -133,7 +152,10 @@ public data class InstanceAggregateStandardInformation(
     public var type: InstanceAggregateStandardInformation0 = InstanceAggregateStandardInformation0(),
 )
 
-public data class InstanceAggregateStandardInformation0(public var miniFilter: InstanceAggregateStandardInformation00 = InstanceAggregateStandardInformation00(), public var legacyFilter: InstanceAggregateStandardInformation01 = InstanceAggregateStandardInformation01())
+public data class InstanceAggregateStandardInformation0(
+    public var miniFilter: InstanceAggregateStandardInformation00 = InstanceAggregateStandardInformation00(),
+    public var legacyFilter: InstanceAggregateStandardInformation01 = InstanceAggregateStandardInformation01(),
+)
 
 public data class InstanceAggregateStandardInformation01(
     public var flags: UInt = 0u,

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.media.audio
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -756,11 +757,19 @@ public data class AmbisonicsParams(
     public var pu32ChannelMap: UInt? = null,
 )
 
-public data class AudioclientActivationParams(public var activationType: AudioclientActivationType = 0, public var anonymous: AudioclientActivationParams0 = AudioclientActivationParams0())
+public data class AudioclientActivationParams(
+    public var activationType: AudioclientActivationType = 0,
+    public var anonymous: AudioclientActivationParams0 = AudioclientActivationParams0(),
+)
 
-public data class AudioclientActivationParams0(public var processLoopbackParams: AudioclientProcessLoopbackParams = AudioclientProcessLoopbackParams())
+public data class AudioclientActivationParams0(
+    public var processLoopbackParams: AudioclientProcessLoopbackParams = AudioclientProcessLoopbackParams(),
+)
 
-public data class AudioclientProcessLoopbackParams(public var targetProcessId: UInt = 0u, public var processLoopbackMode: ProcessLoopbackMode = 0)
+public data class AudioclientProcessLoopbackParams(
+    public var targetProcessId: UInt = 0u,
+    public var processLoopbackMode: ProcessLoopbackMode = 0,
+)
 
 public data class AudioEffect(
     public var id: Guid = Guid(),
@@ -950,7 +959,9 @@ public data class Auxcapsw(
     }
 }
 
-public data class AudioClient3ActivationParams(public var tracingContextId: Guid = Guid())
+public data class AudioClient3ActivationParams(
+    public var tracingContextId: Guid = Guid(),
+)
 
 public data class AudioClientProperties(
     public var cbSize: UInt = 0u,
@@ -966,10 +977,14 @@ public data class AudioExtensionParams(
     public var pPnpDevnode: COpaquePointer? = null,
 )
 
-public data class ConnectorType(public var value: Int = 0) {
+public data class ConnectorType(
+    public var value: Int = 0,
+) {
     public var field0: Int
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 
     public companion object {
         public val UNKNOWN_CONNECTOR: ConnectorType = ConnectorType(0)
@@ -1371,9 +1386,15 @@ public data class Midioutcapsw(
     }
 }
 
-public data class Midiproptempo(public var cbStruct: UInt = 0u, public var dwTempo: UInt = 0u)
+public data class Midiproptempo(
+    public var cbStruct: UInt = 0u,
+    public var dwTempo: UInt = 0u,
+)
 
-public data class Midiproptimediv(public var cbStruct: UInt = 0u, public var dwTimeDiv: UInt = 0u)
+public data class Midiproptimediv(
+    public var cbStruct: UInt = 0u,
+    public var dwTimeDiv: UInt = 0u,
+)
 
 public data class Midistrmbuffver(
     public var dwVersion: UInt = 0u,
@@ -1585,9 +1606,15 @@ public data class Mixercontrola0(
     }
 }
 
-public data class Mixercontrola00(public var lMinimum: Int = 0, public var lMaximum: Int = 0)
+public data class Mixercontrola00(
+    public var lMinimum: Int = 0,
+    public var lMaximum: Int = 0,
+)
 
-public data class Mixercontrola01(public var dwMinimum: UInt = 0u, public var dwMaximum: UInt = 0u)
+public data class Mixercontrola01(
+    public var dwMinimum: UInt = 0u,
+    public var dwMaximum: UInt = 0u,
+)
 
 public data class Mixercontrola1(
     public var cSteps: UInt = 0u,
@@ -1620,9 +1647,14 @@ public data class Mixercontroldetails(
     public var paDetails: COpaquePointer? = null,
 )
 
-public data class Mixercontroldetails0(public var hwndOwner: Hwnd = null, public var cMultipleItems: UInt = 0u)
+public data class Mixercontroldetails0(
+    public var hwndOwner: Hwnd = null,
+    public var cMultipleItems: UInt = 0u,
+)
 
-public data class MixercontroldetailsBoolean(public var fValue: Int = 0)
+public data class MixercontroldetailsBoolean(
+    public var fValue: Int = 0,
+)
 
 public data class MixercontroldetailsListtexta(
     public var dwParam1: UInt = 0u,
@@ -1668,9 +1700,13 @@ public data class MixercontroldetailsListtextw(
     }
 }
 
-public data class MixercontroldetailsSigned(public var lValue: Int = 0)
+public data class MixercontroldetailsSigned(
+    public var lValue: Int = 0,
+)
 
-public data class MixercontroldetailsUnsigned(public var dwValue: UInt = 0u)
+public data class MixercontroldetailsUnsigned(
+    public var dwValue: UInt = 0u,
+)
 
 public data class Mixercontrolw(
     public var cbStruct: UInt = 0u,
@@ -1734,9 +1770,15 @@ public data class Mixercontrolw0(
     }
 }
 
-public data class Mixercontrolw00(public var lMinimum: Int = 0, public var lMaximum: Int = 0)
+public data class Mixercontrolw00(
+    public var lMinimum: Int = 0,
+    public var lMaximum: Int = 0,
+)
 
-public data class Mixercontrolw01(public var dwMinimum: UInt = 0u, public var dwMaximum: UInt = 0u)
+public data class Mixercontrolw01(
+    public var dwMinimum: UInt = 0u,
+    public var dwMaximum: UInt = 0u,
+)
 
 public data class Mixercontrolw1(
     public var cSteps: UInt = 0u,
@@ -1852,7 +1894,10 @@ public data class Mixerlinecontrolsa(
     public var pamxctrl: Mixercontrola? = null,
 )
 
-public data class Mixerlinecontrolsa0(public var dwControlID: UInt = 0u, public var dwControlType: UInt = 0u)
+public data class Mixerlinecontrolsa0(
+    public var dwControlID: UInt = 0u,
+    public var dwControlType: UInt = 0u,
+)
 
 public data class Mixerlinecontrolsw(
     public var cbStruct: UInt = 0u,
@@ -1863,7 +1908,10 @@ public data class Mixerlinecontrolsw(
     public var pamxctrl: Mixercontrolw? = null,
 )
 
-public data class Mixerlinecontrolsw0(public var dwControlID: UInt = 0u, public var dwControlType: UInt = 0u)
+public data class Mixerlinecontrolsw0(
+    public var dwControlID: UInt = 0u,
+    public var dwControlType: UInt = 0u,
+)
 
 public data class Mixerlinew(
     public var cbStruct: UInt = 0u,
@@ -1948,7 +1996,10 @@ public data class Mixerlinew0(
     }
 }
 
-public data class Pcmwaveformat(public var wf: Waveformat = Waveformat(), public var wBitsPerSample: UShort = 0u)
+public data class Pcmwaveformat(
+    public var wf: Waveformat = Waveformat(),
+    public var wBitsPerSample: UShort = 0u,
+)
 
 public data class SpatialAudioClientActivationParams(
     public var tracingContextId: Guid = Guid(),
@@ -1988,9 +2039,15 @@ public data class SpatialAudioHrtfActivationParams2(
     public var options: SpatialAudioStreamOptions = 0,
 )
 
-public data class SpatialAudioHrtfDirectivity(public var type: SpatialAudioHrtfDirectivityType = 0, public var scaling: Float = 0.0f)
+public data class SpatialAudioHrtfDirectivity(
+    public var type: SpatialAudioHrtfDirectivityType = 0,
+    public var scaling: Float = 0.0f,
+)
 
-public data class SpatialAudioHrtfDirectivityCardioid(public var directivity: SpatialAudioHrtfDirectivity = SpatialAudioHrtfDirectivity(), public var order: Float = 0.0f)
+public data class SpatialAudioHrtfDirectivityCardioid(
+    public var directivity: SpatialAudioHrtfDirectivity = SpatialAudioHrtfDirectivity(),
+    public var order: Float = 0.0f,
+)
 
 public data class SpatialAudioHrtfDirectivityCone(
     public var directivity: SpatialAudioHrtfDirectivity = SpatialAudioHrtfDirectivity(),
@@ -2067,7 +2124,10 @@ public data class SpatialAudioObjectRenderStreamForMetadataActivationParams2(
     public var options: SpatialAudioStreamOptions = 0,
 )
 
-public data class Volumewavefilter(public var wfltr: Wavefilter = Wavefilter(), public var dwVolume: UInt = 0u)
+public data class Volumewavefilter(
+    public var wfltr: Wavefilter = Wavefilter(),
+    public var dwVolume: UInt = 0u,
+)
 
 public data class Wavefilter(
     public var cbStruct: UInt = 0u,

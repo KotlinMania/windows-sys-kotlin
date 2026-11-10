@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netbios
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -77,7 +78,10 @@ public data class FindNameHeader(
     public var uniqueGroup: UByte = 0u,
 )
 
-public data class LanaEnum(public var length: UByte = 0u, public var lana: UByteArray = UByteArray(255)) {
+public data class LanaEnum(
+    public var length: UByte = 0u,
+    public var lana: UByteArray = UByteArray(255),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is LanaEnum) return false

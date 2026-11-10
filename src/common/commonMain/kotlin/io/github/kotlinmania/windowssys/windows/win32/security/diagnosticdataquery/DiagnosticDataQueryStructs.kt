@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery
 
 import io.github.kotlinmania.windowssys.core.Bool
@@ -14,9 +15,14 @@ public data class DiagnosticDataEventBinaryStats(
     public var uploadSizeBytes: ULong = 0uL,
 )
 
-public data class DiagnosticDataEventCategoryDescription(public var id: Int = 0, public var name: Pwstr = null)
+public data class DiagnosticDataEventCategoryDescription(
+    public var id: Int = 0,
+    public var name: Pwstr = null,
+)
 
-public data class DiagnosticDataEventProducerDescription(public var name: Pwstr = null)
+public data class DiagnosticDataEventProducerDescription(
+    public var name: Pwstr = null,
+)
 
 public data class DiagnosticDataEventTagDescription(
     public var privacyTag: Int = 0,
@@ -24,7 +30,10 @@ public data class DiagnosticDataEventTagDescription(
     public var description: Pwstr = null,
 )
 
-public data class DiagnosticDataEventTagStats(public var privacyTag: Int = 0, public var eventCount: UInt = 0u)
+public data class DiagnosticDataEventTagStats(
+    public var privacyTag: Int = 0,
+    public var eventCount: UInt = 0u,
+)
 
 public data class DiagnosticDataEventTranscriptConfiguration(
     public var hoursOfHistoryToKeep: UInt = 0u,
@@ -88,7 +97,10 @@ public class DiagnosticReportData(
     public var reportKey: Pwstr = null,
 )
 
-public data class DiagnosticReportParameter(public var name: UShortArray = UShortArray(129), public var value: UShortArray = UShortArray(260)) {
+public data class DiagnosticReportParameter(
+    public var name: UShortArray = UShortArray(129),
+    public var value: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DiagnosticReportParameter) return false
@@ -104,7 +116,10 @@ public data class DiagnosticReportParameter(public var name: UShortArray = UShor
     }
 }
 
-public data class DiagnosticReportSignature(public var eventName: UShortArray = UShortArray(65), public var parameters: List<DiagnosticReportParameter> = List(10) { DiagnosticReportParameter() }) {
+public data class DiagnosticReportSignature(
+    public var eventName: UShortArray = UShortArray(65),
+    public var parameters: List<DiagnosticReportParameter> = List(10) { DiagnosticReportParameter() },
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DiagnosticReportSignature) return false

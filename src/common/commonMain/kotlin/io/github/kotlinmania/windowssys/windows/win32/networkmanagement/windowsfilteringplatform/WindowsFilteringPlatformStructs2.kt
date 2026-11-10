@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform
 
 import io.github.kotlinmania.windowssys.core.Pwstr
@@ -37,7 +38,10 @@ public data class IpsecTraffic0(
     public var remotePort: UShort = 0u,
 )
 
-public data class IpsecTraffic00(public var localV4Address: UInt = 0u, public var localV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTraffic00(
+    public var localV4Address: UInt = 0u,
+    public var localV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTraffic00) return false
@@ -53,7 +57,10 @@ public data class IpsecTraffic00(public var localV4Address: UInt = 0u, public va
     }
 }
 
-public data class IpsecTraffic01(public var remoteV4Address: UInt = 0u, public var remoteV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTraffic01(
+    public var remoteV4Address: UInt = 0u,
+    public var remoteV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTraffic01) return false
@@ -69,7 +76,10 @@ public data class IpsecTraffic01(public var remoteV4Address: UInt = 0u, public v
     }
 }
 
-public data class IpsecTraffic02(public var ipsecFilterId: ULong = 0uL, public var tunnelPolicyId: ULong = 0uL)
+public data class IpsecTraffic02(
+    public var ipsecFilterId: ULong = 0uL,
+    public var tunnelPolicyId: ULong = 0uL,
+)
 
 public data class IpsecTraffic1(
     public var ipVersion: FwpIpVersion = 0,
@@ -84,7 +94,10 @@ public data class IpsecTraffic1(
     public var realIfProfileId: UInt = 0u,
 )
 
-public data class IpsecTraffic10(public var localV4Address: UInt = 0u, public var localV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTraffic10(
+    public var localV4Address: UInt = 0u,
+    public var localV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTraffic10) return false
@@ -100,7 +113,10 @@ public data class IpsecTraffic10(public var localV4Address: UInt = 0u, public va
     }
 }
 
-public data class IpsecTraffic11(public var remoteV4Address: UInt = 0u, public var remoteV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTraffic11(
+    public var remoteV4Address: UInt = 0u,
+    public var remoteV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTraffic11) return false
@@ -116,7 +132,10 @@ public data class IpsecTraffic11(public var remoteV4Address: UInt = 0u, public v
     }
 }
 
-public data class IpsecTraffic12(public var ipsecFilterId: ULong = 0uL, public var tunnelPolicyId: ULong = 0uL)
+public data class IpsecTraffic12(
+    public var ipsecFilterId: ULong = 0uL,
+    public var tunnelPolicyId: ULong = 0uL,
+)
 
 public data class IpsecTrafficSelector0(
     public var protocolId: UByte = 0u,
@@ -127,7 +146,10 @@ public data class IpsecTrafficSelector0(
     public var anonymous2: IpsecTrafficSelector01 = IpsecTrafficSelector01(),
 )
 
-public data class IpsecTrafficSelector00(public var startV4Address: UInt = 0u, public var startV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTrafficSelector00(
+    public var startV4Address: UInt = 0u,
+    public var startV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTrafficSelector00) return false
@@ -143,7 +165,10 @@ public data class IpsecTrafficSelector00(public var startV4Address: UInt = 0u, p
     }
 }
 
-public data class IpsecTrafficSelector01(public var endV4Address: UInt = 0u, public var endV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTrafficSelector01(
+    public var endV4Address: UInt = 0u,
+    public var endV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTrafficSelector01) return false
@@ -213,9 +238,15 @@ public data class IpsecTransportPolicy2(
     public var emPolicy: IkeextEmPolicy2? = null,
 )
 
-public data class IpsecTunnelEndpoint0(public var ipVersion: FwpIpVersion = 0, public var anonymous: IpsecTunnelEndpoint00 = IpsecTunnelEndpoint00())
+public data class IpsecTunnelEndpoint0(
+    public var ipVersion: FwpIpVersion = 0,
+    public var anonymous: IpsecTunnelEndpoint00 = IpsecTunnelEndpoint00(),
+)
 
-public data class IpsecTunnelEndpoint00(public var v4Address: UInt = 0u, public var v6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTunnelEndpoint00(
+    public var v4Address: UInt = 0u,
+    public var v6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTunnelEndpoint00) return false
@@ -237,7 +268,10 @@ public data class IpsecTunnelEndpoints0(
     public var anonymous2: IpsecTunnelEndpoints01 = IpsecTunnelEndpoints01(),
 )
 
-public data class IpsecTunnelEndpoints00(public var localV4Address: UInt = 0u, public var localV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTunnelEndpoints00(
+    public var localV4Address: UInt = 0u,
+    public var localV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTunnelEndpoints00) return false
@@ -253,7 +287,10 @@ public data class IpsecTunnelEndpoints00(public var localV4Address: UInt = 0u, p
     }
 }
 
-public data class IpsecTunnelEndpoints01(public var remoteV4Address: UInt = 0u, public var remoteV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTunnelEndpoints01(
+    public var remoteV4Address: UInt = 0u,
+    public var remoteV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTunnelEndpoints01) return false
@@ -276,7 +313,10 @@ public data class IpsecTunnelEndpoints1(
     public var localIfLuid: ULong = 0uL,
 )
 
-public data class IpsecTunnelEndpoints10(public var localV4Address: UInt = 0u, public var localV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTunnelEndpoints10(
+    public var localV4Address: UInt = 0u,
+    public var localV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTunnelEndpoints10) return false
@@ -292,7 +332,10 @@ public data class IpsecTunnelEndpoints10(public var localV4Address: UInt = 0u, p
     }
 }
 
-public data class IpsecTunnelEndpoints11(public var remoteV4Address: UInt = 0u, public var remoteV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTunnelEndpoints11(
+    public var remoteV4Address: UInt = 0u,
+    public var remoteV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTunnelEndpoints11) return false
@@ -318,7 +361,10 @@ public data class IpsecTunnelEndpoints2(
     public var remoteAddresses: IpsecTunnelEndpoint0? = null,
 )
 
-public data class IpsecTunnelEndpoints20(public var localV4Address: UInt = 0u, public var localV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTunnelEndpoints20(
+    public var localV4Address: UInt = 0u,
+    public var localV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTunnelEndpoints20) return false
@@ -334,7 +380,10 @@ public data class IpsecTunnelEndpoints20(public var localV4Address: UInt = 0u, p
     }
 }
 
-public data class IpsecTunnelEndpoints21(public var remoteV4Address: UInt = 0u, public var remoteV6Address: UByteArray = UByteArray(16)) {
+public data class IpsecTunnelEndpoints21(
+    public var remoteV4Address: UInt = 0u,
+    public var remoteV6Address: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpsecTunnelEndpoints21) return false
@@ -391,6 +440,12 @@ public data class IpsecTunnelPolicy3(
     public var trafficSelectorPolicies: IpsecTrafficSelectorPolicy0? = null,
 )
 
-public data class IpsecV4UdpEncapsulation0(public var localUdpEncapPort: UShort = 0u, public var remoteUdpEncapPort: UShort = 0u)
+public data class IpsecV4UdpEncapsulation0(
+    public var localUdpEncapPort: UShort = 0u,
+    public var remoteUdpEncapPort: UShort = 0u,
+)
 
-public data class IpsecVirtualIfTunnelInfo0(public var virtualIfTunnelId: ULong = 0uL, public var trafficSelectorId: ULong = 0uL)
+public data class IpsecVirtualIfTunnelInfo0(
+    public var virtualIfTunnelId: ULong = 0uL,
+    public var trafficSelectorId: ULong = 0uL,
+)

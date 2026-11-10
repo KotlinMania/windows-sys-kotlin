@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -22,7 +23,10 @@ import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.User
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 
-public data class Authenticateinfo(public var dwFlags: UInt = 0u, public var dwReserved: UInt = 0u)
+public data class Authenticateinfo(
+    public var dwFlags: UInt = 0u,
+    public var dwReserved: UInt = 0u,
+)
 
 public data class Bindinfo(
     public var cbSize: UInt = 0u,
@@ -62,11 +66,20 @@ public data class BindOpts2(
     public var pServerInfo: Coserverinfo? = null,
 )
 
-public data class BindOpts3(public var base: BindOpts2 = BindOpts2(), public var hwnd: Hwnd = null)
+public data class BindOpts3(
+    public var base: BindOpts2 = BindOpts2(),
+    public var hwnd: Hwnd = null,
+)
 
-public data class Blob(public var cbSize: UInt = 0u, public var pBlobData: COpaquePointer? = null)
+public data class Blob(
+    public var cbSize: UInt = 0u,
+    public var pBlobData: COpaquePointer? = null,
+)
 
-public data class ByteBlob(public var clSize: UInt = 0u, public var abData: UByteArray = UByteArray(1)) {
+public data class ByteBlob(
+    public var clSize: UInt = 0u,
+    public var abData: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ByteBlob) return false
@@ -82,7 +95,10 @@ public data class ByteBlob(public var clSize: UInt = 0u, public var abData: UByt
     }
 }
 
-public data class ByteSizedarr(public var clSize: UInt = 0u, public var pData: COpaquePointer? = null)
+public data class ByteSizedarr(
+    public var clSize: UInt = 0u,
+    public var pData: COpaquePointer? = null,
+)
 
 public data class Categoryinfo(
     public var catid: Guid = Guid(),
@@ -126,7 +142,10 @@ public data class Coauthinfo(
     public var dwCapabilities: UInt = 0u,
 )
 
-public data class Connectdata(public var pUnk: COpaquePointer? = null, public var dwCookie: UInt = 0u)
+public data class Connectdata(
+    public var pUnk: COpaquePointer? = null,
+    public var dwCookie: UInt = 0u,
+)
 
 public data class Coserverinfo(
     public var dwReserved1: UInt = 0u,
@@ -142,13 +161,25 @@ public data class Csplatform(
     public var dwProcessorArch: UInt = 0u,
 )
 
-public data class Custdata(public var cCustData: UInt = 0u, public var prgCustData: Custdataitem? = null)
+public data class Custdata(
+    public var cCustData: UInt = 0u,
+    public var prgCustData: Custdataitem? = null,
+)
 
-public data class Custdataitem(public var guid: Guid = Guid(), public var varValue: Variant = Variant())
+public data class Custdataitem(
+    public var guid: Guid = Guid(),
+    public var varValue: Variant = Variant(),
+)
 
-public data class CY(public var anonymous: Cy0 = Cy0(), public var int64: Long = 0L)
+public data class CY(
+    public var anonymous: Cy0 = Cy0(),
+    public var int64: Long = 0L,
+)
 
-public data class Cy0(public var lo: UInt = 0u, public var hi: Int = 0)
+public data class Cy0(
+    public var lo: UInt = 0u,
+    public var hi: Int = 0,
+)
 
 public data class ComCallData(
     public var dwDispid: UInt = 0u,
@@ -200,7 +231,10 @@ public data class Dvtargetdevice(
     }
 }
 
-public data class DwordBlob(public var clSize: UInt = 0u, public var alData: UIntArray = UIntArray(1)) {
+public data class DwordBlob(
+    public var clSize: UInt = 0u,
+    public var alData: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DwordBlob) return false
@@ -216,11 +250,20 @@ public data class DwordBlob(public var clSize: UInt = 0u, public var alData: UIn
     }
 }
 
-public data class DwordSizedarr(public var clSize: UInt = 0u, public var pData: UInt? = null)
+public data class DwordSizedarr(
+    public var clSize: UInt = 0u,
+    public var pData: UInt? = null,
+)
 
-public data class Elemdesc(public var tdesc: Typedesc = Typedesc(), public var anonymous: Elemdesc0 = Elemdesc0())
+public data class Elemdesc(
+    public var tdesc: Typedesc = Typedesc(),
+    public var anonymous: Elemdesc0 = Elemdesc0(),
+)
 
-public data class Elemdesc0(public var idldesc: Idldesc = Idldesc(), public var paramdesc: Paramdesc = Paramdesc())
+public data class Elemdesc0(
+    public var idldesc: Idldesc = Idldesc(),
+    public var paramdesc: Paramdesc = Paramdesc(),
+)
 
 public data class Excepinfo(
     public var wCode: UShort = 0u,
@@ -307,7 +350,10 @@ public data class Funcdesc(
     public var wFuncFlags: Funcflags = 0u,
 )
 
-public data class GdiObject(public var objectType: UInt = 0u, public var u: GdiObject0 = GdiObject0())
+public data class GdiObject(
+    public var objectType: UInt = 0u,
+    public var u: GdiObject0 = GdiObject0(),
+)
 
 public data class GdiObject0(
     public var hBitmap: UserHbitmap? = null,
@@ -315,9 +361,15 @@ public data class GdiObject0(
     public var hGeneric: UserHglobal? = null,
 )
 
-public data class HyperSizedarr(public var clSize: UInt = 0u, public var pData: Long? = null)
+public data class HyperSizedarr(
+    public var clSize: UInt = 0u,
+    public var pData: Long? = null,
+)
 
-public data class Idldesc(public var dwReserved: Int = 0, public var wIDLFlags: Idlflags = 0u)
+public data class Idldesc(
+    public var dwReserved: Int = 0,
+    public var wIDLFlags: Idlflags = 0u,
+)
 
 public data class Interfaceinfo(
     public var pUnk: COpaquePointer? = null,
@@ -389,7 +441,10 @@ public data class Safearray(
     public var rgsabound: List<Safearraybound> = List(1) { Safearraybound() },
 )
 
-public data class Safearraybound(public var cElements: UInt = 0u, public var lLbound: Int = 0)
+public data class Safearraybound(
+    public var cElements: UInt = 0u,
+    public var lLbound: Int = 0,
+)
 
 public data class SChannelHookCallInfo(
     public var iid: Guid = Guid(),
@@ -406,7 +461,10 @@ public data class SoleAuthenticationInfo(
     public var pAuthInfo: COpaquePointer? = null,
 )
 
-public data class SoleAuthenticationList(public var cAuthInfo: UInt = 0u, public var aAuthInfo: SoleAuthenticationInfo? = null)
+public data class SoleAuthenticationList(
+    public var cAuthInfo: UInt = 0u,
+    public var aAuthInfo: SoleAuthenticationInfo? = null,
+)
 
 public data class SoleAuthenticationService(
     public var dwAuthnSvc: UInt = 0u,
@@ -489,7 +547,10 @@ public class Typeattr(
     public var idldescType: Idldesc = Idldesc(),
 )
 
-public data class Typedesc(public var anonymous: Typedesc0 = Typedesc0(), public var vt: Varenum = 0u)
+public data class Typedesc(
+    public var anonymous: Typedesc0 = Typedesc0(),
+    public var vt: Varenum = 0u,
+)
 
 public data class Typedesc0(
     public var lptdesc: Typedesc? = null,
@@ -506,9 +567,15 @@ public data class Vardesc(
     public var varkind: Varkind = 0,
 )
 
-public data class Vardesc0(public var oInst: UInt = 0u, public var lpvarValue: Variant? = null)
+public data class Vardesc0(
+    public var oInst: UInt = 0u,
+    public var lpvarValue: Variant? = null,
+)
 
-public data class WordBlob(public var clSize: UInt = 0u, public var asData: UShortArray = UShortArray(1)) {
+public data class WordBlob(
+    public var clSize: UInt = 0u,
+    public var asData: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WordBlob) return false
@@ -524,9 +591,15 @@ public data class WordBlob(public var clSize: UInt = 0u, public var asData: USho
     }
 }
 
-public data class WordSizedarr(public var clSize: UInt = 0u, public var pData: UShort? = null)
+public data class WordSizedarr(
+    public var clSize: UInt = 0u,
+    public var pData: UShort? = null,
+)
 
-public data class UClsspec(public var tyspec: UInt = 0u, public var taggedUnion: UClsspec0 = UClsspec0())
+public data class UClsspec(
+    public var tyspec: UInt = 0u,
+    public var taggedUnion: UClsspec0 = UClsspec0(),
+)
 
 public data class UClsspec0(
     public var clsid: Guid = Guid(),
@@ -538,9 +611,15 @@ public data class UClsspec0(
     public var byObjectId: UClsspec01 = UClsspec01(),
 )
 
-public data class UClsspec00(public var pPackageName: Pwstr = null, public var policyId: Guid = Guid())
+public data class UClsspec00(
+    public var pPackageName: Pwstr = null,
+    public var policyId: Guid = Guid(),
+)
 
-public data class UClsspec01(public var objectId: Guid = Guid(), public var policyId: Guid = Guid())
+public data class UClsspec01(
+    public var objectId: Guid = Guid(),
+    public var policyId: Guid = Guid(),
+)
 
 public data class UserFlagStgmedium(
     public var contextFlags: Int = 0,
@@ -548,9 +627,15 @@ public data class UserFlagStgmedium(
     public var stgmed: UserStgmedium = UserStgmedium(),
 )
 
-public data class UserStgmedium(public var u: UserStgmedium0 = UserStgmedium0(), public var pUnkForRelease: COpaquePointer? = null)
+public data class UserStgmedium(
+    public var u: UserStgmedium0 = UserStgmedium0(),
+    public var pUnkForRelease: COpaquePointer? = null,
+)
 
-public data class UserStgmedium0(public var tymed: UInt = 0u, public var u: UserStgmedium00 = UserStgmedium00())
+public data class UserStgmedium0(
+    public var tymed: UInt = 0u,
+    public var u: UserStgmedium00 = UserStgmedium00(),
+)
 
 public data class UserStgmedium00(
     public var hMetaFilePict: UserHmetafilepict? = null,

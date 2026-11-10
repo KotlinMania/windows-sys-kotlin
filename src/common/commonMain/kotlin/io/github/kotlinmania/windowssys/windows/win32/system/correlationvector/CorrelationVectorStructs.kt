@@ -1,6 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.correlationvector
 
-public data class CorrelationVector(public var version: Byte = 0, public var vector: ByteArray = ByteArray(129)) {
+public data class CorrelationVector(
+    public var version: Byte = 0,
+    public var vector: ByteArray = ByteArray(129),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CorrelationVector) return false

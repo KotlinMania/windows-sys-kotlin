@@ -115,7 +115,10 @@ public data class WebauthnCoseCredentialParameter(
     public var lAlg: Int = 0,
 )
 
-public data class WebauthnCoseCredentialParameters(public var cCredentialParameters: UInt = 0u, public var pCredentialParameters: WebauthnCoseCredentialParameter? = null)
+public data class WebauthnCoseCredentialParameters(
+    public var cCredentialParameters: UInt = 0u,
+    public var pCredentialParameters: WebauthnCoseCredentialParameter? = null,
+)
 
 public data class WebauthnCredential(
     public var dwVersion: UInt = 0u,
@@ -124,7 +127,10 @@ public data class WebauthnCredential(
     public var pwszCredentialType: Pcwstr = null,
 )
 
-public data class WebauthnCredentials(public var cCredentials: UInt = 0u, public var pCredentials: WebauthnCredential? = null)
+public data class WebauthnCredentials(
+    public var cCredentials: UInt = 0u,
+    public var pCredentials: WebauthnCredential? = null,
+)
 
 public class WebauthnCredentialAttestation(
     public var dwVersion: UInt = 0u,
@@ -159,7 +165,10 @@ public data class WebauthnCredentialDetails(
     public var bBackedUp: Bool = 0,
 )
 
-public data class WebauthnCredentialDetailsList(public var cCredentialDetails: UInt = 0u, public var ppCredentialDetails: COpaquePointer? = null)
+public data class WebauthnCredentialDetailsList(
+    public var cCredentialDetails: UInt = 0u,
+    public var ppCredentialDetails: COpaquePointer? = null,
+)
 
 public data class WebauthnCredentialEx(
     public var dwVersion: UInt = 0u,
@@ -169,11 +178,20 @@ public data class WebauthnCredentialEx(
     public var dwTransports: UInt = 0u,
 )
 
-public data class WebauthnCredentialList(public var cCredentials: UInt = 0u, public var ppCredentials: COpaquePointer? = null)
+public data class WebauthnCredentialList(
+    public var cCredentials: UInt = 0u,
+    public var ppCredentials: COpaquePointer? = null,
+)
 
-public data class WebauthnCredBlobExtension(public var cbCredBlob: UInt = 0u, public var pbCredBlob: COpaquePointer? = null)
+public data class WebauthnCredBlobExtension(
+    public var cbCredBlob: UInt = 0u,
+    public var pbCredBlob: COpaquePointer? = null,
+)
 
-public data class WebauthnCredProtectExtensionIn(public var dwCredProtect: UInt = 0u, public var bRequireCredProtect: Bool = 0)
+public data class WebauthnCredProtectExtensionIn(
+    public var dwCredProtect: UInt = 0u,
+    public var bRequireCredProtect: Bool = 0,
+)
 
 public data class WebauthnCredWithHmacSecretSalt(
     public var cbCredID: UInt = 0u,
@@ -187,7 +205,10 @@ public data class WebauthnExtension(
     public var pvExtension: COpaquePointer? = null,
 )
 
-public data class WebauthnExtensions(public var cExtensions: UInt = 0u, public var pExtensions: WebauthnExtension? = null)
+public data class WebauthnExtensions(
+    public var cExtensions: UInt = 0u,
+    public var pExtensions: WebauthnExtension? = null,
+)
 
 public data class WebauthnGetCredentialsOptions(
     public var dwVersion: UInt = 0u,
@@ -224,7 +245,10 @@ public data class WebauthnUserEntityInformation(
     public var pwszDisplayName: Pcwstr = null,
 )
 
-public data class WebauthnX5c(public var cbData: UInt = 0u, public var pbData: COpaquePointer? = null)
+public data class WebauthnX5c(
+    public var cbData: UInt = 0u,
+    public var pbData: COpaquePointer? = null,
+)
 
 public data class WsAnyAttribute(
     public var localName: WsXmlString = WsXmlString(),
@@ -232,11 +256,19 @@ public data class WsAnyAttribute(
     public var value: WsXmlText? = null,
 )
 
-public data class WsAnyAttributes(public var attributes: WsAnyAttribute? = null, public var attributeCount: UInt = 0u)
+public data class WsAnyAttributes(
+    public var attributes: WsAnyAttribute? = null,
+    public var attributeCount: UInt = 0u,
+)
 
-public data class WsAsyncContext(public var callback: WsAsyncCallback = null, public var callbackState: COpaquePointer? = null)
+public data class WsAsyncContext(
+    public var callback: WsAsyncCallback = null,
+    public var callbackState: COpaquePointer? = null,
+)
 
-public data class WsAsyncOperation(public var function: WsAsyncFunction = null)
+public data class WsAsyncOperation(
+    public var function: WsAsyncFunction = null,
+)
 
 public data class WsAsyncState(
     public var internal0: COpaquePointer? = null,
@@ -253,15 +285,29 @@ public data class WsAttributeDescription(
     public var typeDescription: COpaquePointer? = null,
 )
 
-public data class WsBoolDescription(public var value: Bool = 0)
+public data class WsBoolDescription(
+    public var value: Bool = 0,
+)
 
-public data class WsBuffers(public var bufferCount: UInt = 0u, public var buffers: WsBytes? = null)
+public data class WsBuffers(
+    public var bufferCount: UInt = 0u,
+    public var buffers: WsBytes? = null,
+)
 
-public data class WsBytes(public var length: UInt = 0u, public var bytes: COpaquePointer? = null)
+public data class WsBytes(
+    public var length: UInt = 0u,
+    public var bytes: COpaquePointer? = null,
+)
 
-public data class WsBytesDescription(public var minByteCount: UInt = 0u, public var maxByteCount: UInt = 0u)
+public data class WsBytesDescription(
+    public var minByteCount: UInt = 0u,
+    public var maxByteCount: UInt = 0u,
+)
 
-public data class WsByteArrayDescription(public var minByteCount: UInt = 0u, public var maxByteCount: UInt = 0u)
+public data class WsByteArrayDescription(
+    public var minByteCount: UInt = 0u,
+    public var maxByteCount: UInt = 0u,
+)
 
 public data class WsCallProperty(
     public var id: WsCallPropertyId = 0,
@@ -275,13 +321,24 @@ public data class WsCapiAsymmetricSecurityKeyHandle(
     public var keySpec: UInt = 0u,
 )
 
-public data class WsCertificateValidationCallbackContext(public var callback: WsCertificateValidationCallback = null, public var state: COpaquePointer? = null)
+public data class WsCertificateValidationCallbackContext(
+    public var callback: WsCertificateValidationCallback = null,
+    public var state: COpaquePointer? = null,
+)
 
-public data class WsCertCredential(public var credentialType: WsCertCredentialType = 0)
+public data class WsCertCredential(
+    public var credentialType: WsCertCredentialType = 0,
+)
 
-public data class WsCertEndpointIdentity(public var identity: WsEndpointIdentity = WsEndpointIdentity(), public var rawCertificateData: WsBytes = WsBytes())
+public data class WsCertEndpointIdentity(
+    public var identity: WsEndpointIdentity = WsEndpointIdentity(),
+    public var rawCertificateData: WsBytes = WsBytes(),
+)
 
-public data class WsCertMessageSecurityBindingConstraint(public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(), public var bindingUsage: WsMessageSecurityUsage = 0)
+public data class WsCertMessageSecurityBindingConstraint(
+    public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(),
+    public var bindingUsage: WsMessageSecurityUsage = 0,
+)
 
 public data class WsCertSignedSamlAuthenticator(
     public var authenticator: WsSamlAuthenticator = WsSamlAuthenticator(),
@@ -312,7 +369,10 @@ public data class WsChannelEncoder(
     public var freeEncoderCallback: WsFreeEncoderCallback = null,
 )
 
-public data class WsChannelProperties(public var properties: WsChannelProperty? = null, public var propertyCount: UInt = 0u)
+public data class WsChannelProperties(
+    public var properties: WsChannelProperty? = null,
+    public var propertyCount: UInt = 0u,
+)
 
 public data class WsChannelProperty(
     public var id: WsChannelPropertyId = 0,
@@ -327,11 +387,19 @@ public data class WsChannelPropertyConstraint(
     public var out: WsChannelPropertyConstraint0 = WsChannelPropertyConstraint0(),
 )
 
-public data class WsChannelPropertyConstraint0(public var channelProperty: WsChannelProperty = WsChannelProperty())
+public data class WsChannelPropertyConstraint0(
+    public var channelProperty: WsChannelProperty = WsChannelProperty(),
+)
 
-public data class WsCharArrayDescription(public var minCharCount: UInt = 0u, public var maxCharCount: UInt = 0u)
+public data class WsCharArrayDescription(
+    public var minCharCount: UInt = 0u,
+    public var maxCharCount: UInt = 0u,
+)
 
-public data class WsContractDescription(public var operationCount: UInt = 0u, public var operations: COpaquePointer? = null)
+public data class WsContractDescription(
+    public var operationCount: UInt = 0u,
+    public var operations: COpaquePointer? = null,
+)
 
 public data class WsCustomCertCredential(
     public var credential: WsCertCredential = WsCertCredential(),
@@ -358,7 +426,10 @@ public data class WsCustomChannelCallbacks(
     public var shutdownSessionChannelCallback: WsShutdownSessionChannelCallback = null,
 )
 
-public data class WsCustomHttpProxy(public var servers: WsString = WsString(), public var bypass: WsString = WsString())
+public data class WsCustomHttpProxy(
+    public var servers: WsString = WsString(),
+    public var bypass: WsString = WsString(),
+)
 
 public data class WsCustomListenerCallbacks(
     public var createListenerCallback: WsCreateListenerCallback = null,
@@ -382,21 +453,44 @@ public data class WsCustomTypeDescription(
     public var isDefaultValueCallback: WsIsDefaultValueCallback = null,
 )
 
-public data class WsDatetime(public var ticks: ULong = 0uL, public var format: WsDatetimeFormat = 0)
+public data class WsDatetime(
+    public var ticks: ULong = 0uL,
+    public var format: WsDatetimeFormat = 0,
+)
 
-public data class WsDatetimeDescription(public var minValue: WsDatetime = WsDatetime(), public var maxValue: WsDatetime = WsDatetime())
+public data class WsDatetimeDescription(
+    public var minValue: WsDatetime = WsDatetime(),
+    public var maxValue: WsDatetime = WsDatetime(),
+)
 
-public data class WsDecimalDescription(public var minValue: Decimal = Decimal(), public var maxValue: Decimal = Decimal())
+public data class WsDecimalDescription(
+    public var minValue: Decimal = Decimal(),
+    public var maxValue: Decimal = Decimal(),
+)
 
-public data class WsDefaultValue(public var value: COpaquePointer? = null, public var valueSize: UInt = 0u)
+public data class WsDefaultValue(
+    public var value: COpaquePointer? = null,
+    public var valueSize: UInt = 0u,
+)
 
-public data class WsDefaultWindowsIntegratedAuthCredential(public var credential: WsWindowsIntegratedAuthCredential = WsWindowsIntegratedAuthCredential())
+public data class WsDefaultWindowsIntegratedAuthCredential(
+    public var credential: WsWindowsIntegratedAuthCredential = WsWindowsIntegratedAuthCredential(),
+)
 
-public data class WsDisallowedUserAgentSubstrings(public var subStringCount: UInt = 0u, public var subStrings: COpaquePointer? = null)
+public data class WsDisallowedUserAgentSubstrings(
+    public var subStringCount: UInt = 0u,
+    public var subStrings: COpaquePointer? = null,
+)
 
-public data class WsDnsEndpointIdentity(public var identity: WsEndpointIdentity = WsEndpointIdentity(), public var dns: WsString = WsString())
+public data class WsDnsEndpointIdentity(
+    public var identity: WsEndpointIdentity = WsEndpointIdentity(),
+    public var dns: WsString = WsString(),
+)
 
-public data class WsDoubleDescription(public var minValue: Double = 0.0, public var maxValue: Double = 0.0)
+public data class WsDoubleDescription(
+    public var minValue: Double = 0.0,
+    public var maxValue: Double = 0.0,
+)
 
 public data class WsDuration(
     public var negative: Bool = 0,
@@ -430,9 +524,13 @@ public data class WsEndpointAddress(
     public var identity: WsEndpointIdentity? = null,
 )
 
-public data class WsEndpointAddressDescription(public var addressingVersion: WsAddressingVersion = 0)
+public data class WsEndpointAddressDescription(
+    public var addressingVersion: WsAddressingVersion = 0,
+)
 
-public data class WsEndpointIdentity(public var identityType: WsEndpointIdentityType = 0)
+public data class WsEndpointIdentity(
+    public var identityType: WsEndpointIdentityType = 0,
+)
 
 public data class WsEndpointPolicyExtension(
     public var policyExtension: WsPolicyExtension = WsPolicyExtension(),
@@ -441,7 +539,9 @@ public data class WsEndpointPolicyExtension(
     public var out: WsEndpointPolicyExtension0 = WsEndpointPolicyExtension0(),
 )
 
-public data class WsEndpointPolicyExtension0(public var assertionValue: Int? = null)
+public data class WsEndpointPolicyExtension0(
+    public var assertionValue: Int? = null,
+)
 
 public data class WsEnumDescription(
     public var values: WsEnumValue? = null,
@@ -450,7 +550,10 @@ public data class WsEnumDescription(
     public var nameIndices: UInt? = null,
 )
 
-public data class WsEnumValue(public var value: Int = 0, public var name: WsXmlString? = null)
+public data class WsEnumValue(
+    public var value: Int = 0,
+    public var name: WsXmlString? = null,
+)
 
 public data class WsErrorProperty(
     public var id: WsErrorPropertyId = 0,
@@ -467,13 +570,24 @@ public data class WsFault(
     public var detail: Int? = null,
 )
 
-public data class WsFaultCode(public var value: WsXmlQname = WsXmlQname(), public var subCode: WsFaultCode? = null)
+public data class WsFaultCode(
+    public var value: WsXmlQname = WsXmlQname(),
+    public var subCode: WsFaultCode? = null,
+)
 
-public data class WsFaultDescription(public var envelopeVersion: WsEnvelopeVersion = 0)
+public data class WsFaultDescription(
+    public var envelopeVersion: WsEnvelopeVersion = 0,
+)
 
-public data class WsFaultDetailDescription(public var action: WsXmlString? = null, public var detailElementDescription: WsElementDescription? = null)
+public data class WsFaultDetailDescription(
+    public var action: WsXmlString? = null,
+    public var detailElementDescription: WsElementDescription? = null,
+)
 
-public data class WsFaultReason(public var text: WsString = WsString(), public var lang: WsString = WsString())
+public data class WsFaultReason(
+    public var text: WsString = WsString(),
+    public var lang: WsString = WsString(),
+)
 
 public data class WsFieldDescription(
     public var mapping: WsFieldMapping = 0,
@@ -490,11 +604,19 @@ public data class WsFieldDescription(
     public var itemRange: WsItemRange? = null,
 )
 
-public data class WsFloatDescription(public var minValue: Float = 0.0f, public var maxValue: Float = 0.0f)
+public data class WsFloatDescription(
+    public var minValue: Float = 0.0f,
+    public var maxValue: Float = 0.0f,
+)
 
-public data class WsGuidDescription(public var value: Guid = Guid())
+public data class WsGuidDescription(
+    public var value: Guid = Guid(),
+)
 
-public data class WsHeapProperties(public var properties: WsHeapProperty? = null, public var propertyCount: UInt = 0u)
+public data class WsHeapProperties(
+    public var properties: WsHeapProperty? = null,
+    public var propertyCount: UInt = 0u,
+)
 
 public data class WsHeapProperty(
     public var id: WsHeapPropertyId = 0,
@@ -502,7 +624,10 @@ public data class WsHeapProperty(
     public var valueSize: UInt = 0u,
 )
 
-public data class WsHostNames(public var hostNames: WsString? = null, public var hostNameCount: UInt = 0u)
+public data class WsHostNames(
+    public var hostNames: WsString? = null,
+    public var hostNameCount: UInt = 0u,
+)
 
 public data class WsHttpsUrl(
     public var url: WsUrl = WsUrl(),
@@ -514,7 +639,9 @@ public data class WsHttpsUrl(
     public var fragment: WsString = WsString(),
 )
 
-public data class WsHttpBindingTemplate(public var channelProperties: WsChannelProperties = WsChannelProperties())
+public data class WsHttpBindingTemplate(
+    public var channelProperties: WsChannelProperties = WsChannelProperties(),
+)
 
 public data class WsHttpHeaderAuthBindingTemplate(
     public var channelProperties: WsChannelProperties = WsChannelProperties(),
@@ -528,15 +655,28 @@ public data class WsHttpHeaderAuthPolicyDescription(
     public var httpHeaderAuthSecurityBinding: WsHttpHeaderAuthSecurityBindingPolicyDescription = WsHttpHeaderAuthSecurityBindingPolicyDescription(),
 )
 
-public data class WsHttpHeaderAuthSecurityBinding(public var binding: WsSecurityBinding = WsSecurityBinding(), public var clientCredential: WsWindowsIntegratedAuthCredential? = null)
+public data class WsHttpHeaderAuthSecurityBinding(
+    public var binding: WsSecurityBinding = WsSecurityBinding(),
+    public var clientCredential: WsWindowsIntegratedAuthCredential? = null,
+)
 
-public data class WsHttpHeaderAuthSecurityBindingConstraint(public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint())
+public data class WsHttpHeaderAuthSecurityBindingConstraint(
+    public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(),
+)
 
-public data class WsHttpHeaderAuthSecurityBindingPolicyDescription(public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties())
+public data class WsHttpHeaderAuthSecurityBindingPolicyDescription(
+    public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
+)
 
-public data class WsHttpHeaderAuthSecurityBindingTemplate(public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(), public var clientCredential: WsWindowsIntegratedAuthCredential? = null)
+public data class WsHttpHeaderAuthSecurityBindingTemplate(
+    public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
+    public var clientCredential: WsWindowsIntegratedAuthCredential? = null,
+)
 
-public data class WsHttpHeaderMapping(public var headerName: WsXmlString = WsXmlString(), public var headerMappingOptions: UInt = 0u)
+public data class WsHttpHeaderMapping(
+    public var headerName: WsXmlString = WsXmlString(),
+    public var headerMappingOptions: UInt = 0u,
+)
 
 public data class WsHttpMessageMapping(
     public var requestMappingOptions: UInt = 0u,
@@ -547,9 +687,14 @@ public data class WsHttpMessageMapping(
     public var responseHeaderMappingCount: UInt = 0u,
 )
 
-public data class WsHttpPolicyDescription(public var channelProperties: WsChannelProperties = WsChannelProperties())
+public data class WsHttpPolicyDescription(
+    public var channelProperties: WsChannelProperties = WsChannelProperties(),
+)
 
-public data class WsHttpRedirectCallbackContext(public var callback: WsHttpRedirectCallback = null, public var state: COpaquePointer? = null)
+public data class WsHttpRedirectCallbackContext(
+    public var callback: WsHttpRedirectCallback = null,
+    public var state: COpaquePointer? = null,
+)
 
 public data class WsHttpSslBindingTemplate(
     public var channelProperties: WsChannelProperties = WsChannelProperties(),
@@ -647,13 +792,25 @@ public data class WsHttpUrl(
     public var fragment: WsString = WsString(),
 )
 
-public data class WsInt16Description(public var minValue: Short = 0, public var maxValue: Short = 0)
+public data class WsInt16Description(
+    public var minValue: Short = 0,
+    public var maxValue: Short = 0,
+)
 
-public data class WsInt32Description(public var minValue: Int = 0, public var maxValue: Int = 0)
+public data class WsInt32Description(
+    public var minValue: Int = 0,
+    public var maxValue: Int = 0,
+)
 
-public data class WsInt64Description(public var minValue: Long = 0L, public var maxValue: Long = 0L)
+public data class WsInt64Description(
+    public var minValue: Long = 0L,
+    public var maxValue: Long = 0L,
+)
 
-public data class WsInt8Description(public var minValue: Byte = 0, public var maxValue: Byte = 0)
+public data class WsInt8Description(
+    public var minValue: Byte = 0,
+    public var maxValue: Byte = 0,
+)
 
 public data class WsIssuedTokenMessageSecurityBindingConstraint(
     public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(),
@@ -665,9 +822,15 @@ public data class WsIssuedTokenMessageSecurityBindingConstraint(
     public var out: WsIssuedTokenMessageSecurityBindingConstraint0 = WsIssuedTokenMessageSecurityBindingConstraint0(),
 )
 
-public data class WsIssuedTokenMessageSecurityBindingConstraint0(public var issuerAddress: WsEndpointAddress? = null, public var requestSecurityTokenTemplate: Int? = null)
+public data class WsIssuedTokenMessageSecurityBindingConstraint0(
+    public var issuerAddress: WsEndpointAddress? = null,
+    public var requestSecurityTokenTemplate: Int? = null,
+)
 
-public data class WsItemRange(public var minItemCount: UInt = 0u, public var maxItemCount: UInt = 0u)
+public data class WsItemRange(
+    public var minItemCount: UInt = 0u,
+    public var maxItemCount: UInt = 0u,
+)
 
 public data class WsKerberosApreqMessageSecurityBinding(
     public var binding: WsSecurityBinding = WsSecurityBinding(),
@@ -675,13 +838,25 @@ public data class WsKerberosApreqMessageSecurityBinding(
     public var clientCredential: WsWindowsIntegratedAuthCredential? = null,
 )
 
-public data class WsKerberosApreqMessageSecurityBindingConstraint(public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(), public var bindingUsage: WsMessageSecurityUsage = 0)
+public data class WsKerberosApreqMessageSecurityBindingConstraint(
+    public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(),
+    public var bindingUsage: WsMessageSecurityUsage = 0,
+)
 
-public data class WsKerberosApreqMessageSecurityBindingPolicyDescription(public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(), public var bindingUsage: WsMessageSecurityUsage = 0)
+public data class WsKerberosApreqMessageSecurityBindingPolicyDescription(
+    public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
+    public var bindingUsage: WsMessageSecurityUsage = 0,
+)
 
-public data class WsKerberosApreqMessageSecurityBindingTemplate(public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(), public var clientCredential: WsWindowsIntegratedAuthCredential? = null)
+public data class WsKerberosApreqMessageSecurityBindingTemplate(
+    public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
+    public var clientCredential: WsWindowsIntegratedAuthCredential? = null,
+)
 
-public data class WsListenerProperties(public var properties: WsListenerProperty? = null, public var propertyCount: UInt = 0u)
+public data class WsListenerProperties(
+    public var properties: WsListenerProperty? = null,
+    public var propertyCount: UInt = 0u,
+)
 
 public data class WsListenerProperty(
     public var id: WsListenerPropertyId = 0,
@@ -689,9 +864,15 @@ public data class WsListenerProperty(
     public var valueSize: UInt = 0u,
 )
 
-public data class WsMessageDescription(public var action: WsXmlString? = null, public var bodyElementDescription: WsElementDescription? = null)
+public data class WsMessageDescription(
+    public var action: WsXmlString? = null,
+    public var bodyElementDescription: WsElementDescription? = null,
+)
 
-public data class WsMessageProperties(public var properties: WsMessageProperty? = null, public var propertyCount: UInt = 0u)
+public data class WsMessageProperties(
+    public var properties: WsMessageProperty? = null,
+    public var propertyCount: UInt = 0u,
+)
 
 public data class WsMessageProperty(
     public var id: WsMessagePropertyId = 0,
@@ -711,7 +892,10 @@ public data class WsMetadataEndpoint(
     public var portTypeNs: WsXmlString? = null,
 )
 
-public data class WsMetadataEndpoints(public var endpoints: WsMetadataEndpoint? = null, public var endpointCount: UInt = 0u)
+public data class WsMetadataEndpoints(
+    public var endpoints: WsMetadataEndpoint? = null,
+    public var endpointCount: UInt = 0u,
+)
 
 public data class WsMetadataProperty(
     public var id: WsMetadataPropertyId = 0,
@@ -719,9 +903,15 @@ public data class WsMetadataProperty(
     public var valueSize: UInt = 0u,
 )
 
-public data class WsNamedpipeSspiTransportSecurityBinding(public var binding: WsSecurityBinding = WsSecurityBinding(), public var clientCredential: WsWindowsIntegratedAuthCredential? = null)
+public data class WsNamedpipeSspiTransportSecurityBinding(
+    public var binding: WsSecurityBinding = WsSecurityBinding(),
+    public var clientCredential: WsWindowsIntegratedAuthCredential? = null,
+)
 
-public data class WsNcryptAsymmetricSecurityKeyHandle(public var keyHandle: WsSecurityKeyHandle = WsSecurityKeyHandle(), public var asymmetricKey: NcryptKeyHandle = 0uL)
+public data class WsNcryptAsymmetricSecurityKeyHandle(
+    public var keyHandle: WsSecurityKeyHandle = WsSecurityKeyHandle(),
+    public var asymmetricKey: NcryptKeyHandle = 0uL,
+)
 
 public data class WsNetpipeUrl(
     public var url: WsUrl = WsUrl(),
@@ -743,7 +933,10 @@ public data class WsNettcpUrl(
     public var fragment: WsString = WsString(),
 )
 
-public data class WsOpaqueWindowsIntegratedAuthCredential(public var credential: WsWindowsIntegratedAuthCredential = WsWindowsIntegratedAuthCredential(), public var opaqueAuthIdentity: COpaquePointer? = null)
+public data class WsOpaqueWindowsIntegratedAuthCredential(
+    public var credential: WsWindowsIntegratedAuthCredential = WsWindowsIntegratedAuthCredential(),
+    public var opaqueAuthIdentity: COpaquePointer? = null,
+)
 
 public data class WsOperationDescription(
     public var versionInfo: UInt = 0u,
@@ -772,9 +965,14 @@ public data class WsPolicyConstraints(
     public var policyExtensionCount: UInt = 0u,
 )
 
-public data class WsPolicyExtension(public var type: WsPolicyExtensionType = 0)
+public data class WsPolicyExtension(
+    public var type: WsPolicyExtensionType = 0,
+)
 
-public data class WsPolicyProperties(public var properties: WsPolicyProperty? = null, public var propertyCount: UInt = 0u)
+public data class WsPolicyProperties(
+    public var properties: WsPolicyProperty? = null,
+    public var propertyCount: UInt = 0u,
+)
 
 public data class WsPolicyProperty(
     public var id: WsPolicyPropertyId = 0,
@@ -782,7 +980,10 @@ public data class WsPolicyProperty(
     public var valueSize: UInt = 0u,
 )
 
-public data class WsProxyMessageCallbackContext(public var callback: WsProxyMessageCallback = null, public var state: COpaquePointer? = null)
+public data class WsProxyMessageCallbackContext(
+    public var callback: WsProxyMessageCallback = null,
+    public var state: COpaquePointer? = null,
+)
 
 public data class WsProxyProperty(
     public var id: WsProxyPropertyId = 0,
@@ -790,7 +991,10 @@ public data class WsProxyProperty(
     public var valueSize: UInt = 0u,
 )
 
-public data class WsRawSymmetricSecurityKeyHandle(public var keyHandle: WsSecurityKeyHandle = WsSecurityKeyHandle(), public var rawKeyBytes: WsBytes = WsBytes())
+public data class WsRawSymmetricSecurityKeyHandle(
+    public var keyHandle: WsSecurityKeyHandle = WsSecurityKeyHandle(),
+    public var rawKeyBytes: WsBytes = WsBytes(),
+)
 
 public data class WsRequestSecurityTokenProperty(
     public var id: WsRequestSecurityTokenPropertyId = 0,
@@ -805,7 +1009,9 @@ public data class WsRequestSecurityTokenPropertyConstraint(
     public var out: WsRequestSecurityTokenPropertyConstraint0 = WsRequestSecurityTokenPropertyConstraint0(),
 )
 
-public data class WsRequestSecurityTokenPropertyConstraint0(public var requestSecurityTokenProperty: WsRequestSecurityTokenProperty = WsRequestSecurityTokenProperty())
+public data class WsRequestSecurityTokenPropertyConstraint0(
+    public var requestSecurityTokenProperty: WsRequestSecurityTokenProperty = WsRequestSecurityTokenProperty(),
+)
 
 public data class WsRsaEndpointIdentity(
     public var identity: WsEndpointIdentity = WsEndpointIdentity(),
@@ -813,7 +1019,9 @@ public data class WsRsaEndpointIdentity(
     public var exponent: WsBytes = WsBytes(),
 )
 
-public data class WsSamlAuthenticator(public var authenticatorType: WsSamlAuthenticatorType = 0)
+public data class WsSamlAuthenticator(
+    public var authenticatorType: WsSamlAuthenticatorType = 0,
+)
 
 public data class WsSamlMessageSecurityBinding(
     public var binding: WsSecurityBinding = WsSecurityBinding(),
@@ -856,7 +1064,10 @@ public data class WsSecurityBindingConstraint(
     public var propertyConstraintCount: UInt = 0u,
 )
 
-public data class WsSecurityBindingProperties(public var properties: WsSecurityBindingProperty? = null, public var propertyCount: UInt = 0u)
+public data class WsSecurityBindingProperties(
+    public var properties: WsSecurityBindingProperty? = null,
+    public var propertyCount: UInt = 0u,
+)
 
 public data class WsSecurityBindingProperty(
     public var id: WsSecurityBindingPropertyId = 0,
@@ -871,7 +1082,9 @@ public data class WsSecurityBindingPropertyConstraint(
     public var out: WsSecurityBindingPropertyConstraint0 = WsSecurityBindingPropertyConstraint0(),
 )
 
-public data class WsSecurityBindingPropertyConstraint0(public var securityBindingProperty: WsSecurityBindingProperty = WsSecurityBindingProperty())
+public data class WsSecurityBindingPropertyConstraint0(
+    public var securityBindingProperty: WsSecurityBindingProperty = WsSecurityBindingProperty(),
+)
 
 public data class WsSecurityConstraints(
     public var securityPropertyConstraints: WsSecurityPropertyConstraint? = null,
@@ -892,9 +1105,14 @@ public data class WsSecurityContextMessageSecurityBindingConstraint(
     public var bootstrapSecurityConstraint: WsSecurityConstraints? = null,
 )
 
-public data class WsSecurityContextMessageSecurityBindingPolicyDescription(public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(), public var bindingUsage: WsMessageSecurityUsage = 0)
+public data class WsSecurityContextMessageSecurityBindingPolicyDescription(
+    public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
+    public var bindingUsage: WsMessageSecurityUsage = 0,
+)
 
-public data class WsSecurityContextMessageSecurityBindingTemplate(public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties())
+public data class WsSecurityContextMessageSecurityBindingTemplate(
+    public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
+)
 
 public data class WsSecurityContextProperty(
     public var id: WsSecurityContextPropertyId = 0,
@@ -902,9 +1120,15 @@ public data class WsSecurityContextProperty(
     public var valueSize: UInt = 0u,
 )
 
-public data class WsSecurityContextSecurityBindingPolicyDescription(public var securityContextMessageSecurityBinding: WsSecurityContextMessageSecurityBindingPolicyDescription = WsSecurityContextMessageSecurityBindingPolicyDescription(), public var securityProperties: WsSecurityProperties = WsSecurityProperties())
+public data class WsSecurityContextSecurityBindingPolicyDescription(
+    public var securityContextMessageSecurityBinding: WsSecurityContextMessageSecurityBindingPolicyDescription = WsSecurityContextMessageSecurityBindingPolicyDescription(),
+    public var securityProperties: WsSecurityProperties = WsSecurityProperties(),
+)
 
-public data class WsSecurityContextSecurityBindingTemplate(public var securityContextMessageSecurityBinding: WsSecurityContextMessageSecurityBindingTemplate = WsSecurityContextMessageSecurityBindingTemplate(), public var securityProperties: WsSecurityProperties = WsSecurityProperties())
+public data class WsSecurityContextSecurityBindingTemplate(
+    public var securityContextMessageSecurityBinding: WsSecurityContextMessageSecurityBindingTemplate = WsSecurityContextMessageSecurityBindingTemplate(),
+    public var securityProperties: WsSecurityProperties = WsSecurityProperties(),
+)
 
 public data class WsSecurityDescription(
     public var securityBindings: COpaquePointer? = null,
@@ -913,9 +1137,14 @@ public data class WsSecurityDescription(
     public var propertyCount: UInt = 0u,
 )
 
-public data class WsSecurityKeyHandle(public var keyHandleType: WsSecurityKeyHandleType = 0)
+public data class WsSecurityKeyHandle(
+    public var keyHandleType: WsSecurityKeyHandleType = 0,
+)
 
-public data class WsSecurityProperties(public var properties: WsSecurityProperty? = null, public var propertyCount: UInt = 0u)
+public data class WsSecurityProperties(
+    public var properties: WsSecurityProperty? = null,
+    public var propertyCount: UInt = 0u,
+)
 
 public data class WsSecurityProperty(
     public var id: WsSecurityPropertyId = 0,
@@ -930,7 +1159,9 @@ public data class WsSecurityPropertyConstraint(
     public var out: WsSecurityPropertyConstraint0 = WsSecurityPropertyConstraint0(),
 )
 
-public data class WsSecurityPropertyConstraint0(public var securityProperty: WsSecurityProperty = WsSecurityProperty())
+public data class WsSecurityPropertyConstraint0(
+    public var securityProperty: WsSecurityProperty = WsSecurityProperty(),
+)
 
 public data class WsServiceContract(
     public var contractDescription: WsContractDescription? = null,
@@ -969,7 +1200,10 @@ public data class WsServiceMetadata(
     public var serviceNs: WsXmlString? = null,
 )
 
-public data class WsServiceMetadataDocument(public var content: WsXmlString? = null, public var name: WsString? = null)
+public data class WsServiceMetadataDocument(
+    public var content: WsXmlString? = null,
+    public var name: WsString? = null,
+)
 
 public data class WsServiceProperty(
     public var id: WsServicePropertyId = 0,
@@ -977,11 +1211,18 @@ public data class WsServiceProperty(
     public var valueSize: UInt = 0u,
 )
 
-public data class WsServicePropertyAcceptCallback(public var callback: WsServiceAcceptChannelCallback = null)
+public data class WsServicePropertyAcceptCallback(
+    public var callback: WsServiceAcceptChannelCallback = null,
+)
 
-public data class WsServicePropertyCloseCallback(public var callback: WsServiceCloseChannelCallback = null)
+public data class WsServicePropertyCloseCallback(
+    public var callback: WsServiceCloseChannelCallback = null,
+)
 
-public data class WsServiceSecurityIdentities(public var serviceIdentities: WsString? = null, public var serviceIdentityCount: UInt = 0u)
+public data class WsServiceSecurityIdentities(
+    public var serviceIdentities: WsString? = null,
+    public var serviceIdentityCount: UInt = 0u,
+)
 
 public data class WsSoapudpUrl(
     public var url: WsUrl = WsUrl(),
@@ -993,23 +1234,47 @@ public data class WsSoapudpUrl(
     public var fragment: WsString = WsString(),
 )
 
-public data class WsSpnEndpointIdentity(public var identity: WsEndpointIdentity = WsEndpointIdentity(), public var spn: WsString = WsString())
+public data class WsSpnEndpointIdentity(
+    public var identity: WsEndpointIdentity = WsEndpointIdentity(),
+    public var spn: WsString = WsString(),
+)
 
-public data class WsSslTransportSecurityBinding(public var binding: WsSecurityBinding = WsSecurityBinding(), public var localCertCredential: WsCertCredential? = null)
+public data class WsSslTransportSecurityBinding(
+    public var binding: WsSecurityBinding = WsSecurityBinding(),
+    public var localCertCredential: WsCertCredential? = null,
+)
 
-public data class WsSslTransportSecurityBindingConstraint(public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(), public var out: WsSslTransportSecurityBindingConstraint0 = WsSslTransportSecurityBindingConstraint0())
+public data class WsSslTransportSecurityBindingConstraint(
+    public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(),
+    public var out: WsSslTransportSecurityBindingConstraint0 = WsSslTransportSecurityBindingConstraint0(),
+)
 
-public data class WsSslTransportSecurityBindingConstraint0(public var clientCertCredentialRequired: Bool = 0)
+public data class WsSslTransportSecurityBindingConstraint0(
+    public var clientCertCredentialRequired: Bool = 0,
+)
 
-public data class WsSslTransportSecurityBindingPolicyDescription(public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties())
+public data class WsSslTransportSecurityBindingPolicyDescription(
+    public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
+)
 
-public data class WsSslTransportSecurityBindingTemplate(public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(), public var localCertCredential: WsCertCredential? = null)
+public data class WsSslTransportSecurityBindingTemplate(
+    public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
+    public var localCertCredential: WsCertCredential? = null,
+)
 
-public data class WsSspiTransportSecurityBindingPolicyDescription(public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties())
+public data class WsSspiTransportSecurityBindingPolicyDescription(
+    public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
+)
 
-public data class WsString(public var length: UInt = 0u, public var chars: Pwstr = null)
+public data class WsString(
+    public var length: UInt = 0u,
+    public var chars: Pwstr = null,
+)
 
-public data class WsStringDescription(public var minCharCount: UInt = 0u, public var maxCharCount: UInt = 0u)
+public data class WsStringDescription(
+    public var minCharCount: UInt = 0u,
+    public var maxCharCount: UInt = 0u,
+)
 
 public data class WsStringUsernameCredential(
     public var credential: WsUsernameCredential = WsUsernameCredential(),
@@ -1044,9 +1309,13 @@ public data class WsSubjectNameCertCredential(
     public var subjectName: WsString = WsString(),
 )
 
-public data class WsTcpBindingTemplate(public var channelProperties: WsChannelProperties = WsChannelProperties())
+public data class WsTcpBindingTemplate(
+    public var channelProperties: WsChannelProperties = WsChannelProperties(),
+)
 
-public data class WsTcpPolicyDescription(public var channelProperties: WsChannelProperties = WsChannelProperties())
+public data class WsTcpPolicyDescription(
+    public var channelProperties: WsChannelProperties = WsChannelProperties(),
+)
 
 public data class WsTcpSspiBindingTemplate(
     public var channelProperties: WsChannelProperties = WsChannelProperties(),
@@ -1090,11 +1359,19 @@ public data class WsTcpSspiPolicyDescription(
     public var sspiTransportSecurityBinding: WsSspiTransportSecurityBindingPolicyDescription = WsSspiTransportSecurityBindingPolicyDescription(),
 )
 
-public data class WsTcpSspiTransportSecurityBinding(public var binding: WsSecurityBinding = WsSecurityBinding(), public var clientCredential: WsWindowsIntegratedAuthCredential? = null)
+public data class WsTcpSspiTransportSecurityBinding(
+    public var binding: WsSecurityBinding = WsSecurityBinding(),
+    public var clientCredential: WsWindowsIntegratedAuthCredential? = null,
+)
 
-public data class WsTcpSspiTransportSecurityBindingConstraint(public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint())
+public data class WsTcpSspiTransportSecurityBindingConstraint(
+    public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(),
+)
 
-public data class WsTcpSspiTransportSecurityBindingTemplate(public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(), public var clientCredential: WsWindowsIntegratedAuthCredential? = null)
+public data class WsTcpSspiTransportSecurityBindingTemplate(
+    public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
+    public var clientCredential: WsWindowsIntegratedAuthCredential? = null,
+)
 
 public data class WsTcpSspiUsernameBindingTemplate(
     public var channelProperties: WsChannelProperties = WsChannelProperties(),
@@ -1133,17 +1410,34 @@ public data class WsThumbprintCertCredential(
     public var thumbprint: WsString = WsString(),
 )
 
-public data class WsTimespan(public var ticks: Long = 0L)
+public data class WsTimespan(
+    public var ticks: Long = 0L,
+)
 
-public data class WsTimespanDescription(public var minValue: WsTimespan = WsTimespan(), public var maxValue: WsTimespan = WsTimespan())
+public data class WsTimespanDescription(
+    public var minValue: WsTimespan = WsTimespan(),
+    public var maxValue: WsTimespan = WsTimespan(),
+)
 
-public data class WsUint16Description(public var minValue: UShort = 0u, public var maxValue: UShort = 0u)
+public data class WsUint16Description(
+    public var minValue: UShort = 0u,
+    public var maxValue: UShort = 0u,
+)
 
-public data class WsUint32Description(public var minValue: UInt = 0u, public var maxValue: UInt = 0u)
+public data class WsUint32Description(
+    public var minValue: UInt = 0u,
+    public var maxValue: UInt = 0u,
+)
 
-public data class WsUint64Description(public var minValue: ULong = 0uL, public var maxValue: ULong = 0uL)
+public data class WsUint64Description(
+    public var minValue: ULong = 0uL,
+    public var maxValue: ULong = 0uL,
+)
 
-public data class WsUint8Description(public var minValue: UByte = 0u, public var maxValue: UByte = 0u)
+public data class WsUint8Description(
+    public var minValue: UByte = 0u,
+    public var maxValue: UByte = 0u,
+)
 
 public data class WsUnionDescription(
     public var size: UInt = 0u,
@@ -1155,19 +1449,38 @@ public data class WsUnionDescription(
     public var valueIndices: UInt? = null,
 )
 
-public data class WsUnionFieldDescription(public var value: Int = 0, public var field: WsFieldDescription = WsFieldDescription())
+public data class WsUnionFieldDescription(
+    public var value: Int = 0,
+    public var field: WsFieldDescription = WsFieldDescription(),
+)
 
-public data class WsUniqueId(public var uri: WsString = WsString(), public var guid: Guid = Guid())
+public data class WsUniqueId(
+    public var uri: WsString = WsString(),
+    public var guid: Guid = Guid(),
+)
 
-public data class WsUniqueIdDescription(public var minCharCount: UInt = 0u, public var maxCharCount: UInt = 0u)
+public data class WsUniqueIdDescription(
+    public var minCharCount: UInt = 0u,
+    public var maxCharCount: UInt = 0u,
+)
 
-public data class WsUnknownEndpointIdentity(public var identity: WsEndpointIdentity = WsEndpointIdentity(), public var element: Int? = null)
+public data class WsUnknownEndpointIdentity(
+    public var identity: WsEndpointIdentity = WsEndpointIdentity(),
+    public var element: Int? = null,
+)
 
-public data class WsUpnEndpointIdentity(public var identity: WsEndpointIdentity = WsEndpointIdentity(), public var upn: WsString = WsString())
+public data class WsUpnEndpointIdentity(
+    public var identity: WsEndpointIdentity = WsEndpointIdentity(),
+    public var upn: WsString = WsString(),
+)
 
-public data class WsUrl(public var scheme: WsUrlSchemeType = 0)
+public data class WsUrl(
+    public var scheme: WsUrlSchemeType = 0,
+)
 
-public data class WsUsernameCredential(public var credentialType: WsUsernameCredentialType = 0)
+public data class WsUsernameCredential(
+    public var credentialType: WsUsernameCredentialType = 0,
+)
 
 public data class WsUsernameMessageSecurityBinding(
     public var binding: WsSecurityBinding = WsSecurityBinding(),
@@ -1177,9 +1490,15 @@ public data class WsUsernameMessageSecurityBinding(
     public var passwordValidatorCallbackState: COpaquePointer? = null,
 )
 
-public data class WsUsernameMessageSecurityBindingConstraint(public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(), public var bindingUsage: WsMessageSecurityUsage = 0)
+public data class WsUsernameMessageSecurityBindingConstraint(
+    public var bindingConstraint: WsSecurityBindingConstraint = WsSecurityBindingConstraint(),
+    public var bindingUsage: WsMessageSecurityUsage = 0,
+)
 
-public data class WsUsernameMessageSecurityBindingPolicyDescription(public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(), public var bindingUsage: WsMessageSecurityUsage = 0)
+public data class WsUsernameMessageSecurityBindingPolicyDescription(
+    public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
+    public var bindingUsage: WsMessageSecurityUsage = 0,
+)
 
 public data class WsUsernameMessageSecurityBindingTemplate(
     public var securityBindingProperties: WsSecurityBindingProperties = WsSecurityBindingProperties(),
@@ -1188,13 +1507,23 @@ public data class WsUsernameMessageSecurityBindingTemplate(
     public var passwordValidatorCallbackState: COpaquePointer? = null,
 )
 
-public data class WsUtf8ArrayDescription(public var minByteCount: UInt = 0u, public var maxByteCount: UInt = 0u)
+public data class WsUtf8ArrayDescription(
+    public var minByteCount: UInt = 0u,
+    public var maxByteCount: UInt = 0u,
+)
 
-public data class WsVoidDescription(public var size: UInt = 0u)
+public data class WsVoidDescription(
+    public var size: UInt = 0u,
+)
 
-public data class WsWindowsIntegratedAuthCredential(public var credentialType: WsWindowsIntegratedAuthCredentialType = 0)
+public data class WsWindowsIntegratedAuthCredential(
+    public var credentialType: WsWindowsIntegratedAuthCredentialType = 0,
+)
 
-public data class WsWszDescription(public var minCharCount: UInt = 0u, public var maxCharCount: UInt = 0u)
+public data class WsWszDescription(
+    public var minCharCount: UInt = 0u,
+    public var maxCharCount: UInt = 0u,
+)
 
 public data class WsXmlAttribute(
     public var singleQuote: UByte = 0u,
@@ -1211,7 +1540,10 @@ public data class WsXmlBase64Text(
     public var length: UInt = 0u,
 )
 
-public data class WsXmlBoolText(public var text: WsXmlText = WsXmlText(), public var value: Bool = 0)
+public data class WsXmlBoolText(
+    public var text: WsXmlText = WsXmlText(),
+    public var value: Bool = 0,
+)
 
 public data class WsXmlBufferProperty(
     public var id: WsXmlBufferPropertyId = 0,
@@ -1219,7 +1551,10 @@ public data class WsXmlBufferProperty(
     public var valueSize: UInt = 0u,
 )
 
-public data class WsXmlCanonicalizationInclusivePrefixes(public var prefixCount: UInt = 0u, public var prefixes: WsXmlString? = null)
+public data class WsXmlCanonicalizationInclusivePrefixes(
+    public var prefixCount: UInt = 0u,
+    public var prefixes: WsXmlString? = null,
+)
 
 public data class WsXmlCanonicalizationProperty(
     public var id: WsXmlCanonicalizationPropertyId = 0,
@@ -1227,11 +1562,20 @@ public data class WsXmlCanonicalizationProperty(
     public var valueSize: UInt = 0u,
 )
 
-public data class WsXmlCommentNode(public var node: WsXmlNode = WsXmlNode(), public var value: WsXmlString = WsXmlString())
+public data class WsXmlCommentNode(
+    public var node: WsXmlNode = WsXmlNode(),
+    public var value: WsXmlString = WsXmlString(),
+)
 
-public data class WsXmlDatetimeText(public var text: WsXmlText = WsXmlText(), public var value: WsDatetime = WsDatetime())
+public data class WsXmlDatetimeText(
+    public var text: WsXmlText = WsXmlText(),
+    public var value: WsDatetime = WsDatetime(),
+)
 
-public data class WsXmlDecimalText(public var text: WsXmlText = WsXmlText(), public var value: Decimal = Decimal())
+public data class WsXmlDecimalText(
+    public var text: WsXmlText = WsXmlText(),
+    public var value: Decimal = Decimal(),
+)
 
 public data class WsXmlDictionary(
     public var guid: Guid = Guid(),
@@ -1240,7 +1584,10 @@ public data class WsXmlDictionary(
     public var isConst: Bool = 0,
 )
 
-public data class WsXmlDoubleText(public var text: WsXmlText = WsXmlText(), public var value: Double = 0.0)
+public data class WsXmlDoubleText(
+    public var text: WsXmlText = WsXmlText(),
+    public var value: Double = 0.0,
+)
 
 public data class WsXmlElementNode(
     public var node: WsXmlNode = WsXmlNode(),
@@ -1252,8 +1599,17 @@ public data class WsXmlElementNode(
     public var isEmpty: Bool = 0,
 )
 
-public data class WsXmlFloatText(public var text: WsXmlText = WsXmlText(), public var value: Float = 0.0f)
+public data class WsXmlFloatText(
+    public var text: WsXmlText = WsXmlText(),
+    public var value: Float = 0.0f,
+)
 
-public data class WsXmlGuidText(public var text: WsXmlText = WsXmlText(), public var value: Guid = Guid())
+public data class WsXmlGuidText(
+    public var text: WsXmlText = WsXmlText(),
+    public var value: Guid = Guid(),
+)
 
-public data class WsXmlInt32Text(public var text: WsXmlText = WsXmlText(), public var value: Int = 0)
+public data class WsXmlInt32Text(
+    public var text: WsXmlText = WsXmlText(),
+    public var value: Int = 0,
+)

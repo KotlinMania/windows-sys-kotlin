@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsconnectionmanager
 
 import io.github.kotlinmania.windowssys.core.Bool
@@ -7,7 +8,10 @@ import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public data class NetInterfaceContext(public var interfaceIndex: UInt = 0u, public var configurationName: Pwstr = null)
+public data class NetInterfaceContext(
+    public var interfaceIndex: UInt = 0u,
+    public var configurationName: Pwstr = null,
+)
 
 public data class NetInterfaceContextTable(
     public var interfaceContextHandle: Handle = null,
@@ -21,7 +25,10 @@ public data class WcmBillingCycleInfo(
     public var reset: Bool = 0,
 )
 
-public data class WcmConnectionCostData(public var connectionCost: UInt = 0u, public var costSource: WcmConnectionCostSource = 0)
+public data class WcmConnectionCostData(
+    public var connectionCost: UInt = 0u,
+    public var costSource: WcmConnectionCostSource = 0,
+)
 
 public data class WcmDataplanStatus(
     public var usageData: WcmUsageData = WcmUsageData(),
@@ -33,7 +40,10 @@ public data class WcmDataplanStatus(
     public var reserved: UInt = 0u,
 )
 
-public data class WcmPolicyValue(public var fValue: Bool = 0, public var fIsGroupPolicy: Bool = 0)
+public data class WcmPolicyValue(
+    public var fValue: Bool = 0,
+    public var fIsGroupPolicy: Bool = 0,
+)
 
 public data class WcmProfileInfo(
     public var strProfileName: UShortArray = UShortArray(256),
@@ -57,7 +67,10 @@ public data class WcmProfileInfo(
     }
 }
 
-public data class WcmProfileInfoList(public var dwNumberOfItems: UInt = 0u, public var profileInfo: List<WcmProfileInfo> = List(1) { WcmProfileInfo() })
+public data class WcmProfileInfoList(
+    public var dwNumberOfItems: UInt = 0u,
+    public var profileInfo: List<WcmProfileInfo> = List(1) { WcmProfileInfo() },
+)
 
 public data class WcmTimeInterval(
     public var wYear: UShort = 0u,
@@ -69,4 +82,7 @@ public data class WcmTimeInterval(
     public var wMilliseconds: UShort = 0u,
 )
 
-public data class WcmUsageData(public var usageInMegabytes: UInt = 0u, public var lastSyncTime: Filetime = Filetime())
+public data class WcmUsageData(
+    public var usageInMegabytes: UInt = 0u,
+    public var lastSyncTime: Filetime = Filetime(),
+)

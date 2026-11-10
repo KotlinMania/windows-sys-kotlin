@@ -35,9 +35,8 @@ public actual fun srpGetEnterprisePolicy(tokenhandle: Handle, policyflags: COpaq
 public actual fun srpHostingInitialize(version: SrphostingVersion, type: SrphostingType, pvdata: COpaquePointer?, cbdata: UInt): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun srpHostingTerminate(type: SrphostingType) {
+public actual fun srpHostingTerminate(type: SrphostingType): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun srpIsTokenService(tokenhandle: Handle, istokenservice: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

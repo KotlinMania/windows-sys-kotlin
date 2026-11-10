@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.extensions
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -35,7 +36,10 @@ public data class CkclData(
     public var tAnalyzeReturnType: TanalyzeReturn = 0,
 )
 
-public data class CkclListhead(public var logEventListHead: CkclData? = null, public var heap: Handle = null)
+public data class CkclListhead(
+    public var logEventListHead: CkclData? = null,
+    public var heap: Handle = null,
+)
 
 public data class CpuInfo(
     public var type: UInt = 0u,
@@ -272,7 +276,10 @@ public data class DebugCachedSymbolInfo(
     public var arg3: UInt = 0u,
 )
 
-public data class DebugClientContext(public var cbSize: UInt = 0u, public var eClient: UInt = 0u)
+public data class DebugClientContext(
+    public var cbSize: UInt = 0u,
+    public var eClient: UInt = 0u,
+)
 
 public data class DebugCpuMicrocodeVersion(
     public var sizeOfStruct: UInt = 0u,
@@ -468,15 +475,26 @@ public data class DebugIrpStackInfo(
     public var stackAddress: ULong = 0uL,
 )
 
-public data class DebugLastEventInfoBreakpoint(public var id: UInt = 0u)
+public data class DebugLastEventInfoBreakpoint(
+    public var id: UInt = 0u,
+)
 
-public data class DebugLastEventInfoException(public var exceptionRecord: ExceptionRecord64 = ExceptionRecord64(), public var firstChance: UInt = 0u)
+public data class DebugLastEventInfoException(
+    public var exceptionRecord: ExceptionRecord64 = ExceptionRecord64(),
+    public var firstChance: UInt = 0u,
+)
 
-public data class DebugLastEventInfoExitProcess(public var exitCode: UInt = 0u)
+public data class DebugLastEventInfoExitProcess(
+    public var exitCode: UInt = 0u,
+)
 
-public data class DebugLastEventInfoExitThread(public var exitCode: UInt = 0u)
+public data class DebugLastEventInfoExitThread(
+    public var exitCode: UInt = 0u,
+)
 
-public data class DebugLastEventInfoLoadModule(public var base: ULong = 0uL)
+public data class DebugLastEventInfoLoadModule(
+    public var base: ULong = 0uL,
+)
 
 public data class DebugLastEventInfoServiceException(
     public var kind: UInt = 0u,
@@ -484,11 +502,19 @@ public data class DebugLastEventInfoServiceException(
     public var address: ULong = 0uL,
 )
 
-public data class DebugLastEventInfoSystemError(public var error: UInt = 0u, public var level: UInt = 0u)
+public data class DebugLastEventInfoSystemError(
+    public var error: UInt = 0u,
+    public var level: UInt = 0u,
+)
 
-public data class DebugLastEventInfoUnloadModule(public var base: ULong = 0uL)
+public data class DebugLastEventInfoUnloadModule(
+    public var base: ULong = 0uL,
+)
 
-public data class DebugModuleAndId(public var moduleBase: ULong = 0uL, public var id: ULong = 0uL)
+public data class DebugModuleAndId(
+    public var moduleBase: ULong = 0uL,
+    public var id: ULong = 0uL,
+)
 
 public data class DebugModuleParameters(
     public var base: ULong = 0uL,
@@ -539,7 +565,10 @@ public data class DebugModuleParameters(
     }
 }
 
-public data class DebugOffsetRegion(public var base: ULong = 0uL, public var size: ULong = 0uL)
+public data class DebugOffsetRegion(
+    public var base: ULong = 0uL,
+    public var size: ULong = 0uL,
+)
 
 public data class DebugPnpTriageInfo(
     public var sizeOfStruct: UInt = 0u,
@@ -625,9 +654,14 @@ public data class DebugPoolData(
     }
 }
 
-public data class DebugPoolData0(public var anonymous: DebugPoolData00 = DebugPoolData00(), public var asUlong: UInt = 0u)
+public data class DebugPoolData0(
+    public var anonymous: DebugPoolData00 = DebugPoolData00(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class DebugPoolData00(public var bitfield: UInt = 0u)
+public data class DebugPoolData00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DebugProcessorIdentificationAll(
     public var alpha: DebugProcessorIdentificationAlpha = DebugProcessorIdentificationAlpha(),
@@ -638,7 +672,10 @@ public data class DebugProcessorIdentificationAll(
     public var arm64: DebugProcessorIdentificationArm64 = DebugProcessorIdentificationArm64(),
 )
 
-public data class DebugProcessorIdentificationAlpha(public var type: UInt = 0u, public var revision: UInt = 0u)
+public data class DebugProcessorIdentificationAlpha(
+    public var type: UInt = 0u,
+    public var revision: UInt = 0u,
+)
 
 public data class DebugProcessorIdentificationAmd64(
     public var family: UInt = 0u,
@@ -1037,11 +1074,20 @@ public class DebugValue0(
     public var rawBytes: UByteArray = UByteArray(24),
 )
 
-public data class DebugValue00(public var i64: ULong = 0uL, public var nat: Bool = 0)
+public data class DebugValue00(
+    public var i64: ULong = 0uL,
+    public var nat: Bool = 0,
+)
 
-public data class DebugValue02(public var lowPart: ULong = 0uL, public var highPart: Long = 0L)
+public data class DebugValue02(
+    public var lowPart: ULong = 0uL,
+    public var highPart: Long = 0L,
+)
 
-public data class DebugValue01(public var lowPart: UInt = 0u, public var highPart: UInt = 0u)
+public data class DebugValue01(
+    public var lowPart: UInt = 0u,
+    public var highPart: UInt = 0u,
+)
 
 public data class Extstacktrace(
     public var framePointer: UInt = 0u,
@@ -1202,9 +1248,15 @@ public data class FieldInfo(
     public var bitfield: UInt = 0u,
 )
 
-public data class FieldInfo0(public var fieldCallBack: COpaquePointer? = null, public var pBuffer: COpaquePointer? = null)
+public data class FieldInfo0(
+    public var fieldCallBack: COpaquePointer? = null,
+    public var pBuffer: COpaquePointer? = null,
+)
 
-public data class FieldInfo1(public var position: UShort = 0u, public var size: UShort = 0u)
+public data class FieldInfo1(
+    public var position: UShort = 0u,
+    public var size: UShort = 0u,
+)
 
 public data class GetContextEx(
     public var status: UInt = 0u,
@@ -1218,7 +1270,10 @@ public data class GetCurrentProcessAddress(
     public var address: ULong = 0uL,
 )
 
-public data class GetCurrentThreadAddress(public var processor: UInt = 0u, public var address: ULong = 0uL)
+public data class GetCurrentThreadAddress(
+    public var processor: UInt = 0u,
+    public var address: ULong = 0uL,
+)
 
 public data class GetExpressionEx(
     public var expression: Pcstr = null,
@@ -1233,7 +1288,10 @@ public data class GetInputLine(
     public var inputSize: UInt = 0u,
 )
 
-public data class GetPebAddress(public var currentThread: ULong = 0uL, public var address: ULong = 0uL)
+public data class GetPebAddress(
+    public var currentThread: ULong = 0uL,
+    public var address: ULong = 0uL,
+)
 
 public data class GetSetSympath(
     public var args: Pcstr = null,
@@ -1241,9 +1299,14 @@ public data class GetSetSympath(
     public var length: Int = 0,
 )
 
-public data class GetTebAddress(public var address: ULong = 0uL)
+public data class GetTebAddress(
+    public var address: ULong = 0uL,
+)
 
-public data class InlineFrameContext(public var contextValue: UInt = 0u, public var anonymous: InlineFrameContext0 = InlineFrameContext0())
+public data class InlineFrameContext(
+    public var contextValue: UInt = 0u,
+    public var anonymous: InlineFrameContext0 = InlineFrameContext0(),
+)
 
 public data class InlineFrameContext0(
     public var frameId: UByte = 0u,
@@ -1838,7 +1901,10 @@ public data class KdextThreadFindParams(
     public var thread: ULong = 0uL,
 )
 
-public data class Location(public var hostDefined: ULong = 0uL, public var offset: ULong = 0uL)
+public data class Location(
+    public var hostDefined: ULong = 0uL,
+    public var offset: ULong = 0uL,
+)
 
 public class OsInfo(
     public var majorVer: UInt = 0u,
@@ -1860,7 +1926,9 @@ public class OsInfo(
     public var servicePackString: ByteArray = ByteArray(64),
 )
 
-public data class OsInfo0(public var bitfield: UInt = 0u)
+public data class OsInfo0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class OsInfoV1(
     public var type: OsType = 0,
@@ -1902,11 +1970,19 @@ public data class OsInfoV1(
     }
 }
 
-public data class OsInfoV10(public var version: OsInfoV100 = OsInfoV100(), public var ver64: ULong = 0uL)
+public data class OsInfoV10(
+    public var version: OsInfoV100 = OsInfoV100(),
+    public var ver64: ULong = 0uL,
+)
 
-public data class OsInfoV100(public var major: UInt = 0u, public var minor: UInt = 0u)
+public data class OsInfoV100(
+    public var major: UInt = 0u,
+    public var minor: UInt = 0u,
+)
 
-public data class OsInfoV11(public var bitfield: UInt = 0u)
+public data class OsInfoV11(
+    public var bitfield: UInt = 0u,
+)
 
 public data class Physical(
     public var address: ULong = 0uL,
@@ -1972,7 +2048,10 @@ public data class PointerSearchPhysical(
     public var matchOffsetsCount: UInt = 0u,
 )
 
-public data class Processorinfo(public var processor: UShort = 0u, public var numberProcessors: UShort = 0u)
+public data class Processorinfo(
+    public var processor: UShort = 0u,
+    public var numberProcessors: UShort = 0u,
+)
 
 public data class ProcessCommitUsage(
     public var imageFileName: UByteArray = UByteArray(16),
@@ -2090,7 +2169,10 @@ public data class Readcontrolspace64(
     }
 }
 
-public data class ReadWriteMsr(public var msr: UInt = 0u, public var value: Long = 0L)
+public data class ReadWriteMsr(
+    public var msr: UInt = 0u,
+    public var value: Long = 0L,
+)
 
 public data class Searchmemory(
     public var searchAddress: ULong = 0uL,
@@ -2109,7 +2191,10 @@ public data class StackSrcInfo(
     public var column: UInt = 0u,
 )
 
-public data class StackSymFrameInfo(public var stackFrameEx: DebugStackFrameEx = DebugStackFrameEx(), public var srcInfo: StackSrcInfo = StackSrcInfo())
+public data class StackSymFrameInfo(
+    public var stackFrameEx: DebugStackFrameEx = DebugStackFrameEx(),
+    public var srcInfo: StackSrcInfo = StackSrcInfo(),
+)
 
 public data class SymbolInfoEx(
     public var sizeOfStruct: UInt = 0u,
@@ -2159,7 +2244,10 @@ public data class SymDumpParam(
     public var bitfield: UInt = 0u,
 )
 
-public data class SymDumpParam0(public var context: COpaquePointer? = null, public var pBuffer: COpaquePointer? = null)
+public data class SymDumpParam0(
+    public var context: COpaquePointer? = null,
+    public var pBuffer: COpaquePointer? = null,
+)
 
 public data class ScriptDebugEventInformation(
     public var debugEvent: ScriptDebugEvent = 0,
@@ -2168,13 +2256,23 @@ public data class ScriptDebugEventInformation(
     public var u: ScriptDebugEventInformation0 = ScriptDebugEventInformation0(),
 )
 
-public data class ScriptDebugEventInformation0(public var exceptionInformation: ScriptDebugEventInformation00 = ScriptDebugEventInformation00(), public var breakpointInformation: ScriptDebugEventInformation01 = ScriptDebugEventInformation01())
+public data class ScriptDebugEventInformation0(
+    public var exceptionInformation: ScriptDebugEventInformation00 = ScriptDebugEventInformation00(),
+    public var breakpointInformation: ScriptDebugEventInformation01 = ScriptDebugEventInformation01(),
+)
 
-public data class ScriptDebugEventInformation01(public var breakpointId: ULong = 0uL)
+public data class ScriptDebugEventInformation01(
+    public var breakpointId: ULong = 0uL,
+)
 
-public data class ScriptDebugEventInformation00(public var isUncaught: UByte = 0u)
+public data class ScriptDebugEventInformation00(
+    public var isUncaught: UByte = 0u,
+)
 
-public data class ScriptDebugPosition(public var line: UInt = 0u, public var column: UInt = 0u)
+public data class ScriptDebugPosition(
+    public var line: UInt = 0u,
+    public var column: UInt = 0u,
+)
 
 public data class TargetDebugInfo(
     public var sizeOfStruct: UInt = 0u,
@@ -2308,7 +2406,10 @@ public data class TargetDebugInfoV2(
     }
 }
 
-public data class TranslateVirtualToPhysical(public var virtual: ULong = 0uL, public var physical: ULong = 0uL)
+public data class TranslateVirtualToPhysical(
+    public var virtual: ULong = 0uL,
+    public var physical: ULong = 0uL,
+)
 
 public data class VirtualToPhysical(
     public var status: UInt = 0u,
@@ -2318,7 +2419,10 @@ public data class VirtualToPhysical(
     public var physical: ULong = 0uL,
 )
 
-public data class WdbgextsClrDataInterface(public var iid: Guid? = null, public var iface: COpaquePointer? = null)
+public data class WdbgextsClrDataInterface(
+    public var iid: Guid? = null,
+    public var iface: COpaquePointer? = null,
+)
 
 public data class WdbgextsDisassembleBuffer(
     public var inOffset: ULong = 0uL,
@@ -2367,7 +2471,10 @@ public data class WdbgextsModuleInRange(
     public var foundModSize: UInt = 0u,
 )
 
-public data class WdbgextsQueryInterface(public var iid: Guid? = null, public var iface: COpaquePointer? = null)
+public data class WdbgextsQueryInterface(
+    public var iid: Guid? = null,
+    public var iface: COpaquePointer? = null,
+)
 
 public data class WdbgextsThreadOsInfo(
     public var threadId: UInt = 0u,

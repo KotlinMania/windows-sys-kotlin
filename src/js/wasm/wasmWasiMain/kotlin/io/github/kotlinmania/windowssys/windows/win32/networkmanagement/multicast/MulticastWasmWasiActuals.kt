@@ -5,9 +5,8 @@ package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.multica
 import io.github.kotlinmania.windowssys.COpaquePointer
 import io.github.kotlinmania.windowssys.core.Bool
 
-public actual fun mcastApiCleanup() {
+public actual fun mcastApiCleanup(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun mcastApiStartup(version: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

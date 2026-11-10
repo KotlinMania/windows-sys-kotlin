@@ -15,9 +15,8 @@ public actual fun coEnterServiceDomain(pconfigobject: COpaquePointer?): Hresult 
 public actual fun coGetDefaultContext(apttype: Apttype, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun coLeaveServiceDomain(punkstatus: COpaquePointer?) {
+public actual fun coLeaveServiceDomain(punkstatus: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun getDispenserManager(param0: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

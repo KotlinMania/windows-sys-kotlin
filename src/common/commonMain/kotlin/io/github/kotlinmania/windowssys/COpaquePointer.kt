@@ -6,21 +6,24 @@ import kotlin.jvm.JvmInline
 // On Native, cinterop provides kotlinx.cinterop.COpaquePointer; this class
 // bridges the common API so expect/actual declarations work on all targets.
 @JvmInline
-public value class COpaquePointer(public val value: Long = 0L) {
+public value class COpaquePointer(
+    public val value: Long = 0L,
+) {
     public val address: Long get() = value
     public val rawValue: Long get() = value
 }
 
 public val Any.value: Long
-    get() = when (this) {
-        is COpaquePointer -> this.value
-        is Number -> this.toLong()
-        is UByte -> this.toLong()
-        is UShort -> this.toLong()
-        is UInt -> this.toLong()
-        is ULong -> this.toLong()
-        else -> this.hashCode().toLong()
-    }
+    get() =
+        when (this) {
+            is COpaquePointer -> this.value
+            is Number -> this.toLong()
+            is UByte -> this.toLong()
+            is UShort -> this.toLong()
+            is UInt -> this.toLong()
+            is ULong -> this.toLong()
+            else -> this.hashCode().toLong()
+        }
 
 public fun COpaquePointer?.add(count: Int): COpaquePointer? =
     this?.let { COpaquePointer(it.value + count.toLong()) }

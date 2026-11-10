@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.ui.textservices
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -9,9 +10,15 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
 import io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.Hkl
 
-public data class TfDaColor(public var type: TfDaColortype = 0, public var anonymous: TfDaColor0 = TfDaColor0())
+public data class TfDaColor(
+    public var type: TfDaColortype = 0,
+    public var anonymous: TfDaColor0 = TfDaColor0(),
+)
 
-public data class TfDaColor0(public var nIndex: Int = 0, public var cr: Colorref = 0u)
+public data class TfDaColor0(
+    public var nIndex: Int = 0,
+    public var cr: Colorref = 0u,
+)
 
 public data class TfDisplayattribute(
     public var crText: TfDaColor = TfDaColor(),
@@ -76,7 +83,10 @@ public data class TfLanguageprofile(
     public var guidProfile: Guid = Guid(),
 )
 
-public data class TfLbballooninfo(public var style: TfLBBalloonStyle = 0, public var bstrText: Bstr = null)
+public data class TfLbballooninfo(
+    public var style: TfLBBalloonStyle = 0,
+    public var bstrText: Bstr = null,
+)
 
 public data class TfLmlattelement(
     public var dwFrameStart: UInt = 0u,
@@ -86,7 +96,9 @@ public data class TfLmlattelement(
     public var bstrText: Bstr = null,
 )
 
-public data class TfLmlattelement0(public var iCost: Int = 0)
+public data class TfLmlattelement0(
+    public var iCost: Int = 0,
+)
 
 public data class TfPersistentPropertyHeaderAcp(
     public var guidType: Guid = Guid(),
@@ -97,13 +109,25 @@ public data class TfPersistentPropertyHeaderAcp(
     public var clsidTIP: Guid = Guid(),
 )
 
-public data class TfPreservedkey(public var uVKey: UInt = 0u, public var uModifiers: UInt = 0u)
+public data class TfPreservedkey(
+    public var uVKey: UInt = 0u,
+    public var uModifiers: UInt = 0u,
+)
 
-public data class TfPropertyval(public var guidId: Guid = Guid(), public var varValue: Variant = Variant())
+public data class TfPropertyval(
+    public var guidId: Guid = Guid(),
+    public var varValue: Variant = Variant(),
+)
 
-public data class TfSelection(public var range: COpaquePointer? = null, public var style: TfSelectionstyle = TfSelectionstyle())
+public data class TfSelection(
+    public var range: COpaquePointer? = null,
+    public var style: TfSelectionstyle = TfSelectionstyle(),
+)
 
-public data class TfSelectionstyle(public var ase: TfActiveSelEnd = 0, public var fInterimChar: Bool = 0)
+public data class TfSelectionstyle(
+    public var ase: TfActiveSelEnd = 0,
+    public var fInterimChar: Bool = 0,
+)
 
 public data class TsAttrval(
     public var idAttr: Guid = Guid(),
@@ -111,9 +135,15 @@ public data class TsAttrval(
     public var varValue: Variant = Variant(),
 )
 
-public data class TsRuninfo(public var uCount: UInt = 0u, public var type: TsRunType = 0)
+public data class TsRuninfo(
+    public var uCount: UInt = 0u,
+    public var type: TsRunType = 0,
+)
 
-public data class TsSelectionstyle(public var ase: TsActiveSelEnd = 0, public var fInterimChar: Bool = 0)
+public data class TsSelectionstyle(
+    public var ase: TsActiveSelEnd = 0,
+    public var fInterimChar: Bool = 0,
+)
 
 public data class TsSelectionAcp(
     public var acpStart: Int = 0,
@@ -127,7 +157,10 @@ public data class TsSelectionAnchor(
     public var style: TsSelectionstyle = TsSelectionstyle(),
 )
 
-public data class TsStatus(public var dwDynamicFlags: UInt = 0u, public var dwStaticFlags: UInt = 0u)
+public data class TsStatus(
+    public var dwDynamicFlags: UInt = 0u,
+    public var dwStaticFlags: UInt = 0u,
+)
 
 public data class TsTextchange(
     public var acpStart: Int = 0,

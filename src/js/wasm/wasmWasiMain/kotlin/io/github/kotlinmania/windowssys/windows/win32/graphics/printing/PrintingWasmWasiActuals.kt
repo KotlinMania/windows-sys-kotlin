@@ -319,13 +319,11 @@ public actual fun findNextPrinterChangeNotification(hchange: Handle, pdwchange: 
 public actual fun flushPrinter(hprinter: PrinterHandle, pbuf: COpaquePointer?, cbbuf: UInt, pcwritten: COpaquePointer?, csleep: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun freePrintNamedPropertyArray(cproperties: UInt, ppproperties: COpaquePointer?) {
+public actual fun freePrintNamedPropertyArray(cproperties: UInt, ppproperties: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun freePrintPropertyValue(pvalue: COpaquePointer?) {
+public actual fun freePrintPropertyValue(pvalue: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun freePrinterNotifyInfo(pprinternotifyinfo: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -546,9 +544,8 @@ public actual fun routerAllocBidiResponseContainer(count: UInt): COpaquePointer?
 public actual fun routerAllocPrinterNotifyInfo(cprinternotifyinfodata: UInt): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun routerFreeBidiMem(pmempointer: COpaquePointer?) {
+public actual fun routerFreeBidiMem(pmempointer: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun routerFreeBidiResponseContainer(pdata: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -625,9 +622,8 @@ public actual fun spoolerFindFirstPrinterChangeNotification(hprinter: PrinterHan
 public actual fun spoolerFindNextPrinterChangeNotification(hprinter: PrinterHandle, pfdwchange: COpaquePointer?, pprinternotifyoptions: COpaquePointer?, ppprinternotifyinfo: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun spoolerFreePrinterNotifyInfo(pinfo: COpaquePointer?) {
+public actual fun spoolerFreePrinterNotifyInfo(pinfo: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun spoolerRefreshPrinterChangeNotification(hprinter: PrinterHandle, dwcolor: UInt, poptions: COpaquePointer?, ppinfo: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

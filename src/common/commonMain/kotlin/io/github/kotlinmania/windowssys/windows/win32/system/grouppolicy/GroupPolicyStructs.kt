@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.grouppolicy
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -129,7 +130,10 @@ public data class GroupPolicyObjectw(
     }
 }
 
-public data class Installdata(public var type: Installspectype = 0, public var spec: Installspec = Installspec())
+public data class Installdata(
+    public var type: Installspectype = 0,
+    public var spec: Installspec = Installspec(),
+)
 
 public data class Installspec(
     public var appName: Installspec0 = Installspec0(),
@@ -138,9 +142,15 @@ public data class Installspec(
     public var cOMClass: Installspec1 = Installspec1(),
 )
 
-public data class Installspec0(public var name: Pwstr = null, public var gPOId: Guid = Guid())
+public data class Installspec0(
+    public var name: Pwstr = null,
+    public var gPOId: Guid = Guid(),
+)
 
-public data class Installspec1(public var clsid: Guid = Guid(), public var clsCtx: UInt = 0u)
+public data class Installspec1(
+    public var clsid: Guid = Guid(),
+    public var clsCtx: UInt = 0u,
+)
 
 public data class Localmanagedapplication(
     public var pszDeploymentName: Pwstr = null,

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.restore
 
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
@@ -82,4 +83,7 @@ public data class Restorepointinfow(
     }
 }
 
-public data class Statemgrstatus(public var nStatus: Win32Error = 0u, public var llSequenceNumber: Long = 0L)
+public data class Statemgrstatus(
+    public var nStatus: Win32Error = 0u,
+    public var llSequenceNumber: Long = 0L,
+)

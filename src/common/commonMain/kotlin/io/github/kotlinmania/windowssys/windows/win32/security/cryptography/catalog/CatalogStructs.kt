@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -9,7 +10,10 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptIntegerBlob
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip.SipIndirectData
 
-public data class CatalogInfo(public var cbStruct: UInt = 0u, public var wszCatalogFile: UShortArray = UShortArray(260)) {
+public data class CatalogInfo(
+    public var cbStruct: UInt = 0u,
+    public var wszCatalogFile: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CatalogInfo) return false

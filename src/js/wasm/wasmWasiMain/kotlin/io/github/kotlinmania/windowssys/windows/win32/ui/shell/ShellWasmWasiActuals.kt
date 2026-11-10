@@ -85,9 +85,8 @@ public actual fun colorAdjustLuma(clrrgb: Colorref, n: Int, fscale: Bool): Color
 public actual fun colorHLSToRGB(whue: UShort, wluminance: UShort, wsaturation: UShort): Colorref =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun colorRGBToHLS(clrrgb: Colorref, pwhue: COpaquePointer?, pwluminance: COpaquePointer?, pwsaturation: COpaquePointer?) {
+public actual fun colorRGBToHLS(clrrgb: Colorref, pwhue: COpaquePointer?, pwluminance: COpaquePointer?, pwsaturation: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun commandLineToArgvW(lpcmdline: Pcwstr, pnumargs: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -134,13 +133,11 @@ public actual fun doEnvironmentSubstA(pszsrc: Pstr, cchsrc: UInt): UInt =
 public actual fun doEnvironmentSubstW(pszsrc: Pwstr, cchsrc: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dragAcceptFiles(hwnd: Hwnd, faccept: Bool) {
+public actual fun dragAcceptFiles(hwnd: Hwnd, faccept: Bool): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dragFinish(hdrop: Hdrop) {
+public actual fun dragFinish(hdrop: Hdrop): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dragQueryFileA(hdrop: Hdrop, ifile: UInt, lpszfile: Pstr, cch: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -247,13 +244,11 @@ public actual fun getWindowContextHelpId(param0: Hwnd): UInt =
 public actual fun getWindowSubclass(hwnd: Hwnd, pfnsubclass: Subclassproc, uidsubclass: ULong, pdwrefdata: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun hmonitorUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+public actual fun hmonitorUserFree(param0: COpaquePointer?, param1: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun hmonitorUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+public actual fun hmonitorUserFree64(param0: COpaquePointer?, param1: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun hmonitorUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -381,9 +376,8 @@ public actual fun iLFindChild(pidlparent: COpaquePointer?, pidlchild: COpaquePoi
 public actual fun iLFindLastID(pidl: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun iLFree(pidl: COpaquePointer?) {
+public actual fun iLFree(pidl: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun iLGetNext(pidl: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -433,9 +427,8 @@ public actual fun istreamWritePidl(pstm: COpaquePointer?, pidlwrite: COpaquePoin
 public actual fun istreamWriteStr(pstm: COpaquePointer?, psz: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun iunknownAtomicRelease(ppunk: COpaquePointer?) {
+public actual fun iunknownAtomicRelease(ppunk: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun iunknownGetSite(punk: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -446,9 +439,8 @@ public actual fun iunknownGetWindow(punk: COpaquePointer?, phwnd: COpaquePointer
 public actual fun iunknownQueryService(punk: COpaquePointer?, guidservice: COpaquePointer?, riid: COpaquePointer?, ppvout: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun iunknownSet(ppunk: COpaquePointer?, punk: COpaquePointer?) {
+public actual fun iunknownSet(ppunk: COpaquePointer?, punk: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun iunknownSetSite(punk: COpaquePointer?, punksite: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -696,9 +688,8 @@ public actual fun pathGetDriveNumberA(pszpath: Pcstr): Int =
 public actual fun pathGetDriveNumberW(pszpath: Pcwstr): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pathGetShortPath(pszlongpath: Pwstr) {
+public actual fun pathGetShortPath(pszlongpath: Pwstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun pathIsContentTypeA(pszpath: Pcstr, pszcontenttype: Pcstr): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -835,9 +826,8 @@ public actual fun pathParseIconLocationA(psziconfile: Pstr): Int =
 public actual fun pathParseIconLocationW(psziconfile: Pwstr): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pathQualify(psz: Pwstr) {
+public actual fun pathQualify(psz: Pwstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun pathQuoteSpacesA(lpsz: Pstr): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -851,13 +841,11 @@ public actual fun pathRelativePathToA(pszpath: Pstr, pszfrom: Pcstr, dwattrfrom:
 public actual fun pathRelativePathToW(pszpath: Pwstr, pszfrom: Pcwstr, dwattrfrom: UInt, pszto: Pcwstr, dwattrto: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pathRemoveArgsA(pszpath: Pstr) {
+public actual fun pathRemoveArgsA(pszpath: Pstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun pathRemoveArgsW(pszpath: Pwstr) {
+public actual fun pathRemoveArgsW(pszpath: Pwstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun pathRemoveBackslashA(pszpath: Pstr): Pstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -865,21 +853,17 @@ public actual fun pathRemoveBackslashA(pszpath: Pstr): Pstr =
 public actual fun pathRemoveBackslashW(pszpath: Pwstr): Pwstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pathRemoveBlanksA(pszpath: Pstr) {
+public actual fun pathRemoveBlanksA(pszpath: Pstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun pathRemoveBlanksW(pszpath: Pwstr) {
+public actual fun pathRemoveBlanksW(pszpath: Pwstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun pathRemoveExtensionA(pszpath: Pstr) {
+public actual fun pathRemoveExtensionA(pszpath: Pstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun pathRemoveExtensionW(pszpath: Pwstr) {
+public actual fun pathRemoveExtensionW(pszpath: Pwstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun pathRemoveFileSpecA(pszpath: Pstr): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -902,13 +886,11 @@ public actual fun pathSearchAndQualifyA(pszpath: Pcstr, pszbuf: Pstr, cchbuf: UI
 public actual fun pathSearchAndQualifyW(pszpath: Pcwstr, pszbuf: Pwstr, cchbuf: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pathSetDlgItemPathA(hdlg: Hwnd, id: Int, pszpath: Pcstr) {
+public actual fun pathSetDlgItemPathA(hdlg: Hwnd, id: Int, pszpath: Pcstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun pathSetDlgItemPathW(hdlg: Hwnd, id: Int, pszpath: Pcwstr) {
+public actual fun pathSetDlgItemPathW(hdlg: Hwnd, id: Int, pszpath: Pcwstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun pathSkipRootA(pszpath: Pcstr): Pstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -916,13 +898,11 @@ public actual fun pathSkipRootA(pszpath: Pcstr): Pstr =
 public actual fun pathSkipRootW(pszpath: Pcwstr): Pwstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pathStripPathA(pszpath: Pstr) {
+public actual fun pathStripPathA(pszpath: Pstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun pathStripPathW(pszpath: Pwstr) {
+public actual fun pathStripPathW(pszpath: Pwstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun pathStripToRootA(pszpath: Pstr): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -936,13 +916,11 @@ public actual fun pathUnExpandEnvStringsA(pszpath: Pcstr, pszbuf: Pstr, cchbuf: 
 public actual fun pathUnExpandEnvStringsW(pszpath: Pcwstr, pszbuf: Pwstr, cchbuf: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pathUndecorateA(pszpath: Pstr) {
+public actual fun pathUndecorateA(pszpath: Pstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun pathUndecorateW(pszpath: Pwstr) {
+public actual fun pathUndecorateW(pszpath: Pwstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun pathUnmakeSystemFolderA(pszpath: Pcstr): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1001,9 +979,8 @@ public actual fun revokeScaleChangeNotifications(displaydevice: DisplayDeviceTyp
 public actual fun sHAddFromPropSheetExtArray(hpsxa: Hpsxa, lpfnaddpage: Lpfnsvaddpropsheetpage, lparam: Lparam): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sHAddToRecentDocs(uflags: UInt, pv: COpaquePointer?) {
+public actual fun sHAddToRecentDocs(uflags: UInt, pv: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sHAlloc(cb: ULong): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1056,9 +1033,8 @@ public actual fun shchangeNotificationLock(hchange: Handle, dwprocid: UInt, pppi
 public actual fun shchangeNotificationUnlock(hlock: Handle): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sHChangeNotify(weventid: Int, uflags: ShcnfFlags, dwitem1: COpaquePointer?, dwitem2: COpaquePointer?) {
+public actual fun sHChangeNotify(weventid: Int, uflags: ShcnfFlags, dwitem1: COpaquePointer?, dwitem2: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sHChangeNotifyDeregister(ulid: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1066,9 +1042,8 @@ public actual fun sHChangeNotifyDeregister(ulid: UInt): Bool =
 public actual fun sHChangeNotifyRegister(hwnd: Hwnd, fsources: ShcnrfSource, fevents: Int, wmsg: UInt, centries: Int, pshcne: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sHChangeNotifyRegisterThread(status: ScnrtStatus) {
+public actual fun sHChangeNotifyRegisterThread(status: ScnrtStatus): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sHCloneSpecialIDList(hwnd: Hwnd, csidl: Int, fcreate: Bool): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1205,9 +1180,8 @@ public actual fun sHDeleteValueA(hkey: Hkey, pszsubkey: Pcstr, pszvalue: Pcstr):
 public actual fun sHDeleteValueW(hkey: Hkey, pszsubkey: Pcwstr, pszvalue: Pcwstr): Win32Error =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sHDestroyPropSheetExtArray(hpsxa: Hpsxa) {
+public actual fun sHDestroyPropSheetExtArray(hpsxa: Hpsxa): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sHDoDragDrop(hwnd: Hwnd, pdata: COpaquePointer?, pdsrc: COpaquePointer?, dweffect: Dropeffect, pdweffect: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1248,9 +1222,8 @@ public actual fun sHFindFiles(pidlfolder: COpaquePointer?, pidlsavefile: COpaque
 public actual fun shfindInitMenuPopup(hmenu: Hmenu, hwndowner: Hwnd, idcmdfirst: UInt, idcmdlast: UInt): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sHFlushSFCache() {
+public actual fun sHFlushSFCache(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sHFormatDateTimeA(pft: COpaquePointer?, pdwflags: COpaquePointer?, pszbuf: Pstr, cchbuf: UInt): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1261,13 +1234,11 @@ public actual fun sHFormatDateTimeW(pft: COpaquePointer?, pdwflags: COpaquePoint
 public actual fun sHFormatDrive(hwnd: Hwnd, drive: UInt, fmtid: ShfmtId, options: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sHFree(pv: COpaquePointer?) {
+public actual fun sHFree(pv: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun sHFreeNameMappings(hnamemappings: Handle) {
+public actual fun sHFreeNameMappings(hnamemappings: Handle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sHFreeShared(hdata: Handle, dwprocessid: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1377,13 +1348,11 @@ public actual fun sHGetRealIDL(psf: COpaquePointer?, pidlsimple: COpaquePointer?
 public actual fun sHGetSetFolderCustomSettings(pfcs: COpaquePointer?, pszpath: Pcwstr, dwreadwrite: UInt): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sHGetSetSettings(lpss: COpaquePointer?, dwmask: SsfMask, bset: Bool) {
+public actual fun sHGetSetSettings(lpss: COpaquePointer?, dwmask: SsfMask, bset: Bool): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun sHGetSettings(psfs: COpaquePointer?, dwmask: UInt) {
+public actual fun sHGetSettings(psfs: COpaquePointer?, dwmask: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sHGetSpecialFolderLocation(hwnd: Hwnd, csidl: Int, ppidl: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1655,9 +1624,8 @@ public actual fun sHSetFolderPathA(csidl: Int, htoken: Handle, dwflags: UInt, ps
 public actual fun sHSetFolderPathW(csidl: Int, htoken: Handle, dwflags: UInt, pszpath: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sHSetInstanceExplorer(punk: COpaquePointer?) {
+public actual fun sHSetInstanceExplorer(punk: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sHSetKnownFolderPath(rfid: COpaquePointer?, dwflags: UInt, htoken: Handle, pszpath: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -1719,13 +1687,11 @@ public actual fun sHUnicodeToUnicode(pwzsrc: Pcwstr, pwzdst: Pwstr, cwchbuf: Int
 public actual fun sHUnlockShared(pvdata: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sHUpdateImageA(pszhashitem: Pcstr, iindex: Int, uflags: UInt, iimageindex: Int) {
+public actual fun sHUpdateImageA(pszhashitem: Pcstr, iindex: Int, uflags: UInt, iimageindex: Int): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun sHUpdateImageW(pszhashitem: Pcwstr, iindex: Int, uflags: UInt, iimageindex: Int) {
+public actual fun sHUpdateImageW(pszhashitem: Pcwstr, iindex: Int, uflags: UInt, iimageindex: Int): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sHValidateUNC(hwndowner: Hwnd, pszfile: Pwstr, fconnect: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -2024,13 +1990,11 @@ public actual fun strTrimW(psz: Pwstr, psztrimchars: Pcwstr): Bool =
 public actual fun unloadUserProfile(htoken: Handle, hprofile: Handle): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun unregisterAppConstrainedChangeNotification(registration: PappconstrainRegistration) {
+public actual fun unregisterAppConstrainedChangeNotification(registration: PappconstrainRegistration): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun unregisterAppStateChangeNotification(registration: PappstateRegistration) {
+public actual fun unregisterAppStateChangeNotification(registration: PappstateRegistration): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun unregisterScaleChangeEvent(dwcookie: ULong): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

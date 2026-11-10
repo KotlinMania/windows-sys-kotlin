@@ -27,21 +27,17 @@ public actual fun dnsConnectionDeletePolicyEntries(policyentrytag: DnsConnection
 public actual fun dnsConnectionDeleteProxyInfo(pwszconnectionname: Pcwstr, type: DnsConnectionProxyType): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dnsConnectionFreeNameList(pnamelist: COpaquePointer?) {
+public actual fun dnsConnectionFreeNameList(pnamelist: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dnsConnectionFreeProxyInfo(pproxyinfo: COpaquePointer?) {
+public actual fun dnsConnectionFreeProxyInfo(pproxyinfo: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dnsConnectionFreeProxyInfoEx(pproxyinfoex: COpaquePointer?) {
+public actual fun dnsConnectionFreeProxyInfoEx(pproxyinfoex: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dnsConnectionFreeProxyList(pproxylist: COpaquePointer?) {
+public actual fun dnsConnectionFreeProxyList(pproxylist: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dnsConnectionGetNameList(pnamelist: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -73,17 +69,14 @@ public actual fun dnsExtractRecordsFromMessageUtf8(pdnsbuffer: COpaquePointer?, 
 public actual fun dnsExtractRecordsFromMessageW(pdnsbuffer: COpaquePointer?, wmessagelength: UShort, pprecord: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dnsFree(pdata: COpaquePointer?, freetype: DnsFreeType) {
+public actual fun dnsFree(pdata: COpaquePointer?, freetype: DnsFreeType): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dnsFreeCustomServers(pcservers: COpaquePointer?, ppservers: COpaquePointer?) {
+public actual fun dnsFreeCustomServers(pcservers: COpaquePointer?, ppservers: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dnsFreeProxyName(proxyname: Pcwstr) {
+public actual fun dnsFreeProxyName(proxyname: Pcwstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dnsGetApplicationSettings(pcservers: COpaquePointer?, ppdefaultservers: COpaquePointer?, psettings: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -115,9 +108,8 @@ public actual fun dnsQueryEx(pqueryrequest: COpaquePointer?, pqueryresults: COpa
 public actual fun dnsQueryRaw(queryrequest: COpaquePointer?, cancelhandle: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dnsQueryRawResultFree(queryresults: COpaquePointer?) {
+public actual fun dnsQueryRawResultFree(queryresults: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dnsQueryA(pszname: Pcstr, wtype: DnsType, options: DnsQueryOptions, pextra: COpaquePointer?, ppqueryresults: COpaquePointer?, preserved: COpaquePointer?): Win32Error =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -143,9 +135,8 @@ public actual fun dnsRecordSetCopyEx(precordset: COpaquePointer?, charsetin: Dns
 public actual fun dnsRecordSetDetach(precordlist: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dnsReleaseContextHandle(hcontext: Handle) {
+public actual fun dnsReleaseContextHandle(hcontext: Handle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dnsReplaceRecordSetA(preplaceset: COpaquePointer?, options: UInt, hcontext: Handle, pextrainfo: COpaquePointer?, preserved: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -171,9 +162,8 @@ public actual fun dnsServiceCopyInstance(porig: COpaquePointer?): COpaquePointer
 public actual fun dnsServiceDeRegister(prequest: COpaquePointer?, pcancel: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dnsServiceFreeInstance(pinstance: COpaquePointer?) {
+public actual fun dnsServiceFreeInstance(pinstance: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dnsServiceRegister(prequest: COpaquePointer?, pcancel: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

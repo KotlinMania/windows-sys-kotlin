@@ -83,4 +83,7 @@ public data class MilMatrix3x2D(
     public var dy: Double = 0.0,
 )
 
-public data class UnsignedRatio(public var uiNumerator: UInt = 0u, public var uiDenominator: UInt = 0u)
+public data class UnsignedRatio(
+    public var uiNumerator: UInt = 0u,
+    public var uiDenominator: UInt = 0u,
+)

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -245,7 +246,10 @@ public data class Ccstylew(
     }
 }
 
-public data class Colormap(public var from: Colorref = 0u, public var to: Colorref = 0u)
+public data class Colormap(
+    public var from: Colorref = 0u,
+    public var to: Colorref = 0u,
+)
 
 public data class Colorscheme(
     public var dwSize: UInt = 0u,
@@ -317,7 +321,10 @@ public data class Deleteitemstruct(
     public var itemData: Int = 0,
 )
 
-public data class Dpastreaminfo(public var iPos: Int = 0, public var pvItem: COpaquePointer? = null)
+public data class Dpastreaminfo(
+    public var iPos: Int = 0,
+    public var pvItem: COpaquePointer? = null,
+)
 
 public data class Draglistinfo(
     public var uNotification: DraglistinfoNotificationFlags = 0u,
@@ -404,11 +411,20 @@ public data class Hditemw(
     public var state: HeaderControlFormatState = 0u,
 )
 
-public data class Hdlayout(public var prc: Rect? = null, public var pwpos: Windowpos? = null)
+public data class Hdlayout(
+    public var prc: Rect? = null,
+    public var pwpos: Windowpos? = null,
+)
 
-public data class HdTextfiltera(public var pszText: Pstr = null, public var cchTextMax: Int = 0)
+public data class HdTextfiltera(
+    public var pszText: Pstr = null,
+    public var cchTextMax: Int = 0,
+)
 
-public data class HdTextfilterw(public var pszText: Pwstr = null, public var cchTextMax: Int = 0)
+public data class HdTextfilterw(
+    public var pszText: Pwstr = null,
+    public var cchTextMax: Int = 0,
+)
 
 public data class Imageinfo(
     public var hbmImage: Hbitmap = null,
@@ -445,9 +461,15 @@ public data class Imageliststats(
     public var cStandby: Int = 0,
 )
 
-public data class Initcommoncontrolsex(public var dwSize: UInt = 0u, public var dwICC: InitcommoncontrolsexIcc = 0u)
+public data class Initcommoncontrolsex(
+    public var dwSize: UInt = 0u,
+    public var dwICC: InitcommoncontrolsexIcc = 0u,
+)
 
-public data class Intlist(public var iValueCount: Int = 0, public var iValues: IntArray = IntArray(402)) {
+public data class Intlist(
+    public var iValueCount: Int = 0,
+    public var iValues: IntArray = IntArray(402),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Intlist) return false
@@ -463,7 +485,10 @@ public data class Intlist(public var iValueCount: Int = 0, public var iValues: I
     }
 }
 
-public data class Lhittestinfo(public var pt: Point = Point(), public var item: Litem = Litem())
+public data class Lhittestinfo(
+    public var pt: Point = Point(),
+    public var item: Litem = Litem(),
+)
 
 public data class Litem(
     public var mask: ListItemFlags = 0u,
@@ -655,7 +680,10 @@ public data class Lvitema(
     public var iGroup: Int = 0,
 )
 
-public data class Lvitemindex(public var iItem: Int = 0, public var iGroup: Int = 0)
+public data class Lvitemindex(
+    public var iItem: Int = 0,
+    public var iGroup: Int = 0,
+)
 
 public data class Lvitemw(
     public var mask: ListViewItemFlags = 0u,
@@ -742,9 +770,15 @@ public data class Measureitemstruct(
     public var itemData: Int = 0,
 )
 
-public data class Nmbcdropdown(public var hdr: Nmhdr = Nmhdr(), public var rcButton: Rect = Rect())
+public data class Nmbcdropdown(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var rcButton: Rect = Rect(),
+)
 
-public data class Nmbchotitem(public var hdr: Nmhdr = Nmhdr(), public var dwFlags: NmtbhotitemFlags = 0u)
+public data class Nmbchotitem(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var dwFlags: NmtbhotitemFlags = 0u,
+)
 
 public data class Nmcbedragbegina(
     public var hdr: Nmhdr = Nmhdr(),
@@ -853,9 +887,15 @@ public data class Nmchar(
     public var dwItemNext: UInt = 0u,
 )
 
-public data class Nmcomboboxexa(public var hdr: Nmhdr = Nmhdr(), public var ceItem: Comboboxexitema = Comboboxexitema())
+public data class Nmcomboboxexa(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var ceItem: Comboboxexitema = Comboboxexitema(),
+)
 
-public data class Nmcomboboxexw(public var hdr: Nmhdr = Nmhdr(), public var ceItem: Comboboxexitemw = Comboboxexitemw())
+public data class Nmcomboboxexw(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var ceItem: Comboboxexitemw = Comboboxexitemw(),
+)
 
 public data class Nmcustomdraw(
     public var hdr: Nmhdr = Nmhdr(),
@@ -1063,7 +1103,10 @@ public data class Nmkey(
     public var uFlags: UInt = 0u,
 )
 
-public data class Nmlink(public var hdr: Nmhdr = Nmhdr(), public var item: Litem = Litem())
+public data class Nmlink(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var item: Litem = Litem(),
+)
 
 public data class Nmlistview(
     public var hdr: Nmhdr = Nmhdr(),
@@ -1097,9 +1140,15 @@ public data class Nmlvcustomdraw(
     public var uAlign: ListViewGroupAlignFlags = 0u,
 )
 
-public data class Nmlvdispinfoa(public var hdr: Nmhdr = Nmhdr(), public var item: Lvitema = Lvitema())
+public data class Nmlvdispinfoa(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var item: Lvitema = Lvitema(),
+)
 
-public data class Nmlvdispinfow(public var hdr: Nmhdr = Nmhdr(), public var item: Lvitemw = Lvitemw())
+public data class Nmlvdispinfow(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var item: Lvitemw = Lvitemw(),
+)
 
 public data class Nmlvemptymarkup(
     public var hdr: Nmhdr = Nmhdr(),
@@ -1266,7 +1315,10 @@ public data class Nmrebarchildsize(
     public var rcBand: Rect = Rect(),
 )
 
-public data class Nmrebarsplitter(public var hdr: Nmhdr = Nmhdr(), public var rcSizing: Rect = Rect())
+public data class Nmrebarsplitter(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var rcSizing: Rect = Rect(),
+)
 
 public data class Nmsearchweb(
     public var hdr: Nmhdr = Nmhdr(),
@@ -1386,7 +1438,10 @@ public data class Nmtoolbarw(
     public var rcButton: Rect = Rect(),
 )
 
-public data class Nmtooltipscreated(public var hdr: Nmhdr = Nmhdr(), public var hwndToolTips: Hwnd = null)
+public data class Nmtooltipscreated(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var hwndToolTips: Hwnd = null,
+)
 
 public data class Nmtrbthumbposchanging(
     public var hdr: Nmhdr = Nmhdr(),
@@ -1410,7 +1465,10 @@ public data class Nmtreevieww(
     public var ptDrag: Point = Point(),
 )
 
-public data class Nmttcustomdraw(public var nmcd: Nmcustomdraw = Nmcustomdraw(), public var uDrawFlags: UInt = 0u)
+public data class Nmttcustomdraw(
+    public var nmcd: Nmcustomdraw = Nmcustomdraw(),
+    public var uDrawFlags: UInt = 0u,
+)
 
 public data class Nmttdispinfoa(
     public var hdr: Nmhdr = Nmhdr(),
@@ -1491,13 +1549,25 @@ public data class Nmtvcustomdraw(
     public var iLevel: Int = 0,
 )
 
-public data class Nmtvdispinfoa(public var hdr: Nmhdr = Nmhdr(), public var item: Tvitema = Tvitema())
+public data class Nmtvdispinfoa(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var item: Tvitema = Tvitema(),
+)
 
-public data class Nmtvdispinfoexa(public var hdr: Nmhdr = Nmhdr(), public var item: Tvitemexa = Tvitemexa())
+public data class Nmtvdispinfoexa(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var item: Tvitemexa = Tvitemexa(),
+)
 
-public data class Nmtvdispinfoexw(public var hdr: Nmhdr = Nmhdr(), public var item: Tvitemexw = Tvitemexw())
+public data class Nmtvdispinfoexw(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var item: Tvitemexw = Tvitemexw(),
+)
 
-public data class Nmtvdispinfow(public var hdr: Nmhdr = Nmhdr(), public var item: Tvitemw = Tvitemw())
+public data class Nmtvdispinfow(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var item: Tvitemw = Tvitemw(),
+)
 
 public data class Nmtvgetinfotipa(
     public var hdr: Nmhdr = Nmhdr(),
@@ -1549,9 +1619,15 @@ public data class Nmviewchange(
     public var dwNewView: MonthCaldendarMessagesView = 0u,
 )
 
-public data class Pbrange(public var iLow: Int = 0, public var iHigh: Int = 0)
+public data class Pbrange(
+    public var iLow: Int = 0,
+    public var iHigh: Int = 0,
+)
 
-public data class PointerDeviceCursorInfo(public var cursorId: UInt = 0u, public var cursor: PointerDeviceCursorType = 0)
+public data class PointerDeviceCursorInfo(
+    public var cursorId: UInt = 0u,
+    public var cursor: PointerDeviceCursorType = 0,
+)
 
 public data class PointerDeviceInfo(
     public var displayOrientation: UInt = 0u,
@@ -1598,9 +1674,15 @@ public data class PointerDeviceProperty(
     public var usageId: UShort = 0u,
 )
 
-public data class PointerTypeInfo(public var type: PointerInputType = 0, public var anonymous: PointerTypeInfo0 = PointerTypeInfo0())
+public data class PointerTypeInfo(
+    public var type: PointerInputType = 0,
+    public var anonymous: PointerTypeInfo0 = PointerTypeInfo0(),
+)
 
-public data class PointerTypeInfo0(public var touchInfo: PointerTouchInfo = PointerTouchInfo(), public var penInfo: PointerPenInfo = PointerPenInfo())
+public data class PointerTypeInfo0(
+    public var touchInfo: PointerTouchInfo = PointerTouchInfo(),
+    public var penInfo: PointerPenInfo = PointerPenInfo(),
+)
 
 public data class PropsheetheaderaV1(
     public var dwSize: UInt = 0u,
@@ -1615,11 +1697,20 @@ public data class PropsheetheaderaV1(
     public var pfnCallback: Pfnpropsheetcallback = null,
 )
 
-public data class PropsheetheaderaV10(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
+public data class PropsheetheaderaV10(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcstr = null,
+)
 
-public data class PropsheetheaderaV11(public var nStartPage: UInt = 0u, public var pStartPage: Pcstr = null)
+public data class PropsheetheaderaV11(
+    public var nStartPage: UInt = 0u,
+    public var pStartPage: Pcstr = null,
+)
 
-public data class PropsheetheaderaV12(public var ppsp: Propsheetpagea? = null, public var phpage: COpaquePointer? = null)
+public data class PropsheetheaderaV12(
+    public var ppsp: Propsheetpagea? = null,
+    public var phpage: COpaquePointer? = null,
+)
 
 public data class PropsheetheaderaV2(
     public var dwSize: UInt = 0u,
@@ -1637,15 +1728,30 @@ public data class PropsheetheaderaV2(
     public var anonymous5: PropsheetheaderaV24 = PropsheetheaderaV24(),
 )
 
-public data class PropsheetheaderaV20(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
+public data class PropsheetheaderaV20(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcstr = null,
+)
 
-public data class PropsheetheaderaV21(public var nStartPage: UInt = 0u, public var pStartPage: Pcstr = null)
+public data class PropsheetheaderaV21(
+    public var nStartPage: UInt = 0u,
+    public var pStartPage: Pcstr = null,
+)
 
-public data class PropsheetheaderaV22(public var ppsp: Propsheetpagea? = null, public var phpage: COpaquePointer? = null)
+public data class PropsheetheaderaV22(
+    public var ppsp: Propsheetpagea? = null,
+    public var phpage: COpaquePointer? = null,
+)
 
-public data class PropsheetheaderaV23(public var hbmWatermark: Hbitmap = null, public var pszbmWatermark: Pcstr = null)
+public data class PropsheetheaderaV23(
+    public var hbmWatermark: Hbitmap = null,
+    public var pszbmWatermark: Pcstr = null,
+)
 
-public data class PropsheetheaderaV24(public var hbmHeader: Hbitmap = null, public var pszbmHeader: Pcstr = null)
+public data class PropsheetheaderaV24(
+    public var hbmHeader: Hbitmap = null,
+    public var pszbmHeader: Pcstr = null,
+)
 
 public data class PropsheetheaderwV1(
     public var dwSize: UInt = 0u,
@@ -1660,11 +1766,20 @@ public data class PropsheetheaderwV1(
     public var pfnCallback: Pfnpropsheetcallback = null,
 )
 
-public data class PropsheetheaderwV10(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
+public data class PropsheetheaderwV10(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcwstr = null,
+)
 
-public data class PropsheetheaderwV11(public var nStartPage: UInt = 0u, public var pStartPage: Pcwstr = null)
+public data class PropsheetheaderwV11(
+    public var nStartPage: UInt = 0u,
+    public var pStartPage: Pcwstr = null,
+)
 
-public data class PropsheetheaderwV12(public var ppsp: Propsheetpagew? = null, public var phpage: COpaquePointer? = null)
+public data class PropsheetheaderwV12(
+    public var ppsp: Propsheetpagew? = null,
+    public var phpage: COpaquePointer? = null,
+)
 
 public data class PropsheetheaderwV2(
     public var dwSize: UInt = 0u,
@@ -1682,15 +1797,30 @@ public data class PropsheetheaderwV2(
     public var anonymous5: PropsheetheaderwV24 = PropsheetheaderwV24(),
 )
 
-public data class PropsheetheaderwV20(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
+public data class PropsheetheaderwV20(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcwstr = null,
+)
 
-public data class PropsheetheaderwV21(public var nStartPage: UInt = 0u, public var pStartPage: Pcwstr = null)
+public data class PropsheetheaderwV21(
+    public var nStartPage: UInt = 0u,
+    public var pStartPage: Pcwstr = null,
+)
 
-public data class PropsheetheaderwV22(public var ppsp: Propsheetpagew? = null, public var phpage: COpaquePointer? = null)
+public data class PropsheetheaderwV22(
+    public var ppsp: Propsheetpagew? = null,
+    public var phpage: COpaquePointer? = null,
+)
 
-public data class PropsheetheaderwV23(public var hbmWatermark: Hbitmap = null, public var pszbmWatermark: Pcwstr = null)
+public data class PropsheetheaderwV23(
+    public var hbmWatermark: Hbitmap = null,
+    public var pszbmWatermark: Pcwstr = null,
+)
 
-public data class PropsheetheaderwV24(public var hbmHeader: Hbitmap = null, public var pszbmHeader: Pcwstr = null)
+public data class PropsheetheaderwV24(
+    public var hbmHeader: Hbitmap = null,
+    public var pszbmHeader: Pcwstr = null,
+)
 
 public data class Propsheetpagea(
     public var dwSize: UInt = 0u,
@@ -1709,11 +1839,20 @@ public data class Propsheetpagea(
     public var anonymous3: Propsheetpagea2 = Propsheetpagea2(),
 )
 
-public data class Propsheetpagea0(public var pszTemplate: Pcstr = null, public var pResource: Dlgtemplate? = null)
+public data class Propsheetpagea0(
+    public var pszTemplate: Pcstr = null,
+    public var pResource: Dlgtemplate? = null,
+)
 
-public data class Propsheetpagea1(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
+public data class Propsheetpagea1(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcstr = null,
+)
 
-public data class Propsheetpagea2(public var hbmHeader: Hbitmap = null, public var pszbmHeader: Pcstr = null)
+public data class Propsheetpagea2(
+    public var hbmHeader: Hbitmap = null,
+    public var pszbmHeader: Pcstr = null,
+)
 
 public data class PropsheetpageaV1(
     public var dwSize: UInt = 0u,
@@ -1728,9 +1867,15 @@ public data class PropsheetpageaV1(
     public var pcRefParent: UInt? = null,
 )
 
-public data class PropsheetpageaV10(public var pszTemplate: Pcstr = null, public var pResource: Dlgtemplate? = null)
+public data class PropsheetpageaV10(
+    public var pszTemplate: Pcstr = null,
+    public var pResource: Dlgtemplate? = null,
+)
 
-public data class PropsheetpageaV11(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
+public data class PropsheetpageaV11(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcstr = null,
+)
 
 public data class PropsheetpageaV2(
     public var dwSize: UInt = 0u,
@@ -1747,9 +1892,15 @@ public data class PropsheetpageaV2(
     public var pszHeaderSubTitle: Pcstr = null,
 )
 
-public data class PropsheetpageaV20(public var pszTemplate: Pcstr = null, public var pResource: Dlgtemplate? = null)
+public data class PropsheetpageaV20(
+    public var pszTemplate: Pcstr = null,
+    public var pResource: Dlgtemplate? = null,
+)
 
-public data class PropsheetpageaV21(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
+public data class PropsheetpageaV21(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcstr = null,
+)
 
 public data class PropsheetpageaV3(
     public var dwSize: UInt = 0u,
@@ -1767,9 +1918,15 @@ public data class PropsheetpageaV3(
     public var hActCtx: Handle = null,
 )
 
-public data class PropsheetpageaV30(public var pszTemplate: Pcstr = null, public var pResource: Dlgtemplate? = null)
+public data class PropsheetpageaV30(
+    public var pszTemplate: Pcstr = null,
+    public var pResource: Dlgtemplate? = null,
+)
 
-public data class PropsheetpageaV31(public var hIcon: Hicon = null, public var pszIcon: Pcstr = null)
+public data class PropsheetpageaV31(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcstr = null,
+)
 
 public data class Propsheetpagew(
     public var dwSize: UInt = 0u,
@@ -1788,11 +1945,20 @@ public data class Propsheetpagew(
     public var anonymous3: Propsheetpagew2 = Propsheetpagew2(),
 )
 
-public data class Propsheetpagew0(public var pszTemplate: Pcwstr = null, public var pResource: Dlgtemplate? = null)
+public data class Propsheetpagew0(
+    public var pszTemplate: Pcwstr = null,
+    public var pResource: Dlgtemplate? = null,
+)
 
-public data class Propsheetpagew1(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
+public data class Propsheetpagew1(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcwstr = null,
+)
 
-public data class Propsheetpagew2(public var hbmHeader: Hbitmap = null, public var pszbmHeader: Pcwstr = null)
+public data class Propsheetpagew2(
+    public var hbmHeader: Hbitmap = null,
+    public var pszbmHeader: Pcwstr = null,
+)
 
 public data class PropsheetpagewV1(
     public var dwSize: UInt = 0u,
@@ -1807,9 +1973,15 @@ public data class PropsheetpagewV1(
     public var pcRefParent: UInt? = null,
 )
 
-public data class PropsheetpagewV10(public var pszTemplate: Pcwstr = null, public var pResource: Dlgtemplate? = null)
+public data class PropsheetpagewV10(
+    public var pszTemplate: Pcwstr = null,
+    public var pResource: Dlgtemplate? = null,
+)
 
-public data class PropsheetpagewV11(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
+public data class PropsheetpagewV11(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcwstr = null,
+)
 
 public data class PropsheetpagewV2(
     public var dwSize: UInt = 0u,
@@ -1826,9 +1998,15 @@ public data class PropsheetpagewV2(
     public var pszHeaderSubTitle: Pcwstr = null,
 )
 
-public data class PropsheetpagewV20(public var pszTemplate: Pcwstr = null, public var pResource: Dlgtemplate? = null)
+public data class PropsheetpagewV20(
+    public var pszTemplate: Pcwstr = null,
+    public var pResource: Dlgtemplate? = null,
+)
 
-public data class PropsheetpagewV21(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
+public data class PropsheetpagewV21(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcwstr = null,
+)
 
 public data class PropsheetpagewV3(
     public var dwSize: UInt = 0u,
@@ -1846,11 +2024,20 @@ public data class PropsheetpagewV3(
     public var hActCtx: Handle = null,
 )
 
-public data class PropsheetpagewV30(public var pszTemplate: Pcwstr = null, public var pResource: Dlgtemplate? = null)
+public data class PropsheetpagewV30(
+    public var pszTemplate: Pcwstr = null,
+    public var pResource: Dlgtemplate? = null,
+)
 
-public data class PropsheetpagewV31(public var hIcon: Hicon = null, public var pszIcon: Pcwstr = null)
+public data class PropsheetpagewV31(
+    public var hIcon: Hicon = null,
+    public var pszIcon: Pcwstr = null,
+)
 
-public data class Pshnotify(public var hdr: Nmhdr = Nmhdr(), public var lParam: Lparam = 0L)
+public data class Pshnotify(
+    public var hdr: Nmhdr = Nmhdr(),
+    public var lParam: Lparam = 0L,
+)
 
 public data class Rbhittestinfo(
     public var pt: Point = Point(),
@@ -1941,11 +2128,20 @@ public class Taskdialogconfig(
     public var cxWidth: UInt = 0u,
 )
 
-public data class Taskdialogconfig0(public var hMainIcon: Hicon = null, public var pszMainIcon: Pcwstr = null)
+public data class Taskdialogconfig0(
+    public var hMainIcon: Hicon = null,
+    public var pszMainIcon: Pcwstr = null,
+)
 
-public data class Taskdialogconfig1(public var hFooterIcon: Hicon = null, public var pszFooterIcon: Pcwstr = null)
+public data class Taskdialogconfig1(
+    public var hFooterIcon: Hicon = null,
+    public var pszFooterIcon: Pcwstr = null,
+)
 
-public data class TaskdialogButton(public var nButtonID: Int = 0, public var pszButtonText: Pcwstr = null)
+public data class TaskdialogButton(
+    public var nButtonID: Int = 0,
+    public var pszButtonText: Pcwstr = null,
+)
 
 public data class TaCubicBezier(
     public var header: TaTimingfunction = TaTimingfunction(),
@@ -1955,7 +2151,9 @@ public data class TaCubicBezier(
     public var rY1: Float = 0.0f,
 )
 
-public data class TaTimingfunction(public var eTimingFunctionType: TaTimingfunctionType = 0)
+public data class TaTimingfunction(
+    public var eTimingFunctionType: TaTimingfunctionType = 0,
+)
 
 public data class TaTransform(
     public var eTransformType: TaTransformType = 0,
@@ -1993,7 +2191,10 @@ public data class TaTransformOpacity(
     public var rInitialOpacity: Float = 0.0f,
 )
 
-public data class Tbaddbitmap(public var hInst: Hinstance = null, public var nID: Int = 0)
+public data class Tbaddbitmap(
+    public var hInst: Hinstance = null,
+    public var nID: Int = 0,
+)
 
 public data class Tbbutton(
     public var iBitmap: Int = 0,
@@ -2055,7 +2256,10 @@ public data class Tbbuttoninfow(
     public var cchText: Int = 0,
 )
 
-public data class Tbinsertmark(public var iButton: Int = 0, public var dwFlags: TbinsertmarkFlags = 0u)
+public data class Tbinsertmark(
+    public var iButton: Int = 0,
+    public var dwFlags: TbinsertmarkFlags = 0u,
+)
 
 public data class Tbmetrics(
     public var cbSize: UInt = 0u,
@@ -2088,7 +2292,10 @@ public data class Tbsaveparamsw(
     public var pszValueName: Pcwstr = null,
 )
 
-public data class Tchittestinfo(public var pt: Point = Point(), public var flags: TchittestinfoFlags = 0u)
+public data class Tchittestinfo(
+    public var pt: Point = Point(),
+    public var flags: TchittestinfoFlags = 0u,
+)
 
 public data class Tcitema(
     public var mask: TcitemheaderaMask = 0u,
@@ -2136,7 +2343,10 @@ public data class TouchHitTestingInput(
     public var orientation: UInt = 0u,
 )
 
-public data class TouchHitTestingProximityEvaluation(public var score: UShort = 0u, public var adjustedPoint: Point = Point())
+public data class TouchHitTestingProximityEvaluation(
+    public var score: UShort = 0u,
+    public var adjustedPoint: Point = Point(),
+)
 
 public data class Ttgettitle(
     public var dwSize: UInt = 0u,
@@ -2199,7 +2409,10 @@ public data class Tvinsertstructa(
     public var anonymous: Tvinsertstructa0 = Tvinsertstructa0(),
 )
 
-public data class Tvinsertstructa0(public var itemex: Tvitemexa = Tvitemexa(), public var item: Tvitema = Tvitema())
+public data class Tvinsertstructa0(
+    public var itemex: Tvitemexa = Tvitemexa(),
+    public var item: Tvitema = Tvitema(),
+)
 
 public data class Tvinsertstructw(
     public var hParent: Htreeitem = 0,
@@ -2207,7 +2420,10 @@ public data class Tvinsertstructw(
     public var anonymous: Tvinsertstructw0 = Tvinsertstructw0(),
 )
 
-public data class Tvinsertstructw0(public var itemex: Tvitemexw = Tvitemexw(), public var item: Tvitemw = Tvitemw())
+public data class Tvinsertstructw0(
+    public var itemex: Tvitemexw = Tvitemexw(),
+    public var item: Tvitemw = Tvitemw(),
+)
 
 public data class Tvitema(
     public var mask: TvitemMask = 0u,
@@ -2277,4 +2493,7 @@ public data class Tvsortcb(
     public var lParam: Lparam = 0L,
 )
 
-public data class Udaccel(public var nSec: UInt = 0u, public var nInc: UInt = 0u)
+public data class Udaccel(
+    public var nSec: UInt = 0u,
+    public var nInc: UInt = 0u,
+)

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem
 
 import io.github.kotlinmania.windowssys.core.Guid
@@ -33,17 +34,30 @@ public data class DfsGetPktEntryStateArg(
     }
 }
 
-public data class DfsInfo1(public var entryPath: Pwstr = null)
+public data class DfsInfo1(
+    public var entryPath: Pwstr = null,
+)
 
-public data class DfsInfo100(public var comment: Pwstr = null)
+public data class DfsInfo100(
+    public var comment: Pwstr = null,
+)
 
-public data class DfsInfo101(public var state: UInt = 0u)
+public data class DfsInfo101(
+    public var state: UInt = 0u,
+)
 
-public data class DfsInfo102(public var timeout: UInt = 0u)
+public data class DfsInfo102(
+    public var timeout: UInt = 0u,
+)
 
-public data class DfsInfo103(public var propertyFlagMask: UInt = 0u, public var propertyFlags: UInt = 0u)
+public data class DfsInfo103(
+    public var propertyFlagMask: UInt = 0u,
+    public var propertyFlags: UInt = 0u,
+)
 
-public data class DfsInfo104(public var targetPriority: DfsTargetPriority = DfsTargetPriority())
+public data class DfsInfo104(
+    public var targetPriority: DfsTargetPriority = DfsTargetPriority(),
+)
 
 public data class DfsInfo105(
     public var comment: Pwstr = null,
@@ -53,7 +67,10 @@ public data class DfsInfo105(
     public var propertyFlags: UInt = 0u,
 )
 
-public data class DfsInfo106(public var state: UInt = 0u, public var targetPriority: DfsTargetPriority = DfsTargetPriority())
+public data class DfsInfo106(
+    public var state: UInt = 0u,
+    public var targetPriority: DfsTargetPriority = DfsTargetPriority(),
+)
 
 public data class DfsInfo107(
     public var comment: Pwstr = null,
@@ -65,9 +82,14 @@ public data class DfsInfo107(
     public var pSecurityDescriptor: PsecurityDescriptor = null,
 )
 
-public data class DfsInfo150(public var sdLengthReserved: UInt = 0u, public var pSecurityDescriptor: PsecurityDescriptor = null)
+public data class DfsInfo150(
+    public var sdLengthReserved: UInt = 0u,
+    public var pSecurityDescriptor: PsecurityDescriptor = null,
+)
 
-public data class DfsInfo132(public var entryPath: UInt = 0u)
+public data class DfsInfo132(
+    public var entryPath: UInt = 0u,
+)
 
 public data class DfsInfo2(
     public var entryPath: Pwstr = null,
@@ -76,7 +98,9 @@ public data class DfsInfo2(
     public var numberOfStorages: UInt = 0u,
 )
 
-public data class DfsInfo200(public var ftDfsName: Pwstr = null)
+public data class DfsInfo200(
+    public var ftDfsName: Pwstr = null,
+)
 
 public data class DfsInfo232(
     public var entryPath: UInt = 0u,
@@ -93,7 +117,10 @@ public data class DfsInfo3(
     public var storage: DfsStorageInfo? = null,
 )
 
-public data class DfsInfo300(public var flags: UInt = 0u, public var dfsName: Pwstr = null)
+public data class DfsInfo300(
+    public var flags: UInt = 0u,
+    public var dfsName: Pwstr = null,
+)
 
 public data class DfsInfo332(
     public var entryPath: UInt = 0u,
@@ -152,7 +179,9 @@ public data class DfsInfo6(
     public var storage: DfsStorageInfo1? = null,
 )
 
-public data class DfsInfo7(public var generationGuid: Guid = Guid())
+public data class DfsInfo7(
+    public var generationGuid: Guid = Guid(),
+)
 
 public data class DfsInfo8(
     public var entryPath: Pwstr = null,
@@ -181,9 +210,15 @@ public data class DfsInfo9(
     public var storage: DfsStorageInfo1? = null,
 )
 
-public data class DfsSitelistInfo(public var cSites: UInt = 0u, public var site: List<DfsSitenameInfo> = List(1) { DfsSitenameInfo() })
+public data class DfsSitelistInfo(
+    public var cSites: UInt = 0u,
+    public var site: List<DfsSitenameInfo> = List(1) { DfsSitenameInfo() },
+)
 
-public data class DfsSitenameInfo(public var siteFlags: UInt = 0u, public var siteName: Pwstr = null)
+public data class DfsSitenameInfo(
+    public var siteFlags: UInt = 0u,
+    public var siteName: Pwstr = null,
+)
 
 public data class DfsStorageInfo(
     public var state: UInt = 0u,

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.addressbook
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -17,7 +18,10 @@ public data class Adrentry(
     public var rgPropVals: SPropValue? = null,
 )
 
-public data class Adrlist(public var cEntries: UInt = 0u, public var aEntries: List<Adrentry> = List(1) { Adrentry() })
+public data class Adrlist(
+    public var cEntries: UInt = 0u,
+    public var aEntries: List<Adrentry> = List(1) { Adrentry() },
+)
 
 public class Adrparm(
     public var cbABContEntryID: UInt = 0u,
@@ -74,9 +78,15 @@ public data class Dtbledit(
     public var ulPropTag: UInt = 0u,
 )
 
-public data class Dtblgroupbox(public var ulbLpszLabel: UInt = 0u, public var ulFlags: UInt = 0u)
+public data class Dtblgroupbox(
+    public var ulbLpszLabel: UInt = 0u,
+    public var ulFlags: UInt = 0u,
+)
 
-public data class Dtbllabel(public var ulbLpszLabelName: UInt = 0u, public var ulFlags: UInt = 0u)
+public data class Dtbllabel(
+    public var ulbLpszLabelName: UInt = 0u,
+    public var ulFlags: UInt = 0u,
+)
 
 public data class Dtbllbx(
     public var ulFlags: UInt = 0u,
@@ -84,9 +94,15 @@ public data class Dtbllbx(
     public var ulPRTableName: UInt = 0u,
 )
 
-public data class Dtblmvddlbx(public var ulFlags: UInt = 0u, public var ulMVPropTag: UInt = 0u)
+public data class Dtblmvddlbx(
+    public var ulFlags: UInt = 0u,
+    public var ulMVPropTag: UInt = 0u,
+)
 
-public data class Dtblmvlistbox(public var ulFlags: UInt = 0u, public var ulMVPropTag: UInt = 0u)
+public data class Dtblmvlistbox(
+    public var ulFlags: UInt = 0u,
+    public var ulMVPropTag: UInt = 0u,
+)
 
 public data class Dtblpage(
     public var ulbLpszLabel: UInt = 0u,
@@ -136,9 +152,15 @@ public data class Dtpage(
     public var lpctl: Dtctl? = null,
 )
 
-public data class Dtpage0(public var lpszComponent: COpaquePointer? = null, public var ulItemID: UInt = 0u)
+public data class Dtpage0(
+    public var lpszComponent: COpaquePointer? = null,
+    public var ulItemID: UInt = 0u,
+)
 
-public data class Entryid(public var abFlags: UByteArray = UByteArray(4), public var ab: UByteArray = UByteArray(1)) {
+public data class Entryid(
+    public var abFlags: UByteArray = UByteArray(4),
+    public var ab: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Entryid) return false
@@ -168,7 +190,10 @@ public data class ExtendedNotification(
     public var pbEventParameters: COpaquePointer? = null,
 )
 
-public data class Flatentry(public var cb: UInt = 0u, public var abEntry: UByteArray = UByteArray(1)) {
+public data class Flatentry(
+    public var cb: UInt = 0u,
+    public var abEntry: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Flatentry) return false
@@ -228,7 +253,10 @@ public data class Flatmtsidlist(
     }
 }
 
-public data class FlagList(public var cFlags: UInt = 0u, public var ulFlag: UIntArray = UIntArray(1)) {
+public data class FlagList(
+    public var cFlags: UInt = 0u,
+    public var ulFlag: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FlagList) return false
@@ -258,9 +286,14 @@ public data class Mapinameid(
     public var kind: Mapinameid0 = Mapinameid0(),
 )
 
-public data class Mapinameid0(public var lID: Int = 0, public var lpwstrName: Pwstr = null)
+public data class Mapinameid0(
+    public var lID: Int = 0,
+    public var lpwstrName: Pwstr = null,
+)
 
-public data class Mapiuid(public var ab: UByteArray = UByteArray(16)) {
+public data class Mapiuid(
+    public var ab: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Mapiuid) return false
@@ -268,12 +301,13 @@ public data class Mapiuid(public var ab: UByteArray = UByteArray(16)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.ab.contentHashCode()
-    }
+    override fun hashCode(): Int = this.ab.contentHashCode()
 }
 
-public data class Mtsid(public var cb: UInt = 0u, public var ab: UByteArray = UByteArray(1)) {
+public data class Mtsid(
+    public var cb: UInt = 0u,
+    public var ab: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Mtsid) return false
@@ -314,7 +348,10 @@ public data class Notification0(
     public var statobj: StatusObjectNotification = StatusObjectNotification(),
 )
 
-public data class Notifkey(public var cb: UInt = 0u, public var ab: UByteArray = UByteArray(1)) {
+public data class Notifkey(
+    public var cb: UInt = 0u,
+    public var ab: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Notifkey) return false
@@ -343,13 +380,25 @@ public data class ObjectNotification(
     public var lpPropTagArray: SPropTagArray? = null,
 )
 
-public data class SAndRestriction(public var cRes: UInt = 0u, public var lpRes: SRestriction? = null)
+public data class SAndRestriction(
+    public var cRes: UInt = 0u,
+    public var lpRes: SRestriction? = null,
+)
 
-public data class SAppTimeArray(public var cValues: UInt = 0u, public var lpat: Double? = null)
+public data class SAppTimeArray(
+    public var cValues: UInt = 0u,
+    public var lpat: Double? = null,
+)
 
-public data class SBinary(public var cb: UInt = 0u, public var lpb: COpaquePointer? = null)
+public data class SBinary(
+    public var cb: UInt = 0u,
+    public var lpb: COpaquePointer? = null,
+)
 
-public data class SBinaryArray(public var cValues: UInt = 0u, public var lpbin: SBinary? = null)
+public data class SBinaryArray(
+    public var cValues: UInt = 0u,
+    public var lpbin: SBinary? = null,
+)
 
 public data class SBitMaskRestriction(
     public var relBMR: UInt = 0u,
@@ -375,11 +424,20 @@ public data class SContentRestriction(
     public var lpProp: SPropValue? = null,
 )
 
-public data class SCurrencyArray(public var cValues: UInt = 0u, public var lpcur: CY? = null)
+public data class SCurrencyArray(
+    public var cValues: UInt = 0u,
+    public var lpcur: CY? = null,
+)
 
-public data class SDateTimeArray(public var cValues: UInt = 0u, public var lpft: Filetime? = null)
+public data class SDateTimeArray(
+    public var cValues: UInt = 0u,
+    public var lpft: Filetime? = null,
+)
 
-public data class SDoubleArray(public var cValues: UInt = 0u, public var lpdbl: Double? = null)
+public data class SDoubleArray(
+    public var cValues: UInt = 0u,
+    public var lpdbl: Double? = null,
+)
 
 public data class SExistRestriction(
     public var ulReserved1: UInt = 0u,
@@ -387,17 +445,35 @@ public data class SExistRestriction(
     public var ulReserved2: UInt = 0u,
 )
 
-public data class SGuidArray(public var cValues: UInt = 0u, public var lpguid: Guid? = null)
+public data class SGuidArray(
+    public var cValues: UInt = 0u,
+    public var lpguid: Guid? = null,
+)
 
-public data class SLPSTRArray(public var cValues: UInt = 0u, public var lppszA: Pstr? = null)
+public data class SLPSTRArray(
+    public var cValues: UInt = 0u,
+    public var lppszA: Pstr? = null,
+)
 
-public data class SLargeIntegerArray(public var cValues: UInt = 0u, public var lpli: Long? = null)
+public data class SLargeIntegerArray(
+    public var cValues: UInt = 0u,
+    public var lpli: Long? = null,
+)
 
-public data class SLongArray(public var cValues: UInt = 0u, public var lpl: Int? = null)
+public data class SLongArray(
+    public var cValues: UInt = 0u,
+    public var lpl: Int? = null,
+)
 
-public data class SNotRestriction(public var ulReserved: UInt = 0u, public var lpRes: SRestriction? = null)
+public data class SNotRestriction(
+    public var ulReserved: UInt = 0u,
+    public var lpRes: SRestriction? = null,
+)
 
-public data class SOrRestriction(public var cRes: UInt = 0u, public var lpRes: SRestriction? = null)
+public data class SOrRestriction(
+    public var cRes: UInt = 0u,
+    public var lpRes: SRestriction? = null,
+)
 
 public data class SPropProblem(
     public var ulIndex: UInt = 0u,
@@ -405,9 +481,15 @@ public data class SPropProblem(
     public var scode: Int = 0,
 )
 
-public data class SPropProblemArray(public var cProblem: UInt = 0u, public var aProblem: List<SPropProblem> = List(1) { SPropProblem() })
+public data class SPropProblemArray(
+    public var cProblem: UInt = 0u,
+    public var aProblem: List<SPropProblem> = List(1) { SPropProblem() },
+)
 
-public data class SPropTagArray(public var cValues: UInt = 0u, public var aulPropTag: UIntArray = UIntArray(1)) {
+public data class SPropTagArray(
+    public var cValues: UInt = 0u,
+    public var aulPropTag: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SPropTagArray) return false
@@ -435,9 +517,15 @@ public data class SPropertyRestriction(
     public var lpProp: SPropValue? = null,
 )
 
-public data class SRealArray(public var cValues: UInt = 0u, public var lpflt: Float? = null)
+public data class SRealArray(
+    public var cValues: UInt = 0u,
+    public var lpflt: Float? = null,
+)
 
-public data class SRestriction(public var rt: UInt = 0u, public var res: Srestriction0 = Srestriction0())
+public data class SRestriction(
+    public var rt: UInt = 0u,
+    public var res: Srestriction0 = Srestriction0(),
+)
 
 public data class Srestriction0(
     public var resCompareProps: SComparePropsRestriction = SComparePropsRestriction(),
@@ -459,9 +547,15 @@ public data class SRow(
     public var lpProps: SPropValue? = null,
 )
 
-public data class SRowSet(public var cRows: UInt = 0u, public var aRow: List<SRow> = List(1) { SRow() })
+public data class SRowSet(
+    public var cRows: UInt = 0u,
+    public var aRow: List<SRow> = List(1) { SRow() },
+)
 
-public data class SShortArray(public var cValues: UInt = 0u, public var lpi: Short? = null)
+public data class SShortArray(
+    public var cValues: UInt = 0u,
+    public var lpi: Short? = null,
+)
 
 public data class SSizeRestriction(
     public var relop: UInt = 0u,
@@ -469,7 +563,10 @@ public data class SSizeRestriction(
     public var cb: UInt = 0u,
 )
 
-public data class SSortOrder(public var ulPropTag: UInt = 0u, public var ulOrder: UInt = 0u)
+public data class SSortOrder(
+    public var ulPropTag: UInt = 0u,
+    public var ulOrder: UInt = 0u,
+)
 
 public data class SSortOrderSet(
     public var cSorts: UInt = 0u,
@@ -478,7 +575,10 @@ public data class SSortOrderSet(
     public var aSort: List<SSortOrder> = List(1) { SSortOrder() },
 )
 
-public data class SSubRestriction(public var ulSubObject: UInt = 0u, public var lpRes: SRestriction? = null)
+public data class SSubRestriction(
+    public var ulSubObject: UInt = 0u,
+    public var lpRes: SRestriction? = null,
+)
 
 public data class StatusObjectNotification(
     public var cbEntryID: UInt = 0u,
@@ -487,7 +587,10 @@ public data class StatusObjectNotification(
     public var lpPropVals: SPropValue? = null,
 )
 
-public data class SWStringArray(public var cValues: UInt = 0u, public var lppszW: Pwstr? = null)
+public data class SWStringArray(
+    public var cValues: UInt = 0u,
+    public var lppszW: Pwstr? = null,
+)
 
 public data class TableNotification(
     public var ulTableEvent: UInt = 0u,

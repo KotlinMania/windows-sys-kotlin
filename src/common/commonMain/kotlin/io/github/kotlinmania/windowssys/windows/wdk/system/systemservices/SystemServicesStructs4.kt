@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -63,7 +64,9 @@ public data class RegPostOperationInformation(
     public var reserved: COpaquePointer? = null,
 )
 
-public data class RegPreCreateKeyInformation(public var completeName: UnicodeString? = null)
+public data class RegPreCreateKeyInformation(
+    public var completeName: UnicodeString? = null,
+)
 
 public data class RegQueryKeyName(
     public var obj: COpaquePointer? = null,
@@ -222,9 +225,15 @@ public data class RtlBalancedLinks(
     }
 }
 
-public data class RtlBitmap(public var sizeOfBitMap: UInt = 0u, public var buffer: UInt? = null)
+public data class RtlBitmap(
+    public var sizeOfBitMap: UInt = 0u,
+    public var buffer: UInt? = null,
+)
 
-public data class RtlBitmapRun(public var startingIndex: UInt = 0u, public var numberOfBits: UInt = 0u)
+public data class RtlBitmapRun(
+    public var startingIndex: UInt = 0u,
+    public var numberOfBits: UInt = 0u,
+)
 
 public data class RtlDynamicHashTable(
     public var flags: UInt = 0u,
@@ -244,7 +253,10 @@ public data class RtlDynamicHashTableContext(
     public var signature: Int = 0,
 )
 
-public data class RtlDynamicHashTableEntry(public var linkage: ListEntry = ListEntry(), public var signature: Int = 0)
+public data class RtlDynamicHashTableEntry(
+    public var linkage: ListEntry = ListEntry(),
+    public var signature: Int = 0,
+)
 
 public data class RtlDynamicHashTableEnumerator(
     public var anonymous: RtlDynamicHashTableEnumerator0 = RtlDynamicHashTableEnumerator0(),
@@ -252,7 +264,10 @@ public data class RtlDynamicHashTableEnumerator(
     public var bucketIndex: UInt = 0u,
 )
 
-public data class RtlDynamicHashTableEnumerator0(public var hashEntry: RtlDynamicHashTableEntry = RtlDynamicHashTableEntry(), public var curEntry: ListEntry? = null)
+public data class RtlDynamicHashTableEnumerator0(
+    public var hashEntry: RtlDynamicHashTableEntry = RtlDynamicHashTableEntry(),
+    public var curEntry: ListEntry? = null,
+)
 
 public data class RtlGenericTable(
     public var tableRoot: RtlSplayLinks? = null,
@@ -288,7 +303,10 @@ public data class ScatterGatherList(
     public var elements: List<ScatterGatherElement> = List(1) { ScatterGatherElement() },
 )
 
-public data class SdevIdentifierInterface(public var interfaceHeader: Interface = Interface(), public var getIdentifier: PgetSdevIdentifier = null)
+public data class SdevIdentifierInterface(
+    public var interfaceHeader: Interface = Interface(),
+    public var getIdentifier: PgetSdevIdentifier = null,
+)
 
 public data class SecureDriverInterface(
     public var interfaceHeader: Interface = Interface(),
@@ -363,7 +381,10 @@ public data class SiloMonitorRegistration(
     }
 }
 
-public data class SiloMonitorRegistration0(public var driverObjectName: UnicodeString? = null, public var componentName: UnicodeString? = null)
+public data class SiloMonitorRegistration0(
+    public var driverObjectName: UnicodeString? = null,
+    public var componentName: UnicodeString? = null,
+)
 
 public data class SocSubsystemFailureDetails(
     public var subsysType: SocSubsystemType = 0,
@@ -428,11 +449,18 @@ public data class SystemFirmwareTableInformation(
     }
 }
 
-public data class SystemPowerStateContext(public var anonymous: SystemPowerStateContext0 = SystemPowerStateContext0())
+public data class SystemPowerStateContext(
+    public var anonymous: SystemPowerStateContext0 = SystemPowerStateContext0(),
+)
 
-public data class SystemPowerStateContext0(public var anonymous: SystemPowerStateContext00 = SystemPowerStateContext00(), public var contextAsUlong: UInt = 0u)
+public data class SystemPowerStateContext0(
+    public var anonymous: SystemPowerStateContext00 = SystemPowerStateContext00(),
+    public var contextAsUlong: UInt = 0u,
+)
 
-public data class SystemPowerStateContext00(public var bitfield: UInt = 0u)
+public data class SystemPowerStateContext00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class TargetDeviceRemovalNotification(
     public var version: UShort = 0u,
@@ -478,21 +506,41 @@ public data class TxnParameterBlock(
     public var transactionObject: COpaquePointer? = null,
 )
 
-public data class VirtualChannelCapabilities1(public var anonymous: VirtualChannelCapabilities10 = VirtualChannelCapabilities10(), public var asULONG: UInt = 0u)
+public data class VirtualChannelCapabilities1(
+    public var anonymous: VirtualChannelCapabilities10 = VirtualChannelCapabilities10(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class VirtualChannelCapabilities10(public var bitfield: UInt = 0u)
+public data class VirtualChannelCapabilities10(
+    public var bitfield: UInt = 0u,
+)
 
-public data class VirtualChannelCapabilities2(public var anonymous: VirtualChannelCapabilities20 = VirtualChannelCapabilities20(), public var asULONG: UInt = 0u)
+public data class VirtualChannelCapabilities2(
+    public var anonymous: VirtualChannelCapabilities20 = VirtualChannelCapabilities20(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class VirtualChannelCapabilities20(public var bitfield: UInt = 0u)
+public data class VirtualChannelCapabilities20(
+    public var bitfield: UInt = 0u,
+)
 
-public data class VirtualChannelControl(public var anonymous: VirtualChannelControl0 = VirtualChannelControl0(), public var asUSHORT: UShort = 0u)
+public data class VirtualChannelControl(
+    public var anonymous: VirtualChannelControl0 = VirtualChannelControl0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class VirtualChannelControl0(public var bitfield: UShort = 0u)
+public data class VirtualChannelControl0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class VirtualChannelStatus(public var anonymous: VirtualChannelStatus0 = VirtualChannelStatus0(), public var asUSHORT: UShort = 0u)
+public data class VirtualChannelStatus(
+    public var anonymous: VirtualChannelStatus0 = VirtualChannelStatus0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class VirtualChannelStatus0(public var bitfield: UShort = 0u)
+public data class VirtualChannelStatus0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class VirtualResource(
     public var capability: VirtualResourceCapability = VirtualResourceCapability(),
@@ -501,17 +549,32 @@ public data class VirtualResource(
     public var status: VirtualResourceStatus = VirtualResourceStatus(),
 )
 
-public data class VirtualResourceCapability(public var anonymous: VirtualResourceCapability0 = VirtualResourceCapability0(), public var asULONG: UInt = 0u)
+public data class VirtualResourceCapability(
+    public var anonymous: VirtualResourceCapability0 = VirtualResourceCapability0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class VirtualResourceCapability0(public var bitfield: UInt = 0u)
+public data class VirtualResourceCapability0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class VirtualResourceControl(public var anonymous: VirtualResourceControl0 = VirtualResourceControl0(), public var asULONG: UInt = 0u)
+public data class VirtualResourceControl(
+    public var anonymous: VirtualResourceControl0 = VirtualResourceControl0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class VirtualResourceControl0(public var bitfield: UInt = 0u)
+public data class VirtualResourceControl0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class VirtualResourceStatus(public var anonymous: VirtualResourceStatus0 = VirtualResourceStatus0(), public var asUSHORT: UShort = 0u)
+public data class VirtualResourceStatus(
+    public var anonymous: VirtualResourceStatus0 = VirtualResourceStatus0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class VirtualResourceStatus0(public var bitfield: UShort = 0u)
+public data class VirtualResourceStatus0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class VmCounters(
     public var peakVirtualSize: Int = 0,
@@ -558,7 +621,10 @@ public data class WaitContextBlock(
     public var bufferChainingDpc: Kdpc? = null,
 )
 
-public data class WaitContextBlock0(public var waitQueueEntry: KdeviceQueueEntry = KdeviceQueueEntry(), public var anonymous: WaitContextBlock00 = WaitContextBlock00())
+public data class WaitContextBlock0(
+    public var waitQueueEntry: KdeviceQueueEntry = KdeviceQueueEntry(),
+    public var anonymous: WaitContextBlock00 = WaitContextBlock00(),
+)
 
 public data class WaitContextBlock00(
     public var dmaWaitEntry: ListEntry = ListEntry(),
@@ -566,7 +632,10 @@ public data class WaitContextBlock00(
     public var bitfield: UInt = 0u,
 )
 
-public data class Whea128a(public var low: ULong = 0uL, public var high: Long = 0L)
+public data class Whea128a(
+    public var low: ULong = 0uL,
+    public var high: Long = 0L,
+)
 
 public data class WheapAcpiTimeoutEvent(
     public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
@@ -612,9 +681,15 @@ public data class WheapBadHestNotifyDataEvent(
     public var notifyDesc: WheaNotificationDescriptor = WheaNotificationDescriptor(),
 )
 
-public data class WheapClearedPoisonEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var physicalAddress: ULong = 0uL)
+public data class WheapClearedPoisonEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var physicalAddress: ULong = 0uL,
+)
 
-public data class WheapCmciImplementedEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var cmciAvailable: Boolean = false)
+public data class WheapCmciImplementedEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var cmciAvailable: Boolean = false,
+)
 
 public data class WheapCmciIniterrEvent(
     public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
@@ -657,9 +732,15 @@ public data class WheapCreateGenericRecordEvent(
     }
 }
 
-public data class WheapDeferredEvent(public var listEntry: ListEntry = ListEntry(), public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
+public data class WheapDeferredEvent(
+    public var listEntry: ListEntry = ListEntry(),
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+)
 
-public data class WheapDeviceDrvEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var function: ByteArray = ByteArray(32)) {
+public data class WheapDeviceDrvEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var function: ByteArray = ByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WheapDeviceDrvEvent) return false
@@ -703,7 +784,10 @@ public data class WheapErrorClearedEvent(
     public var bank: UInt = 0u,
 )
 
-public data class WheapErrorRecordEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var record: WheaErrorRecord? = null)
+public data class WheapErrorRecordEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var record: WheaErrorRecord? = null,
+)
 
 public data class WheapErrSrcArrayInvalidEvent(
     public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
@@ -894,13 +978,22 @@ public data class WheapPfaMemoryRemoveMonitor(
     public var page: UInt = 0u,
 )
 
-public data class WheapPluginDefectListCorrupt(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
+public data class WheapPluginDefectListCorrupt(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+)
 
-public data class WheapPluginDefectListFullEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
+public data class WheapPluginDefectListFullEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+)
 
-public data class WheapPluginDefectListUefiVarFailed(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
+public data class WheapPluginDefectListUefiVarFailed(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+)
 
-public data class WheapPluginPfaEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var noFurtherPfa: Boolean = false)
+public data class WheapPluginPfaEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var noFurtherPfa: Boolean = false,
+)
 
 public data class WheapProcessEinjEvent(
     public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
@@ -1042,7 +1135,10 @@ public data class WheapSpuriousAerEvent(
     public var deviceAssociationBitmap: UInt = 0u,
 )
 
-public data class WheapStartedReportHwError(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var errorPacket: WheaErrorPacketV2? = null)
+public data class WheapStartedReportHwError(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var errorPacket: WheaErrorPacketV2? = null,
+)
 
 public data class WheapStuckErrorEvent(
     public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
@@ -1250,7 +1346,10 @@ public data class WheaArmAarch32El2Csr(
     public var dacr32El2: UInt = 0u,
 )
 
-public data class WheaArmAarch32SecureCsr(public var sctlr: UInt = 0u, public var spsrMon: UInt = 0u)
+public data class WheaArmAarch32SecureCsr(
+    public var sctlr: UInt = 0u,
+    public var spsrMon: UInt = 0u,
+)
 
 public class WheaArmAarch64El1Csr(
     public var elrEl1: ULong = 0uL,
@@ -1300,9 +1399,14 @@ public data class WheaArmBusError(
     public var bitfield6: UInt = 0u,
 )
 
-public data class WheaArmBusErrorValidBits(public var anonymous: WheaArmBusErrorValidBits0 = WheaArmBusErrorValidBits0(), public var asUSHORT: UShort = 0u)
+public data class WheaArmBusErrorValidBits(
+    public var anonymous: WheaArmBusErrorValidBits0 = WheaArmBusErrorValidBits0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class WheaArmBusErrorValidBits0(public var bitfield: UShort = 0u)
+public data class WheaArmBusErrorValidBits0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class WheaArmCacheError(
     public var validationBit: WheaArmCacheErrorValidBits = WheaArmCacheErrorValidBits(),
@@ -1311,11 +1415,19 @@ public data class WheaArmCacheError(
     public var bitfield3: ULong = 0uL,
 )
 
-public data class WheaArmCacheErrorValidBits(public var anonymous: WheaArmCacheErrorValidBits0 = WheaArmCacheErrorValidBits0(), public var asUSHORT: UShort = 0u)
+public data class WheaArmCacheErrorValidBits(
+    public var anonymous: WheaArmCacheErrorValidBits0 = WheaArmCacheErrorValidBits0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class WheaArmCacheErrorValidBits0(public var bitfield: UShort = 0u)
+public data class WheaArmCacheErrorValidBits0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class WheaArmMiscCsr(public var mRSEncoding: UShort = 0u, public var value: ULong = 0uL)
+public data class WheaArmMiscCsr(
+    public var mRSEncoding: UShort = 0u,
+    public var value: ULong = 0uL,
+)
 
 public data class WheaArmProcessorError(
     public var cacheError: WheaArmCacheError = WheaArmCacheError(),
@@ -1349,9 +1461,14 @@ public data class WheaArmProcessorErrorContextInformationHeader(
     }
 }
 
-public data class WheaArmProcessorErrorContextInformationHeaderFlags(public var anonymous: WheaArmProcessorErrorContextInformationHeaderFlags0 = WheaArmProcessorErrorContextInformationHeaderFlags0(), public var asULONG: UInt = 0u)
+public data class WheaArmProcessorErrorContextInformationHeaderFlags(
+    public var anonymous: WheaArmProcessorErrorContextInformationHeaderFlags0 = WheaArmProcessorErrorContextInformationHeaderFlags0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaArmProcessorErrorContextInformationHeaderFlags0(public var bitfield: UInt = 0u)
+public data class WheaArmProcessorErrorContextInformationHeaderFlags0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class WheaArmProcessorErrorInformation(
     public var version: UByte = 0u,
@@ -1365,9 +1482,14 @@ public data class WheaArmProcessorErrorInformation(
     public var physicalFaultAddress: ULong = 0uL,
 )
 
-public data class WheaArmProcessorErrorInformationValidBits(public var anonymous: WheaArmProcessorErrorInformationValidBits0 = WheaArmProcessorErrorInformationValidBits0(), public var asUSHORT: UShort = 0u)
+public data class WheaArmProcessorErrorInformationValidBits(
+    public var anonymous: WheaArmProcessorErrorInformationValidBits0 = WheaArmProcessorErrorInformationValidBits0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class WheaArmProcessorErrorInformationValidBits0(public var bitfield: UShort = 0u)
+public data class WheaArmProcessorErrorInformationValidBits0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class WheaArmProcessorErrorSection(
     public var validBits: WheaArmProcessorErrorSectionValidBits = WheaArmProcessorErrorSectionValidBits(),
@@ -1415,9 +1537,14 @@ public data class WheaArmProcessorErrorSection(
     }
 }
 
-public data class WheaArmProcessorErrorSectionValidBits(public var anonymous: WheaArmProcessorErrorSectionValidBits0 = WheaArmProcessorErrorSectionValidBits0(), public var asULONG: UInt = 0u)
+public data class WheaArmProcessorErrorSectionValidBits(
+    public var anonymous: WheaArmProcessorErrorSectionValidBits0 = WheaArmProcessorErrorSectionValidBits0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaArmProcessorErrorSectionValidBits0(public var bitfield: UInt = 0u)
+public data class WheaArmProcessorErrorSectionValidBits0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class WheaArmTlbError(
     public var validationBit: WheaArmTlbErrorValidBits = WheaArmTlbErrorValidBits(),
@@ -1426,9 +1553,14 @@ public data class WheaArmTlbError(
     public var bitfield3: ULong = 0uL,
 )
 
-public data class WheaArmTlbErrorValidBits(public var anonymous: WheaArmTlbErrorValidBits0 = WheaArmTlbErrorValidBits0(), public var asUSHORT: UShort = 0u)
+public data class WheaArmTlbErrorValidBits(
+    public var anonymous: WheaArmTlbErrorValidBits0 = WheaArmTlbErrorValidBits0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class WheaArmTlbErrorValidBits0(public var bitfield: UShort = 0u)
+public data class WheaArmTlbErrorValidBits0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class WheaAzccRootBusErrEvent(
     public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
@@ -1466,13 +1598,23 @@ public data class WheaAzccSetPoisonEvent(
     public var isEnable: Boolean = false,
 )
 
-public data class WheaErrorInjectionCapabilities(public var anonymous: WheaErrorInjectionCapabilities0 = WheaErrorInjectionCapabilities0(), public var asULONG: UInt = 0u)
+public data class WheaErrorInjectionCapabilities(
+    public var anonymous: WheaErrorInjectionCapabilities0 = WheaErrorInjectionCapabilities0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaErrorInjectionCapabilities0(public var bitfield: UInt = 0u)
+public data class WheaErrorInjectionCapabilities0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class WheaErrorPacketFlags(public var anonymous: WheaErrorPacketFlags0 = WheaErrorPacketFlags0(), public var asULONG: UInt = 0u)
+public data class WheaErrorPacketFlags(
+    public var anonymous: WheaErrorPacketFlags0 = WheaErrorPacketFlags0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaErrorPacketFlags0(public var bitfield: UInt = 0u)
+public data class WheaErrorPacketFlags0(
+    public var bitfield: UInt = 0u,
+)
 
 public class WheaErrorPacketV1(
     public var signature: UInt = 0u,
@@ -1523,7 +1665,10 @@ public data class WheaErrorPacketV2(
     public var pshedDataLength: UInt = 0u,
 )
 
-public data class WheaErrorRecord(public var header: WheaErrorRecordHeader = WheaErrorRecordHeader(), public var sectionDescriptor: List<WheaErrorRecordSectionDescriptor> = List(1) { WheaErrorRecordSectionDescriptor() })
+public data class WheaErrorRecord(
+    public var header: WheaErrorRecordHeader = WheaErrorRecordHeader(),
+    public var sectionDescriptor: List<WheaErrorRecordSectionDescriptor> = List(1) { WheaErrorRecordSectionDescriptor() },
+)
 
 public data class WheaErrorRecordHeader(
     public var signature: UInt = 0u,
@@ -1544,7 +1689,10 @@ public data class WheaErrorRecordHeader(
     public var anonymous: WheaErrorRecordHeader0 = WheaErrorRecordHeader0(),
 )
 
-public data class WheaErrorRecordHeader0(public var anonymous: WheaErrorRecordHeader00 = WheaErrorRecordHeader00(), public var reserved: UByteArray = UByteArray(12)) {
+public data class WheaErrorRecordHeader0(
+    public var anonymous: WheaErrorRecordHeader00 = WheaErrorRecordHeader00(),
+    public var reserved: UByteArray = UByteArray(12),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WheaErrorRecordHeader0) return false
@@ -1560,7 +1708,10 @@ public data class WheaErrorRecordHeader0(public var anonymous: WheaErrorRecordHe
     }
 }
 
-public data class WheaErrorRecordHeader00(public var osBuildNumber: UInt = 0u, public var reserved2: UByteArray = UByteArray(8)) {
+public data class WheaErrorRecordHeader00(
+    public var osBuildNumber: UInt = 0u,
+    public var reserved2: UByteArray = UByteArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WheaErrorRecordHeader00) return false
@@ -1576,13 +1727,23 @@ public data class WheaErrorRecordHeader00(public var osBuildNumber: UInt = 0u, p
     }
 }
 
-public data class WheaErrorRecordHeaderFlags(public var anonymous: WheaErrorRecordHeaderFlags0 = WheaErrorRecordHeaderFlags0(), public var asULONG: UInt = 0u)
+public data class WheaErrorRecordHeaderFlags(
+    public var anonymous: WheaErrorRecordHeaderFlags0 = WheaErrorRecordHeaderFlags0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaErrorRecordHeaderFlags0(public var bitfield: UInt = 0u)
+public data class WheaErrorRecordHeaderFlags0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class WheaErrorRecordHeaderValidbits(public var anonymous: WheaErrorRecordHeaderValidbits0 = WheaErrorRecordHeaderValidbits0(), public var asULONG: UInt = 0u)
+public data class WheaErrorRecordHeaderValidbits(
+    public var anonymous: WheaErrorRecordHeaderValidbits0 = WheaErrorRecordHeaderValidbits0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaErrorRecordHeaderValidbits0(public var bitfield: UInt = 0u)
+public data class WheaErrorRecordHeaderValidbits0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class WheaErrorRecordSectionDescriptor(
     public var sectionOffset: UInt = 0u,
@@ -1627,13 +1788,23 @@ public data class WheaErrorRecordSectionDescriptor(
     }
 }
 
-public data class WheaErrorRecordSectionDescriptorFlags(public var anonymous: WheaErrorRecordSectionDescriptorFlags0 = WheaErrorRecordSectionDescriptorFlags0(), public var asULONG: UInt = 0u)
+public data class WheaErrorRecordSectionDescriptorFlags(
+    public var anonymous: WheaErrorRecordSectionDescriptorFlags0 = WheaErrorRecordSectionDescriptorFlags0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaErrorRecordSectionDescriptorFlags0(public var bitfield: UInt = 0u)
+public data class WheaErrorRecordSectionDescriptorFlags0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class WheaErrorRecordSectionDescriptorValidbits(public var anonymous: WheaErrorRecordSectionDescriptorValidbits0 = WheaErrorRecordSectionDescriptorValidbits0(), public var asUCHAR: UByte = 0u)
+public data class WheaErrorRecordSectionDescriptorValidbits(
+    public var anonymous: WheaErrorRecordSectionDescriptorValidbits0 = WheaErrorRecordSectionDescriptorValidbits0(),
+    public var asUCHAR: UByte = 0u,
+)
 
-public data class WheaErrorRecordSectionDescriptorValidbits0(public var bitfield: UByte = 0u)
+public data class WheaErrorRecordSectionDescriptorValidbits0(
+    public var bitfield: UByte = 0u,
+)
 
 public data class WheaErrorRecoveryInfoSection(
     public var recoveryKernel: Boolean = false,
@@ -1686,17 +1857,32 @@ public data class WheaErrorSourceOverrideSettings(
     public var maxSectionsPerRecord: UInt = 0u,
 )
 
-public data class WheaErrorStatus(public var errorStatus: ULong = 0uL, public var anonymous: WheaErrorStatus0 = WheaErrorStatus0())
+public data class WheaErrorStatus(
+    public var errorStatus: ULong = 0uL,
+    public var anonymous: WheaErrorStatus0 = WheaErrorStatus0(),
+)
 
-public data class WheaErrorStatus0(public var bitfield: ULong = 0uL)
+public data class WheaErrorStatus0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WheaEtwOverflowEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var recordId: ULong = 0uL)
+public data class WheaEtwOverflowEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var recordId: ULong = 0uL,
+)
 
-public data class WheaEventLogEntry(public var header: WheaEventLogEntryHeader = WheaEventLogEntryHeader())
+public data class WheaEventLogEntry(
+    public var header: WheaEventLogEntryHeader = WheaEventLogEntryHeader(),
+)
 
-public data class WheaEventLogEntryFlags(public var anonymous: WheaEventLogEntryFlags0 = WheaEventLogEntryFlags0(), public var asULONG: UInt = 0u)
+public data class WheaEventLogEntryFlags(
+    public var anonymous: WheaEventLogEntryFlags0 = WheaEventLogEntryFlags0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaEventLogEntryFlags0(public var bitfield: UInt = 0u)
+public data class WheaEventLogEntryFlags0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class WheaEventLogEntryHeader(
     public var signature: UInt = 0u,
@@ -1709,7 +1895,9 @@ public data class WheaEventLogEntryHeader(
     public var payloadLength: UInt = 0u,
 )
 
-public data class WheaFailedAddDefectListEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
+public data class WheaFailedAddDefectListEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+)
 
 public data class WheaFirmwareErrorRecordReference(
     public var type: UByte = 0u,
@@ -1764,9 +1952,14 @@ public data class WheaGenericError(
     }
 }
 
-public data class WheaGenericErrorBlockstatus(public var anonymous: WheaGenericErrorBlockstatus0 = WheaGenericErrorBlockstatus0(), public var asULONG: UInt = 0u)
+public data class WheaGenericErrorBlockstatus(
+    public var anonymous: WheaGenericErrorBlockstatus0 = WheaGenericErrorBlockstatus0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaGenericErrorBlockstatus0(public var bitfield: UInt = 0u)
+public data class WheaGenericErrorBlockstatus0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class WheaGenericErrorDataEntryV1(
     public var sectionType: Guid = Guid(),
@@ -1851,9 +2044,14 @@ public data class WheaGenericErrorDataEntryV2(
     }
 }
 
-public data class WheaInUsePageNotifyFlags(public var bits: WheaInUsePageNotifyFlags0 = WheaInUsePageNotifyFlags0(), public var asUCHAR: UByte = 0u)
+public data class WheaInUsePageNotifyFlags(
+    public var bits: WheaInUsePageNotifyFlags0 = WheaInUsePageNotifyFlags0(),
+    public var asUCHAR: UByte = 0u,
+)
 
-public data class WheaInUsePageNotifyFlags0(public var bitfield: UByte = 0u)
+public data class WheaInUsePageNotifyFlags0(
+    public var bitfield: UByte = 0u,
+)
 
 public data class WheaMemoryCorrectableErrorData(
     public var validBits: WheaMemoryCorrectableErrorSectionValidbits = WheaMemoryCorrectableErrorSectionValidbits(),
@@ -1863,13 +2061,24 @@ public data class WheaMemoryCorrectableErrorData(
     public var correctableErrorCount: UInt = 0u,
 )
 
-public data class WheaMemoryCorrectableErrorHeader(public var version: UShort = 0u, public var count: UShort = 0u)
+public data class WheaMemoryCorrectableErrorHeader(
+    public var version: UShort = 0u,
+    public var count: UShort = 0u,
+)
 
-public data class WheaMemoryCorrectableErrorSection(public var header: WheaMemoryCorrectableErrorHeader = WheaMemoryCorrectableErrorHeader(), public var data: List<WheaMemoryCorrectableErrorData> = List(1) { WheaMemoryCorrectableErrorData() })
+public data class WheaMemoryCorrectableErrorSection(
+    public var header: WheaMemoryCorrectableErrorHeader = WheaMemoryCorrectableErrorHeader(),
+    public var data: List<WheaMemoryCorrectableErrorData> = List(1) { WheaMemoryCorrectableErrorData() },
+)
 
-public data class WheaMemoryCorrectableErrorSectionValidbits(public var anonymous: WheaMemoryCorrectableErrorSectionValidbits0 = WheaMemoryCorrectableErrorSectionValidbits0(), public var validBits: ULong = 0uL)
+public data class WheaMemoryCorrectableErrorSectionValidbits(
+    public var anonymous: WheaMemoryCorrectableErrorSectionValidbits0 = WheaMemoryCorrectableErrorSectionValidbits0(),
+    public var validBits: ULong = 0uL,
+)
 
-public data class WheaMemoryCorrectableErrorSectionValidbits0(public var bitfield: ULong = 0uL)
+public data class WheaMemoryCorrectableErrorSectionValidbits0(
+    public var bitfield: ULong = 0uL,
+)
 
 public class WheaMemoryErrorSection(
     public var validBits: WheaMemoryErrorSectionValidbits = WheaMemoryErrorSectionValidbits(),
@@ -1894,11 +2103,19 @@ public class WheaMemoryErrorSection(
     public var moduleHandle: UShort = 0u,
 )
 
-public data class WheaMemoryErrorSectionValidbits(public var anonymous: WheaMemoryErrorSectionValidbits0 = WheaMemoryErrorSectionValidbits0(), public var validBits: ULong = 0uL)
+public data class WheaMemoryErrorSectionValidbits(
+    public var anonymous: WheaMemoryErrorSectionValidbits0 = WheaMemoryErrorSectionValidbits0(),
+    public var validBits: ULong = 0uL,
+)
 
-public data class WheaMemoryErrorSectionValidbits0(public var bitfield: ULong = 0uL)
+public data class WheaMemoryErrorSectionValidbits0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WheaMemoryThrottleSummaryFailedEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var status: Ntstatus = 0)
+public data class WheaMemoryThrottleSummaryFailedEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var status: Ntstatus = 0,
+)
 
 public data class WheaMsrDumpSection(
     public var msrDumpBuffer: UByte = 0u,
@@ -1922,7 +2139,10 @@ public data class WheaMsrDumpSection(
     }
 }
 
-public data class WheaNmiErrorSection(public var data: UByteArray = UByteArray(8), public var flags: WheaNmiErrorSectionFlags = WheaNmiErrorSectionFlags()) {
+public data class WheaNmiErrorSection(
+    public var data: UByteArray = UByteArray(8),
+    public var flags: WheaNmiErrorSectionFlags = WheaNmiErrorSectionFlags(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WheaNmiErrorSection) return false
@@ -1938,11 +2158,19 @@ public data class WheaNmiErrorSection(public var data: UByteArray = UByteArray(8
     }
 }
 
-public data class WheaNmiErrorSectionFlags(public var anonymous: WheaNmiErrorSectionFlags0 = WheaNmiErrorSectionFlags0(), public var asULONG: UInt = 0u)
+public data class WheaNmiErrorSectionFlags(
+    public var anonymous: WheaNmiErrorSectionFlags0 = WheaNmiErrorSectionFlags0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaNmiErrorSectionFlags0(public var bitfield: UInt = 0u)
+public data class WheaNmiErrorSectionFlags0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class WheaOfflineDoneEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var address: ULong = 0uL)
+public data class WheaOfflineDoneEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var address: ULong = 0uL,
+)
 
 public data class WheaPacketLogData(
     public var logData: UByteArray = UByteArray(36),
@@ -1981,13 +2209,25 @@ public data class WheaPacketLogData(
     }
 }
 
-public data class WheaPciexpressBridgeControlStatus(public var anonymous: WheaPciexpressBridgeControlStatus0 = WheaPciexpressBridgeControlStatus0(), public var asULONG: UInt = 0u)
+public data class WheaPciexpressBridgeControlStatus(
+    public var anonymous: WheaPciexpressBridgeControlStatus0 = WheaPciexpressBridgeControlStatus0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaPciexpressBridgeControlStatus0(public var bridgeSecondaryStatus: UShort = 0u, public var bridgeControl: UShort = 0u)
+public data class WheaPciexpressBridgeControlStatus0(
+    public var bridgeSecondaryStatus: UShort = 0u,
+    public var bridgeControl: UShort = 0u,
+)
 
-public data class WheaPciexpressCommandStatus(public var anonymous: WheaPciexpressCommandStatus0 = WheaPciexpressCommandStatus0(), public var asULONG: UInt = 0u)
+public data class WheaPciexpressCommandStatus(
+    public var anonymous: WheaPciexpressCommandStatus0 = WheaPciexpressCommandStatus0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaPciexpressCommandStatus0(public var command: UShort = 0u, public var status: UShort = 0u)
+public data class WheaPciexpressCommandStatus0(
+    public var command: UShort = 0u,
+    public var status: UShort = 0u,
+)
 
 public data class WheaPciexpressDeviceId(
     public var vendorID: UShort = 0u,
@@ -2040,11 +2280,19 @@ public data class WheaPciexpressErrorSection(
     }
 }
 
-public data class WheaPciexpressErrorSectionValidbits(public var anonymous: WheaPciexpressErrorSectionValidbits0 = WheaPciexpressErrorSectionValidbits0(), public var validBits: ULong = 0uL)
+public data class WheaPciexpressErrorSectionValidbits(
+    public var anonymous: WheaPciexpressErrorSectionValidbits0 = WheaPciexpressErrorSectionValidbits0(),
+    public var validBits: ULong = 0uL,
+)
 
-public data class WheaPciexpressErrorSectionValidbits0(public var bitfield: ULong = 0uL)
+public data class WheaPciexpressErrorSectionValidbits0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WheaPciexpressVersion(public var anonymous: WheaPciexpressVersion0 = WheaPciexpressVersion0(), public var asULONG: UInt = 0u)
+public data class WheaPciexpressVersion(
+    public var anonymous: WheaPciexpressVersion0 = WheaPciexpressVersion0(),
+    public var asULONG: UInt = 0u,
+)
 
 public data class WheaPciexpressVersion0(
     public var minorVersion: UByte = 0u,
@@ -2084,17 +2332,33 @@ public data class WheaPcieCorrectableErrorDevices(
     }
 }
 
-public data class WheaPcieCorrectableErrorDevicesValidbits(public var anonymous: WheaPcieCorrectableErrorDevicesValidbits0 = WheaPcieCorrectableErrorDevicesValidbits0(), public var validBits: ULong = 0uL)
+public data class WheaPcieCorrectableErrorDevicesValidbits(
+    public var anonymous: WheaPcieCorrectableErrorDevicesValidbits0 = WheaPcieCorrectableErrorDevicesValidbits0(),
+    public var validBits: ULong = 0uL,
+)
 
-public data class WheaPcieCorrectableErrorDevicesValidbits0(public var bitfield: ULong = 0uL)
+public data class WheaPcieCorrectableErrorDevicesValidbits0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WheaPcieCorrectableErrorSection(public var header: WheaPcieCorrectableErrorSectionHeader = WheaPcieCorrectableErrorSectionHeader(), public var devices: List<WheaPcieCorrectableErrorDevices> = List(1) { WheaPcieCorrectableErrorDevices() })
+public data class WheaPcieCorrectableErrorSection(
+    public var header: WheaPcieCorrectableErrorSectionHeader = WheaPcieCorrectableErrorSectionHeader(),
+    public var devices: List<WheaPcieCorrectableErrorDevices> = List(1) { WheaPcieCorrectableErrorDevices() },
+)
 
-public data class WheaPcieCorrectableErrorSectionHeader(public var version: UShort = 0u, public var count: UShort = 0u)
+public data class WheaPcieCorrectableErrorSectionHeader(
+    public var version: UShort = 0u,
+    public var count: UShort = 0u,
+)
 
-public data class WheaPcixbusCommand(public var anonymous: WheaPcixbusCommand0 = WheaPcixbusCommand0(), public var asULONGLONG: ULong = 0uL)
+public data class WheaPcixbusCommand(
+    public var anonymous: WheaPcixbusCommand0 = WheaPcixbusCommand0(),
+    public var asULONGLONG: ULong = 0uL,
+)
 
-public data class WheaPcixbusCommand0(public var bitfield: ULong = 0uL)
+public data class WheaPcixbusCommand0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WheaPcixbusErrorSection(
     public var validBits: WheaPcixbusErrorSectionValidbits = WheaPcixbusErrorSectionValidbits(),
@@ -2110,13 +2374,24 @@ public data class WheaPcixbusErrorSection(
     public var targetId: ULong = 0uL,
 )
 
-public data class WheaPcixbusErrorSectionValidbits(public var anonymous: WheaPcixbusErrorSectionValidbits0 = WheaPcixbusErrorSectionValidbits0(), public var validBits: ULong = 0uL)
+public data class WheaPcixbusErrorSectionValidbits(
+    public var anonymous: WheaPcixbusErrorSectionValidbits0 = WheaPcixbusErrorSectionValidbits0(),
+    public var validBits: ULong = 0uL,
+)
 
-public data class WheaPcixbusErrorSectionValidbits0(public var bitfield: ULong = 0uL)
+public data class WheaPcixbusErrorSectionValidbits0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WheaPcixbusId(public var anonymous: WheaPcixbusId0 = WheaPcixbusId0(), public var asUSHORT: UShort = 0u)
+public data class WheaPcixbusId(
+    public var anonymous: WheaPcixbusId0 = WheaPcixbusId0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class WheaPcixbusId0(public var busNumber: UByte = 0u, public var busSegment: UByte = 0u)
+public data class WheaPcixbusId0(
+    public var busNumber: UByte = 0u,
+    public var busSegment: UByte = 0u,
+)
 
 public data class WheaPcixdeviceErrorSection(
     public var validBits: WheaPcixdeviceErrorSectionValidbits = WheaPcixdeviceErrorSectionValidbits(),
@@ -2127,9 +2402,14 @@ public data class WheaPcixdeviceErrorSection(
     public var registerDataPairs: List<WheaPcixdeviceRegisterPair> = List(1) { WheaPcixdeviceRegisterPair() },
 )
 
-public data class WheaPcixdeviceErrorSectionValidbits(public var anonymous: WheaPcixdeviceErrorSectionValidbits0 = WheaPcixdeviceErrorSectionValidbits0(), public var validBits: ULong = 0uL)
+public data class WheaPcixdeviceErrorSectionValidbits(
+    public var anonymous: WheaPcixdeviceErrorSectionValidbits0 = WheaPcixdeviceErrorSectionValidbits0(),
+    public var validBits: ULong = 0uL,
+)
 
-public data class WheaPcixdeviceErrorSectionValidbits0(public var bitfield: ULong = 0uL)
+public data class WheaPcixdeviceErrorSectionValidbits0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WheaPcixdeviceId(
     public var vendorId: UShort = 0u,
@@ -2139,7 +2419,10 @@ public data class WheaPcixdeviceId(
     public var reserved2: UInt = 0u,
 )
 
-public data class WheaPcixdeviceRegisterPair(public var register: ULong = 0uL, public var data: ULong = 0uL)
+public data class WheaPcixdeviceRegisterPair(
+    public var register: ULong = 0uL,
+    public var data: ULong = 0uL,
+)
 
 public data class WheaPciRecoverySection(
     public var signalType: UByte = 0u,
@@ -2147,9 +2430,14 @@ public data class WheaPciRecoverySection(
     public var recoveryStatus: UByte = 0u,
 )
 
-public data class WheaPersistenceInfo(public var anonymous: WheaPersistenceInfo0 = WheaPersistenceInfo0(), public var asULONGLONG: ULong = 0uL)
+public data class WheaPersistenceInfo(
+    public var anonymous: WheaPersistenceInfo0 = WheaPersistenceInfo0(),
+    public var asULONGLONG: ULong = 0uL,
+)
 
-public data class WheaPersistenceInfo0(public var bitfield: ULong = 0uL)
+public data class WheaPersistenceInfo0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WheaPmemErrorSection(
     public var validBits: WheaPmemErrorSectionValidbits = WheaPmemErrorSectionValidbits(),
@@ -2182,9 +2470,14 @@ public data class WheaPmemErrorSection(
     }
 }
 
-public data class WheaPmemErrorSectionValidbits(public var anonymous: WheaPmemErrorSectionValidbits0 = WheaPmemErrorSectionValidbits0(), public var validBits: ULong = 0uL)
+public data class WheaPmemErrorSectionValidbits(
+    public var anonymous: WheaPmemErrorSectionValidbits0 = WheaPmemErrorSectionValidbits0(),
+    public var validBits: ULong = 0uL,
+)
 
-public data class WheaPmemErrorSectionValidbits0(public var bitfield: ULong = 0uL)
+public data class WheaPmemErrorSectionValidbits0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class WheaPmemPageRange(
     public var startingPfn: ULong = 0uL,
@@ -2192,9 +2485,15 @@ public data class WheaPmemPageRange(
     public var markedBadBitmap: ULong = 0uL,
 )
 
-public data class WheaProcessorFamilyInfo(public var anonymous: WheaProcessorFamilyInfo0 = WheaProcessorFamilyInfo0(), public var asULONGLONG: ULong = 0uL)
+public data class WheaProcessorFamilyInfo(
+    public var anonymous: WheaProcessorFamilyInfo0 = WheaProcessorFamilyInfo0(),
+    public var asULONGLONG: ULong = 0uL,
+)
 
-public data class WheaProcessorFamilyInfo0(public var bitfield: UInt = 0u, public var nativeModelId: UInt = 0u)
+public data class WheaProcessorFamilyInfo0(
+    public var bitfield: UInt = 0u,
+    public var nativeModelId: UInt = 0u,
+)
 
 public data class WheaProcessorGenericErrorSection(
     public var validBits: WheaProcessorGenericErrorSectionValidbits = WheaProcessorGenericErrorSectionValidbits(),
@@ -2254,13 +2553,24 @@ public data class WheaProcessorGenericErrorSection(
     }
 }
 
-public data class WheaProcessorGenericErrorSectionValidbits(public var anonymous: WheaProcessorGenericErrorSectionValidbits0 = WheaProcessorGenericErrorSectionValidbits0(), public var validBits: ULong = 0uL)
+public data class WheaProcessorGenericErrorSectionValidbits(
+    public var anonymous: WheaProcessorGenericErrorSectionValidbits0 = WheaProcessorGenericErrorSectionValidbits0(),
+    public var validBits: ULong = 0uL,
+)
 
-public data class WheaProcessorGenericErrorSectionValidbits0(public var bitfield: ULong = 0uL)
+public data class WheaProcessorGenericErrorSectionValidbits0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class WheaPshedPiCpuBusesInitFailedEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var status: Ntstatus = 0)
+public data class WheaPshedPiCpuBusesInitFailedEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var status: Ntstatus = 0,
+)
 
-public data class WheaPshedPiTraceEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var buffer: ByteArray = ByteArray(256)) {
+public data class WheaPshedPiTraceEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var buffer: ByteArray = ByteArray(256),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WheaPshedPiTraceEvent) return false
@@ -2307,11 +2617,19 @@ public data class WheaPshedPluginDimmMismatch(
     public var taRow: UShort = 0u,
 )
 
-public data class WheaPshedPluginEnableNotifyFailedEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var enableError: WheaPshedPluginEnableNotifyErrors = 0)
+public data class WheaPshedPluginEnableNotifyFailedEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var enableError: WheaPshedPluginEnableNotifyErrors = 0,
+)
 
-public data class WheaPshedPluginHeartbeat(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
+public data class WheaPshedPluginHeartbeat(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+)
 
-public data class WheaPshedPluginInitFailedEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var status: Ntstatus = 0)
+public data class WheaPshedPluginInitFailedEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var status: Ntstatus = 0,
+)
 
 public data class WheaPshedPluginLoadEvent(
     public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
@@ -2379,7 +2697,10 @@ public data class WheaPshedPluginRegistrationPacketV2(
     public var pluginHandle: COpaquePointer? = null,
 )
 
-public data class WheaPshedPluginUnloadEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var pluginName: UShortArray = UShortArray(32)) {
+public data class WheaPshedPluginUnloadEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var pluginName: UShortArray = UShortArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WheaPshedPluginUnloadEvent) return false
@@ -2395,9 +2716,15 @@ public data class WheaPshedPluginUnloadEvent(public var wheaEventLogEntry: WheaE
     }
 }
 
-public data class WheaRecoveryAction(public var anonymous: WheaRecoveryAction0 = WheaRecoveryAction0(), public var asULONG: UInt = 0u)
+public data class WheaRecoveryAction(
+    public var anonymous: WheaRecoveryAction0 = WheaRecoveryAction0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaRecoveryAction0(public var bitfield1: UInt = 0u, public var bitfield2: UInt = 0u)
+public data class WheaRecoveryAction0(
+    public var bitfield1: UInt = 0u,
+    public var bitfield2: UInt = 0u,
+)
 
 public data class WheaRecoveryContext(
     public var anonymous: WheaRecoveryContext0 = WheaRecoveryContext0(),

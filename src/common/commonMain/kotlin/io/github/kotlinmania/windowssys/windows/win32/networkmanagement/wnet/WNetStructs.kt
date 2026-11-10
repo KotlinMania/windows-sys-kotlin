@@ -111,6 +111,10 @@ public data class RemoteNameInfow(
     public var lpRemainingPath: Pwstr = null,
 )
 
-public data class UniversalNameInfoa(public var lpUniversalName: Pstr = null)
+public data class UniversalNameInfoa(
+    public var lpUniversalName: Pstr = null,
+)
 
-public data class UniversalNameInfow(public var lpUniversalName: Pwstr = null)
+public data class UniversalNameInfow(
+    public var lpUniversalName: Pwstr = null,
+)

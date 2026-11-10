@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dns
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -8,9 +9,14 @@ import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public data class DnsAaaaData(public var ip6Address: Ip6Address = Ip6Address())
+public data class DnsAaaaData(
+    public var ip6Address: Ip6Address = Ip6Address(),
+)
 
-public data class DnsAddr(public var maxSa: ByteArray = ByteArray(32), public var data: DnsAddr0 = DnsAddr0()) {
+public data class DnsAddr(
+    public var maxSa: ByteArray = ByteArray(32),
+    public var data: DnsAddr0 = DnsAddr0(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsAddr) return false
@@ -26,7 +32,9 @@ public data class DnsAddr(public var maxSa: ByteArray = ByteArray(32), public va
     }
 }
 
-public data class DnsAddr0(public var dnsAddrUserDword: UIntArray = UIntArray(8)) {
+public data class DnsAddr0(
+    public var dnsAddrUserDword: UIntArray = UIntArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsAddr0) return false
@@ -34,9 +42,7 @@ public data class DnsAddr0(public var dnsAddrUserDword: UIntArray = UIntArray(8)
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.dnsAddrUserDword.contentHashCode()
-    }
+    override fun hashCode(): Int = this.dnsAddrUserDword.contentHashCode()
 }
 
 public data class DnsAddrArray(
@@ -52,9 +58,15 @@ public data class DnsAddrArray(
     public var addrArray: List<DnsAddr> = List(1) { DnsAddr() },
 )
 
-public data class DnsApplicationSettings(public var version: UInt = 0u, public var flags: ULong = 0uL)
+public data class DnsApplicationSettings(
+    public var version: UInt = 0u,
+    public var flags: ULong = 0uL,
+)
 
-public data class DnsAtmaData(public var addressType: UByte = 0u, public var address: UByteArray = UByteArray(20)) {
+public data class DnsAtmaData(
+    public var addressType: UByte = 0u,
+    public var address: UByteArray = UByteArray(20),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsAtmaData) return false
@@ -70,13 +82,23 @@ public data class DnsAtmaData(public var addressType: UByte = 0u, public var add
     }
 }
 
-public data class DnsAData(public var ipAddress: UInt = 0u)
+public data class DnsAData(
+    public var ipAddress: UInt = 0u,
+)
 
-public data class DnsConnectionIfindexEntry(public var pwszConnectionName: Pcwstr = null, public var dwIfIndex: UInt = 0u)
+public data class DnsConnectionIfindexEntry(
+    public var pwszConnectionName: Pcwstr = null,
+    public var dwIfIndex: UInt = 0u,
+)
 
-public data class DnsConnectionIfindexList(public var pConnectionIfIndexEntries: DnsConnectionIfindexEntry? = null, public var nEntries: UInt = 0u)
+public data class DnsConnectionIfindexList(
+    public var pConnectionIfIndexEntries: DnsConnectionIfindexEntry? = null,
+    public var nEntries: UInt = 0u,
+)
 
-public data class DnsConnectionName(public var wszName: UShortArray = UShortArray(65)) {
+public data class DnsConnectionName(
+    public var wszName: UShortArray = UShortArray(65),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsConnectionName) return false
@@ -84,12 +106,13 @@ public data class DnsConnectionName(public var wszName: UShortArray = UShortArra
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.wszName.contentHashCode()
-    }
+    override fun hashCode(): Int = this.wszName.contentHashCode()
 }
 
-public data class DnsConnectionNameList(public var cNames: UInt = 0u, public var pNames: DnsConnectionName? = null)
+public data class DnsConnectionNameList(
+    public var cNames: UInt = 0u,
+    public var pNames: DnsConnectionName? = null,
+)
 
 public data class DnsConnectionPolicyEntry(
     public var pwszHost: Pcwstr = null,
@@ -101,9 +124,15 @@ public data class DnsConnectionPolicyEntry(
     public var dwPolicyEntryFlags: UInt = 0u,
 )
 
-public data class DnsConnectionPolicyEntryList(public var pPolicyEntries: DnsConnectionPolicyEntry? = null, public var nEntries: UInt = 0u)
+public data class DnsConnectionPolicyEntryList(
+    public var pPolicyEntries: DnsConnectionPolicyEntry? = null,
+    public var nEntries: UInt = 0u,
+)
 
-public data class DnsConnectionProxyElement(public var type: DnsConnectionProxyType = 0, public var info: DnsConnectionProxyInfo = DnsConnectionProxyInfo())
+public data class DnsConnectionProxyElement(
+    public var type: DnsConnectionProxyType = 0,
+    public var info: DnsConnectionProxyInfo = DnsConnectionProxyInfo(),
+)
 
 public data class DnsConnectionProxyInfo(
     public var version: UInt = 0u,
@@ -113,7 +142,10 @@ public data class DnsConnectionProxyInfo(
     public var anonymous: DnsConnectionProxyInfo0 = DnsConnectionProxyInfo0(),
 )
 
-public data class DnsConnectionProxyInfo0(public var config: DnsConnectionProxyInfo00 = DnsConnectionProxyInfo00(), public var script: DnsConnectionProxyInfo01 = DnsConnectionProxyInfo01())
+public data class DnsConnectionProxyInfo0(
+    public var config: DnsConnectionProxyInfo00 = DnsConnectionProxyInfo00(),
+    public var script: DnsConnectionProxyInfo01 = DnsConnectionProxyInfo01(),
+)
 
 public data class DnsConnectionProxyInfo00(
     public var pwszServer: Pwstr = null,
@@ -138,7 +170,10 @@ public data class DnsConnectionProxyInfoEx(
     public var hConnection: Handle = null,
 )
 
-public data class DnsConnectionProxyList(public var cProxies: UInt = 0u, public var pProxies: DnsConnectionProxyElement? = null)
+public data class DnsConnectionProxyList(
+    public var cProxies: UInt = 0u,
+    public var pProxies: DnsConnectionProxyElement? = null,
+)
 
 public data class DnsCustomServer(
     public var dwServerType: UInt = 0u,
@@ -147,9 +182,13 @@ public data class DnsCustomServer(
     public var anonymous2: DnsCustomServer1 = DnsCustomServer1(),
 )
 
-public data class DnsCustomServer0(public var pwszTemplate: Pwstr = null)
+public data class DnsCustomServer0(
+    public var pwszTemplate: Pwstr = null,
+)
 
-public data class DnsCustomServer1(public var maxSa: ByteArray = ByteArray(32)) {
+public data class DnsCustomServer1(
+    public var maxSa: ByteArray = ByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsCustomServer1) return false
@@ -157,12 +196,13 @@ public data class DnsCustomServer1(public var maxSa: ByteArray = ByteArray(32)) 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.maxSa.contentHashCode()
-    }
+    override fun hashCode(): Int = this.maxSa.contentHashCode()
 }
 
-public data class DnsDhcidData(public var dwByteCount: UInt = 0u, public var dhcid: UByteArray = UByteArray(1)) {
+public data class DnsDhcidData(
+    public var dwByteCount: UInt = 0u,
+    public var dhcid: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsDhcidData) return false
@@ -266,7 +306,10 @@ public data class DnsLocData(
     public var dwAltitude: UInt = 0u,
 )
 
-public data class DnsMessageBuffer(public var messageHead: DnsHeader = DnsHeader(), public var messageBody: ByteArray = ByteArray(1)) {
+public data class DnsMessageBuffer(
+    public var messageHead: DnsHeader = DnsHeader(),
+    public var messageBody: ByteArray = ByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsMessageBuffer) return false
@@ -282,9 +325,15 @@ public data class DnsMessageBuffer(public var messageHead: DnsHeader = DnsHeader
     }
 }
 
-public data class DnsMinfoDataa(public var pNameMailbox: Pstr = null, public var pNameErrorsMailbox: Pstr = null)
+public data class DnsMinfoDataa(
+    public var pNameMailbox: Pstr = null,
+    public var pNameErrorsMailbox: Pstr = null,
+)
 
-public data class DnsMinfoDataw(public var pNameMailbox: Pwstr = null, public var pNameErrorsMailbox: Pwstr = null)
+public data class DnsMinfoDataw(
+    public var pNameMailbox: Pwstr = null,
+    public var pNameErrorsMailbox: Pwstr = null,
+)
 
 public data class DnsMxDataa(
     public var pNameExchange: Pstr = null,
@@ -431,7 +480,10 @@ public data class DnsNsecDataw(
     }
 }
 
-public data class DnsNullData(public var dwByteCount: UInt = 0u, public var data: UByteArray = UByteArray(1)) {
+public data class DnsNullData(
+    public var dwByteCount: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsNullData) return false
@@ -519,11 +571,17 @@ public data class DnsProxyInformation(
     public var proxyName: Pwstr = null,
 )
 
-public data class DnsPtrDataa(public var pNameHost: Pstr = null)
+public data class DnsPtrDataa(
+    public var pNameHost: Pstr = null,
+)
 
-public data class DnsPtrDataw(public var pNameHost: Pwstr = null)
+public data class DnsPtrDataw(
+    public var pNameHost: Pwstr = null,
+)
 
-public data class DnsQueryCancel(public var reserved: ByteArray = ByteArray(32)) {
+public data class DnsQueryCancel(
+    public var reserved: ByteArray = ByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsQueryCancel) return false
@@ -531,12 +589,12 @@ public data class DnsQueryCancel(public var reserved: ByteArray = ByteArray(32))
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.reserved.contentHashCode()
-    }
+    override fun hashCode(): Int = this.reserved.contentHashCode()
 }
 
-public data class DnsQueryRawCancel(public var reserved: ByteArray = ByteArray(32)) {
+public data class DnsQueryRawCancel(
+    public var reserved: ByteArray = ByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsQueryRawCancel) return false
@@ -544,9 +602,7 @@ public data class DnsQueryRawCancel(public var reserved: ByteArray = ByteArray(3
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.reserved.contentHashCode()
-    }
+    override fun hashCode(): Int = this.reserved.contentHashCode()
 }
 
 public data class DnsQueryRawRequest(
@@ -567,7 +623,9 @@ public data class DnsQueryRawRequest(
     public var anonymous: DnsQueryRawRequest0 = DnsQueryRawRequest0(),
 )
 
-public data class DnsQueryRawRequest0(public var maxSa: ByteArray = ByteArray(32)) {
+public data class DnsQueryRawRequest0(
+    public var maxSa: ByteArray = ByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsQueryRawRequest0) return false
@@ -575,9 +633,7 @@ public data class DnsQueryRawRequest0(public var maxSa: ByteArray = ByteArray(32
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.maxSa.contentHashCode()
-    }
+    override fun hashCode(): Int = this.maxSa.contentHashCode()
 }
 
 public data class DnsQueryRawResult(
@@ -593,7 +649,9 @@ public data class DnsQueryRawResult(
     public var anonymous: DnsQueryRawResult0 = DnsQueryRawResult0(),
 )
 
-public data class DnsQueryRawResult0(public var maxSa: ByteArray = ByteArray(32)) {
+public data class DnsQueryRawResult0(
+    public var maxSa: ByteArray = ByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsQueryRawResult0) return false
@@ -601,9 +659,7 @@ public data class DnsQueryRawResult0(public var maxSa: ByteArray = ByteArray(32)
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.maxSa.contentHashCode()
-    }
+    override fun hashCode(): Int = this.maxSa.contentHashCode()
 }
 
 public data class DnsQueryRequest(
@@ -702,7 +758,10 @@ public class DnsRecorda1(
     public var pDataPtr: COpaquePointer? = null,
 )
 
-public data class DnsRecorda0(public var dw: UInt = 0u, public var s: DnsRecordFlags = DnsRecordFlags())
+public data class DnsRecorda0(
+    public var dw: UInt = 0u,
+    public var s: DnsRecordFlags = DnsRecordFlags(),
+)
 
 public data class DnsRecordw(
     public var pNext: DnsRecordw? = null,
@@ -766,9 +825,14 @@ public class DnsRecordw1(
     public var pDataPtr: COpaquePointer? = null,
 )
 
-public data class DnsRecordw0(public var dw: UInt = 0u, public var s: DnsRecordFlags = DnsRecordFlags())
+public data class DnsRecordw0(
+    public var dw: UInt = 0u,
+    public var s: DnsRecordFlags = DnsRecordFlags(),
+)
 
-public data class DnsRecordFlags(public var bitfield: UInt = 0u)
+public data class DnsRecordFlags(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DnsRecordOptw(
     public var pNext: DnsRecordw? = null,
@@ -782,11 +846,19 @@ public data class DnsRecordOptw(
     public var data: DnsRecordOptw1 = DnsRecordOptw1(),
 )
 
-public data class DnsRecordOptw1(public var opt: DnsOptData = DnsOptData())
+public data class DnsRecordOptw1(
+    public var opt: DnsOptData = DnsOptData(),
+)
 
-public data class DnsRecordOptw0(public var dw: UInt = 0u, public var s: DnsRecordFlags = DnsRecordFlags())
+public data class DnsRecordOptw0(
+    public var dw: UInt = 0u,
+    public var s: DnsRecordFlags = DnsRecordFlags(),
+)
 
-public data class DnsRrset(public var pFirstRR: DnsRecorda? = null, public var pLastRR: DnsRecorda? = null)
+public data class DnsRrset(
+    public var pFirstRR: DnsRecorda? = null,
+    public var pLastRR: DnsRecorda? = null,
+)
 
 public data class DnsServiceBrowseRequest(
     public var version: UInt = 0u,
@@ -796,9 +868,14 @@ public data class DnsServiceBrowseRequest(
     public var pQueryContext: COpaquePointer? = null,
 )
 
-public data class DnsServiceBrowseRequest0(public var pBrowseCallback: PdnsServiceBrowseCallback = null, public var pBrowseCallbackV2: PdnsQueryCompletionRoutine = null)
+public data class DnsServiceBrowseRequest0(
+    public var pBrowseCallback: PdnsServiceBrowseCallback = null,
+    public var pBrowseCallbackV2: PdnsQueryCompletionRoutine = null,
+)
 
-public data class DnsServiceCancel(public var reserved: COpaquePointer? = null)
+public data class DnsServiceCancel(
+    public var reserved: COpaquePointer? = null,
+)
 
 public data class DnsServiceInstance(
     public var pszInstanceName: Pwstr = null,
@@ -961,7 +1038,10 @@ public data class DnsSvcbData(
     public var pSvcParams: DnsSvcbParam? = null,
 )
 
-public data class DnsSvcbParam(public var wSvcParamKey: UShort = 0u, public var anonymous: DnsSvcbParam0 = DnsSvcbParam0())
+public data class DnsSvcbParam(
+    public var wSvcParamKey: UShort = 0u,
+    public var anonymous: DnsSvcbParam0 = DnsSvcbParam0(),
+)
 
 public data class DnsSvcbParam0(
     public var pIpv4Hints: DnsSvcbParamIpv4? = null,
@@ -974,11 +1054,20 @@ public data class DnsSvcbParam0(
     public var pReserved: COpaquePointer? = null,
 )
 
-public data class DnsSvcbParamAlpn(public var cIds: UShort = 0u, public var rgIds: List<DnsSvcbParamAlpnId> = List(1) { DnsSvcbParamAlpnId() })
+public data class DnsSvcbParamAlpn(
+    public var cIds: UShort = 0u,
+    public var rgIds: List<DnsSvcbParamAlpnId> = List(1) { DnsSvcbParamAlpnId() },
+)
 
-public data class DnsSvcbParamAlpnId(public var cBytes: UByte = 0u, public var pbId: COpaquePointer? = null)
+public data class DnsSvcbParamAlpnId(
+    public var cBytes: UByte = 0u,
+    public var pbId: COpaquePointer? = null,
+)
 
-public data class DnsSvcbParamIpv4(public var cIps: UShort = 0u, public var rgIps: UIntArray = UIntArray(1)) {
+public data class DnsSvcbParamIpv4(
+    public var cIps: UShort = 0u,
+    public var rgIps: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsSvcbParamIpv4) return false
@@ -994,9 +1083,15 @@ public data class DnsSvcbParamIpv4(public var cIps: UShort = 0u, public var rgIp
     }
 }
 
-public data class DnsSvcbParamIpv6(public var cIps: UShort = 0u, public var rgIps: List<Ip6Address> = List(1) { Ip6Address() })
+public data class DnsSvcbParamIpv6(
+    public var cIps: UShort = 0u,
+    public var rgIps: List<Ip6Address> = List(1) { Ip6Address() },
+)
 
-public data class DnsSvcbParamMandatory(public var cMandatoryKeys: UShort = 0u, public var rgwMandatoryKeys: UShortArray = UShortArray(1)) {
+public data class DnsSvcbParamMandatory(
+    public var cMandatoryKeys: UShort = 0u,
+    public var rgwMandatoryKeys: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsSvcbParamMandatory) return false
@@ -1012,7 +1107,10 @@ public data class DnsSvcbParamMandatory(public var cMandatoryKeys: UShort = 0u, 
     }
 }
 
-public data class DnsSvcbParamUnknown(public var cBytes: UShort = 0u, public var pbSvcParamValue: UByteArray = UByteArray(1)) {
+public data class DnsSvcbParamUnknown(
+    public var cBytes: UShort = 0u,
+    public var pbSvcParamValue: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsSvcbParamUnknown) return false
@@ -1119,11 +1217,20 @@ public data class DnsTsigDataw(
     public var bPacketPointers: Bool = 0,
 )
 
-public data class DnsTxtDataa(public var dwStringCount: UInt = 0u, public var pStringArray: List<COpaquePointer> = List(1) { COpaquePointer(0L) })
+public data class DnsTxtDataa(
+    public var dwStringCount: UInt = 0u,
+    public var pStringArray: List<COpaquePointer> = List(1) { COpaquePointer(0L) },
+)
 
-public data class DnsTxtDataw(public var dwStringCount: UInt = 0u, public var pStringArray: List<COpaquePointer> = List(1) { COpaquePointer(0L) })
+public data class DnsTxtDataw(
+    public var dwStringCount: UInt = 0u,
+    public var pStringArray: List<COpaquePointer> = List(1) { COpaquePointer(0L) },
+)
 
-public data class DnsUnknownData(public var dwByteCount: UInt = 0u, public var bData: UByteArray = UByteArray(1)) {
+public data class DnsUnknownData(
+    public var dwByteCount: UInt = 0u,
+    public var bData: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DnsUnknownData) return false
@@ -1181,7 +1288,10 @@ public data class DnsWinsData(
     }
 }
 
-public data class DnsWireQuestion(public var questionType: UShort = 0u, public var questionClass: UShort = 0u)
+public data class DnsWireQuestion(
+    public var questionType: UShort = 0u,
+    public var questionClass: UShort = 0u,
+)
 
 public data class DnsWireRecord(
     public var recordType: UShort = 0u,
@@ -1212,7 +1322,10 @@ public data class DnsWksData(
     }
 }
 
-public data class Ip4Array(public var addrCount: UInt = 0u, public var addrArray: UIntArray = UIntArray(1)) {
+public data class Ip4Array(
+    public var addrCount: UInt = 0u,
+    public var addrArray: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Ip4Array) return false
@@ -1306,6 +1419,11 @@ public data class DnsRecordOptA(
     public var data: DnsRecordOptA1 = DnsRecordOptA1(),
 )
 
-public data class DnsRecordOptA1(public var opt: DnsOptData = DnsOptData())
+public data class DnsRecordOptA1(
+    public var opt: DnsOptData = DnsOptData(),
+)
 
-public data class DnsRecordOptA0(public var dw: UInt = 0u, public var s: DnsRecordFlags = DnsRecordFlags())
+public data class DnsRecordOptA0(
+    public var dw: UInt = 0u,
+    public var s: DnsRecordFlags = DnsRecordFlags(),
+)

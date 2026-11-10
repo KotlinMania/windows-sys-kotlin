@@ -6,9 +6,8 @@ import io.github.kotlinmania.windowssys.COpaquePointer
 import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pwstr
 
-public actual fun xInputEnable(enable: Bool) {
+public actual fun xInputEnable(enable: Bool): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun xInputGetAudioDeviceIds(dwuserindex: UInt, prenderdeviceid: Pwstr, prendercount: COpaquePointer?, pcapturedeviceid: Pwstr, pcapturecount: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

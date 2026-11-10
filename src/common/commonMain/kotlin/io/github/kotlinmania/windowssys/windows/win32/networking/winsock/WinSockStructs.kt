@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -20,11 +21,19 @@ public data class Aal5Parameters(
     public var sSCSType: UByte = 0u,
 )
 
-public data class AaluserParameters(public var userDefined: UInt = 0u)
+public data class AaluserParameters(
+    public var userDefined: UInt = 0u,
+)
 
-public data class AalParametersIe(public var aALType: AalType = 0, public var aALSpecificParameters: AalParametersIe0 = AalParametersIe0())
+public data class AalParametersIe(
+    public var aALType: AalType = 0,
+    public var aALSpecificParameters: AalParametersIe0 = AalParametersIe0(),
+)
 
-public data class AalParametersIe0(public var aAL5Parameters: Aal5Parameters = Aal5Parameters(), public var aALUserParameters: AaluserParameters = AaluserParameters())
+public data class AalParametersIe0(
+    public var aAL5Parameters: Aal5Parameters = Aal5Parameters(),
+    public var aALUserParameters: AaluserParameters = AaluserParameters(),
+)
 
 public data class Addrinfoa(
     public var aiFlags: Int = 0,
@@ -192,9 +201,14 @@ public data class AddrinfoDnsServer(
     public var anonymous: AddrinfoDnsServer0 = AddrinfoDnsServer0(),
 )
 
-public data class AddrinfoDnsServer0(public var aiTemplate: Pwstr = null)
+public data class AddrinfoDnsServer0(
+    public var aiTemplate: Pwstr = null,
+)
 
-public data class Afprotocols(public var iAddressFamily: Int = 0, public var iProtocol: Int = 0)
+public data class Afprotocols(
+    public var iAddressFamily: Int = 0,
+    public var iProtocol: Int = 0,
+)
 
 public data class ArpHeader(
     public var hardwareAddressSpace: UShort = 0u,
@@ -227,7 +241,10 @@ public data class ArpHeader(
     }
 }
 
-public data class AssociateNameresContextInput(public var transportSettingId: TransportSettingId = TransportSettingId(), public var handle: ULong = 0uL)
+public data class AssociateNameresContextInput(
+    public var transportSettingId: TransportSettingId = TransportSettingId(),
+    public var handle: ULong = 0uL,
+)
 
 public data class AtmAddress(
     public var addressType: UInt = 0u,
@@ -395,9 +412,15 @@ public data class AtmConnectionId(
     public var vci: UInt = 0u,
 )
 
-public data class AtmPvcParams(public var pvcConnectionId: AtmConnectionId = AtmConnectionId(), public var pvcQos: Qos = Qos())
+public data class AtmPvcParams(
+    public var pvcConnectionId: AtmConnectionId = AtmConnectionId(),
+    public var pvcQos: Qos = Qos(),
+)
 
-public data class AtmQosClassIe(public var qOSClassForward: UByte = 0u, public var qOSClassBackward: UByte = 0u)
+public data class AtmQosClassIe(
+    public var qOSClassForward: UByte = 0u,
+    public var qOSClassBackward: UByte = 0u,
+)
 
 public data class AtmTd(
     public var peakCellRateClp0: UInt = 0u,
@@ -453,7 +476,9 @@ public data class CsaddrInfo(
     public var iProtocol: Int = 0,
 )
 
-public data class DlEi48(public var byte: UByteArray = UByteArray(3)) {
+public data class DlEi48(
+    public var byte: UByteArray = UByteArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DlEi48) return false
@@ -461,12 +486,12 @@ public data class DlEi48(public var byte: UByteArray = UByteArray(3)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.byte.contentHashCode()
-    }
+    override fun hashCode(): Int = this.byte.contentHashCode()
 }
 
-public data class DlEi64(public var byte: UByteArray = UByteArray(5)) {
+public data class DlEi64(
+    public var byte: UByteArray = UByteArray(5),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DlEi64) return false
@@ -474,12 +499,13 @@ public data class DlEi64(public var byte: UByteArray = UByteArray(5)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.byte.contentHashCode()
-    }
+    override fun hashCode(): Int = this.byte.contentHashCode()
 }
 
-public data class DlEui48(public var byte: UByteArray = UByteArray(6), public var anonymous: DlEui480 = DlEui480()) {
+public data class DlEui48(
+    public var byte: UByteArray = UByteArray(6),
+    public var anonymous: DlEui480 = DlEui480(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DlEui48) return false
@@ -495,7 +521,10 @@ public data class DlEui48(public var byte: UByteArray = UByteArray(6), public va
     }
 }
 
-public data class DlEui480(public var oui: DlOui = DlOui(), public var ei48: DlEi48 = DlEi48())
+public data class DlEui480(
+    public var oui: DlOui = DlOui(),
+    public var ei48: DlEi48 = DlEi48(),
+)
 
 public data class DlEui64(
     public var byte: UByteArray = UByteArray(8),
@@ -519,9 +548,15 @@ public data class DlEui64(
     }
 }
 
-public data class DlEui640(public var oui: DlOui = DlOui(), public var anonymous: DlEui6400 = DlEui6400())
+public data class DlEui640(
+    public var oui: DlOui = DlOui(),
+    public var anonymous: DlEui6400 = DlEui6400(),
+)
 
-public data class DlEui6400(public var ei64: DlEi64 = DlEi64(), public var anonymous: DlEui64000 = DlEui64000())
+public data class DlEui6400(
+    public var ei64: DlEi64 = DlEi64(),
+    public var anonymous: DlEui64000 = DlEui64000(),
+)
 
 public data class DlEui64000(
     public var type: UByte = 0u,
@@ -529,7 +564,10 @@ public data class DlEui64000(
     public var ei48: DlEi48 = DlEi48(),
 )
 
-public data class DlOui(public var byte: UByteArray = UByteArray(3), public var anonymous: DlOui0 = DlOui0()) {
+public data class DlOui(
+    public var byte: UByteArray = UByteArray(3),
+    public var anonymous: DlOui0 = DlOui0(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DlOui) return false
@@ -545,9 +583,14 @@ public data class DlOui(public var byte: UByteArray = UByteArray(3), public var 
     }
 }
 
-public data class DlOui0(public var bitfield: UByte = 0u)
+public data class DlOui0(
+    public var bitfield: UByte = 0u,
+)
 
-public data class DlTeredoAddress(public var reserved: UByteArray = UByteArray(6), public var anonymous: DlTeredoAddress0 = DlTeredoAddress0()) {
+public data class DlTeredoAddress(
+    public var reserved: UByteArray = UByteArray(6),
+    public var anonymous: DlTeredoAddress0 = DlTeredoAddress0(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DlTeredoAddress) return false
@@ -563,7 +606,10 @@ public data class DlTeredoAddress(public var reserved: UByteArray = UByteArray(6
     }
 }
 
-public data class DlTeredoAddress0(public var eui64: DlEui64 = DlEui64(), public var anonymous: DlTeredoAddress00 = DlTeredoAddress00())
+public data class DlTeredoAddress0(
+    public var eui64: DlEui64 = DlEui64(),
+    public var anonymous: DlTeredoAddress00 = DlTeredoAddress00(),
+)
 
 public data class DlTeredoAddress00(
     public var flags: UShort = 0u,
@@ -571,7 +617,10 @@ public data class DlTeredoAddress00(
     public var mappedAddress: InAddr = InAddr(),
 )
 
-public data class DlTeredoAddressPrv(public var reserved: UByteArray = UByteArray(6), public var anonymous: DlTeredoAddressPrv0 = DlTeredoAddressPrv0()) {
+public data class DlTeredoAddressPrv(
+    public var reserved: UByteArray = UByteArray(6),
+    public var anonymous: DlTeredoAddressPrv0 = DlTeredoAddressPrv0(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DlTeredoAddressPrv) return false
@@ -587,7 +636,10 @@ public data class DlTeredoAddressPrv(public var reserved: UByteArray = UByteArra
     }
 }
 
-public data class DlTeredoAddressPrv0(public var eui64: DlEui64 = DlEui64(), public var anonymous: DlTeredoAddressPrv00 = DlTeredoAddressPrv00())
+public data class DlTeredoAddressPrv0(
+    public var eui64: DlEui64 = DlEui64(),
+    public var anonymous: DlTeredoAddressPrv00 = DlTeredoAddressPrv00(),
+)
 
 public data class DlTeredoAddressPrv00(
     public var flags: UShort = 0u,
@@ -627,9 +679,15 @@ public data class EthernetHeader(
     public var anonymous: EthernetHeader0 = EthernetHeader0(),
 )
 
-public data class EthernetHeader0(public var type: UShort = 0u, public var length: UShort = 0u)
+public data class EthernetHeader0(
+    public var type: UShort = 0u,
+    public var length: UShort = 0u,
+)
 
-public data class FdSet(public var fdCount: UInt = 0u, public var fdArray: ULongArray = ULongArray(64)) {
+public data class FdSet(
+    public var fdCount: UInt = 0u,
+    public var fdArray: ULongArray = ULongArray(64),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FdSet) return false
@@ -664,7 +722,10 @@ public data class GroupFilter(
     public var gfSlist: List<SockaddrStorage> = List(1) { SockaddrStorage() },
 )
 
-public data class GroupReq(public var grInterface: UInt = 0u, public var grGroup: SockaddrStorage = SockaddrStorage())
+public data class GroupReq(
+    public var grInterface: UInt = 0u,
+    public var grGroup: SockaddrStorage = SockaddrStorage(),
+)
 
 public data class GroupSourceReq(
     public var gsrInterface: UInt = 0u,
@@ -680,13 +741,23 @@ public data class Hostent(
     public var hAddrList: COpaquePointer? = null,
 )
 
-public data class Icmpv4AddressMaskMessage(public var header: IcmpMessage = IcmpMessage(), public var addressMask: UInt = 0u)
+public data class Icmpv4AddressMaskMessage(
+    public var header: IcmpMessage = IcmpMessage(),
+    public var addressMask: UInt = 0u,
+)
 
-public data class Icmpv4RouterAdvertEntry(public var routerAdvertAddr: InAddr = InAddr(), public var preferenceLevel: Int = 0)
+public data class Icmpv4RouterAdvertEntry(
+    public var routerAdvertAddr: InAddr = InAddr(),
+    public var preferenceLevel: Int = 0,
+)
 
-public data class Icmpv4RouterAdvertHeader(public var raHeader: IcmpMessage = IcmpMessage())
+public data class Icmpv4RouterAdvertHeader(
+    public var raHeader: IcmpMessage = IcmpMessage(),
+)
 
-public data class Icmpv4RouterSolicit(public var rsHeader: IcmpMessage = IcmpMessage())
+public data class Icmpv4RouterSolicit(
+    public var rsHeader: IcmpMessage = IcmpMessage(),
+)
 
 public data class Icmpv4TimestampMessage(
     public var header: IcmpMessage = IcmpMessage(),
@@ -708,7 +779,10 @@ public data class IcmpHeader(
     public var checksum: UShort = 0u,
 )
 
-public data class IcmpMessage(public var header: IcmpHeader = IcmpHeader(), public var data: IcmpMessage0 = IcmpMessage0())
+public data class IcmpMessage(
+    public var header: IcmpHeader = IcmpHeader(),
+    public var data: IcmpMessage0 = IcmpMessage0(),
+)
 
 public data class IcmpMessage0(
     public var data32: UIntArray = UIntArray(1),
@@ -742,13 +816,23 @@ public data class Igmpv3QueryHeader(
     public var sourceCount: UShort = 0u,
 )
 
-public data class Igmpv3QueryHeader0(public var maxRespCode: UByte = 0u, public var anonymous: Igmpv3QueryHeader00 = Igmpv3QueryHeader00())
+public data class Igmpv3QueryHeader0(
+    public var maxRespCode: UByte = 0u,
+    public var anonymous: Igmpv3QueryHeader00 = Igmpv3QueryHeader00(),
+)
 
-public data class Igmpv3QueryHeader00(public var bitfield: UByte = 0u)
+public data class Igmpv3QueryHeader00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class Igmpv3QueryHeader1(public var queriersQueryInterfaceCode: UByte = 0u, public var anonymous: Igmpv3QueryHeader10 = Igmpv3QueryHeader10())
+public data class Igmpv3QueryHeader1(
+    public var queriersQueryInterfaceCode: UByte = 0u,
+    public var anonymous: Igmpv3QueryHeader10 = Igmpv3QueryHeader10(),
+)
 
-public data class Igmpv3QueryHeader10(public var bitfield: UByte = 0u)
+public data class Igmpv3QueryHeader10(
+    public var bitfield: UByte = 0u,
+)
 
 public data class Igmpv3ReportHeader(
     public var type: UByte = 0u,
@@ -772,9 +856,14 @@ public data class IgmpHeader(
     public var multicastAddress: InAddr = InAddr(),
 )
 
-public data class IgmpHeader0(public var anonymous: IgmpHeader00 = IgmpHeader00(), public var versionType: UByte = 0u)
+public data class IgmpHeader0(
+    public var anonymous: IgmpHeader00 = IgmpHeader00(),
+    public var versionType: UByte = 0u,
+)
 
-public data class IgmpHeader00(public var bitfield: UByte = 0u)
+public data class IgmpHeader00(
+    public var bitfield: UByte = 0u,
+)
 
 public data class IgmpHeader1(
     public var reserved: UByte = 0u,
@@ -782,9 +871,14 @@ public data class IgmpHeader1(
     public var code: UByte = 0u,
 )
 
-public data class In6Addr(public var u: In6Addr0 = In6Addr0())
+public data class In6Addr(
+    public var u: In6Addr0 = In6Addr0(),
+)
 
-public data class In6Addr0(public var byte: UByteArray = UByteArray(16), public var word: UShortArray = UShortArray(8)) {
+public data class In6Addr0(
+    public var byte: UByteArray = UByteArray(16),
+    public var word: UShortArray = UShortArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is In6Addr0) return false
@@ -800,17 +894,33 @@ public data class In6Addr0(public var byte: UByteArray = UByteArray(16), public 
     }
 }
 
-public data class In6Pktinfo(public var ipi6Addr: In6Addr = In6Addr(), public var ipi6Ifindex: UInt = 0u)
+public data class In6Pktinfo(
+    public var ipi6Addr: In6Addr = In6Addr(),
+    public var ipi6Ifindex: UInt = 0u,
+)
 
-public data class In6PktinfoEx(public var pktInfo: In6Pktinfo = In6Pktinfo(), public var scopeId: ScopeId = ScopeId())
+public data class In6PktinfoEx(
+    public var pktInfo: In6Pktinfo = In6Pktinfo(),
+    public var scopeId: ScopeId = ScopeId(),
+)
 
-public data class InetPortRange(public var startPort: UShort = 0u, public var numberOfPorts: UShort = 0u)
+public data class InetPortRange(
+    public var startPort: UShort = 0u,
+    public var numberOfPorts: UShort = 0u,
+)
 
-public data class InetPortReservationInformation(public var owningPid: UInt = 0u)
+public data class InetPortReservationInformation(
+    public var owningPid: UInt = 0u,
+)
 
-public data class InetPortReservationInstance(public var reservation: InetPortRange = InetPortRange(), public var token: InetPortReservationToken = InetPortReservationToken())
+public data class InetPortReservationInstance(
+    public var reservation: InetPortRange = InetPortRange(),
+    public var token: InetPortReservationToken = InetPortReservationToken(),
+)
 
-public data class InetPortReservationToken(public var token: ULong = 0uL)
+public data class InetPortReservationToken(
+    public var token: ULong = 0uL,
+)
 
 public data class InterfaceInfo(
     public var iiFlags: UInt = 0u,
@@ -826,7 +936,9 @@ public data class InterfaceInfoEx(
     public var iiNetmask: SocketAddress = SocketAddress(),
 )
 
-public data class InAddr(public var sUn: InAddr0 = InAddr0())
+public data class InAddr(
+    public var sUn: InAddr0 = InAddr0(),
+)
 
 public data class InAddr0(
     public var sUnB: InAddr00 = InAddr00(),
@@ -841,11 +953,20 @@ public data class InAddr00(
     public var sB4: UByte = 0u,
 )
 
-public data class InAddr01(public var sW1: UShort = 0u, public var sW2: UShort = 0u)
+public data class InAddr01(
+    public var sW1: UShort = 0u,
+    public var sW2: UShort = 0u,
+)
 
-public data class InPktinfo(public var ipiAddr: InAddr = InAddr(), public var ipiIfindex: UInt = 0u)
+public data class InPktinfo(
+    public var ipiAddr: InAddr = InAddr(),
+    public var ipiIfindex: UInt = 0u,
+)
 
-public data class InPktinfoEx(public var pktInfo: InPktinfo = InPktinfo(), public var scopeId: ScopeId = ScopeId())
+public data class InPktinfoEx(
+    public var pktInfo: InPktinfo = InPktinfo(),
+    public var scopeId: ScopeId = ScopeId(),
+)
 
 public data class InRecverr(
     public var protocol: Ipproto = 0,
@@ -854,7 +975,9 @@ public data class InRecverr(
     public var code: UByte = 0u,
 )
 
-public data class IptlsMetadata(public var sequenceNumber: ULong = 0uL)
+public data class IptlsMetadata(
+    public var sequenceNumber: ULong = 0uL,
+)
 
 public data class Ipv4Header(
     public var anonymous1: Ipv4Header0 = Ipv4Header0(),
@@ -869,25 +992,51 @@ public data class Ipv4Header(
     public var destinationAddress: InAddr = InAddr(),
 )
 
-public data class Ipv4Header0(public var versionAndHeaderLength: UByte = 0u, public var anonymous: Ipv4Header00 = Ipv4Header00())
+public data class Ipv4Header0(
+    public var versionAndHeaderLength: UByte = 0u,
+    public var anonymous: Ipv4Header00 = Ipv4Header00(),
+)
 
-public data class Ipv4Header00(public var bitfield: UByte = 0u)
+public data class Ipv4Header00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class Ipv4Header1(public var typeOfServiceAndEcnField: UByte = 0u, public var anonymous: Ipv4Header10 = Ipv4Header10())
+public data class Ipv4Header1(
+    public var typeOfServiceAndEcnField: UByte = 0u,
+    public var anonymous: Ipv4Header10 = Ipv4Header10(),
+)
 
-public data class Ipv4Header10(public var bitfield: UByte = 0u)
+public data class Ipv4Header10(
+    public var bitfield: UByte = 0u,
+)
 
-public data class Ipv4Header2(public var flagsAndOffset: UShort = 0u, public var anonymous: Ipv4Header20 = Ipv4Header20())
+public data class Ipv4Header2(
+    public var flagsAndOffset: UShort = 0u,
+    public var anonymous: Ipv4Header20 = Ipv4Header20(),
+)
 
-public data class Ipv4Header20(public var bitfield: UShort = 0u)
+public data class Ipv4Header20(
+    public var bitfield: UShort = 0u,
+)
 
-public data class Ipv4OptionHeader(public var anonymous: Ipv4OptionHeader0 = Ipv4OptionHeader0(), public var optionLength: UByte = 0u)
+public data class Ipv4OptionHeader(
+    public var anonymous: Ipv4OptionHeader0 = Ipv4OptionHeader0(),
+    public var optionLength: UByte = 0u,
+)
 
-public data class Ipv4OptionHeader0(public var optionType: UByte = 0u, public var anonymous: Ipv4OptionHeader00 = Ipv4OptionHeader00())
+public data class Ipv4OptionHeader0(
+    public var optionType: UByte = 0u,
+    public var anonymous: Ipv4OptionHeader00 = Ipv4OptionHeader00(),
+)
 
-public data class Ipv4OptionHeader00(public var bitfield: UByte = 0u)
+public data class Ipv4OptionHeader00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class Ipv4RoutingHeader(public var optionHeader: Ipv4OptionHeader = Ipv4OptionHeader(), public var pointer: UByte = 0u)
+public data class Ipv4RoutingHeader(
+    public var optionHeader: Ipv4OptionHeader = Ipv4OptionHeader(),
+    public var pointer: UByte = 0u,
+)
 
 public data class Ipv4TimestampOption(
     public var optionHeader: Ipv4OptionHeader = Ipv4OptionHeader(),
@@ -895,11 +1044,19 @@ public data class Ipv4TimestampOption(
     public var anonymous: Ipv4TimestampOption0 = Ipv4TimestampOption0(),
 )
 
-public data class Ipv4TimestampOption0(public var flagsOverflow: UByte = 0u, public var anonymous: Ipv4TimestampOption00 = Ipv4TimestampOption00())
+public data class Ipv4TimestampOption0(
+    public var flagsOverflow: UByte = 0u,
+    public var anonymous: Ipv4TimestampOption00 = Ipv4TimestampOption00(),
+)
 
-public data class Ipv4TimestampOption00(public var bitfield: UByte = 0u)
+public data class Ipv4TimestampOption00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class Ipv6ExtensionHeader(public var nextHeader: UByte = 0u, public var length: UByte = 0u)
+public data class Ipv6ExtensionHeader(
+    public var nextHeader: UByte = 0u,
+    public var length: UByte = 0u,
+)
 
 public data class Ipv6FragmentHeader(
     public var nextHeader: UByte = 0u,
@@ -908,9 +1065,14 @@ public data class Ipv6FragmentHeader(
     public var id: UInt = 0u,
 )
 
-public data class Ipv6FragmentHeader0(public var anonymous: Ipv6FragmentHeader00 = Ipv6FragmentHeader00(), public var offsetAndFlags: UShort = 0u)
+public data class Ipv6FragmentHeader0(
+    public var anonymous: Ipv6FragmentHeader00 = Ipv6FragmentHeader00(),
+    public var offsetAndFlags: UShort = 0u,
+)
 
-public data class Ipv6FragmentHeader00(public var bitfield: UShort = 0u)
+public data class Ipv6FragmentHeader00(
+    public var bitfield: UShort = 0u,
+)
 
 public data class Ipv6Header(
     public var anonymous: Ipv6Header0 = Ipv6Header0(),
@@ -921,15 +1083,29 @@ public data class Ipv6Header(
     public var destinationAddress: In6Addr = In6Addr(),
 )
 
-public data class Ipv6Header0(public var versionClassFlow: UInt = 0u, public var anonymous: Ipv6Header00 = Ipv6Header00())
+public data class Ipv6Header0(
+    public var versionClassFlow: UInt = 0u,
+    public var anonymous: Ipv6Header00 = Ipv6Header00(),
+)
 
-public data class Ipv6Header00(public var bitfield: UInt = 0u)
+public data class Ipv6Header00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class Ipv6Mreq(public var ipv6mrMultiaddr: In6Addr = In6Addr(), public var ipv6mrInterface: UInt = 0u)
+public data class Ipv6Mreq(
+    public var ipv6mrMultiaddr: In6Addr = In6Addr(),
+    public var ipv6mrInterface: UInt = 0u,
+)
 
-public data class Ipv6NeighborAdvertisementFlags(public var anonymous: Ipv6NeighborAdvertisementFlags0 = Ipv6NeighborAdvertisementFlags0(), public var value: UInt = 0u)
+public data class Ipv6NeighborAdvertisementFlags(
+    public var anonymous: Ipv6NeighborAdvertisementFlags0 = Ipv6NeighborAdvertisementFlags0(),
+    public var value: UInt = 0u,
+)
 
-public data class Ipv6NeighborAdvertisementFlags0(public var bitfield: UByte = 0u, public var reserved2: UByteArray = UByteArray(3)) {
+public data class Ipv6NeighborAdvertisementFlags0(
+    public var bitfield: UByte = 0u,
+    public var reserved2: UByteArray = UByteArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Ipv6NeighborAdvertisementFlags0) return false
@@ -945,9 +1121,15 @@ public data class Ipv6NeighborAdvertisementFlags0(public var bitfield: UByte = 0
     }
 }
 
-public data class Ipv6OptionHeader(public var type: UByte = 0u, public var dataLength: UByte = 0u)
+public data class Ipv6OptionHeader(
+    public var type: UByte = 0u,
+    public var dataLength: UByte = 0u,
+)
 
-public data class Ipv6OptionJumbogram(public var header: Ipv6OptionHeader = Ipv6OptionHeader(), public var jumbogramLength: UByteArray = UByteArray(4)) {
+public data class Ipv6OptionJumbogram(
+    public var header: Ipv6OptionHeader = Ipv6OptionHeader(),
+    public var jumbogramLength: UByteArray = UByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Ipv6OptionJumbogram) return false
@@ -963,7 +1145,10 @@ public data class Ipv6OptionJumbogram(public var header: Ipv6OptionHeader = Ipv6
     }
 }
 
-public data class Ipv6OptionRouterAlert(public var header: Ipv6OptionHeader = Ipv6OptionHeader(), public var value: UByteArray = UByteArray(2)) {
+public data class Ipv6OptionRouterAlert(
+    public var header: Ipv6OptionHeader = Ipv6OptionHeader(),
+    public var value: UByteArray = UByteArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Ipv6OptionRouterAlert) return false
@@ -979,9 +1164,14 @@ public data class Ipv6OptionRouterAlert(public var header: Ipv6OptionHeader = Ip
     }
 }
 
-public data class Ipv6RouterAdvertisementFlags(public var anonymous: Ipv6RouterAdvertisementFlags0 = Ipv6RouterAdvertisementFlags0(), public var value: UByte = 0u)
+public data class Ipv6RouterAdvertisementFlags(
+    public var anonymous: Ipv6RouterAdvertisementFlags0 = Ipv6RouterAdvertisementFlags0(),
+    public var value: UByte = 0u,
+)
 
-public data class Ipv6RouterAdvertisementFlags0(public var bitfield: UByte = 0u)
+public data class Ipv6RouterAdvertisementFlags0(
+    public var bitfield: UByte = 0u,
+)
 
 public data class Ipv6RoutingHeader(
     public var nextHeader: UByte = 0u,
@@ -1094,7 +1284,10 @@ public class IpxSpxconnstatusData(
     public var suppressedPacket: UShort = 0u,
 )
 
-public data class IpMreq(public var imrMultiaddr: InAddr = InAddr(), public var imrInterface: InAddr = InAddr())
+public data class IpMreq(
+    public var imrMultiaddr: InAddr = InAddr(),
+    public var imrInterface: InAddr = InAddr(),
+)
 
 public data class IpMreqSource(
     public var imrMultiaddr: InAddr = InAddr(),
@@ -1110,7 +1303,10 @@ public data class IpMsfilter(
     public var imsfSlist: List<InAddr> = List(1) { InAddr() },
 )
 
-public data class Linger(public var lOnoff: UShort = 0u, public var lLinger: UShort = 0u)
+public data class Linger(
+    public var lOnoff: UShort = 0u,
+    public var lLinger: UShort = 0u,
+)
 
 public data class LmIrparms(
     public var nTXDataBytes: UInt = 0u,
@@ -1133,13 +1329,23 @@ public data class Mldv2QueryHeader(
     public var sourceCount: UShort = 0u,
 )
 
-public data class Mldv2QueryHeader0(public var maxRespCode: UShort = 0u, public var anonymous: Mldv2QueryHeader00 = Mldv2QueryHeader00())
+public data class Mldv2QueryHeader0(
+    public var maxRespCode: UShort = 0u,
+    public var anonymous: Mldv2QueryHeader00 = Mldv2QueryHeader00(),
+)
 
-public data class Mldv2QueryHeader00(public var bitfield: UShort = 0u)
+public data class Mldv2QueryHeader00(
+    public var bitfield: UShort = 0u,
+)
 
-public data class Mldv2QueryHeader1(public var queriersQueryInterfaceCode: UByte = 0u, public var anonymous: Mldv2QueryHeader10 = Mldv2QueryHeader10())
+public data class Mldv2QueryHeader1(
+    public var queriersQueryInterfaceCode: UByte = 0u,
+    public var anonymous: Mldv2QueryHeader10 = Mldv2QueryHeader10(),
+)
 
-public data class Mldv2QueryHeader10(public var bitfield: UByte = 0u)
+public data class Mldv2QueryHeader10(
+    public var bitfield: UByte = 0u,
+)
 
 public data class Mldv2ReportHeader(
     public var icmpHeader: IcmpHeader = IcmpHeader(),
@@ -1176,9 +1382,15 @@ public data class NapiProviderInstallationBlob(
     public var offsetFirstDomain: UInt = 0u,
 )
 
-public data class NdNeighborAdvertHeader(public var ndNaHdr: IcmpMessage = IcmpMessage(), public var ndNaTarget: In6Addr = In6Addr())
+public data class NdNeighborAdvertHeader(
+    public var ndNaHdr: IcmpMessage = IcmpMessage(),
+    public var ndNaTarget: In6Addr = In6Addr(),
+)
 
-public data class NdNeighborSolicitHeader(public var ndNsHdr: IcmpMessage = IcmpMessage(), public var ndNsTarget: In6Addr = In6Addr())
+public data class NdNeighborSolicitHeader(
+    public var ndNsHdr: IcmpMessage = IcmpMessage(),
+    public var ndNsTarget: In6Addr = In6Addr(),
+)
 
 public data class NdOptionDnssl(
     public var ndOptDnsslType: UByte = 0u,
@@ -1187,7 +1399,10 @@ public data class NdOptionDnssl(
     public var ndOptDnsslLifetime: UInt = 0u,
 )
 
-public data class NdOptionHdr(public var ndOptType: UByte = 0u, public var ndOptLen: UByte = 0u)
+public data class NdOptionHdr(
+    public var ndOptType: UByte = 0u,
+    public var ndOptLen: UByte = 0u,
+)
 
 public data class NdOptionMtu(
     public var ndOptMtuType: UByte = 0u,
@@ -1207,13 +1422,24 @@ public data class NdOptionPrefixInfo(
     public var ndOptPiPrefix: In6Addr = In6Addr(),
 )
 
-public data class NdOptionPrefixInfo0(public var ndOptPiFlagsReserved: UByte = 0u, public var flags: NdOptionPrefixInfo00 = NdOptionPrefixInfo00())
+public data class NdOptionPrefixInfo0(
+    public var ndOptPiFlagsReserved: UByte = 0u,
+    public var flags: NdOptionPrefixInfo00 = NdOptionPrefixInfo00(),
+)
 
-public data class NdOptionPrefixInfo00(public var bitfield: UByte = 0u)
+public data class NdOptionPrefixInfo00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class NdOptionPrefixInfo1(public var ndOptPiReserved2: UInt = 0u, public var anonymous: NdOptionPrefixInfo10 = NdOptionPrefixInfo10())
+public data class NdOptionPrefixInfo1(
+    public var ndOptPiReserved2: UInt = 0u,
+    public var anonymous: NdOptionPrefixInfo10 = NdOptionPrefixInfo10(),
+)
 
-public data class NdOptionPrefixInfo10(public var ndOptPiReserved3: UByteArray = UByteArray(3), public var ndOptPiSitePrefixLen: UByte = 0u) {
+public data class NdOptionPrefixInfo10(
+    public var ndOptPiReserved3: UByteArray = UByteArray(3),
+    public var ndOptPiSitePrefixLen: UByte = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NdOptionPrefixInfo10) return false
@@ -1252,9 +1478,14 @@ public data class NdOptionRouteInfo(
     public var ndOptRiPrefix: In6Addr = In6Addr(),
 )
 
-public data class NdOptionRouteInfo0(public var ndOptRiFlagsReserved: UByte = 0u, public var flags: NdOptionRouteInfo00 = NdOptionRouteInfo00())
+public data class NdOptionRouteInfo0(
+    public var ndOptRiFlagsReserved: UByte = 0u,
+    public var flags: NdOptionRouteInfo00 = NdOptionRouteInfo00(),
+)
 
-public data class NdOptionRouteInfo00(public var bitfield: UByte = 0u)
+public data class NdOptionRouteInfo00(
+    public var bitfield: UByte = 0u,
+)
 
 public data class NdRedirectHeader(
     public var ndRdHdr: IcmpMessage = IcmpMessage(),
@@ -1268,7 +1499,9 @@ public data class NdRouterAdvertHeader(
     public var ndRaRetransmit: UInt = 0u,
 )
 
-public data class NdRouterSolicitHeader(public var ndRsHdr: IcmpMessage = IcmpMessage())
+public data class NdRouterSolicitHeader(
+    public var ndRsHdr: IcmpMessage = IcmpMessage(),
+)
 
 public data class Netresource2a(
     public var dwScope: UInt = 0u,
@@ -1298,7 +1531,10 @@ public data class Netresource2w(
     public var lpiProtocols: Int? = null,
 )
 
-public data class NlaBlob(public var header: NlaBlob0 = NlaBlob0(), public var data: NlaBlob1 = NlaBlob1())
+public data class NlaBlob(
+    public var header: NlaBlob0 = NlaBlob0(),
+    public var data: NlaBlob1 = NlaBlob1(),
+)
 
 public data class NlaBlob1(
     public var rawData: ByteArray = ByteArray(1),
@@ -1328,7 +1564,9 @@ public data class NlaBlob1(
     }
 }
 
-public data class NlaBlob13(public var remote: NlaBlob130 = NlaBlob130())
+public data class NlaBlob13(
+    public var remote: NlaBlob130 = NlaBlob130(),
+)
 
 public data class NlaBlob130(
     public var speed: UInt = 0u,
@@ -1358,7 +1596,10 @@ public data class NlaBlob130(
     }
 }
 
-public data class NlaBlob12(public var type: NlaConnectivityType = 0, public var internet: NlaInternet = 0)
+public data class NlaBlob12(
+    public var type: NlaConnectivityType = 0,
+    public var internet: NlaInternet = 0,
+)
 
 public data class NlaBlob10(
     public var dwType: UInt = 0u,
@@ -1382,7 +1623,9 @@ public data class NlaBlob10(
     }
 }
 
-public data class NlaBlob11(public var information: ByteArray = ByteArray(1)) {
+public data class NlaBlob11(
+    public var information: ByteArray = ByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NlaBlob11) return false
@@ -1390,9 +1633,7 @@ public data class NlaBlob11(public var information: ByteArray = ByteArray(1)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.information.contentHashCode()
-    }
+    override fun hashCode(): Int = this.information.contentHashCode()
 }
 
 public data class NlaBlob0(
@@ -1407,7 +1648,9 @@ public data class NlBandwidthInformation(
     public var bandwidthPeaked: Boolean = false,
 )
 
-public data class NlInterfaceOffloadRod(public var bitfield: UByte = 0u)
+public data class NlInterfaceOffloadRod(
+    public var bitfield: UByte = 0u,
+)
 
 public data class NlNetworkConnectivityHint(
     public var connectivityLevel: NlNetworkConnectivityLevelHint = 0,
@@ -1429,7 +1672,10 @@ public data class NpiModuleid(
     public var anonymous: NpiModuleid0 = NpiModuleid0(),
 )
 
-public data class NpiModuleid0(public var guid: Guid = Guid(), public var ifLuid: Luid = Luid())
+public data class NpiModuleid0(
+    public var guid: Guid = Guid(),
+    public var ifLuid: Luid = Luid(),
+)
 
 public data class Nspv2Routine(
     public var cbSize: UInt = 0u,
@@ -1471,11 +1717,20 @@ public data class NsInfow(
     public var lpNameSpace: Pwstr = null,
 )
 
-public data class NsServiceInfoa(public var dwNameSpace: UInt = 0u, public var serviceInfo: ServiceInfoa = ServiceInfoa())
+public data class NsServiceInfoa(
+    public var dwNameSpace: UInt = 0u,
+    public var serviceInfo: ServiceInfoa = ServiceInfoa(),
+)
 
-public data class NsServiceInfow(public var dwNameSpace: UInt = 0u, public var serviceInfo: ServiceInfow = ServiceInfow())
+public data class NsServiceInfow(
+    public var dwNameSpace: UInt = 0u,
+    public var serviceInfo: ServiceInfow = ServiceInfow(),
+)
 
-public data class PriorityStatus(public var sender: SocketPriorityHint = 0, public var receiver: SocketPriorityHint = 0)
+public data class PriorityStatus(
+    public var sender: SocketPriorityHint = 0,
+    public var receiver: SocketPriorityHint = 0,
+)
 
 public data class ProtocolInfoa(
     public var dwServiceFlags: UInt = 0u,
@@ -1533,9 +1788,15 @@ public data class Qos(
     public var providerSpecific: Wsabuf = Wsabuf(),
 )
 
-public data class RcvallIf(public var mode: RcvallValue = 0, public var iface: UInt = 0u)
+public data class RcvallIf(
+    public var mode: RcvallValue = 0,
+    public var iface: UInt = 0u,
+)
 
-public data class RealTimeNotificationSettingInput(public var transportSettingId: TransportSettingId = TransportSettingId(), public var brokerEventGuid: Guid = Guid())
+public data class RealTimeNotificationSettingInput(
+    public var transportSettingId: TransportSettingId = TransportSettingId(),
+    public var brokerEventGuid: Guid = Guid(),
+)
 
 public data class RealTimeNotificationSettingInputEx(
     public var transportSettingId: TransportSettingId = TransportSettingId(),
@@ -1543,7 +1804,9 @@ public data class RealTimeNotificationSettingInputEx(
     public var unmark: Boolean = false,
 )
 
-public data class RealTimeNotificationSettingOutput(public var channelStatus: ControlChannelTriggerStatus = 0)
+public data class RealTimeNotificationSettingOutput(
+    public var channelStatus: ControlChannelTriggerStatus = 0,
+)
 
 public data class Rioresult(
     public var status: Int = 0,
@@ -1558,7 +1821,9 @@ public data class RioBuf(
     public var length: UInt = 0u,
 )
 
-public data class RioCmsgBuffer(public var totalLength: UInt = 0u)
+public data class RioCmsgBuffer(
+    public var totalLength: UInt = 0u,
+)
 
 public data class RioExtensionFunctionTable(
     public var cbSize: UInt = 0u,
@@ -1577,11 +1842,20 @@ public data class RioExtensionFunctionTable(
     public var rIOResizeRequestQueue: LpfnRioresizerequestqueue = null,
 )
 
-public data class RioNotificationCompletion(public var type: RioNotificationCompletionType = 0, public var anonymous: RioNotificationCompletion0 = RioNotificationCompletion0())
+public data class RioNotificationCompletion(
+    public var type: RioNotificationCompletionType = 0,
+    public var anonymous: RioNotificationCompletion0 = RioNotificationCompletion0(),
+)
 
-public data class RioNotificationCompletion0(public var event: RioNotificationCompletion00 = RioNotificationCompletion00(), public var iocp: RioNotificationCompletion01 = RioNotificationCompletion01())
+public data class RioNotificationCompletion0(
+    public var event: RioNotificationCompletion00 = RioNotificationCompletion00(),
+    public var iocp: RioNotificationCompletion01 = RioNotificationCompletion01(),
+)
 
-public data class RioNotificationCompletion00(public var eventHandle: Handle = null, public var notifyReset: Bool = 0)
+public data class RioNotificationCompletion00(
+    public var eventHandle: Handle = null,
+    public var notifyReset: Bool = 0,
+)
 
 public data class RioNotificationCompletion01(
     public var iocpHandle: Handle = null,
@@ -1639,13 +1913,22 @@ public data class RmSendWindow(
     public var windowSizeInBytes: UInt = 0u,
 )
 
-public data class RssScalabilityInfo(public var rssEnabled: Boolean = false)
+public data class RssScalabilityInfo(
+    public var rssEnabled: Boolean = false,
+)
 
-public data class ScopeId(public var anonymous: ScopeId0 = ScopeId0())
+public data class ScopeId(
+    public var anonymous: ScopeId0 = ScopeId0(),
+)
 
-public data class ScopeId0(public var anonymous: ScopeId00 = ScopeId00(), public var value: UInt = 0u)
+public data class ScopeId0(
+    public var anonymous: ScopeId00 = ScopeId00(),
+    public var value: UInt = 0u,
+)
 
-public data class ScopeId00(public var bitfield: UInt = 0u)
+public data class ScopeId00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class Servent(
     public var sName: Pstr = null,
@@ -1663,7 +1946,10 @@ public data class ServiceAddress(
     public var lpPrincipal: COpaquePointer? = null,
 )
 
-public data class ServiceAddresses(public var dwAddressCount: UInt = 0u, public var addresses: List<ServiceAddress> = List(1) { ServiceAddress() })
+public data class ServiceAddresses(
+    public var dwAddressCount: UInt = 0u,
+    public var addresses: List<ServiceAddress> = List(1) { ServiceAddress() },
+)
 
 public data class ServiceAsyncInfo(
     public var lpServiceCallbackProc: LpserviceCallbackProc = null,
@@ -1767,7 +2053,10 @@ public data class SnapHeader(
     }
 }
 
-public data class Sockaddr(public var saFamily: AddressFamily = 0u, public var saData: ByteArray = ByteArray(14)) {
+public data class Sockaddr(
+    public var saFamily: AddressFamily = 0u,
+    public var saData: ByteArray = ByteArray(14),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Sockaddr) return false
@@ -1845,9 +2134,15 @@ public data class SockaddrIn6(
     public var anonymous: SockaddrIn60 = SockaddrIn60(),
 )
 
-public data class SockaddrIn60(public var sin6ScopeId: UInt = 0u, public var sin6ScopeStruct: ScopeId = ScopeId())
+public data class SockaddrIn60(
+    public var sin6ScopeId: UInt = 0u,
+    public var sin6ScopeStruct: ScopeId = ScopeId(),
+)
 
-public data class SockaddrIn6Pair(public var sourceAddress: SockaddrIn6? = null, public var destinationAddress: SockaddrIn6? = null)
+public data class SockaddrIn6Pair(
+    public var sourceAddress: SockaddrIn6? = null,
+    public var destinationAddress: SockaddrIn6? = null,
+)
 
 public data class SockaddrIn6W2ksp1(
     public var sin6Family: Short = 0,
@@ -2010,7 +2305,10 @@ public data class SockaddrTp(
     }
 }
 
-public data class SockaddrUn(public var sunFamily: AddressFamily = 0u, public var sunPath: ByteArray = ByteArray(108)) {
+public data class SockaddrUn(
+    public var sunFamily: AddressFamily = 0u,
+    public var sunPath: ByteArray = ByteArray(108),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SockaddrUn) return false
@@ -2057,9 +2355,15 @@ public data class SockaddrVns(
     }
 }
 
-public data class SocketAddress(public var lpSockaddr: Sockaddr? = null, public var iSockaddrLength: Int = 0)
+public data class SocketAddress(
+    public var lpSockaddr: Sockaddr? = null,
+    public var iSockaddrLength: Int = 0,
+)
 
-public data class SocketAddressList(public var iAddressCount: Int = 0, public var address: List<SocketAddress> = List(1) { SocketAddress() })
+public data class SocketAddressList(
+    public var iAddressCount: Int = 0,
+    public var address: List<SocketAddress> = List(1) { SocketAddress() },
+)
 
 public data class SocketPeerTargetName(
     public var securityProtocol: SocketSecurityProtocol = 0,
@@ -2124,4 +2428,7 @@ public data class SocketSecurityQueryTemplateIpsec2(
     public var fieldMask: UInt = 0u,
 )
 
-public data class SocketSecuritySettings(public var securityProtocol: SocketSecurityProtocol = 0, public var securityFlags: UInt = 0u)
+public data class SocketSecuritySettings(
+    public var securityProtocol: SocketSecurityProtocol = 0,
+    public var securityFlags: UInt = 0u,
+)

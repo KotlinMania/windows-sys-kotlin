@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -143,9 +144,15 @@ public data class DetectEncodingInfo(
     public var nConfidence: Int = 0,
 )
 
-public data class Enumtextmetrica(public var etmNewTextMetricEx: Newtextmetricexa = Newtextmetricexa(), public var etmAxesList: Axeslista = Axeslista())
+public data class Enumtextmetrica(
+    public var etmNewTextMetricEx: Newtextmetricexa = Newtextmetricexa(),
+    public var etmAxesList: Axeslista = Axeslista(),
+)
 
-public data class Enumtextmetricw(public var etmNewTextMetricEx: Newtextmetricexw = Newtextmetricexw(), public var etmAxesList: Axeslistw = Axeslistw())
+public data class Enumtextmetricw(
+    public var etmNewTextMetricEx: Newtextmetricexw = Newtextmetricexw(),
+    public var etmAxesList: Axeslistw = Axeslistw(),
+)
 
 public data class Filemuiinfo(
     public var dwSize: UInt = 0u,
@@ -199,7 +206,10 @@ public data class Filemuiinfo(
     }
 }
 
-public data class Fontsignature(public var fsUsb: UIntArray = UIntArray(4), public var fsCsb: UIntArray = UIntArray(2)) {
+public data class Fontsignature(
+    public var fsUsb: UIntArray = UIntArray(4),
+    public var fsCsb: UIntArray = UIntArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Fontsignature) return false
@@ -215,7 +225,10 @@ public data class Fontsignature(public var fsUsb: UIntArray = UIntArray(4), publ
     }
 }
 
-public data class Goffset(public var du: Int = 0, public var dv: Int = 0)
+public data class Goffset(
+    public var du: Int = 0,
+    public var dv: Int = 0,
+)
 
 public data class Localesignature(
     public var lsUsb: UIntArray = UIntArray(4),
@@ -388,9 +401,15 @@ public data class Mimecsetinfo(
     }
 }
 
-public data class Newtextmetricexa(public var ntmTm: Newtextmetrica = Newtextmetrica(), public var ntmFontSig: Fontsignature = Fontsignature())
+public data class Newtextmetricexa(
+    public var ntmTm: Newtextmetrica = Newtextmetrica(),
+    public var ntmFontSig: Fontsignature = Fontsignature(),
+)
 
-public data class Newtextmetricexw(public var ntmTm: Newtextmetricw = Newtextmetricw(), public var ntmFontSig: Fontsignature = Fontsignature())
+public data class Newtextmetricexw(
+    public var ntmTm: Newtextmetricw = Newtextmetricw(),
+    public var ntmFontSig: Fontsignature = Fontsignature(),
+)
 
 public data class Nlsversioninfo(
     public var dwNLSVersionInfoSize: UInt = 0u,
@@ -426,7 +445,10 @@ public data class Numberfmtw(
     public var negativeOrder: UInt = 0u,
 )
 
-public data class OpentypeFeatureRecord(public var tagFeature: UInt = 0u, public var lParameter: Int = 0)
+public data class OpentypeFeatureRecord(
+    public var tagFeature: UInt = 0u,
+    public var lParameter: Int = 0,
+)
 
 public data class Rfc1766info(
     public var lcid: UInt = 0u,
@@ -450,7 +472,10 @@ public data class Rfc1766info(
     }
 }
 
-public data class Scriptfontinfo(public var scripts: Long = 0L, public var wszFont: UShortArray = UShortArray(32)) {
+public data class Scriptfontinfo(
+    public var scripts: Long = 0L,
+    public var wszFont: UShortArray = UShortArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Scriptfontinfo) return false
@@ -494,11 +519,18 @@ public data class Scriptinfo(
     }
 }
 
-public data class ScriptAnalysis(public var bitfield: UShort = 0u, public var s: ScriptState = ScriptState())
+public data class ScriptAnalysis(
+    public var bitfield: UShort = 0u,
+    public var s: ScriptState = ScriptState(),
+)
 
-public data class ScriptCharprop(public var bitfield: UShort = 0u)
+public data class ScriptCharprop(
+    public var bitfield: UShort = 0u,
+)
 
-public data class ScriptControl(public var bitfield: UInt = 0u)
+public data class ScriptControl(
+    public var bitfield: UInt = 0u,
+)
 
 public data class ScriptDigitsubstitute(
     public var bitfield1: UInt = 0u,
@@ -515,15 +547,28 @@ public data class ScriptFontproperties(
     public var iKashidaWidth: Int = 0,
 )
 
-public data class ScriptGlyphprop(public var sva: ScriptVisattr = ScriptVisattr(), public var reserved: UShort = 0u)
+public data class ScriptGlyphprop(
+    public var sva: ScriptVisattr = ScriptVisattr(),
+    public var reserved: UShort = 0u,
+)
 
-public data class ScriptItem(public var iCharPos: Int = 0, public var a: ScriptAnalysis = ScriptAnalysis())
+public data class ScriptItem(
+    public var iCharPos: Int = 0,
+    public var a: ScriptAnalysis = ScriptAnalysis(),
+)
 
-public data class ScriptLogattr(public var bitfield: UByte = 0u)
+public data class ScriptLogattr(
+    public var bitfield: UByte = 0u,
+)
 
-public data class ScriptProperties(public var bitfield1: UInt = 0u, public var bitfield2: UInt = 0u)
+public data class ScriptProperties(
+    public var bitfield1: UInt = 0u,
+    public var bitfield2: UInt = 0u,
+)
 
-public data class ScriptState(public var bitfield: UShort = 0u)
+public data class ScriptState(
+    public var bitfield: UShort = 0u,
+)
 
 public data class ScriptTabdef(
     public var cTabStops: Int = 0,
@@ -532,9 +577,14 @@ public data class ScriptTabdef(
     public var iTabOrigin: Int = 0,
 )
 
-public data class ScriptVisattr(public var bitfield: UShort = 0u)
+public data class ScriptVisattr(
+    public var bitfield: UShort = 0u,
+)
 
-public data class TextrangeProperties(public var potfRecords: OpentypeFeatureRecord? = null, public var cotfRecords: Int = 0)
+public data class TextrangeProperties(
+    public var potfRecords: OpentypeFeatureRecord? = null,
+    public var cotfRecords: Int = 0,
+)
 
 public data class UCPTrie(
     public var index: UShort? = null,
@@ -615,7 +665,10 @@ public data class UIDNAInfo(
     public var reservedI3: Int = 0,
 )
 
-public data class Unicoderange(public var wcFrom: UShort = 0u, public var wcTo: UShort = 0u)
+public data class Unicoderange(
+    public var wcFrom: UShort = 0u,
+    public var wcTo: UShort = 0u,
+)
 
 public data class UParseError(
     public var line: Int = 0,

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.minifilters
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -46,9 +47,15 @@ public data class FltCallbackData(
     public var requestorMode: Byte = 0,
 )
 
-public data class FltCallbackData0(public var anonymous: FltCallbackData00 = FltCallbackData00(), public var filterContext: List<COpaquePointer> = List(4) { COpaquePointer(0L) })
+public data class FltCallbackData0(
+    public var anonymous: FltCallbackData00 = FltCallbackData00(),
+    public var filterContext: List<COpaquePointer> = List(4) { COpaquePointer(0L) },
+)
 
-public data class FltCallbackData00(public var queueLinks: ListEntry = ListEntry(), public var queueContext: List<COpaquePointer> = List(2) { COpaquePointer(0L) })
+public data class FltCallbackData00(
+    public var queueLinks: ListEntry = ListEntry(),
+    public var queueContext: List<COpaquePointer> = List(2) { COpaquePointer(0L) },
+)
 
 public data class FltCallbackDataQueue(
     public var csq: IoCsq = IoCsq(),
@@ -104,7 +111,9 @@ public data class FltIoParameterBlock(
     public var parameters: FltParameters = FltParameters(),
 )
 
-public data class FltNameControl(public var name: UnicodeString = UnicodeString())
+public data class FltNameControl(
+    public var name: UnicodeString = UnicodeString(),
+)
 
 public data class FltOperationRegistration(
     public var majorFunction: UByte = 0u,
@@ -150,7 +159,10 @@ public class FltParameters(
     public var others: FltParameters32 = FltParameters32(),
 )
 
-public data class FltParameters22(public var endingOffset: Long? = null, public var resourceToRelease: COpaquePointer? = null)
+public data class FltParameters22(
+    public var endingOffset: Long? = null,
+    public var resourceToRelease: COpaquePointer? = null,
+)
 
 public data class FltParameters21(
     public var syncType: FsFilterSectionSyncType = 0,
@@ -312,7 +324,10 @@ public data class FltParameters122(
     public var outputMdlAddress: Mdl? = null,
 )
 
-public data class FltParameters120(public var vpb: Vpb? = null, public var deviceObject: DeviceObject? = null)
+public data class FltParameters120(
+    public var vpb: Vpb? = null,
+    public var deviceObject: DeviceObject? = null,
+)
 
 public data class FltParameters14(
     public var length: Long? = null,
@@ -323,7 +338,9 @@ public data class FltParameters14(
     public var exclusiveLock: Boolean = false,
 )
 
-public data class FltParameters28(public var mdlChain: Mdl? = null)
+public data class FltParameters28(
+    public var mdlChain: Mdl? = null,
+)
 
 public data class FltParameters27(
     public var fileOffset: Long = 0L,
@@ -332,11 +349,19 @@ public data class FltParameters27(
     public var mdlChain: COpaquePointer? = null,
 )
 
-public data class FltParameters30(public var fileOffset: Long = 0L, public var mdlChain: Mdl? = null)
+public data class FltParameters30(
+    public var fileOffset: Long = 0L,
+    public var mdlChain: Mdl? = null,
+)
 
-public data class FltParameters31(public var deviceType: UInt = 0u)
+public data class FltParameters31(
+    public var deviceType: UInt = 0u,
+)
 
-public data class FltParameters26(public var irp: Irp? = null, public var networkInformation: FileNetworkOpenInformation? = null)
+public data class FltParameters26(
+    public var irp: Irp? = null,
+    public var networkInformation: FileNetworkOpenInformation? = null,
+)
 
 public data class FltParameters32(
     public var argument1: COpaquePointer? = null,
@@ -360,15 +385,26 @@ public data class FltParameters20(
     public var usageNotification: FltParameters209 = FltParameters209(),
 )
 
-public data class FltParameters203(public var capabilities: DeviceCapabilities? = null)
+public data class FltParameters203(
+    public var capabilities: DeviceCapabilities? = null,
+)
 
-public data class FltParameters204(public var ioResourceRequirementList: IoResourceRequirementsList? = null)
+public data class FltParameters204(
+    public var ioResourceRequirementList: IoResourceRequirementsList? = null,
+)
 
-public data class FltParameters201(public var type: DeviceRelationType = 0)
+public data class FltParameters201(
+    public var type: DeviceRelationType = 0,
+)
 
-public data class FltParameters208(public var deviceTextType: DeviceTextType = 0, public var localeId: UInt = 0u)
+public data class FltParameters208(
+    public var deviceTextType: DeviceTextType = 0,
+    public var localeId: UInt = 0u,
+)
 
-public data class FltParameters207(public var idType: BusQueryIdType = 0)
+public data class FltParameters207(
+    public var idType: BusQueryIdType = 0,
+)
 
 public data class FltParameters202(
     public var interfaceType: Guid? = null,
@@ -385,9 +421,14 @@ public data class FltParameters205(
     public var length: UInt = 0u,
 )
 
-public data class FltParameters206(public var lock: Boolean = false)
+public data class FltParameters206(
+    public var lock: Boolean = false,
+)
 
-public data class FltParameters200(public var allocatedResources: CmResourceList? = null, public var allocatedResourcesTranslated: CmResourceList? = null)
+public data class FltParameters200(
+    public var allocatedResources: CmResourceList? = null,
+    public var allocatedResourcesTranslated: CmResourceList? = null,
+)
 
 public data class FltParameters209(
     public var inPath: Boolean = false,
@@ -470,7 +511,9 @@ public data class FltParameters3(
     public var mdlAddress: Mdl? = null,
 )
 
-public data class FltParameters23(public var resourceToRelease: Eresource? = null)
+public data class FltParameters23(
+    public var resourceToRelease: Eresource? = null,
+)
 
 public data class FltParameters8(
     public var length: UInt = 0u,
@@ -492,7 +535,10 @@ public data class FltParameters60(
     public var deleteHandle: Handle = null,
 )
 
-public data class FltParameters600(public var replaceIfExists: Boolean = false, public var advanceOnly: Boolean = false)
+public data class FltParameters600(
+    public var replaceIfExists: Boolean = false,
+    public var advanceOnly: Boolean = false,
+)
 
 public data class FltParameters19(
     public var length: UInt = 0u,
@@ -500,7 +546,10 @@ public data class FltParameters19(
     public var mdlAddress: Mdl? = null,
 )
 
-public data class FltParameters16(public var securityInformation: UInt = 0u, public var securityDescriptor: PsecurityDescriptor = null)
+public data class FltParameters16(
+    public var securityInformation: UInt = 0u,
+    public var securityDescriptor: PsecurityDescriptor = null,
+)
 
 public data class FltParameters10(
     public var length: UInt = 0u,
@@ -585,7 +634,10 @@ public data class FltTagDataBuffer0(
     public var genericGUIDReparseBuffer: FltTagDataBuffer03 = FltTagDataBuffer03(),
 )
 
-public data class FltTagDataBuffer03(public var tagGuid: Guid = Guid(), public var dataBuffer: UByteArray = UByteArray(1)) {
+public data class FltTagDataBuffer03(
+    public var tagGuid: Guid = Guid(),
+    public var dataBuffer: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FltTagDataBuffer03) return false
@@ -601,7 +653,9 @@ public data class FltTagDataBuffer03(public var tagGuid: Guid = Guid(), public v
     }
 }
 
-public data class FltTagDataBuffer02(public var dataBuffer: UByteArray = UByteArray(1)) {
+public data class FltTagDataBuffer02(
+    public var dataBuffer: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FltTagDataBuffer02) return false
@@ -609,9 +663,7 @@ public data class FltTagDataBuffer02(public var dataBuffer: UByteArray = UByteAr
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.dataBuffer.contentHashCode()
-    }
+    override fun hashCode(): Int = this.dataBuffer.contentHashCode()
 }
 
 public data class FltTagDataBuffer01(

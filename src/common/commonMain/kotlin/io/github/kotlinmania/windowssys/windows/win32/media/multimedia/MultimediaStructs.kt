@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -26,9 +27,15 @@ import io.github.kotlinmania.windowssys.windows.win32.media.audio.Hwave
 import io.github.kotlinmania.windowssys.windows.win32.media.audio.Waveformat
 import io.github.kotlinmania.windowssys.windows.win32.media.audio.Waveformatex
 
-public data class Adpcmcoefset(public var iCoef1: Short = 0, public var iCoef2: Short = 0)
+public data class Adpcmcoefset(
+    public var iCoef1: Short = 0,
+    public var iCoef2: Short = 0,
+)
 
-public data class Adpcmewaveformat(public var wfx: Waveformatex = Waveformatex(), public var wSamplesPerBlock: UShort = 0u)
+public data class Adpcmewaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wSamplesPerBlock: UShort = 0u,
+)
 
 public data class Adpcmwaveformat(
     public var wfx: Waveformatex = Waveformatex(),
@@ -37,11 +44,17 @@ public data class Adpcmwaveformat(
     public var aCoef: List<Adpcmcoefset> = List(1) { Adpcmcoefset() },
 )
 
-public data class Aptxwaveformat(public var wfx: Waveformatex = Waveformatex())
+public data class Aptxwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
-public data class AudiofileAf10waveformat(public var wfx: Waveformatex = Waveformatex())
+public data class AudiofileAf10waveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
-public data class AudiofileAf36waveformat(public var wfx: Waveformatex = Waveformatex())
+public data class AudiofileAf36waveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
 public data class Avicompressoptions(
     public var fccType: UInt = 0u,
@@ -296,29 +309,61 @@ public data class Compvars(
     public var cbState: Int = 0,
 )
 
-public data class Contrescr10waveformat(public var wfx: Waveformatex = Waveformatex(), public var wSamplesPerBlock: UShort = 0u)
+public data class Contrescr10waveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wSamplesPerBlock: UShort = 0u,
+)
 
-public data class Contresvqlpcwaveformat(public var wfx: Waveformatex = Waveformatex(), public var wSamplesPerBlock: UShort = 0u)
+public data class Contresvqlpcwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wSamplesPerBlock: UShort = 0u,
+)
 
-public data class Creativeadpcmwaveformat(public var wfx: Waveformatex = Waveformatex(), public var wRevision: UShort = 0u)
+public data class Creativeadpcmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wRevision: UShort = 0u,
+)
 
-public data class Creativefastspeech10waveformat(public var wfx: Waveformatex = Waveformatex(), public var wRevision: UShort = 0u)
+public data class Creativefastspeech10waveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wRevision: UShort = 0u,
+)
 
-public data class Creativefastspeech8waveformat(public var wfx: Waveformatex = Waveformatex(), public var wRevision: UShort = 0u)
+public data class Creativefastspeech8waveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wRevision: UShort = 0u,
+)
 
-public data class Csimaadpcmwaveformat(public var wfx: Waveformatex = Waveformatex())
+public data class Csimaadpcmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
-public data class Dialogicokiadpcmwaveformat(public var ewf: Waveformatex = Waveformatex())
+public data class Dialogicokiadpcmwaveformat(
+    public var ewf: Waveformatex = Waveformatex(),
+)
 
-public data class Digiadpcmwaveformat(public var wfx: Waveformatex = Waveformatex(), public var wSamplesPerBlock: UShort = 0u)
+public data class Digiadpcmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wSamplesPerBlock: UShort = 0u,
+)
 
-public data class Digifixwaveformat(public var wfx: Waveformatex = Waveformatex())
+public data class Digifixwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
-public data class Digirealwaveformat(public var wfx: Waveformatex = Waveformatex(), public var wSamplesPerBlock: UShort = 0u)
+public data class Digirealwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wSamplesPerBlock: UShort = 0u,
+)
 
-public data class Digistdwaveformat(public var wfx: Waveformatex = Waveformatex())
+public data class Digistdwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
-public data class Dolbyac2waveformat(public var wfx: Waveformatex = Waveformatex(), public var nAuxBitsCode: UShort = 0u)
+public data class Dolbyac2waveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var nAuxBitsCode: UShort = 0u,
+)
 
 public data class Drawdibtime(
     public var timeCount: Int = 0,
@@ -350,17 +395,34 @@ public data class Drvconfiginfoex(
     public var dnDevNode: UInt = 0u,
 )
 
-public data class DrvmIoctlData(public var dwSize: UInt = 0u, public var dwCmd: UInt = 0u)
+public data class DrvmIoctlData(
+    public var dwSize: UInt = 0u,
+    public var dwCmd: UInt = 0u,
+)
 
-public data class Dviadpcmwaveformat(public var wfx: Waveformatex = Waveformatex(), public var wSamplesPerBlock: UShort = 0u)
+public data class Dviadpcmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wSamplesPerBlock: UShort = 0u,
+)
 
-public data class Echosc1waveformat(public var wfx: Waveformatex = Waveformatex())
+public data class Echosc1waveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
-public data class Exbminfoheader(public var bmi: Bitmapinfoheader = Bitmapinfoheader(), public var biExtDataOffset: UInt = 0u)
+public data class Exbminfoheader(
+    public var bmi: Bitmapinfoheader = Bitmapinfoheader(),
+    public var biExtDataOffset: UInt = 0u,
+)
 
-public data class FmtownsSndWaveformat(public var wfx: Waveformatex = Waveformatex(), public var wRevision: UShort = 0u)
+public data class FmtownsSndWaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wRevision: UShort = 0u,
+)
 
-public data class G721Adpcmwaveformat(public var wfx: Waveformatex = Waveformatex(), public var nAuxBlockSize: UShort = 0u)
+public data class G721Adpcmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var nAuxBlockSize: UShort = 0u,
+)
 
 public data class G723Adpcmwaveformat(
     public var wfx: Waveformatex = Waveformatex(),
@@ -368,7 +430,10 @@ public data class G723Adpcmwaveformat(
     public var nAuxBlockSize: UShort = 0u,
 )
 
-public data class Gsm610waveformat(public var wfx: Waveformatex = Waveformatex(), public var wSamplesPerBlock: UShort = 0u)
+public data class Gsm610waveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wSamplesPerBlock: UShort = 0u,
+)
 
 public data class Iccompress(
     public var dwFlags: UInt = 0u,
@@ -530,7 +595,10 @@ public data class Icsetstatusproc(
     public var status: Int = 0,
 )
 
-public data class Imaadpcmwaveformat(public var wfx: Waveformatex = Waveformatex(), public var wSamplesPerBlock: UShort = 0u)
+public data class Imaadpcmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wSamplesPerBlock: UShort = 0u,
+)
 
 public class Joycaps2a(
     public var wMid: UShort = 0u,
@@ -705,9 +773,15 @@ public data class MciAnimPlayParms(
     public var dwSpeed: UInt = 0u,
 )
 
-public data class MciAnimRectParms(public var dwCallback: Int = 0, public var rc: Rect = Rect())
+public data class MciAnimRectParms(
+    public var dwCallback: Int = 0,
+    public var rc: Rect = Rect(),
+)
 
-public data class MciAnimStepParms(public var dwCallback: Int = 0, public var dwFrames: UInt = 0u)
+public data class MciAnimStepParms(
+    public var dwCallback: Int = 0,
+    public var dwFrames: UInt = 0u,
+)
 
 public data class MciAnimUpdateParms(
     public var dwCallback: Int = 0,
@@ -756,7 +830,10 @@ public data class MciDgvCopyParms(
     public var dwVideoStream: UInt = 0u,
 )
 
-public data class MciDgvCueParms(public var dwCallback: Int = 0, public var dwTo: UInt = 0u)
+public data class MciDgvCueParms(
+    public var dwCallback: Int = 0,
+    public var dwTo: UInt = 0u,
+)
 
 public data class MciDgvCutParms(
     public var dwCallback: Int = 0,
@@ -867,7 +944,10 @@ public data class MciDgvRecordParms(
     public var dwVideoStream: UInt = 0u,
 )
 
-public data class MciDgvRectParms(public var dwCallback: Int = 0, public var rc: Rect = Rect())
+public data class MciDgvRectParms(
+    public var dwCallback: Int = 0,
+    public var rc: Rect = Rect(),
+)
 
 public data class MciDgvReserveParmsa(
     public var dwCallback: Int = 0,
@@ -976,7 +1056,10 @@ public data class MciDgvStatusParmsw(
     public var dwReference: UInt = 0u,
 )
 
-public data class MciDgvStepParms(public var dwCallback: Int = 0, public var dwFrames: UInt = 0u)
+public data class MciDgvStepParms(
+    public var dwCallback: Int = 0,
+    public var dwFrames: UInt = 0u,
+)
 
 public data class MciDgvUpdateParms(
     public var dwCallback: Int = 0,
@@ -998,7 +1081,9 @@ public data class MciDgvWindowParmsw(
     public var lpstrText: Pwstr = null,
 )
 
-public data class MciGenericParms(public var dwCallback: Int = 0)
+public data class MciGenericParms(
+    public var dwCallback: Int = 0,
+)
 
 public data class MciGetdevcapsParms(
     public var dwCallback: Int = 0,
@@ -1018,9 +1103,15 @@ public data class MciInfoParmsw(
     public var dwRetSize: UInt = 0u,
 )
 
-public data class MciLoadParmsa(public var dwCallback: Int = 0, public var lpfilename: Pcstr = null)
+public data class MciLoadParmsa(
+    public var dwCallback: Int = 0,
+    public var lpfilename: Pcstr = null,
+)
 
-public data class MciLoadParmsw(public var dwCallback: Int = 0, public var lpfilename: Pcwstr = null)
+public data class MciLoadParmsw(
+    public var dwCallback: Int = 0,
+    public var lpfilename: Pcwstr = null,
+)
 
 public data class MciOpenDriverParms(
     public var wDeviceID: UInt = 0u,
@@ -1077,7 +1168,10 @@ public data class MciOvlyOpenParmsw(
     public var hWndParent: Hwnd = null,
 )
 
-public data class MciOvlyRectParms(public var dwCallback: Int = 0, public var rc: Rect = Rect())
+public data class MciOvlyRectParms(
+    public var dwCallback: Int = 0,
+    public var rc: Rect = Rect(),
+)
 
 public data class MciOvlySaveParmsa(
     public var dwCallback: Int = 0,
@@ -1117,11 +1211,20 @@ public data class MciRecordParms(
     public var dwTo: UInt = 0u,
 )
 
-public data class MciSaveParmsa(public var dwCallback: Int = 0, public var lpfilename: Pcstr = null)
+public data class MciSaveParmsa(
+    public var dwCallback: Int = 0,
+    public var lpfilename: Pcstr = null,
+)
 
-public data class MciSaveParmsw(public var dwCallback: Int = 0, public var lpfilename: Pcwstr = null)
+public data class MciSaveParmsw(
+    public var dwCallback: Int = 0,
+    public var lpfilename: Pcwstr = null,
+)
 
-public data class MciSeekParms(public var dwCallback: Int = 0, public var dwTo: UInt = 0u)
+public data class MciSeekParms(
+    public var dwCallback: Int = 0,
+    public var dwTo: UInt = 0u,
+)
 
 public data class MciSeqSetParms(
     public var dwCallback: Int = 0,
@@ -1163,9 +1266,15 @@ public data class MciSysinfoParmsw(
     public var wDeviceType: UInt = 0u,
 )
 
-public data class MciVdEscapeParmsa(public var dwCallback: Int = 0, public var lpstrCommand: Pcstr = null)
+public data class MciVdEscapeParmsa(
+    public var dwCallback: Int = 0,
+    public var lpstrCommand: Pcstr = null,
+)
 
-public data class MciVdEscapeParmsw(public var dwCallback: Int = 0, public var lpstrCommand: Pcwstr = null)
+public data class MciVdEscapeParmsw(
+    public var dwCallback: Int = 0,
+    public var lpstrCommand: Pcwstr = null,
+)
 
 public data class MciVdPlayParms(
     public var dwCallback: Int = 0,
@@ -1174,7 +1283,10 @@ public data class MciVdPlayParms(
     public var dwSpeed: UInt = 0u,
 )
 
-public data class MciVdStepParms(public var dwCallback: Int = 0, public var dwFrames: UInt = 0u)
+public data class MciVdStepParms(
+    public var dwCallback: Int = 0,
+    public var dwFrames: UInt = 0u,
+)
 
 public data class MciWaveDeleteParms(
     public var dwCallback: Int = 0,
@@ -1218,9 +1330,15 @@ public data class MciWaveSetParms(
     public var wReserved5: UShort = 0u,
 )
 
-public data class Mediaspaceadpcmwaveformat(public var wfx: Waveformatex = Waveformatex(), public var wRevision: UShort = 0u)
+public data class Mediaspaceadpcmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wRevision: UShort = 0u,
+)
 
-public data class Midiopenstrmid(public var dwStreamID: UInt = 0u, public var uDeviceID: UInt = 0u)
+public data class Midiopenstrmid(
+    public var dwStreamID: UInt = 0u,
+    public var uDeviceID: UInt = 0u,
+)
 
 public data class Mixeropendesc(
     public var hmx: Hmixer = null,
@@ -1305,21 +1423,40 @@ public data class Msaudio1waveformat(
     public var wEncodeOptions: UShort = 0u,
 )
 
-public data class NmsVbxadpcmwaveformat(public var wfx: Waveformatex = Waveformatex(), public var wSamplesPerBlock: UShort = 0u)
+public data class NmsVbxadpcmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wSamplesPerBlock: UShort = 0u,
+)
 
-public data class Oliadpcmwaveformat(public var wfx: Waveformatex = Waveformatex())
+public data class Oliadpcmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
-public data class Olicelpwaveformat(public var wfx: Waveformatex = Waveformatex())
+public data class Olicelpwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
-public data class Oligsmwaveformat(public var wfx: Waveformatex = Waveformatex())
+public data class Oligsmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
-public data class Olioprwaveformat(public var wfx: Waveformatex = Waveformatex())
+public data class Olioprwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
-public data class Olisbcwaveformat(public var wfx: Waveformatex = Waveformatex())
+public data class Olisbcwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
-public data class Sierraadpcmwaveformat(public var wfx: Waveformatex = Waveformatex(), public var wRevision: UShort = 0u)
+public data class Sierraadpcmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wRevision: UShort = 0u,
+)
 
-public data class Sonarcwaveformat(public var wfx: Waveformatex = Waveformatex(), public var wCompType: UShort = 0u)
+public data class Sonarcwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+    public var wCompType: UShort = 0u,
+)
 
 public data class Timerevent(
     public var wDelay: UShort = 0u,
@@ -1415,7 +1552,9 @@ public data class Wmaudio3waveformat(
     public var wReserved3: UShort = 0u,
 )
 
-public data class YamahaAdpcmwaveformat(public var wfx: Waveformatex = Waveformatex())
+public data class YamahaAdpcmwaveformat(
+    public var wfx: Waveformatex = Waveformatex(),
+)
 
 public data class SRiffwaveInst(
     public var bUnshiftedNote: UByte = 0u,

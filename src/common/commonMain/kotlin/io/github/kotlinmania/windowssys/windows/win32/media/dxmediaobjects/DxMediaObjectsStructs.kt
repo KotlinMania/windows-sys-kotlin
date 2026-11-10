@@ -23,4 +23,7 @@ public data class DmoOutputDataBuffer(
     public var rtTimelength: Long = 0L,
 )
 
-public data class DmoPartialMediatype(public var type: Guid = Guid(), public var subtype: Guid = Guid())
+public data class DmoPartialMediatype(
+    public var type: Guid = Guid(),
+    public var subtype: Guid = Guid(),
+)

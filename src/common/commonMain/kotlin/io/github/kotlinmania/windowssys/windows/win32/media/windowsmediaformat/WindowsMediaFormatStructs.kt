@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.media.windowsmediaformat
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -11,7 +12,10 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Bitmapinfoheader
 
-public data class AmWmtEventData(public var hrStatus: Hresult = 0, public var pData: COpaquePointer? = null)
+public data class AmWmtEventData(
+    public var hrStatus: Hresult = 0,
+    public var pData: COpaquePointer? = null,
+)
 
 public data class DrmCopyOpl(
     public var wMinimumCopyLevel: UShort = 0u,
@@ -27,9 +31,15 @@ public data class DrmMinimumOutputProtectionLevels(
     public var wUncompressedDigitalAudio: UShort = 0u,
 )
 
-public data class DrmOplOutputIds(public var cIds: UShort = 0u, public var rgIds: Guid? = null)
+public data class DrmOplOutputIds(
+    public var cIds: UShort = 0u,
+    public var rgIds: Guid? = null,
+)
 
-public data class DrmOutputProtection(public var guidId: Guid = Guid(), public var bConfigData: UByte = 0u)
+public data class DrmOutputProtection(
+    public var guidId: Guid = Guid(),
+    public var bConfigData: UByte = 0u,
+)
 
 public data class DrmPlayOpl(
     public var minOPL: DrmMinimumOutputProtectionLevels = DrmMinimumOutputProtectionLevels(),
@@ -37,7 +47,9 @@ public data class DrmPlayOpl(
     public var vopi: DrmVideoOutputProtectionIds = DrmVideoOutputProtectionIds(),
 )
 
-public data class DrmVal16(public var value: UByteArray = UByteArray(16)) {
+public data class DrmVal16(
+    public var value: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DrmVal16) return false
@@ -45,12 +57,13 @@ public data class DrmVal16(public var value: UByteArray = UByteArray(16)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.value.contentHashCode()
-    }
+    override fun hashCode(): Int = this.value.contentHashCode()
 }
 
-public data class DrmVideoOutputProtectionIds(public var cEntries: UShort = 0u, public var rgVop: DrmOutputProtection? = null)
+public data class DrmVideoOutputProtectionIds(
+    public var cEntries: UShort = 0u,
+    public var rgVop: DrmOutputProtection? = null,
+)
 
 public data class WmdrmImportInitStruct(
     public var dwVersion: UInt = 0u,
@@ -94,7 +107,9 @@ public data class Wmmpeg2videoinfo(
     }
 }
 
-public data class Wmscriptformat(public var scriptType: Guid = Guid())
+public data class Wmscriptformat(
+    public var scriptType: Guid = Guid(),
+)
 
 public data class WmtBufferSegment(
     public var pBuffer: COpaquePointer? = null,
@@ -116,7 +131,10 @@ public data class WmtFilesinkDataUnit(
     public var pPayloadDataFragments: WmtPayloadFragment? = null,
 )
 
-public data class WmtPayloadFragment(public var dwPayloadIndex: UInt = 0u, public var segmentData: WmtBufferSegment = WmtBufferSegment())
+public data class WmtPayloadFragment(
+    public var dwPayloadIndex: UInt = 0u,
+    public var segmentData: WmtBufferSegment = WmtBufferSegment(),
+)
 
 public data class WmtTimecodeExtensionData(
     public var wRange: UShort = 0u,
@@ -245,9 +263,15 @@ public data class Wmvideoinfoheader2(
     public var bmiHeader: Bitmapinfoheader = Bitmapinfoheader(),
 )
 
-public data class WmAddressAccessentry(public var dwIPAddress: UInt = 0u, public var dwMask: UInt = 0u)
+public data class WmAddressAccessentry(
+    public var dwIPAddress: UInt = 0u,
+    public var dwMask: UInt = 0u,
+)
 
-public data class WmClientProperties(public var dwIPAddress: UInt = 0u, public var dwPort: UInt = 0u)
+public data class WmClientProperties(
+    public var dwIPAddress: UInt = 0u,
+    public var dwPort: UInt = 0u,
+)
 
 public data class WmClientPropertiesEx(
     public var cbSize: UInt = 0u,
@@ -256,7 +280,10 @@ public data class WmClientPropertiesEx(
     public var pwszDNSName: Pcwstr = null,
 )
 
-public data class WmLeakyBucketPair(public var dwBitrate: UInt = 0u, public var msBufferWindow: UInt = 0u)
+public data class WmLeakyBucketPair(
+    public var dwBitrate: UInt = 0u,
+    public var msBufferWindow: UInt = 0u,
+)
 
 public data class WmMediaType(
     public var majortype: Guid = Guid(),
@@ -278,7 +305,10 @@ public data class WmPicture(
     public var pbData: COpaquePointer? = null,
 )
 
-public data class WmPortNumberRange(public var wPortBegin: UShort = 0u, public var wPortEnd: UShort = 0u)
+public data class WmPortNumberRange(
+    public var wPortBegin: UShort = 0u,
+    public var wPortEnd: UShort = 0u,
+)
 
 public data class WmReaderClientinfo(
     public var cbSize: UInt = 0u,
@@ -301,9 +331,15 @@ public data class WmReaderStatistics(
     public var wQuality: UShort = 0u,
 )
 
-public data class WmStreamPriorityRecord(public var wStreamNumber: UShort = 0u, public var fMandatory: Bool = 0)
+public data class WmStreamPriorityRecord(
+    public var wStreamNumber: UShort = 0u,
+    public var fMandatory: Bool = 0,
+)
 
-public data class WmStreamTypeInfo(public var guidMajorType: Guid = Guid(), public var cbFormat: UInt = 0u)
+public data class WmStreamTypeInfo(
+    public var guidMajorType: Guid = Guid(),
+    public var cbFormat: UInt = 0u,
+)
 
 public data class WmSynchronisedLyrics(
     public var bTimeStampFormat: UByte = 0u,
@@ -313,9 +349,15 @@ public data class WmSynchronisedLyrics(
     public var pbLyrics: COpaquePointer? = null,
 )
 
-public data class WmUserText(public var pwszDescription: Pwstr = null, public var pwszText: Pwstr = null)
+public data class WmUserText(
+    public var pwszDescription: Pwstr = null,
+    public var pwszText: Pwstr = null,
+)
 
-public data class WmUserWebUrl(public var pwszDescription: Pwstr = null, public var pwszURL: Pwstr = null)
+public data class WmUserWebUrl(
+    public var pwszDescription: Pwstr = null,
+    public var pwszURL: Pwstr = null,
+)
 
 public data class WmWriterStatistics(
     public var qwSampleCount: ULong = 0uL,

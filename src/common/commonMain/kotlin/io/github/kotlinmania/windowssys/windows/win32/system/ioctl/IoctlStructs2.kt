@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
 import io.github.kotlinmania.windowssys.core.Guid
@@ -113,7 +114,9 @@ public data class PlexReadDataRequest(
     public var plexNumber: UInt = 0u,
 )
 
-public data class PreventMediaRemoval(public var preventMediaRemoval: Boolean = false)
+public data class PreventMediaRemoval(
+    public var preventMediaRemoval: Boolean = false,
+)
 
 public data class QueryBadRangesInput(
     public var flags: UInt = 0u,
@@ -121,7 +124,10 @@ public data class QueryBadRangesInput(
     public var ranges: List<QueryBadRangesInputRange> = List(1) { QueryBadRangesInputRange() },
 )
 
-public data class QueryBadRangesInputRange(public var startOffset: ULong = 0uL, public var lengthInBytes: ULong = 0uL)
+public data class QueryBadRangesInputRange(
+    public var startOffset: ULong = 0uL,
+    public var lengthInBytes: ULong = 0uL,
+)
 
 public data class QueryBadRangesOutput(
     public var flags: UInt = 0u,
@@ -145,7 +151,10 @@ public data class QueryFileLayoutInput(
     public var filter: QueryFileLayoutInput1 = QueryFileLayoutInput1(),
 )
 
-public data class QueryFileLayoutInput0(public var filterEntryCount: UInt = 0u, public var numberOfPairs: UInt = 0u)
+public data class QueryFileLayoutInput0(
+    public var filterEntryCount: UInt = 0u,
+    public var numberOfPairs: UInt = 0u,
+)
 
 public data class QueryFileLayoutInput1(
     public var clusterRanges: List<ClusterRange> = List(1) { ClusterRange() },
@@ -176,9 +185,15 @@ public data class QueryFileLayoutOutput(
     public var reserved: UInt = 0u,
 )
 
-public data class ReadElementAddressInfo(public var numberOfElements: UInt = 0u, public var elementStatus: List<ChangerElementStatus> = List(1) { ChangerElementStatus() })
+public data class ReadElementAddressInfo(
+    public var numberOfElements: UInt = 0u,
+    public var elementStatus: List<ChangerElementStatus> = List(1) { ChangerElementStatus() },
+)
 
-public data class ReadFileUsnData(public var minMajorVersion: UShort = 0u, public var maxMajorVersion: UShort = 0u)
+public data class ReadFileUsnData(
+    public var minMajorVersion: UShort = 0u,
+    public var maxMajorVersion: UShort = 0u,
+)
 
 public data class ReadUsnJournalDataV0(
     public var startUsn: Long = 0L,
@@ -410,7 +425,10 @@ public data class RequestOplockOutputBuffer(
     public var shareMode: UShort = 0u,
 )
 
-public data class RequestRawEncryptedData(public var fileOffset: Long = 0L, public var length: UInt = 0u)
+public data class RequestRawEncryptedData(
+    public var fileOffset: Long = 0L,
+    public var length: UInt = 0u,
+)
 
 public data class RetrievalPointersAndRefcountBuffer(
     public var extentCount: UInt = 0u,
@@ -430,11 +448,18 @@ public data class RetrievalPointersBuffer(
     public var extents: List<RetrievalPointersBuffer0> = List(1) { RetrievalPointersBuffer0() },
 )
 
-public data class RetrievalPointersBuffer0(public var nextVcn: Long = 0L, public var lcn: Long = 0L)
+public data class RetrievalPointersBuffer0(
+    public var nextVcn: Long = 0L,
+    public var lcn: Long = 0L,
+)
 
-public data class RetrievalPointerBase(public var fileAreaOffset: Long = 0L)
+public data class RetrievalPointerBase(
+    public var fileAreaOffset: Long = 0L,
+)
 
-public data class RetrievalPointerCount(public var extentCount: UInt = 0u)
+public data class RetrievalPointerCount(
+    public var extentCount: UInt = 0u,
+)
 
 public data class ScmBusDedicatedMemoryDevicesInfo(
     public var version: UInt = 0u,
@@ -450,9 +475,13 @@ public data class ScmBusDedicatedMemoryDeviceInfo(
     public var deviceSize: ULong = 0uL,
 )
 
-public data class ScmBusDedicatedMemoryDeviceInfo0(public var bitfield: UInt = 0u)
+public data class ScmBusDedicatedMemoryDeviceInfo0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ScmBusDedicatedMemoryState(public var activateState: Boolean = false)
+public data class ScmBusDedicatedMemoryState(
+    public var activateState: Boolean = false,
+)
 
 public data class ScmBusPropertyQuery(
     public var version: UInt = 0u,
@@ -522,9 +551,14 @@ public data class ScmBusRuntimeFwActivationInfo(
     public var platformSupportedMaxIOAccessQuiesceTimeInUSecs: ULong = 0uL,
 )
 
-public data class ScmBusRuntimeFwActivationInfo0(public var bitfield: UInt = 0u)
+public data class ScmBusRuntimeFwActivationInfo0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ScmInterleavedPdInfo(public var deviceHandle: UInt = 0u, public var deviceGuid: Guid = Guid())
+public data class ScmInterleavedPdInfo(
+    public var deviceHandle: UInt = 0u,
+    public var deviceGuid: Guid = Guid(),
+)
 
 public data class ScmLdInterleaveSetInfo(
     public var version: UInt = 0u,
@@ -565,7 +599,10 @@ public data class ScmLogicalDeviceInstance(
     }
 }
 
-public data class ScmPdDescriptorHeader(public var version: UInt = 0u, public var size: UInt = 0u)
+public data class ScmPdDescriptorHeader(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+)
 
 public data class ScmPdDeviceHandle(
     public var version: UInt = 0u,
@@ -606,7 +643,10 @@ public data class ScmPdDeviceSpecificInfo(
     public var deviceSpecificProperties: List<ScmPdDeviceSpecificProperty> = List(1) { ScmPdDeviceSpecificProperty() },
 )
 
-public data class ScmPdDeviceSpecificProperty(public var name: UShortArray = UShortArray(128), public var value: Long = 0L) {
+public data class ScmPdDeviceSpecificProperty(
+    public var name: UShortArray = UShortArray(128),
+    public var value: Long = 0L,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ScmPdDeviceSpecificProperty) return false
@@ -731,7 +771,9 @@ public data class ScmPdFruIdString(
     }
 }
 
-public data class ScmPdHealthNotificationData(public var deviceGuid: Guid = Guid())
+public data class ScmPdHealthNotificationData(
+    public var deviceGuid: Guid = Guid(),
+)
 
 public data class ScmPdLocationString(
     public var version: UInt = 0u,
@@ -954,7 +996,9 @@ public data class ScmPdReinitializeMediaInput(
     public var options: ScmPdReinitializeMediaInput0 = ScmPdReinitializeMediaInput0(),
 )
 
-public data class ScmPdReinitializeMediaInput0(public var bitfield: UInt = 0u)
+public data class ScmPdReinitializeMediaInput0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class ScmPdReinitializeMediaOutput(
     public var version: UInt = 0u,
@@ -962,7 +1006,9 @@ public data class ScmPdReinitializeMediaOutput(
     public var status: ScmPdMediaReinitializationStatus = 0,
 )
 
-public data class ScmPdRuntimeFwActivationArmState(public var armState: Boolean = false)
+public data class ScmPdRuntimeFwActivationArmState(
+    public var armState: Boolean = false,
+)
 
 public data class ScmPdRuntimeFwActivationInfo(
     public var version: UInt = 0u,
@@ -1070,7 +1116,10 @@ public data class SdEnumSdsEntry(
     }
 }
 
-public data class SdEnumSdsInput(public var startingOffset: ULong = 0uL, public var maxSDEntriesToReturn: ULong = 0uL)
+public data class SdEnumSdsInput(
+    public var startingOffset: ULong = 0uL,
+    public var maxSDEntriesToReturn: ULong = 0uL,
+)
 
 public data class SdEnumSdsOutput(
     public var nextOffset: ULong = 0uL,
@@ -1103,7 +1152,9 @@ public data class SdGlobalChangeOutput0(
     public var sdEnumSds: SdEnumSdsOutput = SdEnumSdsOutput(),
 )
 
-public data class SdQueryStatsInput(public var reserved: UInt = 0u)
+public data class SdQueryStatsInput(
+    public var reserved: UInt = 0u,
+)
 
 public data class SdQueryStatsOutput(
     public var sdsStreamSize: ULong = 0uL,
@@ -1207,13 +1258,23 @@ public data class SetDiskAttributes(
     }
 }
 
-public data class SetPartitionInformation(public var partitionType: UByte = 0u)
+public data class SetPartitionInformation(
+    public var partitionType: UByte = 0u,
+)
 
-public data class SetPartitionInformationEx(public var partitionStyle: PartitionStyle = 0, public var anonymous: SetPartitionInformationEx0 = SetPartitionInformationEx0())
+public data class SetPartitionInformationEx(
+    public var partitionStyle: PartitionStyle = 0,
+    public var anonymous: SetPartitionInformationEx0 = SetPartitionInformationEx0(),
+)
 
-public data class SetPartitionInformationEx0(public var mbr: SetPartitionInformation = SetPartitionInformation(), public var gpt: PartitionInformationGpt = PartitionInformationGpt())
+public data class SetPartitionInformationEx0(
+    public var mbr: SetPartitionInformation = SetPartitionInformation(),
+    public var gpt: PartitionInformationGpt = PartitionInformationGpt(),
+)
 
-public data class SetPurgeFailureModeInput(public var flags: UInt = 0u)
+public data class SetPurgeFailureModeInput(
+    public var flags: UInt = 0u,
+)
 
 public data class ShrinkVolumeInformation(
     public var shrinkRequestType: ShrinkVolumeRequestTypes = 0,
@@ -1246,15 +1307,26 @@ public data class SiCopyfile(
     }
 }
 
-public data class SmbShareFlushAndPurgeInput(public var version: UShort = 0u)
+public data class SmbShareFlushAndPurgeInput(
+    public var version: UShort = 0u,
+)
 
-public data class SmbShareFlushAndPurgeOutput(public var cEntriesPurged: UInt = 0u)
+public data class SmbShareFlushAndPurgeOutput(
+    public var cEntriesPurged: UInt = 0u,
+)
 
-public data class StartingLcnInputBuffer(public var startingLcn: Long = 0L)
+public data class StartingLcnInputBuffer(
+    public var startingLcn: Long = 0L,
+)
 
-public data class StartingLcnInputBufferEx(public var startingLcn: Long = 0L, public var flags: UInt = 0u)
+public data class StartingLcnInputBufferEx(
+    public var startingLcn: Long = 0L,
+    public var flags: UInt = 0u,
+)
 
-public data class StartingVcnInputBuffer(public var startingVcn: Long = 0L)
+public data class StartingVcnInputBuffer(
+    public var startingVcn: Long = 0L,
+)
 
 public data class StorageAccessAlignmentDescriptor(
     public var version: UInt = 0u,
@@ -1342,7 +1414,10 @@ public data class StorageAllocateBcStreamInput(
     }
 }
 
-public data class StorageAllocateBcStreamOutput(public var requestSize: ULong = 0uL, public var numOutStandingRequests: UInt = 0u)
+public data class StorageAllocateBcStreamOutput(
+    public var requestSize: ULong = 0uL,
+    public var numOutStandingRequests: UInt = 0u,
+)
 
 public data class StorageAttributeMgmt(
     public var version: UInt = 0u,
@@ -1359,13 +1434,24 @@ public data class StorageBreakReservationRequest(
     public var lun: UByte = 0u,
 )
 
-public data class StorageBusResetRequest(public var pathId: UByte = 0u)
+public data class StorageBusResetRequest(
+    public var pathId: UByte = 0u,
+)
 
-public data class StorageCounter(public var type: StorageCounterType = 0, public var value: StorageCounter0 = StorageCounter0())
+public data class StorageCounter(
+    public var type: StorageCounterType = 0,
+    public var value: StorageCounter0 = StorageCounter0(),
+)
 
-public data class StorageCounter0(public var manufactureDate: StorageCounter00 = StorageCounter00(), public var asUlonglong: ULong = 0uL)
+public data class StorageCounter0(
+    public var manufactureDate: StorageCounter00 = StorageCounter00(),
+    public var asUlonglong: ULong = 0uL,
+)
 
-public data class StorageCounter00(public var week: UInt = 0u, public var year: UInt = 0u)
+public data class StorageCounter00(
+    public var week: UInt = 0u,
+    public var year: UInt = 0u,
+)
 
 public data class StorageCounters(
     public var version: UInt = 0u,
@@ -1391,7 +1477,10 @@ public data class StorageCryptoDescriptor(
     public var cryptoCapabilities: List<StorageCryptoCapability> = List(1) { StorageCryptoCapability() },
 )
 
-public data class StorageDescriptorHeader(public var version: UInt = 0u, public var size: UInt = 0u)
+public data class StorageDescriptorHeader(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+)
 
 public data class StorageDeviceAttributesDescriptor(
     public var version: UInt = 0u,
@@ -1744,7 +1833,9 @@ public data class StorageHwEnduranceInfo(
     }
 }
 
-public data class StorageHwEnduranceInfo0(public var bitfield: UInt = 0u)
+public data class StorageHwEnduranceInfo0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class StorageHwFirmwareActivate(
     public var version: UInt = 0u,
@@ -2090,9 +2181,14 @@ public data class StorageMiniportDescriptor(
     }
 }
 
-public data class StorageMiniportDescriptor0(public var anonymous: StorageMiniportDescriptor00 = StorageMiniportDescriptor00(), public var asBYTE: UByte = 0u)
+public data class StorageMiniportDescriptor0(
+    public var anonymous: StorageMiniportDescriptor00 = StorageMiniportDescriptor00(),
+    public var asBYTE: UByte = 0u,
+)
 
-public data class StorageMiniportDescriptor00(public var bitfield: UByte = 0u)
+public data class StorageMiniportDescriptor00(
+    public var bitfield: UByte = 0u,
+)
 
 public data class StorageOffloadReadOutput(
     public var offloadReadFlags: UInt = 0u,
@@ -2127,7 +2223,10 @@ public data class StorageOffloadToken(
     }
 }
 
-public data class StorageOffloadToken0(public var storageOffloadZeroDataToken: StorageOffloadToken00 = StorageOffloadToken00(), public var token: UByteArray = UByteArray(504)) {
+public data class StorageOffloadToken0(
+    public var storageOffloadZeroDataToken: StorageOffloadToken00 = StorageOffloadToken00(),
+    public var token: UByteArray = UByteArray(504),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is StorageOffloadToken0) return false
@@ -2143,7 +2242,9 @@ public data class StorageOffloadToken0(public var storageOffloadZeroDataToken: S
     }
 }
 
-public data class StorageOffloadToken00(public var reserved2: UByteArray = UByteArray(504)) {
+public data class StorageOffloadToken00(
+    public var reserved2: UByteArray = UByteArray(504),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is StorageOffloadToken00) return false
@@ -2151,9 +2252,7 @@ public data class StorageOffloadToken00(public var reserved2: UByteArray = UByte
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.reserved2.contentHashCode()
-    }
+    override fun hashCode(): Int = this.reserved2.contentHashCode()
 }
 
 public data class StorageOffloadWriteOutput(
@@ -2344,7 +2443,10 @@ public data class StoragePhysicalTopologyDescriptor(
     public var node: List<StoragePhysicalNodeData> = List(1) { StoragePhysicalNodeData() },
 )
 
-public data class StoragePredictFailure(public var predictFailure: UInt = 0u, public var vendorSpecific: UByteArray = UByteArray(512)) {
+public data class StoragePredictFailure(
+    public var predictFailure: UInt = 0u,
+    public var vendorSpecific: UByteArray = UByteArray(512),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is StoragePredictFailure) return false
@@ -2360,7 +2462,9 @@ public data class StoragePredictFailure(public var predictFailure: UInt = 0u, pu
     }
 }
 
-public data class StoragePriorityHintSupport(public var supportFlags: UInt = 0u)
+public data class StoragePriorityHintSupport(
+    public var supportFlags: UInt = 0u,
+)
 
 public data class StoragePropertyQuery(
     public var propertyId: StoragePropertyId = 0,
@@ -2440,9 +2544,14 @@ public data class StorageProtocolDataDescriptorExt(
     public var protocolSpecificData: StorageProtocolSpecificDataExt = StorageProtocolSpecificDataExt(),
 )
 
-public data class StorageProtocolDataSubvalueGetLogPage(public var anonymous: StorageProtocolDataSubvalueGetLogPage0 = StorageProtocolDataSubvalueGetLogPage0(), public var asUlong: UInt = 0u)
+public data class StorageProtocolDataSubvalueGetLogPage(
+    public var anonymous: StorageProtocolDataSubvalueGetLogPage0 = StorageProtocolDataSubvalueGetLogPage0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class StorageProtocolDataSubvalueGetLogPage0(public var bitfield: UInt = 0u)
+public data class StorageProtocolDataSubvalueGetLogPage0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class StorageProtocolSpecificData(
     public var protocolType: StorageProtocolType = 0,
@@ -2529,7 +2638,10 @@ public data class StorageQueryDependentVolumeLev2Entry(
     public var dependentDeviceNameSize: UInt = 0u,
 )
 
-public data class StorageQueryDependentVolumeRequest(public var requestLevel: UInt = 0u, public var requestFlags: UInt = 0u)
+public data class StorageQueryDependentVolumeRequest(
+    public var requestLevel: UInt = 0u,
+    public var requestFlags: UInt = 0u,
+)
 
 public data class StorageQueryDependentVolumeResponse(
     public var responseLevel: UInt = 0u,
@@ -2537,7 +2649,10 @@ public data class StorageQueryDependentVolumeResponse(
     public var anonymous: StorageQueryDependentVolumeResponse0 = StorageQueryDependentVolumeResponse0(),
 )
 
-public data class StorageQueryDependentVolumeResponse0(public var lev1Depends: List<StorageQueryDependentVolumeLev1Entry> = List(1) { StorageQueryDependentVolumeLev1Entry() }, public var lev2Depends: List<StorageQueryDependentVolumeLev2Entry> = List(1) { StorageQueryDependentVolumeLev2Entry() })
+public data class StorageQueryDependentVolumeResponse0(
+    public var lev1Depends: List<StorageQueryDependentVolumeLev1Entry> = List(1) { StorageQueryDependentVolumeLev1Entry() },
+    public var lev2Depends: List<StorageQueryDependentVolumeLev2Entry> = List(1) { StorageQueryDependentVolumeLev2Entry() },
+)
 
 public data class StorageReadCapacity(
     public var version: UInt = 0u,
@@ -2554,7 +2669,9 @@ public data class StorageReinitializeMedia(
     public var sanitizeOption: StorageReinitializeMedia0 = StorageReinitializeMedia0(),
 )
 
-public data class StorageReinitializeMedia0(public var bitfield: UInt = 0u)
+public data class StorageReinitializeMedia0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class StorageRpmbDataFrame(
     public var stuff: UByteArray = UByteArray(196),
@@ -2604,13 +2721,25 @@ public data class StorageRpmbDescriptor(
     public var frameFormat: StorageRpmbFrameType = 0,
 )
 
-public data class StorageSpecVersion(public var anonymous: StorageSpecVersion0 = StorageSpecVersion0(), public var asUlong: UInt = 0u)
+public data class StorageSpecVersion(
+    public var anonymous: StorageSpecVersion0 = StorageSpecVersion0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class StorageSpecVersion0(public var minorVersion: StorageSpecVersion00 = StorageSpecVersion00(), public var majorVersion: UShort = 0u)
+public data class StorageSpecVersion0(
+    public var minorVersion: StorageSpecVersion00 = StorageSpecVersion00(),
+    public var majorVersion: UShort = 0u,
+)
 
-public data class StorageSpecVersion00(public var anonymous: StorageSpecVersion000 = StorageSpecVersion000(), public var asUshort: UShort = 0u)
+public data class StorageSpecVersion00(
+    public var anonymous: StorageSpecVersion000 = StorageSpecVersion000(),
+    public var asUshort: UShort = 0u,
+)
 
-public data class StorageSpecVersion000(public var subMinor: UByte = 0u, public var minor: UByte = 0u)
+public data class StorageSpecVersion000(
+    public var subMinor: UByte = 0u,
+    public var minor: UByte = 0u,
+)
 
 public data class StorageTemperatureDataDescriptor(
     public var version: UInt = 0u,
@@ -2733,9 +2862,15 @@ public data class StorageZonedDeviceDescriptor(
     public var zoneGroup: List<StorageZoneGroup> = List(1) { StorageZoneGroup() },
 )
 
-public data class StorageZonedDeviceDescriptor0(public var sequentialRequiredZone: StorageZonedDeviceDescriptor00 = StorageZonedDeviceDescriptor00(), public var sequentialPreferredZone: StorageZonedDeviceDescriptor01 = StorageZonedDeviceDescriptor01())
+public data class StorageZonedDeviceDescriptor0(
+    public var sequentialRequiredZone: StorageZonedDeviceDescriptor00 = StorageZonedDeviceDescriptor00(),
+    public var sequentialPreferredZone: StorageZonedDeviceDescriptor01 = StorageZonedDeviceDescriptor01(),
+)
 
-public data class StorageZonedDeviceDescriptor01(public var optimalOpenZoneCount: UInt = 0u, public var reserved: UInt = 0u)
+public data class StorageZonedDeviceDescriptor01(
+    public var optimalOpenZoneCount: UInt = 0u,
+    public var reserved: UInt = 0u,
+)
 
 public data class StorageZonedDeviceDescriptor00(
     public var maxOpenZoneCount: UInt = 0u,
@@ -2799,9 +2934,14 @@ public data class StorageZoneGroup(
     public var zoneSize: ULong = 0uL,
 )
 
-public data class StreamsAssociateIdInputBuffer(public var flags: UInt = 0u, public var streamId: UInt = 0u)
+public data class StreamsAssociateIdInputBuffer(
+    public var flags: UInt = 0u,
+    public var streamId: UInt = 0u,
+)
 
-public data class StreamsQueryIdOutputBuffer(public var streamId: UInt = 0u)
+public data class StreamsQueryIdOutputBuffer(
+    public var streamId: UInt = 0u,
+)
 
 public data class StreamsQueryParametersOutputBuffer(
     public var optimalWriteSize: UInt = 0u,
@@ -2810,9 +2950,14 @@ public data class StreamsQueryParametersOutputBuffer(
     public var streamIdMax: UInt = 0u,
 )
 
-public data class StreamExtentEntry(public var flags: UInt = 0u, public var extentInformation: StreamExtentEntry0 = StreamExtentEntry0())
+public data class StreamExtentEntry(
+    public var flags: UInt = 0u,
+    public var extentInformation: StreamExtentEntry0 = StreamExtentEntry0(),
+)
 
-public data class StreamExtentEntry0(public var retrievalPointers: RetrievalPointersBuffer = RetrievalPointersBuffer())
+public data class StreamExtentEntry0(
+    public var retrievalPointers: RetrievalPointersBuffer = RetrievalPointersBuffer(),
+)
 
 public data class StreamInformationEntry(
     public var version: UInt = 0u,
@@ -2834,7 +2979,10 @@ public data class StreamInformationEntry01(
     public var vdl: ULong = 0uL,
 )
 
-public data class StreamInformationEntry00(public var cls: FileStorageTierClass = 0, public var flags: UInt = 0u)
+public data class StreamInformationEntry00(
+    public var cls: FileStorageTierClass = 0,
+    public var flags: UInt = 0u,
+)
 
 public data class StreamInformationEntry03(
     public var length: UShort = 0u,
@@ -2896,7 +3044,9 @@ public data class StreamLayoutEntry(
     }
 }
 
-public data class TapeGetStatistics(public var operation: UInt = 0u)
+public data class TapeGetStatistics(
+    public var operation: UInt = 0u,
+)
 
 public data class TapeStatistics(
     public var version: UInt = 0u,
@@ -2923,7 +3073,10 @@ public data class TxfsGetMetadataInfoOut(
     public var transactionState: UInt = 0u,
 )
 
-public data class TxfsGetMetadataInfoOut0(public var lowPart: Long = 0L, public var highPart: Long = 0L)
+public data class TxfsGetMetadataInfoOut0(
+    public var lowPart: Long = 0L,
+    public var highPart: Long = 0L,
+)
 
 public data class TxfsGetTransactedVersion(
     public var thisBaseVersion: UInt = 0u,
@@ -2933,7 +3086,10 @@ public data class TxfsGetTransactedVersion(
     public var latestMiniVersion: UShort = 0u,
 )
 
-public data class TxfsListTransactions(public var numberOfTransactions: ULong = 0uL, public var bufferSizeRequired: ULong = 0uL)
+public data class TxfsListTransactions(
+    public var numberOfTransactions: ULong = 0uL,
+    public var bufferSizeRequired: ULong = 0uL,
+)
 
 public data class TxfsListTransactionsEntry(
     public var transactionId: Guid = Guid(),
@@ -3024,9 +3180,14 @@ public class TxfsQueryRmInformation(
     public var tmLogPathOffset: UInt = 0u,
 )
 
-public data class TxfsReadBackupInformationOut(public var anonymous: TxfsReadBackupInformationOut0 = TxfsReadBackupInformationOut0())
+public data class TxfsReadBackupInformationOut(
+    public var anonymous: TxfsReadBackupInformationOut0 = TxfsReadBackupInformationOut0(),
+)
 
-public data class TxfsReadBackupInformationOut0(public var bufferLength: UInt = 0u, public var buffer: UByteArray = UByteArray(1)) {
+public data class TxfsReadBackupInformationOut0(
+    public var bufferLength: UInt = 0u,
+    public var buffer: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is TxfsReadBackupInformationOut0) return false
@@ -3104,9 +3265,13 @@ public data class TxfsStartRmInformation(
     }
 }
 
-public data class TxfsTransactionActiveInfo(public var transactionsActiveAtSnapshot: Boolean = false)
+public data class TxfsTransactionActiveInfo(
+    public var transactionsActiveAtSnapshot: Boolean = false,
+)
 
-public data class TxfsWriteBackupInformation(public var buffer: UByteArray = UByteArray(1)) {
+public data class TxfsWriteBackupInformation(
+    public var buffer: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is TxfsWriteBackupInformation) return false
@@ -3114,9 +3279,7 @@ public data class TxfsWriteBackupInformation(public var buffer: UByteArray = UBy
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.buffer.contentHashCode()
-    }
+    override fun hashCode(): Int = this.buffer.contentHashCode()
 }
 
 public data class UsnJournalDataV0(
@@ -3156,7 +3319,9 @@ public data class UsnJournalDataV2(
     public var rangeTrackFileSizeThreshold: Long = 0L,
 )
 
-public data class UsnRangeTrackOutput(public var usn: Long = 0L)
+public data class UsnRangeTrackOutput(
+    public var usn: Long = 0L,
+)
 
 public data class UsnRecordCommonHeader(
     public var recordLength: UInt = 0u,
@@ -3164,7 +3329,10 @@ public data class UsnRecordCommonHeader(
     public var minorVersion: UShort = 0u,
 )
 
-public data class UsnRecordExtent(public var offset: Long = 0L, public var length: Long = 0L)
+public data class UsnRecordExtent(
+    public var offset: Long = 0L,
+    public var length: Long = 0L,
+)
 
 public data class UsnRecordUnion(
     public var header: UsnRecordCommonHeader = UsnRecordCommonHeader(),

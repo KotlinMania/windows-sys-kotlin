@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -36,9 +37,15 @@ import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.Net
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetLuidLh
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.TunnelType
 
-public data class ArpSendReply(public var destAddress: UInt = 0u, public var srcAddress: UInt = 0u)
+public data class ArpSendReply(
+    public var destAddress: UInt = 0u,
+    public var srcAddress: UInt = 0u,
+)
 
-public data class DnsDohServerSettings(public var template: Pwstr = null, public var flags: ULong = 0uL)
+public data class DnsDohServerSettings(
+    public var template: Pwstr = null,
+    public var flags: ULong = 0uL,
+)
 
 public data class DnsInterfaceSettings(
     public var version: UInt = 0u,
@@ -105,7 +112,9 @@ public data class DnsServerProperty(
     public var property: DnsServerPropertyTypes = DnsServerPropertyTypes(),
 )
 
-public data class DnsServerPropertyTypes(public var dohSettings: DnsDohServerSettings? = null)
+public data class DnsServerPropertyTypes(
+    public var dohSettings: DnsDohServerSettings? = null,
+)
 
 public data class DnsSettings(
     public var version: UInt = 0u,
@@ -287,13 +296,24 @@ public class IpAdapterAddressesLh(
     public var firstDnsSuffix: IpAdapterDnsSuffix? = null,
 )
 
-public data class IpAdapterAddressesLh0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterAddressesLh00 = IpAdapterAddressesLh00())
+public data class IpAdapterAddressesLh0(
+    public var alignment: ULong = 0uL,
+    public var anonymous: IpAdapterAddressesLh00 = IpAdapterAddressesLh00(),
+)
 
-public data class IpAdapterAddressesLh00(public var length: UInt = 0u, public var ifIndex: UInt = 0u)
+public data class IpAdapterAddressesLh00(
+    public var length: UInt = 0u,
+    public var ifIndex: UInt = 0u,
+)
 
-public data class IpAdapterAddressesLh1(public var flags: UInt = 0u, public var anonymous: IpAdapterAddressesLh10 = IpAdapterAddressesLh10())
+public data class IpAdapterAddressesLh1(
+    public var flags: UInt = 0u,
+    public var anonymous: IpAdapterAddressesLh10 = IpAdapterAddressesLh10(),
+)
 
-public data class IpAdapterAddressesLh10(public var bitfield: UInt = 0u)
+public data class IpAdapterAddressesLh10(
+    public var bitfield: UInt = 0u,
+)
 
 public class IpAdapterAddressesXp(
     public var anonymous: IpAdapterAddressesXp0 = IpAdapterAddressesXp0(),
@@ -317,9 +337,15 @@ public class IpAdapterAddressesXp(
     public var firstPrefix: IpAdapterPrefixXp? = null,
 )
 
-public data class IpAdapterAddressesXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterAddressesXp00 = IpAdapterAddressesXp00())
+public data class IpAdapterAddressesXp0(
+    public var alignment: ULong = 0uL,
+    public var anonymous: IpAdapterAddressesXp00 = IpAdapterAddressesXp00(),
+)
 
-public data class IpAdapterAddressesXp00(public var length: UInt = 0u, public var ifIndex: UInt = 0u)
+public data class IpAdapterAddressesXp00(
+    public var length: UInt = 0u,
+    public var ifIndex: UInt = 0u,
+)
 
 public data class IpAdapterAnycastAddressXp(
     public var anonymous: IpAdapterAnycastAddressXp0 = IpAdapterAnycastAddressXp0(),
@@ -327,9 +353,15 @@ public data class IpAdapterAnycastAddressXp(
     public var address: SocketAddress = SocketAddress(),
 )
 
-public data class IpAdapterAnycastAddressXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterAnycastAddressXp00 = IpAdapterAnycastAddressXp00())
+public data class IpAdapterAnycastAddressXp0(
+    public var alignment: ULong = 0uL,
+    public var anonymous: IpAdapterAnycastAddressXp00 = IpAdapterAnycastAddressXp00(),
+)
 
-public data class IpAdapterAnycastAddressXp00(public var length: UInt = 0u, public var flags: UInt = 0u)
+public data class IpAdapterAnycastAddressXp00(
+    public var length: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
 public data class IpAdapterDnsServerAddressXp(
     public var anonymous: IpAdapterDnsServerAddressXp0 = IpAdapterDnsServerAddressXp0(),
@@ -337,11 +369,20 @@ public data class IpAdapterDnsServerAddressXp(
     public var address: SocketAddress = SocketAddress(),
 )
 
-public data class IpAdapterDnsServerAddressXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterDnsServerAddressXp00 = IpAdapterDnsServerAddressXp00())
+public data class IpAdapterDnsServerAddressXp0(
+    public var alignment: ULong = 0uL,
+    public var anonymous: IpAdapterDnsServerAddressXp00 = IpAdapterDnsServerAddressXp00(),
+)
 
-public data class IpAdapterDnsServerAddressXp00(public var length: UInt = 0u, public var reserved: UInt = 0u)
+public data class IpAdapterDnsServerAddressXp00(
+    public var length: UInt = 0u,
+    public var reserved: UInt = 0u,
+)
 
-public data class IpAdapterDnsSuffix(public var next: IpAdapterDnsSuffix? = null, public var string: UShortArray = UShortArray(256)) {
+public data class IpAdapterDnsSuffix(
+    public var next: IpAdapterDnsSuffix? = null,
+    public var string: UShortArray = UShortArray(256),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpAdapterDnsSuffix) return false
@@ -363,11 +404,20 @@ public data class IpAdapterGatewayAddressLh(
     public var address: SocketAddress = SocketAddress(),
 )
 
-public data class IpAdapterGatewayAddressLh0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterGatewayAddressLh00 = IpAdapterGatewayAddressLh00())
+public data class IpAdapterGatewayAddressLh0(
+    public var alignment: ULong = 0uL,
+    public var anonymous: IpAdapterGatewayAddressLh00 = IpAdapterGatewayAddressLh00(),
+)
 
-public data class IpAdapterGatewayAddressLh00(public var length: UInt = 0u, public var reserved: UInt = 0u)
+public data class IpAdapterGatewayAddressLh00(
+    public var length: UInt = 0u,
+    public var reserved: UInt = 0u,
+)
 
-public data class IpAdapterIndexMap(public var index: UInt = 0u, public var name: UShortArray = UShortArray(128)) {
+public data class IpAdapterIndexMap(
+    public var index: UInt = 0u,
+    public var name: UShortArray = UShortArray(128),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpAdapterIndexMap) return false
@@ -410,11 +460,20 @@ public data class IpAdapterMulticastAddressXp(
     public var address: SocketAddress = SocketAddress(),
 )
 
-public data class IpAdapterMulticastAddressXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterMulticastAddressXp00 = IpAdapterMulticastAddressXp00())
+public data class IpAdapterMulticastAddressXp0(
+    public var alignment: ULong = 0uL,
+    public var anonymous: IpAdapterMulticastAddressXp00 = IpAdapterMulticastAddressXp00(),
+)
 
-public data class IpAdapterMulticastAddressXp00(public var length: UInt = 0u, public var flags: UInt = 0u)
+public data class IpAdapterMulticastAddressXp00(
+    public var length: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
-public data class IpAdapterOrderMap(public var numAdapters: UInt = 0u, public var adapterOrder: UIntArray = UIntArray(1)) {
+public data class IpAdapterOrderMap(
+    public var numAdapters: UInt = 0u,
+    public var adapterOrder: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpAdapterOrderMap) return false
@@ -437,9 +496,15 @@ public data class IpAdapterPrefixXp(
     public var prefixLength: UInt = 0u,
 )
 
-public data class IpAdapterPrefixXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterPrefixXp00 = IpAdapterPrefixXp00())
+public data class IpAdapterPrefixXp0(
+    public var alignment: ULong = 0uL,
+    public var anonymous: IpAdapterPrefixXp00 = IpAdapterPrefixXp00(),
+)
 
-public data class IpAdapterPrefixXp00(public var length: UInt = 0u, public var flags: UInt = 0u)
+public data class IpAdapterPrefixXp00(
+    public var length: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
 public data class IpAdapterUnicastAddressLh(
     public var anonymous: IpAdapterUnicastAddressLh0 = IpAdapterUnicastAddressLh0(),
@@ -454,9 +519,15 @@ public data class IpAdapterUnicastAddressLh(
     public var onLinkPrefixLength: UByte = 0u,
 )
 
-public data class IpAdapterUnicastAddressLh0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterUnicastAddressLh00 = IpAdapterUnicastAddressLh00())
+public data class IpAdapterUnicastAddressLh0(
+    public var alignment: ULong = 0uL,
+    public var anonymous: IpAdapterUnicastAddressLh00 = IpAdapterUnicastAddressLh00(),
+)
 
-public data class IpAdapterUnicastAddressLh00(public var length: UInt = 0u, public var flags: UInt = 0u)
+public data class IpAdapterUnicastAddressLh00(
+    public var length: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
 public data class IpAdapterUnicastAddressXp(
     public var anonymous: IpAdapterUnicastAddressXp0 = IpAdapterUnicastAddressXp0(),
@@ -470,9 +541,15 @@ public data class IpAdapterUnicastAddressXp(
     public var leaseLifetime: UInt = 0u,
 )
 
-public data class IpAdapterUnicastAddressXp0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterUnicastAddressXp00 = IpAdapterUnicastAddressXp00())
+public data class IpAdapterUnicastAddressXp0(
+    public var alignment: ULong = 0uL,
+    public var anonymous: IpAdapterUnicastAddressXp00 = IpAdapterUnicastAddressXp00(),
+)
 
-public data class IpAdapterUnicastAddressXp00(public var length: UInt = 0u, public var flags: UInt = 0u)
+public data class IpAdapterUnicastAddressXp00(
+    public var length: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
 public data class IpAdapterWinsServerAddressLh(
     public var anonymous: IpAdapterWinsServerAddressLh0 = IpAdapterWinsServerAddressLh0(),
@@ -480,13 +557,24 @@ public data class IpAdapterWinsServerAddressLh(
     public var address: SocketAddress = SocketAddress(),
 )
 
-public data class IpAdapterWinsServerAddressLh0(public var alignment: ULong = 0uL, public var anonymous: IpAdapterWinsServerAddressLh00 = IpAdapterWinsServerAddressLh00())
+public data class IpAdapterWinsServerAddressLh0(
+    public var alignment: ULong = 0uL,
+    public var anonymous: IpAdapterWinsServerAddressLh00 = IpAdapterWinsServerAddressLh00(),
+)
 
-public data class IpAdapterWinsServerAddressLh00(public var length: UInt = 0u, public var reserved: UInt = 0u)
+public data class IpAdapterWinsServerAddressLh00(
+    public var length: UInt = 0u,
+    public var reserved: UInt = 0u,
+)
 
-public data class IpAddressPrefix(public var prefix: SockaddrInet = SockaddrInet(), public var prefixLength: UByte = 0u)
+public data class IpAddressPrefix(
+    public var prefix: SockaddrInet = SockaddrInet(),
+    public var prefixLength: UByte = 0u,
+)
 
-public data class IpAddressString(public var string: ByteArray = ByteArray(16)) {
+public data class IpAddressString(
+    public var string: ByteArray = ByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpAddressString) return false
@@ -494,9 +582,7 @@ public data class IpAddressString(public var string: ByteArray = ByteArray(16)) 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.string.contentHashCode()
-    }
+    override fun hashCode(): Int = this.string.contentHashCode()
 }
 
 public data class IpAddrString(
@@ -506,7 +592,10 @@ public data class IpAddrString(
     public var context: UInt = 0u,
 )
 
-public data class IpInterfaceInfo(public var numAdapters: Int = 0, public var adapter: List<IpAdapterIndexMap> = List(1) { IpAdapterIndexMap() })
+public data class IpInterfaceInfo(
+    public var numAdapters: Int = 0,
+    public var adapter: List<IpAdapterIndexMap> = List(1) { IpAdapterIndexMap() },
+)
 
 public data class IpInterfaceNameInfoW2ksp1(
     public var index: UInt = 0u,
@@ -547,7 +636,10 @@ public data class IpPerAdapterInfoW2ksp1(
     public var dnsServerList: IpAddrString = IpAddrString(),
 )
 
-public data class IpUnidirectionalAdapterAddress(public var numAdapters: UInt = 0u, public var address: UIntArray = UIntArray(1)) {
+public data class IpUnidirectionalAdapterAddress(
+    public var numAdapters: UInt = 0u,
+    public var address: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpUnidirectionalAdapterAddress) return false
@@ -563,7 +655,10 @@ public data class IpUnidirectionalAdapterAddress(public var numAdapters: UInt = 
     }
 }
 
-public data class Mibicmpinfo(public var icmpInStats: Mibicmpstats = Mibicmpstats(), public var icmpOutStats: Mibicmpstats = Mibicmpstats())
+public data class Mibicmpinfo(
+    public var icmpInStats: Mibicmpstats = Mibicmpstats(),
+    public var icmpOutStats: Mibicmpstats = Mibicmpstats(),
+)
 
 public data class Mibicmpstats(
     public var dwMsgs: UInt = 0u,
@@ -610,17 +705,33 @@ public data class MibAnycastipaddressRow(
     public var scopeId: ScopeId = ScopeId(),
 )
 
-public data class MibAnycastipaddressTable(public var numEntries: UInt = 0u, public var table: List<MibAnycastipaddressRow> = List(1) { MibAnycastipaddressRow() })
+public data class MibAnycastipaddressTable(
+    public var numEntries: UInt = 0u,
+    public var table: List<MibAnycastipaddressRow> = List(1) { MibAnycastipaddressRow() },
+)
 
-public data class MibBestIf(public var dwDestAddr: UInt = 0u, public var dwIfIndex: UInt = 0u)
+public data class MibBestIf(
+    public var dwDestAddr: UInt = 0u,
+    public var dwIfIndex: UInt = 0u,
+)
 
-public data class MibBoundaryrow(public var dwGroupAddress: UInt = 0u, public var dwGroupMask: UInt = 0u)
+public data class MibBoundaryrow(
+    public var dwGroupAddress: UInt = 0u,
+    public var dwGroupMask: UInt = 0u,
+)
 
-public data class MibIcmp(public var stats: Mibicmpinfo = Mibicmpinfo())
+public data class MibIcmp(
+    public var stats: Mibicmpinfo = Mibicmpinfo(),
+)
 
-public data class MibIcmpExXpsp1(public var icmpInStats: MibicmpstatsExXpsp1 = MibicmpstatsExXpsp1(), public var icmpOutStats: MibicmpstatsExXpsp1 = MibicmpstatsExXpsp1())
+public data class MibIcmpExXpsp1(
+    public var icmpInStats: MibicmpstatsExXpsp1 = MibicmpstatsExXpsp1(),
+    public var icmpOutStats: MibicmpstatsExXpsp1 = MibicmpstatsExXpsp1(),
+)
 
-public data class MibIfnumber(public var dwValue: UInt = 0u)
+public data class MibIfnumber(
+    public var dwValue: UInt = 0u,
+)
 
 public class MibIfrow(
     public var wszName: UShortArray = UShortArray(256),
@@ -649,9 +760,15 @@ public class MibIfrow(
     public var bDescr: UByteArray = UByteArray(256),
 )
 
-public data class MibIfstackRow(public var higherLayerInterfaceIndex: UInt = 0u, public var lowerLayerInterfaceIndex: UInt = 0u)
+public data class MibIfstackRow(
+    public var higherLayerInterfaceIndex: UInt = 0u,
+    public var lowerLayerInterfaceIndex: UInt = 0u,
+)
 
-public data class MibIfstackTable(public var numEntries: UInt = 0u, public var table: List<MibIfstackRow> = List(1) { MibIfstackRow() })
+public data class MibIfstackTable(
+    public var numEntries: UInt = 0u,
+    public var table: List<MibIfstackRow> = List(1) { MibIfstackRow() },
+)
 
 public data class MibIfstatus(
     public var dwIfIndex: UInt = 0u,
@@ -661,7 +778,10 @@ public data class MibIfstatus(
     public var bMHbeatAlive: Bool = 0,
 )
 
-public data class MibIftable(public var dwNumEntries: UInt = 0u, public var table: List<MibIfrow> = List(1) { MibIfrow() })
+public data class MibIftable(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibIfrow> = List(1) { MibIfrow() },
+)
 
 public class MibIfRow2(
     public var interfaceLuid: NetLuidLh = NetLuidLh(),
@@ -707,13 +827,24 @@ public class MibIfRow2(
     public var outQLen: ULong = 0uL,
 )
 
-public data class MibIfRow20(public var bitfield: UByte = 0u)
+public data class MibIfRow20(
+    public var bitfield: UByte = 0u,
+)
 
-public data class MibIfTable2(public var numEntries: UInt = 0u, public var table: List<MibIfRow2> = List(1) { MibIfRow2() })
+public data class MibIfTable2(
+    public var numEntries: UInt = 0u,
+    public var table: List<MibIfRow2> = List(1) { MibIfRow2() },
+)
 
-public data class MibInvertedifstackRow(public var lowerLayerInterfaceIndex: UInt = 0u, public var higherLayerInterfaceIndex: UInt = 0u)
+public data class MibInvertedifstackRow(
+    public var lowerLayerInterfaceIndex: UInt = 0u,
+    public var higherLayerInterfaceIndex: UInt = 0u,
+)
 
-public data class MibInvertedifstackTable(public var numEntries: UInt = 0u, public var table: List<MibInvertedifstackRow> = List(1) { MibInvertedifstackRow() })
+public data class MibInvertedifstackTable(
+    public var numEntries: UInt = 0u,
+    public var table: List<MibInvertedifstackRow> = List(1) { MibInvertedifstackRow() },
+)
 
 public data class MibIpaddrrowW2k(
     public var dwAddr: UInt = 0u,
@@ -735,7 +866,10 @@ public data class MibIpaddrrowXp(
     public var wType: UShort = 0u,
 )
 
-public data class MibIpaddrtable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpaddrrowXp> = List(1) { MibIpaddrrowXp() })
+public data class MibIpaddrtable(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibIpaddrrowXp> = List(1) { MibIpaddrrowXp() },
+)
 
 public data class MibIpdestrow(
     public var forwardRow: MibIpforwardrow = MibIpforwardrow(),
@@ -743,9 +877,14 @@ public data class MibIpdestrow(
     public var dwForwardViewSet: UInt = 0u,
 )
 
-public data class MibIpdesttable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpdestrow> = List(1) { MibIpdestrow() })
+public data class MibIpdesttable(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibIpdestrow> = List(1) { MibIpdestrow() },
+)
 
-public data class MibIpforwardnumber(public var dwValue: UInt = 0u)
+public data class MibIpforwardnumber(
+    public var dwValue: UInt = 0u,
+)
 
 public data class MibIpforwardrow(
     public var dwForwardDest: UInt = 0u,
@@ -764,11 +903,20 @@ public data class MibIpforwardrow(
     public var dwForwardMetric5: UInt = 0u,
 )
 
-public data class MibIpforwardrow0(public var dwForwardType: UInt = 0u, public var forwardType: MibIpforwardType = 0)
+public data class MibIpforwardrow0(
+    public var dwForwardType: UInt = 0u,
+    public var forwardType: MibIpforwardType = 0,
+)
 
-public data class MibIpforwardrow1(public var dwForwardProto: UInt = 0u, public var forwardProto: NlRouteProtocol = 0)
+public data class MibIpforwardrow1(
+    public var dwForwardProto: UInt = 0u,
+    public var forwardProto: NlRouteProtocol = 0,
+)
 
-public data class MibIpforwardtable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpforwardrow> = List(1) { MibIpforwardrow() })
+public data class MibIpforwardtable(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibIpforwardrow> = List(1) { MibIpforwardrow() },
+)
 
 public data class MibIpforwardRow2(
     public var interfaceLuid: NetLuidLh = NetLuidLh(),
@@ -788,7 +936,10 @@ public data class MibIpforwardRow2(
     public var origin: NlRouteOrigin = 0,
 )
 
-public data class MibIpforwardTable2(public var numEntries: UInt = 0u, public var table: List<MibIpforwardRow2> = List(1) { MibIpforwardRow2() })
+public data class MibIpforwardTable2(
+    public var numEntries: UInt = 0u,
+    public var table: List<MibIpforwardRow2> = List(1) { MibIpforwardRow2() },
+)
 
 public class MibIpinterfaceRow(
     public var family: AddressFamily = 0u,
@@ -828,7 +979,10 @@ public class MibIpinterfaceRow(
     public var disableDefaultRoutes: Boolean = false,
 )
 
-public data class MibIpinterfaceTable(public var numEntries: UInt = 0u, public var table: List<MibIpinterfaceRow> = List(1) { MibIpinterfaceRow() })
+public data class MibIpinterfaceTable(
+    public var numEntries: UInt = 0u,
+    public var table: List<MibIpinterfaceRow> = List(1) { MibIpinterfaceRow() },
+)
 
 public data class MibIpmcastBoundary(
     public var dwIfIndex: UInt = 0u,
@@ -837,9 +991,14 @@ public data class MibIpmcastBoundary(
     public var dwStatus: UInt = 0u,
 )
 
-public data class MibIpmcastBoundaryTable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpmcastBoundary> = List(1) { MibIpmcastBoundary() })
+public data class MibIpmcastBoundaryTable(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibIpmcastBoundary> = List(1) { MibIpmcastBoundary() },
+)
 
-public data class MibIpmcastGlobal(public var dwEnable: UInt = 0u)
+public data class MibIpmcastGlobal(
+    public var dwEnable: UInt = 0u,
+)
 
 public data class MibIpmcastIfEntry(
     public var dwIfIndex: UInt = 0u,
@@ -850,7 +1009,10 @@ public data class MibIpmcastIfEntry(
     public var ulOutMcastOctets: UInt = 0u,
 )
 
-public data class MibIpmcastIfTable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpmcastIfEntry> = List(1) { MibIpmcastIfEntry() })
+public data class MibIpmcastIfTable(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibIpmcastIfEntry> = List(1) { MibIpmcastIfEntry() },
+)
 
 public data class MibIpmcastMfe(
     public var dwGroup: UInt = 0u,
@@ -1003,7 +1165,10 @@ public data class MibIpnetrowLh(
     }
 }
 
-public data class MibIpnetrowLh0(public var dwType: UInt = 0u, public var type: MibIpnetType = 0)
+public data class MibIpnetrowLh0(
+    public var dwType: UInt = 0u,
+    public var type: MibIpnetType = 0,
+)
 
 public data class MibIpnetrowW2k(
     public var dwIndex: UInt = 0u,
@@ -1033,7 +1198,10 @@ public data class MibIpnetrowW2k(
     }
 }
 
-public data class MibIpnettable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpnetrowLh> = List(1) { MibIpnetrowLh() })
+public data class MibIpnettable(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibIpnetrowLh> = List(1) { MibIpnetrowLh() },
+)
 
 public data class MibIpnetRow2(
     public var address: SockaddrInet = SockaddrInet(),
@@ -1072,13 +1240,24 @@ public data class MibIpnetRow2(
     }
 }
 
-public data class MibIpnetRow20(public var anonymous: MibIpnetRow200 = MibIpnetRow200(), public var flags: UByte = 0u)
+public data class MibIpnetRow20(
+    public var anonymous: MibIpnetRow200 = MibIpnetRow200(),
+    public var flags: UByte = 0u,
+)
 
-public data class MibIpnetRow200(public var bitfield: UByte = 0u)
+public data class MibIpnetRow200(
+    public var bitfield: UByte = 0u,
+)
 
-public data class MibIpnetRow21(public var lastReachable: UInt = 0u, public var lastUnreachable: UInt = 0u)
+public data class MibIpnetRow21(
+    public var lastReachable: UInt = 0u,
+    public var lastUnreachable: UInt = 0u,
+)
 
-public data class MibIpnetTable2(public var numEntries: UInt = 0u, public var table: List<MibIpnetRow2> = List(1) { MibIpnetRow2() })
+public data class MibIpnetTable2(
+    public var numEntries: UInt = 0u,
+    public var table: List<MibIpnetRow2> = List(1) { MibIpnetRow2() },
+)
 
 public data class MibIppathRow(
     public var source: SockaddrInet = SockaddrInet(),
@@ -1095,9 +1274,15 @@ public data class MibIppathRow(
     public var linkReceiveSpeed: ULong = 0uL,
 )
 
-public data class MibIppathRow0(public var lastReachable: UInt = 0u, public var lastUnreachable: UInt = 0u)
+public data class MibIppathRow0(
+    public var lastReachable: UInt = 0u,
+    public var lastUnreachable: UInt = 0u,
+)
 
-public data class MibIppathTable(public var numEntries: UInt = 0u, public var table: List<MibIppathRow> = List(1) { MibIppathRow() })
+public data class MibIppathTable(
+    public var numEntries: UInt = 0u,
+    public var table: List<MibIppathRow> = List(1) { MibIppathRow() },
+)
 
 public class MibIpstatsLh(
     public var anonymous: MibIpstatsLh0 = MibIpstatsLh0(),
@@ -1125,7 +1310,10 @@ public class MibIpstatsLh(
     public var dwNumRoutes: UInt = 0u,
 )
 
-public data class MibIpstatsLh0(public var dwForwarding: UInt = 0u, public var forwarding: MibIpstatsForwarding = 0)
+public data class MibIpstatsLh0(
+    public var dwForwarding: UInt = 0u,
+    public var forwarding: MibIpstatsForwarding = 0,
+)
 
 public class MibIpstatsW2k(
     public var dwForwarding: UInt = 0u,
@@ -1153,15 +1341,30 @@ public class MibIpstatsW2k(
     public var dwNumRoutes: UInt = 0u,
 )
 
-public data class MibIpNetworkConnectionBandwidthEstimates(public var inboundBandwidthInformation: NlBandwidthInformation = NlBandwidthInformation(), public var outboundBandwidthInformation: NlBandwidthInformation = NlBandwidthInformation())
+public data class MibIpNetworkConnectionBandwidthEstimates(
+    public var inboundBandwidthInformation: NlBandwidthInformation = NlBandwidthInformation(),
+    public var outboundBandwidthInformation: NlBandwidthInformation = NlBandwidthInformation(),
+)
 
-public data class MibMcastLimitRow(public var dwTtl: UInt = 0u, public var dwRateLimit: UInt = 0u)
+public data class MibMcastLimitRow(
+    public var dwTtl: UInt = 0u,
+    public var dwRateLimit: UInt = 0u,
+)
 
-public data class MibMfeStatsTable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpmcastMfeStats> = List(1) { MibIpmcastMfeStats() })
+public data class MibMfeStatsTable(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibIpmcastMfeStats> = List(1) { MibIpmcastMfeStats() },
+)
 
-public data class MibMfeStatsTableExXp(public var dwNumEntries: UInt = 0u, public var table: List<MibIpmcastMfeStatsExXp> = List(1) { MibIpmcastMfeStatsExXp() })
+public data class MibMfeStatsTableExXp(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibIpmcastMfeStatsExXp> = List(1) { MibIpmcastMfeStatsExXp() },
+)
 
-public data class MibMfeTable(public var dwNumEntries: UInt = 0u, public var table: List<MibIpmcastMfe> = List(1) { MibIpmcastMfe() })
+public data class MibMfeTable(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibIpmcastMfe> = List(1) { MibIpmcastMfe() },
+)
 
 public data class MibMulticastipaddressRow(
     public var address: SockaddrInet = SockaddrInet(),
@@ -1170,11 +1373,20 @@ public data class MibMulticastipaddressRow(
     public var scopeId: ScopeId = ScopeId(),
 )
 
-public data class MibMulticastipaddressTable(public var numEntries: UInt = 0u, public var table: List<MibMulticastipaddressRow> = List(1) { MibMulticastipaddressRow() })
+public data class MibMulticastipaddressTable(
+    public var numEntries: UInt = 0u,
+    public var table: List<MibMulticastipaddressRow> = List(1) { MibMulticastipaddressRow() },
+)
 
-public data class MibOpaqueInfo(public var dwId: UInt = 0u, public var anonymous: MibOpaqueInfo0 = MibOpaqueInfo0())
+public data class MibOpaqueInfo(
+    public var dwId: UInt = 0u,
+    public var anonymous: MibOpaqueInfo0 = MibOpaqueInfo0(),
+)
 
-public data class MibOpaqueInfo0(public var ullAlign: ULong = 0uL, public var rgbyData: UByteArray = UByteArray(1)) {
+public data class MibOpaqueInfo0(
+    public var ullAlign: ULong = 0uL,
+    public var rgbyData: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is MibOpaqueInfo0) return false
@@ -1190,7 +1402,10 @@ public data class MibOpaqueInfo0(public var ullAlign: ULong = 0uL, public var rg
     }
 }
 
-public data class MibOpaqueQuery(public var dwVarId: UInt = 0u, public var rgdwVarIndex: UIntArray = UIntArray(1)) {
+public data class MibOpaqueQuery(
+    public var dwVarId: UInt = 0u,
+    public var rgdwVarIndex: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is MibOpaqueQuery) return false
@@ -1212,7 +1427,9 @@ public data class MibProxyarp(
     public var dwIfIndex: UInt = 0u,
 )
 
-public data class MibRoutestate(public var bRoutesSetToStack: Bool = 0)
+public data class MibRoutestate(
+    public var bRoutesSetToStack: Bool = 0,
+)
 
 public data class MibTcp6row(
     public var state: MibTcpState = 0,
@@ -1316,13 +1533,25 @@ public data class MibTcp6rowOwnerPid(
     }
 }
 
-public data class MibTcp6table(public var dwNumEntries: UInt = 0u, public var table: List<MibTcp6row> = List(1) { MibTcp6row() })
+public data class MibTcp6table(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibTcp6row> = List(1) { MibTcp6row() },
+)
 
-public data class MibTcp6table2(public var dwNumEntries: UInt = 0u, public var table: List<MibTcp6row2> = List(1) { MibTcp6row2() })
+public data class MibTcp6table2(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibTcp6row2> = List(1) { MibTcp6row2() },
+)
 
-public data class MibTcp6tableOwnerModule(public var dwNumEntries: UInt = 0u, public var table: List<MibTcp6rowOwnerModule> = List(1) { MibTcp6rowOwnerModule() })
+public data class MibTcp6tableOwnerModule(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibTcp6rowOwnerModule> = List(1) { MibTcp6rowOwnerModule() },
+)
 
-public data class MibTcp6tableOwnerPid(public var dwNumEntries: UInt = 0u, public var table: List<MibTcp6rowOwnerPid> = List(1) { MibTcp6rowOwnerPid() })
+public data class MibTcp6tableOwnerPid(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibTcp6rowOwnerPid> = List(1) { MibTcp6rowOwnerPid() },
+)
 
 public data class MibTcprow2(
     public var dwState: UInt = 0u,
@@ -1342,7 +1571,10 @@ public data class MibTcprowLh(
     public var dwRemotePort: UInt = 0u,
 )
 
-public data class MibTcprowLh0(public var dwState: UInt = 0u, public var state: MibTcpState = 0)
+public data class MibTcprowLh0(
+    public var dwState: UInt = 0u,
+    public var state: MibTcpState = 0,
+)
 
 public data class MibTcprowOwnerModule(
     public var dwState: UInt = 0u,
@@ -1434,7 +1666,10 @@ public data class MibTcpstatsLh(
     public var dwNumConns: UInt = 0u,
 )
 
-public data class MibTcpstatsLh0(public var dwRtoAlgorithm: UInt = 0u, public var rtoAlgorithm: TcpRtoAlgorithm = 0)
+public data class MibTcpstatsLh0(
+    public var dwRtoAlgorithm: UInt = 0u,
+    public var rtoAlgorithm: TcpRtoAlgorithm = 0,
+)
 
 public data class MibTcpstatsW2k(
     public var dwRtoAlgorithm: UInt = 0u,
@@ -1454,13 +1689,25 @@ public data class MibTcpstatsW2k(
     public var dwNumConns: UInt = 0u,
 )
 
-public data class MibTcptable(public var dwNumEntries: UInt = 0u, public var table: List<MibTcprowLh> = List(1) { MibTcprowLh() })
+public data class MibTcptable(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibTcprowLh> = List(1) { MibTcprowLh() },
+)
 
-public data class MibTcptable2(public var dwNumEntries: UInt = 0u, public var table: List<MibTcprow2> = List(1) { MibTcprow2() })
+public data class MibTcptable2(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibTcprow2> = List(1) { MibTcprow2() },
+)
 
-public data class MibTcptableOwnerModule(public var dwNumEntries: UInt = 0u, public var table: List<MibTcprowOwnerModule> = List(1) { MibTcprowOwnerModule() })
+public data class MibTcptableOwnerModule(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibTcprowOwnerModule> = List(1) { MibTcprowOwnerModule() },
+)
 
-public data class MibTcptableOwnerPid(public var dwNumEntries: UInt = 0u, public var table: List<MibTcprowOwnerPid> = List(1) { MibTcprowOwnerPid() })
+public data class MibTcptableOwnerPid(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibTcprowOwnerPid> = List(1) { MibTcprowOwnerPid() },
+)
 
 public data class MibUdp6row(
     public var dwLocalAddr: In6Addr = In6Addr(),
@@ -1511,9 +1758,14 @@ public data class MibUdp6row2(
     }
 }
 
-public data class MibUdp6row20(public var anonymous: MibUdp6row200 = MibUdp6row200(), public var dwFlags: Int = 0)
+public data class MibUdp6row20(
+    public var anonymous: MibUdp6row200 = MibUdp6row200(),
+    public var dwFlags: Int = 0,
+)
 
-public data class MibUdp6row200(public var bitfield: Int = 0)
+public data class MibUdp6row200(
+    public var bitfield: Int = 0,
+)
 
 public data class MibUdp6rowOwnerModule(
     public var ucLocalAddr: UByteArray = UByteArray(16),
@@ -1549,9 +1801,14 @@ public data class MibUdp6rowOwnerModule(
     }
 }
 
-public data class MibUdp6rowOwnerModule0(public var anonymous: MibUdp6rowOwnerModule00 = MibUdp6rowOwnerModule00(), public var dwFlags: Int = 0)
+public data class MibUdp6rowOwnerModule0(
+    public var anonymous: MibUdp6rowOwnerModule00 = MibUdp6rowOwnerModule00(),
+    public var dwFlags: Int = 0,
+)
 
-public data class MibUdp6rowOwnerModule00(public var bitfield: Int = 0)
+public data class MibUdp6rowOwnerModule00(
+    public var bitfield: Int = 0,
+)
 
 public data class MibUdp6rowOwnerPid(
     public var ucLocalAddr: UByteArray = UByteArray(16),
@@ -1578,15 +1835,30 @@ public data class MibUdp6rowOwnerPid(
     }
 }
 
-public data class MibUdp6table(public var dwNumEntries: UInt = 0u, public var table: List<MibUdp6row> = List(1) { MibUdp6row() })
+public data class MibUdp6table(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibUdp6row> = List(1) { MibUdp6row() },
+)
 
-public data class MibUdp6table2(public var dwNumEntries: UInt = 0u, public var table: List<MibUdp6row2> = List(1) { MibUdp6row2() })
+public data class MibUdp6table2(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibUdp6row2> = List(1) { MibUdp6row2() },
+)
 
-public data class MibUdp6tableOwnerModule(public var dwNumEntries: UInt = 0u, public var table: List<MibUdp6rowOwnerModule> = List(1) { MibUdp6rowOwnerModule() })
+public data class MibUdp6tableOwnerModule(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibUdp6rowOwnerModule> = List(1) { MibUdp6rowOwnerModule() },
+)
 
-public data class MibUdp6tableOwnerPid(public var dwNumEntries: UInt = 0u, public var table: List<MibUdp6rowOwnerPid> = List(1) { MibUdp6rowOwnerPid() })
+public data class MibUdp6tableOwnerPid(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibUdp6rowOwnerPid> = List(1) { MibUdp6rowOwnerPid() },
+)
 
-public data class MibUdprow(public var dwLocalAddr: UInt = 0u, public var dwLocalPort: UInt = 0u)
+public data class MibUdprow(
+    public var dwLocalAddr: UInt = 0u,
+    public var dwLocalPort: UInt = 0u,
+)
 
 public data class MibUdprow2(
     public var dwLocalAddr: UInt = 0u,
@@ -1625,9 +1897,14 @@ public data class MibUdprow2(
     }
 }
 
-public data class MibUdprow20(public var anonymous: MibUdprow200 = MibUdprow200(), public var dwFlags: Int = 0)
+public data class MibUdprow20(
+    public var anonymous: MibUdprow200 = MibUdprow200(),
+    public var dwFlags: Int = 0,
+)
 
-public data class MibUdprow200(public var bitfield: Int = 0)
+public data class MibUdprow200(
+    public var bitfield: Int = 0,
+)
 
 public data class MibUdprowOwnerModule(
     public var dwLocalAddr: UInt = 0u,
@@ -1660,9 +1937,14 @@ public data class MibUdprowOwnerModule(
     }
 }
 
-public data class MibUdprowOwnerModule0(public var anonymous: MibUdprowOwnerModule00 = MibUdprowOwnerModule00(), public var dwFlags: Int = 0)
+public data class MibUdprowOwnerModule0(
+    public var anonymous: MibUdprowOwnerModule00 = MibUdprowOwnerModule00(),
+    public var dwFlags: Int = 0,
+)
 
-public data class MibUdprowOwnerModule00(public var bitfield: Int = 0)
+public data class MibUdprowOwnerModule00(
+    public var bitfield: Int = 0,
+)
 
 public data class MibUdprowOwnerPid(
     public var dwLocalAddr: UInt = 0u,
@@ -1686,13 +1968,25 @@ public data class MibUdpstats2(
     public var dwNumAddrs: UInt = 0u,
 )
 
-public data class MibUdptable(public var dwNumEntries: UInt = 0u, public var table: List<MibUdprow> = List(1) { MibUdprow() })
+public data class MibUdptable(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibUdprow> = List(1) { MibUdprow() },
+)
 
-public data class MibUdptable2(public var dwNumEntries: UInt = 0u, public var table: List<MibUdprow2> = List(1) { MibUdprow2() })
+public data class MibUdptable2(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibUdprow2> = List(1) { MibUdprow2() },
+)
 
-public data class MibUdptableOwnerModule(public var dwNumEntries: UInt = 0u, public var table: List<MibUdprowOwnerModule> = List(1) { MibUdprowOwnerModule() })
+public data class MibUdptableOwnerModule(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibUdprowOwnerModule> = List(1) { MibUdprowOwnerModule() },
+)
 
-public data class MibUdptableOwnerPid(public var dwNumEntries: UInt = 0u, public var table: List<MibUdprowOwnerPid> = List(1) { MibUdprowOwnerPid() })
+public data class MibUdptableOwnerPid(
+    public var dwNumEntries: UInt = 0u,
+    public var table: List<MibUdprowOwnerPid> = List(1) { MibUdprowOwnerPid() },
+)
 
 public data class MibUnicastipaddressRow(
     public var address: SockaddrInet = SockaddrInet(),
@@ -1709,9 +2003,15 @@ public data class MibUnicastipaddressRow(
     public var creationTimeStamp: Long = 0L,
 )
 
-public data class MibUnicastipaddressTable(public var numEntries: UInt = 0u, public var table: List<MibUnicastipaddressRow> = List(1) { MibUnicastipaddressRow() })
+public data class MibUnicastipaddressTable(
+    public var numEntries: UInt = 0u,
+    public var table: List<MibUnicastipaddressRow> = List(1) { MibUnicastipaddressRow() },
+)
 
-public data class NetAddressInfo(public var format: NetAddressFormat = 0, public var anonymous: NetAddressInfo0 = NetAddressInfo0())
+public data class NetAddressInfo(
+    public var format: NetAddressFormat = 0,
+    public var anonymous: NetAddressInfo0 = NetAddressInfo0(),
+)
 
 public data class NetAddressInfo0(
     public var namedAddress: NetAddressInfo00 = NetAddressInfo00(),
@@ -1720,7 +2020,10 @@ public data class NetAddressInfo0(
     public var ipAddress: Sockaddr = Sockaddr(),
 )
 
-public data class NetAddressInfo00(public var address: UShortArray = UShortArray(256), public var port: UShortArray = UShortArray(6)) {
+public data class NetAddressInfo00(
+    public var address: UShortArray = UShortArray(256),
+    public var port: UShortArray = UShortArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NetAddressInfo00) return false
@@ -1792,7 +2095,10 @@ public data class PfFilterDescriptor(
     public var wDstPortHighRange: UShort = 0u,
 )
 
-public data class PfFilterStats(public var dwNumPacketsFiltered: UInt = 0u, public var info: PfFilterDescriptor = PfFilterDescriptor())
+public data class PfFilterStats(
+    public var dwNumPacketsFiltered: UInt = 0u,
+    public var info: PfFilterDescriptor = PfFilterDescriptor(),
+)
 
 public data class PfInterfaceStats(
     public var pvDriverContext: COpaquePointer? = null,
@@ -1819,7 +2125,10 @@ public data class PfLatebindInfo(
     public var mask: COpaquePointer? = null,
 )
 
-public data class TcpipOwnerModuleBasicInfo(public var pModuleName: Pwstr = null, public var pModulePath: Pwstr = null)
+public data class TcpipOwnerModuleBasicInfo(
+    public var pModuleName: Pwstr = null,
+    public var pModulePath: Pwstr = null,
+)
 
 public data class TcpEstatsBandwidthRodV0(
     public var outboundBandwidth: ULong = 0uL,
@@ -1830,7 +2139,10 @@ public data class TcpEstatsBandwidthRodV0(
     public var inboundBandwidthPeaked: Boolean = false,
 )
 
-public data class TcpEstatsBandwidthRwV0(public var enableCollectionOutbound: TcpBooleanOptional = 0, public var enableCollectionInbound: TcpBooleanOptional = 0)
+public data class TcpEstatsBandwidthRwV0(
+    public var enableCollectionOutbound: TcpBooleanOptional = 0,
+    public var enableCollectionInbound: TcpBooleanOptional = 0,
+)
 
 public data class TcpEstatsDataRodV0(
     public var dataBytesOut: ULong = 0uL,
@@ -1849,7 +2161,9 @@ public data class TcpEstatsDataRodV0(
     public var thruBytesReceived: ULong = 0uL,
 )
 
-public data class TcpEstatsDataRwV0(public var enableCollection: Boolean = false)
+public data class TcpEstatsDataRwV0(
+    public var enableCollection: Boolean = false,
+)
 
 public data class TcpEstatsFineRttRodV0(
     public var rttVar: UInt = 0u,
@@ -1858,7 +2172,9 @@ public data class TcpEstatsFineRttRodV0(
     public var sumRtt: UInt = 0u,
 )
 
-public data class TcpEstatsFineRttRwV0(public var enableCollection: Boolean = false)
+public data class TcpEstatsFineRttRwV0(
+    public var enableCollection: Boolean = false,
+)
 
 public data class TcpEstatsObsRecRodV0(
     public var curRwinRcvd: UInt = 0u,
@@ -1867,7 +2183,9 @@ public data class TcpEstatsObsRecRodV0(
     public var winScaleRcvd: UByte = 0u,
 )
 
-public data class TcpEstatsObsRecRwV0(public var enableCollection: Boolean = false)
+public data class TcpEstatsObsRecRwV0(
+    public var enableCollection: Boolean = false,
+)
 
 public class TcpEstatsPathRodV0(
     public var fastRetran: UInt = 0u,
@@ -1912,7 +2230,9 @@ public class TcpEstatsPathRodV0(
     public var spuriousRtoDetections: UInt = 0u,
 )
 
-public data class TcpEstatsPathRwV0(public var enableCollection: Boolean = false)
+public data class TcpEstatsPathRwV0(
+    public var enableCollection: Boolean = false,
+)
 
 public data class TcpEstatsRecRodV0(
     public var curRwinSent: UInt = 0u,
@@ -1931,7 +2251,9 @@ public data class TcpEstatsRecRodV0(
     public var winScaleSent: UByte = 0u,
 )
 
-public data class TcpEstatsRecRwV0(public var enableCollection: Boolean = false)
+public data class TcpEstatsRecRwV0(
+    public var enableCollection: Boolean = false,
+)
 
 public data class TcpEstatsSendBuffRodV0(
     public var curRetxQueue: Int = 0,
@@ -1940,7 +2262,9 @@ public data class TcpEstatsSendBuffRodV0(
     public var maxAppWQueue: Int = 0,
 )
 
-public data class TcpEstatsSendBuffRwV0(public var enableCollection: Boolean = false)
+public data class TcpEstatsSendBuffRwV0(
+    public var enableCollection: Boolean = false,
+)
 
 public class TcpEstatsSndCongRodV0(
     public var sndLimTransRwin: UInt = 0u,
@@ -1963,9 +2287,13 @@ public class TcpEstatsSndCongRodV0(
     public var minSsthresh: UInt = 0u,
 )
 
-public data class TcpEstatsSndCongRosV0(public var limCwnd: UInt = 0u)
+public data class TcpEstatsSndCongRosV0(
+    public var limCwnd: UInt = 0u,
+)
 
-public data class TcpEstatsSndCongRwV0(public var enableCollection: Boolean = false)
+public data class TcpEstatsSndCongRwV0(
+    public var enableCollection: Boolean = false,
+)
 
 public data class TcpEstatsSynOptsRosV0(
     public var activeOpen: Boolean = false,
@@ -1973,4 +2301,7 @@ public data class TcpEstatsSynOptsRosV0(
     public var mssSent: UInt = 0u,
 )
 
-public data class TcpReservePortRange(public var upperRange: UShort = 0u, public var lowerRange: UShort = 0u)
+public data class TcpReservePortRange(
+    public var upperRange: UShort = 0u,
+    public var lowerRange: UShort = 0u,
+)

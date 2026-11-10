@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -33,9 +34,15 @@ public data class AeCurrentPosition(
     public var flag: AePositionFlags = 0,
 )
 
-public data class BitmapRendererStatistics(public var dwFramesDelivered: UInt = 0u, public var dwFramesDropped: UInt = 0u)
+public data class BitmapRendererStatistics(
+    public var dwFramesDelivered: UInt = 0u,
+    public var dwFramesDropped: UInt = 0u,
+)
 
-public data class ChannelDef(public var name: ByteArray = ByteArray(8), public var options: UInt = 0u) {
+public data class ChannelDef(
+    public var name: ByteArray = ByteArray(8),
+    public var options: UInt = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ChannelDef) return false
@@ -60,7 +67,10 @@ public data class ChannelEntryPoints(
     public var pVirtualChannelWrite: Pvirtualchannelwrite = null,
 )
 
-public data class ChannelPduHeader(public var length: UInt = 0u, public var flags: UInt = 0u)
+public data class ChannelPduHeader(
+    public var length: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
 public data class ClientDisplay(
     public var horizontalResolution: UInt = 0u,
@@ -68,7 +78,10 @@ public data class ClientDisplay(
     public var colorDepth: UInt = 0u,
 )
 
-public data class ProductInfoa(public var companyName: ByteArray = ByteArray(256), public var productID: ByteArray = ByteArray(4)) {
+public data class ProductInfoa(
+    public var companyName: ByteArray = ByteArray(256),
+    public var productID: ByteArray = ByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ProductInfoa) return false
@@ -84,7 +97,10 @@ public data class ProductInfoa(public var companyName: ByteArray = ByteArray(256
     }
 }
 
-public data class ProductInfow(public var companyName: UShortArray = UShortArray(256), public var productID: UShortArray = UShortArray(4)) {
+public data class ProductInfow(
+    public var companyName: UShortArray = UShortArray(256),
+    public var productID: UShortArray = UShortArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ProductInfow) return false
@@ -111,7 +127,9 @@ public data class RfxGfxMonitorInfo(
     public var primary: Bool = 0,
 )
 
-public data class RfxGfxMsgClientDesktopInfoRequest(public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader())
+public data class RfxGfxMsgClientDesktopInfoRequest(
+    public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
+)
 
 public data class RfxGfxMsgClientDesktopInfoResponse(
     public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
@@ -141,7 +159,9 @@ public data class RfxGfxMsgClientDesktopInfoResponse(
     }
 }
 
-public data class RfxGfxMsgDesktopConfigChangeConfirm(public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader())
+public data class RfxGfxMsgDesktopConfigChangeConfirm(
+    public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
+)
 
 public data class RfxGfxMsgDesktopConfigChangeNotify(
     public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
@@ -157,13 +177,25 @@ public data class RfxGfxMsgDesktopInputReset(
     public var ulHeight: UInt = 0u,
 )
 
-public data class RfxGfxMsgDesktopResendRequest(public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(), public var redrawRect: RfxGfxRect = RfxGfxRect())
+public data class RfxGfxMsgDesktopResendRequest(
+    public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
+    public var redrawRect: RfxGfxRect = RfxGfxRect(),
+)
 
-public data class RfxGfxMsgDisconnectNotify(public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(), public var disconnectReason: UInt = 0u)
+public data class RfxGfxMsgDisconnectNotify(
+    public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
+    public var disconnectReason: UInt = 0u,
+)
 
-public data class RfxGfxMsgHeader(public var uMSGType: UShort = 0u, public var cbSize: UShort = 0u)
+public data class RfxGfxMsgHeader(
+    public var uMSGType: UShort = 0u,
+    public var cbSize: UShort = 0u,
+)
 
-public data class RfxGfxMsgRdpData(public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(), public var rdpData: UByteArray = UByteArray(1)) {
+public data class RfxGfxMsgRdpData(
+    public var channelHdr: RfxGfxMsgHeader = RfxGfxMsgHeader(),
+    public var rdpData: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is RfxGfxMsgRdpData) return false
@@ -211,7 +243,10 @@ public data class TssdConnectionPoint(
     }
 }
 
-public data class VmNotifyEntry(public var vmName: UShortArray = UShortArray(128), public var vmHost: UShortArray = UShortArray(128)) {
+public data class VmNotifyEntry(
+    public var vmName: UShortArray = UShortArray(128),
+    public var vmHost: UShortArray = UShortArray(128),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VmNotifyEntry) return false
@@ -227,13 +262,24 @@ public data class VmNotifyEntry(public var vmName: UShortArray = UShortArray(128
     }
 }
 
-public data class VmNotifyInfo(public var dwNumEntries: UInt = 0u, public var ppVmEntries: COpaquePointer? = null)
+public data class VmNotifyInfo(
+    public var dwNumEntries: UInt = 0u,
+    public var ppVmEntries: COpaquePointer? = null,
+)
 
-public data class VmPatchInfo(public var dwNumEntries: UInt = 0u, public var pVmNames: Pwstr? = null)
+public data class VmPatchInfo(
+    public var dwNumEntries: UInt = 0u,
+    public var pVmNames: Pwstr? = null,
+)
 
-public data class WrdsConnectionSetting(public var wRdsConnectionSettings1: WrdsConnectionSettings1 = WrdsConnectionSettings1())
+public data class WrdsConnectionSetting(
+    public var wRdsConnectionSettings1: WrdsConnectionSettings1 = WrdsConnectionSettings1(),
+)
 
-public data class WrdsConnectionSettings(public var wRdsConnectionSettingLevel: WrdsConnectionSettingLevel = 0, public var wRdsConnectionSetting: WrdsConnectionSetting = WrdsConnectionSetting())
+public data class WrdsConnectionSettings(
+    public var wRdsConnectionSettingLevel: WrdsConnectionSettingLevel = 0,
+    public var wRdsConnectionSetting: WrdsConnectionSetting = WrdsConnectionSetting(),
+)
 
 public class WrdsConnectionSettings1 {
     public var fInheritInitialProgram: Boolean = false
@@ -407,9 +453,14 @@ public data class WrdsDynamicTimeZoneInformation(
     }
 }
 
-public data class WrdsListenerSetting(public var wRdsListenerSettings1: WrdsListenerSettings1 = WrdsListenerSettings1())
+public data class WrdsListenerSetting(
+    public var wRdsListenerSettings1: WrdsListenerSettings1 = WrdsListenerSettings1(),
+)
 
-public data class WrdsListenerSettings(public var wRdsListenerSettingLevel: WrdsListenerSettingLevel = 0, public var wRdsListenerSetting: WrdsListenerSetting = WrdsListenerSetting())
+public data class WrdsListenerSettings(
+    public var wRdsListenerSettingLevel: WrdsListenerSettingLevel = 0,
+    public var wRdsListenerSetting: WrdsListenerSetting = WrdsListenerSetting(),
+)
 
 public data class WrdsListenerSettings1(
     public var maxProtocolListenerConnectionCount: UInt = 0u,
@@ -417,7 +468,9 @@ public data class WrdsListenerSettings1(
     public var pSecurityDescriptor: COpaquePointer? = null,
 )
 
-public data class WrdsSetting(public var wRdsSettings1: WrdsSettings1 = WrdsSettings1())
+public data class WrdsSetting(
+    public var wRdsSettings1: WrdsSettings1 = WrdsSettings1(),
+)
 
 public data class WrdsSettings(
     public var wRdsSettingType: WrdsSettingType = 0,
@@ -656,9 +709,15 @@ public data class Wtsinfoa(
     }
 }
 
-public data class Wtsinfoexa(public var level: UInt = 0u, public var data: WtsinfoexLevelA = WtsinfoexLevelA())
+public data class Wtsinfoexa(
+    public var level: UInt = 0u,
+    public var data: WtsinfoexLevelA = WtsinfoexLevelA(),
+)
 
-public data class Wtsinfoexw(public var level: UInt = 0u, public var data: WtsinfoexLevelW = WtsinfoexLevelW())
+public data class Wtsinfoexw(
+    public var level: UInt = 0u,
+    public var data: WtsinfoexLevelW = WtsinfoexLevelW(),
+)
 
 public class WtsinfoexLevel1A(
     public var sessionId: UInt = 0u,
@@ -700,9 +759,13 @@ public class WtsinfoexLevel1W(
     public var outgoingCompressedBytes: UInt = 0u,
 )
 
-public data class WtsinfoexLevelA(public var wTSInfoExLevel1: WtsinfoexLevel1A = WtsinfoexLevel1A())
+public data class WtsinfoexLevelA(
+    public var wTSInfoExLevel1: WtsinfoexLevel1A = WtsinfoexLevel1A(),
+)
 
-public data class WtsinfoexLevelW(public var wTSInfoExLevel1: WtsinfoexLevel1W = WtsinfoexLevel1W())
+public data class WtsinfoexLevelW(
+    public var wTSInfoExLevel1: WtsinfoexLevel1W = WtsinfoexLevel1W(),
+)
 
 public data class Wtsinfow(
     public var state: WtsConnectstateClass = 0,
@@ -954,7 +1017,10 @@ public data class WtssbxSessionInfo(
     }
 }
 
-public data class WtssessionNotification(public var cbSize: UInt = 0u, public var dwSessionId: UInt = 0u)
+public data class WtssessionNotification(
+    public var cbSize: UInt = 0u,
+    public var dwSessionId: UInt = 0u,
+)
 
 public class Wtsuserconfiga(
     public var source: UInt = 0u,
@@ -1027,7 +1093,10 @@ public data class WtsCacheStatsUn(
     }
 }
 
-public data class WtsClientAddress(public var addressFamily: UInt = 0u, public var address: UByteArray = UByteArray(20)) {
+public data class WtsClientAddress(
+    public var addressFamily: UInt = 0u,
+    public var address: UByteArray = UByteArray(20),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WtsClientAddress) return false
@@ -1107,7 +1176,10 @@ public data class WtsClientDisplay(
     public var colorDepth: UInt = 0u,
 )
 
-public data class WtsDisplayIoctl(public var pDisplayIOCtlData: UByteArray = UByteArray(256), public var cbDisplayIOCtlData: UInt = 0u) {
+public data class WtsDisplayIoctl(
+    public var pDisplayIOCtlData: UByteArray = UByteArray(256),
+    public var cbDisplayIOCtlData: UInt = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WtsDisplayIoctl) return false
@@ -1211,7 +1283,10 @@ public data class WtsProcessInfoExw(
     public var kernelTime: Long = 0L,
 )
 
-public data class WtsPropertyValue(public var type: UShort = 0u, public var u: WtsPropertyValue0 = WtsPropertyValue0())
+public data class WtsPropertyValue(
+    public var type: UShort = 0u,
+    public var u: WtsPropertyValue0 = WtsPropertyValue0(),
+)
 
 public data class WtsPropertyValue0(
     public var ulVal: UInt = 0u,
@@ -1220,11 +1295,20 @@ public data class WtsPropertyValue0(
     public var guidVal: Guid = Guid(),
 )
 
-public data class WtsPropertyValue01(public var size: UInt = 0u, public var pbVal: Pstr = null)
+public data class WtsPropertyValue01(
+    public var size: UInt = 0u,
+    public var pbVal: Pstr = null,
+)
 
-public data class WtsPropertyValue00(public var size: UInt = 0u, public var pstrVal: Pwstr = null)
+public data class WtsPropertyValue00(
+    public var size: UInt = 0u,
+    public var pstrVal: Pwstr = null,
+)
 
-public data class WtsProtocolCache(public var cacheReads: UInt = 0u, public var cacheHits: UInt = 0u)
+public data class WtsProtocolCache(
+    public var cacheReads: UInt = 0u,
+    public var cacheHits: UInt = 0u,
+)
 
 public class WtsProtocolCounters(
     public var wdBytes: UInt = 0u,
@@ -1278,13 +1362,23 @@ public data class WtsProtocolStatus(
     }
 }
 
-public data class WtsServerInfoa(public var pServerName: Pstr = null)
+public data class WtsServerInfoa(
+    public var pServerName: Pstr = null,
+)
 
-public data class WtsServerInfow(public var pServerName: Pwstr = null)
+public data class WtsServerInfow(
+    public var pServerName: Pwstr = null,
+)
 
-public data class WtsServiceState(public var rcmServiceState: WtsRcmServiceState = 0, public var rcmDrainState: WtsRcmDrainState = 0)
+public data class WtsServiceState(
+    public var rcmServiceState: WtsRcmServiceState = 0,
+    public var rcmDrainState: WtsRcmDrainState = 0,
+)
 
-public data class WtsSessionAddress(public var addressFamily: UInt = 0u, public var address: UByteArray = UByteArray(20)) {
+public data class WtsSessionAddress(
+    public var addressFamily: UInt = 0u,
+    public var address: UByteArray = UByteArray(20),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WtsSessionAddress) return false
@@ -1300,7 +1394,10 @@ public data class WtsSessionAddress(public var addressFamily: UInt = 0u, public 
     }
 }
 
-public data class WtsSessionId(public var sessionUniqueGuid: Guid = Guid(), public var sessionId: UInt = 0u)
+public data class WtsSessionId(
+    public var sessionUniqueGuid: Guid = Guid(),
+    public var sessionId: UInt = 0u,
+)
 
 public data class WtsSessionInfoa(
     public var sessionId: UInt = 0u,
@@ -1343,9 +1440,15 @@ public data class WtsSmallRect(
     public var bottom: Short = 0,
 )
 
-public data class WtsSockaddr(public var sinFamily: UShort = 0u, public var u: WtsSockaddr0 = WtsSockaddr0())
+public data class WtsSockaddr(
+    public var sinFamily: UShort = 0u,
+    public var u: WtsSockaddr0 = WtsSockaddr0(),
+)
 
-public data class WtsSockaddr0(public var ipv4: WtsSockaddr00 = WtsSockaddr00(), public var ipv6: WtsSockaddr01 = WtsSockaddr01())
+public data class WtsSockaddr0(
+    public var ipv4: WtsSockaddr00 = WtsSockaddr00(),
+    public var ipv6: WtsSockaddr01 = WtsSockaddr01(),
+)
 
 public data class WtsSockaddr00(
     public var sinPort: UShort = 0u,

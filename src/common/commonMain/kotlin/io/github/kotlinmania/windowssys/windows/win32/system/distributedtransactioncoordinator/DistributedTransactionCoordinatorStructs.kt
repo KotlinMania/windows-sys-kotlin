@@ -1,10 +1,13 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.distributedtransactioncoordinator
 
 import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 
-public data class Boid(public var rgb: UByteArray = UByteArray(16)) {
+public data class Boid(
+    public var rgb: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Boid) return false
@@ -12,12 +15,13 @@ public data class Boid(public var rgb: UByteArray = UByteArray(16)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.rgb.contentHashCode()
-    }
+    override fun hashCode(): Int = this.rgb.contentHashCode()
 }
 
-public data class OleTmConfigParamsV1(public var dwVersion: UInt = 0u, public var dwcConcurrencyHint: UInt = 0u)
+public data class OleTmConfigParamsV1(
+    public var dwVersion: UInt = 0u,
+    public var dwcConcurrencyHint: UInt = 0u,
+)
 
 public data class OleTmConfigParamsV2(
     public var dwVersion: UInt = 0u,
@@ -26,9 +30,14 @@ public data class OleTmConfigParamsV2(
     public var clusterResourceId: Guid = Guid(),
 )
 
-public data class ProxyConfigParams(public var wcThreadsMax: UShort = 0u)
+public data class ProxyConfigParams(
+    public var wcThreadsMax: UShort = 0u,
+)
 
-public data class Xactopt(public var ulTimeout: UInt = 0u, public var szDescription: UByteArray = UByteArray(40)) {
+public data class Xactopt(
+    public var ulTimeout: UInt = 0u,
+    public var szDescription: UByteArray = UByteArray(40),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Xactopt) return false

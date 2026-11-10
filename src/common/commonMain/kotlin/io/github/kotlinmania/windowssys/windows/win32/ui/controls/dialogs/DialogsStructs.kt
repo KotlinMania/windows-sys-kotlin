@@ -365,4 +365,7 @@ public class Printdlgw(
     public var hSetupTemplate: Hglobal = null,
 )
 
-public data class Printpagerange(public var nFromPage: UInt = 0u, public var nToPage: UInt = 0u)
+public data class Printpagerange(
+    public var nFromPage: UInt = 0u,
+    public var nToPage: UInt = 0u,
+)

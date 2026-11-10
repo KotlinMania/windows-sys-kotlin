@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -6,11 +7,19 @@ import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public data class AlternateInterface(public var interfaceNumber: UShort = 0u, public var alternateInterfaceNumber: UShort = 0u)
+public data class AlternateInterface(
+    public var interfaceNumber: UShort = 0u,
+    public var alternateInterfaceNumber: UShort = 0u,
+)
 
-public data class BmRequestType(public var s: BmRequestType0 = BmRequestType0(), public var b: UByte = 0u)
+public data class BmRequestType(
+    public var s: BmRequestType0 = BmRequestType0(),
+    public var b: UByte = 0u,
+)
 
-public data class BmRequestType0(public var bitfield: UByte = 0u)
+public data class BmRequestType0(
+    public var bitfield: UByte = 0u,
+)
 
 public data class ChannelInfo(
     public var eventChannelSize: UInt = 0u,
@@ -168,7 +177,10 @@ public data class OsString(
     }
 }
 
-public data class OsString0(public var bPad: UByte = 0u, public var bFlags: UByte = 0u)
+public data class OsString0(
+    public var bPad: UByte = 0u,
+    public var bFlags: UByte = 0u,
+)
 
 public data class PacketParameters(
     public var deviceAddress: UByte = 0u,
@@ -219,7 +231,10 @@ public data class PacketParameters(
     }
 }
 
-public data class RawResetPortParameters(public var portNumber: UShort = 0u, public var portStatus: UShort = 0u)
+public data class RawResetPortParameters(
+    public var portNumber: UShort = 0u,
+    public var portStatus: UShort = 0u,
+)
 
 public data class RawRootportFeature(
     public var portNumber: UShort = 0u,
@@ -227,9 +242,14 @@ public data class RawRootportFeature(
     public var portStatus: UShort = 0u,
 )
 
-public data class RawRootportParameters(public var portNumber: UShort = 0u, public var portStatus: UShort = 0u)
+public data class RawRootportParameters(
+    public var portNumber: UShort = 0u,
+    public var portStatus: UShort = 0u,
+)
 
-public data class Urb(public var anonymous: Urb0 = Urb0())
+public data class Urb(
+    public var anonymous: Urb0 = Urb0(),
+)
 
 public class Urb0(
     public var urbHeader: UrbHeader = UrbHeader(),
@@ -315,7 +335,10 @@ public data class UsbdStreamInformation(
     public var pipeFlags: UInt = 0u,
 )
 
-public data class UsbdVersionInformation(public var usbdiVersion: UInt = 0u, public var supportedUsbVersion: UInt = 0u)
+public data class UsbdVersionInformation(
+    public var usbdiVersion: UInt = 0u,
+    public var supportedUsbVersion: UInt = 0u,
+)
 
 public data class UsbfnBusConfigurationInfo(
     public var configurationName: UShortArray = UShortArray(40),
@@ -439,7 +462,10 @@ public data class UsbfnInterfaceInfo(
     }
 }
 
-public data class UsbfnNotification(public var event: UsbfnEvent = 0, public var u: UsbfnNotification0 = UsbfnNotification0())
+public data class UsbfnNotification(
+    public var event: UsbfnEvent = 0,
+    public var u: UsbfnNotification0 = UsbfnNotification0(),
+)
 
 public data class UsbfnNotification0(
     public var busSpeed: UsbfnBusSpeed = 0,
@@ -449,9 +475,15 @@ public data class UsbfnNotification0(
     public var alternateInterface: AlternateInterface = AlternateInterface(),
 )
 
-public data class UsbfnPipeInformation(public var epDesc: UsbEndpointDescriptor = UsbEndpointDescriptor(), public var pipeId: UInt = 0u)
+public data class UsbfnPipeInformation(
+    public var epDesc: UsbEndpointDescriptor = UsbEndpointDescriptor(),
+    public var pipeId: UInt = 0u,
+)
 
-public data class UsbfnUsbString(public var stringIndex: UByte = 0u, public var usbString: UShortArray = UShortArray(255)) {
+public data class UsbfnUsbString(
+    public var stringIndex: UByte = 0u,
+    public var usbString: UShortArray = UShortArray(255),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is UsbfnUsbString) return false
@@ -473,7 +505,10 @@ public data class UsbscanGetDescriptor(
     public var languageId: UShort = 0u,
 )
 
-public data class UsbscanPipeConfiguration(public var numberOfPipes: UInt = 0u, public var pipeInfo: List<UsbscanPipeInformation> = List(8) { UsbscanPipeInformation() })
+public data class UsbscanPipeConfiguration(
+    public var numberOfPipes: UInt = 0u,
+    public var pipeInfo: List<UsbscanPipeInformation> = List(8) { UsbscanPipeInformation() },
+)
 
 public data class UsbscanPipeInformation(
     public var maximumPacketSize: UShort = 0u,
@@ -488,29 +523,65 @@ public data class UsbscanTimeout(
     public var timeoutEvent: UInt = 0u,
 )
 
-public data class UsbuserBandwidthInfoRequest(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var bandwidthInformation: UsbBandwidthInfo = UsbBandwidthInfo())
+public data class UsbuserBandwidthInfoRequest(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var bandwidthInformation: UsbBandwidthInfo = UsbBandwidthInfo(),
+)
 
-public data class UsbuserBusStatistics0Request(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var busStatistics0: UsbBusStatistics0 = UsbBusStatistics0())
+public data class UsbuserBusStatistics0Request(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var busStatistics0: UsbBusStatistics0 = UsbBusStatistics0(),
+)
 
-public data class UsbuserCloseRawDevice(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: UsbCloseRawDeviceParameters = UsbCloseRawDeviceParameters())
+public data class UsbuserCloseRawDevice(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var parameters: UsbCloseRawDeviceParameters = UsbCloseRawDeviceParameters(),
+)
 
-public data class UsbuserControllerInfo0(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var info0: UsbControllerInfo0 = UsbControllerInfo0())
+public data class UsbuserControllerInfo0(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var info0: UsbControllerInfo0 = UsbControllerInfo0(),
+)
 
-public data class UsbuserControllerUnicodeName(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var unicodeName: UsbUnicodeName = UsbUnicodeName())
+public data class UsbuserControllerUnicodeName(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var unicodeName: UsbUnicodeName = UsbUnicodeName(),
+)
 
-public data class UsbuserGetDriverVersion(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: UsbDriverVersionParameters = UsbDriverVersionParameters())
+public data class UsbuserGetDriverVersion(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var parameters: UsbDriverVersionParameters = UsbDriverVersionParameters(),
+)
 
-public data class UsbuserGetUsb2hwVersion(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: UsbUsb2hwVersionParameters = UsbUsb2hwVersionParameters())
+public data class UsbuserGetUsb2hwVersion(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var parameters: UsbUsb2hwVersionParameters = UsbUsb2hwVersionParameters(),
+)
 
-public data class UsbuserOpenRawDevice(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: UsbOpenRawDeviceParameters = UsbOpenRawDeviceParameters())
+public data class UsbuserOpenRawDevice(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var parameters: UsbOpenRawDeviceParameters = UsbOpenRawDeviceParameters(),
+)
 
-public data class UsbuserPassThruRequest(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var passThru: UsbPassThruParameters = UsbPassThruParameters())
+public data class UsbuserPassThruRequest(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var passThru: UsbPassThruParameters = UsbPassThruParameters(),
+)
 
-public data class UsbuserPowerInfoRequest(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var powerInformation: UsbPowerInfo = UsbPowerInfo())
+public data class UsbuserPowerInfoRequest(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var powerInformation: UsbPowerInfo = UsbPowerInfo(),
+)
 
-public data class UsbuserRawResetRootPort(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: RawResetPortParameters = RawResetPortParameters())
+public data class UsbuserRawResetRootPort(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var parameters: RawResetPortParameters = RawResetPortParameters(),
+)
 
-public data class UsbuserRefreshHctReg(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var flags: UInt = 0u)
+public data class UsbuserRefreshHctReg(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var flags: UInt = 0u,
+)
 
 public data class UsbuserRequestHeader(
     public var usbUserRequest: UInt = 0u,
@@ -519,21 +590,43 @@ public data class UsbuserRequestHeader(
     public var actualBufferLength: UInt = 0u,
 )
 
-public data class UsbuserRootportFeatureRequest(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: RawRootportFeature = RawRootportFeature())
+public data class UsbuserRootportFeatureRequest(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var parameters: RawRootportFeature = RawRootportFeature(),
+)
 
-public data class UsbuserRootportParameters(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: RawRootportParameters = RawRootportParameters())
+public data class UsbuserRootportParameters(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var parameters: RawRootportParameters = RawRootportParameters(),
+)
 
-public data class UsbuserSendOnePacket(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var packetParameters: PacketParameters = PacketParameters())
+public data class UsbuserSendOnePacket(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var packetParameters: PacketParameters = PacketParameters(),
+)
 
-public data class UsbuserSendRawCommand(public var header: UsbuserRequestHeader = UsbuserRequestHeader(), public var parameters: UsbSendRawCommandParameters = UsbSendRawCommandParameters())
+public data class UsbuserSendRawCommand(
+    public var header: UsbuserRequestHeader = UsbuserRequestHeader(),
+    public var parameters: UsbSendRawCommandParameters = UsbSendRawCommandParameters(),
+)
 
-public data class Usb20PortChange(public var asUshort16: UShort = 0u, public var anonymous: Usb20PortChange0 = Usb20PortChange0())
+public data class Usb20PortChange(
+    public var asUshort16: UShort = 0u,
+    public var anonymous: Usb20PortChange0 = Usb20PortChange0(),
+)
 
-public data class Usb20PortChange0(public var bitfield: UShort = 0u)
+public data class Usb20PortChange0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class Usb20PortStatus(public var asUshort16: UShort = 0u, public var anonymous: Usb20PortStatus0 = Usb20PortStatus0())
+public data class Usb20PortStatus(
+    public var asUshort16: UShort = 0u,
+    public var anonymous: Usb20PortStatus0 = Usb20PortStatus0(),
+)
 
-public data class Usb20PortStatus0(public var bitfield: UShort = 0u)
+public data class Usb20PortStatus0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class Usb30HubDescriptor(
     public var bLength: UByte = 0u,
@@ -547,13 +640,23 @@ public data class Usb30HubDescriptor(
     public var deviceRemovable: UShort = 0u,
 )
 
-public data class Usb30PortChange(public var asUshort16: UShort = 0u, public var anonymous: Usb30PortChange0 = Usb30PortChange0())
+public data class Usb30PortChange(
+    public var asUshort16: UShort = 0u,
+    public var anonymous: Usb30PortChange0 = Usb30PortChange0(),
+)
 
-public data class Usb30PortChange0(public var bitfield: UShort = 0u)
+public data class Usb30PortChange0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class Usb30PortStatus(public var asUshort16: UShort = 0u, public var anonymous: Usb30PortStatus0 = Usb30PortStatus0())
+public data class Usb30PortStatus(
+    public var asUshort16: UShort = 0u,
+    public var anonymous: Usb30PortStatus0 = Usb30PortStatus0(),
+)
 
-public data class Usb30PortStatus0(public var bitfield: UShort = 0u)
+public data class Usb30PortStatus0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class UsbAcquireInfo(
     public var notificationType: UsbNotificationType = 0,
@@ -624,9 +727,14 @@ public data class UsbBusStatistics0(
     public var nameIndex: UByte = 0u,
 )
 
-public data class UsbCloseRawDeviceParameters(public var xxx: UInt = 0u)
+public data class UsbCloseRawDeviceParameters(
+    public var xxx: UInt = 0u,
+)
 
-public data class UsbCommonDescriptor(public var bLength: UByte = 0u, public var bDescriptorType: UByte = 0u)
+public data class UsbCommonDescriptor(
+    public var bLength: UByte = 0u,
+    public var bDescriptorType: UByte = 0u,
+)
 
 public data class UsbCompositeDeviceInfo(
     public var deviceDescriptor: UsbDeviceDescriptor = UsbDeviceDescriptor(),
@@ -732,7 +840,10 @@ public data class UsbControllerInfo0(
     public var hcFeatureFlags: UInt = 0u,
 )
 
-public data class UsbCyclePortParams(public var connectionIndex: UInt = 0u, public var statusReturned: UInt = 0u)
+public data class UsbCyclePortParams(
+    public var connectionIndex: UInt = 0u,
+    public var statusReturned: UInt = 0u,
+)
 
 public data class UsbDefaultPipeSetupPacket(
     public var bmRequestType: BmRequestType = BmRequestType(),
@@ -742,13 +853,25 @@ public data class UsbDefaultPipeSetupPacket(
     public var wLength: UShort = 0u,
 )
 
-public data class UsbDefaultPipeSetupPacket1(public var anonymous: UsbDefaultPipeSetupPacket10 = UsbDefaultPipeSetupPacket10(), public var w: UShort = 0u)
+public data class UsbDefaultPipeSetupPacket1(
+    public var anonymous: UsbDefaultPipeSetupPacket10 = UsbDefaultPipeSetupPacket10(),
+    public var w: UShort = 0u,
+)
 
-public data class UsbDefaultPipeSetupPacket10(public var lowByte: UByte = 0u, public var hiByte: UByte = 0u)
+public data class UsbDefaultPipeSetupPacket10(
+    public var lowByte: UByte = 0u,
+    public var hiByte: UByte = 0u,
+)
 
-public data class UsbDefaultPipeSetupPacket0(public var anonymous: UsbDefaultPipeSetupPacket00 = UsbDefaultPipeSetupPacket00(), public var w: UShort = 0u)
+public data class UsbDefaultPipeSetupPacket0(
+    public var anonymous: UsbDefaultPipeSetupPacket00 = UsbDefaultPipeSetupPacket00(),
+    public var w: UShort = 0u,
+)
 
-public data class UsbDefaultPipeSetupPacket00(public var lowByte: UByte = 0u, public var hiByte: UByte = 0u)
+public data class UsbDefaultPipeSetupPacket00(
+    public var lowByte: UByte = 0u,
+    public var hiByte: UByte = 0u,
+)
 
 public data class UsbDescriptorRequest(
     public var connectionIndex: UInt = 0u,
@@ -829,9 +952,14 @@ public data class UsbDeviceCapabilityBillboardDescriptor1(
     public var iAlternateModeSetting: UByte = 0u,
 )
 
-public data class UsbDeviceCapabilityBillboardDescriptor0(public var asUshort: UShort = 0u, public var anonymous: UsbDeviceCapabilityBillboardDescriptor00 = UsbDeviceCapabilityBillboardDescriptor00())
+public data class UsbDeviceCapabilityBillboardDescriptor0(
+    public var asUshort: UShort = 0u,
+    public var anonymous: UsbDeviceCapabilityBillboardDescriptor00 = UsbDeviceCapabilityBillboardDescriptor00(),
+)
 
-public data class UsbDeviceCapabilityBillboardDescriptor00(public var bitfield: UShort = 0u)
+public data class UsbDeviceCapabilityBillboardDescriptor00(
+    public var bitfield: UShort = 0u,
+)
 
 public data class UsbDeviceCapabilityContainerIdDescriptor(
     public var bLength: UByte = 0u,
@@ -875,9 +1003,14 @@ public data class UsbDeviceCapabilityFirmwareStatusDescriptor(
     public var bmAttributes: UsbDeviceCapabilityFirmwareStatusDescriptor0 = UsbDeviceCapabilityFirmwareStatusDescriptor0(),
 )
 
-public data class UsbDeviceCapabilityFirmwareStatusDescriptor0(public var asUlong: UInt = 0u, public var anonymous: UsbDeviceCapabilityFirmwareStatusDescriptor00 = UsbDeviceCapabilityFirmwareStatusDescriptor00())
+public data class UsbDeviceCapabilityFirmwareStatusDescriptor0(
+    public var asUlong: UInt = 0u,
+    public var anonymous: UsbDeviceCapabilityFirmwareStatusDescriptor00 = UsbDeviceCapabilityFirmwareStatusDescriptor00(),
+)
 
-public data class UsbDeviceCapabilityFirmwareStatusDescriptor00(public var bitfield: UInt = 0u)
+public data class UsbDeviceCapabilityFirmwareStatusDescriptor00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class UsbDeviceCapabilityPdConsumerPortDescriptor(
     public var bLength: UByte = 0u,
@@ -893,9 +1026,14 @@ public data class UsbDeviceCapabilityPdConsumerPortDescriptor(
     public var dwMaxPeakPowerTime: UInt = 0u,
 )
 
-public data class UsbDeviceCapabilityPdConsumerPortDescriptor0(public var asUshort: UShort = 0u, public var anonymous: UsbDeviceCapabilityPdConsumerPortDescriptor00 = UsbDeviceCapabilityPdConsumerPortDescriptor00())
+public data class UsbDeviceCapabilityPdConsumerPortDescriptor0(
+    public var asUshort: UShort = 0u,
+    public var anonymous: UsbDeviceCapabilityPdConsumerPortDescriptor00 = UsbDeviceCapabilityPdConsumerPortDescriptor00(),
+)
 
-public data class UsbDeviceCapabilityPdConsumerPortDescriptor00(public var bitfield: UShort = 0u)
+public data class UsbDeviceCapabilityPdConsumerPortDescriptor00(
+    public var bitfield: UShort = 0u,
+)
 
 public data class UsbDeviceCapabilityPlatformDescriptor(
     public var bLength: UByte = 0u,
@@ -941,13 +1079,23 @@ public data class UsbDeviceCapabilityPowerDeliveryDescriptor(
     public var bcdUSBTypeCVersion: UShort = 0u,
 )
 
-public data class UsbDeviceCapabilityPowerDeliveryDescriptor0(public var asUlong: UInt = 0u, public var anonymous: UsbDeviceCapabilityPowerDeliveryDescriptor00 = UsbDeviceCapabilityPowerDeliveryDescriptor00())
+public data class UsbDeviceCapabilityPowerDeliveryDescriptor0(
+    public var asUlong: UInt = 0u,
+    public var anonymous: UsbDeviceCapabilityPowerDeliveryDescriptor00 = UsbDeviceCapabilityPowerDeliveryDescriptor00(),
+)
 
-public data class UsbDeviceCapabilityPowerDeliveryDescriptor00(public var bitfield: UInt = 0u)
+public data class UsbDeviceCapabilityPowerDeliveryDescriptor00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class UsbDeviceCapabilitySuperspeedplusSpeed(public var asUlong32: UInt = 0u, public var anonymous: UsbDeviceCapabilitySuperspeedplusSpeed0 = UsbDeviceCapabilitySuperspeedplusSpeed0())
+public data class UsbDeviceCapabilitySuperspeedplusSpeed(
+    public var asUlong32: UInt = 0u,
+    public var anonymous: UsbDeviceCapabilitySuperspeedplusSpeed0 = UsbDeviceCapabilitySuperspeedplusSpeed0(),
+)
 
-public data class UsbDeviceCapabilitySuperspeedplusSpeed0(public var bitfield: UInt = 0u)
+public data class UsbDeviceCapabilitySuperspeedplusSpeed0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor(
     public var bLength: UByte = 0u,
@@ -960,13 +1108,23 @@ public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor(
     public var bmSublinkSpeedAttr: List<UsbDeviceCapabilitySuperspeedplusSpeed> = List(1) { UsbDeviceCapabilitySuperspeedplusSpeed() },
 )
 
-public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor0(public var asUlong: UInt = 0u, public var anonymous: UsbDeviceCapabilitySuperspeedplusUsbDescriptor00 = UsbDeviceCapabilitySuperspeedplusUsbDescriptor00())
+public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor0(
+    public var asUlong: UInt = 0u,
+    public var anonymous: UsbDeviceCapabilitySuperspeedplusUsbDescriptor00 = UsbDeviceCapabilitySuperspeedplusUsbDescriptor00(),
+)
 
-public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor00(public var bitfield: UInt = 0u)
+public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor1(public var asUshort: UShort = 0u, public var anonymous: UsbDeviceCapabilitySuperspeedplusUsbDescriptor10 = UsbDeviceCapabilitySuperspeedplusUsbDescriptor10())
+public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor1(
+    public var asUshort: UShort = 0u,
+    public var anonymous: UsbDeviceCapabilitySuperspeedplusUsbDescriptor10 = UsbDeviceCapabilitySuperspeedplusUsbDescriptor10(),
+)
 
-public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor10(public var bitfield: UShort = 0u)
+public data class UsbDeviceCapabilitySuperspeedplusUsbDescriptor10(
+    public var bitfield: UShort = 0u,
+)
 
 public data class UsbDeviceCapabilitySuperspeedUsbDescriptor(
     public var bLength: UByte = 0u,
@@ -986,9 +1144,14 @@ public data class UsbDeviceCapabilityUsb20ExtensionDescriptor(
     public var bmAttributes: UsbDeviceCapabilityUsb20ExtensionDescriptor0 = UsbDeviceCapabilityUsb20ExtensionDescriptor0(),
 )
 
-public data class UsbDeviceCapabilityUsb20ExtensionDescriptor0(public var asUlong: UInt = 0u, public var anonymous: UsbDeviceCapabilityUsb20ExtensionDescriptor00 = UsbDeviceCapabilityUsb20ExtensionDescriptor00())
+public data class UsbDeviceCapabilityUsb20ExtensionDescriptor0(
+    public var asUlong: UInt = 0u,
+    public var anonymous: UsbDeviceCapabilityUsb20ExtensionDescriptor00 = UsbDeviceCapabilityUsb20ExtensionDescriptor00(),
+)
 
-public data class UsbDeviceCapabilityUsb20ExtensionDescriptor00(public var bitfield: UInt = 0u)
+public data class UsbDeviceCapabilityUsb20ExtensionDescriptor00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class UsbDeviceCharacteristics(
     public var version: UInt = 0u,
@@ -1187,11 +1350,18 @@ public data class UsbDeviceQualifierDescriptor(
     public var bReserved: UByte = 0u,
 )
 
-public data class UsbDeviceState(public var bitfield: UInt = 0u)
+public data class UsbDeviceState(
+    public var bitfield: UInt = 0u,
+)
 
-public data class UsbDeviceStatus(public var asUshort16: UShort = 0u, public var anonymous: UsbDeviceStatus0 = UsbDeviceStatus0())
+public data class UsbDeviceStatus(
+    public var asUshort16: UShort = 0u,
+    public var anonymous: UsbDeviceStatus0 = UsbDeviceStatus0(),
+)
 
-public data class UsbDeviceStatus0(public var bitfield: UShort = 0u)
+public data class UsbDeviceStatus0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class UsbDriverVersionParameters(
     public var driverTrackingCode: UInt = 0u,
@@ -1211,9 +1381,14 @@ public data class UsbEndpointDescriptor(
     public var bInterval: UByte = 0u,
 )
 
-public data class UsbEndpointStatus(public var asUshort16: UShort = 0u, public var anonymous: UsbEndpointStatus0 = UsbEndpointStatus0())
+public data class UsbEndpointStatus(
+    public var asUshort16: UShort = 0u,
+    public var anonymous: UsbEndpointStatus0 = UsbEndpointStatus0(),
+)
 
-public data class UsbEndpointStatus0(public var bitfield: UShort = 0u)
+public data class UsbEndpointStatus0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class UsbFrameNumberAndQpcForTimeSyncInformation(
     public var timeTrackingHandle: Handle = null,
@@ -1229,11 +1404,19 @@ public data class UsbFrameNumberAndQpcForTimeSyncInformation(
     public var currentUSBFrameNumber: UInt = 0u,
 )
 
-public data class UsbFunctionSuspendOptions(public var asUchar: UByte = 0u, public var anonymous: UsbFunctionSuspendOptions0 = UsbFunctionSuspendOptions0())
+public data class UsbFunctionSuspendOptions(
+    public var asUchar: UByte = 0u,
+    public var anonymous: UsbFunctionSuspendOptions0 = UsbFunctionSuspendOptions0(),
+)
 
-public data class UsbFunctionSuspendOptions0(public var bitfield: UByte = 0u)
+public data class UsbFunctionSuspendOptions0(
+    public var bitfield: UByte = 0u,
+)
 
-public data class UsbHcdDriverkeyName(public var actualLength: UInt = 0u, public var driverKeyName: UShortArray = UShortArray(1)) {
+public data class UsbHcdDriverkeyName(
+    public var actualLength: UInt = 0u,
+    public var driverKeyName: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is UsbHcdDriverkeyName) return false
@@ -1249,25 +1432,48 @@ public data class UsbHcdDriverkeyName(public var actualLength: UInt = 0u, public
     }
 }
 
-public data class UsbHighSpeedMaxpacket(public var us: UShort = 0u)
+public data class UsbHighSpeedMaxpacket(
+    public var us: UShort = 0u,
+)
 
-public data class UsbHighSpeedMaxpacket0(public var bitfield: UShort = 0u)
+public data class UsbHighSpeedMaxpacket0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class UsbHub30PortRemoteWakeMask(public var asUchar8: UByte = 0u, public var anonymous: UsbHub30PortRemoteWakeMask0 = UsbHub30PortRemoteWakeMask0())
+public data class UsbHub30PortRemoteWakeMask(
+    public var asUchar8: UByte = 0u,
+    public var anonymous: UsbHub30PortRemoteWakeMask0 = UsbHub30PortRemoteWakeMask0(),
+)
 
-public data class UsbHub30PortRemoteWakeMask0(public var bitfield: UByte = 0u)
+public data class UsbHub30PortRemoteWakeMask0(
+    public var bitfield: UByte = 0u,
+)
 
-public data class UsbHubCapabilities(public var bitfield: UInt = 0u)
+public data class UsbHubCapabilities(
+    public var bitfield: UInt = 0u,
+)
 
-public data class UsbHubCapabilitiesEx(public var capabilityFlags: UsbHubCapFlags = UsbHubCapFlags())
+public data class UsbHubCapabilitiesEx(
+    public var capabilityFlags: UsbHubCapFlags = UsbHubCapFlags(),
+)
 
-public data class UsbHubCapFlags(public var ul: UInt = 0u, public var anonymous: UsbHubCapFlags0 = UsbHubCapFlags0())
+public data class UsbHubCapFlags(
+    public var ul: UInt = 0u,
+    public var anonymous: UsbHubCapFlags0 = UsbHubCapFlags0(),
+)
 
-public data class UsbHubCapFlags0(public var bitfield: UInt = 0u)
+public data class UsbHubCapFlags0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class UsbHubChange(public var asUshort16: UShort = 0u, public var anonymous: UsbHubChange0 = UsbHubChange0())
+public data class UsbHubChange(
+    public var asUshort16: UShort = 0u,
+    public var anonymous: UsbHubChange0 = UsbHubChange0(),
+)
 
-public data class UsbHubChange0(public var bitfield: UShort = 0u)
+public data class UsbHubChange0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class UsbHubDescriptor(
     public var bDescriptorLength: UByte = 0u,
@@ -1348,7 +1554,10 @@ public data class UsbHubDeviceUxdSettings(
     }
 }
 
-public data class UsbHubInformation(public var hubDescriptor: UsbHubDescriptor = UsbHubDescriptor(), public var hubIsBusPowered: Boolean = false)
+public data class UsbHubInformation(
+    public var hubDescriptor: UsbHubDescriptor = UsbHubDescriptor(),
+    public var hubIsBusPowered: Boolean = false,
+)
 
 public data class UsbHubInformationEx(
     public var hubType: UsbHubType = 0,
@@ -1356,9 +1565,15 @@ public data class UsbHubInformationEx(
     public var u: UsbHubInformationEx0 = UsbHubInformationEx0(),
 )
 
-public data class UsbHubInformationEx0(public var usbHubDescriptor: UsbHubDescriptor = UsbHubDescriptor(), public var usb30HubDescriptor: Usb30HubDescriptor = Usb30HubDescriptor())
+public data class UsbHubInformationEx0(
+    public var usbHubDescriptor: UsbHubDescriptor = UsbHubDescriptor(),
+    public var usb30HubDescriptor: Usb30HubDescriptor = Usb30HubDescriptor(),
+)
 
-public data class UsbHubName(public var actualLength: UInt = 0u, public var hubName: UShortArray = UShortArray(1)) {
+public data class UsbHubName(
+    public var actualLength: UInt = 0u,
+    public var hubName: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is UsbHubName) return false
@@ -1382,15 +1597,29 @@ public data class UsbHubPortInformation(
     public var connectionStatus: UsbConnectionStatus = 0,
 )
 
-public data class UsbHubStatus(public var asUshort16: UShort = 0u, public var anonymous: UsbHubStatus0 = UsbHubStatus0())
+public data class UsbHubStatus(
+    public var asUshort16: UShort = 0u,
+    public var anonymous: UsbHubStatus0 = UsbHubStatus0(),
+)
 
-public data class UsbHubStatus0(public var bitfield: UShort = 0u)
+public data class UsbHubStatus0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class UsbHubStatusAndChange(public var asUlong32: UInt = 0u, public var anonymous: UsbHubStatusAndChange0 = UsbHubStatusAndChange0())
+public data class UsbHubStatusAndChange(
+    public var asUlong32: UInt = 0u,
+    public var anonymous: UsbHubStatusAndChange0 = UsbHubStatusAndChange0(),
+)
 
-public data class UsbHubStatusAndChange0(public var hubStatus: UsbHubStatus = UsbHubStatus(), public var hubChange: UsbHubChange = UsbHubChange())
+public data class UsbHubStatusAndChange0(
+    public var hubStatus: UsbHubStatus = UsbHubStatus(),
+    public var hubChange: UsbHubChange = UsbHubChange(),
+)
 
-public data class UsbIdleCallbackInfo(public var idleCallback: UsbIdleCallback = null, public var idleContext: COpaquePointer? = null)
+public data class UsbIdleCallbackInfo(
+    public var idleCallback: UsbIdleCallback = null,
+    public var idleContext: COpaquePointer? = null,
+)
 
 public data class UsbIdString(
     public var languageId: UShort = 0u,
@@ -1437,11 +1666,18 @@ public data class UsbInterfacePowerDescriptor(
     public var transitionTimeFromD3: UShort = 0u,
 )
 
-public data class UsbInterfaceStatus(public var asUshort16: UShort = 0u, public var anonymous: UsbInterfaceStatus0 = UsbInterfaceStatus0())
+public data class UsbInterfaceStatus(
+    public var asUshort16: UShort = 0u,
+    public var anonymous: UsbInterfaceStatus0 = UsbInterfaceStatus0(),
+)
 
-public data class UsbInterfaceStatus0(public var bitfield: UShort = 0u)
+public data class UsbInterfaceStatus0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class UsbMiParentInformation(public var numberOfInterfaces: UInt = 0u)
+public data class UsbMiParentInformation(
+    public var numberOfInterfaces: UInt = 0u,
+)
 
 public data class UsbNodeConnectionAttributes(
     public var connectionIndex: UInt = 0u,
@@ -1502,9 +1738,14 @@ public data class UsbNodeConnectionInformationExV2(
     public var flags: UsbNodeConnectionInformationExV2Flags = UsbNodeConnectionInformationExV2Flags(),
 )
 
-public data class UsbNodeConnectionInformationExV2Flags(public var ul: UInt = 0u, public var anonymous: UsbNodeConnectionInformationExV2Flags0 = UsbNodeConnectionInformationExV2Flags0())
+public data class UsbNodeConnectionInformationExV2Flags(
+    public var ul: UInt = 0u,
+    public var anonymous: UsbNodeConnectionInformationExV2Flags0 = UsbNodeConnectionInformationExV2Flags0(),
+)
 
-public data class UsbNodeConnectionInformationExV2Flags0(public var bitfield: UInt = 0u)
+public data class UsbNodeConnectionInformationExV2Flags0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class UsbNodeConnectionName(
     public var connectionIndex: UInt = 0u,
@@ -1528,13 +1769,24 @@ public data class UsbNodeConnectionName(
     }
 }
 
-public data class UsbNodeInformation(public var nodeType: UsbHubNode = 0, public var u: UsbNodeInformation0 = UsbNodeInformation0())
+public data class UsbNodeInformation(
+    public var nodeType: UsbHubNode = 0,
+    public var u: UsbNodeInformation0 = UsbNodeInformation0(),
+)
 
-public data class UsbNodeInformation0(public var hubInformation: UsbHubInformation = UsbHubInformation(), public var miParentInformation: UsbMiParentInformation = UsbMiParentInformation())
+public data class UsbNodeInformation0(
+    public var hubInformation: UsbHubInformation = UsbHubInformation(),
+    public var miParentInformation: UsbMiParentInformation = UsbMiParentInformation(),
+)
 
-public data class UsbNotification(public var notificationType: UsbNotificationType = 0)
+public data class UsbNotification(
+    public var notificationType: UsbNotificationType = 0,
+)
 
-public data class UsbOpenRawDeviceParameters(public var portStatus: UShort = 0u, public var maxPacketEp0: UShort = 0u)
+public data class UsbOpenRawDeviceParameters(
+    public var portStatus: UShort = 0u,
+    public var maxPacketEp0: UShort = 0u,
+)
 
 public data class UsbPassThruParameters(
     public var functionGUID: Guid = Guid(),
@@ -1558,7 +1810,10 @@ public data class UsbPassThruParameters(
     }
 }
 
-public data class UsbPipeInfo(public var endpointDescriptor: UsbEndpointDescriptor = UsbEndpointDescriptor(), public var scheduleOffset: UInt = 0u)
+public data class UsbPipeInfo(
+    public var endpointDescriptor: UsbEndpointDescriptor = UsbEndpointDescriptor(),
+    public var scheduleOffset: UInt = 0u,
+)
 
 public data class UsbPortChange(
     public var asUshort16: UShort = 0u,
@@ -1597,17 +1852,33 @@ public data class UsbPortConnectorProperties(
     }
 }
 
-public data class UsbPortExtStatus(public var asUlong32: UInt = 0u, public var anonymous: UsbPortExtStatus0 = UsbPortExtStatus0())
+public data class UsbPortExtStatus(
+    public var asUlong32: UInt = 0u,
+    public var anonymous: UsbPortExtStatus0 = UsbPortExtStatus0(),
+)
 
-public data class UsbPortExtStatus0(public var bitfield: UInt = 0u)
+public data class UsbPortExtStatus0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class UsbPortExtStatusAndChange(public var asUlong64: ULong = 0uL, public var anonymous: UsbPortExtStatusAndChange0 = UsbPortExtStatusAndChange0())
+public data class UsbPortExtStatusAndChange(
+    public var asUlong64: ULong = 0uL,
+    public var anonymous: UsbPortExtStatusAndChange0 = UsbPortExtStatusAndChange0(),
+)
 
-public data class UsbPortExtStatusAndChange0(public var portStatusChange: UsbPortStatusAndChange = UsbPortStatusAndChange(), public var portExtStatus: UsbPortExtStatus = UsbPortExtStatus())
+public data class UsbPortExtStatusAndChange0(
+    public var portStatusChange: UsbPortStatusAndChange = UsbPortStatusAndChange(),
+    public var portExtStatus: UsbPortExtStatus = UsbPortExtStatus(),
+)
 
-public data class UsbPortProperties(public var ul: UInt = 0u, public var anonymous: UsbPortProperties0 = UsbPortProperties0())
+public data class UsbPortProperties(
+    public var ul: UInt = 0u,
+    public var anonymous: UsbPortProperties0 = UsbPortProperties0(),
+)
 
-public data class UsbPortProperties0(public var bitfield: UInt = 0u)
+public data class UsbPortProperties0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class UsbPortStatus(
     public var asUshort16: UShort = 0u,
@@ -1615,9 +1886,15 @@ public data class UsbPortStatus(
     public var usb30PortStatus: Usb30PortStatus = Usb30PortStatus(),
 )
 
-public data class UsbPortStatusAndChange(public var asUlong32: UInt = 0u, public var anonymous: UsbPortStatusAndChange0 = UsbPortStatusAndChange0())
+public data class UsbPortStatusAndChange(
+    public var asUlong32: UInt = 0u,
+    public var anonymous: UsbPortStatusAndChange0 = UsbPortStatusAndChange0(),
+)
 
-public data class UsbPortStatusAndChange0(public var portStatus: UsbPortStatus = UsbPortStatus(), public var portChange: UsbPortChange = UsbPortChange())
+public data class UsbPortStatusAndChange0(
+    public var portStatus: UsbPortStatus = UsbPortStatus(),
+    public var portChange: UsbPortChange = UsbPortChange(),
+)
 
 public data class UsbPowerInfo(
     public var systemState: WdmusbPowerState = 0,
@@ -1632,11 +1909,19 @@ public data class UsbPowerInfo(
     public var isPowered: Boolean = false,
 )
 
-public data class UsbProtocols(public var ul: UInt = 0u, public var anonymous: UsbProtocols0 = UsbProtocols0())
+public data class UsbProtocols(
+    public var ul: UInt = 0u,
+    public var anonymous: UsbProtocols0 = UsbProtocols0(),
+)
 
-public data class UsbProtocols0(public var bitfield: UInt = 0u)
+public data class UsbProtocols0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class UsbRootHubName(public var actualLength: UInt = 0u, public var rootHubName: UShortArray = UShortArray(1)) {
+public data class UsbRootHubName(
+    public var actualLength: UInt = 0u,
+    public var rootHubName: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is UsbRootHubName) return false
@@ -1698,9 +1983,14 @@ public data class UsbSendRawCommandParameters(
     }
 }
 
-public data class UsbStartTrackingForTimeSyncInformation(public var timeTrackingHandle: Handle = null, public var isStartupDelayTolerable: Boolean = false)
+public data class UsbStartTrackingForTimeSyncInformation(
+    public var timeTrackingHandle: Handle = null,
+    public var isStartupDelayTolerable: Boolean = false,
+)
 
-public data class UsbStopTrackingForTimeSyncInformation(public var timeTrackingHandle: Handle = null)
+public data class UsbStopTrackingForTimeSyncInformation(
+    public var timeTrackingHandle: Handle = null,
+)
 
 public data class UsbStringDescriptor(
     public var bLength: UByte = 0u,
@@ -1745,9 +2035,13 @@ public data class UsbSuperspeedEndpointCompanionDescriptor0(
     public var isochronous: UsbSuperspeedEndpointCompanionDescriptor01 = UsbSuperspeedEndpointCompanionDescriptor01(),
 )
 
-public data class UsbSuperspeedEndpointCompanionDescriptor00(public var bitfield: UByte = 0u)
+public data class UsbSuperspeedEndpointCompanionDescriptor00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class UsbSuperspeedEndpointCompanionDescriptor01(public var bitfield: UByte = 0u)
+public data class UsbSuperspeedEndpointCompanionDescriptor01(
+    public var bitfield: UByte = 0u,
+)
 
 public data class UsbTopologyAddress(
     public var pciBusNumber: UInt = 0u,
@@ -1790,7 +2084,10 @@ public data class UsbTransportCharacteristics(
     public var maxPotentialBandwidth: ULong = 0uL,
 )
 
-public data class UsbTransportCharacteristicsChangeNotification(public var handle: UsbChangeRegistrationHandle = null, public var usbTransportCharacteristics: UsbTransportCharacteristics = UsbTransportCharacteristics())
+public data class UsbTransportCharacteristicsChangeNotification(
+    public var handle: UsbChangeRegistrationHandle = null,
+    public var usbTransportCharacteristics: UsbTransportCharacteristics = UsbTransportCharacteristics(),
+)
 
 public data class UsbTransportCharacteristicsChangeRegistration(
     public var changeNotificationInputFlags: UInt = 0u,
@@ -1798,9 +2095,14 @@ public data class UsbTransportCharacteristicsChangeRegistration(
     public var usbTransportCharacteristics: UsbTransportCharacteristics = UsbTransportCharacteristics(),
 )
 
-public data class UsbTransportCharacteristicsChangeUnregistration(public var handle: UsbChangeRegistrationHandle = null)
+public data class UsbTransportCharacteristicsChangeUnregistration(
+    public var handle: UsbChangeRegistrationHandle = null,
+)
 
-public data class UsbUnicodeName(public var length: UInt = 0u, public var string: UShortArray = UShortArray(1)) {
+public data class UsbUnicodeName(
+    public var length: UInt = 0u,
+    public var string: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is UsbUnicodeName) return false
@@ -1816,7 +2118,9 @@ public data class UsbUnicodeName(public var length: UInt = 0u, public var string
     }
 }
 
-public data class UsbUsb2hwVersionParameters(public var usb2HwRevision: UByte = 0u)
+public data class UsbUsb2hwVersionParameters(
+    public var usb2HwRevision: UByte = 0u,
+)
 
 public data class WinusbPipeInformation(
     public var pipeType: UsbdPipeType = 0,
@@ -2111,9 +2415,14 @@ public data class UrbControlVendorOrClassRequest(
     public var reserved1: UShort = 0u,
 )
 
-public data class UrbFrameLengthControl(public var hdr: UrbHeader = UrbHeader())
+public data class UrbFrameLengthControl(
+    public var hdr: UrbHeader = UrbHeader(),
+)
 
-public data class UrbGetCurrentFrameNumber(public var hdr: UrbHeader = UrbHeader(), public var frameNumber: UInt = 0u)
+public data class UrbGetCurrentFrameNumber(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var frameNumber: UInt = 0u,
+)
 
 public data class UrbGetFrameLength(
     public var hdr: UrbHeader = UrbHeader(),
@@ -2128,7 +2437,9 @@ public data class UrbGetIsochPipeTransferPathDelays(
     public var maximumCompletionPathDelayInMilliSeconds: UInt = 0u,
 )
 
-public data class UrbHcdArea(public var reserved8: List<COpaquePointer> = List(8) { COpaquePointer(0L) })
+public data class UrbHcdArea(
+    public var reserved8: List<COpaquePointer> = List(8) { COpaquePointer(0L) },
+)
 
 public data class UrbHeader(
     public var length: UShort = 0u,
@@ -2198,4 +2509,7 @@ public data class UrbSelectInterface(
     public var iface: UsbdInterfaceInformation = UsbdInterfaceInformation(),
 )
 
-public data class UrbSetFrameLength(public var hdr: UrbHeader = UrbHeader(), public var frameLengthDelta: Int = 0)
+public data class UrbSetFrameLength(
+    public var hdr: UrbHeader = UrbHeader(),
+    public var frameLengthDelta: Int = 0,
+)

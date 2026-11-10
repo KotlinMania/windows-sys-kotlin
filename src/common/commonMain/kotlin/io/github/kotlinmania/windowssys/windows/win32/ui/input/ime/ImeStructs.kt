@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.ime
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -16,7 +17,10 @@ import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfonta
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfontw
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
-public data class Appletidlist(public var count: Int = 0, public var pIIDList: Guid? = null)
+public data class Appletidlist(
+    public var count: Int = 0,
+    public var pIIDList: Guid? = null,
+)
 
 public data class Applycandexparam(
     public var dwSize: UInt = 0u,
@@ -191,7 +195,10 @@ public data class Imeappletui(
     public var lReserved2: Lparam = 0L,
 )
 
-public data class Imecharinfo(public var wch: UShort = 0u, public var dwCharInfo: UInt = 0u)
+public data class Imecharinfo(
+    public var wch: UShort = 0u,
+    public var dwCharInfo: UInt = 0u,
+)
 
 public data class Imecharposition(
     public var dwSize: UInt = 0u,
@@ -261,7 +268,10 @@ public data class Imeitem(
     public var lpItemData: COpaquePointer? = null,
 )
 
-public data class Imeitemcandidate(public var uCount: UInt = 0u, public var imeItem: List<Imeitem> = List(1) { Imeitem() })
+public data class Imeitemcandidate(
+    public var uCount: UInt = 0u,
+    public var imeItem: List<Imeitem> = List(1) { Imeitem() },
+)
 
 public data class Imekms(
     public var cbSize: Int = 0,
@@ -295,7 +305,10 @@ public data class Imekmsfuncdesc(
     }
 }
 
-public data class Imekmsinit(public var cbSize: Int = 0, public var hWnd: Hwnd = null)
+public data class Imekmsinit(
+    public var cbSize: Int = 0,
+    public var hWnd: Hwnd = null,
+)
 
 public data class Imekmsinvk(
     public var cbSize: Int = 0,
@@ -311,9 +324,15 @@ public data class Imekmskey(
     public var anonymous2: Imekmskey1 = Imekmskey1(),
 )
 
-public data class Imekmskey0(public var dwControl: UInt = 0u, public var dwNotUsed: UInt = 0u)
+public data class Imekmskey0(
+    public var dwControl: UInt = 0u,
+    public var dwNotUsed: UInt = 0u,
+)
 
-public data class Imekmskey1(public var pwszDscr: UShortArray = UShortArray(31), public var pwszNoUse: UShortArray = UShortArray(31)) {
+public data class Imekmskey1(
+    public var pwszDscr: UShortArray = UShortArray(31),
+    public var pwszNoUse: UShortArray = UShortArray(31),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Imekmskey1) return false
@@ -453,7 +472,10 @@ public data class Imeshf(
     }
 }
 
-public data class Imestringcandidate(public var uCount: UInt = 0u, public var lpwstr: List<COpaquePointer> = List(1) { COpaquePointer(0L) })
+public data class Imestringcandidate(
+    public var uCount: UInt = 0u,
+    public var lpwstr: List<COpaquePointer> = List(1) { COpaquePointer(0L) },
+)
 
 public data class Imestringcandidateinfo(
     public var dwFarEastId: UInt = 0u,
@@ -464,7 +486,10 @@ public data class Imestringcandidateinfo(
     public var lpwstr: List<COpaquePointer> = List(1) { COpaquePointer(0L) },
 )
 
-public data class Imestringinfo(public var dwFarEastId: UInt = 0u, public var lpwstr: Pwstr = null)
+public data class Imestringinfo(
+    public var dwFarEastId: UInt = 0u,
+    public var lpwstr: Pwstr = null,
+)
 
 public data class Imewrd(
     public var pwchReading: Pwstr = null,
@@ -500,9 +525,15 @@ public data class Imewrd(
     }
 }
 
-public data class Imewrd0(public var ulPos: UInt = 0u, public var anonymous: Imewrd00 = Imewrd00())
+public data class Imewrd0(
+    public var ulPos: UInt = 0u,
+    public var anonymous: Imewrd00 = Imewrd00(),
+)
 
-public data class Imewrd00(public var nPos1: UShort = 0u, public var nPos2: UShort = 0u)
+public data class Imewrd00(
+    public var nPos1: UShort = 0u,
+    public var nPos2: UShort = 0u,
+)
 
 public class Inputcontext(
     public var hWnd: Hwnd = null,
@@ -524,7 +555,10 @@ public class Inputcontext(
     public var dwReserve: UIntArray = UIntArray(3),
 )
 
-public data class Inputcontext0(public var a: Logfonta = Logfonta(), public var w: Logfontw = Logfontw())
+public data class Inputcontext0(
+    public var a: Logfonta = Logfonta(),
+    public var w: Logfontw = Logfontw(),
+)
 
 public data class Morrslt(
     public var dwSize: UInt = 0u,
@@ -578,13 +612,25 @@ public data class Morrslt(
     }
 }
 
-public data class Morrslt0(public var pwchRead: Pwstr = null, public var pwchComp: Pwstr = null)
+public data class Morrslt0(
+    public var pwchRead: Pwstr = null,
+    public var pwchComp: Pwstr = null,
+)
 
-public data class Morrslt1(public var cchRead: UShort = 0u, public var cchComp: UShort = 0u)
+public data class Morrslt1(
+    public var cchRead: UShort = 0u,
+    public var cchComp: UShort = 0u,
+)
 
-public data class Morrslt2(public var pchReadIdxWDD: UShort? = null, public var pchCompIdxWDD: UShort? = null)
+public data class Morrslt2(
+    public var pchReadIdxWDD: UShort? = null,
+    public var pchCompIdxWDD: UShort? = null,
+)
 
-public data class Postbl(public var nPos: UShort = 0u, public var szName: COpaquePointer? = null)
+public data class Postbl(
+    public var nPos: UShort = 0u,
+    public var szName: COpaquePointer? = null,
+)
 
 public data class Reconvertstring(
     public var dwSize: UInt = 0u,
@@ -597,11 +643,20 @@ public data class Reconvertstring(
     public var dwTargetStrOffset: UInt = 0u,
 )
 
-public data class Registerworda(public var lpReading: Pstr = null, public var lpWord: Pstr = null)
+public data class Registerworda(
+    public var lpReading: Pstr = null,
+    public var lpWord: Pstr = null,
+)
 
-public data class Registerwordw(public var lpReading: Pwstr = null, public var lpWord: Pwstr = null)
+public data class Registerwordw(
+    public var lpReading: Pwstr = null,
+    public var lpWord: Pwstr = null,
+)
 
-public data class Softkbddata(public var uCount: UInt = 0u, public var wCode: UShortArray = UShortArray(256)) {
+public data class Softkbddata(
+    public var uCount: UInt = 0u,
+    public var wCode: UShortArray = UShortArray(256),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Softkbddata) return false
@@ -617,7 +672,10 @@ public data class Softkbddata(public var uCount: UInt = 0u, public var wCode: US
     }
 }
 
-public data class Stylebufa(public var dwStyle: UInt = 0u, public var szDescription: ByteArray = ByteArray(32)) {
+public data class Stylebufa(
+    public var dwStyle: UInt = 0u,
+    public var szDescription: ByteArray = ByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Stylebufa) return false
@@ -633,7 +691,10 @@ public data class Stylebufa(public var dwStyle: UInt = 0u, public var szDescript
     }
 }
 
-public data class Stylebufw(public var dwStyle: UInt = 0u, public var szDescription: UShortArray = UShortArray(32)) {
+public data class Stylebufw(
+    public var dwStyle: UInt = 0u,
+    public var szDescription: UShortArray = UShortArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Stylebufw) return false
@@ -655,7 +716,10 @@ public data class Transmsg(
     public var lParam: Lparam = 0L,
 )
 
-public data class Transmsglist(public var uMsgCount: UInt = 0u, public var transMsg: List<Transmsg> = List(1) { Transmsg() })
+public data class Transmsglist(
+    public var uMsgCount: UInt = 0u,
+    public var transMsg: List<Transmsg> = List(1) { Transmsg() },
+)
 
 public data class Wdd(
     public var wDispPos: UShort = 0u,
@@ -668,6 +732,12 @@ public data class Wdd(
     public var pReserved: COpaquePointer? = null,
 )
 
-public data class Wdd0(public var wReadPos: UShort = 0u, public var wCompPos: UShort = 0u)
+public data class Wdd0(
+    public var wReadPos: UShort = 0u,
+    public var wCompPos: UShort = 0u,
+)
 
-public data class Wdd1(public var cchRead: UShort = 0u, public var cchComp: UShort = 0u)
+public data class Wdd1(
+    public var cchRead: UShort = 0u,
+    public var cchComp: UShort = 0u,
+)

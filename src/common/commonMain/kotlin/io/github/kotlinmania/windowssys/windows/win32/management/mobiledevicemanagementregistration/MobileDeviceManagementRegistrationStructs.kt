@@ -10,4 +10,7 @@ public data class ManagementRegistrationInfo(
     public var pszMDMServiceUri: Pwstr = null,
 )
 
-public data class ManagementServiceInfo(public var pszMDMServiceUri: Pwstr = null, public var pszAuthenticationUri: Pwstr = null)
+public data class ManagementServiceInfo(
+    public var pszMDMServiceUri: Pwstr = null,
+    public var pszAuthenticationUri: Pwstr = null,
+)

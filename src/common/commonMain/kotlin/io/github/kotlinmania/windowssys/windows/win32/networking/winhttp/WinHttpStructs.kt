@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networking.winhttp
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -12,7 +13,10 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrStorage
 
-public data class HttpVersionInfo(public var dwMajorVersion: UInt = 0u, public var dwMinorVersion: UInt = 0u)
+public data class HttpVersionInfo(
+    public var dwMajorVersion: UInt = 0u,
+    public var dwMinorVersion: UInt = 0u,
+)
 
 public data class UrlComponents(
     public var dwStructSize: UInt = 0u,
@@ -32,7 +36,10 @@ public data class UrlComponents(
     public var dwExtraInfoLength: UInt = 0u,
 )
 
-public data class WinhttpAsyncResult(public var dwResult: Int = 0, public var dwError: UInt = 0u)
+public data class WinhttpAsyncResult(
+    public var dwResult: Int = 0,
+    public var dwError: UInt = 0u,
+)
 
 public data class WinhttpAutoproxyOptions(
     public var dwFlags: UInt = 0u,
@@ -54,7 +61,10 @@ public data class WinhttpCertificateInfo(
     public var dwKeySize: UInt = 0u,
 )
 
-public data class WinhttpConnectionGroup(public var cConnections: UInt = 0u, public var guidGroup: Guid = Guid())
+public data class WinhttpConnectionGroup(
+    public var cConnections: UInt = 0u,
+    public var guidGroup: Guid = Guid(),
+)
 
 public data class WinhttpConnectionInfo(
     public var cbSize: UInt = 0u,
@@ -88,15 +98,30 @@ public data class WinhttpCurrentUserIeProxyConfig(
     public var lpszProxyBypass: Pwstr = null,
 )
 
-public data class WinhttpExtendedHeader(public var anonymous1: WinhttpExtendedHeader0 = WinhttpExtendedHeader0(), public var anonymous2: WinhttpExtendedHeader1 = WinhttpExtendedHeader1())
+public data class WinhttpExtendedHeader(
+    public var anonymous1: WinhttpExtendedHeader0 = WinhttpExtendedHeader0(),
+    public var anonymous2: WinhttpExtendedHeader1 = WinhttpExtendedHeader1(),
+)
 
-public data class WinhttpExtendedHeader0(public var pwszName: Pcwstr = null, public var pszName: Pcstr = null)
+public data class WinhttpExtendedHeader0(
+    public var pwszName: Pcwstr = null,
+    public var pszName: Pcstr = null,
+)
 
-public data class WinhttpExtendedHeader1(public var pwszValue: Pcwstr = null, public var pszValue: Pcstr = null)
+public data class WinhttpExtendedHeader1(
+    public var pwszValue: Pcwstr = null,
+    public var pszValue: Pcstr = null,
+)
 
-public data class WinhttpFailedConnectionRetries(public var dwMaxRetries: UInt = 0u, public var dwAllowedRetryConditions: UInt = 0u)
+public data class WinhttpFailedConnectionRetries(
+    public var dwMaxRetries: UInt = 0u,
+    public var dwAllowedRetryConditions: UInt = 0u,
+)
 
-public data class WinhttpHeaderName(public var pwszName: Pcwstr = null, public var pszName: Pcstr = null)
+public data class WinhttpHeaderName(
+    public var pwszName: Pcwstr = null,
+    public var pszName: Pcstr = null,
+)
 
 public data class WinhttpHostConnectionGroup(
     public var pwszHost: Pcwstr = null,
@@ -104,9 +129,15 @@ public data class WinhttpHostConnectionGroup(
     public var pConnectionGroups: WinhttpConnectionGroup? = null,
 )
 
-public data class WinhttpHttp2ReceiveWindow(public var ulStreamWindow: UInt = 0u, public var ulStreamWindowUpdateDelta: UInt = 0u)
+public data class WinhttpHttp2ReceiveWindow(
+    public var ulStreamWindow: UInt = 0u,
+    public var ulStreamWindowUpdateDelta: UInt = 0u,
+)
 
-public data class WinhttpMatchConnectionGuid(public var connectionGuid: Guid = Guid(), public var ullFlags: ULong = 0uL)
+public data class WinhttpMatchConnectionGuid(
+    public var connectionGuid: Guid = Guid(),
+    public var ullFlags: ULong = 0uL,
+)
 
 public data class WinhttpProxyInfo(
     public var dwAccessType: WinhttpAccessType = 0u,
@@ -114,7 +145,9 @@ public data class WinhttpProxyInfo(
     public var lpszProxyBypass: Pwstr = null,
 )
 
-public data class WinhttpProxyNetworkingKey(public var pbBuffer: UByteArray = UByteArray(128)) {
+public data class WinhttpProxyNetworkingKey(
+    public var pbBuffer: UByteArray = UByteArray(128),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WinhttpProxyNetworkingKey) return false
@@ -122,12 +155,13 @@ public data class WinhttpProxyNetworkingKey(public var pbBuffer: UByteArray = UB
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.pbBuffer.contentHashCode()
-    }
+    override fun hashCode(): Int = this.pbBuffer.contentHashCode()
 }
 
-public data class WinhttpProxyResult(public var cEntries: UInt = 0u, public var pEntries: WinhttpProxyResultEntry? = null)
+public data class WinhttpProxyResult(
+    public var cEntries: UInt = 0u,
+    public var pEntries: WinhttpProxyResultEntry? = null,
+)
 
 public data class WinhttpProxyResultEntry(
     public var fProxy: Bool = 0,
@@ -181,7 +215,10 @@ public data class WinhttpProxySettingsParam(
     public var pcwszProbeHost: Pcwstr = null,
 )
 
-public data class WinhttpQueryConnectionGroupResult(public var cHosts: UInt = 0u, public var pHostConnectionGroups: WinhttpHostConnectionGroup? = null)
+public data class WinhttpQueryConnectionGroupResult(
+    public var cHosts: UInt = 0u,
+    public var pHostConnectionGroups: WinhttpHostConnectionGroup? = null,
+)
 
 public data class WinhttpRequestStats(
     public var ullFlags: ULong = 0uL,
@@ -208,7 +245,10 @@ public data class WinhttpRequestStats(
     }
 }
 
-public data class WinhttpRequestTimes(public var cTimes: UInt = 0u, public var rgullTimes: ULongArray = ULongArray(64)) {
+public data class WinhttpRequestTimes(
+    public var cTimes: UInt = 0u,
+    public var rgullTimes: ULongArray = ULongArray(64),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WinhttpRequestTimes) return false
@@ -233,6 +273,12 @@ public data class WinhttpResolverCacheConfig(
     public var ullFlags: ULong = 0uL,
 )
 
-public data class WinhttpWebSocketAsyncResult(public var asyncResult: WinhttpAsyncResult = WinhttpAsyncResult(), public var operation: WinhttpWebSocketOperation = 0)
+public data class WinhttpWebSocketAsyncResult(
+    public var asyncResult: WinhttpAsyncResult = WinhttpAsyncResult(),
+    public var operation: WinhttpWebSocketOperation = 0,
+)
 
-public data class WinhttpWebSocketStatus(public var dwBytesTransferred: UInt = 0u, public var eBufferType: WinhttpWebSocketBufferType = 0)
+public data class WinhttpWebSocketStatus(
+    public var dwBytesTransferred: UInt = 0u,
+    public var eBufferType: WinhttpWebSocketBufferType = 0,
+)

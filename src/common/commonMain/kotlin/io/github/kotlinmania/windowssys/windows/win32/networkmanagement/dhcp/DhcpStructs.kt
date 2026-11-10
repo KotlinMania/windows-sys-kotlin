@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -6,7 +7,10 @@ import io.github.kotlinmania.windowssys.core.Bool
 import io.github.kotlinmania.windowssys.core.Pstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class DateTime(public var dwLowDateTime: UInt = 0u, public var dwHighDateTime: UInt = 0u)
+public data class DateTime(
+    public var dwLowDateTime: UInt = 0u,
+    public var dwHighDateTime: UInt = 0u,
+)
 
 public data class DhcpapiParams(
     public var flags: UInt = 0u,
@@ -22,7 +26,10 @@ public data class DhcpcapiClassid(
     public var nBytesData: UInt = 0u,
 )
 
-public data class DhcpcapiParamsArray(public var nParams: UInt = 0u, public var params: DhcpapiParams? = null)
+public data class DhcpcapiParamsArray(
+    public var nParams: UInt = 0u,
+    public var params: DhcpapiParams? = null,
+)
 
 public data class DhcpdsServer(
     public var version: UInt = 0u,
@@ -64,7 +71,10 @@ public class Dhcpv4FailoverClientInfo(
     public var flags: UByte = 0u,
 )
 
-public data class Dhcpv4FailoverClientInfoArray(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
+public data class Dhcpv4FailoverClientInfoArray(
+    public var numElements: UInt = 0u,
+    public var clients: COpaquePointer? = null,
+)
 
 public class Dhcpv4FailoverClientInfoEx(
     public var clientIpAddress: UInt = 0u,
@@ -105,7 +115,10 @@ public data class Dhcpv6capiParams(
     public var nBytesData: UInt = 0u,
 )
 
-public data class Dhcpv6capiParamsArray(public var nParams: UInt = 0u, public var params: Dhcpv6capiParams? = null)
+public data class Dhcpv6capiParamsArray(
+    public var nParams: UInt = 0u,
+    public var params: Dhcpv6capiParams? = null,
+)
 
 public data class DHCPV6Prefix(
     public var prefix: UByteArray = UByteArray(16),
@@ -159,11 +172,20 @@ public data class Dhcpv6BindElement(
     public var ifId: COpaquePointer? = null,
 )
 
-public data class Dhcpv6BindElementArray(public var numElements: UInt = 0u, public var elements: Dhcpv6BindElement? = null)
+public data class Dhcpv6BindElementArray(
+    public var numElements: UInt = 0u,
+    public var elements: Dhcpv6BindElement? = null,
+)
 
-public data class Dhcpv6IpArray(public var numElements: UInt = 0u, public var elements: DhcpIpv6Address? = null)
+public data class Dhcpv6IpArray(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpIpv6Address? = null,
+)
 
-public data class Dhcpv6StatelessParams(public var status: Bool = 0, public var purgeInterval: UInt = 0u)
+public data class Dhcpv6StatelessParams(
+    public var status: Bool = 0,
+    public var purgeInterval: UInt = 0u,
+)
 
 public data class Dhcpv6StatelessScopeStats(
     public var subnetAddress: DhcpIpv6Address = DhcpIpv6Address(),
@@ -171,7 +193,10 @@ public data class Dhcpv6StatelessScopeStats(
     public var numStatelessClientsRemoved: ULong = 0uL,
 )
 
-public data class Dhcpv6StatelessStats(public var numScopes: UInt = 0u, public var scopeStats: Dhcpv6StatelessScopeStats? = null)
+public data class Dhcpv6StatelessStats(
+    public var numScopes: UInt = 0u,
+    public var scopeStats: Dhcpv6StatelessScopeStats? = null,
+)
 
 public data class DhcpAddrPattern(
     public var matchHWType: Bool = 0,
@@ -246,11 +271,20 @@ public data class DhcpAttrib(
     public var anonymous: DhcpAttrib0 = DhcpAttrib0(),
 )
 
-public data class DhcpAttrib0(public var dhcpAttribBool: Bool = 0, public var dhcpAttribUlong: UInt = 0u)
+public data class DhcpAttrib0(
+    public var dhcpAttribBool: Bool = 0,
+    public var dhcpAttribUlong: UInt = 0u,
+)
 
-public data class DhcpAttribArray(public var numElements: UInt = 0u, public var dhcpAttribs: DhcpAttrib? = null)
+public data class DhcpAttribArray(
+    public var numElements: UInt = 0u,
+    public var dhcpAttribs: DhcpAttrib? = null,
+)
 
-public data class DhcpBinaryData(public var dataLength: UInt = 0u, public var data: COpaquePointer? = null)
+public data class DhcpBinaryData(
+    public var dataLength: UInt = 0u,
+    public var data: COpaquePointer? = null,
+)
 
 public data class DhcpBindElement(
     public var flags: UInt = 0u,
@@ -262,7 +296,10 @@ public data class DhcpBindElement(
     public var ifId: COpaquePointer? = null,
 )
 
-public data class DhcpBindElementArray(public var numElements: UInt = 0u, public var elements: DhcpBindElement? = null)
+public data class DhcpBindElementArray(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpBindElement? = null,
+)
 
 public data class DhcpBootpIpRange(
     public var startAddress: UInt = 0u,
@@ -293,9 +330,15 @@ public data class DhcpClassInfo(
     public var classData: COpaquePointer? = null,
 )
 
-public data class DhcpClassInfoArray(public var numElements: UInt = 0u, public var classes: DhcpClassInfo? = null)
+public data class DhcpClassInfoArray(
+    public var numElements: UInt = 0u,
+    public var classes: DhcpClassInfo? = null,
+)
 
-public data class DhcpClassInfoArrayV6(public var numElements: UInt = 0u, public var classes: DhcpClassInfoV6? = null)
+public data class DhcpClassInfoArrayV6(
+    public var numElements: UInt = 0u,
+    public var classes: DhcpClassInfoV6? = null,
+)
 
 public data class DhcpClassInfoV6(
     public var className: Pwstr = null,
@@ -323,7 +366,10 @@ public data class DhcpClientFilterStatusInfo(
     public var filterStatus: UInt = 0u,
 )
 
-public data class DhcpClientFilterStatusInfoArray(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
+public data class DhcpClientFilterStatusInfoArray(
+    public var numElements: UInt = 0u,
+    public var clients: COpaquePointer? = null,
+)
 
 public data class DhcpClientInfo(
     public var clientIpAddress: UInt = 0u,
@@ -335,15 +381,30 @@ public data class DhcpClientInfo(
     public var ownerHost: DhcpHostInfo = DhcpHostInfo(),
 )
 
-public data class DhcpClientInfoArray(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
+public data class DhcpClientInfoArray(
+    public var numElements: UInt = 0u,
+    public var clients: COpaquePointer? = null,
+)
 
-public data class DhcpClientInfoArrayV4(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
+public data class DhcpClientInfoArrayV4(
+    public var numElements: UInt = 0u,
+    public var clients: COpaquePointer? = null,
+)
 
-public data class DhcpClientInfoArrayV5(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
+public data class DhcpClientInfoArrayV5(
+    public var numElements: UInt = 0u,
+    public var clients: COpaquePointer? = null,
+)
 
-public data class DhcpClientInfoArrayV6(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
+public data class DhcpClientInfoArrayV6(
+    public var numElements: UInt = 0u,
+    public var clients: COpaquePointer? = null,
+)
 
-public data class DhcpClientInfoArrayVq(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
+public data class DhcpClientInfoArrayVq(
+    public var numElements: UInt = 0u,
+    public var clients: COpaquePointer? = null,
+)
 
 public data class DhcpClientInfoEx(
     public var clientIpAddress: UInt = 0u,
@@ -363,7 +424,10 @@ public data class DhcpClientInfoEx(
     public var properties: DhcpPropertyArray? = null,
 )
 
-public data class DhcpClientInfoExArray(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
+public data class DhcpClientInfoExArray(
+    public var numElements: UInt = 0u,
+    public var clients: COpaquePointer? = null,
+)
 
 public data class DhcpClientInfoPb(
     public var clientIpAddress: UInt = 0u,
@@ -382,7 +446,10 @@ public data class DhcpClientInfoPb(
     public var policyName: Pwstr = null,
 )
 
-public data class DhcpClientInfoPbArray(public var numElements: UInt = 0u, public var clients: COpaquePointer? = null)
+public data class DhcpClientInfoPbArray(
+    public var numElements: UInt = 0u,
+    public var clients: COpaquePointer? = null,
+)
 
 public data class DhcpClientInfoV4(
     public var clientIpAddress: UInt = 0u,
@@ -451,7 +518,10 @@ public data class DhcpFailoverRelationship(
     public var sharedSecret: Pwstr = null,
 )
 
-public data class DhcpFailoverRelationshipArray(public var numElements: UInt = 0u, public var pRelationships: DhcpFailoverRelationship? = null)
+public data class DhcpFailoverRelationshipArray(
+    public var numElements: UInt = 0u,
+    public var pRelationships: DhcpFailoverRelationship? = null,
+)
 
 public data class DhcpFailoverStatistics(
     public var numAddr: UInt = 0u,
@@ -469,11 +539,20 @@ public data class DhcpFilterAddInfo(
     public var listType: DhcpFilterListType = 0,
 )
 
-public data class DhcpFilterEnumInfo(public var numElements: UInt = 0u, public var pEnumRecords: DhcpFilterRecord? = null)
+public data class DhcpFilterEnumInfo(
+    public var numElements: UInt = 0u,
+    public var pEnumRecords: DhcpFilterRecord? = null,
+)
 
-public data class DhcpFilterGlobalInfo(public var enforceAllowList: Bool = 0, public var enforceDenyList: Bool = 0)
+public data class DhcpFilterGlobalInfo(
+    public var enforceAllowList: Bool = 0,
+    public var enforceDenyList: Bool = 0,
+)
 
-public data class DhcpFilterRecord(public var addrPatt: DhcpAddrPattern = DhcpAddrPattern(), public var comment: Pwstr = null)
+public data class DhcpFilterRecord(
+    public var addrPatt: DhcpAddrPattern = DhcpAddrPattern(),
+    public var comment: Pwstr = null,
+)
 
 public data class DhcpHostInfo(
     public var ipAddress: UInt = 0u,
@@ -487,19 +566,40 @@ public data class DhcpHostInfoV6(
     public var hostName: Pwstr = null,
 )
 
-public data class DhcpIpv6Address(public var highOrderBits: ULong = 0uL, public var lowOrderBits: ULong = 0uL)
+public data class DhcpIpv6Address(
+    public var highOrderBits: ULong = 0uL,
+    public var lowOrderBits: ULong = 0uL,
+)
 
-public data class DhcpIpArray(public var numElements: UInt = 0u, public var elements: UInt? = null)
+public data class DhcpIpArray(
+    public var numElements: UInt = 0u,
+    public var elements: UInt? = null,
+)
 
-public data class DhcpIpCluster(public var clusterAddress: UInt = 0u, public var clusterMask: UInt = 0u)
+public data class DhcpIpCluster(
+    public var clusterAddress: UInt = 0u,
+    public var clusterMask: UInt = 0u,
+)
 
-public data class DhcpIpRange(public var startAddress: UInt = 0u, public var endAddress: UInt = 0u)
+public data class DhcpIpRange(
+    public var startAddress: UInt = 0u,
+    public var endAddress: UInt = 0u,
+)
 
-public data class DhcpIpRangeArray(public var numElements: UInt = 0u, public var elements: DhcpIpRange? = null)
+public data class DhcpIpRangeArray(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpIpRange? = null,
+)
 
-public data class DhcpIpRangeV6(public var startAddress: DhcpIpv6Address = DhcpIpv6Address(), public var endAddress: DhcpIpv6Address = DhcpIpv6Address())
+public data class DhcpIpRangeV6(
+    public var startAddress: DhcpIpv6Address = DhcpIpv6Address(),
+    public var endAddress: DhcpIpv6Address = DhcpIpv6Address(),
+)
 
-public data class DhcpIpReservation(public var reservedIpAddress: UInt = 0u, public var reservedForClient: DhcpBinaryData? = null)
+public data class DhcpIpReservation(
+    public var reservedIpAddress: UInt = 0u,
+    public var reservedForClient: DhcpBinaryData? = null,
+)
 
 public data class DhcpIpReservationInfo(
     public var reservedIpAddress: UInt = 0u,
@@ -601,11 +701,20 @@ public data class DhcpOption(
     public var optionType: DhcpOptionType = 0,
 )
 
-public data class DhcpOptionArray(public var numElements: UInt = 0u, public var options: DhcpOption? = null)
+public data class DhcpOptionArray(
+    public var numElements: UInt = 0u,
+    public var options: DhcpOption? = null,
+)
 
-public data class DhcpOptionData(public var numElements: UInt = 0u, public var elements: DhcpOptionDataElement? = null)
+public data class DhcpOptionData(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpOptionDataElement? = null,
+)
 
-public data class DhcpOptionDataElement(public var optionType: DhcpOptionDataType = 0, public var element: DhcpOptionDataElement0 = DhcpOptionDataElement0())
+public data class DhcpOptionDataElement(
+    public var optionType: DhcpOptionDataType = 0,
+    public var element: DhcpOptionDataElement0 = DhcpOptionDataElement0(),
+)
 
 public data class DhcpOptionDataElement0(
     public var byteOption: UByte = 0u,
@@ -619,9 +728,15 @@ public data class DhcpOptionDataElement0(
     public var ipv6AddressDataOption: Pwstr = null,
 )
 
-public data class DhcpOptionList(public var numOptions: UInt = 0u, public var options: DhcpOptionValue? = null)
+public data class DhcpOptionList(
+    public var numOptions: UInt = 0u,
+    public var options: DhcpOptionValue? = null,
+)
 
-public data class DhcpOptionScopeInfo(public var scopeType: DhcpOptionScopeType = 0, public var scopeInfo: DhcpOptionScopeInfo0 = DhcpOptionScopeInfo0())
+public data class DhcpOptionScopeInfo(
+    public var scopeType: DhcpOptionScopeType = 0,
+    public var scopeInfo: DhcpOptionScopeInfo0 = DhcpOptionScopeInfo0(),
+)
 
 public data class DhcpOptionScopeInfo0(
     public var defaultScopeInfo: COpaquePointer? = null,
@@ -631,7 +746,10 @@ public data class DhcpOptionScopeInfo0(
     public var mScopeInfo: Pwstr = null,
 )
 
-public data class DhcpOptionScopeInfo6(public var scopeType: DhcpOptionScopeType6 = 0, public var scopeInfo: DhcpOptionScopeInfo60 = DhcpOptionScopeInfo60())
+public data class DhcpOptionScopeInfo6(
+    public var scopeType: DhcpOptionScopeType6 = 0,
+    public var scopeInfo: DhcpOptionScopeInfo60 = DhcpOptionScopeInfo60(),
+)
 
 public data class DhcpOptionScopeInfo60(
     public var defaultScopeInfo: COpaquePointer? = null,
@@ -639,9 +757,15 @@ public data class DhcpOptionScopeInfo60(
     public var reservedScopeInfo: DhcpReservedScope6 = DhcpReservedScope6(),
 )
 
-public data class DhcpOptionValue(public var optionID: UInt = 0u, public var value: DhcpOptionData = DhcpOptionData())
+public data class DhcpOptionValue(
+    public var optionID: UInt = 0u,
+    public var value: DhcpOptionData = DhcpOptionData(),
+)
 
-public data class DhcpOptionValueArray(public var numElements: UInt = 0u, public var values: DhcpOptionValue? = null)
+public data class DhcpOptionValueArray(
+    public var numElements: UInt = 0u,
+    public var values: DhcpOptionValue? = null,
+)
 
 public class DhcpPerfStats(
     public var dwNumPacketsReceived: UInt = 0u,
@@ -677,7 +801,10 @@ public data class DhcpPolicy(
     public var enabled: Bool = 0,
 )
 
-public data class DhcpPolicyArray(public var numElements: UInt = 0u, public var elements: DhcpPolicy? = null)
+public data class DhcpPolicyArray(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpPolicy? = null,
+)
 
 public data class DhcpPolicyEx(
     public var policyName: Pwstr = null,
@@ -692,7 +819,10 @@ public data class DhcpPolicyEx(
     public var properties: DhcpPropertyArray? = null,
 )
 
-public data class DhcpPolicyExArray(public var numElements: UInt = 0u, public var elements: DhcpPolicyEx? = null)
+public data class DhcpPolicyExArray(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpPolicyEx? = null,
+)
 
 public data class DhcpPolCond(
     public var parentExpr: UInt = 0u,
@@ -705,11 +835,20 @@ public data class DhcpPolCond(
     public var valueLength: UInt = 0u,
 )
 
-public data class DhcpPolCondArray(public var numElements: UInt = 0u, public var elements: DhcpPolCond? = null)
+public data class DhcpPolCondArray(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpPolCond? = null,
+)
 
-public data class DhcpPolExpr(public var parentExpr: UInt = 0u, public var operator: DhcpPolLogicOper = 0)
+public data class DhcpPolExpr(
+    public var parentExpr: UInt = 0u,
+    public var operator: DhcpPolLogicOper = 0,
+)
 
-public data class DhcpPolExprArray(public var numElements: UInt = 0u, public var elements: DhcpPolExpr? = null)
+public data class DhcpPolExprArray(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpPolExpr? = null,
+)
 
 public data class DhcpProperty(
     public var id: DhcpPropertyId = 0,
@@ -725,19 +864,40 @@ public data class DhcpProperty0(
     public var binaryValue: DhcpBinaryData = DhcpBinaryData(),
 )
 
-public data class DhcpPropertyArray(public var numElements: UInt = 0u, public var elements: DhcpProperty? = null)
+public data class DhcpPropertyArray(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpProperty? = null,
+)
 
-public data class DhcpReservationInfoArray(public var numElements: UInt = 0u, public var elements: COpaquePointer? = null)
+public data class DhcpReservationInfoArray(
+    public var numElements: UInt = 0u,
+    public var elements: COpaquePointer? = null,
+)
 
-public data class DhcpReservedScope(public var reservedIpAddress: UInt = 0u, public var reservedIpSubnetAddress: UInt = 0u)
+public data class DhcpReservedScope(
+    public var reservedIpAddress: UInt = 0u,
+    public var reservedIpSubnetAddress: UInt = 0u,
+)
 
-public data class DhcpReservedScope6(public var reservedIpAddress: DhcpIpv6Address = DhcpIpv6Address(), public var reservedIpSubnetAddress: DhcpIpv6Address = DhcpIpv6Address())
+public data class DhcpReservedScope6(
+    public var reservedIpAddress: DhcpIpv6Address = DhcpIpv6Address(),
+    public var reservedIpSubnetAddress: DhcpIpv6Address = DhcpIpv6Address(),
+)
 
-public data class DhcpScanItem(public var ipAddress: UInt = 0u, public var scanFlag: DhcpScanFlag = 0)
+public data class DhcpScanItem(
+    public var ipAddress: UInt = 0u,
+    public var scanFlag: DhcpScanFlag = 0,
+)
 
-public data class DhcpScanList(public var numScanItems: UInt = 0u, public var scanItems: DhcpScanItem? = null)
+public data class DhcpScanList(
+    public var numScanItems: UInt = 0u,
+    public var scanItems: DhcpScanItem? = null,
+)
 
-public data class DhcpSearchInfo(public var searchType: DhcpSearchInfoType = 0, public var searchInfo: DhcpSearchInfo0 = DhcpSearchInfo0())
+public data class DhcpSearchInfo(
+    public var searchType: DhcpSearchInfoType = 0,
+    public var searchInfo: DhcpSearchInfo0 = DhcpSearchInfo0(),
+)
 
 public data class DhcpSearchInfo0(
     public var clientIpAddress: UInt = 0u,
@@ -745,7 +905,10 @@ public data class DhcpSearchInfo0(
     public var clientName: Pwstr = null,
 )
 
-public data class DhcpSearchInfoV6(public var searchType: DhcpSearchInfoTypeV6 = 0, public var searchInfo: DhcpSearchInfoV60 = DhcpSearchInfoV60())
+public data class DhcpSearchInfoV6(
+    public var searchType: DhcpSearchInfoTypeV6 = 0,
+    public var searchInfo: DhcpSearchInfoV60 = DhcpSearchInfoV60(),
+)
 
 public data class DhcpSearchInfoV60(
     public var clientIpAddress: DhcpIpv6Address = DhcpIpv6Address(),
@@ -840,9 +1003,15 @@ public class DhcpServerOptions(
     public var scopeId: UInt? = null,
 )
 
-public data class DhcpServerSpecificStrings(public var defaultVendorClassName: Pwstr = null, public var defaultUserClassName: Pwstr = null)
+public data class DhcpServerSpecificStrings(
+    public var defaultVendorClassName: Pwstr = null,
+    public var defaultUserClassName: Pwstr = null,
+)
 
-public data class DhcpSubnetElementData(public var elementType: DhcpSubnetElementType = 0, public var element: DhcpSubnetElementData0 = DhcpSubnetElementData0())
+public data class DhcpSubnetElementData(
+    public var elementType: DhcpSubnetElementType = 0,
+    public var element: DhcpSubnetElementData0 = DhcpSubnetElementData0(),
+)
 
 public data class DhcpSubnetElementData0(
     public var ipRange: DhcpIpRange? = null,
@@ -852,7 +1021,10 @@ public data class DhcpSubnetElementData0(
     public var ipUsedCluster: DhcpIpCluster? = null,
 )
 
-public data class DhcpSubnetElementDataV4(public var elementType: DhcpSubnetElementType = 0, public var element: DhcpSubnetElementDataV40 = DhcpSubnetElementDataV40())
+public data class DhcpSubnetElementDataV4(
+    public var elementType: DhcpSubnetElementType = 0,
+    public var element: DhcpSubnetElementDataV40 = DhcpSubnetElementDataV40(),
+)
 
 public data class DhcpSubnetElementDataV40(
     public var ipRange: DhcpIpRange? = null,
@@ -862,7 +1034,10 @@ public data class DhcpSubnetElementDataV40(
     public var ipUsedCluster: DhcpIpCluster? = null,
 )
 
-public data class DhcpSubnetElementDataV5(public var elementType: DhcpSubnetElementType = 0, public var element: DhcpSubnetElementDataV50 = DhcpSubnetElementDataV50())
+public data class DhcpSubnetElementDataV5(
+    public var elementType: DhcpSubnetElementType = 0,
+    public var element: DhcpSubnetElementDataV50 = DhcpSubnetElementDataV50(),
+)
 
 public data class DhcpSubnetElementDataV50(
     public var ipRange: DhcpBootpIpRange? = null,
@@ -872,7 +1047,10 @@ public data class DhcpSubnetElementDataV50(
     public var ipUsedCluster: DhcpIpCluster? = null,
 )
 
-public data class DhcpSubnetElementDataV6(public var elementType: DhcpSubnetElementTypeV6 = 0, public var element: DhcpSubnetElementDataV60 = DhcpSubnetElementDataV60())
+public data class DhcpSubnetElementDataV6(
+    public var elementType: DhcpSubnetElementTypeV6 = 0,
+    public var element: DhcpSubnetElementDataV60 = DhcpSubnetElementDataV60(),
+)
 
 public data class DhcpSubnetElementDataV60(
     public var ipRange: DhcpIpRangeV6? = null,
@@ -880,13 +1058,25 @@ public data class DhcpSubnetElementDataV60(
     public var excludeIpRange: DhcpIpRangeV6? = null,
 )
 
-public data class DhcpSubnetElementInfoArray(public var numElements: UInt = 0u, public var elements: DhcpSubnetElementData? = null)
+public data class DhcpSubnetElementInfoArray(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpSubnetElementData? = null,
+)
 
-public data class DhcpSubnetElementInfoArrayV4(public var numElements: UInt = 0u, public var elements: DhcpSubnetElementDataV4? = null)
+public data class DhcpSubnetElementInfoArrayV4(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpSubnetElementDataV4? = null,
+)
 
-public data class DhcpSubnetElementInfoArrayV5(public var numElements: UInt = 0u, public var elements: DhcpSubnetElementDataV5? = null)
+public data class DhcpSubnetElementInfoArrayV5(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpSubnetElementDataV5? = null,
+)
 
-public data class DhcpSubnetElementInfoArrayV6(public var numElements: UInt = 0u, public var elements: DhcpSubnetElementDataV6? = null)
+public data class DhcpSubnetElementInfoArrayV6(
+    public var numElements: UInt = 0u,
+    public var elements: DhcpSubnetElementDataV6? = null,
+)
 
 public data class DhcpSubnetInfo(
     public var subnetAddress: UInt = 0u,
@@ -921,7 +1111,10 @@ public data class DhcpSubnetInfoVq(
     public var reserved4: Long = 0L,
 )
 
-public data class DhcpSuperScopeTable(public var cEntries: UInt = 0u, public var pEntries: DhcpSuperScopeTableEntry? = null)
+public data class DhcpSuperScopeTable(
+    public var cEntries: UInt = 0u,
+    public var pEntries: DhcpSuperScopeTableEntry? = null,
+)
 
 public data class DhcpSuperScopeTableEntry(
     public var subnetAddress: UInt = 0u,
@@ -930,7 +1123,10 @@ public data class DhcpSuperScopeTableEntry(
     public var superScopeName: Pwstr = null,
 )
 
-public data class DwordDword(public var dWord1: UInt = 0u, public var dWord2: UInt = 0u)
+public data class DwordDword(
+    public var dWord1: UInt = 0u,
+    public var dWord2: UInt = 0u,
+)
 
 public data class ScopeMibInfo(
     public var subnet: UInt = 0u,

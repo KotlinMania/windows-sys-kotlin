@@ -54,9 +54,8 @@ public actual fun displayConfigGetDeviceInfo(requestpacket: COpaquePointer?): In
 public actual fun displayConfigSetDeviceInfo(setpacket: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun engAcquireSemaphore(hsem: Hsemaphore) {
+public actual fun engAcquireSemaphore(hsem: Hsemaphore): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun engAlphaBlend(psodest: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pblendobj: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -94,20 +93,17 @@ public actual fun engCreatePalette(imode: UInt, ccolors: UInt, pulcolors: COpaqu
 public actual fun engCreateSemaphore(): Hsemaphore =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun engDeleteClip(pco: COpaquePointer?) {
+public actual fun engDeleteClip(pco: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun engDeletePalette(hpal: Hpalette): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun engDeletePath(ppo: COpaquePointer?) {
+public actual fun engDeletePath(ppo: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun engDeleteSemaphore(hsem: Hsemaphore) {
+public actual fun engDeleteSemaphore(hsem: Hsemaphore): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun engDeleteSurface(hsurf: Hsurf): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -121,13 +117,11 @@ public actual fun engFillPath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: C
 public actual fun engFindResource(h: Handle, iname: Int, itype: Int, pulsize: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun engFreeModule(h: Handle) {
+public actual fun engFreeModule(h: Handle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun engGetCurrentCodePage(oemcodepage: COpaquePointer?, ansicodepage: COpaquePointer?) {
+public actual fun engGetCurrentCodePage(oemcodepage: COpaquePointer?, ansicodepage: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun engGetDriverName(hdev: Hdev): Pwstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -150,9 +144,8 @@ public actual fun engLockSurface(hsurf: Hsurf): COpaquePointer? =
 public actual fun engMarkBandingSurface(hsurf: Hsurf): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun engMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt) {
+public actual fun engMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun engMultiByteToWideChar(codepage: UInt, widecharstring: Pwstr, bytesinwidecharstring: Int, multibytestring: Pcstr, bytesinmultibytestring: Int): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -166,13 +159,11 @@ public actual fun engPlgBlt(psotrg: COpaquePointer?, psosrc: COpaquePointer?, ps
 public actual fun engQueryEMFInfo(hdev: Hdev, pemfinfo: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun engQueryLocalTime(param0: COpaquePointer?) {
+public actual fun engQueryLocalTime(param0: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun engReleaseSemaphore(hsem: Hsemaphore) {
+public actual fun engReleaseSemaphore(hsem: Hsemaphore): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun engStretchBlt(psodest: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlhtorg: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pptlmask: COpaquePointer?, imode: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -192,13 +183,11 @@ public actual fun engTextOut(pso: COpaquePointer?, pstro: COpaquePointer?, pfo: 
 public actual fun engTransparentBlt(psodst: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldst: COpaquePointer?, prclsrc: COpaquePointer?, transcolor: UInt, bcalledfrombitblt: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun engUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt) {
+public actual fun engUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun engUnlockSurface(pso: COpaquePointer?) {
+public actual fun engUnlockSurface(pso: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun engWideCharToMultiByte(codepage: UInt, widecharstring: Pcwstr, bytesinwidecharstring: Int, multibytestring: Pstr, bytesinmultibytestring: Int): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -224,9 +213,8 @@ public actual fun fontobjPvTrueTypeFontFile(pfo: COpaquePointer?, pcjfile: COpaq
 public actual fun fontobjPxoGetXform(pfo: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun fontobjVGetInfo(pfo: COpaquePointer?, cjsize: UInt, pfi: COpaquePointer?) {
+public actual fun fontobjVGetInfo(pfo: COpaquePointer?, cjsize: UInt, pfi: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun getAutoRotationState(pstate: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -291,17 +279,14 @@ public actual fun pathobjBEnum(ppo: COpaquePointer?, ppd: COpaquePointer?): Bool
 public actual fun pathobjBEnumClipLines(ppo: COpaquePointer?, cb: UInt, pcl: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun pathobjVEnumStart(ppo: COpaquePointer?) {
+public actual fun pathobjVEnumStart(ppo: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun pathobjVEnumStartClipLines(ppo: COpaquePointer?, pco: COpaquePointer?, pso: COpaquePointer?, pla: COpaquePointer?) {
+public actual fun pathobjVEnumStartClipLines(ppo: COpaquePointer?, pco: COpaquePointer?, pso: COpaquePointer?, pla: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun pathobjVGetBounds(ppo: COpaquePointer?, prectfx: COpaquePointer?) {
+public actual fun pathobjVGetBounds(ppo: COpaquePointer?, prectfx: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun queryDisplayConfig(flags: QueryDisplayConfigFlags, numpatharrayelements: COpaquePointer?, patharray: COpaquePointer?, nummodeinfoarrayelements: COpaquePointer?, modeinfoarray: COpaquePointer?, currenttopologyid: COpaquePointer?): Win32Error =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -324,9 +309,8 @@ public actual fun strobjBGetAdvanceWidths(pso: COpaquePointer?, ifirst: UInt, c:
 public actual fun strobjDwGetCodePage(pstro: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun strobjVEnumStart(pstro: COpaquePointer?) {
+public actual fun strobjVEnumStart(pstro: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun saveCurrentMonitorSettings(hmonitor: Handle): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

@@ -16,7 +16,10 @@ public data class Accesstimeout(
     public var iTimeOutMSec: UInt = 0u,
 )
 
-public data class ExtendedProperty(public var propertyName: Bstr = null, public var propertyValue: Bstr = null)
+public data class ExtendedProperty(
+    public var propertyName: Bstr = null,
+    public var propertyValue: Bstr = null,
+)
 
 public data class Filterkeys(
     public var cbSize: UInt = 0u,
@@ -105,11 +108,20 @@ public data class Soundsentryw(
     public var iWindowsEffectOrdinal: UInt = 0u,
 )
 
-public data class Stickykeys(public var cbSize: UInt = 0u, public var dwFlags: StickykeysFlags = 0u)
+public data class Stickykeys(
+    public var cbSize: UInt = 0u,
+    public var dwFlags: StickykeysFlags = 0u,
+)
 
-public data class Togglekeys(public var cbSize: UInt = 0u, public var dwFlags: UInt = 0u)
+public data class Togglekeys(
+    public var cbSize: UInt = 0u,
+    public var dwFlags: UInt = 0u,
+)
 
-public data class UIAutomationEventInfo(public var guid: Guid = Guid(), public var pProgrammaticName: Pcwstr = null)
+public data class UIAutomationEventInfo(
+    public var guid: Guid = Guid(),
+    public var pProgrammaticName: Pcwstr = null,
+)
 
 public data class UIAutomationMethodInfo(
     public var pProgrammaticName: Pcwstr = null,
@@ -120,7 +132,10 @@ public data class UIAutomationMethodInfo(
     public var pParameterNames: Pcwstr? = null,
 )
 
-public data class UIAutomationParameter(public var type: UIAutomationType = 0, public var pData: COpaquePointer? = null)
+public data class UIAutomationParameter(
+    public var type: UIAutomationType = 0,
+    public var pData: COpaquePointer? = null,
+)
 
 public data class UIAutomationPatternInfo(
     public var guid: Guid = Guid(),
@@ -178,9 +193,14 @@ public data class UiaChangesEventArgs(
     public var pUiaChanges: UiaChangeInfo? = null,
 )
 
-public data class UiaCondition(public var conditionType: ConditionType = 0)
+public data class UiaCondition(
+    public var conditionType: ConditionType = 0,
+)
 
-public data class UiaEventArgs(public var type: EventArgsType = 0, public var eventId: Int = 0)
+public data class UiaEventArgs(
+    public var type: EventArgsType = 0,
+    public var eventId: Int = 0,
+)
 
 public data class UiaFindParams(
     public var maxDepth: Int = 0,
@@ -189,9 +209,15 @@ public data class UiaFindParams(
     public var pFindCondition: UiaCondition? = null,
 )
 
-public data class UiaNotCondition(public var conditionType: ConditionType = 0, public var pCondition: UiaCondition? = null)
+public data class UiaNotCondition(
+    public var conditionType: ConditionType = 0,
+    public var pCondition: UiaCondition? = null,
+)
 
-public data class UiaPoint(public var x: Double = 0.0, public var y: Double = 0.0)
+public data class UiaPoint(
+    public var x: Double = 0.0,
+    public var y: Double = 0.0,
+)
 
 public data class UiaPropertyChangedEventArgs(
     public var type: EventArgsType = 0,

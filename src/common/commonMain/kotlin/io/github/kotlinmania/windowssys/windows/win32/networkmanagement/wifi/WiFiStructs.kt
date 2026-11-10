@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -35,11 +36,19 @@ public class Dot11extApis(
     public var dot11ExtProcessSecurityPacket: Dot11extProcessOnexPacket = null,
 )
 
-public data class Dot11extIhvConnectivityProfile(public var pszXmlFragmentIhvConnectivity: Pwstr = null)
+public data class Dot11extIhvConnectivityProfile(
+    public var pszXmlFragmentIhvConnectivity: Pwstr = null,
+)
 
-public data class Dot11extIhvDiscoveryProfile(public var ihvConnectivityProfile: Dot11extIhvConnectivityProfile = Dot11extIhvConnectivityProfile(), public var ihvSecurityProfile: Dot11extIhvSecurityProfile = Dot11extIhvSecurityProfile())
+public data class Dot11extIhvDiscoveryProfile(
+    public var ihvConnectivityProfile: Dot11extIhvConnectivityProfile = Dot11extIhvConnectivityProfile(),
+    public var ihvSecurityProfile: Dot11extIhvSecurityProfile = Dot11extIhvSecurityProfile(),
+)
 
-public data class Dot11extIhvDiscoveryProfileList(public var dwCount: UInt = 0u, public var pIhvDiscoveryProfiles: Dot11extIhvDiscoveryProfile? = null)
+public data class Dot11extIhvDiscoveryProfileList(
+    public var dwCount: UInt = 0u,
+    public var pIhvDiscoveryProfiles: Dot11extIhvDiscoveryProfile? = null,
+)
 
 public class Dot11extIhvHandlers(
     public var dot11ExtIhvDeinitService: Dot11extihvDeinitService = null,
@@ -94,9 +103,15 @@ public data class Dot11extIhvProfileParams(
     public var pMSSecuritySettings: Dot11MssecuritySettings? = null,
 )
 
-public data class Dot11extIhvSecurityProfile(public var pszXmlFragmentIhvSecurity: Pwstr = null, public var bUseMSOnex: Bool = 0)
+public data class Dot11extIhvSecurityProfile(
+    public var pszXmlFragmentIhvSecurity: Pwstr = null,
+    public var bUseMSOnex: Bool = 0,
+)
 
-public data class Dot11extIhvSsidList(public var ulCount: UInt = 0u, public var sSIDs: List<Dot11Ssid> = List(1) { Dot11Ssid() })
+public data class Dot11extIhvSsidList(
+    public var ulCount: UInt = 0u,
+    public var sSIDs: List<Dot11Ssid> = List(1) { Dot11Ssid() },
+)
 
 public data class Dot11extIhvUiRequest(
     public var dwSessionId: UInt = 0u,
@@ -346,7 +361,10 @@ public data class Dot11AuthAlgorithmList(
     }
 }
 
-public data class Dot11AuthCipherPair(public var authAlgoId: Dot11AuthAlgorithm = 0, public var cipherAlgoId: Dot11CipherAlgorithm = 0)
+public data class Dot11AuthCipherPair(
+    public var authAlgoId: Dot11AuthAlgorithm = 0,
+    public var cipherAlgoId: Dot11CipherAlgorithm = 0,
+)
 
 public data class Dot11AuthCipherPairList(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -405,7 +423,10 @@ public data class Dot11AvailableFrequencyList(
     }
 }
 
-public data class Dot11BssidCandidate(public var bssid: UByteArray = UByteArray(6), public var uFlags: UInt = 0u) {
+public data class Dot11BssidCandidate(
+    public var bssid: UByteArray = UByteArray(6),
+    public var uFlags: UInt = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11BssidCandidate) return false
@@ -535,7 +556,10 @@ public data class Dot11BssEntry(
     }
 }
 
-public data class Dot11BssEntryPhySpecificInfo(public var uChCenterFrequency: UInt = 0u, public var fhss: Dot11BssEntryPhySpecificInfo0 = Dot11BssEntryPhySpecificInfo0())
+public data class Dot11BssEntryPhySpecificInfo(
+    public var uChCenterFrequency: UInt = 0u,
+    public var fhss: Dot11BssEntryPhySpecificInfo0 = Dot11BssEntryPhySpecificInfo0(),
+)
 
 public data class Dot11BssEntryPhySpecificInfo0(
     public var uHopPattern: UInt = 0u,
@@ -543,7 +567,10 @@ public data class Dot11BssEntryPhySpecificInfo0(
     public var uDwellTime: UInt = 0u,
 )
 
-public data class Dot11BssList(public var uNumOfBytes: UInt = 0u, public var pucBuffer: COpaquePointer? = null)
+public data class Dot11BssList(
+    public var uNumOfBytes: UInt = 0u,
+    public var pucBuffer: COpaquePointer? = null,
+)
 
 public data class Dot11ByteArray(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -570,9 +597,15 @@ public data class Dot11ByteArray(
     }
 }
 
-public data class Dot11CanSustainApParameters(public var header: NdisObjectHeader = NdisObjectHeader(), public var ulReason: UInt = 0u)
+public data class Dot11CanSustainApParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var ulReason: UInt = 0u,
+)
 
-public data class Dot11ChannelHint(public var dot11PhyType: Dot11PhyType = 0, public var uChannelNumber: UInt = 0u)
+public data class Dot11ChannelHint(
+    public var dot11PhyType: Dot11PhyType = 0,
+    public var uChannelNumber: UInt = 0u,
+)
 
 public data class Dot11CipherAlgorithmList(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -670,7 +703,10 @@ public data class Dot11CipherKeyMappingKeyValue(
     }
 }
 
-public data class Dot11ConnectionCompletionParameters(public var header: NdisObjectHeader = NdisObjectHeader(), public var uStatus: UInt = 0u)
+public data class Dot11ConnectionCompletionParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var uStatus: UInt = 0u,
+)
 
 public data class Dot11ConnectionStartParameters(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -738,9 +774,15 @@ public data class Dot11CountryOrRegionStringList(
     }
 }
 
-public data class Dot11CurrentOffloadCapability(public var uReserved: UInt = 0u, public var uFlags: UInt = 0u)
+public data class Dot11CurrentOffloadCapability(
+    public var uReserved: UInt = 0u,
+    public var uFlags: UInt = 0u,
+)
 
-public data class Dot11CurrentOperationMode(public var uReserved: UInt = 0u, public var uCurrentOpMode: UInt = 0u)
+public data class Dot11CurrentOperationMode(
+    public var uReserved: UInt = 0u,
+    public var uCurrentOpMode: UInt = 0u,
+)
 
 public data class Dot11CurrentOptionalCapability(
     public var uReserved: UInt = 0u,
@@ -898,7 +940,10 @@ public data class Dot11DisassociationParameters(
     }
 }
 
-public data class Dot11DiversitySelectionRx(public var uAntennaListIndex: UInt = 0u, public var bDiversitySelectionRX: Boolean = false)
+public data class Dot11DiversitySelectionRx(
+    public var uAntennaListIndex: UInt = 0u,
+    public var bDiversitySelectionRX: Boolean = false,
+)
 
 public data class Dot11DiversitySelectionRxList(
     public var uNumOfEntries: UInt = 0u,
@@ -906,9 +951,15 @@ public data class Dot11DiversitySelectionRxList(
     public var dot11DiversitySelectionRx: List<Dot11DiversitySelectionRx> = List(1) { Dot11DiversitySelectionRx() },
 )
 
-public data class Dot11EapResult(public var dwFailureReasonCode: UInt = 0u, public var pAttribArray: EapAttributes? = null)
+public data class Dot11EapResult(
+    public var dwFailureReasonCode: UInt = 0u,
+    public var pAttribArray: EapAttributes? = null,
+)
 
-public data class Dot11EncapEntry(public var usEtherType: UShort = 0u, public var usEncapType: UShort = 0u)
+public data class Dot11EncapEntry(
+    public var usEtherType: UShort = 0u,
+    public var usEncapType: UShort = 0u,
+)
 
 public data class Dot11ErpPhyAttributes(
     public var hRDSSSAttributes: Dot11HrdsssPhyAttributes = Dot11HrdsssPhyAttributes(),
@@ -1007,7 +1058,10 @@ public data class Dot11ExtstaSendContext(
     public var uSendFlags: UInt = 0u,
 )
 
-public data class Dot11FragmentDescriptor(public var uOffset: UInt = 0u, public var uLength: UInt = 0u)
+public data class Dot11FragmentDescriptor(
+    public var uOffset: UInt = 0u,
+    public var uLength: UInt = 0u,
+)
 
 public data class Dot11GoNegotiationConfirmationSendCompleteParameters(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -1102,7 +1156,10 @@ public data class Dot11GoNegotiationResponseSendCompleteParameters(
     }
 }
 
-public data class Dot11HoppingPatternEntry(public var uHoppingPatternIndex: UInt = 0u, public var uRandomTableFieldNumber: UInt = 0u)
+public data class Dot11HoppingPatternEntry(
+    public var uHoppingPatternIndex: UInt = 0u,
+    public var uRandomTableFieldNumber: UInt = 0u,
+)
 
 public data class Dot11HoppingPatternEntryList(
     public var uNumOfEntries: UInt = 0u,
@@ -1124,7 +1181,10 @@ public data class Dot11IbssParams(
     public var uIEsLength: UInt = 0u,
 )
 
-public data class Dot11IhvVersionInfo(public var dwVerMin: UInt = 0u, public var dwVerMax: UInt = 0u)
+public data class Dot11IhvVersionInfo(
+    public var dwVerMin: UInt = 0u,
+    public var dwVerMax: UInt = 0u,
+)
 
 public class Dot11IncomingAssocCompletionParameters(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -1239,7 +1299,10 @@ public data class Dot11IncomingAssocRequestReceivedParameters(
     }
 }
 
-public data class Dot11IncomingAssocStartedParameters(public var header: NdisObjectHeader = NdisObjectHeader(), public var peerMacAddr: UByteArray = UByteArray(6)) {
+public data class Dot11IncomingAssocStartedParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var peerMacAddr: UByteArray = UByteArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11IncomingAssocStartedParameters) return false
@@ -1320,7 +1383,10 @@ public data class Dot11InvitationResponseSendCompleteParameters(
     }
 }
 
-public data class Dot11Iv48Counter(public var uIV32Counter: UInt = 0u, public var usIV16Counter: UShort = 0u)
+public data class Dot11Iv48Counter(
+    public var uIV32Counter: UInt = 0u,
+    public var usIV16Counter: UShort = 0u,
+)
 
 public data class Dot11JoinRequest(
     public var uJoinFailureTimeout: UInt = 0u,
@@ -1464,7 +1530,10 @@ public data class Dot11KeyAlgoTkipMic(
     }
 }
 
-public data class Dot11LinkQualityEntry(public var peerMacAddr: UByteArray = UByteArray(6), public var ucLinkQuality: UByte = 0u) {
+public data class Dot11LinkQualityEntry(
+    public var peerMacAddr: UByteArray = UByteArray(6),
+    public var ucLinkQuality: UByte = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11LinkQualityEntry) return false
@@ -1550,7 +1619,10 @@ public data class Dot11MacInfo(
     }
 }
 
-public data class Dot11MacParameters(public var header: NdisObjectHeader = NdisObjectHeader(), public var uOpmodeMask: UInt = 0u)
+public data class Dot11MacParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var uOpmodeMask: UInt = 0u,
+)
 
 public data class Dot11ManufacturingCallbackParameters(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -1721,7 +1793,10 @@ public data class Dot11ManufacturingTestSetData(
     }
 }
 
-public data class Dot11ManufacturingTestSleep(public var uSleepTime: UInt = 0u, public var pvContext: COpaquePointer? = null)
+public data class Dot11ManufacturingTestSleep(
+    public var uSleepTime: UInt = 0u,
+    public var pvContext: COpaquePointer? = null,
+)
 
 public data class Dot11MdCapabilityEntryList(
     public var uNumOfEntries: UInt = 0u,
@@ -1761,7 +1836,10 @@ public data class Dot11MultiDomainCapabilityEntry(
     public var lMaximumTransmitPowerLevel: Int = 0,
 )
 
-public data class Dot11Network(public var dot11Ssid: Dot11Ssid = Dot11Ssid(), public var dot11BssType: Dot11BssType = 0)
+public data class Dot11Network(
+    public var dot11Ssid: Dot11Ssid = Dot11Ssid(),
+    public var dot11BssType: Dot11BssType = 0,
+)
 
 public data class Dot11NetworkList(
     public var dwNumberOfItems: UInt = 0u,
@@ -1791,7 +1869,9 @@ public data class Dot11NicSpecificExtension(
     }
 }
 
-public data class Dot11OfdmPhyAttributes(public var uFrequencyBandsSupported: UInt = 0u)
+public data class Dot11OfdmPhyAttributes(
+    public var uFrequencyBandsSupported: UInt = 0u,
+)
 
 public data class Dot11OffloadCapability(
     public var uReserved: UInt = 0u,
@@ -1820,9 +1900,15 @@ public data class Dot11OffloadNetworkListInfo(
     public var offloadNetworkList: List<Dot11OffloadNetwork> = List(1) { Dot11OffloadNetwork() },
 )
 
-public data class Dot11OffloadNetworkStatusParameters(public var header: NdisObjectHeader = NdisObjectHeader(), public var status: Int = 0)
+public data class Dot11OffloadNetworkStatusParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var status: Int = 0,
+)
 
-public data class Dot11Oi(public var oILength: UShort = 0u, public var oi: UByteArray = UByteArray(5)) {
+public data class Dot11Oi(
+    public var oILength: UShort = 0u,
+    public var oi: UByteArray = UByteArray(5),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11Oi) return false
@@ -2018,7 +2104,10 @@ public data class Dot11PhyFrequencyAdoptedParameters(
     public var anonymous: Dot11PhyFrequencyAdoptedParameters0 = Dot11PhyFrequencyAdoptedParameters0(),
 )
 
-public data class Dot11PhyFrequencyAdoptedParameters0(public var ulChannel: UInt = 0u, public var ulFrequency: UInt = 0u)
+public data class Dot11PhyFrequencyAdoptedParameters0(
+    public var ulChannel: UInt = 0u,
+    public var ulFrequency: UInt = 0u,
+)
 
 public data class Dot11PhyIdList(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -2196,7 +2285,10 @@ public data class Dot11PortStateNotification(
     }
 }
 
-public data class Dot11PowerMgmtAutoModeEnabledInfo(public var header: NdisObjectHeader = NdisObjectHeader(), public var bEnabled: Boolean = false)
+public data class Dot11PowerMgmtAutoModeEnabledInfo(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var bEnabled: Boolean = false,
+)
 
 public data class Dot11PowerMgmtMode(
     public var dot11PowerMode: Dot11PowerMode = 0,
@@ -2291,7 +2383,10 @@ public data class Dot11ProvisionDiscoveryResponseSendCompleteParameters(
     }
 }
 
-public data class Dot11QosParams(public var header: NdisObjectHeader = NdisObjectHeader(), public var ucEnabledQoSProtocolFlags: UByte = 0u)
+public data class Dot11QosParams(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var ucEnabledQoSProtocolFlags: UByte = 0u,
+)
 
 public data class Dot11QosTxDuration(
     public var uNominalMSDUSize: UInt = 0u,
@@ -2321,7 +2416,10 @@ public data class Dot11QosTxMediumTime(
     }
 }
 
-public data class Dot11RateSet(public var uRateSetLength: UInt = 0u, public var ucRateSet: UByteArray = UByteArray(126)) {
+public data class Dot11RateSet(
+    public var uRateSetLength: UInt = 0u,
+    public var ucRateSet: UByteArray = UByteArray(126),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11RateSet) return false
@@ -2620,7 +2718,10 @@ public data class Dot11RecvSensitivityList(
     public var dot11RecvSensitivity: List<Dot11RecvSensitivity> = List(1) { Dot11RecvSensitivity() },
 )
 
-public data class Dot11RecvSensitivityList0(public var dot11PhyType: Dot11PhyType = 0, public var uPhyId: UInt = 0u)
+public data class Dot11RecvSensitivityList0(
+    public var dot11PhyType: Dot11PhyType = 0,
+    public var uPhyId: UInt = 0u,
+)
 
 public data class Dot11RegDomainsSupportValue(
     public var uNumOfEntries: UInt = 0u,
@@ -2628,7 +2729,10 @@ public data class Dot11RegDomainsSupportValue(
     public var dot11RegDomainValue: List<Dot11RegDomainValue> = List(1) { Dot11RegDomainValue() },
 )
 
-public data class Dot11RegDomainValue(public var uRegDomainsSupportIndex: UInt = 0u, public var uRegDomainsSupportValue: UInt = 0u)
+public data class Dot11RegDomainValue(
+    public var uRegDomainsSupportIndex: UInt = 0u,
+    public var uRegDomainsSupportValue: UInt = 0u,
+)
 
 public data class Dot11ResetRequest(
     public var dot11ResetType: Dot11ResetType = 0,
@@ -2652,7 +2756,10 @@ public data class Dot11ResetRequest(
     }
 }
 
-public data class Dot11RoamingCompletionParameters(public var header: NdisObjectHeader = NdisObjectHeader(), public var uStatus: UInt = 0u)
+public data class Dot11RoamingCompletionParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var uStatus: UInt = 0u,
+)
 
 public data class Dot11RoamingStartParameters(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -3139,7 +3246,10 @@ public data class Dot11SendProvisionDiscoveryResponseParameters(
     }
 }
 
-public data class Dot11Ssid(public var uSSIDLength: UInt = 0u, public var ucSSID: UByteArray = UByteArray(32)) {
+public data class Dot11Ssid(
+    public var uSSIDLength: UInt = 0u,
+    public var ucSSID: UByteArray = UByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11Ssid) return false
@@ -3179,11 +3289,20 @@ public data class Dot11Statistics(
     public var phyCounters: List<Dot11PhyFrameStatistics> = List(1) { Dot11PhyFrameStatistics() },
 )
 
-public data class Dot11StatusIndication(public var uStatusType: UInt = 0u, public var ndisStatus: Int = 0)
+public data class Dot11StatusIndication(
+    public var uStatusType: UInt = 0u,
+    public var ndisStatus: Int = 0,
+)
 
-public data class Dot11StopApParameters(public var header: NdisObjectHeader = NdisObjectHeader(), public var ulReason: UInt = 0u)
+public data class Dot11StopApParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var ulReason: UInt = 0u,
+)
 
-public data class Dot11SupportedAntenna(public var uAntennaListIndex: UInt = 0u, public var bSupportedAntenna: Boolean = false)
+public data class Dot11SupportedAntenna(
+    public var uAntennaListIndex: UInt = 0u,
+    public var bSupportedAntenna: Boolean = false,
+)
 
 public data class Dot11SupportedAntennaList(
     public var uNumOfEntries: UInt = 0u,
@@ -3191,7 +3310,10 @@ public data class Dot11SupportedAntennaList(
     public var dot11SupportedAntenna: List<Dot11SupportedAntenna> = List(1) { Dot11SupportedAntenna() },
 )
 
-public data class Dot11SupportedDataRatesValue(public var ucSupportedTxDataRatesValue: UByteArray = UByteArray(8), public var ucSupportedRxDataRatesValue: UByteArray = UByteArray(8)) {
+public data class Dot11SupportedDataRatesValue(
+    public var ucSupportedTxDataRatesValue: UByteArray = UByteArray(8),
+    public var ucSupportedRxDataRatesValue: UByteArray = UByteArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11SupportedDataRatesValue) return false
@@ -3207,7 +3329,10 @@ public data class Dot11SupportedDataRatesValue(public var ucSupportedTxDataRates
     }
 }
 
-public data class Dot11SupportedDataRatesValueV2(public var ucSupportedTxDataRatesValue: UByteArray = UByteArray(255), public var ucSupportedRxDataRatesValue: UByteArray = UByteArray(255)) {
+public data class Dot11SupportedDataRatesValueV2(
+    public var ucSupportedTxDataRatesValue: UByteArray = UByteArray(255),
+    public var ucSupportedRxDataRatesValue: UByteArray = UByteArray(255),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11SupportedDataRatesValueV2) return false
@@ -3223,7 +3348,9 @@ public data class Dot11SupportedDataRatesValueV2(public var ucSupportedTxDataRat
     }
 }
 
-public data class Dot11SupportedDsssChannel(public var uChannel: UInt = 0u)
+public data class Dot11SupportedDsssChannel(
+    public var uChannel: UInt = 0u,
+)
 
 public data class Dot11SupportedDsssChannelList(
     public var uNumOfEntries: UInt = 0u,
@@ -3231,7 +3358,9 @@ public data class Dot11SupportedDsssChannelList(
     public var dot11SupportedDSSSChannel: List<Dot11SupportedDsssChannel> = List(1) { Dot11SupportedDsssChannel() },
 )
 
-public data class Dot11SupportedOfdmFrequency(public var uCenterFrequency: UInt = 0u)
+public data class Dot11SupportedOfdmFrequency(
+    public var uCenterFrequency: UInt = 0u,
+)
 
 public data class Dot11SupportedOfdmFrequencyList(
     public var uNumOfEntries: UInt = 0u,
@@ -3261,7 +3390,10 @@ public data class Dot11SupportedPhyTypes(
     }
 }
 
-public data class Dot11SupportedPowerLevels(public var uNumOfSupportedPowerLevels: UInt = 0u, public var uTxPowerLevelValues: UIntArray = UIntArray(8)) {
+public data class Dot11SupportedPowerLevels(
+    public var uNumOfSupportedPowerLevels: UInt = 0u,
+    public var uTxPowerLevelValues: UIntArray = UIntArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11SupportedPowerLevels) return false
@@ -3324,7 +3456,10 @@ public data class Dot11UpdateIe(
     }
 }
 
-public data class Dot11Venueinfo(public var venueGroup: UByte = 0u, public var venueType: UByte = 0u)
+public data class Dot11Venueinfo(
+    public var venueGroup: UByte = 0u,
+    public var venueType: UByte = 0u,
+)
 
 public data class Dot11VwifiAttributes(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -3480,9 +3615,15 @@ public data class Dot11WfdAdvertisedServiceDescriptor(
     }
 }
 
-public data class Dot11WfdAdvertisedServiceList(public var serviceCount: UShort = 0u, public var advertisedService: List<Dot11WfdAdvertisedServiceDescriptor> = List(1) { Dot11WfdAdvertisedServiceDescriptor() })
+public data class Dot11WfdAdvertisedServiceList(
+    public var serviceCount: UShort = 0u,
+    public var advertisedService: List<Dot11WfdAdvertisedServiceDescriptor> = List(1) { Dot11WfdAdvertisedServiceDescriptor() },
+)
 
-public data class Dot11WfdAdvertisementId(public var advertisementID: UInt = 0u, public var serviceAddress: UByteArray = UByteArray(6)) {
+public data class Dot11WfdAdvertisementId(
+    public var advertisementID: UInt = 0u,
+    public var serviceAddress: UByteArray = UByteArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11WfdAdvertisementId) return false
@@ -3578,7 +3719,10 @@ public data class Dot11WfdChannel(
     }
 }
 
-public data class Dot11WfdConfigurationTimeout(public var gOTimeout: UByte = 0u, public var clientTimeout: UByte = 0u)
+public data class Dot11WfdConfigurationTimeout(
+    public var gOTimeout: UByte = 0u,
+    public var clientTimeout: UByte = 0u,
+)
 
 public data class Dot11WfdDeviceCapabilityConfig(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -3680,7 +3824,10 @@ public data class Dot11WfdDeviceInfo(
     }
 }
 
-public data class Dot11WfdDeviceListenChannel(public var header: NdisObjectHeader = NdisObjectHeader(), public var channelNumber: UByte = 0u)
+public data class Dot11WfdDeviceListenChannel(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var channelNumber: UByte = 0u,
+)
 
 public data class Dot11WfdDeviceType(
     public var categoryID: UShort = 0u,
@@ -3747,9 +3894,14 @@ public data class Dot11WfdDiscoverRequest(
     public var bForceScanLegacyNetworks: Boolean = false,
 )
 
-public data class Dot11WfdGoIntent(public var bitfield: UByte = 0u)
+public data class Dot11WfdGoIntent(
+    public var bitfield: UByte = 0u,
+)
 
-public data class Dot11WfdGroupId(public var deviceAddress: UByteArray = UByteArray(6), public var ssid: Dot11Ssid = Dot11Ssid()) {
+public data class Dot11WfdGroupId(
+    public var deviceAddress: UByteArray = UByteArray(6),
+    public var ssid: Dot11Ssid = Dot11Ssid(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11WfdGroupId) return false
@@ -3794,9 +3946,14 @@ public data class Dot11WfdGroupOwnerCapabilityConfigV2(
     public var bEapolKeyIpAddressAllocationSupported: Boolean = false,
 )
 
-public data class Dot11WfdGroupStartParameters(public var header: NdisObjectHeader = NdisObjectHeader(), public var advertisedOperatingChannel: Dot11WfdChannel = Dot11WfdChannel())
+public data class Dot11WfdGroupStartParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var advertisedOperatingChannel: Dot11WfdChannel = Dot11WfdChannel(),
+)
 
-public data class Dot11WfdInvitationFlags(public var bitfield: UByte = 0u)
+public data class Dot11WfdInvitationFlags(
+    public var bitfield: UByte = 0u,
+)
 
 public data class Dot11WfdSecondaryDeviceTypeList(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -3805,7 +3962,10 @@ public data class Dot11WfdSecondaryDeviceTypeList(
     public var secondaryDeviceTypes: List<Dot11WfdDeviceType> = List(1) { Dot11WfdDeviceType() },
 )
 
-public data class Dot11WfdServiceHashList(public var serviceHashCount: UShort = 0u, public var serviceHash: UByteArray = UByteArray(6)) {
+public data class Dot11WfdServiceHashList(
+    public var serviceHashCount: UShort = 0u,
+    public var serviceHash: UByteArray = UByteArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11WfdServiceHashList) return false
@@ -3821,7 +3981,10 @@ public data class Dot11WfdServiceHashList(public var serviceHashCount: UShort = 
     }
 }
 
-public data class Dot11WfdSessionId(public var sessionID: UInt = 0u, public var sessionAddress: UByteArray = UByteArray(6)) {
+public data class Dot11WfdSessionId(
+    public var sessionID: UInt = 0u,
+    public var sessionAddress: UByteArray = UByteArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11WfdSessionId) return false
@@ -3837,7 +4000,10 @@ public data class Dot11WfdSessionId(public var sessionID: UInt = 0u, public var 
     }
 }
 
-public data class Dot11WfdSessionInfo(public var uSessionInfoLength: UShort = 0u, public var ucSessionInfo: UByteArray = UByteArray(144)) {
+public data class Dot11WfdSessionInfo(
+    public var uSessionInfoLength: UShort = 0u,
+    public var ucSessionInfo: UByteArray = UByteArray(144),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11WfdSessionInfo) return false
@@ -3905,7 +4071,10 @@ public data class Dot11WpaTsc(
     public var dot11IV48Counter: Dot11Iv48Counter = Dot11Iv48Counter(),
 )
 
-public data class Dot11WpsDeviceName(public var uDeviceNameLength: UInt = 0u, public var ucDeviceName: UByteArray = UByteArray(32)) {
+public data class Dot11WpsDeviceName(
+    public var uDeviceNameLength: UInt = 0u,
+    public var ucDeviceName: UByteArray = UByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dot11WpsDeviceName) return false
@@ -3977,7 +4146,10 @@ public data class OnexUserInfo(
     public var domainName: OnexVariableBlob = OnexVariableBlob(),
 )
 
-public data class OnexVariableBlob(public var dwSize: UInt = 0u, public var dwOffset: UInt = 0u)
+public data class OnexVariableBlob(
+    public var dwSize: UInt = 0u,
+    public var dwOffset: UInt = 0u,
+)
 
 public data class WdiagIhvWlanId(
     public var strProfileName: UShortArray = UShortArray(256),
@@ -4013,7 +4185,10 @@ public data class WfdsvcConnectionCapability(
     public var bGO: Boolean = false,
 )
 
-public data class WfdGroupId(public var deviceAddress: UByteArray = UByteArray(6), public var groupSSID: Dot11Ssid = Dot11Ssid()) {
+public data class WfdGroupId(
+    public var deviceAddress: UByteArray = UByteArray(6),
+    public var groupSSID: Dot11Ssid = Dot11Ssid(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WfdGroupId) return false
@@ -4066,7 +4241,10 @@ public data class WlanAssociationAttributes(
     }
 }
 
-public data class WlanAuthCipherPairList(public var dwNumberOfItems: UInt = 0u, public var pAuthCipherPairList: List<Dot11AuthCipherPair> = List(1) { Dot11AuthCipherPair() })
+public data class WlanAuthCipherPairList(
+    public var dwNumberOfItems: UInt = 0u,
+    public var pAuthCipherPairList: List<Dot11AuthCipherPair> = List(1) { Dot11AuthCipherPair() },
+)
 
 public data class WlanAvailableNetwork(
     public var strProfileName: UShortArray = UShortArray(256),

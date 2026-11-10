@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -31,7 +32,10 @@ public class CfCallbackInfo(
     public var requestKey: Long = 0L,
 )
 
-public data class CfCallbackParameters(public var paramSize: UInt = 0u, public var anonymous: CfCallbackParameters0 = CfCallbackParameters0())
+public data class CfCallbackParameters(
+    public var paramSize: UInt = 0u,
+    public var anonymous: CfCallbackParameters0 = CfCallbackParameters0(),
+)
 
 public data class CfCallbackParameters0(
     public var cancel: CfCallbackParameters00 = CfCallbackParameters00(),
@@ -48,21 +52,41 @@ public data class CfCallbackParameters0(
     public var renameCompletion: CfCallbackParameters011 = CfCallbackParameters011(),
 )
 
-public data class CfCallbackParameters00(public var flags: CfCallbackCancelFlags = 0, public var anonymous: CfCallbackParameters000 = CfCallbackParameters000())
+public data class CfCallbackParameters00(
+    public var flags: CfCallbackCancelFlags = 0,
+    public var anonymous: CfCallbackParameters000 = CfCallbackParameters000(),
+)
 
-public data class CfCallbackParameters000(public var fetchData: CfCallbackParameters0000 = CfCallbackParameters0000())
+public data class CfCallbackParameters000(
+    public var fetchData: CfCallbackParameters0000 = CfCallbackParameters0000(),
+)
 
-public data class CfCallbackParameters0000(public var fileOffset: Long = 0L, public var length: Long = 0L)
+public data class CfCallbackParameters0000(
+    public var fileOffset: Long = 0L,
+    public var length: Long = 0L,
+)
 
-public data class CfCallbackParameters05(public var flags: CfCallbackCloseCompletionFlags = 0)
+public data class CfCallbackParameters05(
+    public var flags: CfCallbackCloseCompletionFlags = 0,
+)
 
-public data class CfCallbackParameters07(public var flags: CfCallbackDehydrateCompletionFlags = 0, public var reason: CfCallbackDehydrationReason = 0)
+public data class CfCallbackParameters07(
+    public var flags: CfCallbackDehydrateCompletionFlags = 0,
+    public var reason: CfCallbackDehydrationReason = 0,
+)
 
-public data class CfCallbackParameters06(public var flags: CfCallbackDehydrateFlags = 0, public var reason: CfCallbackDehydrationReason = 0)
+public data class CfCallbackParameters06(
+    public var flags: CfCallbackDehydrateFlags = 0,
+    public var reason: CfCallbackDehydrationReason = 0,
+)
 
-public data class CfCallbackParameters09(public var flags: CfCallbackDeleteCompletionFlags = 0)
+public data class CfCallbackParameters09(
+    public var flags: CfCallbackDeleteCompletionFlags = 0,
+)
 
-public data class CfCallbackParameters08(public var flags: CfCallbackDeleteFlags = 0)
+public data class CfCallbackParameters08(
+    public var flags: CfCallbackDeleteFlags = 0,
+)
 
 public data class CfCallbackParameters01(
     public var flags: CfCallbackFetchDataFlags = 0,
@@ -74,13 +98,24 @@ public data class CfCallbackParameters01(
     public var lastDehydrationReason: CfCallbackDehydrationReason = 0,
 )
 
-public data class CfCallbackParameters03(public var flags: CfCallbackFetchPlaceholdersFlags = 0, public var pattern: Pcwstr = null)
+public data class CfCallbackParameters03(
+    public var flags: CfCallbackFetchPlaceholdersFlags = 0,
+    public var pattern: Pcwstr = null,
+)
 
-public data class CfCallbackParameters04(public var flags: CfCallbackOpenCompletionFlags = 0)
+public data class CfCallbackParameters04(
+    public var flags: CfCallbackOpenCompletionFlags = 0,
+)
 
-public data class CfCallbackParameters011(public var flags: CfCallbackRenameCompletionFlags = 0, public var sourcePath: Pcwstr = null)
+public data class CfCallbackParameters011(
+    public var flags: CfCallbackRenameCompletionFlags = 0,
+    public var sourcePath: Pcwstr = null,
+)
 
-public data class CfCallbackParameters010(public var flags: CfCallbackRenameFlags = 0, public var targetPath: Pcwstr = null)
+public data class CfCallbackParameters010(
+    public var flags: CfCallbackRenameFlags = 0,
+    public var targetPath: Pcwstr = null,
+)
 
 public data class CfCallbackParameters02(
     public var flags: CfCallbackValidateDataFlags = 0,
@@ -88,13 +123,25 @@ public data class CfCallbackParameters02(
     public var requiredLength: Long = 0L,
 )
 
-public data class CfCallbackRegistration(public var type: CfCallbackType = 0, public var callback: CfCallback = null)
+public data class CfCallbackRegistration(
+    public var type: CfCallbackType = 0,
+    public var callback: CfCallback = null,
+)
 
-public data class CfFileRange(public var startingOffset: Long = 0L, public var length: Long = 0L)
+public data class CfFileRange(
+    public var startingOffset: Long = 0L,
+    public var length: Long = 0L,
+)
 
-public data class CfFsMetadata(public var basicInfo: FileBasicInfo = FileBasicInfo(), public var fileSize: Long = 0L)
+public data class CfFsMetadata(
+    public var basicInfo: FileBasicInfo = FileBasicInfo(),
+    public var fileSize: Long = 0L,
+)
 
-public data class CfHydrationPolicy(public var primary: CfHydrationPolicyPrimary = 0u, public var modifier: CfHydrationPolicyModifier = 0u)
+public data class CfHydrationPolicy(
+    public var primary: CfHydrationPolicyPrimary = 0u,
+    public var modifier: CfHydrationPolicyModifier = 0u,
+)
 
 public data class CfOperationInfo(
     public var structSize: UInt = 0u,
@@ -106,7 +153,10 @@ public data class CfOperationInfo(
     public var requestKey: Long = 0L,
 )
 
-public data class CfOperationParameters(public var paramSize: UInt = 0u, public var anonymous: CfOperationParameters0 = CfOperationParameters0())
+public data class CfOperationParameters(
+    public var paramSize: UInt = 0u,
+    public var anonymous: CfOperationParameters0 = CfOperationParameters0(),
+)
 
 public data class CfOperationParameters0(
     public var transferData: CfOperationParameters00 = CfOperationParameters00(),
@@ -133,9 +183,15 @@ public data class CfOperationParameters05(
     public var fileIdentityLength: UInt = 0u,
 )
 
-public data class CfOperationParameters07(public var flags: CfOperationAckDeleteFlags = 0, public var completionStatus: Ntstatus = 0)
+public data class CfOperationParameters07(
+    public var flags: CfOperationAckDeleteFlags = 0,
+    public var completionStatus: Ntstatus = 0,
+)
 
-public data class CfOperationParameters06(public var flags: CfOperationAckRenameFlags = 0, public var completionStatus: Ntstatus = 0)
+public data class CfOperationParameters06(
+    public var flags: CfOperationAckRenameFlags = 0,
+    public var completionStatus: Ntstatus = 0,
+)
 
 public data class CfOperationParameters03(
     public var flags: CfOperationRestartHydrationFlags = 0,
@@ -259,7 +315,10 @@ public data class CfPlatformInfo(
     public var integrationNumber: UInt = 0u,
 )
 
-public data class CfPopulationPolicy(public var primary: CfPopulationPolicyPrimary = 0u, public var modifier: CfPopulationPolicyModifier = 0u)
+public data class CfPopulationPolicy(
+    public var primary: CfPopulationPolicyPrimary = 0u,
+    public var modifier: CfPopulationPolicyModifier = 0u,
+)
 
 public data class CfProcessInfo(
     public var structSize: UInt = 0u,
@@ -291,7 +350,9 @@ public data class CfSyncRegistration(
     public var providerId: Guid = Guid(),
 )
 
-public data class CfSyncRootBasicInfo(public var syncRootFileId: Long = 0L)
+public data class CfSyncRootBasicInfo(
+    public var syncRootFileId: Long = 0L,
+)
 
 public data class CfSyncRootProviderInfo(
     public var providerStatus: CfSyncProviderStatus = 0u,

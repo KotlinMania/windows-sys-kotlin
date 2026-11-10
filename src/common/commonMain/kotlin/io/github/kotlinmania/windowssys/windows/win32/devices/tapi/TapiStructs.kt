@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.tapi
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -680,7 +681,10 @@ public data class Lineinitializeexparams(
     public var dwCompletionKey: UInt = 0u,
 )
 
-public data class Lineinitializeexparams0(public var hEvent: Handle = null, public var hCompletionPort: Handle = null)
+public data class Lineinitializeexparams0(
+    public var hEvent: Handle = null,
+    public var hCompletionPort: Handle = null,
+)
 
 public class Linelocationentry(
     public var dwPermanentLocationID: UInt = 0u,
@@ -702,7 +706,10 @@ public class Linelocationentry(
     public var dwCancelCallWaitingOffset: UInt = 0u,
 )
 
-public data class Linemediacontrolcallstate(public var dwCallStates: UInt = 0u, public var dwMediaControl: UInt = 0u)
+public data class Linemediacontrolcallstate(
+    public var dwCallStates: UInt = 0u,
+    public var dwMediaControl: UInt = 0u,
+)
 
 public data class Linemediacontroldigit(
     public var dwDigit: UInt = 0u,
@@ -833,31 +840,69 @@ public data class Lineproxyrequest08(
     public var dwAgentPINOffset: UInt = 0u,
 )
 
-public data class Lineproxyrequest06(public var dwAddressID: UInt = 0u, public var activityList: Lineagentactivitylist = Lineagentactivitylist())
+public data class Lineproxyrequest06(
+    public var dwAddressID: UInt = 0u,
+    public var activityList: Lineagentactivitylist = Lineagentactivitylist(),
+)
 
-public data class Lineproxyrequest03(public var dwAddressID: UInt = 0u, public var agentCaps: Lineagentcaps = Lineagentcaps())
+public data class Lineproxyrequest03(
+    public var dwAddressID: UInt = 0u,
+    public var agentCaps: Lineagentcaps = Lineagentcaps(),
+)
 
-public data class Lineproxyrequest07(public var dwAddressID: UInt = 0u, public var groupList: Lineagentgrouplist = Lineagentgrouplist())
+public data class Lineproxyrequest07(
+    public var dwAddressID: UInt = 0u,
+    public var groupList: Lineagentgrouplist = Lineagentgrouplist(),
+)
 
-public data class Lineproxyrequest011(public var hAgent: UInt = 0u, public var agentInfo: Lineagentinfo = Lineagentinfo())
+public data class Lineproxyrequest011(
+    public var hAgent: UInt = 0u,
+    public var agentInfo: Lineagentinfo = Lineagentinfo(),
+)
 
-public data class Lineproxyrequest014(public var hAgentSession: UInt = 0u, public var sessionInfo: Lineagentsessioninfo = Lineagentsessioninfo())
+public data class Lineproxyrequest014(
+    public var hAgentSession: UInt = 0u,
+    public var sessionInfo: Lineagentsessioninfo = Lineagentsessioninfo(),
+)
 
-public data class Lineproxyrequest013(public var hAgent: UInt = 0u, public var sessionList: Lineagentsessionlist = Lineagentsessionlist())
+public data class Lineproxyrequest013(
+    public var hAgent: UInt = 0u,
+    public var sessionList: Lineagentsessionlist = Lineagentsessionlist(),
+)
 
-public data class Lineproxyrequest04(public var dwAddressID: UInt = 0u, public var agentStatus: Lineagentstatus = Lineagentstatus())
+public data class Lineproxyrequest04(
+    public var dwAddressID: UInt = 0u,
+    public var agentStatus: Lineagentstatus = Lineagentstatus(),
+)
 
-public data class Lineproxyrequest019(public var groupList: Lineagentgrouplist = Lineagentgrouplist())
+public data class Lineproxyrequest019(
+    public var groupList: Lineagentgrouplist = Lineagentgrouplist(),
+)
 
-public data class Lineproxyrequest018(public var dwQueueID: UInt = 0u, public var queueInfo: Linequeueinfo = Linequeueinfo())
+public data class Lineproxyrequest018(
+    public var dwQueueID: UInt = 0u,
+    public var queueInfo: Linequeueinfo = Linequeueinfo(),
+)
 
-public data class Lineproxyrequest016(public var groupID: Guid = Guid(), public var queueList: Linequeuelist = Linequeuelist())
+public data class Lineproxyrequest016(
+    public var groupID: Guid = Guid(),
+    public var queueList: Linequeuelist = Linequeuelist(),
+)
 
-public data class Lineproxyrequest02(public var dwAddressID: UInt = 0u, public var dwActivityID: UInt = 0u)
+public data class Lineproxyrequest02(
+    public var dwAddressID: UInt = 0u,
+    public var dwActivityID: UInt = 0u,
+)
 
-public data class Lineproxyrequest00(public var dwAddressID: UInt = 0u, public var groupList: Lineagentgrouplist = Lineagentgrouplist())
+public data class Lineproxyrequest00(
+    public var dwAddressID: UInt = 0u,
+    public var groupList: Lineagentgrouplist = Lineagentgrouplist(),
+)
 
-public data class Lineproxyrequest010(public var hAgent: UInt = 0u, public var dwMeasurementPeriod: UInt = 0u)
+public data class Lineproxyrequest010(
+    public var hAgent: UInt = 0u,
+    public var dwMeasurementPeriod: UInt = 0u,
+)
 
 public data class Lineproxyrequest015(
     public var hAgentSession: UInt = 0u,
@@ -877,7 +922,10 @@ public data class Lineproxyrequest01(
     public var dwNextAgentState: UInt = 0u,
 )
 
-public data class Lineproxyrequest017(public var dwQueueID: UInt = 0u, public var dwMeasurementPeriod: UInt = 0u)
+public data class Lineproxyrequest017(
+    public var dwQueueID: UInt = 0u,
+    public var dwMeasurementPeriod: UInt = 0u,
+)
 
 public data class Lineproxyrequestlist(
     public var dwTotalSize: UInt = 0u,
@@ -1106,9 +1154,15 @@ public data class MspEventInfo0(
     public var mspToneTerminalEventInfo: MspEventInfo07 = MspEventInfo07(),
 )
 
-public data class MspEventInfo00(public var type: MspAddressEvent = 0, public var pTerminal: COpaquePointer? = null)
+public data class MspEventInfo00(
+    public var type: MspAddressEvent = 0,
+    public var pTerminal: COpaquePointer? = null,
+)
 
-public data class MspEventInfo05(public var pASRTerminal: COpaquePointer? = null, public var hrErrorCode: Hresult = 0)
+public data class MspEventInfo05(
+    public var pASRTerminal: COpaquePointer? = null,
+    public var hrErrorCode: Hresult = 0,
+)
 
 public data class MspEventInfo01(
     public var type: MspCallEvent = 0,
@@ -1126,11 +1180,20 @@ public data class MspEventInfo04(
     public var hrErrorCode: Hresult = 0,
 )
 
-public data class MspEventInfo03(public var pEvent: COpaquePointer? = null, public var lEventCode: Int = 0)
+public data class MspEventInfo03(
+    public var pEvent: COpaquePointer? = null,
+    public var lEventCode: Int = 0,
+)
 
-public data class MspEventInfo07(public var pToneTerminal: COpaquePointer? = null, public var hrErrorCode: Hresult = 0)
+public data class MspEventInfo07(
+    public var pToneTerminal: COpaquePointer? = null,
+    public var hrErrorCode: Hresult = 0,
+)
 
-public data class MspEventInfo02(public var dwBufferSize: UInt = 0u, public var pBuffer: UByteArray = UByteArray(1)) {
+public data class MspEventInfo02(
+    public var dwBufferSize: UInt = 0u,
+    public var pBuffer: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is MspEventInfo02) return false
@@ -1146,7 +1209,10 @@ public data class MspEventInfo02(public var dwBufferSize: UInt = 0u, public var 
     }
 }
 
-public data class MspEventInfo06(public var pTTSTerminal: COpaquePointer? = null, public var hrErrorCode: Hresult = 0)
+public data class MspEventInfo06(
+    public var pTTSTerminal: COpaquePointer? = null,
+    public var hrErrorCode: Hresult = 0,
+)
 
 public data class Nsid(
     public var dwSize: UInt = 0u,
@@ -1176,7 +1242,10 @@ public data class Nsid(
     }
 }
 
-public data class Nsid0(public var alias: Addralias = Addralias(), public var rgchInterNet: ByteArray = ByteArray(1)) {
+public data class Nsid0(
+    public var alias: Addralias = Addralias(),
+    public var rgchInterNet: ByteArray = ByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Nsid0) return false
@@ -1270,7 +1339,10 @@ public data class Phoneinitializeexparams(
     public var dwCompletionKey: UInt = 0u,
 )
 
-public data class Phoneinitializeexparams0(public var hEvent: Handle = null, public var hCompletionPort: Handle = null)
+public data class Phoneinitializeexparams0(
+    public var hEvent: Handle = null,
+    public var hCompletionPort: Handle = null,
+)
 
 public data class Phonemessage(
     public var hDevice: UInt = 0u,
@@ -1325,7 +1397,10 @@ public data class STnefProblem(
     public var scode: Int = 0,
 )
 
-public data class STnefProblemArray(public var cProblem: UInt = 0u, public var aProblem: List<STnefProblem> = List(1) { STnefProblem() })
+public data class STnefProblemArray(
+    public var cProblem: UInt = 0u,
+    public var aProblem: List<STnefProblem> = List(1) { STnefProblem() },
+)
 
 public data class TapiCustomtone(
     public var dwFrequency: UInt = 0u,

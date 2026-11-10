@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -23,7 +24,10 @@ import io.github.kotlinmania.windowssys.windows.win32.system.power.DevicePowerCa
 import io.github.kotlinmania.windowssys.windows.win32.system.power.DevicePowerState
 import io.github.kotlinmania.windowssys.windows.win32.system.power.SystemPowerState
 
-public data class AcpiDebuggingDeviceInUse(public var nameSpacePathLength: UInt = 0u, public var nameSpacePath: UShortArray = UShortArray(1)) {
+public data class AcpiDebuggingDeviceInUse(
+    public var nameSpacePathLength: UInt = 0u,
+    public var nameSpacePath: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is AcpiDebuggingDeviceInUse) return false
@@ -80,7 +84,10 @@ public data class AgpTargetBusInterfaceStandard(
     public var capabilityID: UByte = 0u,
 )
 
-public data class AmdL1CacheInfo(public var ulong: UInt = 0u, public var anonymous: AmdL1CacheInfo0 = AmdL1CacheInfo0())
+public data class AmdL1CacheInfo(
+    public var ulong: UInt = 0u,
+    public var anonymous: AmdL1CacheInfo0 = AmdL1CacheInfo0(),
+)
 
 public data class AmdL1CacheInfo0(
     public var lineSize: UByte = 0u,
@@ -89,7 +96,10 @@ public data class AmdL1CacheInfo0(
     public var size: UByte = 0u,
 )
 
-public data class AmdL2CacheInfo(public var ulong: UInt = 0u, public var anonymous: AmdL2CacheInfo0 = AmdL2CacheInfo0())
+public data class AmdL2CacheInfo(
+    public var ulong: UInt = 0u,
+    public var anonymous: AmdL2CacheInfo0 = AmdL2CacheInfo0(),
+)
 
 public data class AmdL2CacheInfo0(
     public var lineSize: UByte = 0u,
@@ -97,7 +107,10 @@ public data class AmdL2CacheInfo0(
     public var size: UShort = 0u,
 )
 
-public data class AmdL3CacheInfo(public var ulong: UInt = 0u, public var anonymous: AmdL3CacheInfo0 = AmdL3CacheInfo0())
+public data class AmdL3CacheInfo(
+    public var ulong: UInt = 0u,
+    public var anonymous: AmdL3CacheInfo0 = AmdL3CacheInfo0(),
+)
 
 public data class AmdL3CacheInfo0(
     public var lineSize: UByte = 0u,
@@ -105,9 +118,13 @@ public data class AmdL3CacheInfo0(
     public var bitfield2: UShort = 0u,
 )
 
-public data class ArbiterAddReservedParameters(public var reserveDevice: DeviceObject? = null)
+public data class ArbiterAddReservedParameters(
+    public var reserveDevice: DeviceObject? = null,
+)
 
-public data class ArbiterBootAllocationParameters(public var arbitrationList: ListEntry? = null)
+public data class ArbiterBootAllocationParameters(
+    public var arbitrationList: ListEntry? = null,
+)
 
 public data class ArbiterConflictInfo(
     public var owningObject: DeviceObject? = null,
@@ -141,7 +158,9 @@ public data class ArbiterListEntry(
     public var result: ArbiterResult = 0,
 )
 
-public data class ArbiterParameters(public var parameters: ArbiterParameters0 = ArbiterParameters0())
+public data class ArbiterParameters(
+    public var parameters: ArbiterParameters0 = ArbiterParameters0(),
+)
 
 public data class ArbiterParameters0(
     public var testAllocation: ArbiterTestAllocationParameters = ArbiterTestAllocationParameters(),
@@ -153,9 +172,13 @@ public data class ArbiterParameters0(
     public var addReserved: ArbiterAddReservedParameters = ArbiterAddReservedParameters(),
 )
 
-public data class ArbiterQueryAllocatedResourcesParameters(public var allocatedResources: COpaquePointer? = null)
+public data class ArbiterQueryAllocatedResourcesParameters(
+    public var allocatedResources: COpaquePointer? = null,
+)
 
-public data class ArbiterQueryArbitrateParameters(public var arbitrationList: ListEntry? = null)
+public data class ArbiterQueryArbitrateParameters(
+    public var arbitrationList: ListEntry? = null,
+)
 
 public data class ArbiterQueryConflictParameters(
     public var physicalDeviceObject: DeviceObject? = null,
@@ -225,7 +248,10 @@ public data class Arm64NtContext(
     }
 }
 
-public data class Arm64NtContext0(public var anonymous: Arm64NtContext00 = Arm64NtContext00(), public var x: ULongArray = ULongArray(31)) {
+public data class Arm64NtContext0(
+    public var anonymous: Arm64NtContext00 = Arm64NtContext00(),
+    public var x: ULongArray = ULongArray(31),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Arm64NtContext0) return false
@@ -290,7 +316,9 @@ public data class BdcbImageInformation(
     public var certificateThumbprintLength: UInt = 0u,
 )
 
-public data class BdcbStatusUpdateContext(public var statusType: BdcbStatusUpdateType = 0)
+public data class BdcbStatusUpdateContext(
+    public var statusType: BdcbStatusUpdateType = 0,
+)
 
 public data class BootdiskInformation(
     public var bootPartitionOffset: Long = 0L,
@@ -310,7 +338,10 @@ public data class BootdiskInformationEx(
     public var systemDeviceIsGpt: Boolean = false,
 )
 
-public data class BootdiskInformationLite(public var numberEntries: UInt = 0u, public var entries: List<LoaderPartitionInformationEx> = List(1) { LoaderPartitionInformationEx() })
+public data class BootdiskInformationLite(
+    public var numberEntries: UInt = 0u,
+    public var entries: List<LoaderPartitionInformationEx> = List(1) { LoaderPartitionInformationEx() },
+)
 
 public data class BusInterfaceStandard(
     public var size: UShort = 0u,
@@ -333,9 +364,14 @@ public data class BusResourceUpdateInterface(
     public var getUpdatedBusResource: PgetUpdatedBusResource = null,
 )
 
-public data class BusSpecificResetFlags(public var u: BusSpecificResetFlags0 = BusSpecificResetFlags0(), public var asUlonglong: ULong = 0uL)
+public data class BusSpecificResetFlags(
+    public var u: BusSpecificResetFlags0 = BusSpecificResetFlags0(),
+    public var asUlonglong: ULong = 0uL,
+)
 
-public data class BusSpecificResetFlags0(public var bitfield: ULong = 0uL)
+public data class BusSpecificResetFlags0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class ClfsMgmtClientRegistration(
     public var version: UInt = 0u,
@@ -550,7 +586,9 @@ public data class CmPartialResourceDescriptor013(
     public var idHighPart: UInt = 0u,
 )
 
-public data class CmPartialResourceDescriptor07(public var data: UIntArray = UIntArray(3)) {
+public data class CmPartialResourceDescriptor07(
+    public var data: UIntArray = UIntArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CmPartialResourceDescriptor07) return false
@@ -558,9 +596,7 @@ public data class CmPartialResourceDescriptor07(public var data: UIntArray = UIn
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.data.contentHashCode()
-    }
+    override fun hashCode(): Int = this.data.contentHashCode()
 }
 
 public data class CmPartialResourceDescriptor09(
@@ -584,7 +620,10 @@ public data class CmPartialResourceDescriptor05(
     public var reserved1: UInt = 0u,
 )
 
-public data class CmPartialResourceDescriptor00(public var start: Long = 0L, public var length: UInt = 0u)
+public data class CmPartialResourceDescriptor00(
+    public var start: Long = 0L,
+    public var length: UInt = 0u,
+)
 
 public data class CmPartialResourceDescriptor02(
     public var level: UInt = 0u,
@@ -592,17 +631,34 @@ public data class CmPartialResourceDescriptor02(
     public var affinity: Int = 0,
 )
 
-public data class CmPartialResourceDescriptor010(public var start: Long = 0L, public var length40: UInt = 0u)
+public data class CmPartialResourceDescriptor010(
+    public var start: Long = 0L,
+    public var length40: UInt = 0u,
+)
 
-public data class CmPartialResourceDescriptor011(public var start: Long = 0L, public var length48: UInt = 0u)
+public data class CmPartialResourceDescriptor011(
+    public var start: Long = 0L,
+    public var length48: UInt = 0u,
+)
 
-public data class CmPartialResourceDescriptor012(public var start: Long = 0L, public var length64: UInt = 0u)
+public data class CmPartialResourceDescriptor012(
+    public var start: Long = 0L,
+    public var length64: UInt = 0u,
+)
 
-public data class CmPartialResourceDescriptor04(public var start: Long = 0L, public var length: UInt = 0u)
+public data class CmPartialResourceDescriptor04(
+    public var start: Long = 0L,
+    public var length: UInt = 0u,
+)
 
-public data class CmPartialResourceDescriptor03(public var anonymous: CmPartialResourceDescriptor030 = CmPartialResourceDescriptor030())
+public data class CmPartialResourceDescriptor03(
+    public var anonymous: CmPartialResourceDescriptor030 = CmPartialResourceDescriptor030(),
+)
 
-public data class CmPartialResourceDescriptor030(public var raw: CmPartialResourceDescriptor0300 = CmPartialResourceDescriptor0300(), public var translated: CmPartialResourceDescriptor0301 = CmPartialResourceDescriptor0301())
+public data class CmPartialResourceDescriptor030(
+    public var raw: CmPartialResourceDescriptor0300 = CmPartialResourceDescriptor0300(),
+    public var translated: CmPartialResourceDescriptor0301 = CmPartialResourceDescriptor0301(),
+)
 
 public data class CmPartialResourceDescriptor0300(
     public var reserved: UShort = 0u,
@@ -617,7 +673,10 @@ public data class CmPartialResourceDescriptor0301(
     public var affinity: Int = 0,
 )
 
-public data class CmPartialResourceDescriptor01(public var start: Long = 0L, public var length: UInt = 0u)
+public data class CmPartialResourceDescriptor01(
+    public var start: Long = 0L,
+    public var length: UInt = 0u,
+)
 
 public data class CmPartialResourceList(
     public var version: UShort = 0u,
@@ -777,9 +836,15 @@ public data class CmPowerData(
     }
 }
 
-public data class CmResourceList(public var count: UInt = 0u, public var list: List<CmFullResourceDescriptor> = List(1) { CmFullResourceDescriptor() })
+public data class CmResourceList(
+    public var count: UInt = 0u,
+    public var list: List<CmFullResourceDescriptor> = List(1) { CmFullResourceDescriptor() },
+)
 
-public data class CmRomBlock(public var address: UInt = 0u, public var size: UInt = 0u)
+public data class CmRomBlock(
+    public var address: UInt = 0u,
+    public var size: UInt = 0u,
+)
 
 public data class CmScsiDeviceData(
     public var version: UShort = 0u,
@@ -853,7 +918,10 @@ public data class CountedReasonContext(
     public var anonymous: CountedReasonContext0 = CountedReasonContext0(),
 )
 
-public data class CountedReasonContext0(public var anonymous: CountedReasonContext00 = CountedReasonContext00(), public var simpleString: UnicodeString = UnicodeString())
+public data class CountedReasonContext0(
+    public var anonymous: CountedReasonContext00 = CountedReasonContext00(),
+    public var simpleString: UnicodeString = UnicodeString(),
+)
 
 public data class CountedReasonContext00(
     public var resourceFileName: UnicodeString = UnicodeString(),
@@ -913,9 +981,15 @@ public data class DebuggingDeviceInUse(
     public var anonymous: DebuggingDeviceInUse0 = DebuggingDeviceInUse0(),
 )
 
-public data class DebuggingDeviceInUse0(public var acpiDevice: AcpiDebuggingDeviceInUse = AcpiDebuggingDeviceInUse(), public var pciDevice: PciDebuggingDeviceInUse = PciDebuggingDeviceInUse())
+public data class DebuggingDeviceInUse0(
+    public var acpiDevice: AcpiDebuggingDeviceInUse = AcpiDebuggingDeviceInUse(),
+    public var pciDevice: PciDebuggingDeviceInUse = PciDebuggingDeviceInUse(),
+)
 
-public data class DebuggingDeviceInUseInformation(public var deviceCount: UInt = 0u, public var device: List<DebuggingDeviceInUse> = List(1) { DebuggingDeviceInUse() })
+public data class DebuggingDeviceInUseInformation(
+    public var deviceCount: UInt = 0u,
+    public var device: List<DebuggingDeviceInUse> = List(1) { DebuggingDeviceInUse() },
+)
 
 public data class DebugDeviceAddress(
     public var type: UByte = 0u,
@@ -925,7 +999,10 @@ public data class DebugDeviceAddress(
     public var length: UInt = 0u,
 )
 
-public data class DebugDeviceAddress0(public var reserved: UByteArray = UByteArray(2), public var anonymous: DebugDeviceAddress00 = DebugDeviceAddress00()) {
+public data class DebugDeviceAddress0(
+    public var reserved: UByteArray = UByteArray(2),
+    public var anonymous: DebugDeviceAddress00 = DebugDeviceAddress00(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DebugDeviceAddress0) return false
@@ -941,7 +1018,10 @@ public data class DebugDeviceAddress0(public var reserved: UByteArray = UByteArr
     }
 }
 
-public data class DebugDeviceAddress00(public var bitWidth: UByte = 0u, public var accessSize: UByte = 0u)
+public data class DebugDeviceAddress00(
+    public var bitWidth: UByte = 0u,
+    public var accessSize: UByte = 0u,
+)
 
 public class DebugDeviceDescriptor(
     public var bus: UInt = 0u,
@@ -970,11 +1050,19 @@ public class DebugDeviceDescriptor(
     public var efiIoMmuData: DebugEfiIommuData = DebugEfiIommuData(),
 )
 
-public data class DebugDeviceDescriptor0(public var flags: UByte = 0u, public var anonymous: DebugDeviceDescriptor00 = DebugDeviceDescriptor00())
+public data class DebugDeviceDescriptor0(
+    public var flags: UByte = 0u,
+    public var anonymous: DebugDeviceDescriptor00 = DebugDeviceDescriptor00(),
+)
 
-public data class DebugDeviceDescriptor00(public var bitfield: UByte = 0u)
+public data class DebugDeviceDescriptor00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class DebugEfiIommuData(public var pciIoProtocolHandle: COpaquePointer? = null, public var mapping: COpaquePointer? = null)
+public data class DebugEfiIommuData(
+    public var pciIoProtocolHandle: COpaquePointer? = null,
+    public var mapping: COpaquePointer? = null,
+)
 
 public data class DebugMemoryRequirements(
     public var start: Long = 0L,
@@ -993,7 +1081,10 @@ public data class DebugTransportData(
     public var uSBCoreId: UByte = 0u,
 )
 
-public data class DeviceBusSpecificResetInfo(public var busTypeGuid: Guid = Guid(), public var resetTypeSupported: DeviceBusSpecificResetType = DeviceBusSpecificResetType())
+public data class DeviceBusSpecificResetInfo(
+    public var busTypeGuid: Guid = Guid(),
+    public var resetTypeSupported: DeviceBusSpecificResetType = DeviceBusSpecificResetType(),
+)
 
 public data class DeviceBusSpecificResetType(
     public var pci: DeviceBusSpecificResetType0 = DeviceBusSpecificResetType0(),
@@ -1001,9 +1092,13 @@ public data class DeviceBusSpecificResetType(
     public var asULONGLONG: ULong = 0uL,
 )
 
-public data class DeviceBusSpecificResetType1(public var bitfield: ULong = 0uL)
+public data class DeviceBusSpecificResetType1(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class DeviceBusSpecificResetType0(public var bitfield: ULong = 0uL)
+public data class DeviceBusSpecificResetType0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class DeviceCapabilities(
     public var size: UShort = 0u,
@@ -1074,9 +1169,14 @@ public class DeviceDescription(
     public var deviceAddress: Long = 0L,
 )
 
-public data class DeviceFaultConfiguration(public var faultHandler: PiommuDeviceFaultHandler = null, public var faultContext: COpaquePointer? = null)
+public data class DeviceFaultConfiguration(
+    public var faultHandler: PiommuDeviceFaultHandler = null,
+    public var faultContext: COpaquePointer? = null,
+)
 
-public data class DeviceFlags(public var bitfield: UInt = 0u)
+public data class DeviceFlags(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DeviceInterfaceChangeNotification(
     public var version: UShort = 0u,
@@ -1086,7 +1186,10 @@ public data class DeviceInterfaceChangeNotification(
     public var symbolicLinkName: UnicodeString? = null,
 )
 
-public data class DeviceRelations(public var count: UInt = 0u, public var objects: List<DeviceObject> = List(1) { DeviceObject() })
+public data class DeviceRelations(
+    public var count: UInt = 0u,
+    public var objects: List<DeviceObject> = List(1) { DeviceObject() },
+)
 
 public data class DeviceResetInterfaceStandard(
     public var size: UShort = 0u,
@@ -1102,17 +1205,33 @@ public data class DeviceResetInterfaceStandard(
     public var getDeviceResetStatus: PgetDeviceResetStatus = null,
 )
 
-public data class DeviceResetStatusFlags(public var u: DeviceResetStatusFlags0 = DeviceResetStatusFlags0(), public var asUlonglong: ULong = 0uL)
+public data class DeviceResetStatusFlags(
+    public var u: DeviceResetStatusFlags0 = DeviceResetStatusFlags0(),
+    public var asUlonglong: ULong = 0uL,
+)
 
-public data class DeviceResetStatusFlags0(public var bitfield: ULong = 0uL)
+public data class DeviceResetStatusFlags0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class DiskSignature(public var partitionStyle: UInt = 0u, public var anonymous: DiskSignature0 = DiskSignature0())
+public data class DiskSignature(
+    public var partitionStyle: UInt = 0u,
+    public var anonymous: DiskSignature0 = DiskSignature0(),
+)
 
-public data class DiskSignature0(public var mbr: DiskSignature00 = DiskSignature00(), public var gpt: DiskSignature01 = DiskSignature01())
+public data class DiskSignature0(
+    public var mbr: DiskSignature00 = DiskSignature00(),
+    public var gpt: DiskSignature01 = DiskSignature01(),
+)
 
-public data class DiskSignature01(public var diskId: Guid = Guid())
+public data class DiskSignature01(
+    public var diskId: Guid = Guid(),
+)
 
-public data class DiskSignature00(public var signature: UInt = 0u, public var checkSum: UInt = 0u)
+public data class DiskSignature00(
+    public var signature: UInt = 0u,
+    public var checkSum: UInt = 0u,
+)
 
 public data class DmaAdapter(
     public var version: UShort = 0u,
@@ -1120,9 +1239,15 @@ public data class DmaAdapter(
     public var dmaOperations: DmaOperations? = null,
 )
 
-public data class DmaAdapterInfo(public var version: UInt = 0u, public var anonymous: DmaAdapterInfo0 = DmaAdapterInfo0())
+public data class DmaAdapterInfo(
+    public var version: UInt = 0u,
+    public var anonymous: DmaAdapterInfo0 = DmaAdapterInfo0(),
+)
 
-public data class DmaAdapterInfo0(public var v1: DmaAdapterInfoV1 = DmaAdapterInfoV1(), public var crashdump: DmaAdapterInfoCrashdump = DmaAdapterInfoCrashdump())
+public data class DmaAdapterInfo0(
+    public var v1: DmaAdapterInfoV1 = DmaAdapterInfoV1(),
+    public var crashdump: DmaAdapterInfoCrashdump = DmaAdapterInfoCrashdump(),
+)
 
 public data class DmaAdapterInfoCrashdump(
     public var deviceDescription: DeviceDescription = DeviceDescription(),
@@ -1138,7 +1263,10 @@ public data class DmaAdapterInfoV1(
     public var minimumTransferUnit: UInt = 0u,
 )
 
-public data class DmaCommonBufferExtendedConfiguration(public var configType: DmaCommonBufferExtendedConfigurationType = 0, public var anonymous: DmaCommonBufferExtendedConfiguration0 = DmaCommonBufferExtendedConfiguration0())
+public data class DmaCommonBufferExtendedConfiguration(
+    public var configType: DmaCommonBufferExtendedConfigurationType = 0,
+    public var anonymous: DmaCommonBufferExtendedConfiguration0 = DmaCommonBufferExtendedConfiguration0(),
+)
 
 public data class DmaCommonBufferExtendedConfiguration0(
     public var logicalAddressLimits: DmaCommonBufferExtendedConfiguration00 = DmaCommonBufferExtendedConfiguration00(),
@@ -1165,13 +1293,23 @@ public data class DmaCommonBufferExtendedConfiguration0(
     }
 }
 
-public data class DmaCommonBufferExtendedConfiguration00(public var minimumAddress: Long = 0L, public var maximumAddress: Long = 0L)
+public data class DmaCommonBufferExtendedConfiguration00(
+    public var minimumAddress: Long = 0L,
+    public var maximumAddress: Long = 0L,
+)
 
-public data class DmaCommonBufferExtendedConfiguration01(public var offset: ULong = 0uL, public var length: UInt = 0u)
+public data class DmaCommonBufferExtendedConfiguration01(
+    public var offset: ULong = 0uL,
+    public var length: UInt = 0u,
+)
 
-public data class DmaConfigurationByte0(public var bitfield: UByte = 0u)
+public data class DmaConfigurationByte0(
+    public var bitfield: UByte = 0u,
+)
 
-public data class DmaConfigurationByte1(public var bitfield: UByte = 0u)
+public data class DmaConfigurationByte1(
+    public var bitfield: UByte = 0u,
+)
 
 public data class DmaIommuInterface(
     public var version: UInt = 0u,
@@ -1196,7 +1334,10 @@ public data class DmaIommuInterfaceEx(
     public var anonymous: DmaIommuInterfaceEx0 = DmaIommuInterfaceEx0(),
 )
 
-public data class DmaIommuInterfaceEx0(public var v1: DmaIommuInterfaceV1 = DmaIommuInterfaceV1(), public var v2: DmaIommuInterfaceV2 = DmaIommuInterfaceV2())
+public data class DmaIommuInterfaceEx0(
+    public var v1: DmaIommuInterfaceV1 = DmaIommuInterfaceV1(),
+    public var v2: DmaIommuInterfaceV2 = DmaIommuInterfaceV2(),
+)
 
 public data class DmaIommuInterfaceV1(
     public var createDomain: PiommuDomainCreate = null,
@@ -1282,9 +1423,15 @@ public class DmaOperations(
     public var createCommonBufferFromMdl: PcreateCommonBufferFromMdl = null,
 )
 
-public data class DmaTransferInfo(public var version: UInt = 0u, public var anonymous: DmaTransferInfo0 = DmaTransferInfo0())
+public data class DmaTransferInfo(
+    public var version: UInt = 0u,
+    public var anonymous: DmaTransferInfo0 = DmaTransferInfo0(),
+)
 
-public data class DmaTransferInfo0(public var v1: DmaTransferInfoV1 = DmaTransferInfoV1(), public var v2: DmaTransferInfoV2 = DmaTransferInfoV2())
+public data class DmaTransferInfo0(
+    public var v1: DmaTransferInfoV1 = DmaTransferInfoV1(),
+    public var v2: DmaTransferInfoV2 = DmaTransferInfoV2(),
+)
 
 public data class DmaTransferInfoV1(
     public var mapRegisterCount: UInt = 0u,
@@ -1299,9 +1446,15 @@ public data class DmaTransferInfoV2(
     public var logicalPageCount: UInt = 0u,
 )
 
-public data class DomainConfiguration(public var type: DomainConfigurationArch = 0, public var anonymous: DomainConfiguration0 = DomainConfiguration0())
+public data class DomainConfiguration(
+    public var type: DomainConfigurationArch = 0,
+    public var anonymous: DomainConfiguration0 = DomainConfiguration0(),
+)
 
-public data class DomainConfiguration0(public var arm64: DomainConfigurationArm64 = DomainConfigurationArm64(), public var x64: DomainConfigurationX64 = DomainConfigurationX64())
+public data class DomainConfiguration0(
+    public var arm64: DomainConfigurationArm64 = DomainConfigurationArm64(),
+    public var x64: DomainConfigurationX64 = DomainConfigurationX64(),
+)
 
 public data class DomainConfigurationArm64(
     public var ttbr0: Long = 0L,
@@ -1314,7 +1467,10 @@ public data class DomainConfigurationArm64(
     public var translationEnabled: Boolean = false,
 )
 
-public data class DomainConfigurationX64(public var firstLevelPageTableRoot: Long = 0L, public var translationEnabled: Boolean = false)
+public data class DomainConfigurationX64(
+    public var firstLevelPageTableRoot: Long = 0L,
+    public var translationEnabled: Boolean = false,
+)
 
 public data class DpcWatchdogGlobalTriageBlock(
     public var signature: UInt = 0u,
@@ -1324,7 +1480,10 @@ public data class DpcWatchdogGlobalTriageBlock(
     public var dpcWatchdogProfileLength: UInt = 0u,
 )
 
-public data class DriverVerifierThunkPairs(public var pristineRoutine: PdriverVerifierThunkRoutine = null, public var newRoutine: PdriverVerifierThunkRoutine = null)
+public data class DriverVerifierThunkPairs(
+    public var pristineRoutine: PdriverVerifierThunkRoutine = null,
+    public var newRoutine: PdriverVerifierThunkRoutine = null,
+)
 
 public data class EfiAcpiRasSignalTable(
     public var header: WheaAcpiHeader = WheaAcpiHeader(),
@@ -1332,11 +1491,19 @@ public data class EfiAcpiRasSignalTable(
     public var entries: List<SignalRegValue> = List(1) { SignalRegValue() },
 )
 
-public data class EisaDmaConfiguration(public var configurationByte0: DmaConfigurationByte0 = DmaConfigurationByte0(), public var configurationByte1: DmaConfigurationByte1 = DmaConfigurationByte1())
+public data class EisaDmaConfiguration(
+    public var configurationByte0: DmaConfigurationByte0 = DmaConfigurationByte0(),
+    public var configurationByte1: DmaConfigurationByte1 = DmaConfigurationByte1(),
+)
 
-public data class EisaIrqConfiguration(public var configurationByte: EisaIrqDescriptor = EisaIrqDescriptor(), public var reserved: UByte = 0u)
+public data class EisaIrqConfiguration(
+    public var configurationByte: EisaIrqDescriptor = EisaIrqDescriptor(),
+    public var reserved: UByte = 0u,
+)
 
-public data class EisaIrqDescriptor(public var bitfield: UByte = 0u)
+public data class EisaIrqDescriptor(
+    public var bitfield: UByte = 0u,
+)
 
 public data class EisaMemoryConfiguration(
     public var configurationByte: EisaMemoryType = EisaMemoryType(),
@@ -1346,11 +1513,18 @@ public data class EisaMemoryConfiguration(
     public var memorySize: UShort = 0u,
 )
 
-public data class EisaMemoryType(public var bitfield: UByte = 0u)
+public data class EisaMemoryType(
+    public var bitfield: UByte = 0u,
+)
 
-public data class EisaPortConfiguration(public var configuration: EisaPortDescriptor = EisaPortDescriptor(), public var portAddress: UShort = 0u)
+public data class EisaPortConfiguration(
+    public var configuration: EisaPortDescriptor = EisaPortDescriptor(),
+    public var portAddress: UShort = 0u,
+)
 
-public data class EisaPortDescriptor(public var bitfield: UByte = 0u)
+public data class EisaPortDescriptor(
+    public var bitfield: UByte = 0u,
+)
 
 public data class EtwTraceSessionSettings(
     public var version: UInt = 0u,
@@ -1382,9 +1556,14 @@ public data class ExtDeleteParameters(
     public var deleteContext: COpaquePointer? = null,
 )
 
-public data class ExRundownRef(public var anonymous: ExRundownRef0 = ExRundownRef0())
+public data class ExRundownRef(
+    public var anonymous: ExRundownRef0 = ExRundownRef0(),
+)
 
-public data class ExRundownRef0(public var count: Int = 0, public var ptr: COpaquePointer? = null)
+public data class ExRundownRef0(
+    public var count: Int = 0,
+    public var ptr: COpaquePointer? = null,
+)
 
 public data class FaultInformation(
     public var type: FaultInformationArch = 0,
@@ -1392,7 +1571,10 @@ public data class FaultInformation(
     public var anonymous: FaultInformation0 = FaultInformation0(),
 )
 
-public data class FaultInformation0(public var arm64: FaultInformationArm64 = FaultInformationArm64(), public var x64: FaultInformationX64 = FaultInformationX64())
+public data class FaultInformation0(
+    public var arm64: FaultInformationArm64 = FaultInformationArm64(),
+    public var x64: FaultInformationX64 = FaultInformationX64(),
+)
 
 public data class FaultInformationArm64(
     public var domainHandle: COpaquePointer? = null,
@@ -1404,7 +1586,9 @@ public data class FaultInformationArm64(
     public var iommuBaseAddress: ULong = 0uL,
 )
 
-public data class FaultInformationArm64Flags(public var bitfield: UInt = 0u)
+public data class FaultInformationArm64Flags(
+    public var bitfield: UInt = 0u,
+)
 
 public data class FaultInformationX64(
     public var domainHandle: COpaquePointer? = null,
@@ -1415,13 +1599,23 @@ public data class FaultInformationX64(
     public var pciSegment: UInt = 0u,
 )
 
-public data class FaultInformationX64Flags(public var bitfield: UInt = 0u)
+public data class FaultInformationX64Flags(
+    public var bitfield: UInt = 0u,
+)
 
-public data class FileAttributeTagInformation(public var fileAttributes: UInt = 0u, public var reparseTag: UInt = 0u)
+public data class FileAttributeTagInformation(
+    public var fileAttributes: UInt = 0u,
+    public var reparseTag: UInt = 0u,
+)
 
-public data class FileEndOfFileInformation(public var endOfFile: Long = 0L)
+public data class FileEndOfFileInformation(
+    public var endOfFile: Long = 0L,
+)
 
-public data class FileFsDeviceInformation(public var deviceType: UInt = 0u, public var characteristics: UInt = 0u)
+public data class FileFsDeviceInformation(
+    public var deviceType: UInt = 0u,
+    public var characteristics: UInt = 0u,
+)
 
 public data class FileFsFullSizeInformation(
     public var totalAllocationUnits: Long = 0L,
@@ -1447,7 +1641,10 @@ public data class FileFsFullSizeInformationEx(
     public var bytesPerSector: UInt = 0u,
 )
 
-public data class FileFsLabelInformation(public var volumeLabelLength: UInt = 0u, public var volumeLabel: UShortArray = UShortArray(1)) {
+public data class FileFsLabelInformation(
+    public var volumeLabelLength: UInt = 0u,
+    public var volumeLabel: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileFsLabelInformation) return false
@@ -1469,7 +1666,10 @@ public data class FileFsMetadataSizeInformation(
     public var bytesPerSector: UInt = 0u,
 )
 
-public data class FileFsObjectidInformation(public var objectId: UByteArray = UByteArray(16), public var extendedInfo: UByteArray = UByteArray(48)) {
+public data class FileFsObjectidInformation(
+    public var objectId: UByteArray = UByteArray(16),
+    public var extendedInfo: UByteArray = UByteArray(48),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileFsObjectidInformation) return false
@@ -1520,21 +1720,42 @@ public data class FileFsVolumeInformation(
     }
 }
 
-public data class FileIostatusblockRangeInformation(public var ioStatusBlockRange: COpaquePointer? = null, public var length: UInt = 0u)
+public data class FileIostatusblockRangeInformation(
+    public var ioStatusBlockRange: COpaquePointer? = null,
+    public var length: UInt = 0u,
+)
 
-public data class FileIoCompletionNotificationInformation(public var flags: UInt = 0u)
+public data class FileIoCompletionNotificationInformation(
+    public var flags: UInt = 0u,
+)
 
-public data class FileIoPriorityHintInformation(public var priorityHint: IoPriorityHint = 0)
+public data class FileIoPriorityHintInformation(
+    public var priorityHint: IoPriorityHint = 0,
+)
 
-public data class FileIoPriorityHintInformationEx(public var priorityHint: IoPriorityHint = 0, public var boostOutstanding: Boolean = false)
+public data class FileIoPriorityHintInformationEx(
+    public var priorityHint: IoPriorityHint = 0,
+    public var boostOutstanding: Boolean = false,
+)
 
-public data class FileIsRemoteDeviceInformation(public var isRemote: Boolean = false)
+public data class FileIsRemoteDeviceInformation(
+    public var isRemote: Boolean = false,
+)
 
-public data class FileMemoryPartitionInformation(public var ownerPartitionHandle: Int = 0, public var flags: FileMemoryPartitionInformation0 = FileMemoryPartitionInformation0())
+public data class FileMemoryPartitionInformation(
+    public var ownerPartitionHandle: Int = 0,
+    public var flags: FileMemoryPartitionInformation0 = FileMemoryPartitionInformation0(),
+)
 
-public data class FileMemoryPartitionInformation0(public var anonymous: FileMemoryPartitionInformation00 = FileMemoryPartitionInformation00(), public var allFlags: UInt = 0u)
+public data class FileMemoryPartitionInformation0(
+    public var anonymous: FileMemoryPartitionInformation00 = FileMemoryPartitionInformation00(),
+    public var allFlags: UInt = 0u,
+)
 
-public data class FileMemoryPartitionInformation00(public var noCrossPartitionAccess: UByte = 0u, public var spare: UByteArray = UByteArray(3)) {
+public data class FileMemoryPartitionInformation00(
+    public var noCrossPartitionAccess: UByte = 0u,
+    public var spare: UByteArray = UByteArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileMemoryPartitionInformation00) return false
@@ -1550,9 +1771,14 @@ public data class FileMemoryPartitionInformation00(public var noCrossPartitionAc
     }
 }
 
-public data class FileNumaNodeInformation(public var nodeNumber: UShort = 0u)
+public data class FileNumaNodeInformation(
+    public var nodeNumber: UShort = 0u,
+)
 
-public data class FileProcessIdsUsingFileInformation(public var numberOfProcessIdsInList: UInt = 0u, public var processIdList: IntArray = IntArray(1)) {
+public data class FileProcessIdsUsingFileInformation(
+    public var numberOfProcessIdsInList: UInt = 0u,
+    public var processIdList: IntArray = IntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileProcessIdsUsingFileInformation) return false
@@ -1593,7 +1819,9 @@ public data class FileStandardInformationEx(
     public var metadataAttribute: Boolean = false,
 )
 
-public data class FileValidDataLengthInformation(public var validDataLength: Long = 0L)
+public data class FileValidDataLengthInformation(
+    public var validDataLength: Long = 0L,
+)
 
 public data class FloatingSaveArea(
     public var controlWord: UInt = 0u,
@@ -1667,7 +1895,10 @@ public data class HalBusInformation(
     public var reserved: UInt = 0u,
 )
 
-public data class HalCallbacks(public var setSystemInformation: PcallbackObject = 0L, public var busCheck: PcallbackObject = 0L)
+public data class HalCallbacks(
+    public var setSystemInformation: PcallbackObject = 0L,
+    public var busCheck: PcallbackObject = 0L,
+)
 
 public class HalDispatch(
     public var version: UInt = 0u,
@@ -1732,13 +1963,21 @@ public data class HalMcaInterface(
     public var readRegister: Phalmcainterfacereadregister = null,
 )
 
-public data class HalPlatformInformation(public var platformFlags: UInt = 0u)
+public data class HalPlatformInformation(
+    public var platformFlags: UInt = 0u,
+)
 
-public data class HalPowerInformation(public var tbd: UInt = 0u)
+public data class HalPowerInformation(
+    public var tbd: UInt = 0u,
+)
 
-public data class HalProcessorFeature(public var usableFeatureBits: UInt = 0u)
+public data class HalProcessorFeature(
+    public var usableFeatureBits: UInt = 0u,
+)
 
-public data class HalProcessorSpeedInformation(public var processorSpeed: UInt = 0u)
+public data class HalProcessorSpeedInformation(
+    public var processorSpeed: UInt = 0u,
+)
 
 public data class HardwareCounter(
     public var type: HardwareCounterType = 0,
@@ -1760,9 +1999,14 @@ public data class ImageInfo(
     public var imageSectionNumber: UInt = 0u,
 )
 
-public data class ImageInfo0(public var properties: UInt = 0u, public var anonymous: ImageInfo00 = ImageInfo00())
+public data class ImageInfo0(
+    public var properties: UInt = 0u,
+    public var anonymous: ImageInfo00 = ImageInfo00(),
+)
 
-public data class ImageInfo00(public var bitfield: UInt = 0u)
+public data class ImageInfo00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class ImageInfoEx(
     public var size: Int = 0,
@@ -1776,15 +2020,27 @@ public data class InitialPrivilegeSet(
     public var privilege: List<LuidAndAttributes> = List(3) { LuidAndAttributes() },
 )
 
-public data class InputMappingElement(public var inputMappingId: UInt = 0u)
+public data class InputMappingElement(
+    public var inputMappingId: UInt = 0u,
+)
 
-public data class IntelCacheInfoEax(public var ulong: UInt = 0u, public var anonymous: IntelCacheInfoEax0 = IntelCacheInfoEax0())
+public data class IntelCacheInfoEax(
+    public var ulong: UInt = 0u,
+    public var anonymous: IntelCacheInfoEax0 = IntelCacheInfoEax0(),
+)
 
-public data class IntelCacheInfoEax0(public var bitfield: Int = 0)
+public data class IntelCacheInfoEax0(
+    public var bitfield: Int = 0,
+)
 
-public data class IntelCacheInfoEbx(public var ulong: UInt = 0u, public var anonymous: IntelCacheInfoEbx0 = IntelCacheInfoEbx0())
+public data class IntelCacheInfoEbx(
+    public var ulong: UInt = 0u,
+    public var anonymous: IntelCacheInfoEbx0 = IntelCacheInfoEbx0(),
+)
 
-public data class IntelCacheInfoEbx0(public var bitfield: UInt = 0u)
+public data class IntelCacheInfoEbx0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class Interface(
     public var size: UShort = 0u,
@@ -1800,15 +2056,29 @@ public data class IommuDeviceCreationConfiguration(
     public var anonymous: IommuDeviceCreationConfiguration0 = IommuDeviceCreationConfiguration0(),
 )
 
-public data class IommuDeviceCreationConfiguration0(public var acpi: IommuDeviceCreationConfigurationAcpi = IommuDeviceCreationConfigurationAcpi(), public var deviceId: COpaquePointer? = null)
+public data class IommuDeviceCreationConfiguration0(
+    public var acpi: IommuDeviceCreationConfigurationAcpi = IommuDeviceCreationConfigurationAcpi(),
+    public var deviceId: COpaquePointer? = null,
+)
 
-public data class IommuDeviceCreationConfigurationAcpi(public var inputMappingBase: UInt = 0u, public var mappingsCount: UInt = 0u)
+public data class IommuDeviceCreationConfigurationAcpi(
+    public var inputMappingBase: UInt = 0u,
+    public var mappingsCount: UInt = 0u,
+)
 
-public data class IommuDmaDomainCreationFlags(public var anonymous: IommuDmaDomainCreationFlags0 = IommuDmaDomainCreationFlags0(), public var asUlonglong: ULong = 0uL)
+public data class IommuDmaDomainCreationFlags(
+    public var anonymous: IommuDmaDomainCreationFlags0 = IommuDmaDomainCreationFlags0(),
+    public var asUlonglong: ULong = 0uL,
+)
 
-public data class IommuDmaDomainCreationFlags0(public var bitfield: ULong = 0uL)
+public data class IommuDmaDomainCreationFlags0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class IommuDmaLogicalAddressToken(public var logicalAddressBase: ULong = 0uL, public var size: Int = 0)
+public data class IommuDmaLogicalAddressToken(
+    public var logicalAddressBase: ULong = 0uL,
+    public var size: Int = 0,
+)
 
 public data class IommuDmaLogicalAddressTokenMappedSegment(
     public var owningToken: IommuDmaLogicalAddressToken? = null,
@@ -1816,11 +2086,18 @@ public data class IommuDmaLogicalAddressTokenMappedSegment(
     public var size: Int = 0,
 )
 
-public data class IommuDmaLogicalAllocatorConfig(public var logicalAllocatorType: IommuDmaLogicalAllocatorType = 0, public var anonymous: IommuDmaLogicalAllocatorConfig0 = IommuDmaLogicalAllocatorConfig0())
+public data class IommuDmaLogicalAllocatorConfig(
+    public var logicalAllocatorType: IommuDmaLogicalAllocatorType = 0,
+    public var anonymous: IommuDmaLogicalAllocatorConfig0 = IommuDmaLogicalAllocatorConfig0(),
+)
 
-public data class IommuDmaLogicalAllocatorConfig0(public var buddyAllocatorConfig: IommuDmaLogicalAllocatorConfig00 = IommuDmaLogicalAllocatorConfig00())
+public data class IommuDmaLogicalAllocatorConfig0(
+    public var buddyAllocatorConfig: IommuDmaLogicalAllocatorConfig00 = IommuDmaLogicalAllocatorConfig00(),
+)
 
-public data class IommuDmaLogicalAllocatorConfig00(public var addressWidth: UInt = 0u)
+public data class IommuDmaLogicalAllocatorConfig00(
+    public var addressWidth: UInt = 0u,
+)
 
 public data class IommuDmaReservedRegion(
     public var regionNext: IommuDmaReservedRegion? = null,
@@ -1829,13 +2106,24 @@ public data class IommuDmaReservedRegion(
     public var shouldMap: Boolean = false,
 )
 
-public data class IommuInterfaceStateChange(public var presentFields: IommuInterfaceStateChangeFields = IommuInterfaceStateChangeFields(), public var availableDomainTypes: UInt = 0u)
+public data class IommuInterfaceStateChange(
+    public var presentFields: IommuInterfaceStateChangeFields = IommuInterfaceStateChangeFields(),
+    public var availableDomainTypes: UInt = 0u,
+)
 
-public data class IommuInterfaceStateChangeFields(public var anonymous: IommuInterfaceStateChangeFields0 = IommuInterfaceStateChangeFields0(), public var asULONG: UInt = 0u)
+public data class IommuInterfaceStateChangeFields(
+    public var anonymous: IommuInterfaceStateChangeFields0 = IommuInterfaceStateChangeFields0(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class IommuInterfaceStateChangeFields0(public var bitfield: UInt = 0u)
+public data class IommuInterfaceStateChangeFields0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class IommuMapPhysicalAddress(public var mapType: IommuMapPhysicalAddressType = 0, public var anonymous: IommuMapPhysicalAddress0 = IommuMapPhysicalAddress0())
+public data class IommuMapPhysicalAddress(
+    public var mapType: IommuMapPhysicalAddressType = 0,
+    public var anonymous: IommuMapPhysicalAddress0 = IommuMapPhysicalAddress0(),
+)
 
 public data class IommuMapPhysicalAddress0(
     public var mdl: IommuMapPhysicalAddress00 = IommuMapPhysicalAddress00(),
@@ -1843,11 +2131,19 @@ public data class IommuMapPhysicalAddress0(
     public var pfnArray: IommuMapPhysicalAddress02 = IommuMapPhysicalAddress02(),
 )
 
-public data class IommuMapPhysicalAddress01(public var base: Long = 0L, public var size: Int = 0)
+public data class IommuMapPhysicalAddress01(
+    public var base: Long = 0L,
+    public var size: Int = 0,
+)
 
-public data class IommuMapPhysicalAddress00(public var mdl: Mdl? = null)
+public data class IommuMapPhysicalAddress00(
+    public var mdl: Mdl? = null,
+)
 
-public data class IommuMapPhysicalAddress02(public var pageFrame: UInt? = null, public var numberOfPages: Int = 0)
+public data class IommuMapPhysicalAddress02(
+    public var pageFrame: UInt? = null,
+    public var numberOfPages: Int = 0,
+)
 
 public data class IoAttributionInformation(
     public var version: UInt = 0u,
@@ -1857,9 +2153,14 @@ public data class IoAttributionInformation(
     public var currentTime: ULong = 0uL,
 )
 
-public data class IoAttributionInformation0(public var anonymous: IoAttributionInformation00 = IoAttributionInformation00(), public var allFlags: UInt = 0u)
+public data class IoAttributionInformation0(
+    public var anonymous: IoAttributionInformation00 = IoAttributionInformation00(),
+    public var allFlags: UInt = 0u,
+)
 
-public data class IoAttributionInformation00(public var bitfield: UInt = 0u)
+public data class IoAttributionInformation00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class IoConnectInterruptFullySpecifiedParameters(
     public var physicalDeviceObject: DeviceObject? = null,
@@ -1904,7 +2205,10 @@ public data class IoConnectInterruptMessageBasedParameters0(
     public var interruptObject: Pkinterrupt? = null,
 )
 
-public data class IoConnectInterruptParameters(public var version: UInt = 0u, public var anonymous: IoConnectInterruptParameters0 = IoConnectInterruptParameters0())
+public data class IoConnectInterruptParameters(
+    public var version: UInt = 0u,
+    public var anonymous: IoConnectInterruptParameters0 = IoConnectInterruptParameters0(),
+)
 
 public data class IoConnectInterruptParameters0(
     public var fullySpecified: IoConnectInterruptFullySpecifiedParameters = IoConnectInterruptFullySpecifiedParameters(),
@@ -1929,7 +2233,10 @@ public data class IoCsqIrpContext(
     public var csq: IoCsq? = null,
 )
 
-public data class IoDisconnectInterruptParameters(public var version: UInt = 0u, public var connectionContext: IoDisconnectInterruptParameters0 = IoDisconnectInterruptParameters0())
+public data class IoDisconnectInterruptParameters(
+    public var version: UInt = 0u,
+    public var connectionContext: IoDisconnectInterruptParameters0 = IoDisconnectInterruptParameters0(),
+)
 
 public data class IoDisconnectInterruptParameters0(
     public var generic: COpaquePointer? = null,
@@ -2006,7 +2313,10 @@ public data class IoErrorLogPacket(
     }
 }
 
-public data class IoFoextShadowFile(public var backingFileObject: FileObject? = null, public var backingFltInstance: COpaquePointer? = null)
+public data class IoFoextShadowFile(
+    public var backingFileObject: FileObject? = null,
+    public var backingFltInstance: COpaquePointer? = null,
+)
 
 public data class IoFoextSiloParameters(
     public var length: UInt = 0u,
@@ -2014,4 +2324,7 @@ public data class IoFoextSiloParameters(
     public var siloContext: Pesilo = 0L,
 )
 
-public data class IoFoextSiloParameters0(public var anonymous: IoFoextSiloParameters00 = IoFoextSiloParameters00(), public var flags: UInt = 0u)
+public data class IoFoextSiloParameters0(
+    public var anonymous: IoFoextSiloParameters00 = IoFoextSiloParameters00(),
+    public var flags: UInt = 0u,
+)

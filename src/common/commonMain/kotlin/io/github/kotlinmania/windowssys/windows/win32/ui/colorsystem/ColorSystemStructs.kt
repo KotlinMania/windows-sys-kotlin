@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -14,7 +15,10 @@ import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Ciexyztriple
 import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Emr
 import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Dlgproc
 
-public data class BlackInformation(public var fBlackOnly: Bool = 0, public var blackWeight: Float = 0.0f)
+public data class BlackInformation(
+    public var fBlackOnly: Bool = 0,
+    public var blackWeight: Float = 0.0f,
+)
 
 public data class Cmykcolor(
     public var cyan: UShort = 0u,
@@ -36,7 +40,10 @@ public data class Color(
     public var anonymous: Color0 = Color0(),
 )
 
-public data class Color0(public var reserved1: UInt = 0u, public var reserved2: COpaquePointer? = null)
+public data class Color0(
+    public var reserved1: UInt = 0u,
+    public var reserved2: COpaquePointer? = null,
+)
 
 public class Colormatchsetupa(
     public var dwSize: UInt = 0u,
@@ -171,7 +178,9 @@ public data class Generic3channel(
     public var ch3: UShort = 0u,
 )
 
-public data class Graycolor(public var gray: UShort = 0u)
+public data class Graycolor(
+    public var gray: UShort = 0u,
+)
 
 public data class GamutBoundaryDescription(
     public var pPrimaries: PrimaryJabColors? = null,
@@ -191,7 +200,9 @@ public data class GamutShell(
     public var pTriangles: GamutShellTriangle? = null,
 )
 
-public data class GamutShellTriangle(public var aVertexIndex: UIntArray = UIntArray(3)) {
+public data class GamutShellTriangle(
+    public var aVertexIndex: UIntArray = UIntArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is GamutShellTriangle) return false
@@ -199,12 +210,12 @@ public data class GamutShellTriangle(public var aVertexIndex: UIntArray = UIntAr
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.aVertexIndex.contentHashCode()
-    }
+    override fun hashCode(): Int = this.aVertexIndex.contentHashCode()
 }
 
-public data class HiFiCOLOR(public var channel: UByteArray = UByteArray(8)) {
+public data class HiFiCOLOR(
+    public var channel: UByteArray = UByteArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is HiFiCOLOR) return false
@@ -212,9 +223,7 @@ public data class HiFiCOLOR(public var channel: UByteArray = UByteArray(8)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.channel.contentHashCode()
-    }
+    override fun hashCode(): Int = this.channel.contentHashCode()
 }
 
 public data class JChColorF(
@@ -321,7 +330,9 @@ public data class LabCOLOR(
     public var b: UShort = 0u,
 )
 
-public data class Namedcolor(public var dwIndex: UInt = 0u)
+public data class Namedcolor(
+    public var dwIndex: UInt = 0u,
+)
 
 public data class NamedProfileInfo(
     public var dwFlags: UInt = 0u,
@@ -413,7 +424,10 @@ public data class WcsDeviceMhc2Capabilities(
     public var cscXyzMatrixColumns: UInt = 0u,
 )
 
-public data class WcsDeviceVcgtCapabilities(public var size: UInt = 0u, public var supportsVcgt: Bool = 0)
+public data class WcsDeviceVcgtCapabilities(
+    public var size: UInt = 0u,
+    public var supportsVcgt: Bool = 0,
+)
 
 public data class Xyzcolor(
     public var x: UShort = 0u,
@@ -427,4 +441,7 @@ public data class XYZColorF(
     public var z: Float = 0.0f,
 )
 
-public data class YxyCOLOR(public var y: UShort = 0u, public var x: UShort = 0u)
+public data class YxyCOLOR(
+    public var y: UShort = 0u,
+    public var x: UShort = 0u,
+)

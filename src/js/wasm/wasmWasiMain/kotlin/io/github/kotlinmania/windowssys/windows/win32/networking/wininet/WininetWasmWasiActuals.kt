@@ -18,9 +18,8 @@ import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.AlgI
 public actual fun appCacheCheckManifest(pwszmasterurl: Pcwstr, pwszmanifesturl: Pcwstr, pbmanifestdata: COpaquePointer?, dwmanifestdatasize: UInt, pbmanifestresponseheaders: COpaquePointer?, dwmanifestresponseheaderssize: UInt, pestate: COpaquePointer?, phnewappcache: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun appCacheCloseHandle(happcache: COpaquePointer?) {
+public actual fun appCacheCloseHandle(happcache: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun appCacheCreateAndCommitFile(happcache: COpaquePointer?, pwszsourcefilepath: Pcwstr, pwszurl: Pcwstr, pbresponseheaders: COpaquePointer?, dwresponseheaderssize: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -37,13 +36,11 @@ public actual fun appCacheDuplicateHandle(happcache: COpaquePointer?, phduplicat
 public actual fun appCacheFinalize(happcache: COpaquePointer?, pbmanifestdata: COpaquePointer?, dwmanifestdatasize: UInt, pestate: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun appCacheFreeDownloadList(pdownloadlist: COpaquePointer?) {
+public actual fun appCacheFreeDownloadList(pdownloadlist: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun appCacheFreeGroupList(pappcachegrouplist: COpaquePointer?) {
+public actual fun appCacheFreeGroupList(pappcachegrouplist: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun appCacheFreeIESpace(ftcutoff: Filetime): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -342,9 +339,8 @@ public actual fun httpCheckDavComplianceA(lpszurl: Pcstr, lpszcompliancetoken: P
 public actual fun httpCheckDavComplianceW(lpszurl: Pcwstr, lpszcompliancetoken: Pcwstr, lpffound: COpaquePointer?, hwnd: Hwnd, lpvreserved: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun httpCloseDependencyHandle(hdependencyhandle: COpaquePointer?) {
+public actual fun httpCloseDependencyHandle(hdependencyhandle: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun httpDuplicateDependencyHandle(hdependencyhandle: COpaquePointer?, phduplicateddependencyhandle: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -373,9 +369,8 @@ public actual fun httpOpenRequestA(hconnect: COpaquePointer?, lpszverb: Pcstr, l
 public actual fun httpOpenRequestW(hconnect: COpaquePointer?, lpszverb: Pcwstr, lpszobjectname: Pcwstr, lpszversion: Pcwstr, lpszreferrer: Pcwstr, lplpszaccepttypes: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun httpPushClose(hwait: HttpPushWaitHandle) {
+public actual fun httpPushClose(hwait: HttpPushWaitHandle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun httpPushEnable(hrequest: COpaquePointer?, ptransportsetting: COpaquePointer?, phwait: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -527,13 +522,11 @@ public actual fun internetFindNextFileW(hfind: COpaquePointer?, lpvfinddata: COp
 public actual fun internetFortezzaCommand(dwcommand: UInt, hwnd: Hwnd, dwreserved: ULong): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun internetFreeCookies(pcookies: COpaquePointer?, dwcookiecount: UInt) {
+public actual fun internetFreeCookies(pcookies: COpaquePointer?, dwcookiecount: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun internetFreeProxyInfoList(pproxyinfolist: COpaquePointer?) {
+public actual fun internetFreeProxyInfoList(pproxyinfolist: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun internetGetConnectedState(lpdwflags: COpaquePointer?, dwreserved: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -856,9 +849,8 @@ public actual fun updateUrlCacheContentPath(sznewpath: Pcstr): Bool =
 public actual fun urlCacheCheckEntriesExist(rgpwszurls: COpaquePointer?, centries: UInt, rgfexist: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun urlCacheCloseEntryHandle(hentryfile: COpaquePointer?) {
+public actual fun urlCacheCloseEntryHandle(hentryfile: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun urlCacheContainerSetEntryMaximumAge(pwszprefix: Pcwstr, dwentrymaxage: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -872,9 +864,8 @@ public actual fun urlCacheFindFirstEntry(pwszprefix: Pcwstr, dwflags: UInt, dwfi
 public actual fun urlCacheFindNextEntry(hfind: Handle, pcacheentryinfo: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun urlCacheFreeEntryInfo(pcacheentryinfo: COpaquePointer?) {
+public actual fun urlCacheFreeEntryInfo(pcacheentryinfo: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun urlCacheFreeGlobalSpace(ulltargetsize: ULong, dwfilter: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

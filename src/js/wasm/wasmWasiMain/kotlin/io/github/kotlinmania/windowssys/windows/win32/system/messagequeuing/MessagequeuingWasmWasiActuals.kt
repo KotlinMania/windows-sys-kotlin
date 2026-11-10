@@ -31,13 +31,11 @@ public actual fun mQCreateQueue(psecuritydescriptor: PsecurityDescriptor, pqueue
 public actual fun mQDeleteQueue(lpwcsformatname: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun mQFreeMemory(pvmemory: COpaquePointer?) {
+public actual fun mQFreeMemory(pvmemory: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun mQFreeSecurityContext(hsecuritycontext: Handle) {
+public actual fun mQFreeSecurityContext(hsecuritycontext: Handle): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun mQGetMachineProperties(lpwcsmachinename: Pcwstr, pguidmachineid: COpaquePointer?, pqmprops: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

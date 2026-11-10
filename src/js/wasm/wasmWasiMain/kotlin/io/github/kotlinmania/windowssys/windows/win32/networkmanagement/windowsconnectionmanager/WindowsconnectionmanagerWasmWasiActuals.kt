@@ -8,9 +8,8 @@ import io.github.kotlinmania.windowssys.core.Hresult
 import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public actual fun freeInterfaceContextTable(interfacecontexttable: COpaquePointer?) {
+public actual fun freeInterfaceContextTable(interfacecontexttable: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun getInterfaceContextTableForHostName(hostname: Pcwstr, proxyname: Pcwstr, flags: UInt, connectionprofilefilterrawdata: COpaquePointer?, connectionprofilefilterrawdatasize: UInt, interfacecontexttable: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -24,9 +23,8 @@ public actual fun onDemandRegisterNotification(callback: OndemandNotificationCal
 public actual fun onDemandUnRegisterNotification(registrationhandle: Handle): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wcmFreeMemory(pmemory: COpaquePointer?) {
+public actual fun wcmFreeMemory(pmemory: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun wcmGetProfileList(preserved: COpaquePointer?, ppprofilelist: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

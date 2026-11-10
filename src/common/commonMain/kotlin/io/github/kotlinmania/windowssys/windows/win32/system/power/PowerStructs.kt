@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.power
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -73,7 +74,10 @@ public data class AdministratorPowerPolicy(
     public var maxSpindownTimeout: UInt = 0u,
 )
 
-public data class BatteryChargerStatus(public var type: BatteryChargingSourceType = 0, public var vaData: UIntArray = UIntArray(1)) {
+public data class BatteryChargerStatus(
+    public var type: BatteryChargingSourceType = 0,
+    public var vaData: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is BatteryChargerStatus) return false
@@ -89,9 +93,15 @@ public data class BatteryChargerStatus(public var type: BatteryChargingSourceTyp
     }
 }
 
-public data class BatteryChargingSource(public var type: BatteryChargingSourceType = 0, public var maxCurrent: UInt = 0u)
+public data class BatteryChargingSource(
+    public var type: BatteryChargingSourceType = 0,
+    public var maxCurrent: UInt = 0u,
+)
 
-public data class BatteryChargingSourceInformation(public var type: BatteryChargingSourceType = 0, public var sourceOnline: Boolean = false)
+public data class BatteryChargingSourceInformation(
+    public var type: BatteryChargingSourceType = 0,
+    public var sourceOnline: Boolean = false,
+)
 
 public data class BatteryInformation(
     public var capabilities: UInt = 0u,
@@ -148,7 +158,10 @@ public data class BatteryQueryInformation(
     public var atRate: UInt = 0u,
 )
 
-public data class BatteryReportingScale(public var granularity: UInt = 0u, public var capacity: UInt = 0u)
+public data class BatteryReportingScale(
+    public var granularity: UInt = 0u,
+    public var capacity: UInt = 0u,
+)
 
 public data class BatterySetInformation(
     public var batteryTag: UInt = 0u,
@@ -236,9 +249,15 @@ public data class CmPowerData(
     }
 }
 
-public data class DeviceNotifySubscribeParameters(public var callback: PdeviceNotifyCallbackRoutine = null, public var context: COpaquePointer? = null)
+public data class DeviceNotifySubscribeParameters(
+    public var callback: PdeviceNotifyCallbackRoutine = null,
+    public var context: COpaquePointer? = null,
+)
 
-public data class EmiChannelMeasurementData(public var absoluteEnergy: ULong = 0uL, public var absoluteTime: ULong = 0uL)
+public data class EmiChannelMeasurementData(
+    public var absoluteEnergy: ULong = 0uL,
+    public var absoluteTime: ULong = 0uL,
+)
 
 public data class EmiChannelV2(
     public var measurementUnit: EmiMeasurementUnit = 0,
@@ -262,9 +281,13 @@ public data class EmiChannelV2(
     }
 }
 
-public data class EmiMeasurementDataV2(public var channelData: List<EmiChannelMeasurementData> = List(1) { EmiChannelMeasurementData() })
+public data class EmiMeasurementDataV2(
+    public var channelData: List<EmiChannelMeasurementData> = List(1) { EmiChannelMeasurementData() },
+)
 
-public data class EmiMetadataSize(public var metadataSize: UInt = 0u)
+public data class EmiMetadataSize(
+    public var metadataSize: UInt = 0u,
+)
 
 public data class EmiMetadataV1(
     public var measurementUnit: EmiMeasurementUnit = 0,
@@ -325,7 +348,9 @@ public data class EmiMetadataV2(
     }
 }
 
-public data class EmiVersion(public var emiVersion: UShort = 0u)
+public data class EmiVersion(
+    public var emiVersion: UShort = 0u,
+)
 
 public data class GlobalMachinePowerPolicy(
     public var revision: UInt = 0u,
@@ -334,7 +359,10 @@ public data class GlobalMachinePowerPolicy(
     public var broadcastCapacityResolution: UInt = 0u,
 )
 
-public data class GlobalPowerPolicy(public var user: GlobalUserPowerPolicy = GlobalUserPowerPolicy(), public var mach: GlobalMachinePowerPolicy = GlobalMachinePowerPolicy())
+public data class GlobalPowerPolicy(
+    public var user: GlobalUserPowerPolicy = GlobalUserPowerPolicy(),
+    public var mach: GlobalMachinePowerPolicy = GlobalMachinePowerPolicy(),
+)
 
 public data class GlobalUserPowerPolicy(
     public var revision: UInt = 0u,
@@ -437,21 +465,43 @@ public data class PowerActionPolicy(
     public var eventCode: PowerActionPolicyEventCode = 0u,
 )
 
-public data class PowerIdleResiliency(public var coalescingTimeout: UInt = 0u, public var idleResiliencyPeriod: UInt = 0u)
+public data class PowerIdleResiliency(
+    public var coalescingTimeout: UInt = 0u,
+    public var idleResiliencyPeriod: UInt = 0u,
+)
 
-public data class PowerMonitorInvocation(public var console: Boolean = false, public var requestReason: PowerMonitorRequestReason = 0)
+public data class PowerMonitorInvocation(
+    public var console: Boolean = false,
+    public var requestReason: PowerMonitorRequestReason = 0,
+)
 
-public data class PowerPlatformInformation(public var aoAc: Boolean = false)
+public data class PowerPlatformInformation(
+    public var aoAc: Boolean = false,
+)
 
-public data class PowerPolicy(public var user: UserPowerPolicy = UserPowerPolicy(), public var mach: MachinePowerPolicy = MachinePowerPolicy())
+public data class PowerPolicy(
+    public var user: UserPowerPolicy = UserPowerPolicy(),
+    public var mach: MachinePowerPolicy = MachinePowerPolicy(),
+)
 
-public data class PowerSessionAllowExternalDmaDevices(public var isAllowed: Boolean = false)
+public data class PowerSessionAllowExternalDmaDevices(
+    public var isAllowed: Boolean = false,
+)
 
-public data class PowerSessionConnect(public var connected: Boolean = false, public var console: Boolean = false)
+public data class PowerSessionConnect(
+    public var connected: Boolean = false,
+    public var console: Boolean = false,
+)
 
-public data class PowerSessionRitState(public var active: Boolean = false, public var lastInputTime: ULong = 0uL)
+public data class PowerSessionRitState(
+    public var active: Boolean = false,
+    public var lastInputTime: ULong = 0uL,
+)
 
-public data class PowerSessionTimeouts(public var inputTimeout: UInt = 0u, public var displayTimeout: UInt = 0u)
+public data class PowerSessionTimeouts(
+    public var inputTimeout: UInt = 0u,
+    public var displayTimeout: UInt = 0u,
+)
 
 public data class PowerSessionWinlogon(
     public var sessionId: UInt = 0u,
@@ -459,7 +509,9 @@ public data class PowerSessionWinlogon(
     public var locked: Boolean = false,
 )
 
-public data class PowerUserPresence(public var userPresence: PowerUserPresenceType = 0)
+public data class PowerUserPresence(
+    public var userPresence: PowerUserPresenceType = 0,
+)
 
 public data class PpmIdlestateEvent(
     public var newState: UInt = 0u,
@@ -545,9 +597,15 @@ public data class PpmPerfstateEvent(
     public var processor: UInt = 0u,
 )
 
-public data class PpmThermalchangeEvent(public var thermalConstraint: UInt = 0u, public var processors: ULong = 0uL)
+public data class PpmThermalchangeEvent(
+    public var thermalConstraint: UInt = 0u,
+    public var processors: ULong = 0uL,
+)
 
-public data class PpmThermalPolicyEvent(public var mode: UByte = 0u, public var processors: ULong = 0uL)
+public data class PpmThermalPolicyEvent(
+    public var mode: UByte = 0u,
+    public var processors: ULong = 0uL,
+)
 
 public data class PpmWmiIdleState(
     public var latency: UInt = 0u,
@@ -1028,4 +1086,7 @@ public class UserPowerPolicy(
     public var forcedThrottleDc: UByte = 0u,
 )
 
-public data class WakeAlarmInformation(public var timerIdentifier: UInt = 0u, public var timeout: UInt = 0u)
+public data class WakeAlarmInformation(
+    public var timerIdentifier: UInt = 0u,
+    public var timeout: UInt = 0u,
+)

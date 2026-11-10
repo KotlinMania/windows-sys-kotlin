@@ -1,9 +1,15 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.cdrom
 
-public data class CdromDiskData(public var diskData: UInt = 0u)
+public data class CdromDiskData(
+    public var diskData: UInt = 0u,
+)
 
-public data class CdromExceptionPerformanceDescriptor(public var lba: UByteArray = UByteArray(4), public var time: UByteArray = UByteArray(2)) {
+public data class CdromExceptionPerformanceDescriptor(
+    public var lba: UByteArray = UByteArray(4),
+    public var time: UByteArray = UByteArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CdromExceptionPerformanceDescriptor) return false
@@ -19,9 +25,15 @@ public data class CdromExceptionPerformanceDescriptor(public var lba: UByteArray
     }
 }
 
-public data class CdromExclusiveAccess(public var requestType: ExclusiveAccessRequestType = 0, public var flags: UInt = 0u)
+public data class CdromExclusiveAccess(
+    public var requestType: ExclusiveAccessRequestType = 0,
+    public var flags: UInt = 0u,
+)
 
-public data class CdromExclusiveLock(public var access: CdromExclusiveAccess = CdromExclusiveAccess(), public var callerName: UByteArray = UByteArray(64)) {
+public data class CdromExclusiveLock(
+    public var access: CdromExclusiveAccess = CdromExclusiveAccess(),
+    public var callerName: UByteArray = UByteArray(64),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CdromExclusiveLock) return false
@@ -37,7 +49,10 @@ public data class CdromExclusiveLock(public var access: CdromExclusiveAccess = C
     }
 }
 
-public data class CdromExclusiveLockState(public var lockState: Boolean = false, public var callerName: UByteArray = UByteArray(64)) {
+public data class CdromExclusiveLockState(
+    public var lockState: Boolean = false,
+    public var callerName: UByteArray = UByteArray(64),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CdromExclusiveLockState) return false
@@ -161,9 +176,14 @@ public data class CdromSimpleOpcInfo(
     public var exclude1: Boolean = false,
 )
 
-public data class CdromStreamingControl(public var requestType: StreamingControlRequestType = 0)
+public data class CdromStreamingControl(
+    public var requestType: StreamingControlRequestType = 0,
+)
 
-public data class CdromSubQDataFormat(public var format: UByte = 0u, public var track: UByte = 0u)
+public data class CdromSubQDataFormat(
+    public var format: UByte = 0u,
+    public var track: UByte = 0u,
+)
 
 public data class CdromToc(
     public var length: UByteArray = UByteArray(2),
@@ -326,7 +346,10 @@ public data class CdromTocCdTextDataBlock(
     }
 }
 
-public data class CdromTocCdTextDataBlock0(public var text: UByteArray = UByteArray(12), public var wText: UShortArray = UShortArray(6)) {
+public data class CdromTocCdTextDataBlock0(
+    public var text: UByteArray = UByteArray(12),
+    public var wText: UShortArray = UShortArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CdromTocCdTextDataBlock0) return false
@@ -479,7 +502,9 @@ public data class CdromWriteSpeedDescriptor(
     }
 }
 
-public data class CdromWriteSpeedRequest(public var requestType: CdromPerformanceRequestType = 0)
+public data class CdromWriteSpeedRequest(
+    public var requestType: CdromPerformanceRequestType = 0,
+)
 
 public data class RawReadInfo(
     public var diskOffset: Long = 0L,
@@ -639,7 +664,9 @@ public data class TrackData(
     }
 }
 
-public data class VolumeControl(public var portVolume: UByteArray = UByteArray(4)) {
+public data class VolumeControl(
+    public var portVolume: UByteArray = UByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VolumeControl) return false
@@ -647,7 +674,5 @@ public data class VolumeControl(public var portVolume: UByteArray = UByteArray(4
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.portVolume.contentHashCode()
-    }
+    override fun hashCode(): Int = this.portVolume.contentHashCode()
 }

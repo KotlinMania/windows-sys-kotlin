@@ -11,9 +11,8 @@ public actual fun vhfAsyncOperationComplete(vhfoperationhandle: COpaquePointer?,
 public actual fun vhfCreate(vhfconfig: COpaquePointer?, vhfhandle: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun vhfDelete(vhfhandle: COpaquePointer?, wait: Boolean) {
+public actual fun vhfDelete(vhfhandle: COpaquePointer?, wait: Boolean): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun vhfReadReportSubmit(vhfhandle: COpaquePointer?, hidtransferpacket: COpaquePointer?): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

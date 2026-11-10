@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.virtualdosmachines
 
 import io.github.kotlinmania.windowssys.core.Bool
@@ -178,9 +179,14 @@ public data class VdmldtEntry(
     public var highWord: VdmldtEntry0 = VdmldtEntry0(),
 )
 
-public data class VdmldtEntry0(public var bytes: VdmldtEntry00 = VdmldtEntry00(), public var bits: VdmldtEntry01 = VdmldtEntry01())
+public data class VdmldtEntry0(
+    public var bytes: VdmldtEntry00 = VdmldtEntry00(),
+    public var bits: VdmldtEntry01 = VdmldtEntry01(),
+)
 
-public data class VdmldtEntry01(public var bitfield: UInt = 0u)
+public data class VdmldtEntry01(
+    public var bitfield: UInt = 0u,
+)
 
 public data class VdmldtEntry00(
     public var baseMid: UByte = 0u,

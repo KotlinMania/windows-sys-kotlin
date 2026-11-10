@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -27,17 +28,32 @@ public data class Address64(
     public var mode: AddressMode = 0,
 )
 
-public data class AerBridgeDescriptorFlags(public var anonymous: AerBridgeDescriptorFlags0 = AerBridgeDescriptorFlags0(), public var asUSHORT: UShort = 0u)
+public data class AerBridgeDescriptorFlags(
+    public var anonymous: AerBridgeDescriptorFlags0 = AerBridgeDescriptorFlags0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class AerBridgeDescriptorFlags0(public var bitfield: UShort = 0u)
+public data class AerBridgeDescriptorFlags0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class AerEndpointDescriptorFlags(public var anonymous: AerEndpointDescriptorFlags0 = AerEndpointDescriptorFlags0(), public var asUSHORT: UShort = 0u)
+public data class AerEndpointDescriptorFlags(
+    public var anonymous: AerEndpointDescriptorFlags0 = AerEndpointDescriptorFlags0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class AerEndpointDescriptorFlags0(public var bitfield: UShort = 0u)
+public data class AerEndpointDescriptorFlags0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class AerRootportDescriptorFlags(public var anonymous: AerRootportDescriptorFlags0 = AerRootportDescriptorFlags0(), public var asUSHORT: UShort = 0u)
+public data class AerRootportDescriptorFlags(
+    public var anonymous: AerRootportDescriptorFlags0 = AerRootportDescriptorFlags0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class AerRootportDescriptorFlags0(public var bitfield: UShort = 0u)
+public data class AerRootportDescriptorFlags0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class ApcCallbackData(
     public var parameter: Int = 0,
@@ -102,7 +118,10 @@ public data class Arm64NtContext(
     }
 }
 
-public data class Arm64NtContext0(public var anonymous: Arm64NtContext00 = Arm64NtContext00(), public var x: ULongArray = ULongArray(31)) {
+public data class Arm64NtContext0(
+    public var anonymous: Arm64NtContext00 = Arm64NtContext00(),
+    public var x: ULongArray = ULongArray(31),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Arm64NtContext0) return false
@@ -180,7 +199,10 @@ public data class Arm64NtNeon128(
     }
 }
 
-public data class Arm64NtNeon1280(public var low: ULong = 0uL, public var high: Long = 0L)
+public data class Arm64NtNeon1280(
+    public var low: ULong = 0uL,
+    public var high: Long = 0L,
+)
 
 public class Context(
     public var p1Home: ULong = 0uL,
@@ -231,7 +253,10 @@ public class Context(
     public var lastExceptionFromRip: ULong = 0uL,
 )
 
-public data class Context0(public var fltSave: XsaveFormat = XsaveFormat(), public var anonymous: Context00 = Context00())
+public data class Context0(
+    public var fltSave: XsaveFormat = XsaveFormat(),
+    public var anonymous: Context00 = Context00(),
+)
 
 public class Context00(
     public var header: List<M128a> = List(2) { M128a() },
@@ -254,9 +279,14 @@ public class Context00(
     public var xmm15: M128a = M128a(),
 )
 
-public data class CpuInformation(public var x86CpuInfo: CpuInformation0 = CpuInformation0(), public var otherCpuInfo: CpuInformation1 = CpuInformation1())
+public data class CpuInformation(
+    public var x86CpuInfo: CpuInformation0 = CpuInformation0(),
+    public var otherCpuInfo: CpuInformation1 = CpuInformation1(),
+)
 
-public data class CpuInformation1(public var processorFeatures: ULongArray = ULongArray(2)) {
+public data class CpuInformation1(
+    public var processorFeatures: ULongArray = ULongArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CpuInformation1) return false
@@ -264,9 +294,7 @@ public data class CpuInformation1(public var processorFeatures: ULongArray = ULo
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.processorFeatures.contentHashCode()
-    }
+    override fun hashCode(): Int = this.processorFeatures.contentHashCode()
 }
 
 public data class CpuInformation0(
@@ -313,7 +341,10 @@ public data class CreateThreadDebugInfo(
     public var lpStartAddress: LpthreadStartRoutine = null,
 )
 
-public data class DbghelpDataReportStruct(public var pBinPathNonExist: Pcwstr = null, public var pSymbolPathNonExist: Pcwstr = null)
+public data class DbghelpDataReportStruct(
+    public var pBinPathNonExist: Pcwstr = null,
+    public var pSymbolPathNonExist: Pcwstr = null,
+)
 
 public data class DebugEvent(
     public var dwDebugEventCode: DebugEventCode = 0u,
@@ -348,9 +379,14 @@ public data class DispatcherContext(
     public var fill0: UInt = 0u,
 )
 
-public data class DumpFileAttributes(public var anonymous: DumpFileAttributes0 = DumpFileAttributes0(), public var attributes: UInt = 0u)
+public data class DumpFileAttributes(
+    public var anonymous: DumpFileAttributes0 = DumpFileAttributes0(),
+    public var attributes: UInt = 0u,
+)
 
-public data class DumpFileAttributes0(public var bitfield: UInt = 0u)
+public data class DumpFileAttributes0(
+    public var bitfield: UInt = 0u,
+)
 
 public class DumpHeader32(
     public var signature: UInt = 0u,
@@ -393,7 +429,10 @@ public class DumpHeader32(
     public var reserved3: UByteArray = UByteArray(56),
 )
 
-public data class DumpHeader320(public var physicalMemoryBlock: PhysicalMemoryDescriptor32 = PhysicalMemoryDescriptor32(), public var physicalMemoryBlockBuffer: UByteArray = UByteArray(700)) {
+public data class DumpHeader320(
+    public var physicalMemoryBlock: PhysicalMemoryDescriptor32 = PhysicalMemoryDescriptor32(),
+    public var physicalMemoryBlockBuffer: UByteArray = UByteArray(700),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DumpHeader320) return false
@@ -448,7 +487,10 @@ public class DumpHeader64(
     public var reserved0: UByteArray = UByteArray(4008),
 )
 
-public data class DumpHeader640(public var physicalMemoryBlock: PhysicalMemoryDescriptor64 = PhysicalMemoryDescriptor64(), public var physicalMemoryBlockBuffer: UByteArray = UByteArray(700)) {
+public data class DumpHeader640(
+    public var physicalMemoryBlock: PhysicalMemoryDescriptor64 = PhysicalMemoryDescriptor64(),
+    public var physicalMemoryBlockBuffer: UByteArray = UByteArray(700),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DumpHeader640) return false
@@ -474,9 +516,15 @@ public data class DebugPropertyInfo(
     public var mPDebugProp: COpaquePointer? = null,
 )
 
-public data class ExceptionDebugInfo(public var exceptionRecord: ExceptionRecord = ExceptionRecord(), public var dwFirstChance: UInt = 0u)
+public data class ExceptionDebugInfo(
+    public var exceptionRecord: ExceptionRecord = ExceptionRecord(),
+    public var dwFirstChance: UInt = 0u,
+)
 
-public data class ExceptionPointers(public var exceptionRecord: ExceptionRecord? = null, public var contextRecord: Context? = null)
+public data class ExceptionPointers(
+    public var exceptionRecord: ExceptionRecord? = null,
+    public var contextRecord: Context? = null,
+)
 
 public data class ExceptionRecord(
     public var exceptionCode: Ntstatus = 0,
@@ -574,9 +622,13 @@ public data class ExceptionRecord64(
     }
 }
 
-public data class ExitProcessDebugInfo(public var dwExitCode: UInt = 0u)
+public data class ExitProcessDebugInfo(
+    public var dwExitCode: UInt = 0u,
+)
 
-public data class ExitThreadDebugInfo(public var dwExitCode: UInt = 0u)
+public data class ExitThreadDebugInfo(
+    public var dwExitCode: UInt = 0u,
+)
 
 public data class ExtendedDebugPropertyInfo(
     public var dwValidFields: UInt = 0u,
@@ -774,7 +826,10 @@ public class ImagehlpModule64(
     public var reserved: UInt = 0u,
 )
 
-public data class ImagehlpModule64Ex(public var module: ImagehlpModule64 = ImagehlpModule64(), public var regionFlags: UInt = 0u)
+public data class ImagehlpModule64Ex(
+    public var module: ImagehlpModule64 = ImagehlpModule64(),
+    public var regionFlags: UInt = 0u,
+)
 
 public class ImagehlpModulew64(
     public var sizeOfStruct: UInt = 0u,
@@ -804,7 +859,10 @@ public class ImagehlpModulew64(
     public var reserved: UInt = 0u,
 )
 
-public data class ImagehlpModulew64Ex(public var module: ImagehlpModulew64 = ImagehlpModulew64(), public var regionFlags: UInt = 0u)
+public data class ImagehlpModulew64Ex(
+    public var module: ImagehlpModulew64 = ImagehlpModulew64(),
+    public var regionFlags: UInt = 0u,
+)
 
 public data class ImagehlpStackFrame(
     public var instructionOffset: ULong = 0uL,
@@ -880,7 +938,10 @@ public data class ImagehlpSymbol64(
     }
 }
 
-public data class ImagehlpSymbol64Package(public var sym: ImagehlpSymbol64 = ImagehlpSymbol64(), public var name: ByteArray = ByteArray(2001)) {
+public data class ImagehlpSymbol64Package(
+    public var sym: ImagehlpSymbol64 = ImagehlpSymbol64(),
+    public var name: ByteArray = ByteArray(2001),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImagehlpSymbol64Package) return false
@@ -927,7 +988,10 @@ public data class ImagehlpSymbolw64(
     }
 }
 
-public data class ImagehlpSymbolw64Package(public var sym: ImagehlpSymbolw64 = ImagehlpSymbolw64(), public var name: UShortArray = UShortArray(2001)) {
+public data class ImagehlpSymbolw64Package(
+    public var sym: ImagehlpSymbolw64 = ImagehlpSymbolw64(),
+    public var name: UShortArray = UShortArray(2001),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImagehlpSymbolw64Package) return false
@@ -965,11 +1029,19 @@ public data class ImagehlpSymbolSrc(
     }
 }
 
-public data class ImageArm64RuntimeFunctionEntry(public var beginAddress: UInt = 0u, public var anonymous: ImageArm64RuntimeFunctionEntry0 = ImageArm64RuntimeFunctionEntry0())
+public data class ImageArm64RuntimeFunctionEntry(
+    public var beginAddress: UInt = 0u,
+    public var anonymous: ImageArm64RuntimeFunctionEntry0 = ImageArm64RuntimeFunctionEntry0(),
+)
 
-public data class ImageArm64RuntimeFunctionEntry0(public var unwindData: UInt = 0u, public var anonymous: ImageArm64RuntimeFunctionEntry00 = ImageArm64RuntimeFunctionEntry00())
+public data class ImageArm64RuntimeFunctionEntry0(
+    public var unwindData: UInt = 0u,
+    public var anonymous: ImageArm64RuntimeFunctionEntry00 = ImageArm64RuntimeFunctionEntry00(),
+)
 
-public data class ImageArm64RuntimeFunctionEntry00(public var bitfield: UInt = 0u)
+public data class ImageArm64RuntimeFunctionEntry00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class ImageCoffSymbolsHeader(
     public var numberOfSymbols: UInt = 0u,
@@ -997,9 +1069,15 @@ public data class ImageCor20Header(
     public var managedNativeHeader: ImageDataDirectory = ImageDataDirectory(),
 )
 
-public data class ImageCor20Header0(public var entryPointToken: UInt = 0u, public var entryPointRVA: UInt = 0u)
+public data class ImageCor20Header0(
+    public var entryPointToken: UInt = 0u,
+    public var entryPointRVA: UInt = 0u,
+)
 
-public data class ImageDataDirectory(public var virtualAddress: UInt = 0u, public var size: UInt = 0u)
+public data class ImageDataDirectory(
+    public var virtualAddress: UInt = 0u,
+    public var size: UInt = 0u,
+)
 
 public data class ImageDebugDirectory(
     public var characteristics: UInt = 0u,
@@ -1034,7 +1112,10 @@ public data class ImageFunctionEntry64(
     public var anonymous: ImageFunctionEntry640 = ImageFunctionEntry640(),
 )
 
-public data class ImageFunctionEntry640(public var endOfPrologue: ULong = 0uL, public var unwindInfoAddress: ULong = 0uL)
+public data class ImageFunctionEntry640(
+    public var endOfPrologue: ULong = 0uL,
+    public var unwindInfoAddress: ULong = 0uL,
+)
 
 public data class ImageLoadConfigCodeIntegrity(
     public var flags: UShort = 0u,
@@ -1226,7 +1307,10 @@ public class ImageOptionalHeader64(
     public var dataDirectory: List<ImageDataDirectory> = List(16) { ImageDataDirectory() },
 )
 
-public data class ImageRomHeaders(public var fileHeader: ImageFileHeader = ImageFileHeader(), public var optionalHeader: ImageRomOptionalHeader = ImageRomOptionalHeader())
+public data class ImageRomHeaders(
+    public var fileHeader: ImageFileHeader = ImageFileHeader(),
+    public var optionalHeader: ImageRomOptionalHeader = ImageRomOptionalHeader(),
+)
 
 public data class ImageRomOptionalHeader(
     public var magic: UShort = 0u,
@@ -1286,7 +1370,10 @@ public data class ImageRuntimeFunctionEntry(
     public var anonymous: ImageRuntimeFunctionEntry0 = ImageRuntimeFunctionEntry0(),
 )
 
-public data class ImageRuntimeFunctionEntry0(public var unwindInfoAddress: UInt = 0u, public var unwindData: UInt = 0u)
+public data class ImageRuntimeFunctionEntry0(
+    public var unwindInfoAddress: UInt = 0u,
+    public var unwindData: UInt = 0u,
+)
 
 public data class ImageSectionHeader(
     public var name: UByteArray = UByteArray(8),
@@ -1331,7 +1418,10 @@ public data class ImageSectionHeader(
     }
 }
 
-public data class ImageSectionHeader0(public var physicalAddress: UInt = 0u, public var virtualSize: UInt = 0u)
+public data class ImageSectionHeader0(
+    public var physicalAddress: UInt = 0u,
+    public var virtualSize: UInt = 0u,
+)
 
 public data class IpmiOsSelRecord(
     public var signature: UInt = 0u,
@@ -1384,9 +1474,15 @@ public class Kdhelp64(
     public var reserved0: ULongArray = ULongArray(2),
 )
 
-public data class KnonvolatileContextPointers(public var anonymous1: KnonvolatileContextPointers0 = KnonvolatileContextPointers0(), public var anonymous2: KnonvolatileContextPointers1 = KnonvolatileContextPointers1())
+public data class KnonvolatileContextPointers(
+    public var anonymous1: KnonvolatileContextPointers0 = KnonvolatileContextPointers0(),
+    public var anonymous2: KnonvolatileContextPointers1 = KnonvolatileContextPointers1(),
+)
 
-public data class KnonvolatileContextPointers0(public var floatingContext: List<M128a> = List(16) { M128a() }, public var anonymous: KnonvolatileContextPointers00 = KnonvolatileContextPointers00())
+public data class KnonvolatileContextPointers0(
+    public var floatingContext: List<M128a> = List(16) { M128a() },
+    public var anonymous: KnonvolatileContextPointers00 = KnonvolatileContextPointers00(),
+)
 
 public data class KnonvolatileContextPointers00(
     public var xmm0: M128a? = null,
@@ -1407,7 +1503,10 @@ public data class KnonvolatileContextPointers00(
     public var xmm15: M128a? = null,
 )
 
-public data class KnonvolatileContextPointers1(public var integerContext: List<ULong> = List(16) { 0uL }, public var anonymous: KnonvolatileContextPointers10 = KnonvolatileContextPointers10())
+public data class KnonvolatileContextPointers1(
+    public var integerContext: List<ULong> = List(16) { 0uL },
+    public var anonymous: KnonvolatileContextPointers10 = KnonvolatileContextPointers10(),
+)
 
 public data class KnonvolatileContextPointers10(
     public var rax: ULong? = null,
@@ -1434,9 +1533,14 @@ public data class LdtEntry(
     public var highWord: LdtEntry0 = LdtEntry0(),
 )
 
-public data class LdtEntry0(public var bytes: LdtEntry00 = LdtEntry00(), public var bits: LdtEntry01 = LdtEntry01())
+public data class LdtEntry0(
+    public var bytes: LdtEntry00 = LdtEntry00(),
+    public var bits: LdtEntry01 = LdtEntry01(),
+)
 
-public data class LdtEntry01(public var bitfield: UInt = 0u)
+public data class LdtEntry01(
+    public var bitfield: UInt = 0u,
+)
 
 public data class LdtEntry00(
     public var baseMid: UByte = 0u,
@@ -1471,9 +1575,15 @@ public data class LoadDllDebugInfo(
     public var fUnicode: UShort = 0u,
 )
 
-public data class M128a(public var low: ULong = 0uL, public var high: Long = 0L)
+public data class M128a(
+    public var low: ULong = 0uL,
+    public var high: Long = 0L,
+)
 
-public data class MinidumpCallbackInformation(public var callbackRoutine: MinidumpCallbackRoutine = null, public var callbackParam: COpaquePointer? = null)
+public data class MinidumpCallbackInformation(
+    public var callbackRoutine: MinidumpCallbackRoutine = null,
+    public var callbackParam: COpaquePointer? = null,
+)
 
 public data class MinidumpCallbackInput(
     public var processId: UInt = 0u,
@@ -1497,7 +1607,9 @@ public data class MinidumpCallbackInput0(
     public var vmPostRead: MinidumpVmPostReadCallback = MinidumpVmPostReadCallback(),
 )
 
-public data class MinidumpCallbackOutput(public var anonymous: MinidumpCallbackOutput0 = MinidumpCallbackOutput0())
+public data class MinidumpCallbackOutput(
+    public var anonymous: MinidumpCallbackOutput0 = MinidumpCallbackOutput0(),
+)
 
 public data class MinidumpCallbackOutput0(
     public var moduleWriteFlags: UInt = 0u,
@@ -1512,17 +1624,35 @@ public data class MinidumpCallbackOutput0(
     public var status: Hresult = 0,
 )
 
-public data class MinidumpCallbackOutput00(public var memoryBase: ULong = 0uL, public var memorySize: UInt = 0u)
+public data class MinidumpCallbackOutput00(
+    public var memoryBase: ULong = 0uL,
+    public var memorySize: UInt = 0u,
+)
 
-public data class MinidumpCallbackOutput01(public var checkCancel: Bool = 0, public var cancel: Bool = 0)
+public data class MinidumpCallbackOutput01(
+    public var checkCancel: Bool = 0,
+    public var cancel: Bool = 0,
+)
 
-public data class MinidumpCallbackOutput02(public var vmRegion: MinidumpMemoryInfo = MinidumpMemoryInfo(), public var continueTarget: Bool = 0)
+public data class MinidumpCallbackOutput02(
+    public var vmRegion: MinidumpMemoryInfo = MinidumpMemoryInfo(),
+    public var continueTarget: Bool = 0,
+)
 
-public data class MinidumpCallbackOutput03(public var vmQueryStatus: Hresult = 0, public var vmQueryResult: MinidumpMemoryInfo = MinidumpMemoryInfo())
+public data class MinidumpCallbackOutput03(
+    public var vmQueryStatus: Hresult = 0,
+    public var vmQueryResult: MinidumpMemoryInfo = MinidumpMemoryInfo(),
+)
 
-public data class MinidumpCallbackOutput04(public var vmReadStatus: Hresult = 0, public var vmReadBytesCompleted: UInt = 0u)
+public data class MinidumpCallbackOutput04(
+    public var vmReadStatus: Hresult = 0,
+    public var vmReadBytesCompleted: UInt = 0u,
+)
 
-public data class MinidumpDirectory(public var streamType: UInt = 0u, public var location: MinidumpLocationDescriptor = MinidumpLocationDescriptor())
+public data class MinidumpDirectory(
+    public var streamType: UInt = 0u,
+    public var location: MinidumpLocationDescriptor = MinidumpLocationDescriptor(),
+)
 
 public data class MinidumpException(
     public var exceptionCode: UInt = 0u,
@@ -1647,11 +1777,18 @@ public data class MinidumpHeader(
     public var flags: ULong = 0uL,
 )
 
-public data class MinidumpHeader0(public var reserved: UInt = 0u, public var timeDateStamp: UInt = 0u)
+public data class MinidumpHeader0(
+    public var reserved: UInt = 0u,
+    public var timeDateStamp: UInt = 0u,
+)
 
-public data class MinidumpIncludeModuleCallback(public var baseOfImage: ULong = 0uL)
+public data class MinidumpIncludeModuleCallback(
+    public var baseOfImage: ULong = 0uL,
+)
 
-public data class MinidumpIncludeThreadCallback(public var threadId: UInt = 0u)
+public data class MinidumpIncludeThreadCallback(
+    public var threadId: UInt = 0u,
+)
 
 public data class MinidumpIoCallback(
     public var handle: Handle = null,
@@ -1660,9 +1797,15 @@ public data class MinidumpIoCallback(
     public var bufferBytes: UInt = 0u,
 )
 
-public data class MinidumpLocationDescriptor(public var dataSize: UInt = 0u, public var rva: UInt = 0u)
+public data class MinidumpLocationDescriptor(
+    public var dataSize: UInt = 0u,
+    public var rva: UInt = 0u,
+)
 
-public data class MinidumpLocationDescriptor64(public var dataSize: ULong = 0uL, public var rva: ULong = 0uL)
+public data class MinidumpLocationDescriptor64(
+    public var dataSize: ULong = 0uL,
+    public var rva: ULong = 0uL,
+)
 
 public data class MinidumpMemory64List(
     public var numberOfMemoryRanges: ULong = 0uL,
@@ -1670,9 +1813,15 @@ public data class MinidumpMemory64List(
     public var memoryRanges: List<MinidumpMemoryDescriptor64> = List(1) { MinidumpMemoryDescriptor64() },
 )
 
-public data class MinidumpMemoryDescriptor(public var startOfMemoryRange: ULong = 0uL, public var memory: MinidumpLocationDescriptor = MinidumpLocationDescriptor())
+public data class MinidumpMemoryDescriptor(
+    public var startOfMemoryRange: ULong = 0uL,
+    public var memory: MinidumpLocationDescriptor = MinidumpLocationDescriptor(),
+)
 
-public data class MinidumpMemoryDescriptor64(public var startOfMemoryRange: ULong = 0uL, public var dataSize: ULong = 0uL)
+public data class MinidumpMemoryDescriptor64(
+    public var startOfMemoryRange: ULong = 0uL,
+    public var dataSize: ULong = 0uL,
+)
 
 public data class MinidumpMemoryInfo(
     public var baseAddress: ULong = 0uL,
@@ -1692,7 +1841,10 @@ public data class MinidumpMemoryInfoList(
     public var numberOfEntries: ULong = 0uL,
 )
 
-public data class MinidumpMemoryList(public var numberOfMemoryRanges: UInt = 0u, public var memoryRanges: List<MinidumpMemoryDescriptor> = List(1) { MinidumpMemoryDescriptor() })
+public data class MinidumpMemoryList(
+    public var numberOfMemoryRanges: UInt = 0u,
+    public var memoryRanges: List<MinidumpMemoryDescriptor> = List(1) { MinidumpMemoryDescriptor() },
+)
 
 public data class MinidumpMiscInfo(
     public var sizeOfInfo: UInt = 0u,
@@ -1806,7 +1958,10 @@ public data class MinidumpModuleCallback(
     public var sizeOfMiscRecord: UInt = 0u,
 )
 
-public data class MinidumpModuleList(public var numberOfModules: UInt = 0u, public var modules: List<MinidumpModule> = List(1) { MinidumpModule() })
+public data class MinidumpModuleList(
+    public var numberOfModules: UInt = 0u,
+    public var modules: List<MinidumpModule> = List(1) { MinidumpModule() },
+)
 
 public data class MinidumpProcessVmCounters1(
     public var revision: UShort = 0u,
@@ -1852,7 +2007,10 @@ public data class MinidumpReadMemoryFailureCallback(
     public var failureStatus: Hresult = 0,
 )
 
-public data class MinidumpString(public var length: UInt = 0u, public var buffer: UShortArray = UShortArray(1)) {
+public data class MinidumpString(
+    public var length: UInt = 0u,
+    public var buffer: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is MinidumpString) return false
@@ -1914,13 +2072,25 @@ public data class MinidumpSystemInfo(
     public var cpu: CpuInformation = CpuInformation(),
 )
 
-public data class MinidumpSystemInfo0(public var reserved0: UShort = 0u, public var anonymous: MinidumpSystemInfo00 = MinidumpSystemInfo00())
+public data class MinidumpSystemInfo0(
+    public var reserved0: UShort = 0u,
+    public var anonymous: MinidumpSystemInfo00 = MinidumpSystemInfo00(),
+)
 
-public data class MinidumpSystemInfo00(public var numberOfProcessors: UByte = 0u, public var productType: UByte = 0u)
+public data class MinidumpSystemInfo00(
+    public var numberOfProcessors: UByte = 0u,
+    public var productType: UByte = 0u,
+)
 
-public data class MinidumpSystemInfo1(public var reserved1: UInt = 0u, public var anonymous: MinidumpSystemInfo10 = MinidumpSystemInfo10())
+public data class MinidumpSystemInfo1(
+    public var reserved1: UInt = 0u,
+    public var anonymous: MinidumpSystemInfo10 = MinidumpSystemInfo10(),
+)
 
-public data class MinidumpSystemInfo10(public var suiteMask: UShort = 0u, public var reserved2: UShort = 0u)
+public data class MinidumpSystemInfo10(
+    public var suiteMask: UShort = 0u,
+    public var reserved2: UShort = 0u,
+)
 
 public data class MinidumpSystemMemoryInfo1(
     public var revision: UShort = 0u,
@@ -2130,7 +2300,10 @@ public data class MinidumpThreadExCallback(
     public var backingStoreEnd: ULong = 0uL,
 )
 
-public data class MinidumpThreadExList(public var numberOfThreads: UInt = 0u, public var threads: List<MinidumpThreadEx> = List(1) { MinidumpThreadEx() })
+public data class MinidumpThreadExList(
+    public var numberOfThreads: UInt = 0u,
+    public var threads: List<MinidumpThreadEx> = List(1) { MinidumpThreadEx() },
+)
 
 public data class MinidumpThreadInfo(
     public var threadId: UInt = 0u,
@@ -2151,11 +2324,20 @@ public data class MinidumpThreadInfoList(
     public var numberOfEntries: UInt = 0u,
 )
 
-public data class MinidumpThreadList(public var numberOfThreads: UInt = 0u, public var threads: List<MinidumpThread> = List(1) { MinidumpThread() })
+public data class MinidumpThreadList(
+    public var numberOfThreads: UInt = 0u,
+    public var threads: List<MinidumpThread> = List(1) { MinidumpThread() },
+)
 
-public data class MinidumpThreadName(public var threadId: UInt = 0u, public var rvaOfThreadName: ULong = 0uL)
+public data class MinidumpThreadName(
+    public var threadId: UInt = 0u,
+    public var rvaOfThreadName: ULong = 0uL,
+)
 
-public data class MinidumpThreadNameList(public var numberOfThreadNames: UInt = 0u, public var threadNames: List<MinidumpThreadName> = List(1) { MinidumpThreadName() })
+public data class MinidumpThreadNameList(
+    public var numberOfThreadNames: UInt = 0u,
+    public var threadNames: List<MinidumpThreadName> = List(1) { MinidumpThreadName() },
+)
 
 public data class MinidumpTokenInfoHeader(
     public var tokenSize: UInt = 0u,
@@ -2184,7 +2366,10 @@ public data class MinidumpUnloadedModuleList(
     public var numberOfEntries: UInt = 0u,
 )
 
-public data class MinidumpUserRecord(public var type: UInt = 0u, public var memory: MinidumpLocationDescriptor = MinidumpLocationDescriptor())
+public data class MinidumpUserRecord(
+    public var type: UInt = 0u,
+    public var memory: MinidumpLocationDescriptor = MinidumpLocationDescriptor(),
+)
 
 public data class MinidumpUserStream(
     public var type: UInt = 0u,
@@ -2192,7 +2377,10 @@ public data class MinidumpUserStream(
     public var buffer: COpaquePointer? = null,
 )
 
-public data class MinidumpUserStreamInformation(public var userStreamCount: UInt = 0u, public var userStreamArray: MinidumpUserStream? = null)
+public data class MinidumpUserStreamInformation(
+    public var userStreamCount: UInt = 0u,
+    public var userStreamArray: MinidumpUserStream? = null,
+)
 
 public data class MinidumpVmPostReadCallback(
     public var offset: ULong = 0uL,
@@ -2208,7 +2396,9 @@ public data class MinidumpVmPreReadCallback(
     public var size: UInt = 0u,
 )
 
-public data class MinidumpVmQueryCallback(public var offset: ULong = 0uL)
+public data class MinidumpVmQueryCallback(
+    public var offset: ULong = 0uL,
+)
 
 public data class ModloadCvmisc(
     public var oCV: UInt = 0u,
@@ -2227,7 +2417,10 @@ public data class ModloadData(
     public var flags: UInt = 0u,
 )
 
-public data class ModloadPdbguidPdbage(public var pdbGuid: Guid = Guid(), public var pdbAge: UInt = 0u)
+public data class ModloadPdbguidPdbage(
+    public var pdbGuid: Guid = Guid(),
+    public var pdbAge: UInt = 0u,
+)
 
 public data class ModuleTypeInfo(
     public var dataLength: UShort = 0u,
@@ -2251,7 +2444,10 @@ public data class ModuleTypeInfo(
     }
 }
 
-public data class Omap(public var rva: UInt = 0u, public var rvaTo: UInt = 0u)
+public data class Omap(
+    public var rva: UInt = 0u,
+    public var rvaTo: UInt = 0u,
+)
 
 public data class OutputDebugStringInfo(
     public var lpDebugStringData: Pstr = null,
@@ -2271,15 +2467,30 @@ public data class PhysicalMemoryDescriptor64(
     public var run: List<PhysicalMemoryRun64> = List(1) { PhysicalMemoryRun64() },
 )
 
-public data class PhysicalMemoryRun32(public var basePage: UInt = 0u, public var pageCount: UInt = 0u)
+public data class PhysicalMemoryRun32(
+    public var basePage: UInt = 0u,
+    public var pageCount: UInt = 0u,
+)
 
-public data class PhysicalMemoryRun64(public var basePage: ULong = 0uL, public var pageCount: ULong = 0uL)
+public data class PhysicalMemoryRun64(
+    public var basePage: ULong = 0uL,
+    public var pageCount: ULong = 0uL,
+)
 
-public data class RipInfo(public var dwError: UInt = 0u, public var dwType: RipInfoType = 0u)
+public data class RipInfo(
+    public var dwError: UInt = 0u,
+    public var dwType: RipInfoType = 0u,
+)
 
-public data class Sourcefile(public var modBase: ULong = 0uL, public var fileName: Pstr = null)
+public data class Sourcefile(
+    public var modBase: ULong = 0uL,
+    public var fileName: Pstr = null,
+)
 
-public data class Sourcefilew(public var modBase: ULong = 0uL, public var fileName: Pwstr = null)
+public data class Sourcefilew(
+    public var modBase: ULong = 0uL,
+    public var fileName: Pwstr = null,
+)
 
 public data class Srccodeinfo(
     public var sizeOfStruct: UInt = 0u,
@@ -2563,7 +2774,10 @@ public data class SymbolInfow(
     }
 }
 
-public data class SymbolInfoPackage(public var si: SymbolInfo = SymbolInfo(), public var name: ByteArray = ByteArray(2001)) {
+public data class SymbolInfoPackage(
+    public var si: SymbolInfo = SymbolInfo(),
+    public var name: ByteArray = ByteArray(2001),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SymbolInfoPackage) return false
@@ -2579,7 +2793,10 @@ public data class SymbolInfoPackage(public var si: SymbolInfo = SymbolInfo(), pu
     }
 }
 
-public data class SymbolInfoPackagew(public var si: SymbolInfow = SymbolInfow(), public var name: UShortArray = UShortArray(2001)) {
+public data class SymbolInfoPackagew(
+    public var si: SymbolInfow = SymbolInfow(),
+    public var name: UShortArray = UShortArray(2001),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SymbolInfoPackagew) return false
@@ -2725,7 +2942,9 @@ public data class TiFindchildrenParams(
     }
 }
 
-public data class UnloadDllDebugInfo(public var lpBaseOfDll: COpaquePointer? = null)
+public data class UnloadDllDebugInfo(
+    public var lpBaseOfDll: COpaquePointer? = null,
+)
 
 public data class UnwindHistoryTable(
     public var count: UInt = 0u,
@@ -2738,7 +2957,10 @@ public data class UnwindHistoryTable(
     public var entry: List<UnwindHistoryTableEntry> = List(12) { UnwindHistoryTableEntry() },
 )
 
-public data class UnwindHistoryTableEntry(public var imageBase: Int = 0, public var functionEntry: ImageRuntimeFunctionEntry? = null)
+public data class UnwindHistoryTableEntry(
+    public var imageBase: Int = 0,
+    public var functionEntry: ImageRuntimeFunctionEntry? = null,
+)
 
 public data class WaitchainNodeInfo(
     public var objectType: WctObjectType = 0,
@@ -2746,7 +2968,10 @@ public data class WaitchainNodeInfo(
     public var anonymous: WaitchainNodeInfo0 = WaitchainNodeInfo0(),
 )
 
-public data class WaitchainNodeInfo0(public var lockObject: WaitchainNodeInfo00 = WaitchainNodeInfo00(), public var threadObject: WaitchainNodeInfo01 = WaitchainNodeInfo01())
+public data class WaitchainNodeInfo0(
+    public var lockObject: WaitchainNodeInfo00 = WaitchainNodeInfo00(),
+    public var threadObject: WaitchainNodeInfo01 = WaitchainNodeInfo01(),
+)
 
 public data class WaitchainNodeInfo00(
     public var objectName: UShortArray = UShortArray(128),
@@ -3067,7 +3292,9 @@ public data class WheaNotificationDescriptor04(
     public var errorThresholdWindow: UInt = 0u,
 )
 
-public data class WheaNotificationDescriptor00(public var pollInterval: UInt = 0u)
+public data class WheaNotificationDescriptor00(
+    public var pollInterval: UInt = 0u,
+)
 
 public data class WheaNotificationDescriptor03(
     public var pollInterval: UInt = 0u,
@@ -3096,15 +3323,27 @@ public data class WheaNotificationDescriptor06(
     public var errorThresholdWindow: UInt = 0u,
 )
 
-public data class WheaNotificationFlags(public var anonymous: WheaNotificationFlags0 = WheaNotificationFlags0(), public var asUSHORT: UShort = 0u)
+public data class WheaNotificationFlags(
+    public var anonymous: WheaNotificationFlags0 = WheaNotificationFlags0(),
+    public var asUSHORT: UShort = 0u,
+)
 
-public data class WheaNotificationFlags0(public var bitfield: UShort = 0u)
+public data class WheaNotificationFlags0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class WheaPciSlotNumber(public var u: WheaPciSlotNumber0 = WheaPciSlotNumber0())
+public data class WheaPciSlotNumber(
+    public var u: WheaPciSlotNumber0 = WheaPciSlotNumber0(),
+)
 
-public data class WheaPciSlotNumber0(public var bits: WheaPciSlotNumber00 = WheaPciSlotNumber00(), public var asULONG: UInt = 0u)
+public data class WheaPciSlotNumber0(
+    public var bits: WheaPciSlotNumber00 = WheaPciSlotNumber00(),
+    public var asULONG: UInt = 0u,
+)
 
-public data class WheaPciSlotNumber00(public var bitfield: UInt = 0u)
+public data class WheaPciSlotNumber00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class WheaXpfCmcDescriptor(
     public var type: UShort = 0u,

@@ -6,7 +6,10 @@ import io.github.kotlinmania.windowssys.core.Guid
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 
-public data class DiagSockaddr(public var family: UShort = 0u, public var data: ByteArray = ByteArray(126)) {
+public data class DiagSockaddr(
+    public var family: UShort = 0u,
+    public var data: ByteArray = ByteArray(126),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DiagSockaddr) return false
@@ -22,7 +25,10 @@ public data class DiagSockaddr(public var family: UShort = 0u, public var data: 
     }
 }
 
-public data class DiagnosticsInfo(public var cost: Int = 0, public var flags: UInt = 0u)
+public data class DiagnosticsInfo(
+    public var cost: Int = 0,
+    public var flags: UInt = 0u,
+)
 
 public data class HelperAttribute(
     public var pwszName: Pwstr = null,
@@ -54,13 +60,25 @@ public data class Hypothesis(
     public var rgAttributes: HelperAttribute? = null,
 )
 
-public data class HelperAttributeInfo(public var pwszName: Pwstr = null, public var type: AttributeType = 0)
+public data class HelperAttributeInfo(
+    public var pwszName: Pwstr = null,
+    public var type: AttributeType = 0,
+)
 
-public data class HypothesisResult(public var hypothesis: Hypothesis = Hypothesis(), public var pathStatus: DiagnosisStatus = 0)
+public data class HypothesisResult(
+    public var hypothesis: Hypothesis = Hypothesis(),
+    public var pathStatus: DiagnosisStatus = 0,
+)
 
-public data class LifeTime(public var startTime: Filetime = Filetime(), public var endTime: Filetime = Filetime())
+public data class LifeTime(
+    public var startTime: Filetime = Filetime(),
+    public var endTime: Filetime = Filetime(),
+)
 
-public data class OctetString(public var dwLength: UInt = 0u, public var lpValue: COpaquePointer? = null)
+public data class OctetString(
+    public var dwLength: UInt = 0u,
+    public var lpValue: COpaquePointer? = null,
+)
 
 public data class RepairInfo(
     public var guid: Guid = Guid(),
@@ -75,7 +93,10 @@ public data class RepairInfo(
     public var rootCauseIndex: Int = 0,
 )
 
-public data class RepairInfoEx(public var repair: RepairInfo = RepairInfo(), public var repairRank: UShort = 0u)
+public data class RepairInfoEx(
+    public var repair: RepairInfo = RepairInfo(),
+    public var repairRank: UShort = 0u,
+)
 
 public data class RootCauseInfo(
     public var pwszDescription: Pwstr = null,
@@ -94,7 +115,10 @@ public data class ShellCommandInfo(
     public var nShowCmd: UInt = 0u,
 )
 
-public data class UiInfo(public var type: UiInfoType = 0, public var anonymous: UiInfo0 = UiInfo0())
+public data class UiInfo(
+    public var type: UiInfoType = 0,
+    public var anonymous: UiInfo0 = UiInfo0(),
+)
 
 public data class UiInfo0(
     public var pwzNull: Pwstr = null,

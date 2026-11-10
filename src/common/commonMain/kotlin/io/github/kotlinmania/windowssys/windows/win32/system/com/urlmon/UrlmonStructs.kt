@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.com.urlmon
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -54,7 +55,10 @@ public data class Protocolfilterdata(
     public var dwFilterFlags: UInt = 0u,
 )
 
-public data class ProtocolArgument(public var szMethod: Pcwstr = null, public var szTargetUrl: Pcwstr = null)
+public data class ProtocolArgument(
+    public var szMethod: Pcwstr = null,
+    public var szTargetUrl: Pcwstr = null,
+)
 
 public data class RemsecurityAttributes(
     public var nLength: UInt = 0u,

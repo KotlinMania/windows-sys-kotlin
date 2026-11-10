@@ -13,4 +13,7 @@ public data class UsageProperties(
     public var physicalMaximum: Int = 0,
 )
 
-public data class WtaOptions(public var dwFlags: UInt = 0u, public var dwMask: UInt = 0u)
+public data class WtaOptions(
+    public var dwFlags: UInt = 0u,
+    public var dwMask: UInt = 0u,
+)

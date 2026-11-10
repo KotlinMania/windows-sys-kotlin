@@ -34,9 +34,8 @@ public actual fun dhcpAuditLogGetParams(serveripaddress: Pcwstr, flags: UInt, au
 public actual fun dhcpAuditLogSetParams(serveripaddress: Pcwstr, flags: UInt, auditlogdir: Pcwstr, diskcheckinterval: UInt, maxlogfilessize: UInt, minspaceondisk: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dhcpCApiCleanup() {
+public actual fun dhcpCApiCleanup(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dhcpCApiInitialize(version: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -104,9 +103,8 @@ public actual fun dhcpDeleteSubnetV6(serveripaddress: Pcwstr, subnetaddress: Dhc
 public actual fun dhcpDeleteSuperScopeV4(serveripaddress: Pcwstr, superscopename: Pcwstr): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dhcpDsCleanup() {
+public actual fun dhcpDsCleanup(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dhcpDsInit(): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -288,29 +286,23 @@ public actual fun dhcpHlprCreateV4PolicyEx(policyname: Pcwstr, fglobalpolicy: Bo
 public actual fun dhcpHlprFindV4DhcpProperty(propertyarray: COpaquePointer?, id: DhcpPropertyId, type: DhcpPropertyType): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dhcpHlprFreeV4DhcpProperty(property: COpaquePointer?) {
+public actual fun dhcpHlprFreeV4DhcpProperty(property: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dhcpHlprFreeV4DhcpPropertyArray(propertyarray: COpaquePointer?) {
+public actual fun dhcpHlprFreeV4DhcpPropertyArray(propertyarray: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dhcpHlprFreeV4Policy(policy: COpaquePointer?) {
+public actual fun dhcpHlprFreeV4Policy(policy: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dhcpHlprFreeV4PolicyArray(policyarray: COpaquePointer?) {
+public actual fun dhcpHlprFreeV4PolicyArray(policyarray: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dhcpHlprFreeV4PolicyEx(policyex: COpaquePointer?) {
+public actual fun dhcpHlprFreeV4PolicyEx(policyex: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dhcpHlprFreeV4PolicyExArray(policyexarray: COpaquePointer?) {
+public actual fun dhcpHlprFreeV4PolicyExArray(policyexarray: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dhcpHlprIsV4PolicySingleUC(policy: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -372,16 +364,14 @@ public actual fun dhcpRemoveSubnetElementV6(serveripaddress: Pcwstr, subnetaddre
 public actual fun dhcpRequestParams(flags: UInt, reserved: COpaquePointer?, adaptername: Pcwstr, classid: COpaquePointer?, sendparams: DhcpcapiParamsArray, recdparams: DhcpcapiParamsArray, buffer: COpaquePointer?, psize: COpaquePointer?, requestidstr: Pcwstr): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dhcpRpcFreeMemory(bufferpointer: COpaquePointer?) {
+public actual fun dhcpRpcFreeMemory(bufferpointer: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dhcpScanDatabase(serveripaddress: Pcwstr, subnetaddress: UInt, fixflag: UInt, scanlist: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dhcpServerAuditlogParamsFree(configinfo: COpaquePointer?) {
+public actual fun dhcpServerAuditlogParamsFree(configinfo: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dhcpServerBackupDatabase(serveripaddress: Pcwstr, path: Pcwstr): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -629,13 +619,11 @@ public actual fun dhcpV6GetStatelessStoreParams(serveripaddress: Pcwstr, fserver
 public actual fun dhcpV6SetStatelessStoreParams(serveripaddress: Pcwstr, fserverlevel: Bool, subnetaddress: DhcpIpv6Address, fieldmodified: UInt, params: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun dhcpv6CApiCleanup() {
+public actual fun dhcpv6CApiCleanup(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun dhcpv6CApiInitialize(version: COpaquePointer?) {
+public actual fun dhcpv6CApiInitialize(version: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dhcpv6ReleasePrefix(adaptername: Pcwstr, classid: COpaquePointer?, leaseinfo: COpaquePointer?): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

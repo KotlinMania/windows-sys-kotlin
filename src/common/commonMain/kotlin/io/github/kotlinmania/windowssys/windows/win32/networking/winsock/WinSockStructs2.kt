@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -67,7 +68,9 @@ public data class SockNotifyRegistration(
     public var registrationResult: UInt = 0u,
 )
 
-public data class TcpAckFrequencyParameters(public var tcpDelayedAckFrequency: UByte = 0u)
+public data class TcpAckFrequencyParameters(
+    public var tcpDelayedAckFrequency: UByte = 0u,
+)
 
 public data class TcpHdr(
     public var thSport: UShort = 0u,
@@ -81,7 +84,9 @@ public data class TcpHdr(
     public var thUrp: UShort = 0u,
 )
 
-public data class TcpIcwParameters(public var level: TcpIcwLevel = 0)
+public data class TcpIcwParameters(
+    public var level: TcpIcwLevel = 0,
+)
 
 public class TcpInfoV0(
     public var state: Tcpstate = 0,
@@ -136,7 +141,10 @@ public class TcpInfoV1(
     public var sndLimBytesSnd: ULong = 0uL,
 )
 
-public data class TcpInitialRtoParameters(public var rtt: UShort = 0u, public var maxSynRetransmissions: UByte = 0u)
+public data class TcpInitialRtoParameters(
+    public var rtt: UShort = 0u,
+    public var maxSynRetransmissions: UByte = 0u,
+)
 
 public data class TcpOptFastopen(
     public var kind: UByte = 0u,
@@ -172,9 +180,15 @@ public data class TcpOptSack(
     public var block: List<TcpOptSack0> = List(1) { TcpOptSack0() },
 )
 
-public data class TcpOptSack0(public var left: UInt = 0u, public var right: UInt = 0u)
+public data class TcpOptSack0(
+    public var left: UInt = 0u,
+    public var right: UInt = 0u,
+)
 
-public data class TcpOptSackPermitted(public var kind: UByte = 0u, public var length: UByte = 0u)
+public data class TcpOptSackPermitted(
+    public var kind: UByte = 0u,
+    public var length: UByte = 0u,
+)
 
 public data class TcpOptTs(
     public var kind: UByte = 0u,
@@ -183,7 +197,10 @@ public data class TcpOptTs(
     public var ecR: UInt = 0u,
 )
 
-public data class TcpOptUnknown(public var kind: UByte = 0u, public var length: UByte = 0u)
+public data class TcpOptUnknown(
+    public var kind: UByte = 0u,
+    public var length: UByte = 0u,
+)
 
 public data class TcpOptWs(
     public var kind: UByte = 0u,
@@ -191,9 +208,15 @@ public data class TcpOptWs(
     public var shiftCnt: UByte = 0u,
 )
 
-public data class TimestampingConfig(public var flags: UInt = 0u, public var txTimestampsBuffered: UShort = 0u)
+public data class TimestampingConfig(
+    public var flags: UInt = 0u,
+    public var txTimestampsBuffered: UShort = 0u,
+)
 
-public data class Timeval(public var tvSec: Int = 0, public var tvUsec: Int = 0)
+public data class Timeval(
+    public var tvSec: Int = 0,
+    public var tvUsec: Int = 0,
+)
 
 public data class TransmitFileBuffers(
     public var head: COpaquePointer? = null,
@@ -208,19 +231,38 @@ public data class TransmitPacketsElement(
     public var anonymous: TransmitPacketsElement0 = TransmitPacketsElement0(),
 )
 
-public data class TransmitPacketsElement0(public var anonymous: TransmitPacketsElement00 = TransmitPacketsElement00(), public var pBuffer: COpaquePointer? = null)
+public data class TransmitPacketsElement0(
+    public var anonymous: TransmitPacketsElement00 = TransmitPacketsElement00(),
+    public var pBuffer: COpaquePointer? = null,
+)
 
-public data class TransmitPacketsElement00(public var nFileOffset: Long = 0L, public var hFile: Handle = null)
+public data class TransmitPacketsElement00(
+    public var nFileOffset: Long = 0L,
+    public var hFile: Handle = null,
+)
 
-public data class TransportSettingId(public var guid: Guid = Guid())
+public data class TransportSettingId(
+    public var guid: Guid = Guid(),
+)
 
-public data class VlanTag(public var anonymous: VlanTag0 = VlanTag0(), public var type: UShort = 0u)
+public data class VlanTag(
+    public var anonymous: VlanTag0 = VlanTag0(),
+    public var type: UShort = 0u,
+)
 
-public data class VlanTag0(public var tag: UShort = 0u, public var anonymous: VlanTag00 = VlanTag00())
+public data class VlanTag0(
+    public var tag: UShort = 0u,
+    public var anonymous: VlanTag00 = VlanTag00(),
+)
 
-public data class VlanTag00(public var bitfield: UShort = 0u)
+public data class VlanTag00(
+    public var bitfield: UShort = 0u,
+)
 
-public data class WceDevicelist(public var numDevice: UInt = 0u, public var device: List<WceIrdaDeviceInfo> = List(1) { WceIrdaDeviceInfo() })
+public data class WceDevicelist(
+    public var numDevice: UInt = 0u,
+    public var device: List<WceIrdaDeviceInfo> = List(1) { WceIrdaDeviceInfo() },
+)
 
 public data class WceIrdaDeviceInfo(
     public var irdaDeviceID: UByteArray = UByteArray(4),
@@ -244,7 +286,10 @@ public data class WceIrdaDeviceInfo(
     }
 }
 
-public data class WindowsDevicelist(public var numDevice: UInt = 0u, public var device: List<WindowsIrdaDeviceInfo> = List(1) { WindowsIrdaDeviceInfo() })
+public data class WindowsDevicelist(
+    public var numDevice: UInt = 0u,
+    public var device: List<WindowsIrdaDeviceInfo> = List(1) { WindowsIrdaDeviceInfo() },
+)
 
 public data class WindowsIasQuery(
     public var irdaDeviceID: UByteArray = UByteArray(4),
@@ -280,7 +325,10 @@ public data class WindowsIasQuery0(
     public var irdaAttribUsrStr: WindowsIasQuery01 = WindowsIasQuery01(),
 )
 
-public data class WindowsIasQuery00(public var len: UInt = 0u, public var octetSeq: UByteArray = UByteArray(1024)) {
+public data class WindowsIasQuery00(
+    public var len: UInt = 0u,
+    public var octetSeq: UByteArray = UByteArray(1024),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WindowsIasQuery00) return false
@@ -349,7 +397,10 @@ public data class WindowsIasSet0(
     public var irdaAttribUsrStr: WindowsIasSet01 = WindowsIasSet01(),
 )
 
-public data class WindowsIasSet00(public var len: UShort = 0u, public var octetSeq: UByteArray = UByteArray(1024)) {
+public data class WindowsIasSet00(
+    public var len: UShort = 0u,
+    public var octetSeq: UByteArray = UByteArray(1024),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WindowsIasSet00) return false
@@ -415,9 +466,15 @@ public data class WindowsIrdaDeviceInfo(
     }
 }
 
-public data class Wsabuf(public var len: UInt = 0u, public var buf: Pstr = null)
+public data class Wsabuf(
+    public var len: UInt = 0u,
+    public var buf: Pstr = null,
+)
 
-public data class Wsacompletion(public var type: Wsacompletiontype = 0, public var parameters: Wsacompletion0 = Wsacompletion0())
+public data class Wsacompletion(
+    public var type: Wsacompletiontype = 0,
+    public var parameters: Wsacompletion0 = Wsacompletion0(),
+)
 
 public data class Wsacompletion0(
     public var windowMessage: Wsacompletion00 = Wsacompletion00(),
@@ -426,9 +483,14 @@ public data class Wsacompletion0(
     public var port: Wsacompletion03 = Wsacompletion03(),
 )
 
-public data class Wsacompletion02(public var lpOverlapped: Overlapped? = null, public var lpfnCompletionProc: LpwsaoverlappedCompletionRoutine = null)
+public data class Wsacompletion02(
+    public var lpOverlapped: Overlapped? = null,
+    public var lpfnCompletionProc: LpwsaoverlappedCompletionRoutine = null,
+)
 
-public data class Wsacompletion01(public var lpOverlapped: Overlapped? = null)
+public data class Wsacompletion01(
+    public var lpOverlapped: Overlapped? = null,
+)
 
 public data class Wsacompletion03(
     public var lpOverlapped: Overlapped? = null,
@@ -519,7 +581,10 @@ public data class WsanamespaceInfow(
     public var lpszIdentifier: Pwstr = null,
 )
 
-public data class Wsanetworkevents(public var lNetworkEvents: Int = 0, public var iErrorCode: IntArray = IntArray(10)) {
+public data class Wsanetworkevents(
+    public var lNetworkEvents: Int = 0,
+    public var iErrorCode: IntArray = IntArray(10),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Wsanetworkevents) return false
@@ -564,7 +629,10 @@ public data class Wsapollfd(
     public var revents: WsapollEventFlags = 0,
 )
 
-public data class Wsaprotocolchain(public var chainLen: Int = 0, public var chainEntries: UIntArray = UIntArray(7)) {
+public data class Wsaprotocolchain(
+    public var chainLen: Int = 0,
+    public var chainEntries: UIntArray = UIntArray(7),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Wsaprotocolchain) return false
@@ -718,13 +786,25 @@ public data class Wsaserviceclassinfow(
     public var lpClassInfos: Wsansclassinfow? = null,
 )
 
-public data class Wsathreadid(public var threadHandle: Handle = null, public var reserved: Int = 0)
+public data class Wsathreadid(
+    public var threadHandle: Handle = null,
+    public var reserved: Int = 0,
+)
 
-public data class Wsaversion(public var dwVersion: UInt = 0u, public var ecHow: Wsaecomparator = 0)
+public data class Wsaversion(
+    public var dwVersion: UInt = 0u,
+    public var ecHow: Wsaecomparator = 0,
+)
 
-public data class WsaCompatibilityMode(public var behaviorId: WsaCompatibilityBehaviorId = 0, public var targetOsVersion: UInt = 0u)
+public data class WsaCompatibilityMode(
+    public var behaviorId: WsaCompatibilityBehaviorId = 0,
+    public var targetOsVersion: UInt = 0u,
+)
 
-public data class WscProviderAuditInfo(public var recordSize: UInt = 0u, public var reserved: COpaquePointer? = null)
+public data class WscProviderAuditInfo(
+    public var recordSize: UInt = 0u,
+    public var reserved: COpaquePointer? = null,
+)
 
 public data class Wspdata(
     public var wVersion: UShort = 0u,
@@ -819,7 +899,10 @@ public data class SockaddrIn6Old(
     public var sin6Addr: In6Addr = In6Addr(),
 )
 
-public data class Sockproto(public var spFamily: UShort = 0u, public var spProtocol: UShort = 0u)
+public data class Sockproto(
+    public var spFamily: UShort = 0u,
+    public var spProtocol: UShort = 0u,
+)
 
 public data class TcpKeepalive(
     public var onoff: UInt = 0u,

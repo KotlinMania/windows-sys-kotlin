@@ -178,9 +178,8 @@ public actual fun registerMediaTypeClass(pbc: COpaquePointer?, ctypes: UInt, rgs
 public actual fun registerMediaTypes(ctypes: UInt, rgsztypes: COpaquePointer?, rgcftypes: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun releaseBindInfo(pbindinfo: COpaquePointer?) {
+public actual fun releaseBindInfo(pbindinfo: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun revokeBindStatusCallback(pbc: COpaquePointer?, pbscb: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

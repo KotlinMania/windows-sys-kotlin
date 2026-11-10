@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.ui.input
 
 import io.github.kotlinmania.windowssys.core.Bool
@@ -6,7 +7,10 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public data class InputMessageSource(public var deviceType: InputMessageDeviceType = 0, public var originId: InputMessageOriginId = 0)
+public data class InputMessageSource(
+    public var deviceType: InputMessageDeviceType = 0,
+    public var originId: InputMessageOriginId = 0,
+)
 
 public data class Rawhid(
     public var dwSizeHid: UInt = 0u,
@@ -30,7 +34,10 @@ public data class Rawhid(
     }
 }
 
-public data class Rawinput(public var header: Rawinputheader = Rawinputheader(), public var data: Rawinput0 = Rawinput0())
+public data class Rawinput(
+    public var header: Rawinputheader = Rawinputheader(),
+    public var data: Rawinput0 = Rawinput0(),
+)
 
 public data class Rawinput0(
     public var mouse: Rawmouse = Rawmouse(),
@@ -45,7 +52,10 @@ public data class Rawinputdevice(
     public var hwndTarget: Hwnd = null,
 )
 
-public data class Rawinputdevicelist(public var hDevice: Handle = null, public var dwType: RidDeviceInfoType = 0u)
+public data class Rawinputdevicelist(
+    public var hDevice: Handle = null,
+    public var dwType: RidDeviceInfoType = 0u,
+)
 
 public data class Rawinputheader(
     public var dwType: UInt = 0u,
@@ -72,9 +82,15 @@ public data class Rawmouse(
     public var ulExtraInformation: UInt = 0u,
 )
 
-public data class Rawmouse0(public var ulButtons: UInt = 0u, public var anonymous: Rawmouse00 = Rawmouse00())
+public data class Rawmouse0(
+    public var ulButtons: UInt = 0u,
+    public var anonymous: Rawmouse00 = Rawmouse00(),
+)
 
-public data class Rawmouse00(public var usButtonFlags: UShort = 0u, public var usButtonData: UShort = 0u)
+public data class Rawmouse00(
+    public var usButtonFlags: UShort = 0u,
+    public var usButtonData: UShort = 0u,
+)
 
 public data class RidDeviceInfo(
     public var cbSize: UInt = 0u,

@@ -1,13 +1,22 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.nfc
 
 import io.github.kotlinmania.windowssys.core.Guid
 
-public data class NfcrmRadioState(public var mediaRadioOn: Boolean = false)
+public data class NfcrmRadioState(
+    public var mediaRadioOn: Boolean = false,
+)
 
-public data class NfcrmSetRadioState(public var systemStateUpdate: Boolean = false, public var mediaRadioOn: Boolean = false)
+public data class NfcrmSetRadioState(
+    public var systemStateUpdate: Boolean = false,
+    public var mediaRadioOn: Boolean = false,
+)
 
-public data class NfcDataBuffer(public var cbBuffer: UShort = 0u, public var pbBuffer: UByteArray = UByteArray(1)) {
+public data class NfcDataBuffer(
+    public var cbBuffer: UShort = 0u,
+    public var pbBuffer: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NfcDataBuffer) return false
@@ -37,7 +46,10 @@ public data class NfcLlcpServiceDiscoverRequest(
     public var serviceNameEntries: List<NfcLlcpServiceNameEntry> = List(1) { NfcLlcpServiceNameEntry() },
 )
 
-public data class NfcLlcpServiceDiscoverSap(public var numberOfEntries: UInt = 0u, public var sAPEntries: UByteArray = UByteArray(1)) {
+public data class NfcLlcpServiceDiscoverSap(
+    public var numberOfEntries: UInt = 0u,
+    public var sAPEntries: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NfcLlcpServiceDiscoverSap) return false
@@ -53,7 +65,10 @@ public data class NfcLlcpServiceDiscoverSap(public var numberOfEntries: UInt = 0
     }
 }
 
-public data class NfcLlcpServiceNameEntry(public var cbServiceName: UInt = 0u, public var pbServiceName: UByteArray = UByteArray(1)) {
+public data class NfcLlcpServiceNameEntry(
+    public var cbServiceName: UInt = 0u,
+    public var pbServiceName: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NfcLlcpServiceNameEntry) return false
@@ -69,7 +84,10 @@ public data class NfcLlcpServiceNameEntry(public var cbServiceName: UInt = 0u, p
     }
 }
 
-public data class NfcLlcpSocketAcceptInfo(public var hSocket: Int = 0, public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption())
+public data class NfcLlcpSocketAcceptInfo(
+    public var hSocket: Int = 0,
+    public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption(),
+)
 
 public data class NfcLlcpSocketClPayload(
     public var hSocket: Int = 0,
@@ -84,13 +102,25 @@ public data class NfcLlcpSocketConnectInfo(
     public var anonymous: NfcLlcpSocketConnectInfo0 = NfcLlcpSocketConnectInfo0(),
 )
 
-public data class NfcLlcpSocketConnectInfo0(public var bSAP: UByte = 0u, public var sServiceName: NfcLlcpServiceNameEntry = NfcLlcpServiceNameEntry())
+public data class NfcLlcpSocketConnectInfo0(
+    public var bSAP: UByte = 0u,
+    public var sServiceName: NfcLlcpServiceNameEntry = NfcLlcpServiceNameEntry(),
+)
 
-public data class NfcLlcpSocketErrorInfo(public var hSocket: Int = 0, public var eSocketError: NfcLlcpSocketError = 0)
+public data class NfcLlcpSocketErrorInfo(
+    public var hSocket: Int = 0,
+    public var eSocketError: NfcLlcpSocketError = 0,
+)
 
-public data class NfcLlcpSocketInfo(public var eSocketType: NfcLlcpSocketType = 0, public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption())
+public data class NfcLlcpSocketInfo(
+    public var eSocketType: NfcLlcpSocketType = 0,
+    public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption(),
+)
 
-public data class NfcLlcpSocketOption(public var uMIUX: UShort = 0u, public var bRW: UByte = 0u)
+public data class NfcLlcpSocketOption(
+    public var uMIUX: UShort = 0u,
+    public var bRW: UByte = 0u,
+)
 
 public data class NfcLlcpSocketPayload(
     public var hSocket: Int = 0,
@@ -133,7 +163,10 @@ public data class NfcP2pParamConfig(
     }
 }
 
-public data class NfcRemoteDeviceDisconnet(public var hRemoteDev: Int = 0, public var eReleaseType: NfcReleaseType = 0)
+public data class NfcRemoteDeviceDisconnet(
+    public var hRemoteDev: Int = 0,
+    public var eReleaseType: NfcReleaseType = 0,
+)
 
 public data class NfcRemoteDevInfo(
     public var hRemoteDev: Int = 0,
@@ -166,7 +199,10 @@ public data class NfcRemoteDevInfo(
     }
 }
 
-public data class NfcRemoteDevRecvInfo(public var hRemoteDev: Int = 0, public var sRecvBuffer: NfcDataBuffer = NfcDataBuffer())
+public data class NfcRemoteDevRecvInfo(
+    public var hRemoteDev: Int = 0,
+    public var sRecvBuffer: NfcDataBuffer = NfcDataBuffer(),
+)
 
 public data class NfcRemoteDevSendInfo(
     public var hRemoteDev: Int = 0,
@@ -248,7 +284,10 @@ public data class NfcSeAidRoutingInfo(
     }
 }
 
-public data class NfcSeEmulationModeInfo(public var hSecureElement: Int = 0, public var eMode: NfcSeEmulationMode = 0)
+public data class NfcSeEmulationModeInfo(
+    public var hSecureElement: Int = 0,
+    public var eMode: NfcSeEmulationMode = 0,
+)
 
 public data class NfcSeEventInfo(
     public var hSecureElement: Int = 0,
@@ -275,9 +314,15 @@ public data class NfcSeEventInfo(
     }
 }
 
-public data class NfcSeInfo(public var hSecureElement: Int = 0, public var eSecureElementType: SecureElementType = 0)
+public data class NfcSeInfo(
+    public var hSecureElement: Int = 0,
+    public var eSecureElementType: SecureElementType = 0,
+)
 
-public data class NfcSeList(public var numberOfEndpoints: UInt = 0u, public var endpointList: List<NfcSeInfo> = List(1) { NfcSeInfo() })
+public data class NfcSeList(
+    public var numberOfEndpoints: UInt = 0u,
+    public var endpointList: List<NfcSeInfo> = List(1) { NfcSeInfo() },
+)
 
 public data class NfcSeProtoRoutingInfo(
     public var hSecureElement: Int = 0,
@@ -285,9 +330,15 @@ public data class NfcSeProtoRoutingInfo(
     public var eRfProtocolType: UByte = 0u,
 )
 
-public data class NfcSeRoutingTable(public var numberOfEntries: UInt = 0u, public var tableEntries: List<NfcSeRoutingTableEntry> = List(1) { NfcSeRoutingTableEntry() })
+public data class NfcSeRoutingTable(
+    public var numberOfEntries: UInt = 0u,
+    public var tableEntries: List<NfcSeRoutingTableEntry> = List(1) { NfcSeRoutingTableEntry() },
+)
 
-public data class NfcSeRoutingTableEntry(public var eRoutingType: SecureElementRoutingType = 0, public var anonymous: NfcSeRoutingTableEntry0 = NfcSeRoutingTableEntry0())
+public data class NfcSeRoutingTableEntry(
+    public var eRoutingType: SecureElementRoutingType = 0,
+    public var anonymous: NfcSeRoutingTableEntry0 = NfcSeRoutingTableEntry0(),
+)
 
 public data class NfcSeRoutingTableEntry0(
     public var techRoutingInfo: NfcSeTechRoutingInfo = NfcSeTechRoutingInfo(),
@@ -301,7 +352,10 @@ public data class NfcSeTechRoutingInfo(
     public var eRfTechType: UByte = 0u,
 )
 
-public data class NfcSnepClientGetInfo(public var hSnepClient: Int = 0, public var sGetPayload: NfcDataBuffer = NfcDataBuffer())
+public data class NfcSnepClientGetInfo(
+    public var hSnepClient: Int = 0,
+    public var sGetPayload: NfcDataBuffer = NfcDataBuffer(),
+)
 
 public data class NfcSnepClientInfo(
     public var hRemoteDev: Int = 0,
@@ -310,7 +364,10 @@ public data class NfcSnepClientInfo(
     public var sService: NfcLlcpServiceNameEntry = NfcLlcpServiceNameEntry(),
 )
 
-public data class NfcSnepClientPutInfo(public var hSnepClient: Int = 0, public var sPutPayload: NfcDataBuffer = NfcDataBuffer())
+public data class NfcSnepClientPutInfo(
+    public var hSnepClient: Int = 0,
+    public var sPutPayload: NfcDataBuffer = NfcDataBuffer(),
+)
 
 public data class NfcSnepServerAcceptInfo(
     public var hSnepServer: Int = 0,
@@ -362,9 +419,15 @@ public data class SecureElementAidRoutingInfo(
     }
 }
 
-public data class SecureElementEndpointInfo(public var guidSecureElementId: Guid = Guid(), public var eSecureElementType: SecureElementType = 0)
+public data class SecureElementEndpointInfo(
+    public var guidSecureElementId: Guid = Guid(),
+    public var eSecureElementType: SecureElementType = 0,
+)
 
-public data class SecureElementEndpointList(public var numberOfEndpoints: UInt = 0u, public var endpointList: List<SecureElementEndpointInfo> = List(1) { SecureElementEndpointInfo() })
+public data class SecureElementEndpointList(
+    public var numberOfEndpoints: UInt = 0u,
+    public var endpointList: List<SecureElementEndpointInfo> = List(1) { SecureElementEndpointInfo() },
+)
 
 public data class SecureElementEventInfo(
     public var guidSecureElementId: Guid = Guid(),
@@ -391,7 +454,10 @@ public data class SecureElementEventInfo(
     }
 }
 
-public data class SecureElementEventSubscriptionInfo(public var guidSecureElementId: Guid = Guid(), public var eEventType: SecureElementEventType = 0)
+public data class SecureElementEventSubscriptionInfo(
+    public var guidSecureElementId: Guid = Guid(),
+    public var eEventType: SecureElementEventType = 0,
+)
 
 public data class SecureElementHceActivationPayload(
     public var bConnectionId: UShort = 0u,
@@ -428,11 +494,20 @@ public data class SecureElementNfccCapabilities(
     public var isTechRoutingSupported: Boolean = false,
 )
 
-public data class SecureElementProtoRoutingInfo(public var guidSecureElementId: Guid = Guid(), public var eRfProtocolType: UByte = 0u)
+public data class SecureElementProtoRoutingInfo(
+    public var guidSecureElementId: Guid = Guid(),
+    public var eRfProtocolType: UByte = 0u,
+)
 
-public data class SecureElementRoutingTable(public var numberOfEntries: UInt = 0u, public var tableEntries: List<SecureElementRoutingTableEntry> = List(1) { SecureElementRoutingTableEntry() })
+public data class SecureElementRoutingTable(
+    public var numberOfEntries: UInt = 0u,
+    public var tableEntries: List<SecureElementRoutingTableEntry> = List(1) { SecureElementRoutingTableEntry() },
+)
 
-public data class SecureElementRoutingTableEntry(public var eRoutingType: SecureElementRoutingType = 0, public var anonymous: SecureElementRoutingTableEntry0 = SecureElementRoutingTableEntry0())
+public data class SecureElementRoutingTableEntry(
+    public var eRoutingType: SecureElementRoutingType = 0,
+    public var anonymous: SecureElementRoutingTableEntry0 = SecureElementRoutingTableEntry0(),
+)
 
 public data class SecureElementRoutingTableEntry0(
     public var techRoutingInfo: SecureElementTechRoutingInfo = SecureElementTechRoutingInfo(),
@@ -440,8 +515,17 @@ public data class SecureElementRoutingTableEntry0(
     public var aidRoutingInfo: SecureElementAidRoutingInfo = SecureElementAidRoutingInfo(),
 )
 
-public data class SecureElementSetCardEmulationModeInfo(public var guidSecureElementId: Guid = Guid(), public var eMode: SecureElementCardEmulationMode = 0)
+public data class SecureElementSetCardEmulationModeInfo(
+    public var guidSecureElementId: Guid = Guid(),
+    public var eMode: SecureElementCardEmulationMode = 0,
+)
 
-public data class SecureElementSetPowerModeInfo(public var guidSecureElementId: Guid = Guid(), public var powerMode: SecureElementPowerMode = 0)
+public data class SecureElementSetPowerModeInfo(
+    public var guidSecureElementId: Guid = Guid(),
+    public var powerMode: SecureElementPowerMode = 0,
+)
 
-public data class SecureElementTechRoutingInfo(public var guidSecureElementId: Guid = Guid(), public var eRfTechType: UByte = 0u)
+public data class SecureElementTechRoutingInfo(
+    public var guidSecureElementId: Guid = Guid(),
+    public var eRfTechType: UByte = 0u,
+)

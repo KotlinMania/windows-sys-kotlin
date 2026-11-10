@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.iis
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -20,7 +21,10 @@ public data class CertContextEx(
     public var dwCertificateFlags: UInt = 0u,
 )
 
-public data class ConfigurationEntry(public var bstrKey: Bstr = null, public var bstrValue: Bstr = null)
+public data class ConfigurationEntry(
+    public var bstrKey: Bstr = null,
+    public var bstrValue: Bstr = null,
+)
 
 public class ExtensionControlBlock(
     public var cbSize: UInt = 0u,
@@ -63,7 +67,10 @@ public data class HseExecUnicodeUrlUserInfo(
     public var pszCustomAuthType: Pstr = null,
 )
 
-public data class HseExecUrlEntityInfo(public var cbAvailable: UInt = 0u, public var lpbData: COpaquePointer? = null)
+public data class HseExecUrlEntityInfo(
+    public var cbAvailable: UInt = 0u,
+    public var lpbData: COpaquePointer? = null,
+)
 
 public data class HseExecUrlInfo(
     public var pszUrl: Pstr = null,
@@ -204,7 +211,10 @@ public data class HseVectorElement(
     public var cbSize: ULong = 0uL,
 )
 
-public data class HseVersionInfo(public var dwExtensionVersion: UInt = 0u, public var lpszExtensionDesc: ByteArray = ByteArray(256)) {
+public data class HseVersionInfo(
+    public var dwExtensionVersion: UInt = 0u,
+    public var lpszExtensionDesc: ByteArray = ByteArray(256),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is HseVersionInfo) return false
@@ -396,7 +406,10 @@ public data class MetadataGetallInternalRecord(
     public var dwMDDataTag: UInt = 0u,
 )
 
-public data class MetadataGetallInternalRecord0(public var dwMDDataOffset: Int = 0, public var pbMDData: COpaquePointer? = null)
+public data class MetadataGetallInternalRecord0(
+    public var dwMDDataOffset: Int = 0,
+    public var pbMDData: COpaquePointer? = null,
+)
 
 public data class MetadataGetallRecord(
     public var dwMDIdentifier: UInt = 0u,
@@ -408,7 +421,10 @@ public data class MetadataGetallRecord(
     public var dwMDDataTag: UInt = 0u,
 )
 
-public data class MetadataHandleInfo(public var dwMDPermissions: UInt = 0u, public var dwMDSystemChangeNumber: UInt = 0u)
+public data class MetadataHandleInfo(
+    public var dwMDPermissions: UInt = 0u,
+    public var dwMDSystemChangeNumber: UInt = 0u,
+)
 
 public data class MetadataRecord(
     public var dwMDIdentifier: UInt = 0u,

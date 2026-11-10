@@ -1,9 +1,13 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.dvd
 
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public data class AacsBindingNonce(public var bindingNonce: UByteArray = UByteArray(16), public var mac: UByteArray = UByteArray(16)) {
+public data class AacsBindingNonce(
+    public var bindingNonce: UByteArray = UByteArray(16),
+    public var mac: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is AacsBindingNonce) return false
@@ -19,7 +23,10 @@ public data class AacsBindingNonce(public var bindingNonce: UByteArray = UByteAr
     }
 }
 
-public data class AacsCertificate(public var nonce: UByteArray = UByteArray(20), public var certificate: UByteArray = UByteArray(92)) {
+public data class AacsCertificate(
+    public var nonce: UByteArray = UByteArray(20),
+    public var certificate: UByteArray = UByteArray(92),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is AacsCertificate) return false
@@ -35,7 +42,10 @@ public data class AacsCertificate(public var nonce: UByteArray = UByteArray(20),
     }
 }
 
-public data class AacsChallengeKey(public var ellipticCurvePoint: UByteArray = UByteArray(40), public var signature: UByteArray = UByteArray(40)) {
+public data class AacsChallengeKey(
+    public var ellipticCurvePoint: UByteArray = UByteArray(40),
+    public var signature: UByteArray = UByteArray(40),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is AacsChallengeKey) return false
@@ -51,7 +61,10 @@ public data class AacsChallengeKey(public var ellipticCurvePoint: UByteArray = U
     }
 }
 
-public data class AacsMediaId(public var mediaID: UByteArray = UByteArray(16), public var mac: UByteArray = UByteArray(16)) {
+public data class AacsMediaId(
+    public var mediaID: UByteArray = UByteArray(16),
+    public var mac: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is AacsMediaId) return false
@@ -74,13 +87,25 @@ public data class AacsReadBindingNonce(
     public var anonymous: AacsReadBindingNonce0 = AacsReadBindingNonce0(),
 )
 
-public data class AacsReadBindingNonce0(public var handle: Handle = null, public var forceStructureLengthToMatch64bit: ULong = 0uL)
+public data class AacsReadBindingNonce0(
+    public var handle: Handle = null,
+    public var forceStructureLengthToMatch64bit: ULong = 0uL,
+)
 
-public data class AacsSendCertificate(public var sessionId: UInt = 0u, public var certificate: AacsCertificate = AacsCertificate())
+public data class AacsSendCertificate(
+    public var sessionId: UInt = 0u,
+    public var certificate: AacsCertificate = AacsCertificate(),
+)
 
-public data class AacsSendChallengeKey(public var sessionId: UInt = 0u, public var challengeKey: AacsChallengeKey = AacsChallengeKey())
+public data class AacsSendChallengeKey(
+    public var sessionId: UInt = 0u,
+    public var challengeKey: AacsChallengeKey = AacsChallengeKey(),
+)
 
-public data class AacsSerialNumber(public var prerecordedSerialNumber: UByteArray = UByteArray(16), public var mac: UByteArray = UByteArray(16)) {
+public data class AacsSerialNumber(
+    public var prerecordedSerialNumber: UByteArray = UByteArray(16),
+    public var mac: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is AacsSerialNumber) return false
@@ -96,7 +121,10 @@ public data class AacsSerialNumber(public var prerecordedSerialNumber: UByteArra
     }
 }
 
-public data class AacsVolumeId(public var volumeID: UByteArray = UByteArray(16), public var mac: UByteArray = UByteArray(16)) {
+public data class AacsVolumeId(
+    public var volumeID: UByteArray = UByteArray(16),
+    public var mac: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is AacsVolumeId) return false
@@ -183,7 +211,10 @@ public data class BdPacHeader(
     }
 }
 
-public data class DvdAsf(public var reserved0: UByteArray = UByteArray(3), public var bitfield: UByte = 0u) {
+public data class DvdAsf(
+    public var reserved0: UByteArray = UByteArray(3),
+    public var bitfield: UByte = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdAsf) return false
@@ -199,7 +230,9 @@ public data class DvdAsf(public var reserved0: UByteArray = UByteArray(3), publi
     }
 }
 
-public data class DvdBcaDescriptor(public var bCAInformation: UByteArray = UByteArray(1)) {
+public data class DvdBcaDescriptor(
+    public var bCAInformation: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdBcaDescriptor) return false
@@ -207,9 +240,7 @@ public data class DvdBcaDescriptor(public var bCAInformation: UByteArray = UByte
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.bCAInformation.contentHashCode()
-    }
+    override fun hashCode(): Int = this.bCAInformation.contentHashCode()
 }
 
 public data class DvdBdSpareAreaInformation(
@@ -240,7 +271,10 @@ public data class DvdCopyrightDescriptor(
     public var reserved: UShort = 0u,
 )
 
-public data class DvdCopyrightManagementDescriptor(public var anonymous: DvdCopyrightManagementDescriptor0 = DvdCopyrightManagementDescriptor0(), public var reserved0: UByteArray = UByteArray(3)) {
+public data class DvdCopyrightManagementDescriptor(
+    public var anonymous: DvdCopyrightManagementDescriptor0 = DvdCopyrightManagementDescriptor0(),
+    public var reserved0: UByteArray = UByteArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdCopyrightManagementDescriptor) return false
@@ -264,13 +298,21 @@ public data class DvdCopyrightManagementDescriptor0(
     public var cprMai: UByte = 0u,
 )
 
-public data class DvdCopyrightManagementDescriptor01(public var bitfield: UByte = 0u)
+public data class DvdCopyrightManagementDescriptor01(
+    public var bitfield: UByte = 0u,
+)
 
-public data class DvdCopyrightManagementDescriptor03(public var bitfield: UByte = 0u)
+public data class DvdCopyrightManagementDescriptor03(
+    public var bitfield: UByte = 0u,
+)
 
-public data class DvdCopyrightManagementDescriptor02(public var reserved0003: UByte = 0u)
+public data class DvdCopyrightManagementDescriptor02(
+    public var reserved0003: UByte = 0u,
+)
 
-public data class DvdCopyrightManagementDescriptor00(public var bitfield: UByte = 0u)
+public data class DvdCopyrightManagementDescriptor00(
+    public var bitfield: UByte = 0u,
+)
 
 public data class DvdCopyProtectKey(
     public var keyLength: UInt = 0u,
@@ -303,7 +345,10 @@ public data class DvdCopyProtectKey(
     }
 }
 
-public data class DvdCopyProtectKey0(public var fileHandle: Handle = null, public var titleOffset: Long = 0L)
+public data class DvdCopyProtectKey0(
+    public var fileHandle: Handle = null,
+    public var titleOffset: Long = 0L,
+)
 
 public data class DvdDescriptorHeader(
     public var length: UShort = 0u,
@@ -349,7 +394,10 @@ public data class DvdDiscControlBlockHeader(
     }
 }
 
-public data class DvdDiscControlBlockHeader0(public var anonymous: DvdDiscControlBlockHeader00 = DvdDiscControlBlockHeader00(), public var asByte: UByteArray = UByteArray(4)) {
+public data class DvdDiscControlBlockHeader0(
+    public var anonymous: DvdDiscControlBlockHeader00 = DvdDiscControlBlockHeader00(),
+    public var asByte: UByteArray = UByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdDiscControlBlockHeader0) return false
@@ -365,7 +413,10 @@ public data class DvdDiscControlBlockHeader0(public var anonymous: DvdDiscContro
     }
 }
 
-public data class DvdDiscControlBlockHeader00(public var reservedDoNotUseUseAsByteInstead0: UByteArray = UByteArray(3), public var bitfield: UByte = 0u) {
+public data class DvdDiscControlBlockHeader00(
+    public var reservedDoNotUseUseAsByteInstead0: UByteArray = UByteArray(3),
+    public var bitfield: UByte = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdDiscControlBlockHeader00) return false
@@ -390,7 +441,9 @@ public data class DvdDiscControlBlockList(
     public var dcbs: List<DvdDiscControlBlockListDcb> = List(1) { DvdDiscControlBlockListDcb() },
 )
 
-public data class DvdDiscControlBlockListDcb(public var dcbIdentifier: UByteArray = UByteArray(4)) {
+public data class DvdDiscControlBlockListDcb(
+    public var dcbIdentifier: UByteArray = UByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdDiscControlBlockListDcb) return false
@@ -398,9 +451,7 @@ public data class DvdDiscControlBlockListDcb(public var dcbIdentifier: UByteArra
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.dcbIdentifier.contentHashCode()
-    }
+    override fun hashCode(): Int = this.dcbIdentifier.contentHashCode()
 }
 
 public data class DvdDiscControlBlockSession(
@@ -437,7 +488,9 @@ public data class DvdDiscControlBlockSession(
     }
 }
 
-public data class DvdDiscControlBlockSessionItem(public var asByte: UByteArray = UByteArray(16)) {
+public data class DvdDiscControlBlockSessionItem(
+    public var asByte: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdDiscControlBlockSessionItem) return false
@@ -445,9 +498,7 @@ public data class DvdDiscControlBlockSessionItem(public var asByte: UByteArray =
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.asByte.contentHashCode()
-    }
+    override fun hashCode(): Int = this.asByte.contentHashCode()
 }
 
 public data class DvdDiscControlBlockWriteInhibit(
@@ -481,7 +532,10 @@ public data class DvdDiscControlBlockWriteInhibit(
     }
 }
 
-public data class DvdDiscControlBlockWriteInhibit0(public var anonymous: DvdDiscControlBlockWriteInhibit00 = DvdDiscControlBlockWriteInhibit00(), public var asByte: UByteArray = UByteArray(4)) {
+public data class DvdDiscControlBlockWriteInhibit0(
+    public var anonymous: DvdDiscControlBlockWriteInhibit00 = DvdDiscControlBlockWriteInhibit00(),
+    public var asByte: UByteArray = UByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdDiscControlBlockWriteInhibit0) return false
@@ -497,7 +551,10 @@ public data class DvdDiscControlBlockWriteInhibit0(public var anonymous: DvdDisc
     }
 }
 
-public data class DvdDiscControlBlockWriteInhibit00(public var reservedDoNotUseUseAsByteInstead0: UByteArray = UByteArray(3), public var bitfield: UByte = 0u) {
+public data class DvdDiscControlBlockWriteInhibit00(
+    public var reservedDoNotUseUseAsByteInstead0: UByteArray = UByteArray(3),
+    public var bitfield: UByte = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdDiscControlBlockWriteInhibit00) return false
@@ -513,7 +570,9 @@ public data class DvdDiscControlBlockWriteInhibit00(public var reservedDoNotUseU
     }
 }
 
-public data class DvdDiskKeyDescriptor(public var diskKeyData: UByteArray = UByteArray(2048)) {
+public data class DvdDiskKeyDescriptor(
+    public var diskKeyData: UByteArray = UByteArray(2048),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdDiskKeyDescriptor) return false
@@ -521,12 +580,13 @@ public data class DvdDiskKeyDescriptor(public var diskKeyData: UByteArray = UByt
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.diskKeyData.contentHashCode()
-    }
+    override fun hashCode(): Int = this.diskKeyData.contentHashCode()
 }
 
-public data class DvdDualLayerJumpIntervalSize(public var reserved1: UByteArray = UByteArray(4), public var jumpIntervalSize: UByteArray = UByteArray(4)) {
+public data class DvdDualLayerJumpIntervalSize(
+    public var reserved1: UByteArray = UByteArray(4),
+    public var jumpIntervalSize: UByteArray = UByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdDualLayerJumpIntervalSize) return false
@@ -542,7 +602,10 @@ public data class DvdDualLayerJumpIntervalSize(public var reserved1: UByteArray 
     }
 }
 
-public data class DvdDualLayerManualLayerJump(public var reserved1: UByteArray = UByteArray(4), public var manualJumpLayerAddress: UByteArray = UByteArray(4)) {
+public data class DvdDualLayerManualLayerJump(
+    public var reserved1: UByteArray = UByteArray(4),
+    public var manualJumpLayerAddress: UByteArray = UByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdDualLayerManualLayerJump) return false
@@ -602,7 +665,10 @@ public data class DvdDualLayerRecordingInformation(
     }
 }
 
-public data class DvdDualLayerRemappingInformation(public var reserved1: UByteArray = UByteArray(4), public var remappingAddress: UByteArray = UByteArray(4)) {
+public data class DvdDualLayerRemappingInformation(
+    public var reserved1: UByteArray = UByteArray(4),
+    public var remappingAddress: UByteArray = UByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdDualLayerRemappingInformation) return false
@@ -618,7 +684,10 @@ public data class DvdDualLayerRemappingInformation(public var reserved1: UByteAr
     }
 }
 
-public data class DvdFullLayerDescriptor(public var commonHeader: DvdLayerDescriptor = DvdLayerDescriptor(), public var mediaSpecific: UByteArray = UByteArray(2031)) {
+public data class DvdFullLayerDescriptor(
+    public var commonHeader: DvdLayerDescriptor = DvdLayerDescriptor(),
+    public var mediaSpecific: UByteArray = UByteArray(2031),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdFullLayerDescriptor) return false
@@ -645,7 +714,9 @@ public data class DvdLayerDescriptor(
     public var bitfield5: UByte = 0u,
 )
 
-public data class DvdListOfRecognizedFormatLayers(public var typeCodeOfFormatLayer: UByteArray = UByteArray(2)) {
+public data class DvdListOfRecognizedFormatLayers(
+    public var typeCodeOfFormatLayer: UByteArray = UByteArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdListOfRecognizedFormatLayers) return false
@@ -653,14 +724,17 @@ public data class DvdListOfRecognizedFormatLayers(public var typeCodeOfFormatLay
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.typeCodeOfFormatLayer.contentHashCode()
-    }
+    override fun hashCode(): Int = this.typeCodeOfFormatLayer.contentHashCode()
 }
 
-public data class DvdListOfRecognizedFormatLayersTypeCode(public var numberOfRecognizedFormatLayers: UByte = 0u, public var bitfield: UByte = 0u)
+public data class DvdListOfRecognizedFormatLayersTypeCode(
+    public var numberOfRecognizedFormatLayers: UByte = 0u,
+    public var bitfield: UByte = 0u,
+)
 
-public data class DvdManufacturerDescriptor(public var manufacturingInformation: UByteArray = UByteArray(2048)) {
+public data class DvdManufacturerDescriptor(
+    public var manufacturingInformation: UByteArray = UByteArray(2048),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdManufacturerDescriptor) return false
@@ -668,9 +742,7 @@ public data class DvdManufacturerDescriptor(public var manufacturingInformation:
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.manufacturingInformation.contentHashCode()
-    }
+    override fun hashCode(): Int = this.manufacturingInformation.contentHashCode()
 }
 
 public class DvdPrerecordedInformation(
@@ -704,7 +776,10 @@ public data class DvdRamMediumStatus(
     public var mediaSpecificWriteInhibitInformation: UByte = 0u,
 )
 
-public data class DvdRamRecordingType(public var bitfield: UByte = 0u, public var reserved2: UByteArray = UByteArray(3)) {
+public data class DvdRamRecordingType(
+    public var bitfield: UByte = 0u,
+    public var reserved2: UByteArray = UByteArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdRamRecordingType) return false
@@ -749,7 +824,10 @@ public data class DvdReadStructure(
     public var layerNumber: UByte = 0u,
 )
 
-public data class DvdRecordingManagementAreaData(public var lastRecordedRMASectorNumber: UByteArray = UByteArray(4), public var rMDBytes: UByteArray = UByteArray(1)) {
+public data class DvdRecordingManagementAreaData(
+    public var lastRecordedRMASectorNumber: UByteArray = UByteArray(4),
+    public var rMDBytes: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdRecordingManagementAreaData) return false
@@ -779,7 +857,10 @@ public data class DvdRpcKey(
     public var reserved02: UByte = 0u,
 )
 
-public data class DvdSetRpcKey(public var preferredDriveRegionCode: UByte = 0u, public var reserved: UByteArray = UByteArray(3)) {
+public data class DvdSetRpcKey(
+    public var preferredDriveRegionCode: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdSetRpcKey) return false
@@ -854,7 +935,10 @@ public data class DvdUniqueDiscIdentifier(
     }
 }
 
-public data class DvdWriteProtectionStatus(public var bitfield: UByte = 0u, public var reserved1: UByteArray = UByteArray(3)) {
+public data class DvdWriteProtectionStatus(
+    public var bitfield: UByte = 0u,
+    public var reserved1: UByteArray = UByteArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DvdWriteProtectionStatus) return false
@@ -892,4 +976,7 @@ public data class HdDvdRMediumStatus(
     }
 }
 
-public data class StorageSetReadAhead(public var triggerAddress: Long = 0L, public var targetAddress: Long = 0L)
+public data class StorageSetReadAhead(
+    public var triggerAddress: Long = 0L,
+    public var targetAddress: Long = 0L,
+)

@@ -36,7 +36,10 @@ public data class PsfeatureCustpaper(
     public var lHeightOffset: Int = 0,
 )
 
-public data class PsfeatureOutput(public var bPageIndependent: Bool = 0, public var bSetPageDevice: Bool = 0)
+public data class PsfeatureOutput(
+    public var bPageIndependent: Bool = 0,
+    public var bSetPageDevice: Bool = 0,
+)
 
 public data class Psinjectdata(
     public var dataBytes: UInt = 0u,
@@ -44,7 +47,10 @@ public data class Psinjectdata(
     public var pageNumber: UShort = 0u,
 )
 
-public data class XpsColor(public var colorType: XpsColorType = 0, public var value: XpsColor0 = XpsColor0())
+public data class XpsColor(
+    public var colorType: XpsColorType = 0,
+    public var value: XpsColor0 = XpsColor0(),
+)
 
 public data class XpsColor0(
     public var sRGB: XpsColor00 = XpsColor00(),
@@ -52,7 +58,10 @@ public data class XpsColor0(
     public var context: XpsColor02 = XpsColor02(),
 )
 
-public data class XpsColor02(public var channelCount: UByte = 0u, public var channels: FloatArray = FloatArray(9)) {
+public data class XpsColor02(
+    public var channelCount: UByte = 0u,
+    public var channels: FloatArray = FloatArray(9),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is XpsColor02) return false
@@ -82,7 +91,10 @@ public data class XpsColor01(
     public var blue: Float = 0.0f,
 )
 
-public data class XpsDash(public var length: Float = 0.0f, public var gap: Float = 0.0f)
+public data class XpsDash(
+    public var length: Float = 0.0f,
+    public var gap: Float = 0.0f,
+)
 
 public data class XpsGlyphIndex(
     public var index: Int = 0,
@@ -107,7 +119,10 @@ public data class XpsMatrix(
     public var m32: Float = 0.0f,
 )
 
-public data class XpsPoint(public var x: Float = 0.0f, public var y: Float = 0.0f)
+public data class XpsPoint(
+    public var x: Float = 0.0f,
+    public var y: Float = 0.0f,
+)
 
 public data class XpsRect(
     public var x: Float = 0.0f,
@@ -116,4 +131,7 @@ public data class XpsRect(
     public var height: Float = 0.0f,
 )
 
-public data class XpsSize(public var width: Float = 0.0f, public var height: Float = 0.0f)
+public data class XpsSize(
+    public var width: Float = 0.0f,
+    public var height: Float = 0.0f,
+)

@@ -1,11 +1,19 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.storage.nvme
 
-public data class ActiveLatencyConfiguration(public var anonymous: ActiveLatencyConfiguration0 = ActiveLatencyConfiguration0())
+public data class ActiveLatencyConfiguration(
+    public var anonymous: ActiveLatencyConfiguration0 = ActiveLatencyConfiguration0(),
+)
 
-public data class ActiveLatencyConfiguration0(public var anonymous: ActiveLatencyConfiguration00 = ActiveLatencyConfiguration00(), public var asUshort: UShort = 0u)
+public data class ActiveLatencyConfiguration0(
+    public var anonymous: ActiveLatencyConfiguration00 = ActiveLatencyConfiguration00(),
+    public var asUshort: UShort = 0u,
+)
 
-public data class ActiveLatencyConfiguration00(public var bitfield: UShort = 0u)
+public data class ActiveLatencyConfiguration00(
+    public var bitfield: UShort = 0u,
+)
 
 public data class BucketCounter(
     public var reserved: UInt = 0u,
@@ -14,9 +22,13 @@ public data class BucketCounter(
     public var read: UInt = 0u,
 )
 
-public data class DebugBitField(public var bitfield: UShort = 0u)
+public data class DebugBitField(
+    public var bitfield: UShort = 0u,
+)
 
-public data class DssdPowerStateDescriptor(public var bitfield: UByte = 0u)
+public data class DssdPowerStateDescriptor(
+    public var bitfield: UByte = 0u,
+)
 
 public data class FirmwareActivationHistoryEntry(
     public var versionNumber: UByte = 0u,
@@ -70,11 +82,18 @@ public data class FirmwareActivationHistoryEntry(
     }
 }
 
-public data class LatencyMonitorFeatureStatus(public var anonymous: LatencyMonitorFeatureStatus0 = LatencyMonitorFeatureStatus0())
+public data class LatencyMonitorFeatureStatus(
+    public var anonymous: LatencyMonitorFeatureStatus0 = LatencyMonitorFeatureStatus0(),
+)
 
-public data class LatencyMonitorFeatureStatus0(public var anonymous: LatencyMonitorFeatureStatus00 = LatencyMonitorFeatureStatus00(), public var asUchar: UByte = 0u)
+public data class LatencyMonitorFeatureStatus0(
+    public var anonymous: LatencyMonitorFeatureStatus00 = LatencyMonitorFeatureStatus00(),
+    public var asUchar: UByte = 0u,
+)
 
-public data class LatencyMonitorFeatureStatus00(public var bitfield: UByte = 0u)
+public data class LatencyMonitorFeatureStatus00(
+    public var bitfield: UByte = 0u,
+)
 
 public data class LatencyStamp(
     public var trim3: ULong = 0uL,
@@ -91,7 +110,9 @@ public data class LatencyStamp(
     public var read0: ULong = 0uL,
 )
 
-public data class LatencyStampUnits(public var bitfield: UShort = 0u)
+public data class LatencyStampUnits(
+    public var bitfield: UShort = 0u,
+)
 
 public data class MeasuredLatency(
     public var trim3: UShort = 0u,
@@ -108,7 +129,9 @@ public data class MeasuredLatency(
     public var read0: UShort = 0u,
 )
 
-public data class NvmeActiveNamespaceIdList(public var nsid: UIntArray = UIntArray(1024)) {
+public data class NvmeActiveNamespaceIdList(
+    public var nsid: UIntArray = UIntArray(1024),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NvmeActiveNamespaceIdList) return false
@@ -116,134 +139,284 @@ public data class NvmeActiveNamespaceIdList(public var nsid: UIntArray = UIntArr
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.nsid.contentHashCode()
-    }
+    override fun hashCode(): Int = this.nsid.contentHashCode()
 }
 
-public data class NvmeAdminCompletionQueueBaseAddress(public var anonymous: NvmeAdminCompletionQueueBaseAddress0 = NvmeAdminCompletionQueueBaseAddress0(), public var asUlonglong: ULong = 0uL)
+public data class NvmeAdminCompletionQueueBaseAddress(
+    public var anonymous: NvmeAdminCompletionQueueBaseAddress0 = NvmeAdminCompletionQueueBaseAddress0(),
+    public var asUlonglong: ULong = 0uL,
+)
 
-public data class NvmeAdminCompletionQueueBaseAddress0(public var bitfield: ULong = 0uL)
+public data class NvmeAdminCompletionQueueBaseAddress0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class NvmeAdminQueueAttributes(public var anonymous: NvmeAdminQueueAttributes0 = NvmeAdminQueueAttributes0(), public var asUlong: UInt = 0u)
+public data class NvmeAdminQueueAttributes(
+    public var anonymous: NvmeAdminQueueAttributes0 = NvmeAdminQueueAttributes0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeAdminQueueAttributes0(public var bitfield: UInt = 0u)
+public data class NvmeAdminQueueAttributes0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeAdminSubmissionQueueBaseAddress(public var anonymous: NvmeAdminSubmissionQueueBaseAddress0 = NvmeAdminSubmissionQueueBaseAddress0(), public var asUlonglong: ULong = 0uL)
+public data class NvmeAdminSubmissionQueueBaseAddress(
+    public var anonymous: NvmeAdminSubmissionQueueBaseAddress0 = NvmeAdminSubmissionQueueBaseAddress0(),
+    public var asUlonglong: ULong = 0uL,
+)
 
-public data class NvmeAdminSubmissionQueueBaseAddress0(public var bitfield: ULong = 0uL)
+public data class NvmeAdminSubmissionQueueBaseAddress0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class NvmeAutoPowerStateTransitionEntry(public var bitfield: UInt = 0u, public var reserved1: UInt = 0u)
+public data class NvmeAutoPowerStateTransitionEntry(
+    public var bitfield: UInt = 0u,
+    public var reserved1: UInt = 0u,
+)
 
-public data class NvmeCdw0FeatureEnableIeee1667Silo(public var anonymous: NvmeCdw0FeatureEnableIeee1667Silo0 = NvmeCdw0FeatureEnableIeee1667Silo0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw0FeatureEnableIeee1667Silo(
+    public var anonymous: NvmeCdw0FeatureEnableIeee1667Silo0 = NvmeCdw0FeatureEnableIeee1667Silo0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw0FeatureEnableIeee1667Silo0(public var bitfield: UInt = 0u)
+public data class NvmeCdw0FeatureEnableIeee1667Silo0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw0FeatureErrorInjection(public var anonymous: NvmeCdw0FeatureErrorInjection0 = NvmeCdw0FeatureErrorInjection0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw0FeatureErrorInjection(
+    public var anonymous: NvmeCdw0FeatureErrorInjection0 = NvmeCdw0FeatureErrorInjection0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw0FeatureErrorInjection0(public var bitfield: UInt = 0u)
+public data class NvmeCdw0FeatureErrorInjection0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw0FeatureReadonlyWritethroughMode(public var anonymous: NvmeCdw0FeatureReadonlyWritethroughMode0 = NvmeCdw0FeatureReadonlyWritethroughMode0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw0FeatureReadonlyWritethroughMode(
+    public var anonymous: NvmeCdw0FeatureReadonlyWritethroughMode0 = NvmeCdw0FeatureReadonlyWritethroughMode0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw0FeatureReadonlyWritethroughMode0(public var bitfield: UInt = 0u)
+public data class NvmeCdw0FeatureReadonlyWritethroughMode0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw0ReservationPersistence(public var bitfield: UInt = 0u)
+public data class NvmeCdw0ReservationPersistence(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10Abort(public var anonymous: NvmeCdw10Abort0 = NvmeCdw10Abort0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10Abort(
+    public var anonymous: NvmeCdw10Abort0 = NvmeCdw10Abort0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10Abort0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10Abort0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10CreateIoQueue(public var anonymous: NvmeCdw10CreateIoQueue0 = NvmeCdw10CreateIoQueue0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10CreateIoQueue(
+    public var anonymous: NvmeCdw10CreateIoQueue0 = NvmeCdw10CreateIoQueue0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10CreateIoQueue0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10CreateIoQueue0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10DatasetManagement(public var anonymous: NvmeCdw10DatasetManagement0 = NvmeCdw10DatasetManagement0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10DatasetManagement(
+    public var anonymous: NvmeCdw10DatasetManagement0 = NvmeCdw10DatasetManagement0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10DatasetManagement0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10DatasetManagement0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10DirectiveReceive(public var numd: UInt = 0u)
+public data class NvmeCdw10DirectiveReceive(
+    public var numd: UInt = 0u,
+)
 
-public data class NvmeCdw10DirectiveSend(public var numd: UInt = 0u)
+public data class NvmeCdw10DirectiveSend(
+    public var numd: UInt = 0u,
+)
 
-public data class NvmeCdw10FirmwareActivate(public var anonymous: NvmeCdw10FirmwareActivate0 = NvmeCdw10FirmwareActivate0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10FirmwareActivate(
+    public var anonymous: NvmeCdw10FirmwareActivate0 = NvmeCdw10FirmwareActivate0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10FirmwareActivate0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10FirmwareActivate0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10FirmwareDownload(public var numd: UInt = 0u)
+public data class NvmeCdw10FirmwareDownload(
+    public var numd: UInt = 0u,
+)
 
-public data class NvmeCdw10FormatNvm(public var anonymous: NvmeCdw10FormatNvm0 = NvmeCdw10FormatNvm0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10FormatNvm(
+    public var anonymous: NvmeCdw10FormatNvm0 = NvmeCdw10FormatNvm0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10FormatNvm0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10FormatNvm0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10GetFeatures(public var anonymous: NvmeCdw10GetFeatures0 = NvmeCdw10GetFeatures0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10GetFeatures(
+    public var anonymous: NvmeCdw10GetFeatures0 = NvmeCdw10GetFeatures0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10GetFeatures0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10GetFeatures0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10GetLogPage(public var anonymous: NvmeCdw10GetLogPage0 = NvmeCdw10GetLogPage0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10GetLogPage(
+    public var anonymous: NvmeCdw10GetLogPage0 = NvmeCdw10GetLogPage0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10GetLogPage0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10GetLogPage0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10GetLogPageV13(public var anonymous: NvmeCdw10GetLogPageV130 = NvmeCdw10GetLogPageV130(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10GetLogPageV13(
+    public var anonymous: NvmeCdw10GetLogPageV130 = NvmeCdw10GetLogPageV130(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10GetLogPageV130(public var bitfield: UInt = 0u)
+public data class NvmeCdw10GetLogPageV130(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10Identify(public var anonymous: NvmeCdw10Identify0 = NvmeCdw10Identify0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10Identify(
+    public var anonymous: NvmeCdw10Identify0 = NvmeCdw10Identify0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10Identify0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10Identify0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10ReservationAcquire(public var anonymous: NvmeCdw10ReservationAcquire0 = NvmeCdw10ReservationAcquire0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10ReservationAcquire(
+    public var anonymous: NvmeCdw10ReservationAcquire0 = NvmeCdw10ReservationAcquire0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10ReservationAcquire0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10ReservationAcquire0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10ReservationRegister(public var anonymous: NvmeCdw10ReservationRegister0 = NvmeCdw10ReservationRegister0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10ReservationRegister(
+    public var anonymous: NvmeCdw10ReservationRegister0 = NvmeCdw10ReservationRegister0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10ReservationRegister0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10ReservationRegister0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10ReservationRelease(public var anonymous: NvmeCdw10ReservationRelease0 = NvmeCdw10ReservationRelease0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10ReservationRelease(
+    public var anonymous: NvmeCdw10ReservationRelease0 = NvmeCdw10ReservationRelease0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10ReservationRelease0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10ReservationRelease0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10ReservationReport(public var anonymous: NvmeCdw10ReservationReport0 = NvmeCdw10ReservationReport0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10ReservationReport(
+    public var anonymous: NvmeCdw10ReservationReport0 = NvmeCdw10ReservationReport0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10ReservationReport0(public var numd: UInt = 0u)
+public data class NvmeCdw10ReservationReport0(
+    public var numd: UInt = 0u,
+)
 
-public data class NvmeCdw10Sanitize(public var anonymous: NvmeCdw10Sanitize0 = NvmeCdw10Sanitize0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10Sanitize(
+    public var anonymous: NvmeCdw10Sanitize0 = NvmeCdw10Sanitize0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10Sanitize0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10Sanitize0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10SecuritySendReceive(public var anonymous: NvmeCdw10SecuritySendReceive0 = NvmeCdw10SecuritySendReceive0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10SecuritySendReceive(
+    public var anonymous: NvmeCdw10SecuritySendReceive0 = NvmeCdw10SecuritySendReceive0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10SecuritySendReceive0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10SecuritySendReceive0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10SetFeatures(public var anonymous: NvmeCdw10SetFeatures0 = NvmeCdw10SetFeatures0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw10SetFeatures(
+    public var anonymous: NvmeCdw10SetFeatures0 = NvmeCdw10SetFeatures0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw10SetFeatures0(public var bitfield: UInt = 0u)
+public data class NvmeCdw10SetFeatures0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw10ZoneAppend(public var slba: ULong = 0uL)
+public data class NvmeCdw10ZoneAppend(
+    public var slba: ULong = 0uL,
+)
 
-public data class NvmeCdw10ZoneManagementReceive(public var slba: ULong = 0uL)
+public data class NvmeCdw10ZoneManagementReceive(
+    public var slba: ULong = 0uL,
+)
 
-public data class NvmeCdw10ZoneManagementSend(public var slba: ULong = 0uL)
+public data class NvmeCdw10ZoneManagementSend(
+    public var slba: ULong = 0uL,
+)
 
-public data class NvmeCdw11CreateIoCq(public var anonymous: NvmeCdw11CreateIoCq0 = NvmeCdw11CreateIoCq0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11CreateIoCq(
+    public var anonymous: NvmeCdw11CreateIoCq0 = NvmeCdw11CreateIoCq0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11CreateIoCq0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11CreateIoCq0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11CreateIoSq(public var anonymous: NvmeCdw11CreateIoSq0 = NvmeCdw11CreateIoSq0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11CreateIoSq(
+    public var anonymous: NvmeCdw11CreateIoSq0 = NvmeCdw11CreateIoSq0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11CreateIoSq0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11CreateIoSq0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11DatasetManagement(public var anonymous: NvmeCdw11DatasetManagement0 = NvmeCdw11DatasetManagement0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11DatasetManagement(
+    public var anonymous: NvmeCdw11DatasetManagement0 = NvmeCdw11DatasetManagement0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11DatasetManagement0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11DatasetManagement0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11DirectiveReceive(public var anonymous: NvmeCdw11DirectiveReceive0 = NvmeCdw11DirectiveReceive0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11DirectiveReceive(
+    public var anonymous: NvmeCdw11DirectiveReceive0 = NvmeCdw11DirectiveReceive0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11DirectiveReceive0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11DirectiveReceive0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11DirectiveSend(public var anonymous: NvmeCdw11DirectiveSend0 = NvmeCdw11DirectiveSend0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11DirectiveSend(
+    public var anonymous: NvmeCdw11DirectiveSend0 = NvmeCdw11DirectiveSend0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11DirectiveSend0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11DirectiveSend0(
+    public var bitfield: UInt = 0u,
+)
 
 public class NvmeCdw11Features(
     public var numberOfQueues: NvmeCdw11FeatureNumberOfQueues = NvmeCdw11FeatureNumberOfQueues(),
@@ -270,105 +443,228 @@ public class NvmeCdw11Features(
     public var asUlong: UInt = 0u,
 )
 
-public data class NvmeCdw11FeatureArbitration(public var anonymous: NvmeCdw11FeatureArbitration0 = NvmeCdw11FeatureArbitration0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureArbitration(
+    public var anonymous: NvmeCdw11FeatureArbitration0 = NvmeCdw11FeatureArbitration0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureArbitration0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureArbitration0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureAsyncEventConfig(public var anonymous: NvmeCdw11FeatureAsyncEventConfig0 = NvmeCdw11FeatureAsyncEventConfig0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureAsyncEventConfig(
+    public var anonymous: NvmeCdw11FeatureAsyncEventConfig0 = NvmeCdw11FeatureAsyncEventConfig0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureAsyncEventConfig0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureAsyncEventConfig0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureAutoPowerStateTransition(public var anonymous: NvmeCdw11FeatureAutoPowerStateTransition0 = NvmeCdw11FeatureAutoPowerStateTransition0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureAutoPowerStateTransition(
+    public var anonymous: NvmeCdw11FeatureAutoPowerStateTransition0 = NvmeCdw11FeatureAutoPowerStateTransition0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureAutoPowerStateTransition0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureAutoPowerStateTransition0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureClearFwUpdateHistory(public var anonymous: NvmeCdw11FeatureClearFwUpdateHistory0 = NvmeCdw11FeatureClearFwUpdateHistory0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureClearFwUpdateHistory(
+    public var anonymous: NvmeCdw11FeatureClearFwUpdateHistory0 = NvmeCdw11FeatureClearFwUpdateHistory0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureClearFwUpdateHistory0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureClearFwUpdateHistory0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureClearPcieCorrectableErrorCounters(public var anonymous: NvmeCdw11FeatureClearPcieCorrectableErrorCounters0 = NvmeCdw11FeatureClearPcieCorrectableErrorCounters0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureClearPcieCorrectableErrorCounters(
+    public var anonymous: NvmeCdw11FeatureClearPcieCorrectableErrorCounters0 = NvmeCdw11FeatureClearPcieCorrectableErrorCounters0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureClearPcieCorrectableErrorCounters0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureClearPcieCorrectableErrorCounters0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureEnableIeee1667Silo(public var anonymous: NvmeCdw11FeatureEnableIeee1667Silo0 = NvmeCdw11FeatureEnableIeee1667Silo0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureEnableIeee1667Silo(
+    public var anonymous: NvmeCdw11FeatureEnableIeee1667Silo0 = NvmeCdw11FeatureEnableIeee1667Silo0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureEnableIeee1667Silo0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureEnableIeee1667Silo0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureErrorRecovery(public var anonymous: NvmeCdw11FeatureErrorRecovery0 = NvmeCdw11FeatureErrorRecovery0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureErrorRecovery(
+    public var anonymous: NvmeCdw11FeatureErrorRecovery0 = NvmeCdw11FeatureErrorRecovery0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureErrorRecovery0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureErrorRecovery0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureGetHostMetadata(public var anonymous: NvmeCdw11FeatureGetHostMetadata0 = NvmeCdw11FeatureGetHostMetadata0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureGetHostMetadata(
+    public var anonymous: NvmeCdw11FeatureGetHostMetadata0 = NvmeCdw11FeatureGetHostMetadata0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureGetHostMetadata0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureGetHostMetadata0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureHostIdentifier(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureHostIdentifier(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureHostMemoryBuffer(public var anonymous: NvmeCdw11FeatureHostMemoryBuffer0 = NvmeCdw11FeatureHostMemoryBuffer0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureHostMemoryBuffer(
+    public var anonymous: NvmeCdw11FeatureHostMemoryBuffer0 = NvmeCdw11FeatureHostMemoryBuffer0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureHostMemoryBuffer0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureHostMemoryBuffer0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureInterruptCoalescing(public var anonymous: NvmeCdw11FeatureInterruptCoalescing0 = NvmeCdw11FeatureInterruptCoalescing0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureInterruptCoalescing(
+    public var anonymous: NvmeCdw11FeatureInterruptCoalescing0 = NvmeCdw11FeatureInterruptCoalescing0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureInterruptCoalescing0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureInterruptCoalescing0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureInterruptVectorConfig(public var anonymous: NvmeCdw11FeatureInterruptVectorConfig0 = NvmeCdw11FeatureInterruptVectorConfig0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureInterruptVectorConfig(
+    public var anonymous: NvmeCdw11FeatureInterruptVectorConfig0 = NvmeCdw11FeatureInterruptVectorConfig0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureInterruptVectorConfig0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureInterruptVectorConfig0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureIoCommandSetProfile(public var anonymous: NvmeCdw11FeatureIoCommandSetProfile0 = NvmeCdw11FeatureIoCommandSetProfile0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureIoCommandSetProfile(
+    public var anonymous: NvmeCdw11FeatureIoCommandSetProfile0 = NvmeCdw11FeatureIoCommandSetProfile0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureIoCommandSetProfile0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureIoCommandSetProfile0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureLbaRangeType(public var anonymous: NvmeCdw11FeatureLbaRangeType0 = NvmeCdw11FeatureLbaRangeType0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureLbaRangeType(
+    public var anonymous: NvmeCdw11FeatureLbaRangeType0 = NvmeCdw11FeatureLbaRangeType0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureLbaRangeType0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureLbaRangeType0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureNonOperationalPowerState(public var anonymous: NvmeCdw11FeatureNonOperationalPowerState0 = NvmeCdw11FeatureNonOperationalPowerState0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureNonOperationalPowerState(
+    public var anonymous: NvmeCdw11FeatureNonOperationalPowerState0 = NvmeCdw11FeatureNonOperationalPowerState0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureNonOperationalPowerState0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureNonOperationalPowerState0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureNumberOfQueues(public var anonymous: NvmeCdw11FeatureNumberOfQueues0 = NvmeCdw11FeatureNumberOfQueues0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureNumberOfQueues(
+    public var anonymous: NvmeCdw11FeatureNumberOfQueues0 = NvmeCdw11FeatureNumberOfQueues0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureNumberOfQueues0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureNumberOfQueues0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeaturePowerManagement(public var anonymous: NvmeCdw11FeaturePowerManagement0 = NvmeCdw11FeaturePowerManagement0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeaturePowerManagement(
+    public var anonymous: NvmeCdw11FeaturePowerManagement0 = NvmeCdw11FeaturePowerManagement0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeaturePowerManagement0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeaturePowerManagement0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureReadonlyWritethroughMode(public var anonymous: NvmeCdw11FeatureReadonlyWritethroughMode0 = NvmeCdw11FeatureReadonlyWritethroughMode0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureReadonlyWritethroughMode(
+    public var anonymous: NvmeCdw11FeatureReadonlyWritethroughMode0 = NvmeCdw11FeatureReadonlyWritethroughMode0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureReadonlyWritethroughMode0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureReadonlyWritethroughMode0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureReservationNotificationMask(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureReservationNotificationMask(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureReservationPersistence(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureReservationPersistence(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureSetHostMetadata(public var anonymous: NvmeCdw11FeatureSetHostMetadata0 = NvmeCdw11FeatureSetHostMetadata0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureSetHostMetadata(
+    public var anonymous: NvmeCdw11FeatureSetHostMetadata0 = NvmeCdw11FeatureSetHostMetadata0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureSetHostMetadata0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureSetHostMetadata0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureSupportedCapability(public var anonymous: NvmeCdw11FeatureSupportedCapability0 = NvmeCdw11FeatureSupportedCapability0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureSupportedCapability(
+    public var anonymous: NvmeCdw11FeatureSupportedCapability0 = NvmeCdw11FeatureSupportedCapability0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureSupportedCapability0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureSupportedCapability0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureTemperatureThreshold(public var anonymous: NvmeCdw11FeatureTemperatureThreshold0 = NvmeCdw11FeatureTemperatureThreshold0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureTemperatureThreshold(
+    public var anonymous: NvmeCdw11FeatureTemperatureThreshold0 = NvmeCdw11FeatureTemperatureThreshold0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureTemperatureThreshold0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureTemperatureThreshold0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureVolatileWriteCache(public var anonymous: NvmeCdw11FeatureVolatileWriteCache0 = NvmeCdw11FeatureVolatileWriteCache0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureVolatileWriteCache(
+    public var anonymous: NvmeCdw11FeatureVolatileWriteCache0 = NvmeCdw11FeatureVolatileWriteCache0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureVolatileWriteCache0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureVolatileWriteCache0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureWriteAtomicityNormal(public var anonymous: NvmeCdw11FeatureWriteAtomicityNormal0 = NvmeCdw11FeatureWriteAtomicityNormal0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11FeatureWriteAtomicityNormal(
+    public var anonymous: NvmeCdw11FeatureWriteAtomicityNormal0 = NvmeCdw11FeatureWriteAtomicityNormal0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11FeatureWriteAtomicityNormal0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11FeatureWriteAtomicityNormal0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11FirmwareDownload(public var ofst: UInt = 0u)
+public data class NvmeCdw11FirmwareDownload(
+    public var ofst: UInt = 0u,
+)
 
-public data class NvmeCdw11GetLogPage(public var anonymous: NvmeCdw11GetLogPage0 = NvmeCdw11GetLogPage0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11GetLogPage(
+    public var anonymous: NvmeCdw11GetLogPage0 = NvmeCdw11GetLogPage0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11GetLogPage0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11GetLogPage0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class NvmeCdw11Identify(
     public var anonymous1: NvmeCdw11Identify0 = NvmeCdw11Identify0(),
@@ -376,59 +672,127 @@ public data class NvmeCdw11Identify(
     public var asUlong: UInt = 0u,
 )
 
-public data class NvmeCdw11Identify0(public var nvmsetid: UShort = 0u, public var reserved: UShort = 0u)
+public data class NvmeCdw11Identify0(
+    public var nvmsetid: UShort = 0u,
+    public var reserved: UShort = 0u,
+)
 
-public data class NvmeCdw11Identify1(public var bitfield: UInt = 0u)
+public data class NvmeCdw11Identify1(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11ReservationReport(public var anonymous: NvmeCdw11ReservationReport0 = NvmeCdw11ReservationReport0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11ReservationReport(
+    public var anonymous: NvmeCdw11ReservationReport0 = NvmeCdw11ReservationReport0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11ReservationReport0(public var bitfield: UInt = 0u)
+public data class NvmeCdw11ReservationReport0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw11Sanitize(public var anonymous: NvmeCdw11Sanitize0 = NvmeCdw11Sanitize0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw11Sanitize(
+    public var anonymous: NvmeCdw11Sanitize0 = NvmeCdw11Sanitize0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw11Sanitize0(public var ovrpat: UInt = 0u)
+public data class NvmeCdw11Sanitize0(
+    public var ovrpat: UInt = 0u,
+)
 
-public data class NvmeCdw11SecurityReceive(public var al: UInt = 0u)
+public data class NvmeCdw11SecurityReceive(
+    public var al: UInt = 0u,
+)
 
-public data class NvmeCdw11SecuritySend(public var tl: UInt = 0u)
+public data class NvmeCdw11SecuritySend(
+    public var tl: UInt = 0u,
+)
 
-public data class NvmeCdw12DirectiveReceive(public var allocateResources: NvmeCdw12DirectiveReceiveStreamsAllocateResources = NvmeCdw12DirectiveReceiveStreamsAllocateResources(), public var asUlong: UInt = 0u)
+public data class NvmeCdw12DirectiveReceive(
+    public var allocateResources: NvmeCdw12DirectiveReceiveStreamsAllocateResources = NvmeCdw12DirectiveReceiveStreamsAllocateResources(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw12DirectiveReceiveStreamsAllocateResources(public var anonymous: NvmeCdw12DirectiveReceiveStreamsAllocateResources0 = NvmeCdw12DirectiveReceiveStreamsAllocateResources0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw12DirectiveReceiveStreamsAllocateResources(
+    public var anonymous: NvmeCdw12DirectiveReceiveStreamsAllocateResources0 = NvmeCdw12DirectiveReceiveStreamsAllocateResources0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw12DirectiveReceiveStreamsAllocateResources0(public var bitfield: UInt = 0u)
+public data class NvmeCdw12DirectiveReceiveStreamsAllocateResources0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw12DirectiveSend(public var enableDirective: NvmeCdw12DirectiveSendIdentifyEnableDirective = NvmeCdw12DirectiveSendIdentifyEnableDirective(), public var asUlong: UInt = 0u)
+public data class NvmeCdw12DirectiveSend(
+    public var enableDirective: NvmeCdw12DirectiveSendIdentifyEnableDirective = NvmeCdw12DirectiveSendIdentifyEnableDirective(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw12DirectiveSendIdentifyEnableDirective(public var anonymous: NvmeCdw12DirectiveSendIdentifyEnableDirective0 = NvmeCdw12DirectiveSendIdentifyEnableDirective0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw12DirectiveSendIdentifyEnableDirective(
+    public var anonymous: NvmeCdw12DirectiveSendIdentifyEnableDirective0 = NvmeCdw12DirectiveSendIdentifyEnableDirective0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw12DirectiveSendIdentifyEnableDirective0(public var bitfield: UInt = 0u)
+public data class NvmeCdw12DirectiveSendIdentifyEnableDirective0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw12Features(public var hostMemoryBuffer: NvmeCdw12FeatureHostMemoryBuffer = NvmeCdw12FeatureHostMemoryBuffer(), public var asUlong: UInt = 0u)
+public data class NvmeCdw12Features(
+    public var hostMemoryBuffer: NvmeCdw12FeatureHostMemoryBuffer = NvmeCdw12FeatureHostMemoryBuffer(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw12FeatureHostMemoryBuffer(public var anonymous: NvmeCdw12FeatureHostMemoryBuffer0 = NvmeCdw12FeatureHostMemoryBuffer0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw12FeatureHostMemoryBuffer(
+    public var anonymous: NvmeCdw12FeatureHostMemoryBuffer0 = NvmeCdw12FeatureHostMemoryBuffer0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw12FeatureHostMemoryBuffer0(public var hsize: UInt = 0u)
+public data class NvmeCdw12FeatureHostMemoryBuffer0(
+    public var hsize: UInt = 0u,
+)
 
-public data class NvmeCdw12GetLogPage(public var lpol: UInt = 0u)
+public data class NvmeCdw12GetLogPage(
+    public var lpol: UInt = 0u,
+)
 
-public data class NvmeCdw12ReadWrite(public var anonymous: NvmeCdw12ReadWrite0 = NvmeCdw12ReadWrite0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw12ReadWrite(
+    public var anonymous: NvmeCdw12ReadWrite0 = NvmeCdw12ReadWrite0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw12ReadWrite0(public var bitfield: UInt = 0u)
+public data class NvmeCdw12ReadWrite0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw12ZoneAppend(public var anonymous: NvmeCdw12ZoneAppend0 = NvmeCdw12ZoneAppend0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw12ZoneAppend(
+    public var anonymous: NvmeCdw12ZoneAppend0 = NvmeCdw12ZoneAppend0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw12ZoneAppend0(public var bitfield: UInt = 0u)
+public data class NvmeCdw12ZoneAppend0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw13Features(public var hostMemoryBuffer: NvmeCdw13FeatureHostMemoryBuffer = NvmeCdw13FeatureHostMemoryBuffer(), public var asUlong: UInt = 0u)
+public data class NvmeCdw13Features(
+    public var hostMemoryBuffer: NvmeCdw13FeatureHostMemoryBuffer = NvmeCdw13FeatureHostMemoryBuffer(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw13FeatureHostMemoryBuffer(public var anonymous: NvmeCdw13FeatureHostMemoryBuffer0 = NvmeCdw13FeatureHostMemoryBuffer0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw13FeatureHostMemoryBuffer(
+    public var anonymous: NvmeCdw13FeatureHostMemoryBuffer0 = NvmeCdw13FeatureHostMemoryBuffer0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw13FeatureHostMemoryBuffer0(public var bitfield: UInt = 0u)
+public data class NvmeCdw13FeatureHostMemoryBuffer0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw13GetLogPage(public var lpou: UInt = 0u)
+public data class NvmeCdw13GetLogPage(
+    public var lpou: UInt = 0u,
+)
 
-public data class NvmeCdw13ReadWrite(public var anonymous: NvmeCdw13ReadWrite0 = NvmeCdw13ReadWrite0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw13ReadWrite(
+    public var anonymous: NvmeCdw13ReadWrite0 = NvmeCdw13ReadWrite0(),
+    public var asUlong: UInt = 0u,
+)
 
 public data class NvmeCdw13ReadWrite0(
     public var dsm: NvmeCdw13ReadWrite00 = NvmeCdw13ReadWrite00(),
@@ -436,41 +800,86 @@ public data class NvmeCdw13ReadWrite0(
     public var dspec: UShort = 0u,
 )
 
-public data class NvmeCdw13ReadWrite00(public var bitfield: UByte = 0u)
+public data class NvmeCdw13ReadWrite00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class NvmeCdw13ZoneManagementReceive(public var anonymous: NvmeCdw13ZoneManagementReceive0 = NvmeCdw13ZoneManagementReceive0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw13ZoneManagementReceive(
+    public var anonymous: NvmeCdw13ZoneManagementReceive0 = NvmeCdw13ZoneManagementReceive0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw13ZoneManagementReceive0(public var bitfield: UInt = 0u)
+public data class NvmeCdw13ZoneManagementReceive0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw13ZoneManagementSend(public var anonymous: NvmeCdw13ZoneManagementSend0 = NvmeCdw13ZoneManagementSend0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw13ZoneManagementSend(
+    public var anonymous: NvmeCdw13ZoneManagementSend0 = NvmeCdw13ZoneManagementSend0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw13ZoneManagementSend0(public var bitfield: UInt = 0u)
+public data class NvmeCdw13ZoneManagementSend0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw14Features(public var hostMemoryBuffer: NvmeCdw14FeatureHostMemoryBuffer = NvmeCdw14FeatureHostMemoryBuffer(), public var asUlong: UInt = 0u)
+public data class NvmeCdw14Features(
+    public var hostMemoryBuffer: NvmeCdw14FeatureHostMemoryBuffer = NvmeCdw14FeatureHostMemoryBuffer(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw14FeatureHostMemoryBuffer(public var anonymous: NvmeCdw14FeatureHostMemoryBuffer0 = NvmeCdw14FeatureHostMemoryBuffer0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw14FeatureHostMemoryBuffer(
+    public var anonymous: NvmeCdw14FeatureHostMemoryBuffer0 = NvmeCdw14FeatureHostMemoryBuffer0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw14FeatureHostMemoryBuffer0(public var hmdlua: UInt = 0u)
+public data class NvmeCdw14FeatureHostMemoryBuffer0(
+    public var hmdlua: UInt = 0u,
+)
 
-public data class NvmeCdw14GetLogPage(public var anonymous: NvmeCdw14GetLogPage0 = NvmeCdw14GetLogPage0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw14GetLogPage(
+    public var anonymous: NvmeCdw14GetLogPage0 = NvmeCdw14GetLogPage0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw14GetLogPage0(public var bitfield: UInt = 0u)
+public data class NvmeCdw14GetLogPage0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw15Features(public var hostMemoryBuffer: NvmeCdw15FeatureHostMemoryBuffer = NvmeCdw15FeatureHostMemoryBuffer(), public var asUlong: UInt = 0u)
+public data class NvmeCdw15Features(
+    public var hostMemoryBuffer: NvmeCdw15FeatureHostMemoryBuffer = NvmeCdw15FeatureHostMemoryBuffer(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw15FeatureHostMemoryBuffer(public var anonymous: NvmeCdw15FeatureHostMemoryBuffer0 = NvmeCdw15FeatureHostMemoryBuffer0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw15FeatureHostMemoryBuffer(
+    public var anonymous: NvmeCdw15FeatureHostMemoryBuffer0 = NvmeCdw15FeatureHostMemoryBuffer0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw15FeatureHostMemoryBuffer0(public var hmdlec: UInt = 0u)
+public data class NvmeCdw15FeatureHostMemoryBuffer0(
+    public var hmdlec: UInt = 0u,
+)
 
-public data class NvmeCdw15ReadWrite(public var anonymous: NvmeCdw15ReadWrite0 = NvmeCdw15ReadWrite0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw15ReadWrite(
+    public var anonymous: NvmeCdw15ReadWrite0 = NvmeCdw15ReadWrite0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw15ReadWrite0(public var bitfield: UInt = 0u)
+public data class NvmeCdw15ReadWrite0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCdw15ZoneAppend(public var anonymous: NvmeCdw15ZoneAppend0 = NvmeCdw15ZoneAppend0(), public var asUlong: UInt = 0u)
+public data class NvmeCdw15ZoneAppend(
+    public var anonymous: NvmeCdw15ZoneAppend0 = NvmeCdw15ZoneAppend0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCdw15ZoneAppend0(public var bitfield: UInt = 0u)
+public data class NvmeCdw15ZoneAppend0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeChangedNamespaceListLog(public var nsid: UIntArray = UIntArray(1024)) {
+public data class NvmeChangedNamespaceListLog(
+    public var nsid: UIntArray = UIntArray(1024),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NvmeChangedNamespaceListLog) return false
@@ -478,9 +887,7 @@ public data class NvmeChangedNamespaceListLog(public var nsid: UIntArray = UIntA
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.nsid.contentHashCode()
-    }
+    override fun hashCode(): Int = this.nsid.contentHashCode()
 }
 
 public data class NvmeChangedZoneListLog(
@@ -675,7 +1082,10 @@ public data class NvmeCommand05(
     public var cdw15: UInt = 0u,
 )
 
-public data class NvmeCommand050(public var cdw10: NvmeCdw10GetLogPage = NvmeCdw10GetLogPage(), public var cdw10V13: NvmeCdw10GetLogPageV13 = NvmeCdw10GetLogPageV13())
+public data class NvmeCommand050(
+    public var cdw10: NvmeCdw10GetLogPage = NvmeCdw10GetLogPage(),
+    public var cdw10V13: NvmeCdw10GetLogPageV13 = NvmeCdw10GetLogPageV13(),
+)
 
 public data class NvmeCommand01(
     public var cdw10: NvmeCdw10Identify = NvmeCdw10Identify(),
@@ -791,13 +1201,23 @@ public data class NvmeCommand022(
     public var cdw15: UInt = 0u,
 )
 
-public data class NvmeCommandDword0(public var anonymous: NvmeCommandDword00 = NvmeCommandDword00(), public var asUlong: UInt = 0u)
+public data class NvmeCommandDword0(
+    public var anonymous: NvmeCommandDword00 = NvmeCommandDword00(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCommandDword00(public var bitfield: UInt = 0u)
+public data class NvmeCommandDword00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCommandEffectsData(public var anonymous: NvmeCommandEffectsData0 = NvmeCommandEffectsData0(), public var asUlong: UInt = 0u)
+public data class NvmeCommandEffectsData(
+    public var anonymous: NvmeCommandEffectsData0 = NvmeCommandEffectsData0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCommandEffectsData0(public var bitfield: UInt = 0u)
+public data class NvmeCommandEffectsData0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class NvmeCommandEffectsLog(
     public var acs: List<NvmeCommandEffectsData> = List(256) { NvmeCommandEffectsData() },
@@ -821,15 +1241,27 @@ public data class NvmeCommandEffectsLog(
     }
 }
 
-public data class NvmeCommandStatus(public var anonymous: NvmeCommandStatus0 = NvmeCommandStatus0(), public var asUshort: UShort = 0u)
+public data class NvmeCommandStatus(
+    public var anonymous: NvmeCommandStatus0 = NvmeCommandStatus0(),
+    public var asUshort: UShort = 0u,
+)
 
-public data class NvmeCommandStatus0(public var bitfield: UShort = 0u)
+public data class NvmeCommandStatus0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class NvmeCompletionDw0AsyncEventRequest(public var bitfield: UInt = 0u)
+public data class NvmeCompletionDw0AsyncEventRequest(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeCompletionDw0DirectiveReceiveStreamsAllocateResources(public var anonymous: NvmeCompletionDw0DirectiveReceiveStreamsAllocateResources0 = NvmeCompletionDw0DirectiveReceiveStreamsAllocateResources0(), public var asUlong: UInt = 0u)
+public data class NvmeCompletionDw0DirectiveReceiveStreamsAllocateResources(
+    public var anonymous: NvmeCompletionDw0DirectiveReceiveStreamsAllocateResources0 = NvmeCompletionDw0DirectiveReceiveStreamsAllocateResources0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCompletionDw0DirectiveReceiveStreamsAllocateResources0(public var bitfield: UInt = 0u)
+public data class NvmeCompletionDw0DirectiveReceiveStreamsAllocateResources0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class NvmeCompletionEntry(
     public var dw0: UInt = 0u,
@@ -838,31 +1270,66 @@ public data class NvmeCompletionEntry(
     public var dw3: NvmeCompletionEntry1 = NvmeCompletionEntry1(),
 )
 
-public data class NvmeCompletionEntry0(public var anonymous: NvmeCompletionEntry00 = NvmeCompletionEntry00(), public var asUlong: UInt = 0u)
+public data class NvmeCompletionEntry0(
+    public var anonymous: NvmeCompletionEntry00 = NvmeCompletionEntry00(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCompletionEntry00(public var sqhd: UShort = 0u, public var sqid: UShort = 0u)
+public data class NvmeCompletionEntry00(
+    public var sqhd: UShort = 0u,
+    public var sqid: UShort = 0u,
+)
 
-public data class NvmeCompletionEntry1(public var anonymous: NvmeCompletionEntry10 = NvmeCompletionEntry10(), public var asUlong: UInt = 0u)
+public data class NvmeCompletionEntry1(
+    public var anonymous: NvmeCompletionEntry10 = NvmeCompletionEntry10(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCompletionEntry10(public var cid: UShort = 0u, public var status: NvmeCommandStatus = NvmeCommandStatus())
+public data class NvmeCompletionEntry10(
+    public var cid: UShort = 0u,
+    public var status: NvmeCommandStatus = NvmeCommandStatus(),
+)
 
-public data class NvmeCompletionQueueHeadDoorbell(public var anonymous: NvmeCompletionQueueHeadDoorbell0 = NvmeCompletionQueueHeadDoorbell0(), public var asUlong: UInt = 0u)
+public data class NvmeCompletionQueueHeadDoorbell(
+    public var anonymous: NvmeCompletionQueueHeadDoorbell0 = NvmeCompletionQueueHeadDoorbell0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeCompletionQueueHeadDoorbell0(public var bitfield: UInt = 0u)
+public data class NvmeCompletionQueueHeadDoorbell0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeContextAttributes(public var anonymous: NvmeContextAttributes0 = NvmeContextAttributes0(), public var asUlong: UInt = 0u)
+public data class NvmeContextAttributes(
+    public var anonymous: NvmeContextAttributes0 = NvmeContextAttributes0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeContextAttributes0(public var bitfield: UInt = 0u)
+public data class NvmeContextAttributes0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeControllerCapabilities(public var anonymous: NvmeControllerCapabilities0 = NvmeControllerCapabilities0(), public var asUlonglong: ULong = 0uL)
+public data class NvmeControllerCapabilities(
+    public var anonymous: NvmeControllerCapabilities0 = NvmeControllerCapabilities0(),
+    public var asUlonglong: ULong = 0uL,
+)
 
-public data class NvmeControllerCapabilities0(public var bitfield: ULong = 0uL)
+public data class NvmeControllerCapabilities0(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class NvmeControllerConfiguration(public var anonymous: NvmeControllerConfiguration0 = NvmeControllerConfiguration0(), public var asUlong: UInt = 0u)
+public data class NvmeControllerConfiguration(
+    public var anonymous: NvmeControllerConfiguration0 = NvmeControllerConfiguration0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeControllerConfiguration0(public var bitfield: UInt = 0u)
+public data class NvmeControllerConfiguration0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeControllerList(public var numberOfIdentifiers: UShort = 0u, public var controllerID: UShortArray = UShortArray(2047)) {
+public data class NvmeControllerList(
+    public var numberOfIdentifiers: UShort = 0u,
+    public var controllerID: UShortArray = UShortArray(2047),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NvmeControllerList) return false
@@ -878,13 +1345,23 @@ public data class NvmeControllerList(public var numberOfIdentifiers: UShort = 0u
     }
 }
 
-public data class NvmeControllerMemoryBufferLocation(public var anonymous: NvmeControllerMemoryBufferLocation0 = NvmeControllerMemoryBufferLocation0(), public var asUlong: UInt = 0u)
+public data class NvmeControllerMemoryBufferLocation(
+    public var anonymous: NvmeControllerMemoryBufferLocation0 = NvmeControllerMemoryBufferLocation0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeControllerMemoryBufferLocation0(public var bitfield: UInt = 0u)
+public data class NvmeControllerMemoryBufferLocation0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NvmeControllerMemoryBufferSize(public var anonymous: NvmeControllerMemoryBufferSize0 = NvmeControllerMemoryBufferSize0(), public var asUlong: UInt = 0u)
+public data class NvmeControllerMemoryBufferSize(
+    public var anonymous: NvmeControllerMemoryBufferSize0 = NvmeControllerMemoryBufferSize0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeControllerMemoryBufferSize0(public var bitfield: UInt = 0u)
+public data class NvmeControllerMemoryBufferSize0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class NvmeControllerRegisters(
     public var cap: NvmeControllerCapabilities = NvmeControllerCapabilities(),
@@ -947,9 +1424,14 @@ public data class NvmeControllerRegisters(
     }
 }
 
-public data class NvmeControllerStatus(public var anonymous: NvmeControllerStatus0 = NvmeControllerStatus0(), public var asUlong: UInt = 0u)
+public data class NvmeControllerStatus(
+    public var anonymous: NvmeControllerStatus0 = NvmeControllerStatus0(),
+    public var asUlong: UInt = 0u,
+)
 
-public data class NvmeControllerStatus0(public var bitfield: UInt = 0u)
+public data class NvmeControllerStatus0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class NvmeDeviceSelfTestLog(
     public var currentOperation: NvmeDeviceSelfTestLog0 = NvmeDeviceSelfTestLog0(),
@@ -976,9 +1458,13 @@ public data class NvmeDeviceSelfTestLog(
     }
 }
 
-public data class NvmeDeviceSelfTestLog1(public var bitfield: UByte = 0u)
+public data class NvmeDeviceSelfTestLog1(
+    public var bitfield: UByte = 0u,
+)
 
-public data class NvmeDeviceSelfTestLog0(public var bitfield: UByte = 0u)
+public data class NvmeDeviceSelfTestLog0(
+    public var bitfield: UByte = 0u,
+)
 
 public data class NvmeDeviceSelfTestResultData(
     public var status: NvmeDeviceSelfTestResultData0 = NvmeDeviceSelfTestResultData0(),
@@ -993,15 +1479,27 @@ public data class NvmeDeviceSelfTestResultData(
     public var vendorSpecific: UShort = 0u,
 )
 
-public data class NvmeDeviceSelfTestResultData2(public var bitfield: UByte = 0u)
+public data class NvmeDeviceSelfTestResultData2(
+    public var bitfield: UByte = 0u,
+)
 
-public data class NvmeDeviceSelfTestResultData0(public var bitfield: UByte = 0u)
+public data class NvmeDeviceSelfTestResultData0(
+    public var bitfield: UByte = 0u,
+)
 
-public data class NvmeDeviceSelfTestResultData1(public var bitfield: UByte = 0u)
+public data class NvmeDeviceSelfTestResultData1(
+    public var bitfield: UByte = 0u,
+)
 
-public data class NvmeDirectiveIdentifyReturnParameters(public var directivesSupported: NvmeDirectiveIdentifyReturnParametersDescriptor = NvmeDirectiveIdentifyReturnParametersDescriptor(), public var directivesEnabled: NvmeDirectiveIdentifyReturnParametersDescriptor = NvmeDirectiveIdentifyReturnParametersDescriptor())
+public data class NvmeDirectiveIdentifyReturnParameters(
+    public var directivesSupported: NvmeDirectiveIdentifyReturnParametersDescriptor = NvmeDirectiveIdentifyReturnParametersDescriptor(),
+    public var directivesEnabled: NvmeDirectiveIdentifyReturnParametersDescriptor = NvmeDirectiveIdentifyReturnParametersDescriptor(),
+)
 
-public data class NvmeDirectiveIdentifyReturnParametersDescriptor(public var bitfield: UByte = 0u, public var reserved1: UByteArray = UByteArray(31)) {
+public data class NvmeDirectiveIdentifyReturnParametersDescriptor(
+    public var bitfield: UByte = 0u,
+    public var reserved1: UByteArray = UByteArray(31),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NvmeDirectiveIdentifyReturnParametersDescriptor) return false
@@ -1017,7 +1515,10 @@ public data class NvmeDirectiveIdentifyReturnParametersDescriptor(public var bit
     }
 }
 
-public data class NvmeDirectiveStreamsGetStatusData(public var openStreamCount: UShort = 0u, public var streamIdentifiers: UShortArray = UShortArray(65535)) {
+public data class NvmeDirectiveStreamsGetStatusData(
+    public var openStreamCount: UShort = 0u,
+    public var streamIdentifiers: UShortArray = UShortArray(65535),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NvmeDirectiveStreamsGetStatusData) return false
@@ -1159,7 +1660,9 @@ public data class NvmeErrorInfoLog(
     }
 }
 
-public data class NvmeErrorInfoLog0(public var bitfield: UShort = 0u)
+public data class NvmeErrorInfoLog0(
+    public var bitfield: UShort = 0u,
+)
 
 public data class NvmeErrorInjectionEntry(
     public var flags: NvmeErrorInjectionEntry0 = NvmeErrorInjectionEntry0(),
@@ -1186,4 +1689,7 @@ public data class NvmeErrorInjectionEntry(
     }
 }
 
-public data class NvmeErrorInjectionEntry0(public var anonymous: NvmeErrorInjectionEntry00 = NvmeErrorInjectionEntry00(), public var asUchar: UByte = 0u)
+public data class NvmeErrorInjectionEntry0(
+    public var anonymous: NvmeErrorInjectionEntry00 = NvmeErrorInjectionEntry00(),
+    public var asUchar: UByte = 0u,
+)

@@ -9,9 +9,8 @@ import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.Pwstr
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 
-public actual fun clearVariantArray(pvars: COpaquePointer?, cvars: UInt) {
+public actual fun clearVariantArray(pvars: COpaquePointer?, cvars: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun dosDateTimeToVariantTime(wdosdate: UShort, wdostime: UShort, pvtime: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -64,13 +63,11 @@ public actual fun initVariantFromVariantArrayElem(varin: COpaquePointer?, ielem:
 public actual fun systemTimeToVariantTime(lpsystemtime: COpaquePointer?, pvtime: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun variantUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
+public actual fun variantUserFree(param0: COpaquePointer?, param1: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun variantUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
+public actual fun variantUserFree64(param0: COpaquePointer?, param1: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun variantUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -138,9 +135,8 @@ public actual fun variantGetUInt32Elem(variable: COpaquePointer?, ielem: UInt, p
 public actual fun variantGetUInt64Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun variantInit(pvarg: COpaquePointer?) {
+public actual fun variantInit(pvarg: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun variantTimeToDosDateTime(vtime: Double, pwdosdate: COpaquePointer?, pwdostime: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

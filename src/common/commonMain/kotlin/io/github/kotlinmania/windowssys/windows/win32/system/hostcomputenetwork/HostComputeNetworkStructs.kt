@@ -14,4 +14,7 @@ public data class HcnPortRangeEntry(
     public var endingPort: UShort = 0u,
 )
 
-public data class HcnPortRangeReservation(public var startingPort: UShort = 0u, public var endingPort: UShort = 0u)
+public data class HcnPortRangeReservation(
+    public var startingPort: UShort = 0u,
+    public var endingPort: UShort = 0u,
+)

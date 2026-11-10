@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.bluetooth
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -10,9 +11,14 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 
-public data class BluetoothAddress(public var anonymous: BluetoothAddress0 = BluetoothAddress0())
+public data class BluetoothAddress(
+    public var anonymous: BluetoothAddress0 = BluetoothAddress0(),
+)
 
-public data class BluetoothAddress0(public var ullLong: ULong = 0uL, public var rgBytes: UByteArray = UByteArray(6)) {
+public data class BluetoothAddress0(
+    public var ullLong: ULong = 0uL,
+    public var rgBytes: UByteArray = UByteArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is BluetoothAddress0) return false
@@ -50,9 +56,15 @@ public data class BluetoothAuthenticationCallbackParams(
     public var anonymous: BluetoothAuthenticationCallbackParams0 = BluetoothAuthenticationCallbackParams0(),
 )
 
-public data class BluetoothAuthenticationCallbackParams0(public var numericValue: UInt = 0u, public var passkey: UInt = 0u)
+public data class BluetoothAuthenticationCallbackParams0(
+    public var numericValue: UInt = 0u,
+    public var passkey: UInt = 0u,
+)
 
-public data class BluetoothCodPairs(public var ulCODMask: UInt = 0u, public var pcszDescription: Pcwstr = null)
+public data class BluetoothCodPairs(
+    public var ulCODMask: UInt = 0u,
+    public var pcszDescription: Pcwstr = null,
+)
 
 public data class BluetoothDeviceInfo(
     public var dwSize: UInt = 0u,
@@ -105,7 +117,9 @@ public data class BluetoothDeviceSearchParams(
     public var hRadio: Handle = null,
 )
 
-public data class BluetoothFindRadioParams(public var dwSize: UInt = 0u)
+public data class BluetoothFindRadioParams(
+    public var dwSize: UInt = 0u,
+)
 
 public data class BluetoothGattValueChangedEvent(
     public var changedAttributeHandle: UShort = 0u,
@@ -113,7 +127,10 @@ public data class BluetoothGattValueChangedEvent(
     public var characteristicValue: BthLeGattCharacteristicValue? = null,
 )
 
-public data class BluetoothGattValueChangedEventRegistration(public var numCharacteristics: UShort = 0u, public var characteristics: List<BthLeGattCharacteristic> = List(1) { BthLeGattCharacteristic() })
+public data class BluetoothGattValueChangedEventRegistration(
+    public var numCharacteristics: UShort = 0u,
+    public var characteristics: List<BthLeGattCharacteristic> = List(1) { BthLeGattCharacteristic() },
+)
 
 public data class BluetoothLocalServiceInfo(
     public var enabled: Bool = 0,
@@ -140,9 +157,14 @@ public data class BluetoothLocalServiceInfo(
     }
 }
 
-public data class BluetoothNumericComparisonInfo(public var numericValue: UInt = 0u)
+public data class BluetoothNumericComparisonInfo(
+    public var numericValue: UInt = 0u,
+)
 
-public data class BluetoothOobDataInfo(public var c: UByteArray = UByteArray(16), public var r: UByteArray = UByteArray(16)) {
+public data class BluetoothOobDataInfo(
+    public var c: UByteArray = UByteArray(16),
+    public var r: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is BluetoothOobDataInfo) return false
@@ -158,9 +180,14 @@ public data class BluetoothOobDataInfo(public var c: UByteArray = UByteArray(16)
     }
 }
 
-public data class BluetoothPasskeyInfo(public var passkey: UInt = 0u)
+public data class BluetoothPasskeyInfo(
+    public var passkey: UInt = 0u,
+)
 
-public data class BluetoothPinInfo(public var pin: UByteArray = UByteArray(16), public var pinLength: UByte = 0u) {
+public data class BluetoothPinInfo(
+    public var pin: UByteArray = UByteArray(16),
+    public var pinLength: UByte = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is BluetoothPinInfo) return false
@@ -256,7 +283,10 @@ public data class BthHciEventInfo(
     public var connected: UByte = 0u,
 )
 
-public data class BthInfoReq(public var btAddr: ULong = 0uL, public var infoType: UShort = 0u)
+public data class BthInfoReq(
+    public var btAddr: ULong = 0uL,
+    public var infoType: UShort = 0u,
+)
 
 public data class BthInfoRsp(
     public var result: UShort = 0u,
@@ -264,7 +294,10 @@ public data class BthInfoRsp(
     public var anonymous: BthInfoRsp0 = BthInfoRsp0(),
 )
 
-public data class BthInfoRsp0(public var connectionlessMTU: UShort = 0u, public var data: UByteArray = UByteArray(44)) {
+public data class BthInfoRsp0(
+    public var connectionlessMTU: UShort = 0u,
+    public var data: UByteArray = UByteArray(44),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is BthInfoRsp0) return false
@@ -302,7 +335,10 @@ public data class BthLeGattCharacteristic(
     public var hasExtendedProperties: Boolean = false,
 )
 
-public data class BthLeGattCharacteristicValue(public var dataSize: UInt = 0u, public var data: UByteArray = UByteArray(1)) {
+public data class BthLeGattCharacteristicValue(
+    public var dataSize: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is BthLeGattCharacteristicValue) return false
@@ -361,7 +397,10 @@ public data class BthLeGattDescriptorValue0(
     public var characteristicFormat: BthLeGattDescriptorValue03 = BthLeGattDescriptorValue03(),
 )
 
-public data class BthLeGattDescriptorValue00(public var isReliableWriteEnabled: Boolean = false, public var isAuxiliariesWritable: Boolean = false)
+public data class BthLeGattDescriptorValue00(
+    public var isReliableWriteEnabled: Boolean = false,
+    public var isAuxiliariesWritable: Boolean = false,
+)
 
 public data class BthLeGattDescriptorValue03(
     public var format: UByte = 0u,
@@ -371,15 +410,29 @@ public data class BthLeGattDescriptorValue03(
     public var description: BthLeUuid = BthLeUuid(),
 )
 
-public data class BthLeGattDescriptorValue01(public var isSubscribeToNotification: Boolean = false, public var isSubscribeToIndication: Boolean = false)
+public data class BthLeGattDescriptorValue01(
+    public var isSubscribeToNotification: Boolean = false,
+    public var isSubscribeToIndication: Boolean = false,
+)
 
-public data class BthLeGattDescriptorValue02(public var isBroadcast: Boolean = false)
+public data class BthLeGattDescriptorValue02(
+    public var isBroadcast: Boolean = false,
+)
 
-public data class BthLeGattService(public var serviceUuid: BthLeUuid = BthLeUuid(), public var attributeHandle: UShort = 0u)
+public data class BthLeGattService(
+    public var serviceUuid: BthLeUuid = BthLeUuid(),
+    public var attributeHandle: UShort = 0u,
+)
 
-public data class BthLeUuid(public var isShortUuid: Boolean = false, public var value: BthLeUuid0 = BthLeUuid0())
+public data class BthLeUuid(
+    public var isShortUuid: Boolean = false,
+    public var value: BthLeUuid0 = BthLeUuid0(),
+)
 
-public data class BthLeUuid0(public var shortUuid: UShort = 0u, public var longUuid: Guid = Guid())
+public data class BthLeUuid0(
+    public var shortUuid: UShort = 0u,
+    public var longUuid: Guid = Guid(),
+)
 
 public data class BthPingReq(
     public var btAddr: ULong = 0uL,
@@ -403,7 +456,10 @@ public data class BthPingReq(
     }
 }
 
-public data class BthPingRsp(public var dataLen: UByte = 0u, public var data: UByteArray = UByteArray(44)) {
+public data class BthPingRsp(
+    public var dataLen: UByte = 0u,
+    public var data: UByteArray = UByteArray(44),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is BthPingRsp) return false
@@ -419,7 +475,10 @@ public data class BthPingRsp(public var dataLen: UByte = 0u, public var data: UB
     }
 }
 
-public data class BthQueryDevice(public var lap: UInt = 0u, public var length: UByte = 0u)
+public data class BthQueryDevice(
+    public var lap: UInt = 0u,
+    public var length: UByte = 0u,
+)
 
 public data class BthQueryService(
     public var type: UInt = 0u,
@@ -429,7 +488,10 @@ public data class BthQueryService(
     public var pRange: List<SdpAttributeRange> = List(1) { SdpAttributeRange() },
 )
 
-public data class BthRadioInRange(public var deviceInfo: BthDeviceInfo = BthDeviceInfo(), public var previousDeviceFlags: UInt = 0u)
+public data class BthRadioInRange(
+    public var deviceInfo: BthDeviceInfo = BthDeviceInfo(),
+    public var previousDeviceFlags: UInt = 0u,
+)
 
 public data class BthSetService(
     public var pSdpVersion: UInt? = null,
@@ -462,7 +524,10 @@ public data class BthSetService(
     }
 }
 
-public data class RfcommCommand(public var cmdType: UInt = 0u, public var data: RfcommCommand0 = RfcommCommand0())
+public data class RfcommCommand(
+    public var cmdType: UInt = 0u,
+    public var data: RfcommCommand0 = RfcommCommand0(),
+)
 
 public data class RfcommCommand0(
     public var msc: RfcommMscData = RfcommMscData(),
@@ -470,9 +535,14 @@ public data class RfcommCommand0(
     public var rpn: RfcommRpnData = RfcommRpnData(),
 )
 
-public data class RfcommMscData(public var signals: UByte = 0u, public var breakTarget: UByte = 0u)
+public data class RfcommMscData(
+    public var signals: UByte = 0u,
+    public var breakTarget: UByte = 0u,
+)
 
-public data class RfcommRlsData(public var lineStatus: UByte = 0u)
+public data class RfcommRlsData(
+    public var lineStatus: UByte = 0u,
+)
 
 public data class RfcommRpnData(
     public var baud: UByte = 0u,
@@ -511,15 +581,30 @@ public class SdpElementData0(
     public var alternative: SdpElementData03 = SdpElementData03(),
 )
 
-public data class SdpElementData03(public var value: COpaquePointer? = null, public var length: UInt = 0u)
+public data class SdpElementData03(
+    public var value: COpaquePointer? = null,
+    public var length: UInt = 0u,
+)
 
-public data class SdpElementData02(public var value: COpaquePointer? = null, public var length: UInt = 0u)
+public data class SdpElementData02(
+    public var value: COpaquePointer? = null,
+    public var length: UInt = 0u,
+)
 
-public data class SdpElementData00(public var value: COpaquePointer? = null, public var length: UInt = 0u)
+public data class SdpElementData00(
+    public var value: COpaquePointer? = null,
+    public var length: UInt = 0u,
+)
 
-public data class SdpElementData01(public var value: COpaquePointer? = null, public var length: UInt = 0u)
+public data class SdpElementData01(
+    public var value: COpaquePointer? = null,
+    public var length: UInt = 0u,
+)
 
-public data class SdpLargeInteger16(public var lowPart: ULong = 0uL, public var highPart: Long = 0L)
+public data class SdpLargeInteger16(
+    public var lowPart: ULong = 0uL,
+    public var highPart: Long = 0L,
+)
 
 public data class SdpStringTypeData(
     public var encoding: UShort = 0u,
@@ -527,7 +612,10 @@ public data class SdpStringTypeData(
     public var attributeId: UShort = 0u,
 )
 
-public data class SdpUlargeInteger16(public var lowPart: ULong = 0uL, public var highPart: ULong = 0uL)
+public data class SdpUlargeInteger16(
+    public var lowPart: ULong = 0uL,
+    public var highPart: ULong = 0uL,
+)
 
 public data class SockaddrBth(
     public var addressFamily: UShort = 0u,
@@ -536,9 +624,15 @@ public data class SockaddrBth(
     public var port: UInt = 0u,
 )
 
-public data class SdpAttributeRange(public var minAttribute: UShort = 0u, public var maxAttribute: UShort = 0u)
+public data class SdpAttributeRange(
+    public var minAttribute: UShort = 0u,
+    public var maxAttribute: UShort = 0u,
+)
 
-public data class SdpQueryUuid(public var u: SdpQueryUuidUnion = SdpQueryUuidUnion(), public var uuidType: UShort = 0u)
+public data class SdpQueryUuid(
+    public var u: SdpQueryUuidUnion = SdpQueryUuidUnion(),
+    public var uuidType: UShort = 0u,
+)
 
 public data class SdpQueryUuidUnion(
     public var uuid128: Guid = Guid(),

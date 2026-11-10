@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security.winwlx
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -196,7 +197,10 @@ public data class WlxNotificationInfo(
     public var pStatusCallback: Pfnmsgecallback = null,
 )
 
-public data class WlxProfileV10(public var dwType: UInt = 0u, public var pszProfile: Pwstr = null)
+public data class WlxProfileV10(
+    public var dwType: UInt = 0u,
+    public var pszProfile: Pwstr = null,
+)
 
 public data class WlxProfileV20(
     public var dwType: UInt = 0u,

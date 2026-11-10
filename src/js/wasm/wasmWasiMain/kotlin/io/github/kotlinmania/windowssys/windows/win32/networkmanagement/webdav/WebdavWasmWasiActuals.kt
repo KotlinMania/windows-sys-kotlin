@@ -38,6 +38,5 @@ public actual fun davInvalidateCache(urlname: Pcwstr): UInt =
 public actual fun davRegisterAuthCallback(callback: Pfndavauthcallback, version: UInt): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun davUnregisterAuthCallback(hcallback: UInt) {
+public actual fun davUnregisterAuthCallback(hcallback: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}

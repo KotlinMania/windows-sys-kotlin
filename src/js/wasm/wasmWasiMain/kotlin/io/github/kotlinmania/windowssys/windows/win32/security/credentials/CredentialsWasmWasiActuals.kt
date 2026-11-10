@@ -31,9 +31,8 @@ public actual fun credFindBestCredentialA(targetname: Pcstr, type: UInt, flags: 
 public actual fun credFindBestCredentialW(targetname: Pcwstr, type: UInt, flags: UInt, credential: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun credFree(buffer: COpaquePointer?) {
+public actual fun credFree(buffer: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun credGetSessionTypes(maximumpersistcount: UInt, maximumpersist: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -164,9 +163,8 @@ public actual fun getOpenCardNameA(param0: COpaquePointer?): Int =
 public actual fun getOpenCardNameW(param0: COpaquePointer?): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun keyCredentialManagerFreeInformation(keycredentialmanagerinfo: COpaquePointer?) {
+public actual fun keyCredentialManagerFreeInformation(keycredentialmanagerinfo: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun keyCredentialManagerGetInformation(keycredentialmanagerinfo: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -354,9 +352,8 @@ public actual fun sCardReconnect(hcard: ULong, dwsharemode: UInt, dwpreferredpro
 public actual fun sCardReleaseContext(hcontext: ULong): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sCardReleaseStartedEvent() {
+public actual fun sCardReleaseStartedEvent(): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sCardRemoveReaderFromGroupA(hcontext: ULong, szreadername: Pcstr, szgroupname: Pcstr): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

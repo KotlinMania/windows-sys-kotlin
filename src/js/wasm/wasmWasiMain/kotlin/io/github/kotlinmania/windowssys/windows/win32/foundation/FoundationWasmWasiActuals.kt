@@ -39,13 +39,11 @@ public actual fun rtlNtStatusToDosError(status: Ntstatus): UInt =
 public actual fun setHandleInformation(hobject: Handle, dwmask: UInt, dwflags: HandleFlags): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun setLastError(dwerrcode: Win32Error) {
+public actual fun setLastError(dwerrcode: Win32Error): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun setLastErrorEx(dwerrcode: Win32Error, dwtype: UInt) {
+public actual fun setLastErrorEx(dwerrcode: Win32Error, dwtype: UInt): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sysAddRefString(bstrstring: Bstr): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -59,9 +57,8 @@ public actual fun sysAllocStringByteLen(psz: Pcstr, len: UInt): Bstr =
 public actual fun sysAllocStringLen(strin: Pcwstr, ui: UInt): Bstr =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sysFreeString(bstrstring: Bstr) {
+public actual fun sysFreeString(bstrstring: Bstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sysReAllocString(pbstr: COpaquePointer?, psz: Pcwstr): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -69,9 +66,8 @@ public actual fun sysReAllocString(pbstr: COpaquePointer?, psz: Pcwstr): Int =
 public actual fun sysReAllocStringLen(pbstr: COpaquePointer?, psz: Pcwstr, len: UInt): Int =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun sysReleaseString(bstrstring: Bstr) {
+public actual fun sysReleaseString(bstrstring: Bstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun sysStringByteLen(bstr: Bstr): UInt =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

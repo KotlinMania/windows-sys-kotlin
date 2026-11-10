@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -84,7 +85,10 @@ public data class Appcategoryinfo(
     public var appCategoryId: Guid = Guid(),
 )
 
-public data class Appcategoryinfolist(public var cCategory: UInt = 0u, public var pCategoryInfo: Appcategoryinfo? = null)
+public data class Appcategoryinfolist(
+    public var cCategory: UInt = 0u,
+    public var pCategoryInfo: Appcategoryinfo? = null,
+)
 
 public class Appinfodata(
     public var cbSize: UInt = 0u,
@@ -256,7 +260,10 @@ public data class Cabinetstate(
     public var fMenuEnumFilter: UInt = 0u,
 )
 
-public data class CategoryInfo(public var cif: CategoryinfoFlags = 0, public var wszName: UShortArray = UShortArray(260)) {
+public data class CategoryInfo(
+    public var cif: CategoryinfoFlags = 0,
+    public var wszName: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CategoryInfo) return false
@@ -272,7 +279,10 @@ public data class CategoryInfo(public var cif: CategoryinfoFlags = 0, public var
     }
 }
 
-public data class Cida(public var cidl: UInt = 0u, public var aoffset: UIntArray = UIntArray(1)) {
+public data class Cida(
+    public var cidl: UInt = 0u,
+    public var aoffset: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Cida) return false
@@ -380,7 +390,10 @@ public data class ConfirmConflictItem(
     public var nType: SyncmgrConflictItemType = 0,
 )
 
-public data class ConfirmConflictResultInfo(public var pszNewName: Pwstr = null, public var iItemIndex: UInt = 0u)
+public data class ConfirmConflictResultInfo(
+    public var pszNewName: Pwstr = null,
+    public var iItemIndex: UInt = 0u,
+)
 
 public data class Cplinfo(
     public var idIcon: Int = 0,
@@ -413,7 +426,10 @@ public data class Csfv(
     public var fvm: Folderviewmode = 0,
 )
 
-public data class DatablockHeader(public var cbSize: UInt = 0u, public var dwSignature: UInt = 0u)
+public data class DatablockHeader(
+    public var cbSize: UInt = 0u,
+    public var dwSignature: UInt = 0u,
+)
 
 public data class Defcontextmenu(
     public var hwnd: Hwnd = null,
@@ -756,9 +772,15 @@ public data class Filedescriptorw(
     }
 }
 
-public data class Filegroupdescriptora(public var cItems: UInt = 0u, public var fgd: List<Filedescriptora> = List(1) { Filedescriptora() })
+public data class Filegroupdescriptora(
+    public var cItems: UInt = 0u,
+    public var fgd: List<Filedescriptora> = List(1) { Filedescriptora() },
+)
 
-public data class Filegroupdescriptorw(public var cItems: UInt = 0u, public var fgd: List<Filedescriptorw> = List(1) { Filedescriptorw() })
+public data class Filegroupdescriptorw(
+    public var cItems: UInt = 0u,
+    public var fgd: List<Filedescriptorw> = List(1) { Filedescriptorw() },
+)
 
 public data class FileAttributesArray(
     public var cItems: UInt = 0u,
@@ -791,7 +813,10 @@ public data class Foldersetdata(
     public var dwViewPriority: UInt = 0u,
 )
 
-public data class Foldersettings(public var viewMode: UInt = 0u, public var fFlags: UInt = 0u)
+public data class Foldersettings(
+    public var viewMode: UInt = 0u,
+    public var fFlags: UInt = 0u,
+)
 
 public data class Helpinfo(
     public var cbSize: UInt = 0u,
@@ -878,9 +903,15 @@ public data class Hlbwinfo(
     public var hltbinfo: Hltbinfo = Hltbinfo(),
 )
 
-public data class Hlitem(public var uHLID: UInt = 0u, public var pwzFriendlyName: Pwstr = null)
+public data class Hlitem(
+    public var uHLID: UInt = 0u,
+    public var pwzFriendlyName: Pwstr = null,
+)
 
-public data class Hltbinfo(public var uDockType: UInt = 0u, public var rcTbPos: Rect = Rect())
+public data class Hltbinfo(
+    public var uDockType: UInt = 0u,
+    public var rcTbPos: Rect = Rect(),
+)
 
 public data class Itemspacing(
     public var cxSmall: Int = 0,
@@ -1087,7 +1118,10 @@ public data class Notifyicondataa(
     }
 }
 
-public data class Notifyicondataa0(public var uTimeout: UInt = 0u, public var uVersion: UInt = 0u)
+public data class Notifyicondataa0(
+    public var uTimeout: UInt = 0u,
+    public var uVersion: UInt = 0u,
+)
 
 public data class Notifyicondataw(
     public var cbSize: UInt = 0u,
@@ -1147,7 +1181,10 @@ public data class Notifyicondataw(
     }
 }
 
-public data class Notifyicondataw0(public var uTimeout: UInt = 0u, public var uVersion: UInt = 0u)
+public data class Notifyicondataw0(
+    public var uTimeout: UInt = 0u,
+    public var uVersion: UInt = 0u,
+)
 
 public data class Notifyiconidentifier(
     public var cbSize: UInt = 0u,
@@ -1156,7 +1193,10 @@ public data class Notifyiconidentifier(
     public var guidItem: Guid = Guid(),
 )
 
-public data class Nresarray(public var cItems: UInt = 0u, public var nr: List<Netresourcea> = List(1) { Netresourcea() })
+public data class Nresarray(
+    public var cItems: UInt = 0u,
+    public var nr: List<Netresourcea> = List(1) { Netresourcea() },
+)
 
 public data class Nstccustomdraw(
     public var psi: COpaquePointer? = null,
@@ -1193,7 +1233,10 @@ public class NtConsoleProps(
     public var colorTable: UIntArray = UIntArray(16),
 )
 
-public data class NtFeConsoleProps(public var dbh: DatablockHeader = DatablockHeader(), public var uCodePage: UInt = 0u)
+public data class NtFeConsoleProps(
+    public var dbh: DatablockHeader = DatablockHeader(),
+    public var uCodePage: UInt = 0u,
+)
 
 public data class Openasinfo(
     public var pcszFile: Pcwstr = null,
@@ -1263,7 +1306,10 @@ public data class PersistFolderTargetInfo(
     }
 }
 
-public data class Previewhandlerframeinfo(public var haccel: Haccel = null, public var cAccelEntries: UInt = 0u)
+public data class Previewhandlerframeinfo(
+    public var haccel: Haccel = null,
+    public var cAccelEntries: UInt = 0u,
+)
 
 public data class Profileinfoa(
     public var dwSize: UInt = 0u,
@@ -1305,13 +1351,25 @@ public data class Qcminfo(
     public var pIdMap: QcminfoIdmap? = null,
 )
 
-public data class QcminfoIdmap(public var nMaxIds: UInt = 0u, public var pIdList: List<QcminfoIdmapPlacement> = List(1) { QcminfoIdmapPlacement() })
+public data class QcminfoIdmap(
+    public var nMaxIds: UInt = 0u,
+    public var pIdList: List<QcminfoIdmapPlacement> = List(1) { QcminfoIdmapPlacement() },
+)
 
-public data class QcminfoIdmapPlacement(public var id: UInt = 0u, public var fFlags: UInt = 0u)
+public data class QcminfoIdmapPlacement(
+    public var id: UInt = 0u,
+    public var fFlags: UInt = 0u,
+)
 
-public data class Qitab(public var piid: Guid? = null, public var dwOffset: UInt = 0u)
+public data class Qitab(
+    public var piid: Guid? = null,
+    public var dwOffset: UInt = 0u,
+)
 
-public data class SfvmHelptopicData(public var wszHelpFile: UShortArray = UShortArray(260), public var wszHelpTopic: UShortArray = UShortArray(260)) {
+public data class SfvmHelptopicData(
+    public var wszHelpFile: UShortArray = UShortArray(260),
+    public var wszHelpTopic: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SfvmHelptopicData) return false
@@ -1340,13 +1398,25 @@ public data class SfvCreate(
     public var psfvcb: COpaquePointer? = null,
 )
 
-public data class SfvSetitempos(public var pidl: Itemidlist? = null, public var pt: Point = Point())
+public data class SfvSetitempos(
+    public var pidl: Itemidlist? = null,
+    public var pt: Point = Point(),
+)
 
-public data class Shardappidinfo(public var psi: COpaquePointer? = null, public var pszAppID: Pcwstr = null)
+public data class Shardappidinfo(
+    public var psi: COpaquePointer? = null,
+    public var pszAppID: Pcwstr = null,
+)
 
-public data class Shardappidinfoidlist(public var pidl: Itemidlist? = null, public var pszAppID: Pcwstr = null)
+public data class Shardappidinfoidlist(
+    public var pidl: Itemidlist? = null,
+    public var pszAppID: Pcwstr = null,
+)
 
-public data class Shardappidinfolink(public var psl: COpaquePointer? = null, public var pszAppID: Pcwstr = null)
+public data class Shardappidinfolink(
+    public var psl: COpaquePointer? = null,
+    public var pszAppID: Pcwstr = null,
+)
 
 public data class Shcolumndata(
     public var dwFlags: UInt = 0u,
@@ -1455,7 +1525,10 @@ public data class SHChangeDWORDAsIDList(
     public var cbZero: UShort = 0u,
 )
 
-public data class SHChangeNotifyEntry(public var pidl: Itemidlist? = null, public var fRecursive: Bool = 0)
+public data class SHChangeNotifyEntry(
+    public var pidl: Itemidlist? = null,
+    public var fRecursive: Bool = 0,
+)
 
 public data class SHChangeProductKeyAsIDList(
     public var cb: UShort = 0u,
@@ -1513,7 +1586,10 @@ public data class SHChangeUpdateImageIDList(
     }
 }
 
-public data class Shdescriptionid(public var dwDescriptionId: UInt = 0u, public var clsid: Guid = Guid())
+public data class Shdescriptionid(
+    public var dwDescriptionId: UInt = 0u,
+    public var clsid: Guid = Guid(),
+)
 
 public data class Shdragimage(
     public var sizeDragImage: Size = Size(),
@@ -1540,7 +1616,10 @@ public data class Shellexecuteinfoa(
     public var hProcess: Handle = null,
 )
 
-public data class Shellexecuteinfoa0(public var hIcon: Handle = null, public var hMonitor: Handle = null)
+public data class Shellexecuteinfoa0(
+    public var hIcon: Handle = null,
+    public var hMonitor: Handle = null,
+)
 
 public data class Shellexecuteinfow(
     public var cbSize: UInt = 0u,
@@ -1560,9 +1639,14 @@ public data class Shellexecuteinfow(
     public var hProcess: Handle = null,
 )
 
-public data class Shellexecuteinfow0(public var hIcon: Handle = null, public var hMonitor: Handle = null)
+public data class Shellexecuteinfow0(
+    public var hIcon: Handle = null,
+    public var hMonitor: Handle = null,
+)
 
-public data class Shellflagstate(public var bitfield: Int = 0)
+public data class Shellflagstate(
+    public var bitfield: Int = 0,
+)
 
 public data class Shellstatea(
     public var bitfield1: Int = 0,
@@ -1586,7 +1670,10 @@ public data class Shellstatew(
     public var bitfield2: Int = 0,
 )
 
-public data class ShellItemResource(public var guidType: Guid = Guid(), public var szName: UShortArray = UShortArray(260)) {
+public data class ShellItemResource(
+    public var guidType: Guid = Guid(),
+    public var szName: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ShellItemResource) return false
@@ -1781,7 +1868,10 @@ public data class Sminfo(
     public var iIcon: Int = 0,
 )
 
-public data class Sortcolumn(public var propkey: Propertykey = Propertykey(), public var direction: Sortdirection = 0)
+public data class Sortcolumn(
+    public var propkey: Propertykey = Propertykey(),
+    public var direction: Sortdirection = 0,
+)
 
 public data class Sv2cvw2Params(
     public var cbSize: UInt = 0u,
@@ -1869,9 +1959,15 @@ public data class Syncmgrprogressitem(
     public var iMaxValue: Int = 0,
 )
 
-public data class SyncmgrConflictIdInfo(public var pblobID: ByteBlob? = null, public var pblobExtra: ByteBlob? = null)
+public data class SyncmgrConflictIdInfo(
+    public var pblobID: ByteBlob? = null,
+    public var pblobExtra: ByteBlob? = null,
+)
 
-public data class Tbinfo(public var cbuttons: UInt = 0u, public var uFlags: UInt = 0u)
+public data class Tbinfo(
+    public var cbuttons: UInt = 0u,
+    public var uFlags: UInt = 0u,
+)
 
 public data class Thumbbutton(
     public var dwMask: Thumbbuttonmask = 0,
@@ -1935,7 +2031,9 @@ public data class Windowdata(
     public var lpszTitle: Pwstr = null,
 )
 
-public data class WtsThumbnailid(public var rgbKey: UByteArray = UByteArray(16)) {
+public data class WtsThumbnailid(
+    public var rgbKey: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WtsThumbnailid) return false
@@ -1943,7 +2041,5 @@ public data class WtsThumbnailid(public var rgbKey: UByteArray = UByteArray(16))
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.rgbKey.contentHashCode()
-    }
+    override fun hashCode(): Int = this.rgbKey.contentHashCode()
 }

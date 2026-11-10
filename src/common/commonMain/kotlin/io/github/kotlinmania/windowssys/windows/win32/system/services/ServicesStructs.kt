@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.services
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -67,7 +68,10 @@ public data class QueryServiceLockStatusw(
     public var dwLockDuration: UInt = 0u,
 )
 
-public data class ScAction(public var type: ScActionType = 0, public var delay: UInt = 0u)
+public data class ScAction(
+    public var type: ScActionType = 0,
+    public var delay: UInt = 0u,
+)
 
 public data class ServiceControlStatusReasonParamsa(
     public var dwReason: UInt = 0u,
@@ -81,11 +85,19 @@ public data class ServiceControlStatusReasonParamsw(
     public var serviceStatus: ServiceStatusProcess = ServiceStatusProcess(),
 )
 
-public data class ServiceCustomSystemStateChangeDataItem(public var u: ServiceCustomSystemStateChangeDataItem0 = ServiceCustomSystemStateChangeDataItem0())
+public data class ServiceCustomSystemStateChangeDataItem(
+    public var u: ServiceCustomSystemStateChangeDataItem0 = ServiceCustomSystemStateChangeDataItem0(),
+)
 
-public data class ServiceCustomSystemStateChangeDataItem0(public var customStateId: ServiceTriggerCustomStateId = ServiceTriggerCustomStateId(), public var s: ServiceCustomSystemStateChangeDataItem00 = ServiceCustomSystemStateChangeDataItem00())
+public data class ServiceCustomSystemStateChangeDataItem0(
+    public var customStateId: ServiceTriggerCustomStateId = ServiceTriggerCustomStateId(),
+    public var s: ServiceCustomSystemStateChangeDataItem00 = ServiceCustomSystemStateChangeDataItem00(),
+)
 
-public data class ServiceCustomSystemStateChangeDataItem00(public var dataOffset: UInt = 0u, public var data: UByteArray = UByteArray(1)) {
+public data class ServiceCustomSystemStateChangeDataItem00(
+    public var dataOffset: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ServiceCustomSystemStateChangeDataItem00) return false
@@ -101,11 +113,17 @@ public data class ServiceCustomSystemStateChangeDataItem00(public var dataOffset
     }
 }
 
-public data class ServiceDelayedAutoStartInfo(public var fDelayedAutostart: Bool = 0)
+public data class ServiceDelayedAutoStartInfo(
+    public var fDelayedAutostart: Bool = 0,
+)
 
-public data class ServiceDescriptiona(public var lpDescription: Pstr = null)
+public data class ServiceDescriptiona(
+    public var lpDescription: Pstr = null,
+)
 
-public data class ServiceDescriptionw(public var lpDescription: Pwstr = null)
+public data class ServiceDescriptionw(
+    public var lpDescription: Pwstr = null,
+)
 
 public data class ServiceFailureActionsa(
     public var dwResetPeriod: UInt = 0u,
@@ -123,9 +141,13 @@ public data class ServiceFailureActionsw(
     public var lpsaActions: ScAction? = null,
 )
 
-public data class ServiceFailureActionsFlag(public var fFailureActionsOnNonCrashFailures: Bool = 0)
+public data class ServiceFailureActionsFlag(
+    public var fFailureActionsOnNonCrashFailures: Bool = 0,
+)
 
-public data class ServiceLaunchProtectedInfo(public var dwLaunchProtected: UInt = 0u)
+public data class ServiceLaunchProtectedInfo(
+    public var dwLaunchProtected: UInt = 0u,
+)
 
 public data class ServiceNotify1(
     public var dwVersion: UInt = 0u,
@@ -155,17 +177,30 @@ public data class ServiceNotify2w(
     public var pszServiceNames: Pwstr = null,
 )
 
-public data class ServicePreferredNodeInfo(public var usPreferredNode: UShort = 0u, public var fDelete: Boolean = false)
+public data class ServicePreferredNodeInfo(
+    public var usPreferredNode: UShort = 0u,
+    public var fDelete: Boolean = false,
+)
 
-public data class ServicePreshutdownInfo(public var dwPreshutdownTimeout: UInt = 0u)
+public data class ServicePreshutdownInfo(
+    public var dwPreshutdownTimeout: UInt = 0u,
+)
 
-public data class ServiceRequiredPrivilegesInfoa(public var pmszRequiredPrivileges: Pstr = null)
+public data class ServiceRequiredPrivilegesInfoa(
+    public var pmszRequiredPrivileges: Pstr = null,
+)
 
-public data class ServiceRequiredPrivilegesInfow(public var pmszRequiredPrivileges: Pwstr = null)
+public data class ServiceRequiredPrivilegesInfow(
+    public var pmszRequiredPrivileges: Pwstr = null,
+)
 
-public data class ServiceSidInfo(public var dwServiceSidType: UInt = 0u)
+public data class ServiceSidInfo(
+    public var dwServiceSidType: UInt = 0u,
+)
 
-public data class ServiceStartReason(public var dwReason: UInt = 0u)
+public data class ServiceStartReason(
+    public var dwReason: UInt = 0u,
+)
 
 public data class ServiceStatus(
     public var dwServiceType: EnumServiceType = 0u,
@@ -189,11 +224,20 @@ public data class ServiceStatusProcess(
     public var dwServiceFlags: ServiceRunsInProcess = 0u,
 )
 
-public data class ServiceTableEntrya(public var lpServiceName: Pstr = null, public var lpServiceProc: LpserviceMainFunctiona = null)
+public data class ServiceTableEntrya(
+    public var lpServiceName: Pstr = null,
+    public var lpServiceProc: LpserviceMainFunctiona = null,
+)
 
-public data class ServiceTableEntryw(public var lpServiceName: Pwstr = null, public var lpServiceProc: LpserviceMainFunctionw = null)
+public data class ServiceTableEntryw(
+    public var lpServiceName: Pwstr = null,
+    public var lpServiceProc: LpserviceMainFunctionw = null,
+)
 
-public data class ServiceTimechangeInfo(public var liNewTime: Long = 0L, public var liOldTime: Long = 0L)
+public data class ServiceTimechangeInfo(
+    public var liNewTime: Long = 0L,
+    public var liOldTime: Long = 0L,
+)
 
 public data class ServiceTrigger(
     public var dwTriggerType: ServiceTriggerType = 0u,
@@ -203,7 +247,9 @@ public data class ServiceTrigger(
     public var pDataItems: ServiceTriggerSpecificDataItem? = null,
 )
 
-public data class ServiceTriggerCustomStateId(public var data: UIntArray = UIntArray(2)) {
+public data class ServiceTriggerCustomStateId(
+    public var data: UIntArray = UIntArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ServiceTriggerCustomStateId) return false
@@ -211,9 +257,7 @@ public data class ServiceTriggerCustomStateId(public var data: UIntArray = UIntA
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.data.contentHashCode()
-    }
+    override fun hashCode(): Int = this.data.contentHashCode()
 }
 
 public data class ServiceTriggerInfo(

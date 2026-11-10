@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -15,51 +16,120 @@ import io.github.kotlinmania.windowssys.windows.win32.system.com.CY
 import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
 import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 
-public data class Bstrblob(public var cbSize: UInt = 0u, public var pData: COpaquePointer? = null)
+public data class Bstrblob(
+    public var cbSize: UInt = 0u,
+    public var pData: COpaquePointer? = null,
+)
 
-public data class Cabool(public var cElems: UInt = 0u, public var pElems: VariantBool? = null)
+public data class Cabool(
+    public var cElems: UInt = 0u,
+    public var pElems: VariantBool? = null,
+)
 
-public data class Cabstr(public var cElems: UInt = 0u, public var pElems: Bstr? = null)
+public data class Cabstr(
+    public var cElems: UInt = 0u,
+    public var pElems: Bstr? = null,
+)
 
-public data class Cabstrblob(public var cElems: UInt = 0u, public var pElems: Bstrblob? = null)
+public data class Cabstrblob(
+    public var cElems: UInt = 0u,
+    public var pElems: Bstrblob? = null,
+)
 
-public data class Cac(public var cElems: UInt = 0u, public var pElems: Pstr = null)
+public data class Cac(
+    public var cElems: UInt = 0u,
+    public var pElems: Pstr = null,
+)
 
-public data class Caclipdata(public var cElems: UInt = 0u, public var pElems: Clipdata? = null)
+public data class Caclipdata(
+    public var cElems: UInt = 0u,
+    public var pElems: Clipdata? = null,
+)
 
-public data class Caclsid(public var cElems: UInt = 0u, public var pElems: Guid? = null)
+public data class Caclsid(
+    public var cElems: UInt = 0u,
+    public var pElems: Guid? = null,
+)
 
-public data class Cacy(public var cElems: UInt = 0u, public var pElems: CY? = null)
+public data class Cacy(
+    public var cElems: UInt = 0u,
+    public var pElems: CY? = null,
+)
 
-public data class Cadate(public var cElems: UInt = 0u, public var pElems: Double? = null)
+public data class Cadate(
+    public var cElems: UInt = 0u,
+    public var pElems: Double? = null,
+)
 
-public data class Cadbl(public var cElems: UInt = 0u, public var pElems: Double? = null)
+public data class Cadbl(
+    public var cElems: UInt = 0u,
+    public var pElems: Double? = null,
+)
 
-public data class Cafiletime(public var cElems: UInt = 0u, public var pElems: Filetime? = null)
+public data class Cafiletime(
+    public var cElems: UInt = 0u,
+    public var pElems: Filetime? = null,
+)
 
-public data class Caflt(public var cElems: UInt = 0u, public var pElems: Float? = null)
+public data class Caflt(
+    public var cElems: UInt = 0u,
+    public var pElems: Float? = null,
+)
 
-public data class Cah(public var cElems: UInt = 0u, public var pElems: Long? = null)
+public data class Cah(
+    public var cElems: UInt = 0u,
+    public var pElems: Long? = null,
+)
 
-public data class Cai(public var cElems: UInt = 0u, public var pElems: Short? = null)
+public data class Cai(
+    public var cElems: UInt = 0u,
+    public var pElems: Short? = null,
+)
 
-public data class Cal(public var cElems: UInt = 0u, public var pElems: Int? = null)
+public data class Cal(
+    public var cElems: UInt = 0u,
+    public var pElems: Int? = null,
+)
 
-public data class Calpstr(public var cElems: UInt = 0u, public var pElems: Pstr? = null)
+public data class Calpstr(
+    public var cElems: UInt = 0u,
+    public var pElems: Pstr? = null,
+)
 
-public data class Calpwstr(public var cElems: UInt = 0u, public var pElems: Pwstr? = null)
+public data class Calpwstr(
+    public var cElems: UInt = 0u,
+    public var pElems: Pwstr? = null,
+)
 
-public data class Capropvariant(public var cElems: UInt = 0u, public var pElems: Propvariant? = null)
+public data class Capropvariant(
+    public var cElems: UInt = 0u,
+    public var pElems: Propvariant? = null,
+)
 
-public data class Cascode(public var cElems: UInt = 0u, public var pElems: Int? = null)
+public data class Cascode(
+    public var cElems: UInt = 0u,
+    public var pElems: Int? = null,
+)
 
-public data class Caub(public var cElems: UInt = 0u, public var pElems: COpaquePointer? = null)
+public data class Caub(
+    public var cElems: UInt = 0u,
+    public var pElems: COpaquePointer? = null,
+)
 
-public data class Cauh(public var cElems: UInt = 0u, public var pElems: ULong? = null)
+public data class Cauh(
+    public var cElems: UInt = 0u,
+    public var pElems: ULong? = null,
+)
 
-public data class Caui(public var cElems: UInt = 0u, public var pElems: UShort? = null)
+public data class Caui(
+    public var cElems: UInt = 0u,
+    public var pElems: UShort? = null,
+)
 
-public data class Caul(public var cElems: UInt = 0u, public var pElems: UInt? = null)
+public data class Caul(
+    public var cElems: UInt = 0u,
+    public var pElems: UInt? = null,
+)
 
 public data class Clipdata(
     public var cbSize: UInt = 0u,
@@ -67,9 +137,14 @@ public data class Clipdata(
     public var pClipData: COpaquePointer? = null,
 )
 
-public data class Olestream(public var lpstbl: Olestreamvtbl? = null)
+public data class Olestream(
+    public var lpstbl: Olestreamvtbl? = null,
+)
 
-public data class Olestreamvtbl(public var get: Int = 0, public var put: Int = 0)
+public data class Olestreamvtbl(
+    public var get: Int = 0,
+    public var put: Int = 0,
+)
 
 public data class Propbag2(
     public var dwType: UInt = 0u,
@@ -80,13 +155,24 @@ public data class Propbag2(
     public var clsid: Guid = Guid(),
 )
 
-public data class Propspec(public var ulKind: PropspecKind = 0u, public var anonymous: Propspec0 = Propspec0())
+public data class Propspec(
+    public var ulKind: PropspecKind = 0u,
+    public var anonymous: Propspec0 = Propspec0(),
+)
 
-public data class Propspec0(public var propid: UInt = 0u, public var lpwstr: Pwstr = null)
+public data class Propspec0(
+    public var propid: UInt = 0u,
+    public var lpwstr: Pwstr = null,
+)
 
-public data class Propvariant(public var anonymous: Propvariant0 = Propvariant0())
+public data class Propvariant(
+    public var anonymous: Propvariant0 = Propvariant0(),
+)
 
-public data class Propvariant0(public var anonymous: Propvariant00 = Propvariant00(), public var decVal: Decimal = Decimal())
+public data class Propvariant0(
+    public var anonymous: Propvariant00 = Propvariant00(),
+    public var decVal: Decimal = Decimal(),
+)
 
 public data class Propvariant00(
     public var vt: Varenum = 0u,
@@ -266,7 +352,10 @@ public data class RemSNB(
     }
 }
 
-public data class Serializedpropertyvalue(public var dwType: UInt = 0u, public var rgb: UByteArray = UByteArray(1)) {
+public data class Serializedpropertyvalue(
+    public var dwType: UInt = 0u,
+    public var rgb: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Serializedpropertyvalue) return false
@@ -305,4 +394,7 @@ public data class Stgoptions(
     public var pwcsTemplateFile: Pcwstr = null,
 )
 
-public data class Versionedstream(public var guidVersion: Guid = Guid(), public var pStream: COpaquePointer? = null)
+public data class Versionedstream(
+    public var guidVersion: Guid = Guid(),
+    public var pStream: COpaquePointer? = null,
+)

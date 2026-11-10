@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.eventlog
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -31,7 +32,9 @@ public data class Eventlogrecord(
     public var dataOffset: UInt = 0u,
 )
 
-public data class EventlogFullInformation(public var dwFull: UInt = 0u)
+public data class EventlogFullInformation(
+    public var dwFull: UInt = 0u,
+)
 
 public data class Eventsforlogfile(
     public var ulSize: UInt = 0u,

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.console
 
 import io.github.kotlinmania.windowssys.core.Bool
@@ -6,9 +7,15 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 
-public data class CharInfo(public var char: CharInfo0 = CharInfo0(), public var attributes: UShort = 0u)
+public data class CharInfo(
+    public var char: CharInfo0 = CharInfo0(),
+    public var attributes: UShort = 0u,
+)
 
-public data class CharInfo0(public var unicodeChar: UShort = 0u, public var asciiChar: Byte = 0)
+public data class CharInfo0(
+    public var unicodeChar: UShort = 0u,
+    public var asciiChar: Byte = 0,
+)
 
 public data class Consoleendtask(
     public var processId: Handle = null,
@@ -17,7 +24,10 @@ public data class Consoleendtask(
     public var consoleFlags: UInt = 0u,
 )
 
-public data class Consolesetforeground(public var hProcess: Handle = null, public var bForeground: Bool = 0)
+public data class Consolesetforeground(
+    public var hProcess: Handle = null,
+    public var bForeground: Bool = 0,
+)
 
 public data class Consolewindowowner(
     public var hwnd: Hwnd = null,
@@ -25,11 +35,20 @@ public data class Consolewindowowner(
     public var threadId: UInt = 0u,
 )
 
-public data class ConsoleCaretInfo(public var hwnd: Hwnd = null, public var rc: Rect = Rect())
+public data class ConsoleCaretInfo(
+    public var hwnd: Hwnd = null,
+    public var rc: Rect = Rect(),
+)
 
-public data class ConsoleCursorInfo(public var dwSize: UInt = 0u, public var bVisible: Bool = 0)
+public data class ConsoleCursorInfo(
+    public var dwSize: UInt = 0u,
+    public var bVisible: Bool = 0,
+)
 
-public data class ConsoleFontInfo(public var nFont: UInt = 0u, public var dwFontSize: Coord = Coord())
+public data class ConsoleFontInfo(
+    public var nFont: UInt = 0u,
+    public var dwFontSize: Coord = Coord(),
+)
 
 public data class ConsoleFontInfoex(
     public var cbSize: UInt = 0u,
@@ -69,7 +88,10 @@ public data class ConsoleHistoryInfo(
     public var dwFlags: UInt = 0u,
 )
 
-public data class ConsoleProcessInfo(public var dwProcessID: UInt = 0u, public var dwFlags: UInt = 0u)
+public data class ConsoleProcessInfo(
+    public var dwProcessID: UInt = 0u,
+    public var dwFlags: UInt = 0u,
+)
 
 public data class ConsoleReadconsoleControl(
     public var nLength: UInt = 0u,
@@ -132,11 +154,19 @@ public data class ConsoleSelectionInfo(
     public var srSelection: SmallRect = SmallRect(),
 )
 
-public data class Coord(public var x: Short = 0, public var y: Short = 0)
+public data class Coord(
+    public var x: Short = 0,
+    public var y: Short = 0,
+)
 
-public data class FocusEventRecord(public var bSetFocus: Bool = 0)
+public data class FocusEventRecord(
+    public var bSetFocus: Bool = 0,
+)
 
-public data class InputRecord(public var eventType: UShort = 0u, public var event: InputRecord0 = InputRecord0())
+public data class InputRecord(
+    public var eventType: UShort = 0u,
+    public var event: InputRecord0 = InputRecord0(),
+)
 
 public data class InputRecord0(
     public var keyEvent: KeyEventRecord = KeyEventRecord(),
@@ -155,9 +185,14 @@ public data class KeyEventRecord(
     public var dwControlKeyState: UInt = 0u,
 )
 
-public data class KeyEventRecord0(public var unicodeChar: UShort = 0u, public var asciiChar: Byte = 0)
+public data class KeyEventRecord0(
+    public var unicodeChar: UShort = 0u,
+    public var asciiChar: Byte = 0,
+)
 
-public data class MenuEventRecord(public var dwCommandId: UInt = 0u)
+public data class MenuEventRecord(
+    public var dwCommandId: UInt = 0u,
+)
 
 public data class MouseEventRecord(
     public var dwMousePosition: Coord = Coord(),
@@ -173,4 +208,6 @@ public data class SmallRect(
     public var bottom: Short = 0,
 )
 
-public data class WindowBufferSizeRecord(public var dwSize: Coord = Coord())
+public data class WindowBufferSizeRecord(
+    public var dwSize: Coord = Coord(),
+)

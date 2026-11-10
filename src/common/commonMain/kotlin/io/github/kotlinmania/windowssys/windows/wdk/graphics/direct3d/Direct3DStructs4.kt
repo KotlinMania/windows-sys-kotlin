@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -12,43 +13,87 @@ import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Rectl
 import io.github.kotlinmania.windowssys.windows.win32.system.power.DevicePowerState
 
-public data class D3dkmtWddm13Caps(public var anonymous: D3dkmtWddm13Caps0 = D3dkmtWddm13Caps0())
+public data class D3dkmtWddm13Caps(
+    public var anonymous: D3dkmtWddm13Caps0 = D3dkmtWddm13Caps0(),
+)
 
-public data class D3dkmtWddm13Caps0(public var anonymous: D3dkmtWddm13Caps00 = D3dkmtWddm13Caps00(), public var value: UInt = 0u)
+public data class D3dkmtWddm13Caps0(
+    public var anonymous: D3dkmtWddm13Caps00 = D3dkmtWddm13Caps00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dkmtWddm13Caps00(public var bitfield: UInt = 0u)
+public data class D3dkmtWddm13Caps00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dkmtWddm20Caps(public var anonymous: D3dkmtWddm20Caps0 = D3dkmtWddm20Caps0())
+public data class D3dkmtWddm20Caps(
+    public var anonymous: D3dkmtWddm20Caps0 = D3dkmtWddm20Caps0(),
+)
 
-public data class D3dkmtWddm20Caps0(public var anonymous: D3dkmtWddm20Caps00 = D3dkmtWddm20Caps00(), public var value: UInt = 0u)
+public data class D3dkmtWddm20Caps0(
+    public var anonymous: D3dkmtWddm20Caps00 = D3dkmtWddm20Caps00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dkmtWddm20Caps00(public var bitfield: UInt = 0u)
+public data class D3dkmtWddm20Caps00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dkmtWddm27Caps(public var anonymous: D3dkmtWddm27Caps0 = D3dkmtWddm27Caps0())
+public data class D3dkmtWddm27Caps(
+    public var anonymous: D3dkmtWddm27Caps0 = D3dkmtWddm27Caps0(),
+)
 
-public data class D3dkmtWddm27Caps0(public var anonymous: D3dkmtWddm27Caps00 = D3dkmtWddm27Caps00(), public var value: UInt = 0u)
+public data class D3dkmtWddm27Caps0(
+    public var anonymous: D3dkmtWddm27Caps00 = D3dkmtWddm27Caps00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dkmtWddm27Caps00(public var bitfield: UInt = 0u)
+public data class D3dkmtWddm27Caps00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dkmtWddm29Caps(public var anonymous: D3dkmtWddm29Caps0 = D3dkmtWddm29Caps0())
+public data class D3dkmtWddm29Caps(
+    public var anonymous: D3dkmtWddm29Caps0 = D3dkmtWddm29Caps0(),
+)
 
-public data class D3dkmtWddm29Caps0(public var anonymous: D3dkmtWddm29Caps00 = D3dkmtWddm29Caps00(), public var value: UInt = 0u)
+public data class D3dkmtWddm29Caps0(
+    public var anonymous: D3dkmtWddm29Caps00 = D3dkmtWddm29Caps00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dkmtWddm29Caps00(public var bitfield: UInt = 0u)
+public data class D3dkmtWddm29Caps00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dkmtWddm30Caps(public var anonymous: D3dkmtWddm30Caps0 = D3dkmtWddm30Caps0())
+public data class D3dkmtWddm30Caps(
+    public var anonymous: D3dkmtWddm30Caps0 = D3dkmtWddm30Caps0(),
+)
 
-public data class D3dkmtWddm30Caps0(public var anonymous: D3dkmtWddm30Caps00 = D3dkmtWddm30Caps00(), public var value: UInt = 0u)
+public data class D3dkmtWddm30Caps0(
+    public var anonymous: D3dkmtWddm30Caps00 = D3dkmtWddm30Caps00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dkmtWddm30Caps00(public var bitfield: UInt = 0u)
+public data class D3dkmtWddm30Caps00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dkmtWddm31Caps(public var anonymous: D3dkmtWddm31Caps0 = D3dkmtWddm31Caps0())
+public data class D3dkmtWddm31Caps(
+    public var anonymous: D3dkmtWddm31Caps0 = D3dkmtWddm31Caps0(),
+)
 
-public data class D3dkmtWddm31Caps0(public var anonymous: D3dkmtWddm31Caps00 = D3dkmtWddm31Caps00(), public var value: UInt = 0u)
+public data class D3dkmtWddm31Caps0(
+    public var anonymous: D3dkmtWddm31Caps00 = D3dkmtWddm31Caps00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dkmtWddm31Caps00(public var bitfield: UInt = 0u)
+public data class D3dkmtWddm31Caps00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dkmtWorkingsetflags(public var bitfield: UInt = 0u)
+public data class D3dkmtWorkingsetflags(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dkmtWorkingsetinfo(
     public var flags: D3dkmtWorkingsetflags = D3dkmtWorkingsetflags(),
@@ -56,7 +101,9 @@ public data class D3dkmtWorkingsetinfo(
     public var maximumWorkingSetPercentile: UInt = 0u,
 )
 
-public data class D3dkmtWsaumdimagename(public var wsaUmdImageName: UShortArray = UShortArray(260)) {
+public data class D3dkmtWsaumdimagename(
+    public var wsaUmdImageName: UShortArray = UShortArray(260),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dkmtWsaumdimagename) return false
@@ -64,14 +111,17 @@ public data class D3dkmtWsaumdimagename(public var wsaUmdImageName: UShortArray 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.wsaUmdImageName.contentHashCode()
-    }
+    override fun hashCode(): Int = this.wsaUmdImageName.contentHashCode()
 }
 
-public data class D3dkmtXbox(public var isXBOX: Bool = 0)
+public data class D3dkmtXbox(
+    public var isXBOX: Bool = 0,
+)
 
-public data class D3dlinepattern(public var wRepeatFactor: UShort = 0u, public var wLinePattern: UShort = 0u)
+public data class D3dlinepattern(
+    public var wRepeatFactor: UShort = 0u,
+    public var wLinePattern: UShort = 0u,
+)
 
 public data class D3dnthalClippedtrianglefan(
     public var firstVertexOffset: UInt = 0u,
@@ -79,9 +129,15 @@ public data class D3dnthalClippedtrianglefan(
     public var primitiveCount: UInt = 0u,
 )
 
-public data class D3dnthalContextdestroyalldata(public var dwPID: UInt = 0u, public var ddrval: Hresult = 0)
+public data class D3dnthalContextdestroyalldata(
+    public var dwPID: UInt = 0u,
+    public var ddrval: Hresult = 0,
+)
 
-public data class D3dnthalContextdestroydata(public var dwhContext: Int = 0, public var ddrval: Hresult = 0)
+public data class D3dnthalContextdestroydata(
+    public var dwhContext: Int = 0,
+    public var ddrval: Hresult = 0,
+)
 
 public class D3dnthalD3ddx6extendedcaps(
     public var dwSize: UInt = 0u,
@@ -142,7 +198,10 @@ public class D3dnthalD3dextendedcaps(
     public var dwReserved4: UInt = 0u,
 )
 
-public data class D3dnthalDp2adddirtyrect(public var dwSurface: UInt = 0u, public var rDirtyArea: Rectl = Rectl())
+public data class D3dnthalDp2adddirtyrect(
+    public var dwSurface: UInt = 0u,
+    public var rDirtyArea: Rectl = Rectl(),
+)
 
 public data class D3dnthalDp2blt(
     public var dwSource: UInt = 0u,
@@ -174,11 +233,19 @@ public data class D3dnthalDp2command(
     public var anonymous: D3dnthalDp2command0 = D3dnthalDp2command0(),
 )
 
-public data class D3dnthalDp2command0(public var wPrimitiveCount: UShort = 0u, public var wStateCount: UShort = 0u)
+public data class D3dnthalDp2command0(
+    public var wPrimitiveCount: UShort = 0u,
+    public var wStateCount: UShort = 0u,
+)
 
-public data class D3dnthalDp2createlight(public var dwIndex: UInt = 0u)
+public data class D3dnthalDp2createlight(
+    public var dwIndex: UInt = 0u,
+)
 
-public data class D3dnthalDp2createpixelshader(public var dwHandle: UInt = 0u, public var dwCodeSize: UInt = 0u)
+public data class D3dnthalDp2createpixelshader(
+    public var dwHandle: UInt = 0u,
+    public var dwCodeSize: UInt = 0u,
+)
 
 public data class D3dnthalDp2createvertexshader(
     public var dwHandle: UInt = 0u,
@@ -186,21 +253,43 @@ public data class D3dnthalDp2createvertexshader(
     public var dwCodeSize: UInt = 0u,
 )
 
-public data class D3dnthalDp2createvertexshaderdecl(public var dwHandle: UInt = 0u, public var dwNumVertexElements: UInt = 0u)
+public data class D3dnthalDp2createvertexshaderdecl(
+    public var dwHandle: UInt = 0u,
+    public var dwNumVertexElements: UInt = 0u,
+)
 
-public data class D3dnthalDp2createvertexshaderfunc(public var dwHandle: UInt = 0u, public var dwSize: UInt = 0u)
+public data class D3dnthalDp2createvertexshaderfunc(
+    public var dwHandle: UInt = 0u,
+    public var dwSize: UInt = 0u,
+)
 
-public data class D3dnthalDp2deletequery(public var dwQueryID: UInt = 0u)
+public data class D3dnthalDp2deletequery(
+    public var dwQueryID: UInt = 0u,
+)
 
-public data class D3dnthalDp2drawrectpatch(public var handle: UInt = 0u, public var flags: UInt = 0u)
+public data class D3dnthalDp2drawrectpatch(
+    public var handle: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
-public data class D3dnthalDp2drawtripatch(public var handle: UInt = 0u, public var flags: UInt = 0u)
+public data class D3dnthalDp2drawtripatch(
+    public var handle: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
-public data class D3dnthalDp2ext(public var dwExtToken: UInt = 0u, public var dwSize: UInt = 0u)
+public data class D3dnthalDp2ext(
+    public var dwExtToken: UInt = 0u,
+    public var dwSize: UInt = 0u,
+)
 
-public data class D3dnthalDp2indexedlinelist(public var wV1: UShort = 0u, public var wV2: UShort = 0u)
+public data class D3dnthalDp2indexedlinelist(
+    public var wV1: UShort = 0u,
+    public var wV2: UShort = 0u,
+)
 
-public data class D3dnthalDp2indexedlinestrip(public var wV: UShortArray = UShortArray(2)) {
+public data class D3dnthalDp2indexedlinestrip(
+    public var wV: UShortArray = UShortArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dnthalDp2indexedlinestrip) return false
@@ -208,12 +297,12 @@ public data class D3dnthalDp2indexedlinestrip(public var wV: UShortArray = UShor
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.wV.contentHashCode()
-    }
+    override fun hashCode(): Int = this.wV.contentHashCode()
 }
 
-public data class D3dnthalDp2indexedtrianglefan(public var wV: UShortArray = UShortArray(3)) {
+public data class D3dnthalDp2indexedtrianglefan(
+    public var wV: UShortArray = UShortArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dnthalDp2indexedtrianglefan) return false
@@ -221,9 +310,7 @@ public data class D3dnthalDp2indexedtrianglefan(public var wV: UShortArray = USh
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.wV.contentHashCode()
-    }
+    override fun hashCode(): Int = this.wV.contentHashCode()
 }
 
 public data class D3dnthalDp2indexedtrianglelist(
@@ -239,7 +326,9 @@ public data class D3dnthalDp2indexedtrianglelist2(
     public var wV3: UShort = 0u,
 )
 
-public data class D3dnthalDp2indexedtrianglestrip(public var wV: UShortArray = UShortArray(3)) {
+public data class D3dnthalDp2indexedtrianglestrip(
+    public var wV: UShortArray = UShortArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dnthalDp2indexedtrianglestrip) return false
@@ -247,20 +336,30 @@ public data class D3dnthalDp2indexedtrianglestrip(public var wV: UShortArray = U
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.wV.contentHashCode()
-    }
+    override fun hashCode(): Int = this.wV.contentHashCode()
 }
 
-public data class D3dnthalDp2issuequery(public var dwQueryID: UInt = 0u, public var dwFlags: UInt = 0u)
+public data class D3dnthalDp2issuequery(
+    public var dwQueryID: UInt = 0u,
+    public var dwFlags: UInt = 0u,
+)
 
-public data class D3dnthalDp2linelist(public var wVStart: UShort = 0u)
+public data class D3dnthalDp2linelist(
+    public var wVStart: UShort = 0u,
+)
 
-public data class D3dnthalDp2linestrip(public var wVStart: UShort = 0u)
+public data class D3dnthalDp2linestrip(
+    public var wVStart: UShort = 0u,
+)
 
-public data class D3dnthalDp2pixelshader(public var dwHandle: UInt = 0u)
+public data class D3dnthalDp2pixelshader(
+    public var dwHandle: UInt = 0u,
+)
 
-public data class D3dnthalDp2points(public var wCount: UShort = 0u, public var wVStart: UShort = 0u)
+public data class D3dnthalDp2points(
+    public var wCount: UShort = 0u,
+    public var wVStart: UShort = 0u,
+)
 
 public data class D3dnthalDp2response(
     public var bCommand: UByte = 0u,
@@ -269,9 +368,15 @@ public data class D3dnthalDp2response(
     public var dwTotalSize: UInt = 0u,
 )
 
-public data class D3dnthalDp2responsequery(public var dwQueryID: UInt = 0u, public var dwSize: UInt = 0u)
+public data class D3dnthalDp2responsequery(
+    public var dwQueryID: UInt = 0u,
+    public var dwSize: UInt = 0u,
+)
 
-public data class D3dnthalDp2setclipplane(public var dwIndex: UInt = 0u, public var plane: FloatArray = FloatArray(4)) {
+public data class D3dnthalDp2setclipplane(
+    public var dwIndex: UInt = 0u,
+    public var plane: FloatArray = FloatArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dnthalDp2setclipplane) return false
@@ -293,13 +398,24 @@ public data class D3dnthalDp2setconvolutionkernelmono(
     public var dwFlags: UInt = 0u,
 )
 
-public data class D3dnthalDp2setdepthstencil(public var hZBuffer: UInt = 0u)
+public data class D3dnthalDp2setdepthstencil(
+    public var hZBuffer: UInt = 0u,
+)
 
-public data class D3dnthalDp2setindices(public var dwVBHandle: UInt = 0u, public var dwStride: UInt = 0u)
+public data class D3dnthalDp2setindices(
+    public var dwVBHandle: UInt = 0u,
+    public var dwStride: UInt = 0u,
+)
 
-public data class D3dnthalDp2setlight(public var dwIndex: UInt = 0u, public var anonymous: D3dnthalDp2setlight0 = D3dnthalDp2setlight0())
+public data class D3dnthalDp2setlight(
+    public var dwIndex: UInt = 0u,
+    public var anonymous: D3dnthalDp2setlight0 = D3dnthalDp2setlight0(),
+)
 
-public data class D3dnthalDp2setlight0(public var lightData: UInt = 0u, public var dwDataType: UInt = 0u)
+public data class D3dnthalDp2setlight0(
+    public var lightData: UInt = 0u,
+    public var dwDataType: UInt = 0u,
+)
 
 public data class D3dnthalDp2setpalette(
     public var dwPaletteHandle: UInt = 0u,
@@ -307,13 +423,25 @@ public data class D3dnthalDp2setpalette(
     public var dwSurfaceHandle: UInt = 0u,
 )
 
-public data class D3dnthalDp2setpixelshaderconst(public var dwRegister: UInt = 0u, public var dwCount: UInt = 0u)
+public data class D3dnthalDp2setpixelshaderconst(
+    public var dwRegister: UInt = 0u,
+    public var dwCount: UInt = 0u,
+)
 
-public data class D3dnthalDp2setpriority(public var dwDDDestSurface: UInt = 0u, public var dwPriority: UInt = 0u)
+public data class D3dnthalDp2setpriority(
+    public var dwDDDestSurface: UInt = 0u,
+    public var dwPriority: UInt = 0u,
+)
 
-public data class D3dnthalDp2setrendertarget(public var hRenderTarget: UInt = 0u, public var hZBuffer: UInt = 0u)
+public data class D3dnthalDp2setrendertarget(
+    public var hRenderTarget: UInt = 0u,
+    public var hZBuffer: UInt = 0u,
+)
 
-public data class D3dnthalDp2setrendertarget2(public var rTIndex: UInt = 0u, public var hRenderTarget: UInt = 0u)
+public data class D3dnthalDp2setrendertarget2(
+    public var rTIndex: UInt = 0u,
+    public var hRenderTarget: UInt = 0u,
+)
 
 public data class D3dnthalDp2setstreamsource(
     public var dwStream: UInt = 0u,
@@ -328,15 +456,29 @@ public data class D3dnthalDp2setstreamsource2(
     public var dwStride: UInt = 0u,
 )
 
-public data class D3dnthalDp2setstreamsourcefreq(public var dwStream: UInt = 0u, public var dwDivider: UInt = 0u)
+public data class D3dnthalDp2setstreamsourcefreq(
+    public var dwStream: UInt = 0u,
+    public var dwDivider: UInt = 0u,
+)
 
-public data class D3dnthalDp2setstreamsourceum(public var dwStream: UInt = 0u, public var dwStride: UInt = 0u)
+public data class D3dnthalDp2setstreamsourceum(
+    public var dwStream: UInt = 0u,
+    public var dwStride: UInt = 0u,
+)
 
-public data class D3dnthalDp2settexlod(public var dwDDSurface: UInt = 0u, public var dwLOD: UInt = 0u)
+public data class D3dnthalDp2settexlod(
+    public var dwDDSurface: UInt = 0u,
+    public var dwLOD: UInt = 0u,
+)
 
-public data class D3dnthalDp2setvertexshaderconst(public var dwRegister: UInt = 0u, public var dwCount: UInt = 0u)
+public data class D3dnthalDp2setvertexshaderconst(
+    public var dwRegister: UInt = 0u,
+    public var dwCount: UInt = 0u,
+)
 
-public data class D3dnthalDp2startvertex(public var wVStart: UShort = 0u)
+public data class D3dnthalDp2startvertex(
+    public var wVStart: UShort = 0u,
+)
 
 public data class D3dnthalDp2surfaceblt(
     public var dwSource: UInt = 0u,
@@ -362,13 +504,21 @@ public data class D3dnthalDp2texturestagestate(
     public var dwValue: UInt = 0u,
 )
 
-public data class D3dnthalDp2trianglefan(public var wVStart: UShort = 0u)
+public data class D3dnthalDp2trianglefan(
+    public var wVStart: UShort = 0u,
+)
 
-public data class D3dnthalDp2trianglefanImm(public var dwEdgeFlags: UInt = 0u)
+public data class D3dnthalDp2trianglefanImm(
+    public var dwEdgeFlags: UInt = 0u,
+)
 
-public data class D3dnthalDp2trianglelist(public var wVStart: UShort = 0u)
+public data class D3dnthalDp2trianglelist(
+    public var wVStart: UShort = 0u,
+)
 
-public data class D3dnthalDp2trianglestrip(public var wVStart: UShort = 0u)
+public data class D3dnthalDp2trianglestrip(
+    public var wVStart: UShort = 0u,
+)
 
 public data class D3dnthalDp2updatepalette(
     public var dwPaletteHandle: UInt = 0u,
@@ -376,7 +526,9 @@ public data class D3dnthalDp2updatepalette(
     public var wNumEntries: UShort = 0u,
 )
 
-public data class D3dnthalDp2vertexshader(public var dwHandle: UInt = 0u)
+public data class D3dnthalDp2vertexshader(
+    public var dwHandle: UInt = 0u,
+)
 
 public data class D3dnthalDp2viewportinfo(
     public var dwX: UInt = 0u,
@@ -385,9 +537,15 @@ public data class D3dnthalDp2viewportinfo(
     public var dwHeight: UInt = 0u,
 )
 
-public data class D3dnthalDp2winfo(public var dvWNear: Float = 0.0f, public var dvWFar: Float = 0.0f)
+public data class D3dnthalDp2winfo(
+    public var dvWNear: Float = 0.0f,
+    public var dvWFar: Float = 0.0f,
+)
 
-public data class D3dnthalDp2zrange(public var dvMinZ: Float = 0.0f, public var dvMaxZ: Float = 0.0f)
+public data class D3dnthalDp2zrange(
+    public var dvMinZ: Float = 0.0f,
+    public var dvMaxZ: Float = 0.0f,
+)
 
 public data class D3dnthalScenecapturedata(
     public var dwhContext: Int = 0,
@@ -430,7 +588,9 @@ public data class D3dnthalValidatetexturestagestatedata(
     public var ddrval: Hresult = 0,
 )
 
-public data class DdntDeferredAgpAwareData(public var gdi2: DdntGetdriverinfo2data = DdntGetdriverinfo2data())
+public data class DdntDeferredAgpAwareData(
+    public var gdi2: DdntGetdriverinfo2data = DdntGetdriverinfo2data(),
+)
 
 public data class DdntDxversion(
     public var gdi2: DdntGetdriverinfo2data = DdntGetdriverinfo2data(),
@@ -438,7 +598,10 @@ public data class DdntDxversion(
     public var dwReserved: UInt = 0u,
 )
 
-public data class DdntFreeDeferredAgpData(public var gdi2: DdntGetdriverinfo2data = DdntGetdriverinfo2data(), public var dwProcessId: UInt = 0u)
+public data class DdntFreeDeferredAgpData(
+    public var gdi2: DdntGetdriverinfo2data = DdntGetdriverinfo2data(),
+    public var dwProcessId: UInt = 0u,
+)
 
 public data class DdntGetadaptergroupdata(
     public var gdi2: DdntGetdriverinfo2data = DdntGetdriverinfo2data(),
@@ -447,7 +610,10 @@ public data class DdntGetadaptergroupdata(
     public var dwReserved2: UInt = 0u,
 )
 
-public data class DdntGetd3dquerycountdata(public var gdi2: DdntGetdriverinfo2data = DdntGetdriverinfo2data(), public var dwNumQueries: UInt = 0u)
+public data class DdntGetd3dquerycountdata(
+    public var gdi2: DdntGetdriverinfo2data = DdntGetdriverinfo2data(),
+    public var dwNumQueries: UInt = 0u,
+)
 
 public data class DdntGetddiversiondata(
     public var gdi2: DdntGetdriverinfo2data = DdntGetdriverinfo2data(),
@@ -474,7 +640,9 @@ public data class DdntGetformatcountdata(
     public var dwReserved: UInt = 0u,
 )
 
-public data class DdDeferredAgpAwareData(public var gdi2: DdGetdriverinfo2data = DdGetdriverinfo2data())
+public data class DdDeferredAgpAwareData(
+    public var gdi2: DdGetdriverinfo2data = DdGetdriverinfo2data(),
+)
 
 public data class DdDxversion(
     public var gdi2: DdGetdriverinfo2data = DdGetdriverinfo2data(),
@@ -482,7 +650,10 @@ public data class DdDxversion(
     public var dwReserved: UInt = 0u,
 )
 
-public data class DdFreeDeferredAgpData(public var gdi2: DdGetdriverinfo2data = DdGetdriverinfo2data(), public var dwProcessId: UInt = 0u)
+public data class DdFreeDeferredAgpData(
+    public var gdi2: DdGetdriverinfo2data = DdGetdriverinfo2data(),
+    public var dwProcessId: UInt = 0u,
+)
 
 public data class DdGetadaptergroupdata(
     public var gdi2: DdGetdriverinfo2data = DdGetdriverinfo2data(),
@@ -491,7 +662,10 @@ public data class DdGetadaptergroupdata(
     public var dwReserved2: UInt = 0u,
 )
 
-public data class DdGetd3dquerycountdata(public var gdi2: DdGetdriverinfo2data = DdGetdriverinfo2data(), public var dwNumQueries: UInt = 0u)
+public data class DdGetd3dquerycountdata(
+    public var gdi2: DdGetdriverinfo2data = DdGetdriverinfo2data(),
+    public var dwNumQueries: UInt = 0u,
+)
 
 public data class DdGetddiversiondata(
     public var gdi2: DdGetdriverinfo2data = DdGetdriverinfo2data(),
@@ -530,11 +704,17 @@ public data class DisplayidDetailedTimingTypeI(
     public var verticalSyncWidth: UShort = 0u,
 )
 
-public data class DisplayidDetailedTimingTypeI0(public var bitfield: UInt = 0u)
+public data class DisplayidDetailedTimingTypeI0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DisplayidDetailedTimingTypeI1(public var bitfield: UShort = 0u)
+public data class DisplayidDetailedTimingTypeI1(
+    public var bitfield: UShort = 0u,
+)
 
-public data class DisplayidDetailedTimingTypeI2(public var bitfield: UShort = 0u)
+public data class DisplayidDetailedTimingTypeI2(
+    public var bitfield: UShort = 0u,
+)
 
 public data class DxgkargSetpalette(
     public var vidPnSourceId: UInt = 0u,
@@ -702,7 +882,9 @@ public data class DxgkmdtOpmCreateVideoOutputForTargetParameters(
     public var vos: DxgkmdtOpmVideoOutputSemantics = 0,
 )
 
-public data class DxgkmdtOpmEncryptedParameters(public var abEncryptedParameters: UByteArray = UByteArray(256)) {
+public data class DxgkmdtOpmEncryptedParameters(
+    public var abEncryptedParameters: UByteArray = UByteArray(256),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DxgkmdtOpmEncryptedParameters) return false
@@ -710,9 +892,7 @@ public data class DxgkmdtOpmEncryptedParameters(public var abEncryptedParameters
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.abEncryptedParameters.contentHashCode()
-    }
+    override fun hashCode(): Int = this.abEncryptedParameters.contentHashCode()
 }
 
 public data class DxgkmdtOpmGetInfoParameters(
@@ -746,7 +926,9 @@ public data class DxgkmdtOpmGetInfoParameters(
     }
 }
 
-public data class DxgkmdtOpmHdcpKeySelectionVector(public var abKeySelectionVector: UByteArray = UByteArray(5)) {
+public data class DxgkmdtOpmHdcpKeySelectionVector(
+    public var abKeySelectionVector: UByteArray = UByteArray(5),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DxgkmdtOpmHdcpKeySelectionVector) return false
@@ -754,12 +936,12 @@ public data class DxgkmdtOpmHdcpKeySelectionVector(public var abKeySelectionVect
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.abKeySelectionVector.contentHashCode()
-    }
+    override fun hashCode(): Int = this.abKeySelectionVector.contentHashCode()
 }
 
-public data class DxgkmdtOpmOmac(public var abOMAC: UByteArray = UByteArray(16)) {
+public data class DxgkmdtOpmOmac(
+    public var abOMAC: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DxgkmdtOpmOmac) return false
@@ -767,9 +949,7 @@ public data class DxgkmdtOpmOmac(public var abOMAC: UByteArray = UByteArray(16))
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.abOMAC.contentHashCode()
-    }
+    override fun hashCode(): Int = this.abOMAC.contentHashCode()
 }
 
 public data class DxgkmdtOpmOutputId(
@@ -778,7 +958,9 @@ public data class DxgkmdtOpmOutputId(
     public var outputId: ULong = 0uL,
 )
 
-public data class DxgkmdtOpmRandomNumber(public var abRandomNumber: UByteArray = UByteArray(16)) {
+public data class DxgkmdtOpmRandomNumber(
+    public var abRandomNumber: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DxgkmdtOpmRandomNumber) return false
@@ -786,9 +968,7 @@ public data class DxgkmdtOpmRandomNumber(public var abRandomNumber: UByteArray =
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.abRandomNumber.contentHashCode()
-    }
+    override fun hashCode(): Int = this.abRandomNumber.contentHashCode()
 }
 
 public data class DxgkmdtOpmRequestedInformation(
@@ -856,7 +1036,9 @@ public data class DxgkmdtOpmSetAcpAndCgmsaSignalingParameters(
     }
 }
 
-public data class DxgkmdtOpmSetHdcpSrmParameters(public var ulSRMVersion: UInt = 0u)
+public data class DxgkmdtOpmSetHdcpSrmParameters(
+    public var ulSRMVersion: UInt = 0u,
+)
 
 public data class DxgkmdtOpmSetProtectionLevelParameters(
     public var ulProtectionType: UInt = 0u,
@@ -873,9 +1055,15 @@ public data class DxgkmdtOpmStandardInformation(
     public var ulReserved2: UInt = 0u,
 )
 
-public data class DxgkvgpuEscapeHead(public var luid: GpupDriverEscapeInput = GpupDriverEscapeInput(), public var type: DxgkvgpuEscapeType = 0)
+public data class DxgkvgpuEscapeHead(
+    public var luid: GpupDriverEscapeInput = GpupDriverEscapeInput(),
+    public var type: DxgkvgpuEscapeType = 0,
+)
 
-public data class DxgkvgpuEscapeInitialize(public var header: DxgkvgpuEscapeHead = DxgkvgpuEscapeHead(), public var vmGuid: Guid = Guid())
+public data class DxgkvgpuEscapeInitialize(
+    public var header: DxgkvgpuEscapeHead = DxgkvgpuEscapeHead(),
+    public var vmGuid: Guid = Guid(),
+)
 
 public data class DxgkvgpuEscapePause(
     public var header: DxgkvgpuEscapeHead = DxgkvgpuEscapeHead(),
@@ -883,11 +1071,19 @@ public data class DxgkvgpuEscapePause(
     public var anonymous: DxgkvgpuEscapePause0 = DxgkvgpuEscapePause0(),
 )
 
-public data class DxgkvgpuEscapePause0(public var anonymous: DxgkvgpuEscapePause00 = DxgkvgpuEscapePause00(), public var flags: UInt = 0u)
+public data class DxgkvgpuEscapePause0(
+    public var anonymous: DxgkvgpuEscapePause00 = DxgkvgpuEscapePause00(),
+    public var flags: UInt = 0u,
+)
 
-public data class DxgkvgpuEscapePause00(public var bitfield: UInt = 0u)
+public data class DxgkvgpuEscapePause00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DxgkvgpuEscapePowertransitioncomplete(public var header: DxgkvgpuEscapeHead = DxgkvgpuEscapeHead(), public var powerState: UInt = 0u)
+public data class DxgkvgpuEscapePowertransitioncomplete(
+    public var header: DxgkvgpuEscapeHead = DxgkvgpuEscapeHead(),
+    public var powerState: UInt = 0u,
+)
 
 public data class DxgkvgpuEscapeReadPciConfig(
     public var header: DxgkvgpuEscapeHead = DxgkvgpuEscapeHead(),
@@ -895,9 +1091,13 @@ public data class DxgkvgpuEscapeReadPciConfig(
     public var size: UInt = 0u,
 )
 
-public data class DxgkvgpuEscapeReadVgpuType(public var header: DxgkvgpuEscapeHead = DxgkvgpuEscapeHead())
+public data class DxgkvgpuEscapeReadVgpuType(
+    public var header: DxgkvgpuEscapeHead = DxgkvgpuEscapeHead(),
+)
 
-public data class DxgkvgpuEscapeRelease(public var header: DxgkvgpuEscapeHead = DxgkvgpuEscapeHead())
+public data class DxgkvgpuEscapeRelease(
+    public var header: DxgkvgpuEscapeHead = DxgkvgpuEscapeHead(),
+)
 
 public data class DxgkvgpuEscapeResume(
     public var header: DxgkvgpuEscapeHead = DxgkvgpuEscapeHead(),
@@ -937,11 +1137,18 @@ public data class DxgkBacklightInfo(
     public var gammaRamp: D3dddiGammaRampRgb256x3x16 = D3dddiGammaRampRgb256x3x16(),
 )
 
-public data class DxgkBrightnessCaps(public var anonymous: DxgkBrightnessCaps0 = DxgkBrightnessCaps0())
+public data class DxgkBrightnessCaps(
+    public var anonymous: DxgkBrightnessCaps0 = DxgkBrightnessCaps0(),
+)
 
-public data class DxgkBrightnessCaps0(public var anonymous: DxgkBrightnessCaps00 = DxgkBrightnessCaps00(), public var value: UInt = 0u)
+public data class DxgkBrightnessCaps0(
+    public var anonymous: DxgkBrightnessCaps00 = DxgkBrightnessCaps00(),
+    public var value: UInt = 0u,
+)
 
-public data class DxgkBrightnessCaps00(public var bitfield: UInt = 0u)
+public data class DxgkBrightnessCaps00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DxgkBrightnessGetNitRangesOut(
     public var normalRangeCount: UInt = 0u,
@@ -950,7 +1157,10 @@ public data class DxgkBrightnessGetNitRangesOut(
     public var supportedRanges: List<DxgkBrightnessNitRange> = List(16) { DxgkBrightnessNitRange() },
 )
 
-public data class DxgkBrightnessGetOut(public var currentBrightnessMillinits: UInt = 0u, public var targetBrightnessMillinits: UInt = 0u)
+public data class DxgkBrightnessGetOut(
+    public var currentBrightnessMillinits: UInt = 0u,
+    public var targetBrightnessMillinits: UInt = 0u,
+)
 
 public data class DxgkBrightnessNitRange(
     public var minimumLevelMillinit: UInt = 0u,
@@ -966,11 +1176,19 @@ public data class DxgkBrightnessSensorData(
     public var colorTemperature: Float = 0.0f,
 )
 
-public data class DxgkBrightnessSensorData0(public var flags: DxgkBrightnessSensorData00 = DxgkBrightnessSensorData00(), public var validSensorValues: UInt = 0u)
+public data class DxgkBrightnessSensorData0(
+    public var flags: DxgkBrightnessSensorData00 = DxgkBrightnessSensorData00(),
+    public var validSensorValues: UInt = 0u,
+)
 
-public data class DxgkBrightnessSensorData00(public var bitfield: UInt = 0u)
+public data class DxgkBrightnessSensorData00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DxgkBrightnessSensorDataChromaticity(public var chromaticityX: Float = 0.0f, public var chromaticityY: Float = 0.0f)
+public data class DxgkBrightnessSensorDataChromaticity(
+    public var chromaticityX: Float = 0.0f,
+    public var chromaticityY: Float = 0.0f,
+)
 
 public data class DxgkBrightnessSetIn(
     public var brightnessMillinits: UInt = 0u,
@@ -978,11 +1196,18 @@ public data class DxgkBrightnessSetIn(
     public var sensorReadings: DxgkBrightnessSensorData = DxgkBrightnessSensorData(),
 )
 
-public data class DxgkBrightnessState(public var anonymous: DxgkBrightnessState0 = DxgkBrightnessState0())
+public data class DxgkBrightnessState(
+    public var anonymous: DxgkBrightnessState0 = DxgkBrightnessState0(),
+)
 
-public data class DxgkBrightnessState0(public var anonymous: DxgkBrightnessState00 = DxgkBrightnessState00(), public var value: UInt = 0u)
+public data class DxgkBrightnessState0(
+    public var anonymous: DxgkBrightnessState00 = DxgkBrightnessState00(),
+    public var value: UInt = 0u,
+)
 
-public data class DxgkBrightnessState00(public var bitfield: UInt = 0u)
+public data class DxgkBrightnessState00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DxgkDisplayInformation(
     public var width: UInt = 0u,
@@ -1007,13 +1232,22 @@ public data class DxgkEscapeGpummucaps(
     public var pageTableLevelDesk: List<D3dkmtPageTableLevelDesc> = List(6) { D3dkmtPageTableLevelDesc() },
 )
 
-public data class DxgkFaultErrorCode(public var anonymous: DxgkFaultErrorCode0 = DxgkFaultErrorCode0())
+public data class DxgkFaultErrorCode(
+    public var anonymous: DxgkFaultErrorCode0 = DxgkFaultErrorCode0(),
+)
 
-public data class DxgkFaultErrorCode0(public var anonymous1: DxgkFaultErrorCode00 = DxgkFaultErrorCode00(), public var anonymous2: DxgkFaultErrorCode01 = DxgkFaultErrorCode01())
+public data class DxgkFaultErrorCode0(
+    public var anonymous1: DxgkFaultErrorCode00 = DxgkFaultErrorCode00(),
+    public var anonymous2: DxgkFaultErrorCode01 = DxgkFaultErrorCode01(),
+)
 
-public data class DxgkFaultErrorCode00(public var bitfield: UInt = 0u)
+public data class DxgkFaultErrorCode00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DxgkFaultErrorCode01(public var bitfield: UInt = 0u)
+public data class DxgkFaultErrorCode01(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DxgkGpuclockdata(
     public var gpuFrequency: ULong = 0uL,
@@ -1022,13 +1256,23 @@ public data class DxgkGpuclockdata(
     public var flags: DxgkGpuclockdataFlags = DxgkGpuclockdataFlags(),
 )
 
-public data class DxgkGpuclockdataFlags(public var anonymous: DxgkGpuclockdataFlags0 = DxgkGpuclockdataFlags0())
+public data class DxgkGpuclockdataFlags(
+    public var anonymous: DxgkGpuclockdataFlags0 = DxgkGpuclockdataFlags0(),
+)
 
-public data class DxgkGpuclockdataFlags0(public var anonymous: DxgkGpuclockdataFlags00 = DxgkGpuclockdataFlags00(), public var value: UInt = 0u)
+public data class DxgkGpuclockdataFlags0(
+    public var anonymous: DxgkGpuclockdataFlags00 = DxgkGpuclockdataFlags00(),
+    public var value: UInt = 0u,
+)
 
-public data class DxgkGpuclockdataFlags00(public var bitfield: UInt = 0u)
+public data class DxgkGpuclockdataFlags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DxgkGpuversion(public var biosVersion: UShortArray = UShortArray(32), public var gpuArchitecture: UShortArray = UShortArray(32)) {
+public data class DxgkGpuversion(
+    public var biosVersion: UShortArray = UShortArray(32),
+    public var gpuArchitecture: UShortArray = UShortArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DxgkGpuversion) return false
@@ -1060,9 +1304,14 @@ public data class DxgkGraphicspowerRegisterOutput(
     public var unregisterCb: PdxgkGraphicspowerUnregister = null,
 )
 
-public data class DxgkMiracastChunkId(public var anonymous: DxgkMiracastChunkId0 = DxgkMiracastChunkId0(), public var value: ULong = 0uL)
+public data class DxgkMiracastChunkId(
+    public var anonymous: DxgkMiracastChunkId0 = DxgkMiracastChunkId0(),
+    public var value: ULong = 0uL,
+)
 
-public data class DxgkMiracastChunkId0(public var bitfield: ULong = 0uL)
+public data class DxgkMiracastChunkId0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class DxgkMiracastChunkInfo(
     public var chunkType: DxgkMiracastChunkType = 0,
@@ -1071,13 +1320,23 @@ public data class DxgkMiracastChunkInfo(
     public var encodeRate: UInt = 0u,
 )
 
-public data class DxgkMonitorlinkinfoCapabilities(public var anonymous: DxgkMonitorlinkinfoCapabilities0 = DxgkMonitorlinkinfoCapabilities0(), public var value: UInt = 0u)
+public data class DxgkMonitorlinkinfoCapabilities(
+    public var anonymous: DxgkMonitorlinkinfoCapabilities0 = DxgkMonitorlinkinfoCapabilities0(),
+    public var value: UInt = 0u,
+)
 
-public data class DxgkMonitorlinkinfoCapabilities0(public var bitfield: UInt = 0u)
+public data class DxgkMonitorlinkinfoCapabilities0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DxgkMonitorlinkinfoUsagehints(public var anonymous: DxgkMonitorlinkinfoUsagehints0 = DxgkMonitorlinkinfoUsagehints0(), public var value: UInt = 0u)
+public data class DxgkMonitorlinkinfoUsagehints(
+    public var anonymous: DxgkMonitorlinkinfoUsagehints0 = DxgkMonitorlinkinfoUsagehints0(),
+    public var value: UInt = 0u,
+)
 
-public data class DxgkMonitorlinkinfoUsagehints0(public var bitfield: UInt = 0u)
+public data class DxgkMonitorlinkinfoUsagehints0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DxgkNodemetadata(
     public var engineType: DxgkEngineType = 0,
@@ -1107,11 +1366,18 @@ public data class DxgkNodemetadata(
     }
 }
 
-public data class DxgkNodemetadataFlags(public var anonymous: DxgkNodemetadataFlags0 = DxgkNodemetadataFlags0())
+public data class DxgkNodemetadataFlags(
+    public var anonymous: DxgkNodemetadataFlags0 = DxgkNodemetadataFlags0(),
+)
 
-public data class DxgkNodemetadataFlags0(public var anonymous: DxgkNodemetadataFlags00 = DxgkNodemetadataFlags00(), public var value: UInt = 0u)
+public data class DxgkNodemetadataFlags0(
+    public var anonymous: DxgkNodemetadataFlags00 = DxgkNodemetadataFlags00(),
+    public var value: UInt = 0u,
+)
 
-public data class DxgkNodemetadataFlags00(public var bitfield: UInt = 0u)
+public data class DxgkNodemetadataFlags00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DxgkNodePerfdata(
     public var frequency: ULong = 0uL,
@@ -1123,13 +1389,24 @@ public data class DxgkNodePerfdata(
     public var maxTransitionLatency: ULong = 0uL,
 )
 
-public data class DxgkPte(public var anonymous1: DxgkPte0 = DxgkPte0(), public var anonymous2: DxgkPte1 = DxgkPte1())
+public data class DxgkPte(
+    public var anonymous1: DxgkPte0 = DxgkPte0(),
+    public var anonymous2: DxgkPte1 = DxgkPte1(),
+)
 
-public data class DxgkPte0(public var anonymous: DxgkPte00 = DxgkPte00(), public var flags: ULong = 0uL)
+public data class DxgkPte0(
+    public var anonymous: DxgkPte00 = DxgkPte00(),
+    public var flags: ULong = 0uL,
+)
 
-public data class DxgkPte00(public var bitfield: ULong = 0uL)
+public data class DxgkPte00(
+    public var bitfield: ULong = 0uL,
+)
 
-public data class DxgkPte1(public var pageAddress: ULong = 0uL, public var pageTableAddress: ULong = 0uL)
+public data class DxgkPte1(
+    public var pageAddress: ULong = 0uL,
+    public var pageTableAddress: ULong = 0uL,
+)
 
 public data class DxgkTargetmodeDetailTiming(
     public var videoStandard: D3dkmdtVideoSignalStandard = 0,
@@ -1137,7 +1414,9 @@ public data class DxgkTargetmodeDetailTiming(
     public var detailTiming: DisplayidDetailedTimingTypeI = DisplayidDetailedTimingTypeI(),
 )
 
-public data class GpupDriverEscapeInput(public var vfLUID: Luid = Luid())
+public data class GpupDriverEscapeInput(
+    public var vfLUID: Luid = Luid(),
+)
 
 public data class OutputduplContextDebugInfo(
     public var status: OutputduplContextDebugStatus = 0,
@@ -1170,4 +1449,7 @@ public data class OutputduplContextDebugInfo(
     }
 }
 
-public data class NtD3dlinepattern(public var wRepeatFactor: UShort = 0u, public var wLinePattern: UShort = 0u)
+public data class NtD3dlinepattern(
+    public var wRepeatFactor: UShort = 0u,
+    public var wLinePattern: UShort = 0u,
+)

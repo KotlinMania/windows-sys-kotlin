@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security.authorization
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -14,9 +15,15 @@ import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 import io.github.kotlinmania.windowssys.windows.win32.security.Sid
 import io.github.kotlinmania.windowssys.windows.win32.security.SystemAuditObjectAceFlags
 
-public data class ActrlAccessa(public var cEntries: UInt = 0u, public var pPropertyAccessList: ActrlPropertyEntrya? = null)
+public data class ActrlAccessa(
+    public var cEntries: UInt = 0u,
+    public var pPropertyAccessList: ActrlPropertyEntrya? = null,
+)
 
-public data class ActrlAccessw(public var cEntries: UInt = 0u, public var pPropertyAccessList: ActrlPropertyEntryw? = null)
+public data class ActrlAccessw(
+    public var cEntries: UInt = 0u,
+    public var pPropertyAccessList: ActrlPropertyEntryw? = null,
+)
 
 public data class ActrlAccessEntrya(
     public var trustee: TrusteeA = TrusteeA(),
@@ -36,17 +43,35 @@ public data class ActrlAccessEntryw(
     public var lpInheritProperty: Pwstr = null,
 )
 
-public data class ActrlAccessEntryLista(public var cEntries: UInt = 0u, public var pAccessList: ActrlAccessEntrya? = null)
+public data class ActrlAccessEntryLista(
+    public var cEntries: UInt = 0u,
+    public var pAccessList: ActrlAccessEntrya? = null,
+)
 
-public data class ActrlAccessEntryListw(public var cEntries: UInt = 0u, public var pAccessList: ActrlAccessEntryw? = null)
+public data class ActrlAccessEntryListw(
+    public var cEntries: UInt = 0u,
+    public var pAccessList: ActrlAccessEntryw? = null,
+)
 
-public data class ActrlAccessInfoa(public var fAccessPermission: UInt = 0u, public var lpAccessPermissionName: Pstr = null)
+public data class ActrlAccessInfoa(
+    public var fAccessPermission: UInt = 0u,
+    public var lpAccessPermissionName: Pstr = null,
+)
 
-public data class ActrlAccessInfow(public var fAccessPermission: UInt = 0u, public var lpAccessPermissionName: Pwstr = null)
+public data class ActrlAccessInfow(
+    public var fAccessPermission: UInt = 0u,
+    public var lpAccessPermissionName: Pwstr = null,
+)
 
-public data class ActrlControlInfoa(public var lpControlId: Pstr = null, public var lpControlName: Pstr = null)
+public data class ActrlControlInfoa(
+    public var lpControlId: Pstr = null,
+    public var lpControlName: Pstr = null,
+)
 
-public data class ActrlControlInfow(public var lpControlId: Pwstr = null, public var lpControlName: Pwstr = null)
+public data class ActrlControlInfow(
+    public var lpControlId: Pwstr = null,
+    public var lpControlName: Pwstr = null,
+)
 
 public data class ActrlOverlapped(
     public var anonymous: ActrlOverlapped0 = ActrlOverlapped0(),
@@ -54,7 +79,10 @@ public data class ActrlOverlapped(
     public var hEvent: Handle = null,
 )
 
-public data class ActrlOverlapped0(public var provider: COpaquePointer? = null, public var reserved1: UInt = 0u)
+public data class ActrlOverlapped0(
+    public var provider: COpaquePointer? = null,
+    public var reserved1: UInt = 0u,
+)
 
 public data class ActrlPropertyEntrya(
     public var lpProperty: Pstr = null,
@@ -68,7 +96,9 @@ public data class ActrlPropertyEntryw(
     public var fListFlags: UInt = 0u,
 )
 
-public data class AuditIpAddress(public var pIpAddress: UByteArray = UByteArray(128)) {
+public data class AuditIpAddress(
+    public var pIpAddress: UByteArray = UByteArray(128),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is AuditIpAddress) return false
@@ -76,9 +106,7 @@ public data class AuditIpAddress(public var pIpAddress: UByteArray = UByteArray(
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.pIpAddress.contentHashCode()
-    }
+    override fun hashCode(): Int = this.pIpAddress.contentHashCode()
 }
 
 public data class AuditObjectType(
@@ -113,7 +141,10 @@ public data class AuditParam0(
     public var pIpAddress: AuditIpAddress? = null,
 )
 
-public data class AuditParam1(public var data1: Int = 0, public var logonIdHighPart: Int = 0)
+public data class AuditParam1(
+    public var data1: Int = 0,
+    public var logonIdHighPart: Int = 0,
+)
 
 public data class AuditParams(
     public var length: UInt = 0u,
@@ -152,7 +183,9 @@ public data class AuthzAuditEventTypeOld(
     public var u: AuthzAuditEventTypeUnion = AuthzAuditEventTypeUnion(),
 )
 
-public data class AuthzAuditEventTypeUnion(public var legacy: AuthzAuditEventTypeLegacy = AuthzAuditEventTypeLegacy())
+public data class AuthzAuditEventTypeUnion(
+    public var legacy: AuthzAuditEventTypeLegacy = AuthzAuditEventTypeLegacy(),
+)
 
 public data class AuthzInitInfo(
     public var version: UShort = 0u,
@@ -164,7 +197,10 @@ public data class AuthzInitInfo(
     public var pfnFreeCentralAccessPolicy: PfnAuthzFreeCentralAccessPolicy = null,
 )
 
-public data class AuthzRegistrationObjectTypeNameOffset(public var szObjectTypeName: Pwstr = null, public var dwOffset: UInt = 0u)
+public data class AuthzRegistrationObjectTypeNameOffset(
+    public var szObjectTypeName: Pwstr = null,
+    public var dwOffset: UInt = 0u,
+)
 
 public data class AuthzRpcInitInfoClient(
     public var version: UShort = 0u,
@@ -183,11 +219,19 @@ public data class AuthzSecurityAttributesInformation(
     public var attribute: AuthzSecurityAttributesInformation0 = AuthzSecurityAttributesInformation0(),
 )
 
-public data class AuthzSecurityAttributesInformation0(public var pAttributeV1: AuthzSecurityAttributeV1? = null)
+public data class AuthzSecurityAttributesInformation0(
+    public var pAttributeV1: AuthzSecurityAttributeV1? = null,
+)
 
-public data class AuthzSecurityAttributeFqbnValue(public var version: ULong = 0uL, public var pName: Pwstr = null)
+public data class AuthzSecurityAttributeFqbnValue(
+    public var version: ULong = 0uL,
+    public var pName: Pwstr = null,
+)
 
-public data class AuthzSecurityAttributeOctetStringValue(public var pValue: COpaquePointer? = null, public var valueLength: UInt = 0u)
+public data class AuthzSecurityAttributeOctetStringValue(
+    public var pValue: COpaquePointer? = null,
+    public var valueLength: UInt = 0u,
+)
 
 public data class AuthzSecurityAttributeV1(
     public var pName: Pwstr = null,
@@ -218,7 +262,10 @@ public data class AuthzSourceSchemaRegistration(
     public var objectTypeNames: List<AuthzRegistrationObjectTypeNameOffset> = List(1) { AuthzRegistrationObjectTypeNameOffset() },
 )
 
-public data class AuthzSourceSchemaRegistration0(public var pReserved: COpaquePointer? = null, public var pProviderGuid: Guid? = null)
+public data class AuthzSourceSchemaRegistration0(
+    public var pReserved: COpaquePointer? = null,
+    public var pProviderGuid: Guid? = null,
+)
 
 public data class ExplicitAccessA(
     public var grfAccessPermissions: UInt = 0u,
@@ -234,11 +281,19 @@ public data class ExplicitAccessW(
     public var trustee: TrusteeW = TrusteeW(),
 )
 
-public data class FnObjectMgrFuncts(public var sampleValue: UInt = 0u)
+public data class FnObjectMgrFuncts(
+    public var sampleValue: UInt = 0u,
+)
 
-public data class InheritedFroma(public var generationGap: Int = 0, public var ancestorName: Pstr = null)
+public data class InheritedFroma(
+    public var generationGap: Int = 0,
+    public var ancestorName: Pstr = null,
+)
 
-public data class InheritedFromw(public var generationGap: Int = 0, public var ancestorName: Pwstr = null)
+public data class InheritedFromw(
+    public var generationGap: Int = 0,
+    public var ancestorName: Pwstr = null,
+)
 
 public data class ObjectsAndNameA(
     public var objectsPresent: SystemAuditObjectAceFlags = 0u,

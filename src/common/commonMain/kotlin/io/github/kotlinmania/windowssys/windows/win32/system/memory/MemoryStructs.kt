@@ -1,10 +1,14 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.memory
 
 import io.github.kotlinmania.windowssys.COpaquePointer
 import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public data class CfgCallTargetInfo(public var offset: Int = 0, public var flags: Int = 0)
+public data class CfgCallTargetInfo(
+    public var offset: Int = 0,
+    public var flags: Int = 0,
+)
 
 public data class HeapSummary(
     public var cb: UInt = 0u,
@@ -47,7 +51,9 @@ public data class MemoryBasicInformation64(
     public var alignment2: UInt = 0u,
 )
 
-public data class MemoryMappedViewAddress(public var value: COpaquePointer? = null)
+public data class MemoryMappedViewAddress(
+    public var value: COpaquePointer? = null,
+)
 
 public data class MemoryPartitionDedicatedMemoryAttribute(
     public var type: MemDedicatedAttributeType = 0,
@@ -71,9 +77,14 @@ public data class MemAddressRequirements(
     public var alignment: Int = 0,
 )
 
-public data class MemExtendedParameter(public var anonymous1: MemExtendedParameter0 = MemExtendedParameter0(), public var anonymous2: MemExtendedParameter1 = MemExtendedParameter1())
+public data class MemExtendedParameter(
+    public var anonymous1: MemExtendedParameter0 = MemExtendedParameter0(),
+    public var anonymous2: MemExtendedParameter1 = MemExtendedParameter1(),
+)
 
-public data class MemExtendedParameter0(public var bitfield: ULong = 0uL)
+public data class MemExtendedParameter0(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class MemExtendedParameter1(
     public var uLong64: ULong = 0uL,
@@ -92,9 +103,15 @@ public data class ProcessHeapEntry(
     public var anonymous: ProcessHeapEntry0 = ProcessHeapEntry0(),
 )
 
-public data class ProcessHeapEntry0(public var block: ProcessHeapEntry00 = ProcessHeapEntry00(), public var region: ProcessHeapEntry01 = ProcessHeapEntry01())
+public data class ProcessHeapEntry0(
+    public var block: ProcessHeapEntry00 = ProcessHeapEntry00(),
+    public var region: ProcessHeapEntry01 = ProcessHeapEntry01(),
+)
 
-public data class ProcessHeapEntry00(public var hMem: Handle = null, public var dwReserved: UIntArray = UIntArray(3)) {
+public data class ProcessHeapEntry00(
+    public var hMem: Handle = null,
+    public var dwReserved: UIntArray = UIntArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ProcessHeapEntry00) return false
@@ -137,7 +154,10 @@ public class Win32MemoryPartitionInformation(
     public var partitionId: UInt = 0u,
 )
 
-public data class Win32MemoryRangeEntry(public var virtualAddress: COpaquePointer? = null, public var numberOfBytes: Int = 0)
+public data class Win32MemoryRangeEntry(
+    public var virtualAddress: COpaquePointer? = null,
+    public var numberOfBytes: Int = 0,
+)
 
 public data class Win32MemoryRegionInformation(
     public var allocationBase: COpaquePointer? = null,
@@ -147,6 +167,11 @@ public data class Win32MemoryRegionInformation(
     public var commitSize: Int = 0,
 )
 
-public data class Win32MemoryRegionInformation0(public var flags: UInt = 0u, public var anonymous: Win32MemoryRegionInformation00 = Win32MemoryRegionInformation00())
+public data class Win32MemoryRegionInformation0(
+    public var flags: UInt = 0u,
+    public var anonymous: Win32MemoryRegionInformation00 = Win32MemoryRegionInformation00(),
+)
 
-public data class Win32MemoryRegionInformation00(public var bitfield: UInt = 0u)
+public data class Win32MemoryRegionInformation00(
+    public var bitfield: UInt = 0u,
+)

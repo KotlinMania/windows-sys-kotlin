@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -15,7 +16,9 @@ public data class PssAllocator(
     public var freeRoutine: Int = 0,
 )
 
-public data class PssAuxiliaryPagesInformation(public var auxPagesCaptured: UInt = 0u)
+public data class PssAuxiliaryPagesInformation(
+    public var auxPagesCaptured: UInt = 0u,
+)
 
 public data class PssAuxiliaryPageEntry(
     public var address: COpaquePointer? = null,
@@ -53,7 +56,10 @@ public data class PssHandleEntry0(
     public var semaphore: PssHandleEntry05 = PssHandleEntry05(),
 )
 
-public data class PssHandleEntry03(public var manualReset: Bool = 0, public var signaled: Bool = 0)
+public data class PssHandleEntry03(
+    public var manualReset: Bool = 0,
+    public var signaled: Bool = 0,
+)
 
 public data class PssHandleEntry02(
     public var currentCount: Int = 0,
@@ -78,7 +84,10 @@ public data class PssHandleEntry04(
     public var maximumSize: Long = 0L,
 )
 
-public data class PssHandleEntry05(public var currentCount: Int = 0, public var maximumCount: Int = 0)
+public data class PssHandleEntry05(
+    public var currentCount: Int = 0,
+    public var maximumCount: Int = 0,
+)
 
 public data class PssHandleEntry01(
     public var exitStatus: UInt = 0u,
@@ -91,9 +100,14 @@ public data class PssHandleEntry01(
     public var win32StartAddress: COpaquePointer? = null,
 )
 
-public data class PssHandleInformation(public var handlesCaptured: UInt = 0u)
+public data class PssHandleInformation(
+    public var handlesCaptured: UInt = 0u,
+)
 
-public data class PssHandleTraceInformation(public var sectionHandle: Handle = null, public var size: UInt = 0u)
+public data class PssHandleTraceInformation(
+    public var sectionHandle: Handle = null,
+    public var size: UInt = 0u,
+)
 
 public data class PssPerformanceCounters(
     public var totalCycleCount: ULong = 0uL,
@@ -161,9 +175,14 @@ public class PssThreadEntry(
     public var contextRecord: Context? = null,
 )
 
-public data class PssThreadInformation(public var threadsCaptured: UInt = 0u, public var contextLength: UInt = 0u)
+public data class PssThreadInformation(
+    public var threadsCaptured: UInt = 0u,
+    public var contextLength: UInt = 0u,
+)
 
-public data class PssVaCloneInformation(public var vaCloneHandle: Handle = null)
+public data class PssVaCloneInformation(
+    public var vaCloneHandle: Handle = null,
+)
 
 public data class PssVaSpaceEntry(
     public var baseAddress: COpaquePointer? = null,
@@ -181,4 +200,6 @@ public data class PssVaSpaceEntry(
     public var mappedFileName: Pcwstr = null,
 )
 
-public data class PssVaSpaceInformation(public var regionCount: UInt = 0u)
+public data class PssVaSpaceInformation(
+    public var regionCount: UInt = 0u,
+)

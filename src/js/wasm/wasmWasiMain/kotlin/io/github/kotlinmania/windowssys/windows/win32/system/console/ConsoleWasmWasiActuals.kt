@@ -25,9 +25,8 @@ public actual fun allocConsole(): Bool =
 public actual fun attachConsole(dwprocessid: UInt): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun closePseudoConsole(hpc: Hpcon) {
+public actual fun closePseudoConsole(hpc: Hpcon): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun consoleControl(command: Consolecontrol, consoleinformation: COpaquePointer?, consoleinformationlength: UInt): Ntstatus =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
@@ -38,13 +37,11 @@ public actual fun createConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: 
 public actual fun createPseudoConsole(size: Coord, hinput: Handle, houtput: Handle, dwflags: UInt, phpc: COpaquePointer?): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun expungeConsoleCommandHistoryA(exename: Pcstr) {
+public actual fun expungeConsoleCommandHistoryA(exename: Pcstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun expungeConsoleCommandHistoryW(exename: Pcwstr) {
+public actual fun expungeConsoleCommandHistoryW(exename: Pcwstr): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun fillConsoleOutputAttribute(hconsoleoutput: Handle, wattribute: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: COpaquePointer?): Bool =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

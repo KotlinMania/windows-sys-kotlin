@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -43,7 +44,10 @@ public data class EapAttribute(
     public var pValue: COpaquePointer? = null,
 )
 
-public data class EapAttributes(public var dwNumberOfAttributes: UInt = 0u, public var pAttribs: EapAttribute? = null)
+public data class EapAttributes(
+    public var dwNumberOfAttributes: UInt = 0u,
+    public var pAttribs: EapAttribute? = null,
+)
 
 public data class EapAuthenticatorMethodRoutines(
     public var dwSizeInBytes: UInt = 0u,
@@ -76,7 +80,10 @@ public data class EapConfigInputFieldData(
     public var dwMaxDataLength: UInt = 0u,
 )
 
-public data class EapCredExpiryReq(public var curCreds: EapConfigInputFieldArray = EapConfigInputFieldArray(), public var newCreds: EapConfigInputFieldArray = EapConfigInputFieldArray())
+public data class EapCredExpiryReq(
+    public var curCreds: EapConfigInputFieldArray = EapConfigInputFieldArray(),
+    public var newCreds: EapConfigInputFieldArray = EapConfigInputFieldArray(),
+)
 
 public data class EapError(
     public var dwWinError: UInt = 0u,
@@ -111,9 +118,15 @@ public data class EapMethodInfo(
     public var pInnerMethodInfo: EapMethodInfo? = null,
 )
 
-public data class EapMethodInfoArray(public var dwNumberOfMethods: UInt = 0u, public var pEapMethods: EapMethodInfo? = null)
+public data class EapMethodInfoArray(
+    public var dwNumberOfMethods: UInt = 0u,
+    public var pEapMethods: EapMethodInfo? = null,
+)
 
-public data class EapMethodInfoArrayEx(public var dwNumberOfMethods: UInt = 0u, public var pEapMethods: EapMethodInfoEx? = null)
+public data class EapMethodInfoArrayEx(
+    public var dwNumberOfMethods: UInt = 0u,
+    public var pEapMethods: EapMethodInfoEx? = null,
+)
 
 public data class EapMethodInfoEx(
     public var eaptype: EapMethodType = EapMethodType(),
@@ -129,7 +142,10 @@ public data class EapMethodProperty(
     public var eapMethodPropertyValue: EapMethodPropertyValue = EapMethodPropertyValue(),
 )
 
-public data class EapMethodPropertyArray(public var dwNumberOfProperties: UInt = 0u, public var pMethodProperty: EapMethodProperty? = null)
+public data class EapMethodPropertyArray(
+    public var dwNumberOfProperties: UInt = 0u,
+    public var pMethodProperty: EapMethodProperty? = null,
+)
 
 public data class EapMethodPropertyValue(
     public var empvBool: EapMethodPropertyValueBool = EapMethodPropertyValueBool(),
@@ -137,13 +153,25 @@ public data class EapMethodPropertyValue(
     public var empvString: EapMethodPropertyValueString = EapMethodPropertyValueString(),
 )
 
-public data class EapMethodPropertyValueBool(public var length: UInt = 0u, public var value: Bool = 0)
+public data class EapMethodPropertyValueBool(
+    public var length: UInt = 0u,
+    public var value: Bool = 0,
+)
 
-public data class EapMethodPropertyValueDword(public var length: UInt = 0u, public var value: UInt = 0u)
+public data class EapMethodPropertyValueDword(
+    public var length: UInt = 0u,
+    public var value: UInt = 0u,
+)
 
-public data class EapMethodPropertyValueString(public var length: UInt = 0u, public var value: COpaquePointer? = null)
+public data class EapMethodPropertyValueString(
+    public var length: UInt = 0u,
+    public var value: COpaquePointer? = null,
+)
 
-public data class EapMethodType(public var eapType: EapType = EapType(), public var dwAuthorId: UInt = 0u)
+public data class EapMethodType(
+    public var eapType: EapType = EapType(),
+    public var dwAuthorId: UInt = 0u,
+)
 
 public data class EapPeerMethodRoutines(
     public var dwVersion: UInt = 0u,
@@ -175,7 +203,10 @@ public data class EapUiDataFormat(
     public var credLogonData: EapConfigInputFieldArray? = null,
 )
 
-public data class EapCertificateCredential(public var certHash: UByteArray = UByteArray(20), public var password: Pwstr = null) {
+public data class EapCertificateCredential(
+    public var certHash: UByteArray = UByteArray(20),
+    public var password: Pwstr = null,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is EapCertificateCredential) return false
@@ -191,7 +222,10 @@ public data class EapCertificateCredential(public var certHash: UByteArray = UBy
     }
 }
 
-public data class EapCredential(public var credType: EapCredentialType = 0, public var credData: EapCredentialTypeData = EapCredentialTypeData())
+public data class EapCredential(
+    public var credType: EapCredentialType = 0,
+    public var credData: EapCredentialTypeData = EapCredentialTypeData(),
+)
 
 public data class EapCredentialTypeData(
     public var usernamePassword: EapUsernamePasswordCredential = EapUsernamePasswordCredential(),
@@ -239,7 +273,10 @@ public data class EapPacket(
     }
 }
 
-public data class EapPeerMethodOutput(public var action: EapPeerMethodResponseAction = 0, public var fAllowNotifications: Bool = 0)
+public data class EapPeerMethodOutput(
+    public var action: EapPeerMethodResponseAction = 0,
+    public var fAllowNotifications: Bool = 0,
+)
 
 public data class EapPeerMethodResult(
     public var fIsSuccess: Bool = 0,
@@ -256,9 +293,14 @@ public data class EapPeerMethodResult(
     public var fSaveToCredMan: Bool = 0,
 )
 
-public data class EapSimCredential(public var iccID: Pwstr = null)
+public data class EapSimCredential(
+    public var iccID: Pwstr = null,
+)
 
-public data class EapUsernamePasswordCredential(public var username: Pwstr = null, public var password: Pwstr = null)
+public data class EapUsernamePasswordCredential(
+    public var username: Pwstr = null,
+    public var password: Pwstr = null,
+)
 
 public data class LegacyIdentityUiParams(
     public var eapType: UInt = 0u,

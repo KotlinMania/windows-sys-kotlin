@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -346,7 +347,10 @@ public data class DumpPointersEx(
     public var dumpDevicePowerOnContext: COpaquePointer? = null,
 )
 
-public data class DumpPointersVersion(public var version: UInt = 0u, public var size: UInt = 0u)
+public data class DumpPointersVersion(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+)
 
 public data class FirmwareRequestBlock(
     public var version: UInt = 0u,
@@ -387,7 +391,9 @@ public data class HybridInformation(
     public var priorities: HybridInformation1 = HybridInformation1(),
 )
 
-public data class HybridInformation0(public var bitfield: UInt = 0u)
+public data class HybridInformation0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class HybridInformation1(
     public var priorityLevelCount: UByte = 0u,
@@ -447,9 +453,14 @@ public data class IdeIoControl(
     }
 }
 
-public data class IkeAuthenticationInformation(public var authMethod: IkeAuthenticationMethod = 0, public var anonymous: IkeAuthenticationInformation0 = IkeAuthenticationInformation0())
+public data class IkeAuthenticationInformation(
+    public var authMethod: IkeAuthenticationMethod = 0,
+    public var anonymous: IkeAuthenticationInformation0 = IkeAuthenticationInformation0(),
+)
 
-public data class IkeAuthenticationInformation0(public var psKey: IkeAuthenticationPresharedKey = IkeAuthenticationPresharedKey())
+public data class IkeAuthenticationInformation0(
+    public var psKey: IkeAuthenticationPresharedKey = IkeAuthenticationPresharedKey(),
+)
 
 public data class IkeAuthenticationPresharedKey(
     public var securityFlags: ULong = 0uL,
@@ -843,9 +854,15 @@ public data class IscsiTargetPortalw(
     }
 }
 
-public data class IscsiTargetPortalGroupa(public var count: UInt = 0u, public var portals: List<IscsiTargetPortala> = List(1) { IscsiTargetPortala() })
+public data class IscsiTargetPortalGroupa(
+    public var count: UInt = 0u,
+    public var portals: List<IscsiTargetPortala> = List(1) { IscsiTargetPortala() },
+)
 
-public data class IscsiTargetPortalGroupw(public var count: UInt = 0u, public var portals: List<IscsiTargetPortalw> = List(1) { IscsiTargetPortalw() })
+public data class IscsiTargetPortalGroupw(
+    public var count: UInt = 0u,
+    public var portals: List<IscsiTargetPortalw> = List(1) { IscsiTargetPortalw() },
+)
 
 public data class IscsiTargetPortalInfoa(
     public var initiatorName: ByteArray = ByteArray(256),
@@ -971,7 +988,10 @@ public data class IscsiTargetPortalInfoExw(
     }
 }
 
-public data class IscsiUniqueSessionId(public var adapterUnique: ULong = 0uL, public var adapterSpecific: ULong = 0uL)
+public data class IscsiUniqueSessionId(
+    public var adapterUnique: ULong = 0uL,
+    public var adapterSpecific: ULong = 0uL,
+)
 
 public data class IscsiVersionInfo(
     public var majorVersion: UInt = 0u,
@@ -1051,7 +1071,10 @@ public data class MpioPassThroughPathEx(
     public var mpioPathId: ULong = 0uL,
 )
 
-public data class MpDeviceDataSetRange(public var startingOffset: Long = 0L, public var lengthInBytes: ULong = 0uL)
+public data class MpDeviceDataSetRange(
+    public var startingOffset: Long = 0L,
+    public var lengthInBytes: ULong = 0uL,
+)
 
 public data class NtscsiUnicodeString(
     public var length: UShort = 0u,
@@ -1201,9 +1224,14 @@ public data class NvSepCacheParameter(
     }
 }
 
-public data class NvSepCacheParameter0(public var cacheFlags: NvSepCacheParameter00 = NvSepCacheParameter00(), public var cacheFlagsSet: UByte = 0u)
+public data class NvSepCacheParameter0(
+    public var cacheFlags: NvSepCacheParameter00 = NvSepCacheParameter00(),
+    public var cacheFlagsSet: UByte = 0u,
+)
 
-public data class NvSepCacheParameter00(public var bitfield: UByte = 0u)
+public data class NvSepCacheParameter00(
+    public var bitfield: UByte = 0u,
+)
 
 public data class PersistentIscsiLoginInfoa(
     public var targetName: ByteArray = ByteArray(224),
@@ -1279,7 +1307,10 @@ public data class PersistentIscsiLoginInfow(
     }
 }
 
-public data class ScsiAdapterBusInfo(public var numberOfBuses: UByte = 0u, public var busData: List<ScsiBusData> = List(1) { ScsiBusData() })
+public data class ScsiAdapterBusInfo(
+    public var numberOfBuses: UByte = 0u,
+    public var busData: List<ScsiBusData> = List(1) { ScsiBusData() },
+)
 
 public data class ScsiAddress(
     public var length: UInt = 0u,
@@ -1329,7 +1360,10 @@ public data class ScsiInquiryData(
     }
 }
 
-public data class ScsiLunList(public var oslun: UInt = 0u, public var targetLUN: ULong = 0uL)
+public data class ScsiLunList(
+    public var oslun: UInt = 0u,
+    public var targetLUN: ULong = 0uL,
+)
 
 public data class ScsiPassThrough(
     public var length: UShort = 0u,
@@ -1888,7 +1922,9 @@ public data class StorageEnduranceInfo(
     }
 }
 
-public data class StorageEnduranceInfo0(public var bitfield: UInt = 0u)
+public data class StorageEnduranceInfo0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class StorageFirmwareActivate(
     public var version: UInt = 0u,
@@ -2062,7 +2098,10 @@ public data class StorageFirmwareSlotInfo(
     }
 }
 
-public data class StorageFirmwareSlotInfo0(public var info: UByteArray = UByteArray(8), public var asUlonglong: ULong = 0uL) {
+public data class StorageFirmwareSlotInfo0(
+    public var info: UByteArray = UByteArray(8),
+    public var asUlonglong: ULong = 0uL,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is StorageFirmwareSlotInfo0) return false

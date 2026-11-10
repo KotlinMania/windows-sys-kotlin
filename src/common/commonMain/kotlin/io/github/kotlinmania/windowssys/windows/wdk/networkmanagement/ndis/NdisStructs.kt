@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -17,9 +18,15 @@ import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.Net
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetIfOperStatus
 import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetLuidLh
 
-public data class BinaryData(public var length: UShort = 0u, public var buffer: COpaquePointer? = null)
+public data class BinaryData(
+    public var length: UShort = 0u,
+    public var buffer: COpaquePointer? = null,
+)
 
-public data class BssidInfo(public var bssid: UByteArray = UByteArray(6), public var pmkid: UByteArray = UByteArray(16)) {
+public data class BssidInfo(
+    public var bssid: UByteArray = UByteArray(6),
+    public var pmkid: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is BssidInfo) return false
@@ -35,7 +42,10 @@ public data class BssidInfo(public var bssid: UByteArray = UByteArray(6), public
     }
 }
 
-public data class CoAddress(public var addressSize: UInt = 0u, public var address: UByteArray = UByteArray(1)) {
+public data class CoAddress(
+    public var addressSize: UInt = 0u,
+    public var address: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is CoAddress) return false
@@ -69,7 +79,10 @@ public data class CoCallManagerParameters(
     public var callMgrSpecific: CoSpecificParameters = CoSpecificParameters(),
 )
 
-public data class CoPvc(public var ndisAfHandle: COpaquePointer? = null, public var pvcParameters: CoSpecificParameters = CoSpecificParameters())
+public data class CoPvc(
+    public var ndisAfHandle: COpaquePointer? = null,
+    public var pvcParameters: CoSpecificParameters = CoSpecificParameters(),
+)
 
 public data class CoSap(
     public var sapType: UInt = 0u,
@@ -122,13 +135,24 @@ public data class Filterdbs(
     public var xxxdb: COpaquePointer? = null,
 )
 
-public data class Filterdbs0(public var ethDB: Int? = null, public var nullDB: Int? = null)
+public data class Filterdbs0(
+    public var ethDB: Int? = null,
+    public var nullDB: Int? = null,
+)
 
-public data class GenGetNetcardTime(public var readTime: ULong = 0uL)
+public data class GenGetNetcardTime(
+    public var readTime: ULong = 0uL,
+)
 
-public data class GenGetTimeCaps(public var flags: UInt = 0u, public var clockPrecision: UInt = 0u)
+public data class GenGetTimeCaps(
+    public var flags: UInt = 0u,
+    public var clockPrecision: UInt = 0u,
+)
 
-public data class LockState(public var lockState: UShort = 0u, public var oldIrql: UByte = 0u)
+public data class LockState(
+    public var lockState: UShort = 0u,
+    public var oldIrql: UByte = 0u,
+)
 
 public data class MediaSpecificInformation(
     public var nextEntryOffset: UInt = 0u,
@@ -195,9 +219,15 @@ public data class Ndis80211AssociationInformation(
     public var offsetResponseIEs: UInt = 0u,
 )
 
-public data class Ndis80211AuthenticationEncryption(public var authModeSupported: Ndis80211AuthenticationMode = 0, public var encryptStatusSupported: Ndis80211WepStatus = 0)
+public data class Ndis80211AuthenticationEncryption(
+    public var authModeSupported: Ndis80211AuthenticationMode = 0,
+    public var encryptStatusSupported: Ndis80211WepStatus = 0,
+)
 
-public data class Ndis80211AuthenticationEvent(public var status: Ndis80211StatusIndication = Ndis80211StatusIndication(), public var request: List<Ndis80211AuthenticationRequest> = List(1) { Ndis80211AuthenticationRequest() })
+public data class Ndis80211AuthenticationEvent(
+    public var status: Ndis80211StatusIndication = Ndis80211StatusIndication(),
+    public var request: List<Ndis80211AuthenticationRequest> = List(1) { Ndis80211AuthenticationRequest() },
+)
 
 public data class Ndis80211AuthenticationRequest(
     public var length: UInt = 0u,
@@ -221,9 +251,15 @@ public data class Ndis80211AuthenticationRequest(
     }
 }
 
-public data class Ndis80211BssidList(public var numberOfItems: UInt = 0u, public var bssid: List<NdisWlanBssid> = List(1) { NdisWlanBssid() })
+public data class Ndis80211BssidList(
+    public var numberOfItems: UInt = 0u,
+    public var bssid: List<NdisWlanBssid> = List(1) { NdisWlanBssid() },
+)
 
-public data class Ndis80211BssidListEx(public var numberOfItems: UInt = 0u, public var bssid: List<NdisWlanBssidEx> = List(1) { NdisWlanBssidEx() })
+public data class Ndis80211BssidListEx(
+    public var numberOfItems: UInt = 0u,
+    public var bssid: List<NdisWlanBssidEx> = List(1) { NdisWlanBssidEx() },
+)
 
 public data class Ndis80211Capability(
     public var length: UInt = 0u,
@@ -301,7 +337,10 @@ public data class Ndis80211Key(
     }
 }
 
-public data class Ndis80211NetworkTypeList(public var numberOfItems: UInt = 0u, public var networkType: IntArray = IntArray(1)) {
+public data class Ndis80211NetworkTypeList(
+    public var numberOfItems: UInt = 0u,
+    public var networkType: IntArray = IntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Ndis80211NetworkTypeList) return false
@@ -317,7 +356,10 @@ public data class Ndis80211NetworkTypeList(public var numberOfItems: UInt = 0u, 
     }
 }
 
-public data class Ndis80211NonBcastSsidList(public var numberOfItems: UInt = 0u, public var nonBcastSsid: List<Ndis80211Ssid> = List(1) { Ndis80211Ssid() })
+public data class Ndis80211NonBcastSsidList(
+    public var numberOfItems: UInt = 0u,
+    public var nonBcastSsid: List<Ndis80211Ssid> = List(1) { Ndis80211Ssid() },
+)
 
 public data class Ndis80211Pmkid(
     public var length: UInt = 0u,
@@ -353,7 +395,10 @@ public data class Ndis80211RemoveKey(
     }
 }
 
-public data class Ndis80211Ssid(public var ssidLength: UInt = 0u, public var ssid: UByteArray = UByteArray(32)) {
+public data class Ndis80211Ssid(
+    public var ssidLength: UInt = 0u,
+    public var ssid: UByteArray = UByteArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Ndis80211Ssid) return false
@@ -397,7 +442,9 @@ public class Ndis80211Statistics(
     public var decryptFailureCount: Long = 0L,
 )
 
-public data class Ndis80211StatusIndication(public var statusType: Ndis80211StatusType = 0)
+public data class Ndis80211StatusIndication(
+    public var statusType: Ndis80211StatusType = 0,
+)
 
 public data class Ndis80211Test(
     public var length: UInt = 0u,
@@ -405,7 +452,10 @@ public data class Ndis80211Test(
     public var anonymous: Ndis80211Test0 = Ndis80211Test0(),
 )
 
-public data class Ndis80211Test0(public var authenticationEvent: Ndis80211AuthenticationEvent = Ndis80211AuthenticationEvent(), public var rssiTrigger: Int = 0)
+public data class Ndis80211Test0(
+    public var authenticationEvent: Ndis80211AuthenticationEvent = Ndis80211AuthenticationEvent(),
+    public var rssiTrigger: Int = 0,
+)
 
 public data class Ndis80211VariableIes(
     public var elementID: UByte = 0u,
@@ -454,7 +504,10 @@ public data class Ndis80211Wep(
     }
 }
 
-public data class NdisConfigurationParameter(public var parameterType: NdisParameterType = 0, public var parameterData: NdisConfigurationParameter0 = NdisConfigurationParameter0())
+public data class NdisConfigurationParameter(
+    public var parameterType: NdisParameterType = 0,
+    public var parameterData: NdisConfigurationParameter0 = NdisConfigurationParameter0(),
+)
 
 public data class NdisConfigurationParameter0(
     public var integerData: UInt = 0u,
@@ -493,7 +546,10 @@ public class NdisCoDeviceProfile(
     public var ulUUICallInfoSize: UInt = 0u,
 )
 
-public data class NdisCoLinkSpeed(public var outbound: UInt = 0u, public var inbound: UInt = 0u)
+public data class NdisCoLinkSpeed(
+    public var outbound: UInt = 0u,
+    public var inbound: UInt = 0u,
+)
 
 public data class NdisDmaBlock(
     public var mapRegisterBase: COpaquePointer? = null,
@@ -513,7 +569,9 @@ public data class NdisDmaDescription(
     public var dmaChannel: UInt = 0u,
 )
 
-public data class NdisEvent(public var event: Kevent = Kevent())
+public data class NdisEvent(
+    public var event: Kevent = Kevent(),
+)
 
 public data class NdisGuid(
     public var guid: Guid = Guid(),
@@ -522,7 +580,10 @@ public data class NdisGuid(
     public var flags: UInt = 0u,
 )
 
-public data class NdisGuid0(public var oid: UInt = 0u, public var status: Int = 0)
+public data class NdisGuid0(
+    public var oid: UInt = 0u,
+    public var status: Int = 0,
+)
 
 public data class NdisHardwareCrosstimestamp(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -544,9 +605,13 @@ public data class NdisIpsecOffloadV1(
     public var iPv4ESP: NdisIpsecOffloadV12 = NdisIpsecOffloadV12(),
 )
 
-public data class NdisIpsecOffloadV11(public var bitfield: UInt = 0u)
+public data class NdisIpsecOffloadV11(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NdisIpsecOffloadV12(public var bitfield: UInt = 0u)
+public data class NdisIpsecOffloadV12(
+    public var bitfield: UInt = 0u,
+)
 
 public data class NdisIpsecOffloadV10(
     public var encapsulation: UInt = 0u,
@@ -575,7 +640,10 @@ public data class NdisIpOperStatusInfo(
     public var ipOperationalStatus: List<NdisIpOperStatus> = List(32) { NdisIpOperStatus() },
 )
 
-public data class NdisIrdaPacketInfo(public var extraBOFs: UInt = 0u, public var minTurnAroundTime: UInt = 0u)
+public data class NdisIrdaPacketInfo(
+    public var extraBOFs: UInt = 0u,
+    public var minTurnAroundTime: UInt = 0u,
+)
 
 public data class NdisLinkParameters(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -586,7 +654,10 @@ public data class NdisLinkParameters(
     public var autoNegotiationFlags: UInt = 0u,
 )
 
-public data class NdisLinkSpeed(public var xmitLinkSpeed: ULong = 0uL, public var rcvLinkSpeed: ULong = 0uL)
+public data class NdisLinkSpeed(
+    public var xmitLinkSpeed: ULong = 0uL,
+    public var rcvLinkSpeed: ULong = 0uL,
+)
 
 public data class NdisLinkState(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -644,11 +715,18 @@ public data class NdisOperState(
     public var operationalStatusFlags: UInt = 0u,
 )
 
-public data class NdisPacket8021qInfo(public var anonymous: NdisPacket8021qInfo0 = NdisPacket8021qInfo0())
+public data class NdisPacket8021qInfo(
+    public var anonymous: NdisPacket8021qInfo0 = NdisPacket8021qInfo0(),
+)
 
-public data class NdisPacket8021qInfo0(public var tagHeader: NdisPacket8021qInfo00 = NdisPacket8021qInfo00(), public var value: COpaquePointer? = null)
+public data class NdisPacket8021qInfo0(
+    public var tagHeader: NdisPacket8021qInfo00 = NdisPacket8021qInfo00(),
+    public var value: COpaquePointer? = null,
+)
 
-public data class NdisPacket8021qInfo00(public var bitfield: UInt = 0u)
+public data class NdisPacket8021qInfo00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class NdisPciDeviceCustomProperties(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -666,7 +744,10 @@ public data class NdisPciDeviceCustomProperties(
     public var maxInterruptMessages: UInt = 0u,
 )
 
-public data class NdisPhysicalAddressUnit(public var physicalAddress: Long = 0L, public var length: UInt = 0u)
+public data class NdisPhysicalAddressUnit(
+    public var physicalAddress: Long = 0L,
+    public var length: UInt = 0u,
+)
 
 public data class NdisPmPacketPattern(
     public var priority: UInt = 0u,
@@ -683,7 +764,10 @@ public data class NdisPmWakeUpCapabilities(
     public var minLinkChangeWakeUp: NdisDevicePowerState = 0,
 )
 
-public data class NdisPnpCapabilities(public var flags: UInt = 0u, public var wakeUpCapabilities: NdisPmWakeUpCapabilities = NdisPmWakeUpCapabilities())
+public data class NdisPnpCapabilities(
+    public var flags: UInt = 0u,
+    public var wakeUpCapabilities: NdisPmWakeUpCapabilities = NdisPmWakeUpCapabilities(),
+)
 
 public data class NdisPort(
     public var next: NdisPort? = null,
@@ -763,9 +847,15 @@ public data class NdisReceiveScaleParameters(
     public var hashSecretKeyOffset: UInt = 0u,
 )
 
-public data class NdisRwLock(public var anonymous1: NdisRwLock0 = NdisRwLock0(), public var anonymous2: NdisRwLock1 = NdisRwLock1())
+public data class NdisRwLock(
+    public var anonymous1: NdisRwLock0 = NdisRwLock0(),
+    public var anonymous2: NdisRwLock1 = NdisRwLock1(),
+)
 
-public data class NdisRwLock0(public var anonymous: NdisRwLock00 = NdisRwLock00(), public var reserved: UByteArray = UByteArray(16)) {
+public data class NdisRwLock0(
+    public var anonymous: NdisRwLock00 = NdisRwLock00(),
+    public var reserved: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NdisRwLock0) return false
@@ -781,7 +871,10 @@ public data class NdisRwLock0(public var anonymous: NdisRwLock00 = NdisRwLock00(
     }
 }
 
-public data class NdisRwLock00(public var spinLock: Int = 0, public var context: COpaquePointer? = null)
+public data class NdisRwLock00(
+    public var spinLock: Int = 0,
+    public var context: COpaquePointer? = null,
+)
 
 public data class NdisRwLock1(
     public var refCount: List<NdisRwLockRefcount> = List(32) { NdisRwLockRefcount() },
@@ -811,7 +904,10 @@ public data class NdisRwLock10(
     public var writerWaiting: Boolean = false,
 )
 
-public data class NdisRwLockRefcount(public var refCount: UInt = 0u, public var cacheLine: UByteArray = UByteArray(16)) {
+public data class NdisRwLockRefcount(
+    public var refCount: UInt = 0u,
+    public var cacheLine: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NdisRwLockRefcount) return false
@@ -827,7 +923,10 @@ public data class NdisRwLockRefcount(public var refCount: UInt = 0u, public var 
     }
 }
 
-public data class NdisSpinLock(public var spinLock: Int = 0, public var oldIrql: UByte = 0u)
+public data class NdisSpinLock(
+    public var spinLock: Int = 0,
+    public var oldIrql: UByte = 0u,
+)
 
 public class NdisStatisticsInfo(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -914,15 +1013,29 @@ public data class NdisTcpIpChecksumOffload(
     public var iPv6Receive: NdisTcpIpChecksumOffload3 = NdisTcpIpChecksumOffload3(),
 )
 
-public data class NdisTcpIpChecksumOffload1(public var encapsulation: UInt = 0u, public var bitfield: UInt = 0u)
+public data class NdisTcpIpChecksumOffload1(
+    public var encapsulation: UInt = 0u,
+    public var bitfield: UInt = 0u,
+)
 
-public data class NdisTcpIpChecksumOffload0(public var encapsulation: UInt = 0u, public var bitfield: UInt = 0u)
+public data class NdisTcpIpChecksumOffload0(
+    public var encapsulation: UInt = 0u,
+    public var bitfield: UInt = 0u,
+)
 
-public data class NdisTcpIpChecksumOffload3(public var encapsulation: UInt = 0u, public var bitfield: UInt = 0u)
+public data class NdisTcpIpChecksumOffload3(
+    public var encapsulation: UInt = 0u,
+    public var bitfield: UInt = 0u,
+)
 
-public data class NdisTcpIpChecksumOffload2(public var encapsulation: UInt = 0u, public var bitfield: UInt = 0u)
+public data class NdisTcpIpChecksumOffload2(
+    public var encapsulation: UInt = 0u,
+    public var bitfield: UInt = 0u,
+)
 
-public data class NdisTcpIpChecksumPacketInfo(public var anonymous: NdisTcpIpChecksumPacketInfo0 = NdisTcpIpChecksumPacketInfo0())
+public data class NdisTcpIpChecksumPacketInfo(
+    public var anonymous: NdisTcpIpChecksumPacketInfo0 = NdisTcpIpChecksumPacketInfo0(),
+)
 
 public data class NdisTcpIpChecksumPacketInfo0(
     public var transmit: NdisTcpIpChecksumPacketInfo00 = NdisTcpIpChecksumPacketInfo00(),
@@ -930,11 +1043,17 @@ public data class NdisTcpIpChecksumPacketInfo0(
     public var value: UInt = 0u,
 )
 
-public data class NdisTcpIpChecksumPacketInfo01(public var bitfield: UInt = 0u)
+public data class NdisTcpIpChecksumPacketInfo01(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NdisTcpIpChecksumPacketInfo00(public var bitfield: UInt = 0u)
+public data class NdisTcpIpChecksumPacketInfo00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class NdisTcpLargeSendOffloadV1(public var iPv4: NdisTcpLargeSendOffloadV10 = NdisTcpLargeSendOffloadV10())
+public data class NdisTcpLargeSendOffloadV1(
+    public var iPv4: NdisTcpLargeSendOffloadV10 = NdisTcpLargeSendOffloadV10(),
+)
 
 public data class NdisTcpLargeSendOffloadV10(
     public var encapsulation: UInt = 0u,
@@ -943,7 +1062,10 @@ public data class NdisTcpLargeSendOffloadV10(
     public var bitfield: UInt = 0u,
 )
 
-public data class NdisTcpLargeSendOffloadV2(public var iPv4: NdisTcpLargeSendOffloadV20 = NdisTcpLargeSendOffloadV20(), public var iPv6: NdisTcpLargeSendOffloadV21 = NdisTcpLargeSendOffloadV21())
+public data class NdisTcpLargeSendOffloadV2(
+    public var iPv4: NdisTcpLargeSendOffloadV20 = NdisTcpLargeSendOffloadV20(),
+    public var iPv6: NdisTcpLargeSendOffloadV21 = NdisTcpLargeSendOffloadV21(),
+)
 
 public data class NdisTcpLargeSendOffloadV20(
     public var encapsulation: UInt = 0u,
@@ -983,7 +1105,10 @@ public data class NdisTimeoutDpcRequestCapabilities(
     }
 }
 
-public data class NdisTimer(public var timer: Ktimer = Ktimer(), public var dpc: Kdpc = Kdpc())
+public data class NdisTimer(
+    public var timer: Ktimer = Ktimer(),
+    public var dpc: Kdpc = Kdpc(),
+)
 
 public data class NdisTimestampCapabilities(
     public var header: NdisObjectHeader = NdisObjectHeader(),
@@ -1017,7 +1142,10 @@ public data class NdisVarDataDesc(
     public var offset: Int = 0,
 )
 
-public data class NdisWanFragment(public var remoteAddress: UByteArray = UByteArray(6), public var localAddress: UByteArray = UByteArray(6)) {
+public data class NdisWanFragment(
+    public var remoteAddress: UByteArray = UByteArray(6),
+    public var localAddress: UByteArray = UByteArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NdisWanFragment) return false
@@ -1091,7 +1219,10 @@ public data class NdisWanGetStats(
     }
 }
 
-public data class NdisWanLineDown(public var remoteAddress: UByteArray = UByteArray(6), public var localAddress: UByteArray = UByteArray(6)) {
+public data class NdisWanLineDown(
+    public var remoteAddress: UByteArray = UByteArray(6),
+    public var localAddress: UByteArray = UByteArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is NdisWanLineDown) return false
@@ -1150,7 +1281,10 @@ public data class NdisWanLineUp(
     }
 }
 
-public data class NdisWanProtocolCaps(public var flags: UInt = 0u, public var reserved: UInt = 0u)
+public data class NdisWanProtocolCaps(
+    public var flags: UInt = 0u,
+    public var reserved: UInt = 0u,
+)
 
 public data class NdisWlanBssid(
     public var length: UInt = 0u,
@@ -1473,7 +1607,9 @@ public data class NdisWmiTcpIpChecksumOffload2(
     public var udpChecksum: UInt = 0u,
 )
 
-public data class NdisWmiTcpLargeSendOffloadV1(public var iPv4: NdisWmiTcpLargeSendOffloadV10 = NdisWmiTcpLargeSendOffloadV10())
+public data class NdisWmiTcpLargeSendOffloadV1(
+    public var iPv4: NdisWmiTcpLargeSendOffloadV10 = NdisWmiTcpLargeSendOffloadV10(),
+)
 
 public data class NdisWmiTcpLargeSendOffloadV10(
     public var encapsulation: UInt = 0u,
@@ -1483,7 +1619,10 @@ public data class NdisWmiTcpLargeSendOffloadV10(
     public var ipOptions: UInt = 0u,
 )
 
-public data class NdisWmiTcpLargeSendOffloadV2(public var iPv4: NdisWmiTcpLargeSendOffloadV20 = NdisWmiTcpLargeSendOffloadV20(), public var iPv6: NdisWmiTcpLargeSendOffloadV21 = NdisWmiTcpLargeSendOffloadV21())
+public data class NdisWmiTcpLargeSendOffloadV2(
+    public var iPv4: NdisWmiTcpLargeSendOffloadV20 = NdisWmiTcpLargeSendOffloadV20(),
+    public var iPv6: NdisWmiTcpLargeSendOffloadV21 = NdisWmiTcpLargeSendOffloadV21(),
+)
 
 public data class NdisWmiTcpLargeSendOffloadV20(
     public var encapsulation: UInt = 0u,
@@ -1702,11 +1841,19 @@ public class OffloadIpsecAddUdpespSa(
     public var keyMat: UByteArray = UByteArray(1),
 )
 
-public data class OffloadIpsecDeleteSa(public var offloadHandle: Handle = null)
+public data class OffloadIpsecDeleteSa(
+    public var offloadHandle: Handle = null,
+)
 
-public data class OffloadIpsecDeleteUdpespSa(public var offloadHandle: Handle = null, public var encapTypeEntryOffldHandle: Handle = null)
+public data class OffloadIpsecDeleteUdpespSa(
+    public var offloadHandle: Handle = null,
+    public var encapTypeEntryOffldHandle: Handle = null,
+)
 
-public data class OffloadIpsecUdpespEncaptypeEntry(public var udpEncapType: UdpEncapType = 0, public var dstEncapPort: UShort = 0u)
+public data class OffloadIpsecUdpespEncaptypeEntry(
+    public var udpEncapType: UdpEncapType = 0,
+    public var dstEncapPort: UShort = 0u,
+)
 
 public data class OffloadSecurityAssociation(
     public var operation: OffloadOperationE = 0,
@@ -1716,7 +1863,10 @@ public data class OffloadSecurityAssociation(
     public var reserved: OffloadAlgoInfo = OffloadAlgoInfo(),
 )
 
-public data class PmkidCandidate(public var bssid: UByteArray = UByteArray(6), public var flags: UInt = 0u) {
+public data class PmkidCandidate(
+    public var bssid: UByteArray = UByteArray(6),
+    public var flags: UInt = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PmkidCandidate) return false
@@ -1738,7 +1888,10 @@ public data class Reference(
     public var closing: Boolean = false,
 )
 
-public data class TransportHeaderOffset(public var protocolType: UShort = 0u, public var headerOffset: UShort = 0u)
+public data class TransportHeaderOffset(
+    public var protocolType: UShort = 0u,
+    public var headerOffset: UShort = 0u,
+)
 
 public data class VarString(
     public var ulTotalSize: UInt = 0u,

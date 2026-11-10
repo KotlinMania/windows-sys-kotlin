@@ -120,7 +120,10 @@ public data class Fdinotification(
     public var fdie: Fdierror = 0,
 )
 
-public data class Fdispillfile(public var ach: ByteArray = ByteArray(2), public var cbFile: Int = 0) {
+public data class Fdispillfile(
+    public var ach: ByteArray = ByteArray(2),
+    public var cbFile: Int = 0,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Fdispillfile) return false

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.storage.filesystem
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -28,7 +29,10 @@ public data class ByHandleFileInformation(
     public var nFileIndexLow: UInt = 0u,
 )
 
-public data class ClfsLogNameInformation(public var nameLengthInBytes: UShort = 0u, public var name: UShortArray = UShortArray(1)) {
+public data class ClfsLogNameInformation(
+    public var nameLengthInBytes: UShort = 0u,
+    public var name: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClfsLogNameInformation) return false
@@ -71,19 +75,36 @@ public data class ClfsMgmtPolicy0(
     public var newContainerExtension: ClfsMgmtPolicy09 = ClfsMgmtPolicy09(),
 )
 
-public data class ClfsMgmtPolicy06(public var enabled: UInt = 0u)
+public data class ClfsMgmtPolicy06(
+    public var enabled: UInt = 0u,
+)
 
-public data class ClfsMgmtPolicy05(public var percentage: UInt = 0u)
+public data class ClfsMgmtPolicy05(
+    public var percentage: UInt = 0u,
+)
 
-public data class ClfsMgmtPolicy03(public var absoluteGrowthInContainers: UInt = 0u, public var relativeGrowthPercentage: UInt = 0u)
+public data class ClfsMgmtPolicy03(
+    public var absoluteGrowthInContainers: UInt = 0u,
+    public var relativeGrowthPercentage: UInt = 0u,
+)
 
-public data class ClfsMgmtPolicy04(public var minimumAvailablePercentage: UInt = 0u, public var minimumAvailableContainers: UInt = 0u)
+public data class ClfsMgmtPolicy04(
+    public var minimumAvailablePercentage: UInt = 0u,
+    public var minimumAvailableContainers: UInt = 0u,
+)
 
-public data class ClfsMgmtPolicy00(public var containers: UInt = 0u)
+public data class ClfsMgmtPolicy00(
+    public var containers: UInt = 0u,
+)
 
-public data class ClfsMgmtPolicy01(public var containers: UInt = 0u)
+public data class ClfsMgmtPolicy01(
+    public var containers: UInt = 0u,
+)
 
-public data class ClfsMgmtPolicy09(public var extensionLengthInBytes: UShort = 0u, public var extensionString: UShortArray = UShortArray(1)) {
+public data class ClfsMgmtPolicy09(
+    public var extensionLengthInBytes: UShort = 0u,
+    public var extensionString: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClfsMgmtPolicy09) return false
@@ -99,7 +120,10 @@ public data class ClfsMgmtPolicy09(public var extensionLengthInBytes: UShort = 0
     }
 }
 
-public data class ClfsMgmtPolicy07(public var prefixLengthInBytes: UShort = 0u, public var prefixString: UShortArray = UShortArray(1)) {
+public data class ClfsMgmtPolicy07(
+    public var prefixLengthInBytes: UShort = 0u,
+    public var prefixString: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClfsMgmtPolicy07) return false
@@ -115,11 +139,18 @@ public data class ClfsMgmtPolicy07(public var prefixLengthInBytes: UShort = 0u, 
     }
 }
 
-public data class ClfsMgmtPolicy02(public var sizeInBytes: UInt = 0u)
+public data class ClfsMgmtPolicy02(
+    public var sizeInBytes: UInt = 0u,
+)
 
-public data class ClfsMgmtPolicy08(public var nextContainerSuffix: ULong = 0uL)
+public data class ClfsMgmtPolicy08(
+    public var nextContainerSuffix: ULong = 0uL,
+)
 
-public data class ClfsNodeId(public var cType: UInt = 0u, public var cbNode: UInt = 0u)
+public data class ClfsNodeId(
+    public var cType: UInt = 0u,
+    public var cbNode: UInt = 0u,
+)
 
 public data class ClfsPhysicalLsnInformation(
     public var streamIdentifier: UByte = 0u,
@@ -127,7 +158,9 @@ public data class ClfsPhysicalLsnInformation(
     public var physicalLsn: ClsLsn = ClsLsn(),
 )
 
-public data class ClfsStreamIdInformation(public var streamIdentifier: UByte = 0u)
+public data class ClfsStreamIdInformation(
+    public var streamIdentifier: UByte = 0u,
+)
 
 public data class ClsArchiveDescriptor(
     public var coffLow: ULong = 0uL,
@@ -217,7 +250,9 @@ public data class ClsIoStatisticsHeader(
     public var coffData: UInt = 0u,
 )
 
-public data class ClsLsn(public var internal: ULong = 0uL)
+public data class ClsLsn(
+    public var internal: ULong = 0uL,
+)
 
 public data class ClsScanContext(
     public var cidNode: ClfsNodeId = ClfsNodeId(),
@@ -229,9 +264,14 @@ public data class ClsScanContext(
     public var pinfoContainer: ClsContainerInformation? = null,
 )
 
-public data class ClsWriteEntry(public var buffer: COpaquePointer? = null, public var byteLength: UInt = 0u)
+public data class ClsWriteEntry(
+    public var buffer: COpaquePointer? = null,
+    public var byteLength: UInt = 0u,
+)
 
-public data class ConnectionInfo0(public var coni0Id: UInt = 0u)
+public data class ConnectionInfo0(
+    public var coni0Id: UInt = 0u,
+)
 
 public data class ConnectionInfo1(
     public var coni1Id: UInt = 0u,
@@ -314,7 +354,9 @@ public data class Copyfile2Message05(
     public var uliTotalBytesTransferred: ULong = 0uL,
 )
 
-public data class Copyfile2Message04(public var dwReserved: UInt = 0u)
+public data class Copyfile2Message04(
+    public var dwReserved: UInt = 0u,
+)
 
 public data class Copyfile2Message03(
     public var dwStreamNumber: UInt = 0u,
@@ -373,7 +415,9 @@ public data class EfsCertificateBlob(
     public var pbData: COpaquePointer? = null,
 )
 
-public data class EfsCompatibilityInfo(public var efsVersion: UInt = 0u)
+public data class EfsCompatibilityInfo(
+    public var efsVersion: UInt = 0u,
+)
 
 public data class EfsDecryptionStatusInfo(
     public var dwDecryptionError: UInt = 0u,
@@ -381,9 +425,15 @@ public data class EfsDecryptionStatusInfo(
     public var cbHash: UInt = 0u,
 )
 
-public data class EfsEncryptionStatusInfo(public var bHasCurrentKey: Bool = 0, public var dwEncryptionError: UInt = 0u)
+public data class EfsEncryptionStatusInfo(
+    public var bHasCurrentKey: Bool = 0,
+    public var dwEncryptionError: UInt = 0u,
+)
 
-public data class EfsHashBlob(public var cbData: UInt = 0u, public var pbData: COpaquePointer? = null)
+public data class EfsHashBlob(
+    public var cbData: UInt = 0u,
+    public var pbData: COpaquePointer? = null,
+)
 
 public data class EfsKeyInfo(
     public var dwVersion: UInt = 0u,
@@ -398,9 +448,15 @@ public data class EfsPinBlob(
     public var pbData: COpaquePointer? = null,
 )
 
-public data class EfsRpcBlob(public var cbData: UInt = 0u, public var pbData: COpaquePointer? = null)
+public data class EfsRpcBlob(
+    public var cbData: UInt = 0u,
+    public var pbData: COpaquePointer? = null,
+)
 
-public data class EfsVersionInfo(public var efsVersion: UInt = 0u, public var subVersion: UInt = 0u)
+public data class EfsVersionInfo(
+    public var efsVersion: UInt = 0u,
+    public var subVersion: UInt = 0u,
+)
 
 public data class EncryptedFileMetadataSignature(
     public var dwEfsAccessType: UInt = 0u,
@@ -422,9 +478,15 @@ public data class EncryptionCertificateHash(
     public var lpDisplayInformation: Pwstr = null,
 )
 
-public data class EncryptionCertificateHashList(public var nCertHash: UInt = 0u, public var pUsers: COpaquePointer? = null)
+public data class EncryptionCertificateHashList(
+    public var nCertHash: UInt = 0u,
+    public var pUsers: COpaquePointer? = null,
+)
 
-public data class EncryptionCertificateList(public var nUsers: UInt = 0u, public var pUsers: COpaquePointer? = null)
+public data class EncryptionCertificateList(
+    public var nUsers: UInt = 0u,
+    public var pUsers: COpaquePointer? = null,
+)
 
 public data class EncryptionProtector(
     public var cbTotalLength: UInt = 0u,
@@ -432,7 +494,10 @@ public data class EncryptionProtector(
     public var lpProtectorDescriptor: Pwstr = null,
 )
 
-public data class EncryptionProtectorList(public var nProtectors: UInt = 0u, public var pProtectors: COpaquePointer? = null)
+public data class EncryptionProtectorList(
+    public var nProtectors: UInt = 0u,
+    public var pProtectors: COpaquePointer? = null,
+)
 
 public data class FhOverlapped(
     public var internal: Int = 0,
@@ -447,11 +512,18 @@ public data class FhOverlapped(
     public var reserved4: Int = 0,
 )
 
-public data class FileAlignmentInfo(public var alignmentRequirement: UInt = 0u)
+public data class FileAlignmentInfo(
+    public var alignmentRequirement: UInt = 0u,
+)
 
-public data class FileAllocationInfo(public var allocationSize: Long = 0L)
+public data class FileAllocationInfo(
+    public var allocationSize: Long = 0L,
+)
 
-public data class FileAttributeTagInfo(public var fileAttributes: UInt = 0u, public var reparseTag: UInt = 0u)
+public data class FileAttributeTagInfo(
+    public var fileAttributes: UInt = 0u,
+    public var reparseTag: UInt = 0u,
+)
 
 public data class FileBasicInfo(
     public var creationTime: Long = 0L,
@@ -461,7 +533,9 @@ public data class FileBasicInfo(
     public var fileAttributes: UInt = 0u,
 )
 
-public data class FileCaseSensitiveInfo(public var flags: UInt = 0u)
+public data class FileCaseSensitiveInfo(
+    public var flags: UInt = 0u,
+)
 
 public data class FileCompressionInfo(
     public var compressedFileSize: Long = 0L,
@@ -494,13 +568,22 @@ public data class FileCompressionInfo(
     }
 }
 
-public data class FileDispositionInfo(public var deleteFile: Boolean = false)
+public data class FileDispositionInfo(
+    public var deleteFile: Boolean = false,
+)
 
-public data class FileDispositionInfoEx(public var flags: FileDispositionInfoExFlags = 0u)
+public data class FileDispositionInfoEx(
+    public var flags: FileDispositionInfoExFlags = 0u,
+)
 
-public data class FileEndOfFileInfo(public var endOfFile: Long = 0L)
+public data class FileEndOfFileInfo(
+    public var endOfFile: Long = 0L,
+)
 
-public data class FileExtent(public var volumeOffset: ULong = 0uL, public var extentLength: ULong = 0uL)
+public data class FileExtent(
+    public var volumeOffset: ULong = 0uL,
+    public var extentLength: ULong = 0uL,
+)
 
 public data class FileFullDirInfo(
     public var nextEntryOffset: UInt = 0u,
@@ -551,7 +634,9 @@ public data class FileFullDirInfo(
     }
 }
 
-public data class FileId128(public var identifier: UByteArray = UByteArray(16)) {
+public data class FileId128(
+    public var identifier: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileId128) return false
@@ -559,9 +644,7 @@ public data class FileId128(public var identifier: UByteArray = UByteArray(16)) 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.identifier.contentHashCode()
-    }
+    override fun hashCode(): Int = this.identifier.contentHashCode()
 }
 
 public data class FileIdBothDirInfo(
@@ -689,9 +772,14 @@ public data class FileIdExtdDirInfo(
     }
 }
 
-public data class FileIdInfo(public var volumeSerialNumber: ULong = 0uL, public var fileId: FileId128 = FileId128())
+public data class FileIdInfo(
+    public var volumeSerialNumber: ULong = 0uL,
+    public var fileId: FileId128 = FileId128(),
+)
 
-public data class FileInfo2(public var fi2Id: UInt = 0u)
+public data class FileInfo2(
+    public var fi2Id: UInt = 0u,
+)
 
 public data class FileInfo3(
     public var fi3Id: UInt = 0u,
@@ -701,9 +789,14 @@ public data class FileInfo3(
     public var fi3Username: Pwstr = null,
 )
 
-public data class FileIoPriorityHintInfo(public var priorityHint: PriorityHint = 0)
+public data class FileIoPriorityHintInfo(
+    public var priorityHint: PriorityHint = 0,
+)
 
-public data class FileNameInfo(public var fileNameLength: UInt = 0u, public var fileName: UShortArray = UShortArray(1)) {
+public data class FileNameInfo(
+    public var fileNameLength: UInt = 0u,
+    public var fileName: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileNameInfo) return false
@@ -774,7 +867,10 @@ public data class FileNotifyExtendedInformation(
     }
 }
 
-public data class FileNotifyExtendedInformation0(public var reparsePointTag: UInt = 0u, public var eaSize: UInt = 0u)
+public data class FileNotifyExtendedInformation0(
+    public var reparsePointTag: UInt = 0u,
+    public var eaSize: UInt = 0u,
+)
 
 public data class FileNotifyInformation(
     public var nextEntryOffset: UInt = 0u,
@@ -814,7 +910,9 @@ public data class FileRemoteProtocolInfo(
     public var protocolSpecific: FileRemoteProtocolInfo1 = FileRemoteProtocolInfo1(),
 )
 
-public data class FileRemoteProtocolInfo0(public var reserved: UIntArray = UIntArray(8)) {
+public data class FileRemoteProtocolInfo0(
+    public var reserved: UIntArray = UIntArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileRemoteProtocolInfo0) return false
@@ -822,12 +920,13 @@ public data class FileRemoteProtocolInfo0(public var reserved: UIntArray = UIntA
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.reserved.contentHashCode()
-    }
+    override fun hashCode(): Int = this.reserved.contentHashCode()
 }
 
-public data class FileRemoteProtocolInfo1(public var smb2: FileRemoteProtocolInfo10 = FileRemoteProtocolInfo10(), public var reserved: UIntArray = UIntArray(16)) {
+public data class FileRemoteProtocolInfo1(
+    public var smb2: FileRemoteProtocolInfo10 = FileRemoteProtocolInfo10(),
+    public var reserved: UIntArray = UIntArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FileRemoteProtocolInfo1) return false
@@ -843,11 +942,19 @@ public data class FileRemoteProtocolInfo1(public var smb2: FileRemoteProtocolInf
     }
 }
 
-public data class FileRemoteProtocolInfo10(public var server: FileRemoteProtocolInfo100 = FileRemoteProtocolInfo100(), public var share: FileRemoteProtocolInfo101 = FileRemoteProtocolInfo101())
+public data class FileRemoteProtocolInfo10(
+    public var server: FileRemoteProtocolInfo100 = FileRemoteProtocolInfo100(),
+    public var share: FileRemoteProtocolInfo101 = FileRemoteProtocolInfo101(),
+)
 
-public data class FileRemoteProtocolInfo100(public var capabilities: UInt = 0u)
+public data class FileRemoteProtocolInfo100(
+    public var capabilities: UInt = 0u,
+)
 
-public data class FileRemoteProtocolInfo101(public var capabilities: UInt = 0u, public var shareFlags: UInt = 0u)
+public data class FileRemoteProtocolInfo101(
+    public var capabilities: UInt = 0u,
+    public var shareFlags: UInt = 0u,
+)
 
 public data class FileRenameInfo(
     public var anonymous: FileRenameInfo0 = FileRenameInfo0(),
@@ -874,9 +981,15 @@ public data class FileRenameInfo(
     }
 }
 
-public data class FileRenameInfo0(public var replaceIfExists: Boolean = false, public var flags: UInt = 0u)
+public data class FileRenameInfo0(
+    public var replaceIfExists: Boolean = false,
+    public var flags: UInt = 0u,
+)
 
-public data class FileSegmentElement(public var buffer: COpaquePointer? = null, public var alignment: ULong = 0uL)
+public data class FileSegmentElement(
+    public var buffer: COpaquePointer? = null,
+    public var alignment: ULong = 0uL,
+)
 
 public data class FileStandardInfo(
     public var allocationSize: Long = 0L,
@@ -932,11 +1045,20 @@ public data class FioContext(
     public var mDwHeaderLength: UInt = 0u,
 )
 
-public data class IoringBufferInfo(public var address: COpaquePointer? = null, public var length: UInt = 0u)
+public data class IoringBufferInfo(
+    public var address: COpaquePointer? = null,
+    public var length: UInt = 0u,
+)
 
-public data class IoringBufferRef(public var kind: IoringRefKind = 0, public var buffer: IoringBufferRef0 = IoringBufferRef0())
+public data class IoringBufferRef(
+    public var kind: IoringRefKind = 0,
+    public var buffer: IoringBufferRef0 = IoringBufferRef0(),
+)
 
-public data class IoringBufferRef0(public var address: COpaquePointer? = null, public var indexAndOffset: IoringRegisteredBuffer = IoringRegisteredBuffer())
+public data class IoringBufferRef0(
+    public var address: COpaquePointer? = null,
+    public var indexAndOffset: IoringRegisteredBuffer = IoringRegisteredBuffer(),
+)
 
 public data class IoringCapabilities(
     public var maxVersion: IoringVersion = 0,
@@ -951,11 +1073,20 @@ public data class IoringCqe(
     public var information: Int = 0,
 )
 
-public data class IoringCreateFlags(public var required: IoringCreateRequiredFlags = 0, public var advisory: IoringCreateAdvisoryFlags = 0)
+public data class IoringCreateFlags(
+    public var required: IoringCreateRequiredFlags = 0,
+    public var advisory: IoringCreateAdvisoryFlags = 0,
+)
 
-public data class IoringHandleRef(public var kind: IoringRefKind = 0, public var handle: IoringHandleRef0 = IoringHandleRef0())
+public data class IoringHandleRef(
+    public var kind: IoringRefKind = 0,
+    public var handle: IoringHandleRef0 = IoringHandleRef0(),
+)
 
-public data class IoringHandleRef0(public var handle: Handle = null, public var index: UInt = 0u)
+public data class IoringHandleRef0(
+    public var handle: Handle = null,
+    public var index: UInt = 0u,
+)
 
 public data class IoringInfo(
     public var ioRingVersion: IoringVersion = 0,
@@ -964,7 +1095,10 @@ public data class IoringInfo(
     public var completionQueueSize: UInt = 0u,
 )
 
-public data class IoringRegisteredBuffer(public var bufferIndex: UInt = 0u, public var offset: UInt = 0u)
+public data class IoringRegisteredBuffer(
+    public var bufferIndex: UInt = 0u,
+    public var offset: UInt = 0u,
+)
 
 public data class KcrmMarshalHeader(
     public var versionMajor: UInt = 0u,
@@ -1044,7 +1178,9 @@ public data class MediaLabelInfo(
     }
 }
 
-public data class NameCacheContext(public var mDwSignature: UInt = 0u)
+public data class NameCacheContext(
+    public var mDwSignature: UInt = 0u,
+)
 
 public data class NtmsAllocationInformation(
     public var dwSize: UInt = 0u,
@@ -2077,7 +2213,10 @@ public data class NtmsLibrequestinformationw(
     }
 }
 
-public data class NtmsLmidinformation(public var mediaPool: Guid = Guid(), public var dwNumberOfPartitions: UInt = 0u)
+public data class NtmsLmidinformation(
+    public var mediaPool: Guid = Guid(),
+    public var dwNumberOfPartitions: UInt = 0u,
+)
 
 public data class NtmsMediapoolinformation(
     public var poolType: UInt = 0u,
@@ -2098,9 +2237,15 @@ public data class NtmsMediatypeinformation(
     public var deviceType: FileDeviceType = 0u,
 )
 
-public data class NtmsMountInformation(public var dwSize: UInt = 0u, public var lpReserved: COpaquePointer? = null)
+public data class NtmsMountInformation(
+    public var dwSize: UInt = 0u,
+    public var lpReserved: COpaquePointer? = null,
+)
 
-public data class NtmsNotificationinformation(public var dwOperation: UInt = 0u, public var objectId: Guid = Guid())
+public data class NtmsNotificationinformation(
+    public var dwOperation: UInt = 0u,
+    public var objectId: Guid = Guid(),
+)
 
 public data class NtmsObjectinformationa(
     public var dwSize: UInt = 0u,
@@ -2565,7 +2710,9 @@ public data class ReparseGuidDataBuffer(
     public var genericReparseBuffer: ReparseGuidDataBuffer0 = ReparseGuidDataBuffer0(),
 )
 
-public data class ReparseGuidDataBuffer0(public var dataBuffer: UByteArray = UByteArray(1)) {
+public data class ReparseGuidDataBuffer0(
+    public var dataBuffer: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ReparseGuidDataBuffer0) return false
@@ -2573,9 +2720,7 @@ public data class ReparseGuidDataBuffer0(public var dataBuffer: UByteArray = UBy
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.dataBuffer.contentHashCode()
-    }
+    override fun hashCode(): Int = this.dataBuffer.contentHashCode()
 }
 
 public data class ServerAliasInfo0(
@@ -2601,7 +2746,9 @@ public data class ServerCertificateInfo0(
     public var srvci0MappingStatus: UInt = 0u,
 )
 
-public data class SessionInfo0(public var sesi0Cname: Pwstr = null)
+public data class SessionInfo0(
+    public var sesi0Cname: Pwstr = null,
+)
 
 public data class SessionInfo1(
     public var sesi1Cname: Pwstr = null,
@@ -2640,7 +2787,9 @@ public data class SessionInfo502(
     public var sesi502Transport: Pwstr = null,
 )
 
-public data class ShareInfo0(public var shi0Netname: Pwstr = null)
+public data class ShareInfo0(
+    public var shi0Netname: Pwstr = null,
+)
 
 public data class ShareInfo1(
     public var shi1Netname: Pwstr = null,
@@ -2648,15 +2797,26 @@ public data class ShareInfo1(
     public var shi1Remark: Pwstr = null,
 )
 
-public data class ShareInfo1004(public var shi1004Remark: Pwstr = null)
+public data class ShareInfo1004(
+    public var shi1004Remark: Pwstr = null,
+)
 
-public data class ShareInfo1005(public var shi1005Flags: UInt = 0u)
+public data class ShareInfo1005(
+    public var shi1005Flags: UInt = 0u,
+)
 
-public data class ShareInfo1006(public var shi1006MaxUses: UInt = 0u)
+public data class ShareInfo1006(
+    public var shi1006MaxUses: UInt = 0u,
+)
 
-public data class ShareInfo1501(public var shi1501Reserved: UInt = 0u, public var shi1501SecurityDescriptor: PsecurityDescriptor = null)
+public data class ShareInfo1501(
+    public var shi1501Reserved: UInt = 0u,
+    public var shi1501SecurityDescriptor: PsecurityDescriptor = null,
+)
 
-public data class ShareInfo1503(public var shi1503Sharefilter: Guid = Guid())
+public data class ShareInfo1503(
+    public var shi1503Sharefilter: Guid = Guid(),
+)
 
 public data class ShareInfo2(
     public var shi2Netname: Pwstr = null,
@@ -2766,7 +2926,10 @@ public class StatWorkstation0(
     public var currentCommands: UInt = 0u,
 )
 
-public data class TapeErase(public var type: EraseTapeType = 0u, public var immediate: Boolean = false)
+public data class TapeErase(
+    public var type: EraseTapeType = 0u,
+    public var immediate: Boolean = false,
+)
 
 public data class TapeGetPosition(
     public var type: TapePositionType = 0u,
@@ -2774,7 +2937,10 @@ public data class TapeGetPosition(
     public var offset: Long = 0L,
 )
 
-public data class TapePrepare(public var operation: PrepareTapeOperation = 0u, public var immediate: Boolean = false)
+public data class TapePrepare(
+    public var operation: PrepareTapeOperation = 0u,
+    public var immediate: Boolean = false,
+)
 
 public data class TapeSetPosition(
     public var method: TapePositionMethod = 0u,
@@ -2796,7 +2962,10 @@ public data class TransactionNotification(
     public var argumentLength: UInt = 0u,
 )
 
-public data class TransactionNotificationMarshalArgument(public var marshalCookie: UInt = 0u, public var uow: Guid = Guid())
+public data class TransactionNotificationMarshalArgument(
+    public var marshalCookie: UInt = 0u,
+    public var uow: Guid = Guid(),
+)
 
 public data class TransactionNotificationPropagateArgument(
     public var propagationCookie: UInt = 0u,
@@ -2805,15 +2974,28 @@ public data class TransactionNotificationPropagateArgument(
     public var bufferLength: UInt = 0u,
 )
 
-public data class TransactionNotificationRecoveryArgument(public var enlistmentId: Guid = Guid(), public var uow: Guid = Guid())
+public data class TransactionNotificationRecoveryArgument(
+    public var enlistmentId: Guid = Guid(),
+    public var uow: Guid = Guid(),
+)
 
-public data class TransactionNotificationSavepointArgument(public var savepointId: UInt = 0u)
+public data class TransactionNotificationSavepointArgument(
+    public var savepointId: UInt = 0u,
+)
 
-public data class TransactionNotificationTmOnlineArgument(public var tmIdentity: Guid = Guid(), public var flags: UInt = 0u)
+public data class TransactionNotificationTmOnlineArgument(
+    public var tmIdentity: Guid = Guid(),
+    public var flags: UInt = 0u,
+)
 
-public data class TxfId(public var anonymous: TxfId0 = TxfId0())
+public data class TxfId(
+    public var anonymous: TxfId0 = TxfId0(),
+)
 
-public data class TxfId0(public var lowPart: Long = 0L, public var highPart: Long = 0L)
+public data class TxfId0(
+    public var lowPart: Long = 0L,
+    public var highPart: Long = 0L,
+)
 
 public data class TxfLogRecordAffectedFile(
     public var version: UShort = 0u,
@@ -2900,7 +3082,10 @@ public data class VolumeAllocateBcStreamInput(
     }
 }
 
-public data class VolumeAllocateBcStreamOutput(public var requestSize: ULong = 0uL, public var numOutStandingRequests: UInt = 0u)
+public data class VolumeAllocateBcStreamOutput(
+    public var requestSize: ULong = 0uL,
+    public var numOutStandingRequests: UInt = 0u,
+)
 
 public data class VolumeAllocationHintInput(
     public var clusterSize: UInt = 0u,
@@ -2908,7 +3093,9 @@ public data class VolumeAllocationHintInput(
     public var startingClusterNumber: Long = 0L,
 )
 
-public data class VolumeAllocationHintOutput(public var bitmap: UIntArray = UIntArray(1)) {
+public data class VolumeAllocationHintOutput(
+    public var bitmap: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VolumeAllocationHintOutput) return false
@@ -2916,9 +3103,7 @@ public data class VolumeAllocationHintOutput(public var bitmap: UIntArray = UInt
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.bitmap.contentHashCode()
-    }
+    override fun hashCode(): Int = this.bitmap.contentHashCode()
 }
 
 public data class VolumeCriticalIo(
@@ -2927,7 +3112,10 @@ public data class VolumeCriticalIo(
     public var extents: List<FileExtent> = List(1) { FileExtent() },
 )
 
-public data class VolumeFailoverSet(public var numberOfDisks: UInt = 0u, public var diskNumbers: UIntArray = UIntArray(1)) {
+public data class VolumeFailoverSet(
+    public var numberOfDisks: UInt = 0u,
+    public var diskNumbers: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VolumeFailoverSet) return false
@@ -2961,9 +3149,14 @@ public data class VolumeGetBcPropertiesOutput(
     public var requestSize: ULong = 0uL,
 )
 
-public data class VolumeLogicalOffset(public var logicalOffset: Long = 0L)
+public data class VolumeLogicalOffset(
+    public var logicalOffset: Long = 0L,
+)
 
-public data class VolumeNumber(public var volumeNumber: UInt = 0u, public var volumeManagerName: UShortArray = UShortArray(8)) {
+public data class VolumeNumber(
+    public var volumeNumber: UInt = 0u,
+    public var volumeManagerName: UShortArray = UShortArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VolumeNumber) return false
@@ -2979,9 +3172,15 @@ public data class VolumeNumber(public var volumeNumber: UInt = 0u, public var vo
     }
 }
 
-public data class VolumePhysicalOffset(public var diskNumber: UInt = 0u, public var offset: Long = 0L)
+public data class VolumePhysicalOffset(
+    public var diskNumber: UInt = 0u,
+    public var offset: Long = 0L,
+)
 
-public data class VolumePhysicalOffsets(public var numberOfPhysicalOffsets: UInt = 0u, public var physicalOffset: List<VolumePhysicalOffset> = List(1) { VolumePhysicalOffset() })
+public data class VolumePhysicalOffsets(
+    public var numberOfPhysicalOffsets: UInt = 0u,
+    public var physicalOffset: List<VolumePhysicalOffset> = List(1) { VolumePhysicalOffset() },
+)
 
 public data class VolumeReadPlexInput(
     public var byteOffset: Long = 0L,
@@ -2997,7 +3196,9 @@ public data class VolumeSetGptAttributesInformation(
     public var reserved2: UInt = 0u,
 )
 
-public data class VolumeShrinkInfo(public var volumeSize: ULong = 0uL)
+public data class VolumeShrinkInfo(
+    public var volumeSize: ULong = 0uL,
+)
 
 public data class VsFixedfileinfo(
     public var dwSignature: UInt = 0u,
@@ -3142,7 +3343,10 @@ public data class Win32FindDataw(
     }
 }
 
-public data class Win32FindStreamData(public var streamSize: Long = 0L, public var cStreamName: UShortArray = UShortArray(296)) {
+public data class Win32FindStreamData(
+    public var streamSize: Long = 0L,
+    public var cStreamName: UShortArray = UShortArray(296),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Win32FindStreamData) return false
@@ -3186,6 +3390,11 @@ public data class Win32StreamId(
     }
 }
 
-public data class WofFileCompressionInfoV0(public var algorithm: UInt = 0u)
+public data class WofFileCompressionInfoV0(
+    public var algorithm: UInt = 0u,
+)
 
-public data class WofFileCompressionInfoV1(public var algorithm: UInt = 0u, public var flags: UInt = 0u)
+public data class WofFileCompressionInfoV1(
+    public var algorithm: UInt = 0u,
+    public var flags: UInt = 0u,
+)

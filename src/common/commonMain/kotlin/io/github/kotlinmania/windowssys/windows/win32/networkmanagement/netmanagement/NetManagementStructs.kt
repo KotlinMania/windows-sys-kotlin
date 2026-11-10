@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -11,7 +12,9 @@ import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 import io.github.kotlinmania.windowssys.windows.win32.security.SidNameUse
 import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 
-public data class AccessInfo0(public var acc0ResourceName: Pwstr = null)
+public data class AccessInfo0(
+    public var acc0ResourceName: Pwstr = null,
+)
 
 public data class AccessInfo1(
     public var acc1ResourceName: Pwstr = null,
@@ -19,11 +22,19 @@ public data class AccessInfo1(
     public var acc1Count: UInt = 0u,
 )
 
-public data class AccessInfo1002(public var acc1002Attr: UInt = 0u)
+public data class AccessInfo1002(
+    public var acc1002Attr: UInt = 0u,
+)
 
-public data class AccessList(public var aclUgname: Pwstr = null, public var aclAccess: UInt = 0u)
+public data class AccessList(
+    public var aclUgname: Pwstr = null,
+    public var aclAccess: UInt = 0u,
+)
 
-public data class AdminOtherInfo(public var alrtadErrcode: UInt = 0u, public var alrtadNumstrings: UInt = 0u)
+public data class AdminOtherInfo(
+    public var alrtadErrcode: UInt = 0u,
+    public var alrtadNumstrings: UInt = 0u,
+)
 
 public data class AeAcclim(
     public var aeAlCompname: UInt = 0u,
@@ -146,9 +157,14 @@ public data class AeSesslogon(
     public var aeSoPrivilege: UInt = 0u,
 )
 
-public data class AeSesspwerr(public var aeSpCompname: UInt = 0u, public var aeSpUsername: UInt = 0u)
+public data class AeSesspwerr(
+    public var aeSpCompname: UInt = 0u,
+    public var aeSpUsername: UInt = 0u,
+)
 
-public data class AeSrvstatus(public var aeSvStatus: UInt = 0u)
+public data class AeSrvstatus(
+    public var aeSvStatus: UInt = 0u,
+)
 
 public data class AeUasmod(
     public var aeUmCompname: UInt = 0u,
@@ -185,7 +201,10 @@ public data class AuditEntry(
     public var aeDataSize: UInt = 0u,
 )
 
-public data class ConfigInfo0(public var cfgi0Key: Pwstr = null, public var cfgi0Data: Pwstr = null)
+public data class ConfigInfo0(
+    public var cfgi0Key: Pwstr = null,
+    public var cfgi0Data: Pwstr = null,
+)
 
 public data class DsregJoinInfo(
     public var joinType: DsregJoinType = 0,
@@ -208,7 +227,10 @@ public data class DsregUserInfo(
     public var pszUserKeyName: Pwstr = null,
 )
 
-public data class ErrlogOtherInfo(public var alrterErrcode: UInt = 0u, public var alrterOffset: UInt = 0u)
+public data class ErrlogOtherInfo(
+    public var alrterErrcode: UInt = 0u,
+    public var alrterOffset: UInt = 0u,
+)
 
 public data class ErrorLog(
     public var elLen: UInt = 0u,
@@ -244,13 +266,22 @@ public data class FlatString(
     }
 }
 
-public data class GroupInfo0(public var grpi0Name: Pwstr = null)
+public data class GroupInfo0(
+    public var grpi0Name: Pwstr = null,
+)
 
-public data class GroupInfo1(public var grpi1Name: Pwstr = null, public var grpi1Comment: Pwstr = null)
+public data class GroupInfo1(
+    public var grpi1Name: Pwstr = null,
+    public var grpi1Comment: Pwstr = null,
+)
 
-public data class GroupInfo1002(public var grpi1002Comment: Pwstr = null)
+public data class GroupInfo1002(
+    public var grpi1002Comment: Pwstr = null,
+)
 
-public data class GroupInfo1005(public var grpi1005Attributes: UInt = 0u)
+public data class GroupInfo1005(
+    public var grpi1005Attributes: UInt = 0u,
+)
 
 public data class GroupInfo2(
     public var grpi2Name: Pwstr = null,
@@ -266,11 +297,18 @@ public data class GroupInfo3(
     public var grpi3Attributes: UInt = 0u,
 )
 
-public data class GroupUsersInfo0(public var grui0Name: Pwstr = null)
+public data class GroupUsersInfo0(
+    public var grui0Name: Pwstr = null,
+)
 
-public data class GroupUsersInfo1(public var grui1Name: Pwstr = null, public var grui1Attributes: UInt = 0u)
+public data class GroupUsersInfo1(
+    public var grui1Name: Pwstr = null,
+    public var grui1Attributes: UInt = 0u,
+)
 
-public data class HardwareAddress(public var address: UByteArray = UByteArray(6)) {
+public data class HardwareAddress(
+    public var address: UByteArray = UByteArray(6),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is HardwareAddress) return false
@@ -278,9 +316,7 @@ public data class HardwareAddress(public var address: UByteArray = UByteArray(6)
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.address.contentHashCode()
-    }
+    override fun hashCode(): Int = this.address.contentHashCode()
 }
 
 public data class Hlog(
@@ -290,13 +326,22 @@ public data class Hlog(
     public var recOffset: UInt = 0u,
 )
 
-public data class LocalgroupInfo0(public var lgrpi0Name: Pwstr = null)
+public data class LocalgroupInfo0(
+    public var lgrpi0Name: Pwstr = null,
+)
 
-public data class LocalgroupInfo1(public var lgrpi1Name: Pwstr = null, public var lgrpi1Comment: Pwstr = null)
+public data class LocalgroupInfo1(
+    public var lgrpi1Name: Pwstr = null,
+    public var lgrpi1Comment: Pwstr = null,
+)
 
-public data class LocalgroupInfo1002(public var lgrpi1002Comment: Pwstr = null)
+public data class LocalgroupInfo1002(
+    public var lgrpi1002Comment: Pwstr = null,
+)
 
-public data class LocalgroupMembersInfo0(public var lgrmi0Sid: Psid = null)
+public data class LocalgroupMembersInfo0(
+    public var lgrmi0Sid: Psid = null,
+)
 
 public data class LocalgroupMembersInfo1(
     public var lgrmi1Sid: Psid = null,
@@ -310,9 +355,13 @@ public data class LocalgroupMembersInfo2(
     public var lgrmi2Domainandname: Pwstr = null,
 )
 
-public data class LocalgroupMembersInfo3(public var lgrmi3Domainandname: Pwstr = null)
+public data class LocalgroupMembersInfo3(
+    public var lgrmi3Domainandname: Pwstr = null,
+)
 
-public data class LocalgroupUsersInfo0(public var lgrui0Name: Pwstr = null)
+public data class LocalgroupUsersInfo0(
+    public var lgrui0Name: Pwstr = null,
+)
 
 public data class MprProtocol0(
     public var dwProtocolId: UInt = 0u,
@@ -336,9 +385,13 @@ public data class MprProtocol0(
     }
 }
 
-public data class MsaInfo0(public var state: MsaInfoState = 0)
+public data class MsaInfo0(
+    public var state: MsaInfoState = 0,
+)
 
-public data class MsgInfo0(public var msgi0Name: Pwstr = null)
+public data class MsgInfo0(
+    public var msgi0Name: Pwstr = null,
+)
 
 public data class MsgInfo1(
     public var msgi1Name: Pwstr = null,
@@ -346,7 +399,10 @@ public data class MsgInfo1(
     public var msgi1Forward: Pwstr = null,
 )
 
-public data class NetlogonInfo1(public var netlog1Flags: UInt = 0u, public var netlog1PdcConnectionStatus: UInt = 0u)
+public data class NetlogonInfo1(
+    public var netlog1Flags: UInt = 0u,
+    public var netlog1PdcConnectionStatus: UInt = 0u,
+)
 
 public data class NetlogonInfo2(
     public var netlog2Flags: UInt = 0u,
@@ -365,7 +421,10 @@ public data class NetlogonInfo3(
     public var netlog3Reserved5: UInt = 0u,
 )
 
-public data class NetlogonInfo4(public var netlog4TrustedDcName: Pwstr = null, public var netlog4TrustedDomainName: Pwstr = null)
+public data class NetlogonInfo4(
+    public var netlog4TrustedDcName: Pwstr = null,
+    public var netlog4TrustedDomainName: Pwstr = null,
+)
 
 public data class NetsetupProvisioningParams(
     public var dwVersion: UInt = 0u,
@@ -385,7 +444,9 @@ public data class NetsetupProvisioningParams(
     public var lpPrimaryDNSDomain: Pwstr = null,
 )
 
-public data class NetworkName(public var name: FlatString = FlatString())
+public data class NetworkName(
+    public var name: FlatString = FlatString(),
+)
 
 public data class NetDisplayGroup(
     public var grpi3Name: Pwstr = null,
@@ -412,9 +473,15 @@ public data class NetDisplayUser(
     public var usri1NextIndex: UInt = 0u,
 )
 
-public data class NetValidateAuthenticationInputArg(public var inputPersistedFields: NetValidatePersistedFields = NetValidatePersistedFields(), public var passwordMatched: Boolean = false)
+public data class NetValidateAuthenticationInputArg(
+    public var inputPersistedFields: NetValidatePersistedFields = NetValidatePersistedFields(),
+    public var passwordMatched: Boolean = false,
+)
 
-public data class NetValidateOutputArg(public var changedPersistedFields: NetValidatePersistedFields = NetValidatePersistedFields(), public var validationStatus: UInt = 0u)
+public data class NetValidateOutputArg(
+    public var changedPersistedFields: NetValidatePersistedFields = NetValidatePersistedFields(),
+    public var validationStatus: UInt = 0u,
+)
 
 public data class NetValidatePasswordChangeInputArg(
     public var inputPersistedFields: NetValidatePersistedFields = NetValidatePersistedFields(),
@@ -424,7 +491,10 @@ public data class NetValidatePasswordChangeInputArg(
     public var passwordMatch: Boolean = false,
 )
 
-public data class NetValidatePasswordHash(public var length: UInt = 0u, public var hash: COpaquePointer? = null)
+public data class NetValidatePasswordHash(
+    public var length: UInt = 0u,
+    public var hash: COpaquePointer? = null,
+)
 
 public data class NetValidatePasswordResetInputArg(
     public var inputPersistedFields: NetValidatePersistedFields = NetValidatePersistedFields(),
@@ -519,7 +589,9 @@ public data class RasconIpui(
     }
 }
 
-public data class ReplEdirInfo0(public var rped0Dirname: Pwstr = null)
+public data class ReplEdirInfo0(
+    public var rped0Dirname: Pwstr = null,
+)
 
 public data class ReplEdirInfo1(
     public var rped1Dirname: Pwstr = null,
@@ -527,9 +599,13 @@ public data class ReplEdirInfo1(
     public var rped1Extent: UInt = 0u,
 )
 
-public data class ReplEdirInfo1000(public var rped1000Integrity: UInt = 0u)
+public data class ReplEdirInfo1000(
+    public var rped1000Integrity: UInt = 0u,
+)
 
-public data class ReplEdirInfo1001(public var rped1001Extent: UInt = 0u)
+public data class ReplEdirInfo1001(
+    public var rped1001Extent: UInt = 0u,
+)
 
 public data class ReplEdirInfo2(
     public var rped2Dirname: Pwstr = null,
@@ -539,7 +615,9 @@ public data class ReplEdirInfo2(
     public var rped2Locktime: UInt = 0u,
 )
 
-public data class ReplIdirInfo0(public var rpid0Dirname: Pwstr = null)
+public data class ReplIdirInfo0(
+    public var rpid0Dirname: Pwstr = null,
+)
 
 public data class ReplIdirInfo1(
     public var rpid1Dirname: Pwstr = null,
@@ -563,13 +641,21 @@ public data class ReplInfo0(
     public var rp0Random: UInt = 0u,
 )
 
-public data class ReplInfo1000(public var rp1000Interval: UInt = 0u)
+public data class ReplInfo1000(
+    public var rp1000Interval: UInt = 0u,
+)
 
-public data class ReplInfo1001(public var rp1001Pulse: UInt = 0u)
+public data class ReplInfo1001(
+    public var rp1001Pulse: UInt = 0u,
+)
 
-public data class ReplInfo1002(public var rp1002Guardtime: UInt = 0u)
+public data class ReplInfo1002(
+    public var rp1002Guardtime: UInt = 0u,
+)
 
-public data class ReplInfo1003(public var rp1003Random: UInt = 0u)
+public data class ReplInfo1003(
+    public var rp1003Random: UInt = 0u,
+)
 
 public data class RtrInfoBlockHeader(
     public var version: UInt = 0u,
@@ -585,9 +671,14 @@ public data class RtrTocEntry(
     public var offset: UInt = 0u,
 )
 
-public data class ServerInfo100(public var sv100PlatformId: UInt = 0u, public var sv100Name: Pwstr = null)
+public data class ServerInfo100(
+    public var sv100PlatformId: UInt = 0u,
+    public var sv100Name: Pwstr = null,
+)
 
-public data class ServerInfo1005(public var sv1005Comment: Pwstr = null)
+public data class ServerInfo1005(
+    public var sv1005Comment: Pwstr = null,
+)
 
 public data class ServerInfo101(
     public var sv101PlatformId: UInt = 0u,
@@ -598,13 +689,21 @@ public data class ServerInfo101(
     public var sv101Comment: Pwstr = null,
 )
 
-public data class ServerInfo1010(public var sv1010Disc: Int = 0)
+public data class ServerInfo1010(
+    public var sv1010Disc: Int = 0,
+)
 
-public data class ServerInfo1016(public var sv1016Hidden: ServerInfoHidden = 0)
+public data class ServerInfo1016(
+    public var sv1016Hidden: ServerInfoHidden = 0,
+)
 
-public data class ServerInfo1017(public var sv1017Announce: UInt = 0u)
+public data class ServerInfo1017(
+    public var sv1017Announce: UInt = 0u,
+)
 
-public data class ServerInfo1018(public var sv1018Anndelta: UInt = 0u)
+public data class ServerInfo1018(
+    public var sv1018Anndelta: UInt = 0u,
+)
 
 public data class ServerInfo102(
     public var sv102PlatformId: UInt = 0u,
@@ -639,183 +738,361 @@ public data class ServerInfo103(
     public var sv103Capabilities: UInt = 0u,
 )
 
-public data class ServerInfo1107(public var sv1107Users: UInt = 0u)
-
-public data class ServerInfo1501(public var sv1501Sessopens: UInt = 0u)
-
-public data class ServerInfo1502(public var sv1502Sessvcs: UInt = 0u)
-
-public data class ServerInfo1503(public var sv1503Opensearch: UInt = 0u)
-
-public data class ServerInfo1506(public var sv1506Maxworkitems: UInt = 0u)
-
-public data class ServerInfo1509(public var sv1509Maxrawbuflen: UInt = 0u)
-
-public data class ServerInfo1510(public var sv1510Sessusers: UInt = 0u)
-
-public data class ServerInfo1511(public var sv1511Sessconns: UInt = 0u)
-
-public data class ServerInfo1512(public var sv1512Maxnonpagedmemoryusage: UInt = 0u)
-
-public data class ServerInfo1513(public var sv1513Maxpagedmemoryusage: UInt = 0u)
-
-public data class ServerInfo1514(public var sv1514Enablesoftcompat: Bool = 0)
-
-public data class ServerInfo1515(public var sv1515Enableforcedlogoff: Bool = 0)
-
-public data class ServerInfo1516(public var sv1516Timesource: Bool = 0)
-
-public data class ServerInfo1518(public var sv1518Lmannounce: Bool = 0)
-
-public data class ServerInfo1520(public var sv1520Maxcopyreadlen: UInt = 0u)
-
-public data class ServerInfo1521(public var sv1521Maxcopywritelen: UInt = 0u)
-
-public data class ServerInfo1522(public var sv1522Minkeepsearch: UInt = 0u)
-
-public data class ServerInfo1523(public var sv1523Maxkeepsearch: UInt = 0u)
-
-public data class ServerInfo1524(public var sv1524Minkeepcomplsearch: UInt = 0u)
-
-public data class ServerInfo1525(public var sv1525Maxkeepcomplsearch: UInt = 0u)
-
-public data class ServerInfo1528(public var sv1528Scavtimeout: UInt = 0u)
-
-public data class ServerInfo1529(public var sv1529Minrcvqueue: UInt = 0u)
-
-public data class ServerInfo1530(public var sv1530Minfreeworkitems: UInt = 0u)
-
-public data class ServerInfo1533(public var sv1533Maxmpxct: UInt = 0u)
-
-public data class ServerInfo1534(public var sv1534Oplockbreakwait: UInt = 0u)
-
-public data class ServerInfo1535(public var sv1535Oplockbreakresponsewait: UInt = 0u)
-
-public data class ServerInfo1536(public var sv1536Enableoplocks: Bool = 0)
-
-public data class ServerInfo1537(public var sv1537Enableoplockforceclose: Bool = 0)
-
-public data class ServerInfo1538(public var sv1538Enablefcbopens: Bool = 0)
-
-public data class ServerInfo1539(public var sv1539Enableraw: Bool = 0)
-
-public data class ServerInfo1540(public var sv1540Enablesharednetdrives: Bool = 0)
-
-public data class ServerInfo1541(public var sv1541Minfreeconnections: Bool = 0)
-
-public data class ServerInfo1542(public var sv1542Maxfreeconnections: Bool = 0)
-
-public data class ServerInfo1543(public var sv1543Initsesstable: UInt = 0u)
-
-public data class ServerInfo1544(public var sv1544Initconntable: UInt = 0u)
-
-public data class ServerInfo1545(public var sv1545Initfiletable: UInt = 0u)
-
-public data class ServerInfo1546(public var sv1546Initsearchtable: UInt = 0u)
-
-public data class ServerInfo1547(public var sv1547Alertschedule: UInt = 0u)
-
-public data class ServerInfo1548(public var sv1548Errorthreshold: UInt = 0u)
-
-public data class ServerInfo1549(public var sv1549Networkerrorthreshold: UInt = 0u)
-
-public data class ServerInfo1550(public var sv1550Diskspacethreshold: UInt = 0u)
-
-public data class ServerInfo1552(public var sv1552Maxlinkdelay: UInt = 0u)
-
-public data class ServerInfo1553(public var sv1553Minlinkthroughput: UInt = 0u)
-
-public data class ServerInfo1554(public var sv1554Linkinfovalidtime: UInt = 0u)
-
-public data class ServerInfo1555(public var sv1555Scavqosinfoupdatetime: UInt = 0u)
-
-public data class ServerInfo1556(public var sv1556Maxworkitemidletime: UInt = 0u)
-
-public data class ServerInfo1557(public var sv1557Maxrawworkitems: UInt = 0u)
-
-public data class ServerInfo1560(public var sv1560Producttype: UInt = 0u)
-
-public data class ServerInfo1561(public var sv1561Serversize: UInt = 0u)
-
-public data class ServerInfo1562(public var sv1562Connectionlessautodisc: UInt = 0u)
-
-public data class ServerInfo1563(public var sv1563Sharingviolationretries: UInt = 0u)
-
-public data class ServerInfo1564(public var sv1564Sharingviolationdelay: UInt = 0u)
-
-public data class ServerInfo1565(public var sv1565Maxglobalopensearch: UInt = 0u)
-
-public data class ServerInfo1566(public var sv1566Removeduplicatesearches: Bool = 0)
-
-public data class ServerInfo1567(public var sv1567Lockviolationretries: UInt = 0u)
-
-public data class ServerInfo1568(public var sv1568Lockviolationoffset: UInt = 0u)
-
-public data class ServerInfo1569(public var sv1569Lockviolationdelay: UInt = 0u)
-
-public data class ServerInfo1570(public var sv1570Mdlreadswitchover: UInt = 0u)
-
-public data class ServerInfo1571(public var sv1571Cachedopenlimit: UInt = 0u)
-
-public data class ServerInfo1572(public var sv1572Criticalthreads: UInt = 0u)
-
-public data class ServerInfo1573(public var sv1573Restrictnullsessaccess: UInt = 0u)
-
-public data class ServerInfo1574(public var sv1574Enablewfw311directipx: UInt = 0u)
-
-public data class ServerInfo1575(public var sv1575Otherqueueaffinity: UInt = 0u)
-
-public data class ServerInfo1576(public var sv1576Queuesamplesecs: UInt = 0u)
-
-public data class ServerInfo1577(public var sv1577Balancecount: UInt = 0u)
-
-public data class ServerInfo1578(public var sv1578Preferredaffinity: UInt = 0u)
-
-public data class ServerInfo1579(public var sv1579Maxfreerfcbs: UInt = 0u)
-
-public data class ServerInfo1580(public var sv1580Maxfreemfcbs: UInt = 0u)
-
-public data class ServerInfo1581(public var sv1581Maxfreemlcbs: UInt = 0u)
-
-public data class ServerInfo1582(public var sv1582Maxfreepagedpoolchunks: UInt = 0u)
-
-public data class ServerInfo1583(public var sv1583Minpagedpoolchunksize: UInt = 0u)
-
-public data class ServerInfo1584(public var sv1584Maxpagedpoolchunksize: UInt = 0u)
-
-public data class ServerInfo1585(public var sv1585Sendsfrompreferredprocessor: Bool = 0)
-
-public data class ServerInfo1586(public var sv1586Maxthreadsperqueue: UInt = 0u)
-
-public data class ServerInfo1587(public var sv1587Cacheddirectorylimit: UInt = 0u)
-
-public data class ServerInfo1588(public var sv1588Maxcopylength: UInt = 0u)
-
-public data class ServerInfo1590(public var sv1590Enablecompression: UInt = 0u)
-
-public data class ServerInfo1591(public var sv1591Autosharewks: UInt = 0u)
-
-public data class ServerInfo1592(public var sv1592Autosharewks: UInt = 0u)
-
-public data class ServerInfo1593(public var sv1593Enablesecuritysignature: UInt = 0u)
-
-public data class ServerInfo1594(public var sv1594Requiresecuritysignature: UInt = 0u)
-
-public data class ServerInfo1595(public var sv1595Minclientbuffersize: UInt = 0u)
-
-public data class ServerInfo1596(public var sv1596ConnectionNoSessionsTimeout: UInt = 0u)
-
-public data class ServerInfo1597(public var sv1597IdleThreadTimeOut: UInt = 0u)
-
-public data class ServerInfo1598(public var sv1598EnableW9xsecuritysignature: UInt = 0u)
-
-public data class ServerInfo1599(public var sv1598Enforcekerberosreauthentication: Boolean = false)
-
-public data class ServerInfo1600(public var sv1598Disabledos: Boolean = false)
-
-public data class ServerInfo1601(public var sv1598Lowdiskspaceminimum: UInt = 0u)
-
-public data class ServerInfo1602(public var sv1598Disablestrictnamechecking: Bool = 0)
+public data class ServerInfo1107(
+    public var sv1107Users: UInt = 0u,
+)
+
+public data class ServerInfo1501(
+    public var sv1501Sessopens: UInt = 0u,
+)
+
+public data class ServerInfo1502(
+    public var sv1502Sessvcs: UInt = 0u,
+)
+
+public data class ServerInfo1503(
+    public var sv1503Opensearch: UInt = 0u,
+)
+
+public data class ServerInfo1506(
+    public var sv1506Maxworkitems: UInt = 0u,
+)
+
+public data class ServerInfo1509(
+    public var sv1509Maxrawbuflen: UInt = 0u,
+)
+
+public data class ServerInfo1510(
+    public var sv1510Sessusers: UInt = 0u,
+)
+
+public data class ServerInfo1511(
+    public var sv1511Sessconns: UInt = 0u,
+)
+
+public data class ServerInfo1512(
+    public var sv1512Maxnonpagedmemoryusage: UInt = 0u,
+)
+
+public data class ServerInfo1513(
+    public var sv1513Maxpagedmemoryusage: UInt = 0u,
+)
+
+public data class ServerInfo1514(
+    public var sv1514Enablesoftcompat: Bool = 0,
+)
+
+public data class ServerInfo1515(
+    public var sv1515Enableforcedlogoff: Bool = 0,
+)
+
+public data class ServerInfo1516(
+    public var sv1516Timesource: Bool = 0,
+)
+
+public data class ServerInfo1518(
+    public var sv1518Lmannounce: Bool = 0,
+)
+
+public data class ServerInfo1520(
+    public var sv1520Maxcopyreadlen: UInt = 0u,
+)
+
+public data class ServerInfo1521(
+    public var sv1521Maxcopywritelen: UInt = 0u,
+)
+
+public data class ServerInfo1522(
+    public var sv1522Minkeepsearch: UInt = 0u,
+)
+
+public data class ServerInfo1523(
+    public var sv1523Maxkeepsearch: UInt = 0u,
+)
+
+public data class ServerInfo1524(
+    public var sv1524Minkeepcomplsearch: UInt = 0u,
+)
+
+public data class ServerInfo1525(
+    public var sv1525Maxkeepcomplsearch: UInt = 0u,
+)
+
+public data class ServerInfo1528(
+    public var sv1528Scavtimeout: UInt = 0u,
+)
+
+public data class ServerInfo1529(
+    public var sv1529Minrcvqueue: UInt = 0u,
+)
+
+public data class ServerInfo1530(
+    public var sv1530Minfreeworkitems: UInt = 0u,
+)
+
+public data class ServerInfo1533(
+    public var sv1533Maxmpxct: UInt = 0u,
+)
+
+public data class ServerInfo1534(
+    public var sv1534Oplockbreakwait: UInt = 0u,
+)
+
+public data class ServerInfo1535(
+    public var sv1535Oplockbreakresponsewait: UInt = 0u,
+)
+
+public data class ServerInfo1536(
+    public var sv1536Enableoplocks: Bool = 0,
+)
+
+public data class ServerInfo1537(
+    public var sv1537Enableoplockforceclose: Bool = 0,
+)
+
+public data class ServerInfo1538(
+    public var sv1538Enablefcbopens: Bool = 0,
+)
+
+public data class ServerInfo1539(
+    public var sv1539Enableraw: Bool = 0,
+)
+
+public data class ServerInfo1540(
+    public var sv1540Enablesharednetdrives: Bool = 0,
+)
+
+public data class ServerInfo1541(
+    public var sv1541Minfreeconnections: Bool = 0,
+)
+
+public data class ServerInfo1542(
+    public var sv1542Maxfreeconnections: Bool = 0,
+)
+
+public data class ServerInfo1543(
+    public var sv1543Initsesstable: UInt = 0u,
+)
+
+public data class ServerInfo1544(
+    public var sv1544Initconntable: UInt = 0u,
+)
+
+public data class ServerInfo1545(
+    public var sv1545Initfiletable: UInt = 0u,
+)
+
+public data class ServerInfo1546(
+    public var sv1546Initsearchtable: UInt = 0u,
+)
+
+public data class ServerInfo1547(
+    public var sv1547Alertschedule: UInt = 0u,
+)
+
+public data class ServerInfo1548(
+    public var sv1548Errorthreshold: UInt = 0u,
+)
+
+public data class ServerInfo1549(
+    public var sv1549Networkerrorthreshold: UInt = 0u,
+)
+
+public data class ServerInfo1550(
+    public var sv1550Diskspacethreshold: UInt = 0u,
+)
+
+public data class ServerInfo1552(
+    public var sv1552Maxlinkdelay: UInt = 0u,
+)
+
+public data class ServerInfo1553(
+    public var sv1553Minlinkthroughput: UInt = 0u,
+)
+
+public data class ServerInfo1554(
+    public var sv1554Linkinfovalidtime: UInt = 0u,
+)
+
+public data class ServerInfo1555(
+    public var sv1555Scavqosinfoupdatetime: UInt = 0u,
+)
+
+public data class ServerInfo1556(
+    public var sv1556Maxworkitemidletime: UInt = 0u,
+)
+
+public data class ServerInfo1557(
+    public var sv1557Maxrawworkitems: UInt = 0u,
+)
+
+public data class ServerInfo1560(
+    public var sv1560Producttype: UInt = 0u,
+)
+
+public data class ServerInfo1561(
+    public var sv1561Serversize: UInt = 0u,
+)
+
+public data class ServerInfo1562(
+    public var sv1562Connectionlessautodisc: UInt = 0u,
+)
+
+public data class ServerInfo1563(
+    public var sv1563Sharingviolationretries: UInt = 0u,
+)
+
+public data class ServerInfo1564(
+    public var sv1564Sharingviolationdelay: UInt = 0u,
+)
+
+public data class ServerInfo1565(
+    public var sv1565Maxglobalopensearch: UInt = 0u,
+)
+
+public data class ServerInfo1566(
+    public var sv1566Removeduplicatesearches: Bool = 0,
+)
+
+public data class ServerInfo1567(
+    public var sv1567Lockviolationretries: UInt = 0u,
+)
+
+public data class ServerInfo1568(
+    public var sv1568Lockviolationoffset: UInt = 0u,
+)
+
+public data class ServerInfo1569(
+    public var sv1569Lockviolationdelay: UInt = 0u,
+)
+
+public data class ServerInfo1570(
+    public var sv1570Mdlreadswitchover: UInt = 0u,
+)
+
+public data class ServerInfo1571(
+    public var sv1571Cachedopenlimit: UInt = 0u,
+)
+
+public data class ServerInfo1572(
+    public var sv1572Criticalthreads: UInt = 0u,
+)
+
+public data class ServerInfo1573(
+    public var sv1573Restrictnullsessaccess: UInt = 0u,
+)
+
+public data class ServerInfo1574(
+    public var sv1574Enablewfw311directipx: UInt = 0u,
+)
+
+public data class ServerInfo1575(
+    public var sv1575Otherqueueaffinity: UInt = 0u,
+)
+
+public data class ServerInfo1576(
+    public var sv1576Queuesamplesecs: UInt = 0u,
+)
+
+public data class ServerInfo1577(
+    public var sv1577Balancecount: UInt = 0u,
+)
+
+public data class ServerInfo1578(
+    public var sv1578Preferredaffinity: UInt = 0u,
+)
+
+public data class ServerInfo1579(
+    public var sv1579Maxfreerfcbs: UInt = 0u,
+)
+
+public data class ServerInfo1580(
+    public var sv1580Maxfreemfcbs: UInt = 0u,
+)
+
+public data class ServerInfo1581(
+    public var sv1581Maxfreemlcbs: UInt = 0u,
+)
+
+public data class ServerInfo1582(
+    public var sv1582Maxfreepagedpoolchunks: UInt = 0u,
+)
+
+public data class ServerInfo1583(
+    public var sv1583Minpagedpoolchunksize: UInt = 0u,
+)
+
+public data class ServerInfo1584(
+    public var sv1584Maxpagedpoolchunksize: UInt = 0u,
+)
+
+public data class ServerInfo1585(
+    public var sv1585Sendsfrompreferredprocessor: Bool = 0,
+)
+
+public data class ServerInfo1586(
+    public var sv1586Maxthreadsperqueue: UInt = 0u,
+)
+
+public data class ServerInfo1587(
+    public var sv1587Cacheddirectorylimit: UInt = 0u,
+)
+
+public data class ServerInfo1588(
+    public var sv1588Maxcopylength: UInt = 0u,
+)
+
+public data class ServerInfo1590(
+    public var sv1590Enablecompression: UInt = 0u,
+)
+
+public data class ServerInfo1591(
+    public var sv1591Autosharewks: UInt = 0u,
+)
+
+public data class ServerInfo1592(
+    public var sv1592Autosharewks: UInt = 0u,
+)
+
+public data class ServerInfo1593(
+    public var sv1593Enablesecuritysignature: UInt = 0u,
+)
+
+public data class ServerInfo1594(
+    public var sv1594Requiresecuritysignature: UInt = 0u,
+)
+
+public data class ServerInfo1595(
+    public var sv1595Minclientbuffersize: UInt = 0u,
+)
+
+public data class ServerInfo1596(
+    public var sv1596ConnectionNoSessionsTimeout: UInt = 0u,
+)
+
+public data class ServerInfo1597(
+    public var sv1597IdleThreadTimeOut: UInt = 0u,
+)
+
+public data class ServerInfo1598(
+    public var sv1598EnableW9xsecuritysignature: UInt = 0u,
+)
+
+public data class ServerInfo1599(
+    public var sv1598Enforcekerberosreauthentication: Boolean = false,
+)
+
+public data class ServerInfo1600(
+    public var sv1598Disabledos: Boolean = false,
+)
+
+public data class ServerInfo1601(
+    public var sv1598Lowdiskspaceminimum: UInt = 0u,
+)
+
+public data class ServerInfo1602(
+    public var sv1598Disablestrictnamechecking: Bool = 0,
+)
 
 public class ServerInfo402(
     public var sv402UlistMtime: UInt = 0u,
@@ -1126,7 +1403,9 @@ public data class ServerTransportInfo3(
     }
 }
 
-public data class ServiceInfo0(public var svci0Name: Pwstr = null)
+public data class ServiceInfo0(
+    public var svci0Name: Pwstr = null,
+)
 
 public data class ServiceInfo1(
     public var svci1Name: Pwstr = null,
@@ -1202,9 +1481,14 @@ public data class TimeOfDayInfo(
     public var todWeekday: UInt = 0u,
 )
 
-public data class TransportInfo(public var type: TransportType = 0, public var skipCertificateCheck: Boolean = false)
+public data class TransportInfo(
+    public var type: TransportType = 0,
+    public var skipCertificateCheck: Boolean = false,
+)
 
-public data class UserInfo0(public var usri0Name: Pwstr = null)
+public data class UserInfo0(
+    public var usri0Name: Pwstr = null,
+)
 
 public data class UserInfo1(
     public var usri1Name: Pwstr = null,
@@ -1224,45 +1508,86 @@ public data class UserInfo10(
     public var usri10FullName: Pwstr = null,
 )
 
-public data class UserInfo1003(public var usri1003Password: Pwstr = null)
+public data class UserInfo1003(
+    public var usri1003Password: Pwstr = null,
+)
 
-public data class UserInfo1005(public var usri1005Priv: UserPriv = 0u)
+public data class UserInfo1005(
+    public var usri1005Priv: UserPriv = 0u,
+)
 
-public data class UserInfo1006(public var usri1006HomeDir: Pwstr = null)
+public data class UserInfo1006(
+    public var usri1006HomeDir: Pwstr = null,
+)
 
-public data class UserInfo1007(public var usri1007Comment: Pwstr = null)
+public data class UserInfo1007(
+    public var usri1007Comment: Pwstr = null,
+)
 
-public data class UserInfo1008(public var usri1008Flags: UserAccountFlags = 0u)
+public data class UserInfo1008(
+    public var usri1008Flags: UserAccountFlags = 0u,
+)
 
-public data class UserInfo1009(public var usri1009ScriptPath: Pwstr = null)
+public data class UserInfo1009(
+    public var usri1009ScriptPath: Pwstr = null,
+)
 
-public data class UserInfo1010(public var usri1010AuthFlags: AfOp = 0u)
+public data class UserInfo1010(
+    public var usri1010AuthFlags: AfOp = 0u,
+)
 
-public data class UserInfo1011(public var usri1011FullName: Pwstr = null)
+public data class UserInfo1011(
+    public var usri1011FullName: Pwstr = null,
+)
 
-public data class UserInfo1012(public var usri1012UsrComment: Pwstr = null)
+public data class UserInfo1012(
+    public var usri1012UsrComment: Pwstr = null,
+)
 
-public data class UserInfo1013(public var usri1013Parms: Pwstr = null)
+public data class UserInfo1013(
+    public var usri1013Parms: Pwstr = null,
+)
 
-public data class UserInfo1014(public var usri1014Workstations: Pwstr = null)
+public data class UserInfo1014(
+    public var usri1014Workstations: Pwstr = null,
+)
 
-public data class UserInfo1017(public var usri1017AcctExpires: UInt = 0u)
+public data class UserInfo1017(
+    public var usri1017AcctExpires: UInt = 0u,
+)
 
-public data class UserInfo1018(public var usri1018MaxStorage: UInt = 0u)
+public data class UserInfo1018(
+    public var usri1018MaxStorage: UInt = 0u,
+)
 
-public data class UserInfo1020(public var usri1020UnitsPerWeek: UInt = 0u, public var usri1020LogonHours: COpaquePointer? = null)
+public data class UserInfo1020(
+    public var usri1020UnitsPerWeek: UInt = 0u,
+    public var usri1020LogonHours: COpaquePointer? = null,
+)
 
-public data class UserInfo1023(public var usri1023LogonServer: Pwstr = null)
+public data class UserInfo1023(
+    public var usri1023LogonServer: Pwstr = null,
+)
 
-public data class UserInfo1024(public var usri1024CountryCode: UInt = 0u)
+public data class UserInfo1024(
+    public var usri1024CountryCode: UInt = 0u,
+)
 
-public data class UserInfo1025(public var usri1025CodePage: UInt = 0u)
+public data class UserInfo1025(
+    public var usri1025CodePage: UInt = 0u,
+)
 
-public data class UserInfo1051(public var usri1051PrimaryGroupId: UInt = 0u)
+public data class UserInfo1051(
+    public var usri1051PrimaryGroupId: UInt = 0u,
+)
 
-public data class UserInfo1052(public var usri1052Profile: Pwstr = null)
+public data class UserInfo1052(
+    public var usri1052Profile: Pwstr = null,
+)
 
-public data class UserInfo1053(public var usri1053HomeDirDrive: Pwstr = null)
+public data class UserInfo1053(
+    public var usri1053HomeDirDrive: Pwstr = null,
+)
 
 public class UserInfo11(
     public var usri11Name: Pwstr = null,
@@ -1322,7 +1647,9 @@ public data class UserInfo20(
     public var usri20UserId: UInt = 0u,
 )
 
-public data class UserInfo21(public var usri21Password: UByteArray = UByteArray(16)) {
+public data class UserInfo21(
+    public var usri21Password: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is UserInfo21) return false
@@ -1330,9 +1657,7 @@ public data class UserInfo21(public var usri21Password: UByteArray = UByteArray(
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.usri21Password.contentHashCode()
-    }
+    override fun hashCode(): Int = this.usri21Password.contentHashCode()
 }
 
 public class UserInfo22(
@@ -1450,23 +1775,43 @@ public data class UserModalsInfo0(
     public var usrmod0PasswordHistLen: UInt = 0u,
 )
 
-public data class UserModalsInfo1(public var usrmod1Role: UInt = 0u, public var usrmod1Primary: Pwstr = null)
+public data class UserModalsInfo1(
+    public var usrmod1Role: UInt = 0u,
+    public var usrmod1Primary: Pwstr = null,
+)
 
-public data class UserModalsInfo1001(public var usrmod1001MinPasswdLen: UInt = 0u)
+public data class UserModalsInfo1001(
+    public var usrmod1001MinPasswdLen: UInt = 0u,
+)
 
-public data class UserModalsInfo1002(public var usrmod1002MaxPasswdAge: UInt = 0u)
+public data class UserModalsInfo1002(
+    public var usrmod1002MaxPasswdAge: UInt = 0u,
+)
 
-public data class UserModalsInfo1003(public var usrmod1003MinPasswdAge: UInt = 0u)
+public data class UserModalsInfo1003(
+    public var usrmod1003MinPasswdAge: UInt = 0u,
+)
 
-public data class UserModalsInfo1004(public var usrmod1004ForceLogoff: UInt = 0u)
+public data class UserModalsInfo1004(
+    public var usrmod1004ForceLogoff: UInt = 0u,
+)
 
-public data class UserModalsInfo1005(public var usrmod1005PasswordHistLen: UInt = 0u)
+public data class UserModalsInfo1005(
+    public var usrmod1005PasswordHistLen: UInt = 0u,
+)
 
-public data class UserModalsInfo1006(public var usrmod1006Role: UserModalsRoles = 0u)
+public data class UserModalsInfo1006(
+    public var usrmod1006Role: UserModalsRoles = 0u,
+)
 
-public data class UserModalsInfo1007(public var usrmod1007Primary: Pwstr = null)
+public data class UserModalsInfo1007(
+    public var usrmod1007Primary: Pwstr = null,
+)
 
-public data class UserModalsInfo2(public var usrmod2DomainName: Pwstr = null, public var usrmod2DomainId: Psid = null)
+public data class UserModalsInfo2(
+    public var usrmod2DomainName: Pwstr = null,
+    public var usrmod2DomainId: Psid = null,
+)
 
 public data class UserModalsInfo3(
     public var usrmod3LockoutDuration: UInt = 0u,
@@ -1474,9 +1819,15 @@ public data class UserModalsInfo3(
     public var usrmod3LockoutThreshold: UInt = 0u,
 )
 
-public data class UserOtherInfo(public var alrtusErrcode: UInt = 0u, public var alrtusNumstrings: UInt = 0u)
+public data class UserOtherInfo(
+    public var alrtusErrcode: UInt = 0u,
+    public var alrtusNumstrings: UInt = 0u,
+)
 
-public data class UseInfo0(public var ui0Local: Pwstr = null, public var ui0Remote: Pwstr = null)
+public data class UseInfo0(
+    public var ui0Local: Pwstr = null,
+    public var ui0Remote: Pwstr = null,
+)
 
 public data class UseInfo1(
     public var ui1Local: Pwstr = null,

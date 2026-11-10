@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.search
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -26,7 +27,10 @@ public data class AuthenticationInfo(
     public var pcwszPassword: Pcwstr = null,
 )
 
-public data class Bucketcategorize(public var cBuckets: UInt = 0u, public var distribution: UInt = 0u)
+public data class Bucketcategorize(
+    public var cBuckets: UInt = 0u,
+    public var distribution: UInt = 0u,
+)
 
 public data class Categorization(
     public var ulCatType: UInt = 0u,
@@ -40,9 +44,15 @@ public data class Categorization0(
     public var range: Rangecategorize = Rangecategorize(),
 )
 
-public data class Categorizationset(public var cCat: UInt = 0u, public var aCat: Categorization? = null)
+public data class Categorizationset(
+    public var cCat: UInt = 0u,
+    public var aCat: Categorization? = null,
+)
 
-public data class Columnset(public var cCol: UInt = 0u, public var aCol: Fullpropspec? = null)
+public data class Columnset(
+    public var cCol: UInt = 0u,
+    public var aCol: Fullpropspec? = null,
+)
 
 public data class Contentrestriction(
     public var prop: Fullpropspec = Fullpropspec(),
@@ -57,7 +67,10 @@ public data class DateStruct(
     public var day: UShort = 0u,
 )
 
-public data class Dbbindext(public var pExtension: COpaquePointer? = null, public var ulExtension: Int = 0)
+public data class Dbbindext(
+    public var pExtension: COpaquePointer? = null,
+    public var ulExtension: Int = 0,
+)
 
 public data class Dbbinding(
     public var iOrdinal: Int = 0,
@@ -143,9 +156,15 @@ public data class Dbdate(
     public var day: UShort = 0u,
 )
 
-public data class Dbdatetim4(public var numdays: UShort = 0u, public var nummins: UShort = 0u)
+public data class Dbdatetim4(
+    public var numdays: UShort = 0u,
+    public var nummins: UShort = 0u,
+)
 
-public data class Dbdatetime(public var dtdays: Int = 0, public var dttime: UInt = 0u)
+public data class Dbdatetime(
+    public var dtdays: Int = 0,
+    public var dttime: UInt = 0u,
+)
 
 public data class Dbfailureinfo(
     public var hRow: Int = 0,
@@ -159,7 +178,10 @@ public data class Dbimplicitsession(
     public var pSession: COpaquePointer? = null,
 )
 
-public data class Dbindexcolumndesc(public var pColumnID: Dbid? = null, public var eIndexColOrder: UInt = 0u)
+public data class Dbindexcolumndesc(
+    public var pColumnID: Dbid? = null,
+    public var eIndexColOrder: UInt = 0u,
+)
 
 public data class Dbliteralinfo(
     public var pwszLiteralValue: Pwstr = null,
@@ -170,9 +192,15 @@ public data class Dbliteralinfo(
     public var cchMaxLen: UInt = 0u,
 )
 
-public data class Dbmoney(public var mnyhigh: Int = 0, public var mnylow: UInt = 0u)
+public data class Dbmoney(
+    public var mnyhigh: Int = 0,
+    public var mnylow: UInt = 0u,
+)
 
-public data class Dbobject(public var dwFlags: UInt = 0u, public var iid: Guid = Guid())
+public data class Dbobject(
+    public var dwFlags: UInt = 0u,
+    public var iid: Guid = Guid(),
+)
 
 public data class Dbparambindinfo(
     public var pwszDataSourceType: Pwstr = null,
@@ -257,7 +285,10 @@ public data class Dbtimestamp(
     public var fraction: UInt = 0u,
 )
 
-public data class Dbvarybin(public var len: Short = 0, public var array: UByteArray = UByteArray(8001)) {
+public data class Dbvarybin(
+    public var len: Short = 0,
+    public var array: UByteArray = UByteArray(8001),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dbvarybin) return false
@@ -273,7 +304,10 @@ public data class Dbvarybin(public var len: Short = 0, public var array: UByteAr
     }
 }
 
-public data class Dbvarychar(public var len: Short = 0, public var str: ByteArray = ByteArray(8001)) {
+public data class Dbvarychar(
+    public var len: Short = 0,
+    public var str: ByteArray = ByteArray(8001),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Dbvarychar) return false
@@ -289,7 +323,10 @@ public data class Dbvarychar(public var len: Short = 0, public var str: ByteArra
     }
 }
 
-public data class Dbvector(public var size: Int = 0, public var ptr: COpaquePointer? = null)
+public data class Dbvector(
+    public var size: Int = 0,
+    public var ptr: COpaquePointer? = null,
+)
 
 public data class DbNumeric(
     public var precision: UByte = 0u,
@@ -341,7 +378,10 @@ public data class DbVarnumeric(
     }
 }
 
-public data class Dcinfo(public var eInfoType: UInt = 0u, public var vData: Variant = Variant())
+public data class Dcinfo(
+    public var eInfoType: UInt = 0u,
+    public var vData: Variant = Variant(),
+)
 
 public data class Errorinfo(
     public var hrError: Hresult = 0,
@@ -358,11 +398,20 @@ public data class FilteredDataSources(
     public var pwcsOverride: Pcwstr = null,
 )
 
-public data class Hitrange(public var iPosition: UInt = 0u, public var cLength: UInt = 0u)
+public data class Hitrange(
+    public var iPosition: UInt = 0u,
+    public var cLength: UInt = 0u,
+)
 
-public data class IncrementalAccessInfo(public var dwSize: UInt = 0u, public var ftLastModifiedTime: Filetime = Filetime())
+public data class IncrementalAccessInfo(
+    public var dwSize: UInt = 0u,
+    public var ftLastModifiedTime: Filetime = Filetime(),
+)
 
-public data class Itemprop(public var variantValue: Variant = Variant(), public var pwszName: Pwstr = null)
+public data class Itemprop(
+    public var variantValue: Variant = Variant(),
+    public var pwszName: Pwstr = null,
+)
 
 public data class ItemInfo(
     public var dwSize: UInt = 0u,
@@ -405,7 +454,9 @@ public data class Noderestriction(
     public var reserved: UInt = 0u,
 )
 
-public data class Notrestriction(public var pRes: Restriction? = null)
+public data class Notrestriction(
+    public var pRes: Restriction? = null,
+)
 
 public data class OdbcVsArgs(
     public var pguidEvent: Guid? = null,
@@ -415,9 +466,15 @@ public data class OdbcVsArgs(
     public var retCode: Short = 0,
 )
 
-public data class OdbcVsArgs0(public var wszArg: Pwstr = null, public var szArg: Pstr = null)
+public data class OdbcVsArgs0(
+    public var wszArg: Pwstr = null,
+    public var szArg: Pstr = null,
+)
 
-public data class OdbcVsArgs1(public var wszCorrelation: Pwstr = null, public var szCorrelation: Pstr = null)
+public data class OdbcVsArgs1(
+    public var wszCorrelation: Pwstr = null,
+    public var szCorrelation: Pstr = null,
+)
 
 public data class Propertyrestriction(
     public var rel: UInt = 0u,
@@ -435,7 +492,10 @@ public data class ProxyInfo(
     public var pcwszBypassList: Pcwstr = null,
 )
 
-public data class Rangecategorize(public var cRange: UInt = 0u, public var aRangeBegin: Propvariant? = null)
+public data class Rangecategorize(
+    public var cRange: UInt = 0u,
+    public var aRangeBegin: Propvariant? = null,
+)
 
 public data class Restriction(
     public var rt: UInt = 0u,
@@ -471,7 +531,10 @@ public data class Rmtpack(
     public var rgArray: Variant? = null,
 )
 
-public data class SearchColumnProperties(public var value: Propvariant = Propvariant(), public var lcid: UInt = 0u)
+public data class SearchColumnProperties(
+    public var value: Propvariant = Propvariant(),
+    public var lcid: UInt = 0u,
+)
 
 public data class SearchItemChange(
     public var change: SearchKindOfChange = 0,
@@ -481,7 +544,10 @@ public data class SearchItemChange(
     public var lpwszOldURL: Pwstr = null,
 )
 
-public data class SearchItemIndexingStatus(public var dwDocID: UInt = 0u, public var hrIndexingStatus: Hresult = 0)
+public data class SearchItemIndexingStatus(
+    public var dwDocID: UInt = 0u,
+    public var hrIndexingStatus: Hresult = 0,
+)
 
 public data class SearchItemPersistentChange(
     public var change: SearchKindOfChange = 0,
@@ -490,9 +556,15 @@ public data class SearchItemPersistentChange(
     public var priority: SearchNotificationPriority = 0,
 )
 
-public data class SecObject(public var cObjects: UInt = 0u, public var prgObjects: SecObjectElement? = null)
+public data class SecObject(
+    public var cObjects: UInt = 0u,
+    public var prgObjects: SecObjectElement? = null,
+)
 
-public data class SecObjectElement(public var guidObjectType: Guid = Guid(), public var objectID: Dbid = Dbid())
+public data class SecObjectElement(
+    public var guidObjectType: Guid = Guid(),
+    public var objectID: Dbid = Dbid(),
+)
 
 public data class Sortkey(
     public var propColumn: Fullpropspec = Fullpropspec(),
@@ -500,7 +572,10 @@ public data class Sortkey(
     public var locale: UInt = 0u,
 )
 
-public data class Sortset(public var cCol: UInt = 0u, public var aCol: Sortkey? = null)
+public data class Sortset(
+    public var cCol: UInt = 0u,
+    public var aCol: Sortkey? = null,
+)
 
 public class Sqlperf(
     public var timerResolution: UInt = 0u,
@@ -552,7 +627,10 @@ public data class SqlIntervalStruct(
     public var intval: SqlIntervalStruct0 = SqlIntervalStruct0(),
 )
 
-public data class SqlIntervalStruct0(public var yearMonth: SqlYearMonthStruct = SqlYearMonthStruct(), public var daySecond: SqlDaySecondStruct = SqlDaySecondStruct())
+public data class SqlIntervalStruct0(
+    public var yearMonth: SqlYearMonthStruct = SqlYearMonthStruct(),
+    public var daySecond: SqlDaySecondStruct = SqlDaySecondStruct(),
+)
 
 public data class SqlNumericStruct(
     public var precision: UByte = 0u,
@@ -579,7 +657,10 @@ public data class SqlNumericStruct(
     }
 }
 
-public data class SqlYearMonthStruct(public var year: UInt = 0u, public var month: UInt = 0u)
+public data class SqlYearMonthStruct(
+    public var year: UInt = 0u,
+    public var month: UInt = 0u,
+)
 
 public data class Sserrorinfo(
     public var pwszMessage: Pwstr = null,
@@ -659,7 +740,10 @@ public data class Ssvariant0(
     }
 }
 
-public data class Ssvariant04(public var dbobj: Dbobject = Dbobject(), public var pUnk: COpaquePointer? = null)
+public data class Ssvariant04(
+    public var dbobj: Dbobject = Dbobject(),
+    public var pUnk: COpaquePointer? = null,
+)
 
 public data class Ssvariant02(
     public var sActualLength: Short = 0,
@@ -811,4 +895,7 @@ public data class TimeStruct(
     public var second: UShort = 0u,
 )
 
-public data class Vectorrestriction(public var node: Noderestriction = Noderestriction(), public var rankMethod: UInt = 0u)
+public data class Vectorrestriction(
+    public var node: Noderestriction = Noderestriction(),
+    public var rankMethod: UInt = 0u,
+)

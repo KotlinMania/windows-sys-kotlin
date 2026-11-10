@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -12,7 +13,9 @@ import io.github.kotlinmania.windowssys.windows.win32.security.AuditEventType
 import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ListEntry
 
-public data class SecFlags(public var flags: ULong = 0uL)
+public data class SecFlags(
+    public var flags: ULong = 0uL,
+)
 
 public data class SecNegotiationInfo(
     public var size: UInt = 0u,
@@ -21,7 +24,10 @@ public data class SecNegotiationInfo(
     public var reserved: COpaquePointer? = null,
 )
 
-public data class SecPresharedkey(public var keySize: UShort = 0u, public var key: UByteArray = UByteArray(1)) {
+public data class SecPresharedkey(
+    public var keySize: UShort = 0u,
+    public var key: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SecPresharedkey) return false
@@ -37,7 +43,10 @@ public data class SecPresharedkey(public var keySize: UShort = 0u, public var ke
     }
 }
 
-public data class SecSrtpMasterKeyIdentifier(public var masterKeyIdentifierSize: UByte = 0u, public var masterKeyIdentifier: UByteArray = UByteArray(1)) {
+public data class SecSrtpMasterKeyIdentifier(
+    public var masterKeyIdentifierSize: UByte = 0u,
+    public var masterKeyIdentifier: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SecSrtpMasterKeyIdentifier) return false
@@ -53,7 +62,9 @@ public data class SecSrtpMasterKeyIdentifier(public var masterKeyIdentifierSize:
     }
 }
 
-public data class SetCachedRunsStateInputBuffer(public var enable: Boolean = false)
+public data class SetCachedRunsStateInputBuffer(
+    public var enable: Boolean = false,
+)
 
 public data class SeAuditInfo(
     public var size: UInt = 0u,
@@ -246,7 +257,10 @@ public data class SecBufferDesc(
     public var pBuffers: SecBuffer? = null,
 )
 
-public data class SecHandle(public var dwLower: Int = 0, public var dwUpper: Int = 0)
+public data class SecHandle(
+    public var dwLower: Int = 0,
+    public var dwUpper: Int = 0,
+)
 
 public data class Tunnel(
     public var mutex: FastMutex = FastMutex(),
@@ -338,7 +352,10 @@ public data class UsnRecord(
     }
 }
 
-public data class VcnRangeInputBuffer(public var startingVcn: Long = 0L, public var clusterCount: Long = 0L)
+public data class VcnRangeInputBuffer(
+    public var startingVcn: Long = 0L,
+    public var clusterCount: Long = 0L,
+)
 
 public class VolumeRefsInfoBuffer {
     public var cacheSizeInBytes: Long = 0L

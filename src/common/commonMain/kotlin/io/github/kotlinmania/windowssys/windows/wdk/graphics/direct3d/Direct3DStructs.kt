@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.wdk.graphics.direct3d
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -43,35 +44,70 @@ public data class D3dddiargCreateresource2(
     public var flags2: D3dddiResourceflags2 = D3dddiResourceflags2(),
 )
 
-public data class D3dddicbDestroyallocation2flags(public var anonymous: D3dddicbDestroyallocation2flags0 = D3dddicbDestroyallocation2flags0())
+public data class D3dddicbDestroyallocation2flags(
+    public var anonymous: D3dddicbDestroyallocation2flags0 = D3dddicbDestroyallocation2flags0(),
+)
 
-public data class D3dddicbDestroyallocation2flags0(public var anonymous: D3dddicbDestroyallocation2flags00 = D3dddicbDestroyallocation2flags00(), public var value: UInt = 0u)
+public data class D3dddicbDestroyallocation2flags0(
+    public var anonymous: D3dddicbDestroyallocation2flags00 = D3dddicbDestroyallocation2flags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddicbDestroyallocation2flags00(public var bitfield: UInt = 0u)
+public data class D3dddicbDestroyallocation2flags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddicbLock2flags(public var anonymous: D3dddicbLock2flags0 = D3dddicbLock2flags0())
+public data class D3dddicbLock2flags(
+    public var anonymous: D3dddicbLock2flags0 = D3dddicbLock2flags0(),
+)
 
-public data class D3dddicbLock2flags0(public var anonymous: D3dddicbLock2flags00 = D3dddicbLock2flags00(), public var value: UInt = 0u)
+public data class D3dddicbLock2flags0(
+    public var anonymous: D3dddicbLock2flags00 = D3dddicbLock2flags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddicbLock2flags00(public var bitfield: UInt = 0u)
+public data class D3dddicbLock2flags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddicbLockflags(public var anonymous: D3dddicbLockflags0 = D3dddicbLockflags0())
+public data class D3dddicbLockflags(
+    public var anonymous: D3dddicbLockflags0 = D3dddicbLockflags0(),
+)
 
-public data class D3dddicbLockflags0(public var anonymous: D3dddicbLockflags00 = D3dddicbLockflags00(), public var value: UInt = 0u)
+public data class D3dddicbLockflags0(
+    public var anonymous: D3dddicbLockflags00 = D3dddicbLockflags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddicbLockflags00(public var bitfield: UInt = 0u)
+public data class D3dddicbLockflags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddicbSignalflags(public var anonymous: D3dddicbSignalflags0 = D3dddicbSignalflags0())
+public data class D3dddicbSignalflags(
+    public var anonymous: D3dddicbSignalflags0 = D3dddicbSignalflags0(),
+)
 
-public data class D3dddicbSignalflags0(public var anonymous: D3dddicbSignalflags00 = D3dddicbSignalflags00(), public var value: UInt = 0u)
+public data class D3dddicbSignalflags0(
+    public var anonymous: D3dddicbSignalflags00 = D3dddicbSignalflags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddicbSignalflags00(public var bitfield: UInt = 0u)
+public data class D3dddicbSignalflags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddigpuvirtualaddressProtectionType(public var anonymous: D3dddigpuvirtualaddressProtectionType0 = D3dddigpuvirtualaddressProtectionType0())
+public data class D3dddigpuvirtualaddressProtectionType(
+    public var anonymous: D3dddigpuvirtualaddressProtectionType0 = D3dddigpuvirtualaddressProtectionType0(),
+)
 
-public data class D3dddigpuvirtualaddressProtectionType0(public var anonymous: D3dddigpuvirtualaddressProtectionType00 = D3dddigpuvirtualaddressProtectionType00(), public var value: ULong = 0uL)
+public data class D3dddigpuvirtualaddressProtectionType0(
+    public var anonymous: D3dddigpuvirtualaddressProtectionType00 = D3dddigpuvirtualaddressProtectionType00(),
+    public var value: ULong = 0uL,
+)
 
-public data class D3dddigpuvirtualaddressProtectionType00(public var bitfield: ULong = 0uL)
+public data class D3dddigpuvirtualaddressProtectionType00(
+    public var bitfield: ULong = 0uL,
+)
 
 public data class D3dddirect(
     public var left: Int = 0,
@@ -89,9 +125,14 @@ public data class D3dddiAllocationinfo(
     public var flags: D3dddiAllocationinfo0 = D3dddiAllocationinfo0(),
 )
 
-public data class D3dddiAllocationinfo0(public var anonymous: D3dddiAllocationinfo00 = D3dddiAllocationinfo00(), public var value: UInt = 0u)
+public data class D3dddiAllocationinfo0(
+    public var anonymous: D3dddiAllocationinfo00 = D3dddiAllocationinfo00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiAllocationinfo00(public var bitfield: UInt = 0u)
+public data class D3dddiAllocationinfo00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dddiAllocationinfo2(
     public var hAllocation: UInt = 0u,
@@ -133,37 +174,77 @@ public data class D3dddiAllocationinfo2(
     }
 }
 
-public data class D3dddiAllocationinfo20(public var hSection: Handle = null, public var pSystemMem: COpaquePointer? = null)
+public data class D3dddiAllocationinfo20(
+    public var hSection: Handle = null,
+    public var pSystemMem: COpaquePointer? = null,
+)
 
-public data class D3dddiAllocationinfo22(public var priority: UInt = 0u, public var unused: Int = 0)
+public data class D3dddiAllocationinfo22(
+    public var priority: UInt = 0u,
+    public var unused: Int = 0,
+)
 
-public data class D3dddiAllocationinfo21(public var anonymous: D3dddiAllocationinfo210 = D3dddiAllocationinfo210(), public var value: UInt = 0u)
+public data class D3dddiAllocationinfo21(
+    public var anonymous: D3dddiAllocationinfo210 = D3dddiAllocationinfo210(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiAllocationinfo210(public var bitfield: UInt = 0u)
+public data class D3dddiAllocationinfo210(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddiAllocationlist(public var hAllocation: UInt = 0u, public var anonymous: D3dddiAllocationlist0 = D3dddiAllocationlist0())
+public data class D3dddiAllocationlist(
+    public var hAllocation: UInt = 0u,
+    public var anonymous: D3dddiAllocationlist0 = D3dddiAllocationlist0(),
+)
 
-public data class D3dddiAllocationlist0(public var anonymous: D3dddiAllocationlist00 = D3dddiAllocationlist00(), public var value: UInt = 0u)
+public data class D3dddiAllocationlist0(
+    public var anonymous: D3dddiAllocationlist00 = D3dddiAllocationlist00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiAllocationlist00(public var bitfield: UInt = 0u)
+public data class D3dddiAllocationlist00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddiCreatecontextflags(public var anonymous: D3dddiCreatecontextflags0 = D3dddiCreatecontextflags0())
+public data class D3dddiCreatecontextflags(
+    public var anonymous: D3dddiCreatecontextflags0 = D3dddiCreatecontextflags0(),
+)
 
-public data class D3dddiCreatecontextflags0(public var anonymous: D3dddiCreatecontextflags00 = D3dddiCreatecontextflags00(), public var value: UInt = 0u)
+public data class D3dddiCreatecontextflags0(
+    public var anonymous: D3dddiCreatecontextflags00 = D3dddiCreatecontextflags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiCreatecontextflags00(public var bitfield: UInt = 0u)
+public data class D3dddiCreatecontextflags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddiCreatehwcontextflags(public var anonymous: D3dddiCreatehwcontextflags0 = D3dddiCreatehwcontextflags0())
+public data class D3dddiCreatehwcontextflags(
+    public var anonymous: D3dddiCreatehwcontextflags0 = D3dddiCreatehwcontextflags0(),
+)
 
-public data class D3dddiCreatehwcontextflags0(public var anonymous: D3dddiCreatehwcontextflags00 = D3dddiCreatehwcontextflags00(), public var value: UInt = 0u)
+public data class D3dddiCreatehwcontextflags0(
+    public var anonymous: D3dddiCreatehwcontextflags00 = D3dddiCreatehwcontextflags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiCreatehwcontextflags00(public var bitfield: UInt = 0u)
+public data class D3dddiCreatehwcontextflags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddiCreatehwqueueflags(public var anonymous: D3dddiCreatehwqueueflags0 = D3dddiCreatehwqueueflags0())
+public data class D3dddiCreatehwqueueflags(
+    public var anonymous: D3dddiCreatehwqueueflags0 = D3dddiCreatehwqueueflags0(),
+)
 
-public data class D3dddiCreatehwqueueflags0(public var anonymous: D3dddiCreatehwqueueflags00 = D3dddiCreatehwqueueflags00(), public var value: UInt = 0u)
+public data class D3dddiCreatehwqueueflags0(
+    public var anonymous: D3dddiCreatehwqueueflags00 = D3dddiCreatehwqueueflags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiCreatehwqueueflags00(public var bitfield: UInt = 0u)
+public data class D3dddiCreatehwqueueflags00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dddiCreatenativefenceinfo(
     public var initialFenceValue: ULong = 0uL,
@@ -175,7 +256,9 @@ public data class D3dddiCreatenativefenceinfo(
     public var nativeFenceMapping: D3dddiNativefencemapping = D3dddiNativefencemapping(),
 )
 
-public data class D3dddiDestroypagingqueue(public var hPagingQueue: UInt = 0u)
+public data class D3dddiDestroypagingqueue(
+    public var hPagingQueue: UInt = 0u,
+)
 
 public data class D3dddiDriverescapeCpueventusage(
     public var escapeType: D3dddiDriverescapetype = 0,
@@ -202,9 +285,15 @@ public data class D3dddiDriverescapeCpueventusage(
     }
 }
 
-public data class D3dddiDriverescapeTranslateallocationehandle(public var escapeType: D3dddiDriverescapetype = 0, public var hAllocation: UInt = 0u)
+public data class D3dddiDriverescapeTranslateallocationehandle(
+    public var escapeType: D3dddiDriverescapetype = 0,
+    public var hAllocation: UInt = 0u,
+)
 
-public data class D3dddiDriverescapeTranslateresourcehandle(public var escapeType: D3dddiDriverescapetype = 0, public var hResource: UInt = 0u)
+public data class D3dddiDriverescapeTranslateresourcehandle(
+    public var escapeType: D3dddiDriverescapetype = 0,
+    public var hResource: UInt = 0u,
+)
 
 public data class D3dddiDxgiRgb(
     public var red: Float = 0.0f,
@@ -212,17 +301,31 @@ public data class D3dddiDxgiRgb(
     public var blue: Float = 0.0f,
 )
 
-public data class D3dddiEscapeflags(public var anonymous: D3dddiEscapeflags0 = D3dddiEscapeflags0())
+public data class D3dddiEscapeflags(
+    public var anonymous: D3dddiEscapeflags0 = D3dddiEscapeflags0(),
+)
 
-public data class D3dddiEscapeflags0(public var anonymous: D3dddiEscapeflags00 = D3dddiEscapeflags00(), public var value: UInt = 0u)
+public data class D3dddiEscapeflags0(
+    public var anonymous: D3dddiEscapeflags00 = D3dddiEscapeflags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiEscapeflags00(public var bitfield: UInt = 0u)
+public data class D3dddiEscapeflags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddiEvictFlags(public var anonymous: D3dddiEvictFlags0 = D3dddiEvictFlags0())
+public data class D3dddiEvictFlags(
+    public var anonymous: D3dddiEvictFlags0 = D3dddiEvictFlags0(),
+)
 
-public data class D3dddiEvictFlags0(public var anonymous: D3dddiEvictFlags00 = D3dddiEvictFlags00(), public var value: UInt = 0u)
+public data class D3dddiEvictFlags0(
+    public var anonymous: D3dddiEvictFlags00 = D3dddiEvictFlags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiEvictFlags00(public var bitfield: UInt = 0u)
+public data class D3dddiEvictFlags00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dddiGammaRampDxgi1(
     public var scale: D3dddiDxgiRgb = D3dddiDxgiRgb(),
@@ -295,7 +398,9 @@ public data class D3dddiHdrMetadataHdr10(
     }
 }
 
-public data class D3dddiHdrMetadataHdr10plus(public var data: UByteArray = UByteArray(72)) {
+public data class D3dddiHdrMetadataHdr10plus(
+    public var data: UByteArray = UByteArray(72),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dddiHdrMetadataHdr10plus) return false
@@ -303,9 +408,7 @@ public data class D3dddiHdrMetadataHdr10plus(public var data: UByteArray = UByte
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.data.contentHashCode()
-    }
+    override fun hashCode(): Int = this.data.contentHashCode()
 }
 
 public data class D3dddiKerneloverlayinfo(
@@ -326,11 +429,18 @@ public data class D3dddiMakeresident(
     public var numBytesToTrim: ULong = 0uL,
 )
 
-public data class D3dddiMakeresidentFlags(public var anonymous: D3dddiMakeresidentFlags0 = D3dddiMakeresidentFlags0())
+public data class D3dddiMakeresidentFlags(
+    public var anonymous: D3dddiMakeresidentFlags0 = D3dddiMakeresidentFlags0(),
+)
 
-public data class D3dddiMakeresidentFlags0(public var anonymous: D3dddiMakeresidentFlags00 = D3dddiMakeresidentFlags00(), public var value: UInt = 0u)
+public data class D3dddiMakeresidentFlags0(
+    public var anonymous: D3dddiMakeresidentFlags00 = D3dddiMakeresidentFlags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiMakeresidentFlags00(public var bitfield: UInt = 0u)
+public data class D3dddiMakeresidentFlags00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dddiMapgpuvirtualaddress(
     public var hPagingQueue: UInt = 0u,
@@ -348,7 +458,10 @@ public data class D3dddiMapgpuvirtualaddress(
     public var pagingFenceValue: ULong = 0uL,
 )
 
-public data class D3dddiMultisamplingmethod(public var numSamples: UInt = 0u, public var numQualityLevels: UInt = 0u)
+public data class D3dddiMultisamplingmethod(
+    public var numSamples: UInt = 0u,
+    public var numQualityLevels: UInt = 0u,
+)
 
 public data class D3dddiNativefencemapping(
     public var currentValueCpuVa: COpaquePointer? = null,
@@ -356,11 +469,18 @@ public data class D3dddiNativefencemapping(
     public var monitoredValueGpuVa: ULong = 0uL,
 )
 
-public data class D3dddiOfferFlags(public var anonymous: D3dddiOfferFlags0 = D3dddiOfferFlags0())
+public data class D3dddiOfferFlags(
+    public var anonymous: D3dddiOfferFlags0 = D3dddiOfferFlags0(),
+)
 
-public data class D3dddiOfferFlags0(public var anonymous: D3dddiOfferFlags00 = D3dddiOfferFlags00(), public var value: UInt = 0u)
+public data class D3dddiOfferFlags0(
+    public var anonymous: D3dddiOfferFlags00 = D3dddiOfferFlags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiOfferFlags00(public var bitfield: UInt = 0u)
+public data class D3dddiOfferFlags00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dddiOpenallocationinfo(
     public var hAllocation: UInt = 0u,
@@ -405,15 +525,27 @@ public data class D3dddiPatchlocationlist(
     public var splitOffset: UInt = 0u,
 )
 
-public data class D3dddiPatchlocationlist0(public var anonymous: D3dddiPatchlocationlist00 = D3dddiPatchlocationlist00(), public var value: UInt = 0u)
+public data class D3dddiPatchlocationlist0(
+    public var anonymous: D3dddiPatchlocationlist00 = D3dddiPatchlocationlist00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiPatchlocationlist00(public var bitfield: UInt = 0u)
+public data class D3dddiPatchlocationlist00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddiQueryregistryFlags(public var anonymous: D3dddiQueryregistryFlags0 = D3dddiQueryregistryFlags0())
+public data class D3dddiQueryregistryFlags(
+    public var anonymous: D3dddiQueryregistryFlags0 = D3dddiQueryregistryFlags0(),
+)
 
-public data class D3dddiQueryregistryFlags0(public var anonymous: D3dddiQueryregistryFlags00 = D3dddiQueryregistryFlags00(), public var value: UInt = 0u)
+public data class D3dddiQueryregistryFlags0(
+    public var anonymous: D3dddiQueryregistryFlags00 = D3dddiQueryregistryFlags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiQueryregistryFlags00(public var bitfield: UInt = 0u)
+public data class D3dddiQueryregistryFlags00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dddiQueryregistryInfo(
     public var queryType: D3dddiQueryregistryType = 0,
@@ -477,7 +609,10 @@ public data class D3dddiQueryregistryInfo0(
     }
 }
 
-public data class D3dddiRational(public var numerator: UInt = 0u, public var denominator: UInt = 0u)
+public data class D3dddiRational(
+    public var numerator: UInt = 0u,
+    public var denominator: UInt = 0u,
+)
 
 public data class D3dddiReservegpuvirtualaddress(
     public var anonymous1: D3dddiReservegpuvirtualaddress0 = D3dddiReservegpuvirtualaddress0(),
@@ -491,31 +626,64 @@ public data class D3dddiReservegpuvirtualaddress(
     public var anonymous4: D3dddiReservegpuvirtualaddress3 = D3dddiReservegpuvirtualaddress3(),
 )
 
-public data class D3dddiReservegpuvirtualaddress0(public var hPagingQueue: UInt = 0u, public var hAdapter: UInt = 0u)
+public data class D3dddiReservegpuvirtualaddress0(
+    public var hPagingQueue: UInt = 0u,
+    public var hAdapter: UInt = 0u,
+)
 
-public data class D3dddiReservegpuvirtualaddress1(public var reservationType: D3dddigpuvirtualaddressReservationType = 0, public var reserved0: UInt = 0u)
+public data class D3dddiReservegpuvirtualaddress1(
+    public var reservationType: D3dddigpuvirtualaddressReservationType = 0,
+    public var reserved0: UInt = 0u,
+)
 
-public data class D3dddiReservegpuvirtualaddress2(public var driverProtection: ULong = 0uL, public var reserved1: ULong = 0uL)
+public data class D3dddiReservegpuvirtualaddress2(
+    public var driverProtection: ULong = 0uL,
+    public var reserved1: ULong = 0uL,
+)
 
-public data class D3dddiReservegpuvirtualaddress3(public var pagingFenceValue: ULong = 0uL, public var reserved2: ULong = 0uL)
+public data class D3dddiReservegpuvirtualaddress3(
+    public var pagingFenceValue: ULong = 0uL,
+    public var reserved2: ULong = 0uL,
+)
 
-public data class D3dddiResourceflags(public var anonymous: D3dddiResourceflags0 = D3dddiResourceflags0())
+public data class D3dddiResourceflags(
+    public var anonymous: D3dddiResourceflags0 = D3dddiResourceflags0(),
+)
 
-public data class D3dddiResourceflags0(public var anonymous: D3dddiResourceflags00 = D3dddiResourceflags00(), public var value: UInt = 0u)
+public data class D3dddiResourceflags0(
+    public var anonymous: D3dddiResourceflags00 = D3dddiResourceflags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiResourceflags00(public var bitfield: UInt = 0u)
+public data class D3dddiResourceflags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddiResourceflags2(public var anonymous: D3dddiResourceflags20 = D3dddiResourceflags20())
+public data class D3dddiResourceflags2(
+    public var anonymous: D3dddiResourceflags20 = D3dddiResourceflags20(),
+)
 
-public data class D3dddiResourceflags20(public var anonymous: D3dddiResourceflags200 = D3dddiResourceflags200(), public var value: UInt = 0u)
+public data class D3dddiResourceflags20(
+    public var anonymous: D3dddiResourceflags200 = D3dddiResourceflags200(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiResourceflags200(public var bitfield: UInt = 0u)
+public data class D3dddiResourceflags200(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddiSegmentpreference(public var anonymous: D3dddiSegmentpreference0 = D3dddiSegmentpreference0())
+public data class D3dddiSegmentpreference(
+    public var anonymous: D3dddiSegmentpreference0 = D3dddiSegmentpreference0(),
+)
 
-public data class D3dddiSegmentpreference0(public var anonymous: D3dddiSegmentpreference00 = D3dddiSegmentpreference00(), public var value: UInt = 0u)
+public data class D3dddiSegmentpreference0(
+    public var anonymous: D3dddiSegmentpreference00 = D3dddiSegmentpreference00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiSegmentpreference00(public var bitfield: UInt = 0u)
+public data class D3dddiSegmentpreference00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dddiSurfaceinfo(
     public var width: UInt = 0u,
@@ -526,7 +694,10 @@ public data class D3dddiSurfaceinfo(
     public var sysMemSlicePitch: UInt = 0u,
 )
 
-public data class D3dddiSynchronizationobjectinfo(public var type: D3dddiSynchronizationobjectType = 0, public var anonymous: D3dddiSynchronizationobjectinfo0 = D3dddiSynchronizationobjectinfo0())
+public data class D3dddiSynchronizationobjectinfo(
+    public var type: D3dddiSynchronizationobjectType = 0,
+    public var anonymous: D3dddiSynchronizationobjectinfo0 = D3dddiSynchronizationobjectinfo0(),
+)
 
 public data class D3dddiSynchronizationobjectinfo0(
     public var synchronizationMutex: D3dddiSynchronizationobjectinfo00 = D3dddiSynchronizationobjectinfo00(),
@@ -534,7 +705,9 @@ public data class D3dddiSynchronizationobjectinfo0(
     public var reserved: D3dddiSynchronizationobjectinfo02 = D3dddiSynchronizationobjectinfo02(),
 )
 
-public data class D3dddiSynchronizationobjectinfo02(public var reserved: UIntArray = UIntArray(16)) {
+public data class D3dddiSynchronizationobjectinfo02(
+    public var reserved: UIntArray = UIntArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dddiSynchronizationobjectinfo02) return false
@@ -542,14 +715,17 @@ public data class D3dddiSynchronizationobjectinfo02(public var reserved: UIntArr
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.reserved.contentHashCode()
-    }
+    override fun hashCode(): Int = this.reserved.contentHashCode()
 }
 
-public data class D3dddiSynchronizationobjectinfo01(public var maxCount: UInt = 0u, public var initialCount: UInt = 0u)
+public data class D3dddiSynchronizationobjectinfo01(
+    public var maxCount: UInt = 0u,
+    public var initialCount: UInt = 0u,
+)
 
-public data class D3dddiSynchronizationobjectinfo00(public var initialState: Bool = 0)
+public data class D3dddiSynchronizationobjectinfo00(
+    public var initialState: Bool = 0,
+)
 
 public data class D3dddiSynchronizationobjectinfo2(
     public var type: D3dddiSynchronizationobjectType = 0,
@@ -568,9 +744,13 @@ public data class D3dddiSynchronizationobjectinfo20(
     public var reserved: D3dddiSynchronizationobjectinfo206 = D3dddiSynchronizationobjectinfo206(),
 )
 
-public data class D3dddiSynchronizationobjectinfo203(public var event: Handle = null)
+public data class D3dddiSynchronizationobjectinfo203(
+    public var event: Handle = null,
+)
 
-public data class D3dddiSynchronizationobjectinfo202(public var fenceValue: ULong = 0uL)
+public data class D3dddiSynchronizationobjectinfo202(
+    public var fenceValue: ULong = 0uL,
+)
 
 public data class D3dddiSynchronizationobjectinfo204(
     public var initialFenceValue: ULong = 0uL,
@@ -590,7 +770,9 @@ public data class D3dddiSynchronizationobjectinfo205(
     public var padding: UInt = 0u,
 )
 
-public data class D3dddiSynchronizationobjectinfo206(public var reserved: ULongArray = ULongArray(8)) {
+public data class D3dddiSynchronizationobjectinfo206(
+    public var reserved: ULongArray = ULongArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dddiSynchronizationobjectinfo206) return false
@@ -598,26 +780,43 @@ public data class D3dddiSynchronizationobjectinfo206(public var reserved: ULongA
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.reserved.contentHashCode()
-    }
+    override fun hashCode(): Int = this.reserved.contentHashCode()
 }
 
-public data class D3dddiSynchronizationobjectinfo201(public var maxCount: UInt = 0u, public var initialCount: UInt = 0u)
+public data class D3dddiSynchronizationobjectinfo201(
+    public var maxCount: UInt = 0u,
+    public var initialCount: UInt = 0u,
+)
 
-public data class D3dddiSynchronizationobjectinfo200(public var initialState: Bool = 0)
+public data class D3dddiSynchronizationobjectinfo200(
+    public var initialState: Bool = 0,
+)
 
-public data class D3dddiSynchronizationobjectFlags(public var anonymous: D3dddiSynchronizationobjectFlags0 = D3dddiSynchronizationobjectFlags0())
+public data class D3dddiSynchronizationobjectFlags(
+    public var anonymous: D3dddiSynchronizationobjectFlags0 = D3dddiSynchronizationobjectFlags0(),
+)
 
-public data class D3dddiSynchronizationobjectFlags0(public var anonymous: D3dddiSynchronizationobjectFlags00 = D3dddiSynchronizationobjectFlags00(), public var value: UInt = 0u)
+public data class D3dddiSynchronizationobjectFlags0(
+    public var anonymous: D3dddiSynchronizationobjectFlags00 = D3dddiSynchronizationobjectFlags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiSynchronizationobjectFlags00(public var bitfield: UInt = 0u)
+public data class D3dddiSynchronizationobjectFlags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddiTrimresidencysetFlags(public var anonymous: D3dddiTrimresidencysetFlags0 = D3dddiTrimresidencysetFlags0())
+public data class D3dddiTrimresidencysetFlags(
+    public var anonymous: D3dddiTrimresidencysetFlags0 = D3dddiTrimresidencysetFlags0(),
+)
 
-public data class D3dddiTrimresidencysetFlags0(public var anonymous: D3dddiTrimresidencysetFlags00 = D3dddiTrimresidencysetFlags00(), public var value: UInt = 0u)
+public data class D3dddiTrimresidencysetFlags0(
+    public var anonymous: D3dddiTrimresidencysetFlags00 = D3dddiTrimresidencysetFlags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiTrimresidencysetFlags00(public var bitfield: UInt = 0u)
+public data class D3dddiTrimresidencysetFlags00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dddiUpdateallocproperty(
     public var hPagingQueue: UInt = 0u,
@@ -629,17 +828,32 @@ public data class D3dddiUpdateallocproperty(
     public var anonymous: D3dddiUpdateallocproperty0 = D3dddiUpdateallocproperty0(),
 )
 
-public data class D3dddiUpdateallocproperty0(public var anonymous: D3dddiUpdateallocproperty00 = D3dddiUpdateallocproperty00(), public var propertyMaskValue: UInt = 0u)
+public data class D3dddiUpdateallocproperty0(
+    public var anonymous: D3dddiUpdateallocproperty00 = D3dddiUpdateallocproperty00(),
+    public var propertyMaskValue: UInt = 0u,
+)
 
-public data class D3dddiUpdateallocproperty00(public var bitfield: UInt = 0u)
+public data class D3dddiUpdateallocproperty00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddiUpdateallocpropertyFlags(public var anonymous: D3dddiUpdateallocpropertyFlags0 = D3dddiUpdateallocpropertyFlags0())
+public data class D3dddiUpdateallocpropertyFlags(
+    public var anonymous: D3dddiUpdateallocpropertyFlags0 = D3dddiUpdateallocpropertyFlags0(),
+)
 
-public data class D3dddiUpdateallocpropertyFlags0(public var anonymous: D3dddiUpdateallocpropertyFlags00 = D3dddiUpdateallocpropertyFlags00(), public var value: UInt = 0u)
+public data class D3dddiUpdateallocpropertyFlags0(
+    public var anonymous: D3dddiUpdateallocpropertyFlags00 = D3dddiUpdateallocpropertyFlags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiUpdateallocpropertyFlags00(public var bitfield: UInt = 0u)
+public data class D3dddiUpdateallocpropertyFlags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dddiUpdategpuvirtualaddressOperation(public var operationType: D3dddiUpdategpuvirtualaddressOperationType = 0, public var anonymous: D3dddiUpdategpuvirtualaddressOperation0 = D3dddiUpdategpuvirtualaddressOperation0())
+public data class D3dddiUpdategpuvirtualaddressOperation(
+    public var operationType: D3dddiUpdategpuvirtualaddressOperationType = 0,
+    public var anonymous: D3dddiUpdategpuvirtualaddressOperation0 = D3dddiUpdategpuvirtualaddressOperation0(),
+)
 
 public data class D3dddiUpdategpuvirtualaddressOperation0(
     public var map: D3dddiUpdategpuvirtualaddressOperation00 = D3dddiUpdategpuvirtualaddressOperation00(),
@@ -678,11 +892,18 @@ public data class D3dddiUpdategpuvirtualaddressOperation02(
     public var protection: D3dddigpuvirtualaddressProtectionType = D3dddigpuvirtualaddressProtectionType(),
 )
 
-public data class D3dddiWaitforsynchronizationobjectfromcpuFlags(public var anonymous: D3dddiWaitforsynchronizationobjectfromcpuFlags0 = D3dddiWaitforsynchronizationobjectfromcpuFlags0())
+public data class D3dddiWaitforsynchronizationobjectfromcpuFlags(
+    public var anonymous: D3dddiWaitforsynchronizationobjectfromcpuFlags0 = D3dddiWaitforsynchronizationobjectfromcpuFlags0(),
+)
 
-public data class D3dddiWaitforsynchronizationobjectfromcpuFlags0(public var anonymous: D3dddiWaitforsynchronizationobjectfromcpuFlags00 = D3dddiWaitforsynchronizationobjectfromcpuFlags00(), public var value: UInt = 0u)
+public data class D3dddiWaitforsynchronizationobjectfromcpuFlags0(
+    public var anonymous: D3dddiWaitforsynchronizationobjectfromcpuFlags00 = D3dddiWaitforsynchronizationobjectfromcpuFlags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dddiWaitforsynchronizationobjectfromcpuFlags00(public var bitfield: UInt = 0u)
+public data class D3dddiWaitforsynchronizationobjectfromcpuFlags00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dgpuPhysicalAddress(
     public var segmentId: UInt = 0u,
@@ -696,9 +917,15 @@ public data class D3dhalClippedtrianglefan(
     public var primitiveCount: UInt = 0u,
 )
 
-public data class D3dhalContextdestroyalldata(public var dwPID: UInt = 0u, public var ddrval: Hresult = 0)
+public data class D3dhalContextdestroyalldata(
+    public var dwPID: UInt = 0u,
+    public var ddrval: Hresult = 0,
+)
 
-public data class D3dhalContextdestroydata(public var dwhContext: Int = 0, public var ddrval: Hresult = 0)
+public data class D3dhalContextdestroydata(
+    public var dwhContext: Int = 0,
+    public var ddrval: Hresult = 0,
+)
 
 public class D3dhalD3ddx6extendedcaps(
     public var dwSize: UInt = 0u,
@@ -759,7 +986,10 @@ public class D3dhalD3dextendedcaps(
     public var dwReserved4: UInt = 0u,
 )
 
-public data class D3dhalDp2adddirtyrect(public var dwSurface: UInt = 0u, public var rDirtyArea: Rectl = Rectl())
+public data class D3dhalDp2adddirtyrect(
+    public var dwSurface: UInt = 0u,
+    public var rDirtyArea: Rectl = Rectl(),
+)
 
 public data class D3dhalDp2blt(
     public var dwSource: UInt = 0u,
@@ -791,11 +1021,19 @@ public data class D3dhalDp2command(
     public var anonymous: D3dhalDp2command0 = D3dhalDp2command0(),
 )
 
-public data class D3dhalDp2command0(public var wPrimitiveCount: UShort = 0u, public var wStateCount: UShort = 0u)
+public data class D3dhalDp2command0(
+    public var wPrimitiveCount: UShort = 0u,
+    public var wStateCount: UShort = 0u,
+)
 
-public data class D3dhalDp2createlight(public var dwIndex: UInt = 0u)
+public data class D3dhalDp2createlight(
+    public var dwIndex: UInt = 0u,
+)
 
-public data class D3dhalDp2createpixelshader(public var dwHandle: UInt = 0u, public var dwCodeSize: UInt = 0u)
+public data class D3dhalDp2createpixelshader(
+    public var dwHandle: UInt = 0u,
+    public var dwCodeSize: UInt = 0u,
+)
 
 public data class D3dhalDp2createvertexshader(
     public var dwHandle: UInt = 0u,
@@ -803,21 +1041,43 @@ public data class D3dhalDp2createvertexshader(
     public var dwCodeSize: UInt = 0u,
 )
 
-public data class D3dhalDp2createvertexshaderdecl(public var dwHandle: UInt = 0u, public var dwNumVertexElements: UInt = 0u)
+public data class D3dhalDp2createvertexshaderdecl(
+    public var dwHandle: UInt = 0u,
+    public var dwNumVertexElements: UInt = 0u,
+)
 
-public data class D3dhalDp2createvertexshaderfunc(public var dwHandle: UInt = 0u, public var dwSize: UInt = 0u)
+public data class D3dhalDp2createvertexshaderfunc(
+    public var dwHandle: UInt = 0u,
+    public var dwSize: UInt = 0u,
+)
 
-public data class D3dhalDp2deletequery(public var dwQueryID: UInt = 0u)
+public data class D3dhalDp2deletequery(
+    public var dwQueryID: UInt = 0u,
+)
 
-public data class D3dhalDp2drawrectpatch(public var handle: UInt = 0u, public var flags: UInt = 0u)
+public data class D3dhalDp2drawrectpatch(
+    public var handle: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
-public data class D3dhalDp2drawtripatch(public var handle: UInt = 0u, public var flags: UInt = 0u)
+public data class D3dhalDp2drawtripatch(
+    public var handle: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
-public data class D3dhalDp2ext(public var dwExtToken: UInt = 0u, public var dwSize: UInt = 0u)
+public data class D3dhalDp2ext(
+    public var dwExtToken: UInt = 0u,
+    public var dwSize: UInt = 0u,
+)
 
-public data class D3dhalDp2indexedlinelist(public var wV1: UShort = 0u, public var wV2: UShort = 0u)
+public data class D3dhalDp2indexedlinelist(
+    public var wV1: UShort = 0u,
+    public var wV2: UShort = 0u,
+)
 
-public data class D3dhalDp2indexedlinestrip(public var wV: UShortArray = UShortArray(2)) {
+public data class D3dhalDp2indexedlinestrip(
+    public var wV: UShortArray = UShortArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dhalDp2indexedlinestrip) return false
@@ -825,12 +1085,12 @@ public data class D3dhalDp2indexedlinestrip(public var wV: UShortArray = UShortA
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.wV.contentHashCode()
-    }
+    override fun hashCode(): Int = this.wV.contentHashCode()
 }
 
-public data class D3dhalDp2indexedtrianglefan(public var wV: UShortArray = UShortArray(3)) {
+public data class D3dhalDp2indexedtrianglefan(
+    public var wV: UShortArray = UShortArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dhalDp2indexedtrianglefan) return false
@@ -838,9 +1098,7 @@ public data class D3dhalDp2indexedtrianglefan(public var wV: UShortArray = UShor
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.wV.contentHashCode()
-    }
+    override fun hashCode(): Int = this.wV.contentHashCode()
 }
 
 public data class D3dhalDp2indexedtrianglelist(
@@ -856,7 +1114,9 @@ public data class D3dhalDp2indexedtrianglelist2(
     public var wV3: UShort = 0u,
 )
 
-public data class D3dhalDp2indexedtrianglestrip(public var wV: UShortArray = UShortArray(3)) {
+public data class D3dhalDp2indexedtrianglestrip(
+    public var wV: UShortArray = UShortArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dhalDp2indexedtrianglestrip) return false
@@ -864,20 +1124,30 @@ public data class D3dhalDp2indexedtrianglestrip(public var wV: UShortArray = USh
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.wV.contentHashCode()
-    }
+    override fun hashCode(): Int = this.wV.contentHashCode()
 }
 
-public data class D3dhalDp2issuequery(public var dwQueryID: UInt = 0u, public var dwFlags: UInt = 0u)
+public data class D3dhalDp2issuequery(
+    public var dwQueryID: UInt = 0u,
+    public var dwFlags: UInt = 0u,
+)
 
-public data class D3dhalDp2linelist(public var wVStart: UShort = 0u)
+public data class D3dhalDp2linelist(
+    public var wVStart: UShort = 0u,
+)
 
-public data class D3dhalDp2linestrip(public var wVStart: UShort = 0u)
+public data class D3dhalDp2linestrip(
+    public var wVStart: UShort = 0u,
+)
 
-public data class D3dhalDp2pixelshader(public var dwHandle: UInt = 0u)
+public data class D3dhalDp2pixelshader(
+    public var dwHandle: UInt = 0u,
+)
 
-public data class D3dhalDp2points(public var wCount: UShort = 0u, public var wVStart: UShort = 0u)
+public data class D3dhalDp2points(
+    public var wCount: UShort = 0u,
+    public var wVStart: UShort = 0u,
+)
 
 public data class D3dhalDp2response(
     public var bCommand: UByte = 0u,
@@ -886,9 +1156,15 @@ public data class D3dhalDp2response(
     public var dwTotalSize: UInt = 0u,
 )
 
-public data class D3dhalDp2responsequery(public var dwQueryID: UInt = 0u, public var dwSize: UInt = 0u)
+public data class D3dhalDp2responsequery(
+    public var dwQueryID: UInt = 0u,
+    public var dwSize: UInt = 0u,
+)
 
-public data class D3dhalDp2setclipplane(public var dwIndex: UInt = 0u, public var plane: FloatArray = FloatArray(4)) {
+public data class D3dhalDp2setclipplane(
+    public var dwIndex: UInt = 0u,
+    public var plane: FloatArray = FloatArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is D3dhalDp2setclipplane) return false
@@ -910,11 +1186,19 @@ public data class D3dhalDp2setconvolutionkernelmono(
     public var dwFlags: UInt = 0u,
 )
 
-public data class D3dhalDp2setdepthstencil(public var hZBuffer: UInt = 0u)
+public data class D3dhalDp2setdepthstencil(
+    public var hZBuffer: UInt = 0u,
+)
 
-public data class D3dhalDp2setindices(public var dwVBHandle: UInt = 0u, public var dwStride: UInt = 0u)
+public data class D3dhalDp2setindices(
+    public var dwVBHandle: UInt = 0u,
+    public var dwStride: UInt = 0u,
+)
 
-public data class D3dhalDp2setlight(public var dwIndex: UInt = 0u, public var dwDataType: UInt = 0u)
+public data class D3dhalDp2setlight(
+    public var dwIndex: UInt = 0u,
+    public var dwDataType: UInt = 0u,
+)
 
 public data class D3dhalDp2setpalette(
     public var dwPaletteHandle: UInt = 0u,
@@ -922,13 +1206,25 @@ public data class D3dhalDp2setpalette(
     public var dwSurfaceHandle: UInt = 0u,
 )
 
-public data class D3dhalDp2setpixelshaderconst(public var dwRegister: UInt = 0u, public var dwCount: UInt = 0u)
+public data class D3dhalDp2setpixelshaderconst(
+    public var dwRegister: UInt = 0u,
+    public var dwCount: UInt = 0u,
+)
 
-public data class D3dhalDp2setpriority(public var dwDDSurface: UInt = 0u, public var dwPriority: UInt = 0u)
+public data class D3dhalDp2setpriority(
+    public var dwDDSurface: UInt = 0u,
+    public var dwPriority: UInt = 0u,
+)
 
-public data class D3dhalDp2setrendertarget(public var hRenderTarget: UInt = 0u, public var hZBuffer: UInt = 0u)
+public data class D3dhalDp2setrendertarget(
+    public var hRenderTarget: UInt = 0u,
+    public var hZBuffer: UInt = 0u,
+)
 
-public data class D3dhalDp2setrendertarget2(public var rTIndex: UInt = 0u, public var hRenderTarget: UInt = 0u)
+public data class D3dhalDp2setrendertarget2(
+    public var rTIndex: UInt = 0u,
+    public var hRenderTarget: UInt = 0u,
+)
 
 public data class D3dhalDp2setstreamsource(
     public var dwStream: UInt = 0u,
@@ -943,15 +1239,29 @@ public data class D3dhalDp2setstreamsource2(
     public var dwStride: UInt = 0u,
 )
 
-public data class D3dhalDp2setstreamsourcefreq(public var dwStream: UInt = 0u, public var dwDivider: UInt = 0u)
+public data class D3dhalDp2setstreamsourcefreq(
+    public var dwStream: UInt = 0u,
+    public var dwDivider: UInt = 0u,
+)
 
-public data class D3dhalDp2setstreamsourceum(public var dwStream: UInt = 0u, public var dwStride: UInt = 0u)
+public data class D3dhalDp2setstreamsourceum(
+    public var dwStream: UInt = 0u,
+    public var dwStride: UInt = 0u,
+)
 
-public data class D3dhalDp2settexlod(public var dwDDSurface: UInt = 0u, public var dwLOD: UInt = 0u)
+public data class D3dhalDp2settexlod(
+    public var dwDDSurface: UInt = 0u,
+    public var dwLOD: UInt = 0u,
+)
 
-public data class D3dhalDp2setvertexshaderconst(public var dwRegister: UInt = 0u, public var dwCount: UInt = 0u)
+public data class D3dhalDp2setvertexshaderconst(
+    public var dwRegister: UInt = 0u,
+    public var dwCount: UInt = 0u,
+)
 
-public data class D3dhalDp2startvertex(public var wVStart: UShort = 0u)
+public data class D3dhalDp2startvertex(
+    public var wVStart: UShort = 0u,
+)
 
 public data class D3dhalDp2surfaceblt(
     public var dwSource: UInt = 0u,
@@ -977,13 +1287,21 @@ public data class D3dhalDp2texturestagestate(
     public var dwValue: UInt = 0u,
 )
 
-public data class D3dhalDp2trianglefan(public var wVStart: UShort = 0u)
+public data class D3dhalDp2trianglefan(
+    public var wVStart: UShort = 0u,
+)
 
-public data class D3dhalDp2trianglefanImm(public var dwEdgeFlags: UInt = 0u)
+public data class D3dhalDp2trianglefanImm(
+    public var dwEdgeFlags: UInt = 0u,
+)
 
-public data class D3dhalDp2trianglelist(public var wVStart: UShort = 0u)
+public data class D3dhalDp2trianglelist(
+    public var wVStart: UShort = 0u,
+)
 
-public data class D3dhalDp2trianglestrip(public var wVStart: UShort = 0u)
+public data class D3dhalDp2trianglestrip(
+    public var wVStart: UShort = 0u,
+)
 
 public data class D3dhalDp2updatepalette(
     public var dwPaletteHandle: UInt = 0u,
@@ -991,7 +1309,9 @@ public data class D3dhalDp2updatepalette(
     public var wNumEntries: UShort = 0u,
 )
 
-public data class D3dhalDp2vertexshader(public var dwHandle: UInt = 0u)
+public data class D3dhalDp2vertexshader(
+    public var dwHandle: UInt = 0u,
+)
 
 public data class D3dhalDp2viewportinfo(
     public var dwX: UInt = 0u,
@@ -1000,9 +1320,15 @@ public data class D3dhalDp2viewportinfo(
     public var dwHeight: UInt = 0u,
 )
 
-public data class D3dhalDp2winfo(public var dvWNear: Float = 0.0f, public var dvWFar: Float = 0.0f)
+public data class D3dhalDp2winfo(
+    public var dvWNear: Float = 0.0f,
+    public var dvWFar: Float = 0.0f,
+)
 
-public data class D3dhalDp2zrange(public var dvMinZ: Float = 0.0f, public var dvMaxZ: Float = 0.0f)
+public data class D3dhalDp2zrange(
+    public var dvMinZ: Float = 0.0f,
+    public var dvMaxZ: Float = 0.0f,
+)
 
 public data class D3dhalDrawprimcounts(
     public var wNumStateChanges: UShort = 0u,
@@ -1053,7 +1379,10 @@ public data class D3dhalValidatetexturestagestatedata(
     public var ddrval: Hresult = 0,
 )
 
-public data class D3dkmdt2dregion(public var cx: UInt = 0u, public var cy: UInt = 0u)
+public data class D3dkmdt2dregion(
+    public var cx: UInt = 0u,
+    public var cy: UInt = 0u,
+)
 
 public data class D3dkmdt3x4ColorspaceTransform(
     public var colorMatrix3x4: FloatArray = FloatArray(12),
@@ -1115,7 +1444,10 @@ public data class D3dkmdtColorCoeffDynamicRanges(
     public var fourthChannel: UInt = 0u,
 )
 
-public data class D3dkmdtDisplaymodeFlags(public var bitfield1: UInt = 0u, public var bitfield2: UInt = 0u)
+public data class D3dkmdtDisplaymodeFlags(
+    public var bitfield1: UInt = 0u,
+    public var bitfield2: UInt = 0u,
+)
 
 public data class D3dkmdtFrequencyRange(
     public var minVSyncFreq: D3dddiRational = D3dddiRational(),
@@ -1147,11 +1479,18 @@ public data class D3dkmdtGdisurfacedata(
     public var pitch: UInt = 0u,
 )
 
-public data class D3dkmdtGdisurfaceflags(public var anonymous: D3dkmdtGdisurfaceflags0 = D3dkmdtGdisurfaceflags0())
+public data class D3dkmdtGdisurfaceflags(
+    public var anonymous: D3dkmdtGdisurfaceflags0 = D3dkmdtGdisurfaceflags0(),
+)
 
-public data class D3dkmdtGdisurfaceflags0(public var anonymous: D3dkmdtGdisurfaceflags00 = D3dkmdtGdisurfaceflags00(), public var value: UInt = 0u)
+public data class D3dkmdtGdisurfaceflags0(
+    public var anonymous: D3dkmdtGdisurfaceflags00 = D3dkmdtGdisurfaceflags00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dkmdtGdisurfaceflags00(public var bitfield: UInt = 0u)
+public data class D3dkmdtGdisurfaceflags00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dkmdtGraphicsRenderingFormat(
     public var primSurfSize: D3dkmdt2dregion = D3dkmdt2dregion(),
@@ -1177,7 +1516,10 @@ public data class D3dkmdtMonitorFrequencyRange(
     public var constraint: D3dkmdtMonitorFrequencyRange0 = D3dkmdtMonitorFrequencyRange0(),
 )
 
-public data class D3dkmdtMonitorFrequencyRange0(public var activeSize: D3dkmdt2dregion = D3dkmdt2dregion(), public var maxPixelRate: Int = 0)
+public data class D3dkmdtMonitorFrequencyRange0(
+    public var activeSize: D3dkmdt2dregion = D3dkmdt2dregion(),
+    public var maxPixelRate: Int = 0,
+)
 
 public data class D3dkmdtMonitorSourceMode(
     public var id: UInt = 0u,
@@ -1195,7 +1537,10 @@ public data class D3dkmdtPalettedata(
     public var unused: UByte = 0u,
 )
 
-public data class D3dkmdtPreemptionCaps(public var graphicsPreemptionGranularity: D3dkmdtGraphicsPreemptionGranularity = 0, public var computePreemptionGranularity: D3dkmdtComputePreemptionGranularity = 0)
+public data class D3dkmdtPreemptionCaps(
+    public var graphicsPreemptionGranularity: D3dkmdtGraphicsPreemptionGranularity = 0,
+    public var computePreemptionGranularity: D3dkmdtComputePreemptionGranularity = 0,
+)
 
 public data class D3dkmdtShadowsurfacedata(
     public var width: UInt = 0u,
@@ -1218,7 +1563,10 @@ public data class D3dkmdtStagingsurfacedata(
     public var pitch: UInt = 0u,
 )
 
-public data class D3dkmdtVideoPresentSource(public var id: UInt = 0u, public var dwReserved: UInt = 0u)
+public data class D3dkmdtVideoPresentSource(
+    public var id: UInt = 0u,
+    public var dwReserved: UInt = 0u,
+)
 
 public data class D3dkmdtVideoPresentTarget(
     public var id: UInt = 0u,
@@ -1238,11 +1586,18 @@ public data class D3dkmdtVideoSignalInfo(
     public var anonymous: D3dkmdtVideoSignalInfo0 = D3dkmdtVideoSignalInfo0(),
 )
 
-public data class D3dkmdtVideoSignalInfo0(public var additionalSignalInfo: D3dkmdtVideoSignalInfo00 = D3dkmdtVideoSignalInfo00(), public var scanLineOrdering: D3dddiVideoSignalScanlineOrdering = 0)
+public data class D3dkmdtVideoSignalInfo0(
+    public var additionalSignalInfo: D3dkmdtVideoSignalInfo00 = D3dkmdtVideoSignalInfo00(),
+    public var scanLineOrdering: D3dddiVideoSignalScanlineOrdering = 0,
+)
 
-public data class D3dkmdtVideoSignalInfo00(public var bitfield: Int = 0)
+public data class D3dkmdtVideoSignalInfo00(
+    public var bitfield: Int = 0,
+)
 
-public data class D3dkmdtVidpnHwCapability(public var bitfield: UInt = 0u)
+public data class D3dkmdtVidpnHwCapability(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dkmdtVidpnPresentPath(
     public var vidPnSourceId: UInt = 0u,
@@ -1283,11 +1638,17 @@ public data class D3dkmdtVidpnPresentPathCopyprotection(
     }
 }
 
-public data class D3dkmdtVidpnPresentPathCopyprotectionSupport(public var bitfield: UInt = 0u)
+public data class D3dkmdtVidpnPresentPathCopyprotectionSupport(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dkmdtVidpnPresentPathRotationSupport(public var bitfield: UInt = 0u)
+public data class D3dkmdtVidpnPresentPathRotationSupport(
+    public var bitfield: UInt = 0u,
+)
 
-public data class D3dkmdtVidpnPresentPathScalingSupport(public var bitfield: UInt = 0u)
+public data class D3dkmdtVidpnPresentPathScalingSupport(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dkmdtVidpnPresentPathTransformation(
     public var scaling: D3dkmdtVidpnPresentPathScaling = 0,
@@ -1302,7 +1663,10 @@ public data class D3dkmdtVidpnSourceMode(
     public var format: D3dkmdtVidpnSourceMode0 = D3dkmdtVidpnSourceMode0(),
 )
 
-public data class D3dkmdtVidpnSourceMode0(public var graphics: D3dkmdtGraphicsRenderingFormat = D3dkmdtGraphicsRenderingFormat(), public var text: D3dkmdtTextRenderingFormat = 0)
+public data class D3dkmdtVidpnSourceMode0(
+    public var graphics: D3dkmdtGraphicsRenderingFormat = D3dkmdtGraphicsRenderingFormat(),
+    public var text: D3dkmdtTextRenderingFormat = 0,
+)
 
 public data class D3dkmdtVidpnTargetMode(
     public var id: UInt = 0u,
@@ -1311,9 +1675,14 @@ public data class D3dkmdtVidpnTargetMode(
     public var minimumVSyncFreq: D3dddiRational = D3dddiRational(),
 )
 
-public data class D3dkmdtVidpnTargetMode0(public var wireFormatAndPreference: D3dkmdtWireFormatAndPreference = D3dkmdtWireFormatAndPreference(), public var anonymous: D3dkmdtVidpnTargetMode00 = D3dkmdtVidpnTargetMode00())
+public data class D3dkmdtVidpnTargetMode0(
+    public var wireFormatAndPreference: D3dkmdtWireFormatAndPreference = D3dkmdtWireFormatAndPreference(),
+    public var anonymous: D3dkmdtVidpnTargetMode00 = D3dkmdtVidpnTargetMode00(),
+)
 
-public data class D3dkmdtVidpnTargetMode00(public var bitfield: Int = 0)
+public data class D3dkmdtVidpnTargetMode00(
+    public var bitfield: Int = 0,
+)
 
 public data class D3dkmdtVirtualgpusurfacedata(
     public var size: ULong = 0uL,
@@ -1322,9 +1691,14 @@ public data class D3dkmdtVirtualgpusurfacedata(
     public var privateDriverData: UInt = 0u,
 )
 
-public data class D3dkmdtWireFormatAndPreference(public var anonymous: D3dkmdtWireFormatAndPreference0 = D3dkmdtWireFormatAndPreference0(), public var value: UInt = 0u)
+public data class D3dkmdtWireFormatAndPreference(
+    public var anonymous: D3dkmdtWireFormatAndPreference0 = D3dkmdtWireFormatAndPreference0(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dkmdtWireFormatAndPreference0(public var bitfield: Int = 0)
+public data class D3dkmdtWireFormatAndPreference0(
+    public var bitfield: Int = 0,
+)
 
 public data class D3dkmtAcquirekeyedmutex(
     public var hKeyedMutex: UInt = 0u,
@@ -1342,7 +1716,10 @@ public data class D3dkmtAcquirekeyedmutex2(
     public var privateRuntimeDataSize: UInt = 0u,
 )
 
-public data class D3dkmtActivateSpecificDiagEscape(public var type: D3dkmtActivateSpecificDiagType = 0, public var activate: Bool = 0)
+public data class D3dkmtActivateSpecificDiagEscape(
+    public var type: D3dkmtActivateSpecificDiagType = 0,
+    public var activate: Bool = 0,
+)
 
 public data class D3dkmtAdapteraddress(
     public var busNumber: UInt = 0u,
@@ -1382,11 +1759,18 @@ public data class D3dkmtAdapterregistryinfo(
     }
 }
 
-public data class D3dkmtAdaptertype(public var anonymous: D3dkmtAdaptertype0 = D3dkmtAdaptertype0())
+public data class D3dkmtAdaptertype(
+    public var anonymous: D3dkmtAdaptertype0 = D3dkmtAdaptertype0(),
+)
 
-public data class D3dkmtAdaptertype0(public var anonymous: D3dkmtAdaptertype00 = D3dkmtAdaptertype00(), public var value: UInt = 0u)
+public data class D3dkmtAdaptertype0(
+    public var anonymous: D3dkmtAdaptertype00 = D3dkmtAdaptertype00(),
+    public var value: UInt = 0u,
+)
 
-public data class D3dkmtAdaptertype00(public var bitfield: UInt = 0u)
+public data class D3dkmtAdaptertype00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class D3dkmtAdapterPerfdata(
     public var physicalAdapterIndex: UInt = 0u,

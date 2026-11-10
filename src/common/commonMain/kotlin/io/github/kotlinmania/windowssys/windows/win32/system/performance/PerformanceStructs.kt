@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.performance
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -223,7 +224,10 @@ public data class PdhDataItemPathElementsW(
     public var szInstanceName: Pwstr = null,
 )
 
-public data class PdhFmtCountervalue(public var cStatus: UInt = 0u, public var anonymous: PdhFmtCountervalue0 = PdhFmtCountervalue0())
+public data class PdhFmtCountervalue(
+    public var cStatus: UInt = 0u,
+    public var anonymous: PdhFmtCountervalue0 = PdhFmtCountervalue0(),
+)
 
 public data class PdhFmtCountervalue0(
     public var longValue: Int = 0,
@@ -233,9 +237,15 @@ public data class PdhFmtCountervalue0(
     public var wideStringValue: Pcwstr = null,
 )
 
-public data class PdhFmtCountervalueItemA(public var szName: Pstr = null, public var fmtValue: PdhFmtCountervalue = PdhFmtCountervalue())
+public data class PdhFmtCountervalueItemA(
+    public var szName: Pstr = null,
+    public var fmtValue: PdhFmtCountervalue = PdhFmtCountervalue(),
+)
 
-public data class PdhFmtCountervalueItemW(public var szName: Pwstr = null, public var fmtValue: PdhFmtCountervalue = PdhFmtCountervalue())
+public data class PdhFmtCountervalueItemW(
+    public var szName: Pwstr = null,
+    public var fmtValue: PdhFmtCountervalue = PdhFmtCountervalue(),
+)
 
 public data class PdhLogServiceQueryInfoA(
     public var dwSize: UInt = 0u,
@@ -249,7 +259,10 @@ public data class PdhLogServiceQueryInfoA(
     public var anonymous: PdhLogServiceQueryInfoA0 = PdhLogServiceQueryInfoA0(),
 )
 
-public data class PdhLogServiceQueryInfoA0(public var anonymous1: PdhLogServiceQueryInfoA00 = PdhLogServiceQueryInfoA00(), public var anonymous2: PdhLogServiceQueryInfoA01 = PdhLogServiceQueryInfoA01())
+public data class PdhLogServiceQueryInfoA0(
+    public var anonymous1: PdhLogServiceQueryInfoA00 = PdhLogServiceQueryInfoA00(),
+    public var anonymous2: PdhLogServiceQueryInfoA01 = PdhLogServiceQueryInfoA01(),
+)
 
 public data class PdhLogServiceQueryInfoA00(
     public var pdlAutoNameInterval: UInt = 0u,
@@ -287,7 +300,10 @@ public data class PdhLogServiceQueryInfoW(
     public var anonymous: PdhLogServiceQueryInfoW0 = PdhLogServiceQueryInfoW0(),
 )
 
-public data class PdhLogServiceQueryInfoW0(public var anonymous1: PdhLogServiceQueryInfoW00 = PdhLogServiceQueryInfoW00(), public var anonymous2: PdhLogServiceQueryInfoW01 = PdhLogServiceQueryInfoW01())
+public data class PdhLogServiceQueryInfoW0(
+    public var anonymous1: PdhLogServiceQueryInfoW00 = PdhLogServiceQueryInfoW00(),
+    public var anonymous2: PdhLogServiceQueryInfoW01 = PdhLogServiceQueryInfoW01(),
+)
 
 public data class PdhLogServiceQueryInfoW00(
     public var pdlAutoNameInterval: UInt = 0u,
@@ -321,9 +337,15 @@ public data class PdhRawCounter(
     public var multiCount: UInt = 0u,
 )
 
-public data class PdhRawCounterItemA(public var szName: Pstr = null, public var rawValue: PdhRawCounter = PdhRawCounter())
+public data class PdhRawCounterItemA(
+    public var szName: Pstr = null,
+    public var rawValue: PdhRawCounter = PdhRawCounter(),
+)
 
-public data class PdhRawCounterItemW(public var szName: Pwstr = null, public var rawValue: PdhRawCounter = PdhRawCounter())
+public data class PdhRawCounterItemW(
+    public var szName: Pwstr = null,
+    public var rawValue: PdhRawCounter = PdhRawCounter(),
+)
 
 public data class PdhRawLogRecord(
     public var dwStructureSize: UInt = 0u,
@@ -387,9 +409,14 @@ public data class PerfCountersetRegInfo(
     public var instanceType: UInt = 0u,
 )
 
-public data class PerfCounterBlock(public var byteLength: UInt = 0u)
+public data class PerfCounterBlock(
+    public var byteLength: UInt = 0u,
+)
 
-public data class PerfCounterData(public var dwDataSize: UInt = 0u, public var dwSize: UInt = 0u)
+public data class PerfCounterData(
+    public var dwDataSize: UInt = 0u,
+    public var dwSize: UInt = 0u,
+)
 
 public data class PerfCounterDefinition(
     public var byteLength: UInt = 0u,
@@ -528,11 +555,20 @@ public data class PerfInstanceDefinition(
     public var nameLength: UInt = 0u,
 )
 
-public data class PerfInstanceHeader(public var size: UInt = 0u, public var instanceId: UInt = 0u)
+public data class PerfInstanceHeader(
+    public var size: UInt = 0u,
+    public var instanceId: UInt = 0u,
+)
 
-public data class PerfMultiCounters(public var dwSize: UInt = 0u, public var dwCounters: UInt = 0u)
+public data class PerfMultiCounters(
+    public var dwSize: UInt = 0u,
+    public var dwCounters: UInt = 0u,
+)
 
-public data class PerfMultiInstances(public var dwTotalSize: UInt = 0u, public var dwInstances: UInt = 0u)
+public data class PerfMultiInstances(
+    public var dwTotalSize: UInt = 0u,
+    public var dwInstances: UInt = 0u,
+)
 
 public data class PerfObjectType(
     public var totalByteLength: UInt = 0u,
@@ -560,6 +596,12 @@ public data class PerfProviderContext(
     public var pMemContext: COpaquePointer? = null,
 )
 
-public data class PerfStringBufferHeader(public var dwSize: UInt = 0u, public var dwCounters: UInt = 0u)
+public data class PerfStringBufferHeader(
+    public var dwSize: UInt = 0u,
+    public var dwCounters: UInt = 0u,
+)
 
-public data class PerfStringCounterHeader(public var dwCounterId: UInt = 0u, public var dwOffset: UInt = 0u)
+public data class PerfStringCounterHeader(
+    public var dwCounterId: UInt = 0u,
+    public var dwOffset: UInt = 0u,
+)

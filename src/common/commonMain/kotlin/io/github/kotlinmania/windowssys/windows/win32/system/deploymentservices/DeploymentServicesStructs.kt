@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.deploymentservices
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -15,7 +16,10 @@ public data class PxeAddress(
     public var uPort: UShort = 0u,
 )
 
-public data class PxeAddress0(public var bAddress: UByteArray = UByteArray(16), public var uIpAddress: UInt = 0u) {
+public data class PxeAddress0(
+    public var bAddress: UByteArray = UByteArray(16),
+    public var uIpAddress: UInt = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PxeAddress0) return false
@@ -39,7 +43,10 @@ public data class PxeDhcpv6Message(
     public var options: List<PxeDhcpv6Option> = List(1) { PxeDhcpv6Option() },
 )
 
-public data class PxeDhcpv6MessageHeader(public var messageType: UByte = 0u, public var message: UByteArray = UByteArray(1)) {
+public data class PxeDhcpv6MessageHeader(
+    public var messageType: UByte = 0u,
+    public var message: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PxeDhcpv6MessageHeader) return false
@@ -173,7 +180,10 @@ public data class PxeDhcpMessage(
     }
 }
 
-public data class PxeDhcpMessage0(public var bMagicCookie: UByteArray = UByteArray(4), public var uMagicCookie: UInt = 0u) {
+public data class PxeDhcpMessage0(
+    public var bMagicCookie: UByteArray = UByteArray(4),
+    public var uMagicCookie: UInt = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PxeDhcpMessage0) return false
@@ -260,4 +270,7 @@ public data class WdsTransportproviderInitParams(
     public var hProvider: Handle = null,
 )
 
-public data class WdsTransportproviderSettings(public var ulLength: UInt = 0u, public var ulProviderVersion: UInt = 0u)
+public data class WdsTransportproviderSettings(
+    public var ulLength: UInt = 0u,
+    public var ulProviderVersion: UInt = 0u,
+)

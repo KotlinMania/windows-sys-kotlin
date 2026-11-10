@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.devices.display
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -43,7 +44,10 @@ public data class Adapter(
     }
 }
 
-public data class Adapters(public var numAdapters: Int = 0, public var adapter: List<Adapter> = List(1) { Adapter() })
+public data class Adapters(
+    public var numAdapters: Int = 0,
+    public var adapter: List<Adapter> = List(1) { Adapter() },
+)
 
 public data class BacklightReductionGammaRamp(
     public var r: UShortArray = UShortArray(256),
@@ -67,11 +71,19 @@ public data class BacklightReductionGammaRamp(
     }
 }
 
-public data class BankPosition(public var readBankPosition: UInt = 0u, public var writeBankPosition: UInt = 0u)
+public data class BankPosition(
+    public var readBankPosition: UInt = 0u,
+    public var writeBankPosition: UInt = 0u,
+)
 
-public data class Blendobj(public var blendFunction: Blendfunction = Blendfunction())
+public data class Blendobj(
+    public var blendFunction: Blendfunction = Blendfunction(),
+)
 
-public data class BrightnessLevel(public var count: UByte = 0u, public var level: UByteArray = UByteArray(103)) {
+public data class BrightnessLevel(
+    public var count: UByte = 0u,
+    public var level: UByteArray = UByteArray(103),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is BrightnessLevel) return false
@@ -114,11 +126,20 @@ public data class CdddxgkRedirbitmappresentinfo(
     public var bDoNotSynchronizeWithDxContent: Boolean = false,
 )
 
-public data class CharImageInfo(public var charInfo: CharInfo = CharInfo(), public var fontImageInfo: FontImageInfo = FontImageInfo())
+public data class CharImageInfo(
+    public var charInfo: CharInfo = CharInfo(),
+    public var fontImageInfo: FontImageInfo = FontImageInfo(),
+)
 
-public data class ChromaticityCoordinate(public var x: Float = 0.0f, public var y: Float = 0.0f)
+public data class ChromaticityCoordinate(
+    public var x: Float = 0.0f,
+    public var y: Float = 0.0f,
+)
 
-public data class Ciechroma(public var x: Int = 0, public var y: Int = 0)
+public data class Ciechroma(
+    public var x: Int = 0,
+    public var y: Int = 0,
+)
 
 public data class Clipline(
     public var ptfxA: Pointfix = Pointfix(),
@@ -156,7 +177,10 @@ public data class Colorinfo(
     public var magentaInYellowDye: Int = 0,
 )
 
-public data class ColorspaceTransform(public var type: ColorspaceTransformType = 0, public var data: ColorspaceTransform0 = ColorspaceTransform0())
+public data class ColorspaceTransform(
+    public var type: ColorspaceTransformType = 0,
+    public var data: ColorspaceTransform0 = ColorspaceTransform0(),
+)
 
 public data class ColorspaceTransform0(
     public var rgb256x3x16: GammaRampRgb256x3x16 = GammaRampRgb256x3x16(),
@@ -165,7 +189,10 @@ public data class ColorspaceTransform0(
     public var matrixV2: ColorspaceTransformMatrixV2 = ColorspaceTransformMatrixV2(),
 )
 
-public data class ColorspaceTransform1dlutCap(public var numberOfLUTEntries: UInt = 0u, public var dataCap: ColorspaceTransformDataCap = ColorspaceTransformDataCap())
+public data class ColorspaceTransform1dlutCap(
+    public var numberOfLUTEntries: UInt = 0u,
+    public var dataCap: ColorspaceTransformDataCap = ColorspaceTransformDataCap(),
+)
 
 public data class ColorspaceTransform3x4(
     public var colorMatrix3x4: FloatArray = FloatArray(12),
@@ -202,15 +229,27 @@ public data class ColorspaceTransformDataCap0(
     public var value: UInt = 0u,
 )
 
-public data class ColorspaceTransformDataCap00(public var bitfield: UInt = 0u)
+public data class ColorspaceTransformDataCap00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ColorspaceTransformDataCap01(public var bitfield: UInt = 0u)
+public data class ColorspaceTransformDataCap01(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ColorspaceTransformMatrixCap(public var anonymous: ColorspaceTransformMatrixCap0 = ColorspaceTransformMatrixCap0(), public var dataCap: ColorspaceTransformDataCap = ColorspaceTransformDataCap())
+public data class ColorspaceTransformMatrixCap(
+    public var anonymous: ColorspaceTransformMatrixCap0 = ColorspaceTransformMatrixCap0(),
+    public var dataCap: ColorspaceTransformDataCap = ColorspaceTransformDataCap(),
+)
 
-public data class ColorspaceTransformMatrixCap0(public var anonymous: ColorspaceTransformMatrixCap00 = ColorspaceTransformMatrixCap00(), public var value: UInt = 0u)
+public data class ColorspaceTransformMatrixCap0(
+    public var anonymous: ColorspaceTransformMatrixCap00 = ColorspaceTransformMatrixCap00(),
+    public var value: UInt = 0u,
+)
 
-public data class ColorspaceTransformMatrixCap00(public var bitfield: UInt = 0u)
+public data class ColorspaceTransformMatrixCap00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class ColorspaceTransformMatrixV2(
     public var stageControlLookupTable1DDegamma: ColorspaceTransformStageControl = 0,
@@ -284,9 +323,15 @@ public data class Devinfo(
     public var flGraphicsCaps2: UInt = 0u,
 )
 
-public data class Displayconfig2dregion(public var cx: UInt = 0u, public var cy: UInt = 0u)
+public data class Displayconfig2dregion(
+    public var cx: UInt = 0u,
+    public var cy: UInt = 0u,
+)
 
-public data class DisplayconfigAdapterName(public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(), public var adapterDevicePath: UShortArray = UShortArray(128)) {
+public data class DisplayconfigAdapterName(
+    public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(),
+    public var adapterDevicePath: UShortArray = UShortArray(128),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DisplayconfigAdapterName) return false
@@ -322,15 +367,28 @@ public data class DisplayconfigGetAdvancedColorInfo(
     public var bitsPerColorChannel: UInt = 0u,
 )
 
-public data class DisplayconfigGetAdvancedColorInfo0(public var anonymous: DisplayconfigGetAdvancedColorInfo00 = DisplayconfigGetAdvancedColorInfo00(), public var value: UInt = 0u)
+public data class DisplayconfigGetAdvancedColorInfo0(
+    public var anonymous: DisplayconfigGetAdvancedColorInfo00 = DisplayconfigGetAdvancedColorInfo00(),
+    public var value: UInt = 0u,
+)
 
-public data class DisplayconfigGetAdvancedColorInfo00(public var bitfield: UInt = 0u)
+public data class DisplayconfigGetAdvancedColorInfo00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DisplayconfigGetMonitorSpecialization(public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(), public var anonymous: DisplayconfigGetMonitorSpecialization0 = DisplayconfigGetMonitorSpecialization0())
+public data class DisplayconfigGetMonitorSpecialization(
+    public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(),
+    public var anonymous: DisplayconfigGetMonitorSpecialization0 = DisplayconfigGetMonitorSpecialization0(),
+)
 
-public data class DisplayconfigGetMonitorSpecialization0(public var anonymous: DisplayconfigGetMonitorSpecialization00 = DisplayconfigGetMonitorSpecialization00(), public var value: UInt = 0u)
+public data class DisplayconfigGetMonitorSpecialization0(
+    public var anonymous: DisplayconfigGetMonitorSpecialization00 = DisplayconfigGetMonitorSpecialization00(),
+    public var value: UInt = 0u,
+)
 
-public data class DisplayconfigGetMonitorSpecialization00(public var bitfield: UInt = 0u)
+public data class DisplayconfigGetMonitorSpecialization00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DisplayconfigModeInfo(
     public var infoType: DisplayconfigModeInfoType = 0,
@@ -358,9 +416,14 @@ public data class DisplayconfigPathSourceInfo(
     public var statusFlags: UInt = 0u,
 )
 
-public data class DisplayconfigPathSourceInfo0(public var modeInfoIdx: UInt = 0u, public var anonymous: DisplayconfigPathSourceInfo00 = DisplayconfigPathSourceInfo00())
+public data class DisplayconfigPathSourceInfo0(
+    public var modeInfoIdx: UInt = 0u,
+    public var anonymous: DisplayconfigPathSourceInfo00 = DisplayconfigPathSourceInfo00(),
+)
 
-public data class DisplayconfigPathSourceInfo00(public var bitfield: UInt = 0u)
+public data class DisplayconfigPathSourceInfo00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DisplayconfigPathTargetInfo(
     public var adapterId: Luid = Luid(),
@@ -375,19 +438,38 @@ public data class DisplayconfigPathTargetInfo(
     public var statusFlags: UInt = 0u,
 )
 
-public data class DisplayconfigPathTargetInfo0(public var modeInfoIdx: UInt = 0u, public var anonymous: DisplayconfigPathTargetInfo00 = DisplayconfigPathTargetInfo00())
+public data class DisplayconfigPathTargetInfo0(
+    public var modeInfoIdx: UInt = 0u,
+    public var anonymous: DisplayconfigPathTargetInfo00 = DisplayconfigPathTargetInfo00(),
+)
 
-public data class DisplayconfigPathTargetInfo00(public var bitfield: UInt = 0u)
+public data class DisplayconfigPathTargetInfo00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DisplayconfigRational(public var numerator: UInt = 0u, public var denominator: UInt = 0u)
+public data class DisplayconfigRational(
+    public var numerator: UInt = 0u,
+    public var denominator: UInt = 0u,
+)
 
-public data class DisplayconfigSdrWhiteLevel(public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(), public var sDRWhiteLevel: UInt = 0u)
+public data class DisplayconfigSdrWhiteLevel(
+    public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(),
+    public var sDRWhiteLevel: UInt = 0u,
+)
 
-public data class DisplayconfigSetAdvancedColorState(public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(), public var anonymous: DisplayconfigSetAdvancedColorState0 = DisplayconfigSetAdvancedColorState0())
+public data class DisplayconfigSetAdvancedColorState(
+    public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(),
+    public var anonymous: DisplayconfigSetAdvancedColorState0 = DisplayconfigSetAdvancedColorState0(),
+)
 
-public data class DisplayconfigSetAdvancedColorState0(public var anonymous: DisplayconfigSetAdvancedColorState00 = DisplayconfigSetAdvancedColorState00(), public var value: UInt = 0u)
+public data class DisplayconfigSetAdvancedColorState0(
+    public var anonymous: DisplayconfigSetAdvancedColorState00 = DisplayconfigSetAdvancedColorState00(),
+    public var value: UInt = 0u,
+)
 
-public data class DisplayconfigSetAdvancedColorState00(public var bitfield: UInt = 0u)
+public data class DisplayconfigSetAdvancedColorState00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DisplayconfigSetMonitorSpecialization(
     public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(),
@@ -417,17 +499,33 @@ public data class DisplayconfigSetMonitorSpecialization(
     }
 }
 
-public data class DisplayconfigSetMonitorSpecialization0(public var anonymous: DisplayconfigSetMonitorSpecialization00 = DisplayconfigSetMonitorSpecialization00(), public var value: UInt = 0u)
+public data class DisplayconfigSetMonitorSpecialization0(
+    public var anonymous: DisplayconfigSetMonitorSpecialization00 = DisplayconfigSetMonitorSpecialization00(),
+    public var value: UInt = 0u,
+)
 
-public data class DisplayconfigSetMonitorSpecialization00(public var bitfield: UInt = 0u)
+public data class DisplayconfigSetMonitorSpecialization00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DisplayconfigSetTargetPersistence(public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(), public var anonymous: DisplayconfigSetTargetPersistence0 = DisplayconfigSetTargetPersistence0())
+public data class DisplayconfigSetTargetPersistence(
+    public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(),
+    public var anonymous: DisplayconfigSetTargetPersistence0 = DisplayconfigSetTargetPersistence0(),
+)
 
-public data class DisplayconfigSetTargetPersistence0(public var anonymous: DisplayconfigSetTargetPersistence00 = DisplayconfigSetTargetPersistence00(), public var value: UInt = 0u)
+public data class DisplayconfigSetTargetPersistence0(
+    public var anonymous: DisplayconfigSetTargetPersistence00 = DisplayconfigSetTargetPersistence00(),
+    public var value: UInt = 0u,
+)
 
-public data class DisplayconfigSetTargetPersistence00(public var bitfield: UInt = 0u)
+public data class DisplayconfigSetTargetPersistence00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DisplayconfigSourceDeviceName(public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(), public var viewGdiDeviceName: UShortArray = UShortArray(32)) {
+public data class DisplayconfigSourceDeviceName(
+    public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(),
+    public var viewGdiDeviceName: UShortArray = UShortArray(32),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DisplayconfigSourceDeviceName) return false
@@ -450,13 +548,24 @@ public data class DisplayconfigSourceMode(
     public var position: Pointl = Pointl(),
 )
 
-public data class DisplayconfigSupportVirtualResolution(public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(), public var anonymous: DisplayconfigSupportVirtualResolution0 = DisplayconfigSupportVirtualResolution0())
+public data class DisplayconfigSupportVirtualResolution(
+    public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(),
+    public var anonymous: DisplayconfigSupportVirtualResolution0 = DisplayconfigSupportVirtualResolution0(),
+)
 
-public data class DisplayconfigSupportVirtualResolution0(public var anonymous: DisplayconfigSupportVirtualResolution00 = DisplayconfigSupportVirtualResolution00(), public var value: UInt = 0u)
+public data class DisplayconfigSupportVirtualResolution0(
+    public var anonymous: DisplayconfigSupportVirtualResolution00 = DisplayconfigSupportVirtualResolution00(),
+    public var value: UInt = 0u,
+)
 
-public data class DisplayconfigSupportVirtualResolution00(public var bitfield: UInt = 0u)
+public data class DisplayconfigSupportVirtualResolution00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DisplayconfigTargetBaseType(public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(), public var baseOutputTechnology: DisplayconfigVideoOutputTechnology = 0)
+public data class DisplayconfigTargetBaseType(
+    public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(),
+    public var baseOutputTechnology: DisplayconfigVideoOutputTechnology = 0,
+)
 
 public data class DisplayconfigTargetDeviceName(
     public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(),
@@ -495,13 +604,22 @@ public data class DisplayconfigTargetDeviceName(
     }
 }
 
-public data class DisplayconfigTargetDeviceNameFlags(public var anonymous: DisplayconfigTargetDeviceNameFlags0 = DisplayconfigTargetDeviceNameFlags0())
+public data class DisplayconfigTargetDeviceNameFlags(
+    public var anonymous: DisplayconfigTargetDeviceNameFlags0 = DisplayconfigTargetDeviceNameFlags0(),
+)
 
-public data class DisplayconfigTargetDeviceNameFlags0(public var anonymous: DisplayconfigTargetDeviceNameFlags00 = DisplayconfigTargetDeviceNameFlags00(), public var value: UInt = 0u)
+public data class DisplayconfigTargetDeviceNameFlags0(
+    public var anonymous: DisplayconfigTargetDeviceNameFlags00 = DisplayconfigTargetDeviceNameFlags00(),
+    public var value: UInt = 0u,
+)
 
-public data class DisplayconfigTargetDeviceNameFlags00(public var bitfield: UInt = 0u)
+public data class DisplayconfigTargetDeviceNameFlags00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class DisplayconfigTargetMode(public var targetVideoSignalInfo: DisplayconfigVideoSignalInfo = DisplayconfigVideoSignalInfo())
+public data class DisplayconfigTargetMode(
+    public var targetVideoSignalInfo: DisplayconfigVideoSignalInfo = DisplayconfigVideoSignalInfo(),
+)
 
 public data class DisplayconfigTargetPreferredMode(
     public var header: DisplayconfigDeviceInfoHeader = DisplayconfigDeviceInfoHeader(),
@@ -520,9 +638,14 @@ public data class DisplayconfigVideoSignalInfo(
     public var scanLineOrdering: DisplayconfigScanlineOrdering = 0,
 )
 
-public data class DisplayconfigVideoSignalInfo0(public var additionalSignalInfo: DisplayconfigVideoSignalInfo00 = DisplayconfigVideoSignalInfo00(), public var videoStandard: UInt = 0u)
+public data class DisplayconfigVideoSignalInfo0(
+    public var additionalSignalInfo: DisplayconfigVideoSignalInfo00 = DisplayconfigVideoSignalInfo00(),
+    public var videoStandard: UInt = 0u,
+)
 
-public data class DisplayconfigVideoSignalInfo00(public var bitfield: UInt = 0u)
+public data class DisplayconfigVideoSignalInfo00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class DisplayBrightness(
     public var ucDisplayPolicy: UByte = 0u,
@@ -530,7 +653,10 @@ public data class DisplayBrightness(
     public var ucDCBrightness: UByte = 0u,
 )
 
-public data class DrhApibitmapdata(public var pso: Surfobj? = null, public var b: Bool = 0)
+public data class DrhApibitmapdata(
+    public var pso: Surfobj? = null,
+    public var b: Bool = 0,
+)
 
 public data class Driverobj(
     public var pvObj: COpaquePointer? = null,
@@ -545,7 +671,10 @@ public data class Drvenabledata(
     public var pdrvfn: Drvfn? = null,
 )
 
-public data class Drvfn(public var iFunc: UInt = 0u, public var pfn: Pfn = null)
+public data class Drvfn(
+    public var iFunc: UInt = 0u,
+    public var pfn: Pfn = null,
+)
 
 public data class DxgkWin32kParamData(
     public var pathsArray: COpaquePointer? = null,
@@ -555,7 +684,10 @@ public data class DxgkWin32kParamData(
     public var sDCFlags: UInt = 0u,
 )
 
-public data class DisplayMode(public var deviceName: UShortArray = UShortArray(32), public var devMode: Devmodew = Devmodew()) {
+public data class DisplayMode(
+    public var deviceName: UShortArray = UShortArray(32),
+    public var devMode: Devmodew = Devmodew(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DisplayMode) return false
@@ -571,7 +703,10 @@ public data class DisplayMode(public var deviceName: UShortArray = UShortArray(3
     }
 }
 
-public data class DisplayModes(public var numDisplayModes: Int = 0, public var displayMode: List<DisplayMode> = List(1) { DisplayMode() })
+public data class DisplayModes(
+    public var numDisplayModes: Int = 0,
+    public var displayMode: List<DisplayMode> = List(1) { DisplayMode() },
+)
 
 public data class Emfinfo(
     public var nSize: UInt = 0u,
@@ -580,9 +715,15 @@ public data class Emfinfo(
     public var pvCurrentRecord: COpaquePointer? = null,
 )
 
-public data class Engsafesemaphore(public var hsem: Hsemaphore = null, public var lCount: Int = 0)
+public data class Engsafesemaphore(
+    public var hsem: Hsemaphore = null,
+    public var lCount: Int = 0,
+)
 
-public data class EngEvent(public var pKEvent: COpaquePointer? = null, public var fFlags: UInt = 0u)
+public data class EngEvent(
+    public var pKEvent: COpaquePointer? = null,
+    public var fFlags: UInt = 0u,
+)
 
 public data class EngTimeFields(
     public var usYear: UShort = 0u,
@@ -595,7 +736,10 @@ public data class EngTimeFields(
     public var usWeekday: UShort = 0u,
 )
 
-public data class Enumrects(public var c: UInt = 0u, public var arcl: List<Rectl> = List(1) { Rectl() })
+public data class Enumrects(
+    public var c: UInt = 0u,
+    public var arcl: List<Rectl> = List(1) { Rectl() },
+)
 
 public class FdDevicemetrics(
     public var flRealizedType: UInt = 0u,
@@ -684,7 +828,10 @@ public data class FloatobjXform(
     public var eDy: Float = 0.0f,
 )
 
-public data class FloatLong(public var e: Float = 0.0f, public var l: Int = 0)
+public data class FloatLong(
+    public var e: Float = 0.0f,
+    public var l: Int = 0,
+)
 
 public data class Fontdiff(
     public var jReserved1: UByte = 0u,
@@ -727,7 +874,10 @@ public data class Fontsim(
     public var dpBoldItalic: Int = 0,
 )
 
-public data class FontImageInfo(public var fontSize: Coord = Coord(), public var imageBits: COpaquePointer? = null)
+public data class FontImageInfo(
+    public var fontSize: Coord = Coord(),
+    public var imageBits: COpaquePointer? = null,
+)
 
 public data class FscntlScreenInfo(
     public var position: Coord = Coord(),
@@ -735,17 +885,35 @@ public data class FscntlScreenInfo(
     public var nNumberOfChars: UInt = 0u,
 )
 
-public data class FsvideoCopyFrameBuffer(public var srcScreen: FscntlScreenInfo = FscntlScreenInfo(), public var destScreen: FscntlScreenInfo = FscntlScreenInfo())
+public data class FsvideoCopyFrameBuffer(
+    public var srcScreen: FscntlScreenInfo = FscntlScreenInfo(),
+    public var destScreen: FscntlScreenInfo = FscntlScreenInfo(),
+)
 
-public data class FsvideoCursorPosition(public var coord: VideoCursorPosition = VideoCursorPosition(), public var dwType: UInt = 0u)
+public data class FsvideoCursorPosition(
+    public var coord: VideoCursorPosition = VideoCursorPosition(),
+    public var dwType: UInt = 0u,
+)
 
-public data class FsvideoModeInformation(public var videoMode: VideoModeInformation = VideoModeInformation(), public var videoMemory: VideoMemoryInformation = VideoMemoryInformation())
+public data class FsvideoModeInformation(
+    public var videoMode: VideoModeInformation = VideoModeInformation(),
+    public var videoMemory: VideoMemoryInformation = VideoMemoryInformation(),
+)
 
-public data class FsvideoReverseMousePointer(public var screen: FscntlScreenInfo = FscntlScreenInfo(), public var dwType: UInt = 0u)
+public data class FsvideoReverseMousePointer(
+    public var screen: FscntlScreenInfo = FscntlScreenInfo(),
+    public var dwType: UInt = 0u,
+)
 
-public data class FsvideoScreenInformation(public var screenSize: Coord = Coord(), public var fontSize: Coord = Coord())
+public data class FsvideoScreenInformation(
+    public var screenSize: Coord = Coord(),
+    public var fontSize: Coord = Coord(),
+)
 
-public data class FsvideoWriteToFrameBuffer(public var srcBuffer: CharImageInfo? = null, public var destScreen: FscntlScreenInfo = FscntlScreenInfo())
+public data class FsvideoWriteToFrameBuffer(
+    public var srcBuffer: CharImageInfo? = null,
+    public var destScreen: FscntlScreenInfo = FscntlScreenInfo(),
+)
 
 public data class Gammaramp(
     public var red: UShortArray = UShortArray(256),
@@ -885,7 +1053,10 @@ public data class Glyphdata(
     public var ptqD: Pointqf = Pointqf(),
 )
 
-public data class Glyphdef(public var pgb: Glyphbits? = null, public var ppo: Pathobj? = null)
+public data class Glyphdef(
+    public var pgb: Glyphbits? = null,
+    public var ppo: Pathobj? = null,
+)
 
 public data class Glyphpos(
     public var hg: UInt = 0u,
@@ -1082,19 +1253,38 @@ public data class MipiDsiPacket(
     }
 }
 
-public data class MipiDsiPacket0(public var dataId: UByte = 0u, public var anonymous: MipiDsiPacket00 = MipiDsiPacket00())
+public data class MipiDsiPacket0(
+    public var dataId: UByte = 0u,
+    public var anonymous: MipiDsiPacket00 = MipiDsiPacket00(),
+)
 
-public data class MipiDsiPacket00(public var bitfield: UByte = 0u)
+public data class MipiDsiPacket00(
+    public var bitfield: UByte = 0u,
+)
 
-public data class MipiDsiPacket1(public var anonymous: MipiDsiPacket10 = MipiDsiPacket10(), public var longWriteWordCount: UShort = 0u)
+public data class MipiDsiPacket1(
+    public var anonymous: MipiDsiPacket10 = MipiDsiPacket10(),
+    public var longWriteWordCount: UShort = 0u,
+)
 
-public data class MipiDsiPacket10(public var data0: UByte = 0u, public var data1: UByte = 0u)
+public data class MipiDsiPacket10(
+    public var data0: UByte = 0u,
+    public var data1: UByte = 0u,
+)
 
-public data class MipiDsiReset(public var flags: UInt = 0u, public var anonymous: MipiDsiReset0 = MipiDsiReset0())
+public data class MipiDsiReset(
+    public var flags: UInt = 0u,
+    public var anonymous: MipiDsiReset0 = MipiDsiReset0(),
+)
 
-public data class MipiDsiReset0(public var anonymous: MipiDsiReset00 = MipiDsiReset00(), public var results: UInt = 0u)
+public data class MipiDsiReset0(
+    public var anonymous: MipiDsiReset00 = MipiDsiReset00(),
+    public var results: UInt = 0u,
+)
 
-public data class MipiDsiReset00(public var bitfield: UInt = 0u)
+public data class MipiDsiReset00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class MipiDsiTransmission(
     public var totalBufferSize: UInt = 0u,
@@ -1108,11 +1298,18 @@ public data class MipiDsiTransmission(
     public var packets: List<MipiDsiPacket> = List(1) { MipiDsiPacket() },
 )
 
-public data class MipiDsiTransmission0(public var bitfield: UShort = 0u)
+public data class MipiDsiTransmission0(
+    public var bitfield: UShort = 0u,
+)
 
-public data class OutputWireFormat(public var colorEncoding: OutputColorEncoding = 0, public var bitsPerPixel: UInt = 0u)
+public data class OutputWireFormat(
+    public var colorEncoding: OutputColorEncoding = 0,
+    public var bitsPerPixel: UInt = 0u,
+)
 
-public data class Palobj(public var ulReserved: UInt = 0u)
+public data class Palobj(
+    public var ulReserved: UInt = 0u,
+)
 
 public data class PanelBrightnessSensorData(
     public var anonymous: PanelBrightnessSensorData0 = PanelBrightnessSensorData0(),
@@ -1121,9 +1318,14 @@ public data class PanelBrightnessSensorData(
     public var colorTemperature: Float = 0.0f,
 )
 
-public data class PanelBrightnessSensorData0(public var anonymous: PanelBrightnessSensorData00 = PanelBrightnessSensorData00(), public var value: UInt = 0u)
+public data class PanelBrightnessSensorData0(
+    public var anonymous: PanelBrightnessSensorData00 = PanelBrightnessSensorData00(),
+    public var value: UInt = 0u,
+)
 
-public data class PanelBrightnessSensorData00(public var bitfield: UInt = 0u)
+public data class PanelBrightnessSensorData00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class PanelGetBacklightReduction(
     public var backlightUsersetting: UShort = 0u,
@@ -1131,27 +1333,58 @@ public data class PanelGetBacklightReduction(
     public var gammaRamp: BacklightReductionGammaRamp = BacklightReductionGammaRamp(),
 )
 
-public data class PanelGetBrightness(public var version: BrightnessInterfaceVersion = 0, public var anonymous: PanelGetBrightness0 = PanelGetBrightness0())
+public data class PanelGetBrightness(
+    public var version: BrightnessInterfaceVersion = 0,
+    public var anonymous: PanelGetBrightness0 = PanelGetBrightness0(),
+)
 
-public data class PanelGetBrightness0(public var level: UByte = 0u, public var anonymous: PanelGetBrightness00 = PanelGetBrightness00())
+public data class PanelGetBrightness0(
+    public var level: UByte = 0u,
+    public var anonymous: PanelGetBrightness00 = PanelGetBrightness00(),
+)
 
-public data class PanelGetBrightness00(public var currentInMillinits: UInt = 0u, public var targetInMillinits: UInt = 0u)
+public data class PanelGetBrightness00(
+    public var currentInMillinits: UInt = 0u,
+    public var targetInMillinits: UInt = 0u,
+)
 
-public data class PanelQueryBrightnessCaps(public var version: BrightnessInterfaceVersion = 0, public var anonymous: PanelQueryBrightnessCaps0 = PanelQueryBrightnessCaps0())
+public data class PanelQueryBrightnessCaps(
+    public var version: BrightnessInterfaceVersion = 0,
+    public var anonymous: PanelQueryBrightnessCaps0 = PanelQueryBrightnessCaps0(),
+)
 
-public data class PanelQueryBrightnessCaps0(public var anonymous: PanelQueryBrightnessCaps00 = PanelQueryBrightnessCaps00(), public var value: UInt = 0u)
+public data class PanelQueryBrightnessCaps0(
+    public var anonymous: PanelQueryBrightnessCaps00 = PanelQueryBrightnessCaps00(),
+    public var value: UInt = 0u,
+)
 
-public data class PanelQueryBrightnessCaps00(public var bitfield: UInt = 0u)
+public data class PanelQueryBrightnessCaps00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class PanelQueryBrightnessRanges(public var version: BrightnessInterfaceVersion = 0, public var anonymous: PanelQueryBrightnessRanges0 = PanelQueryBrightnessRanges0())
+public data class PanelQueryBrightnessRanges(
+    public var version: BrightnessInterfaceVersion = 0,
+    public var anonymous: PanelQueryBrightnessRanges0 = PanelQueryBrightnessRanges0(),
+)
 
-public data class PanelQueryBrightnessRanges0(public var brightnessLevel: BrightnessLevel = BrightnessLevel(), public var nitRanges: BrightnessNitRanges = BrightnessNitRanges())
+public data class PanelQueryBrightnessRanges0(
+    public var brightnessLevel: BrightnessLevel = BrightnessLevel(),
+    public var nitRanges: BrightnessNitRanges = BrightnessNitRanges(),
+)
 
-public data class PanelSetBacklightOptimization(public var level: BacklightOptimizationLevel = 0)
+public data class PanelSetBacklightOptimization(
+    public var level: BacklightOptimizationLevel = 0,
+)
 
-public data class PanelSetBrightness(public var version: BrightnessInterfaceVersion = 0, public var anonymous: PanelSetBrightness0 = PanelSetBrightness0())
+public data class PanelSetBrightness(
+    public var version: BrightnessInterfaceVersion = 0,
+    public var anonymous: PanelSetBrightness0 = PanelSetBrightness0(),
+)
 
-public data class PanelSetBrightness0(public var level: UByte = 0u, public var anonymous: PanelSetBrightness00 = PanelSetBrightness00())
+public data class PanelSetBrightness0(
+    public var level: UByte = 0u,
+    public var anonymous: PanelSetBrightness00 = PanelSetBrightness00(),
+)
 
 public data class PanelSetBrightness00(
     public var millinits: UInt = 0u,
@@ -1159,11 +1392,18 @@ public data class PanelSetBrightness00(
     public var sensorData: PanelBrightnessSensorData = PanelBrightnessSensorData(),
 )
 
-public data class PanelSetBrightnessState(public var anonymous: PanelSetBrightnessState0 = PanelSetBrightnessState0())
+public data class PanelSetBrightnessState(
+    public var anonymous: PanelSetBrightnessState0 = PanelSetBrightnessState0(),
+)
 
-public data class PanelSetBrightnessState0(public var anonymous: PanelSetBrightnessState00 = PanelSetBrightnessState00(), public var value: UInt = 0u)
+public data class PanelSetBrightnessState0(
+    public var anonymous: PanelSetBrightnessState00 = PanelSetBrightnessState00(),
+    public var value: UInt = 0u,
+)
 
-public data class PanelSetBrightnessState00(public var bitfield: UInt = 0u)
+public data class PanelSetBrightnessState00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class Pathdata(
     public var flags: UInt = 0u,
@@ -1171,7 +1411,10 @@ public data class Pathdata(
     public var pptfx: Pointfix? = null,
 )
 
-public data class Pathobj(public var fl: UInt = 0u, public var cCurves: UInt = 0u)
+public data class Pathobj(
+    public var fl: UInt = 0u,
+    public var cCurves: UInt = 0u,
+)
 
 public data class Perbandinfo(
     public var bRepeatThisBand: Bool = 0,
@@ -1180,7 +1423,10 @@ public data class Perbandinfo(
     public var ulVertRes: UInt = 0u,
 )
 
-public data class PhysicalMonitor(public var hPhysicalMonitor: Handle = null, public var szPhysicalMonitorDescription: UShortArray = UShortArray(128)) {
+public data class PhysicalMonitor(
+    public var hPhysicalMonitor: Handle = null,
+    public var szPhysicalMonitorDescription: UShortArray = UShortArray(128),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is PhysicalMonitor) return false
@@ -1196,11 +1442,20 @@ public data class PhysicalMonitor(public var hPhysicalMonitor: Handle = null, pu
     }
 }
 
-public data class Pointe(public var x: Float = 0.0f, public var y: Float = 0.0f)
+public data class Pointe(
+    public var x: Float = 0.0f,
+    public var y: Float = 0.0f,
+)
 
-public data class Pointfix(public var x: Int = 0, public var y: Int = 0)
+public data class Pointfix(
+    public var x: Int = 0,
+    public var y: Int = 0,
+)
 
-public data class Pointqf(public var x: Long = 0L, public var y: Long = 0L)
+public data class Pointqf(
+    public var x: Long = 0L,
+    public var y: Long = 0L,
+)
 
 public data class Rectfx(
     public var xLeft: Int = 0,
@@ -1209,9 +1464,14 @@ public data class Rectfx(
     public var yBottom: Int = 0,
 )
 
-public data class Run(public var iStart: Int = 0, public var iStop: Int = 0)
+public data class Run(
+    public var iStart: Int = 0,
+    public var iStop: Int = 0,
+)
 
-public data class SetActiveColorProfileName(public var colorProfileName: UShortArray = UShortArray(1)) {
+public data class SetActiveColorProfileName(
+    public var colorProfileName: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SetActiveColorProfileName) return false
@@ -1219,9 +1479,7 @@ public data class SetActiveColorProfileName(public var colorProfileName: UShortA
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.colorProfileName.contentHashCode()
-    }
+    override fun hashCode(): Int = this.colorProfileName.contentHashCode()
 }
 
 public data class Strobj(
@@ -1277,7 +1535,10 @@ public data class Type1Font(
     public var ulIdentifier: UInt = 0u,
 )
 
-public data class VgaChar(public var char: Byte = 0, public var attributes: Byte = 0)
+public data class VgaChar(
+    public var char: Byte = 0,
+    public var attributes: Byte = 0,
+)
 
 public class Videoparameters(
     public var guid: Guid = Guid(),
@@ -1327,7 +1588,10 @@ public data class VideoBrightnessPolicy(
     public var level: List<VideoBrightnessPolicy0> = List(1) { VideoBrightnessPolicy0() },
 )
 
-public data class VideoBrightnessPolicy0(public var batteryLevel: UByte = 0u, public var brightness: UByte = 0u)
+public data class VideoBrightnessPolicy0(
+    public var batteryLevel: UByte = 0u,
+    public var brightness: UByte = 0u,
+)
 
 public data class VideoClut(
     public var numEntries: UShort = 0u,
@@ -1335,7 +1599,10 @@ public data class VideoClut(
     public var lookupTable: List<VideoClut0> = List(1) { VideoClut0() },
 )
 
-public data class VideoClut0(public var rgbArray: VideoClutdata = VideoClutdata(), public var rgbLong: UInt = 0u)
+public data class VideoClut0(
+    public var rgbArray: VideoClutdata = VideoClutdata(),
+    public var rgbLong: UInt = 0u,
+)
 
 public data class VideoClutdata(
     public var red: UByte = 0u,
@@ -1395,11 +1662,20 @@ public data class VideoCursorAttributes(
     public var enable: UByte = 0u,
 )
 
-public data class VideoCursorPosition(public var column: Short = 0, public var row: Short = 0)
+public data class VideoCursorPosition(
+    public var column: Short = 0,
+    public var row: Short = 0,
+)
 
-public data class VideoDeviceSessionStatus(public var bEnable: UInt = 0u, public var bSuccess: UInt = 0u)
+public data class VideoDeviceSessionStatus(
+    public var bEnable: UInt = 0u,
+    public var bSuccess: UInt = 0u,
+)
 
-public data class VideoHardwareState(public var stateHeader: VideoHardwareStateHeader? = null, public var stateLength: UInt = 0u)
+public data class VideoHardwareState(
+    public var stateHeader: VideoHardwareStateHeader? = null,
+    public var stateLength: UInt = 0u,
+)
 
 public class VideoHardwareStateHeader(
     public var length: UInt = 0u,
@@ -1481,7 +1757,9 @@ public data class VideoLutRgb256words(
     }
 }
 
-public data class VideoMemory(public var requestedVirtualAddress: COpaquePointer? = null)
+public data class VideoMemory(
+    public var requestedVirtualAddress: COpaquePointer? = null,
+)
 
 public data class VideoMemoryInformation(
     public var videoRamBase: COpaquePointer? = null,
@@ -1490,7 +1768,9 @@ public data class VideoMemoryInformation(
     public var frameBufferLength: UInt = 0u,
 )
 
-public data class VideoMode(public var requestedMode: UInt = 0u)
+public data class VideoMode(
+    public var requestedMode: UInt = 0u,
+)
 
 public class VideoModeInformation(
     public var length: UInt = 0u,
@@ -1515,7 +1795,10 @@ public class VideoModeInformation(
     public var driverSpecificAttributeFlags: UInt = 0u,
 )
 
-public data class VideoMonitorDescriptor(public var descriptorSize: UInt = 0u, public var descriptor: UByteArray = UByteArray(1)) {
+public data class VideoMonitorDescriptor(
+    public var descriptorSize: UInt = 0u,
+    public var descriptor: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is VideoMonitorDescriptor) return false
@@ -1531,7 +1814,10 @@ public data class VideoMonitorDescriptor(public var descriptorSize: UInt = 0u, p
     }
 }
 
-public data class VideoNumModes(public var numModes: UInt = 0u, public var modeInformationLength: UInt = 0u)
+public data class VideoNumModes(
+    public var numModes: UInt = 0u,
+    public var modeInformationLength: UInt = 0u,
+)
 
 public data class VideoPaletteData(
     public var numEntries: UShort = 0u,
@@ -1624,7 +1910,10 @@ public data class VideoPointerCapabilities(
     public var hWPtrBitmapEnd: UInt = 0u,
 )
 
-public data class VideoPointerPosition(public var column: Short = 0, public var row: Short = 0)
+public data class VideoPointerPosition(
+    public var column: Short = 0,
+    public var row: Short = 0,
+)
 
 public data class VideoPowerManagement(
     public var length: UInt = 0u,
@@ -1638,9 +1927,14 @@ public data class VideoPublicAccessRanges(
     public var virtualAddress: COpaquePointer? = null,
 )
 
-public data class VideoQueryPerformanceCounter(public var bufferSize: UInt = 0u, public var buffer: VideoPerformanceCounter? = null)
+public data class VideoQueryPerformanceCounter(
+    public var bufferSize: UInt = 0u,
+    public var buffer: VideoPerformanceCounter? = null,
+)
 
-public data class VideoRegisterVdm(public var minimumStateSize: UInt = 0u)
+public data class VideoRegisterVdm(
+    public var minimumStateSize: UInt = 0u,
+)
 
 public data class VideoShareMemory(
     public var processHandle: Handle = null,
@@ -1655,7 +1949,9 @@ public data class VideoShareMemoryInformation(
     public var virtualAddress: COpaquePointer? = null,
 )
 
-public data class VideoVdm(public var processHandle: Handle = null)
+public data class VideoVdm(
+    public var processHandle: Handle = null,
+)
 
 public data class VideoWin32kCallbacks(
     public var physDisp: COpaquePointer? = null,
@@ -1698,7 +1994,9 @@ public data class Xforml(
     public var eDy: Float = 0.0f,
 )
 
-public data class Xformobj(public var ulReserved: UInt = 0u)
+public data class Xformobj(
+    public var ulReserved: UInt = 0u,
+)
 
 public data class Xlateobj(
     public var iUniq: UInt = 0u,

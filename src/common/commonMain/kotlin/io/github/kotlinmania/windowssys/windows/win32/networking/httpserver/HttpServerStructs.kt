@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networking.httpserver
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -13,19 +14,39 @@ import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Sockadd
 import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrStorage
 import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
-public data class Http2SettingsLimitsParam(public var http2MaxSettingsPerFrame: UInt = 0u, public var http2MaxSettingsPerMinute: UInt = 0u)
+public data class Http2SettingsLimitsParam(
+    public var http2MaxSettingsPerFrame: UInt = 0u,
+    public var http2MaxSettingsPerMinute: UInt = 0u,
+)
 
-public data class Http2WindowSizeParam(public var http2ReceiveWindowSize: UInt = 0u)
+public data class Http2WindowSizeParam(
+    public var http2ReceiveWindowSize: UInt = 0u,
+)
 
-public data class HttpapiVersion(public var httpApiMajorVersion: UShort = 0u, public var httpApiMinorVersion: UShort = 0u)
+public data class HttpapiVersion(
+    public var httpApiMajorVersion: UShort = 0u,
+    public var httpApiMinorVersion: UShort = 0u,
+)
 
-public data class HttpBandwidthLimitInfo(public var flags: HttpPropertyFlags = HttpPropertyFlags(), public var maxBandwidth: UInt = 0u)
+public data class HttpBandwidthLimitInfo(
+    public var flags: HttpPropertyFlags = HttpPropertyFlags(),
+    public var maxBandwidth: UInt = 0u,
+)
 
-public data class HttpBindingInfo(public var flags: HttpPropertyFlags = HttpPropertyFlags(), public var requestQueueHandle: Handle = null)
+public data class HttpBindingInfo(
+    public var flags: HttpPropertyFlags = HttpPropertyFlags(),
+    public var requestQueueHandle: Handle = null,
+)
 
-public data class HttpByteRange(public var startingOffset: ULong = 0uL, public var length: ULong = 0uL)
+public data class HttpByteRange(
+    public var startingOffset: ULong = 0uL,
+    public var length: ULong = 0uL,
+)
 
-public data class HttpCachePolicy(public var policy: HttpCachePolicyType = 0, public var secondsToLive: UInt = 0u)
+public data class HttpCachePolicy(
+    public var policy: HttpCachePolicyType = 0,
+    public var secondsToLive: UInt = 0u,
+)
 
 public data class HttpChannelBindInfo(
     public var hardening: HttpAuthenticationHardeningLevels = 0,
@@ -34,7 +55,10 @@ public data class HttpChannelBindInfo(
     public var numberOfServiceNames: UInt = 0u,
 )
 
-public data class HttpConnectionLimitInfo(public var flags: HttpPropertyFlags = HttpPropertyFlags(), public var maxConnections: UInt = 0u)
+public data class HttpConnectionLimitInfo(
+    public var flags: HttpPropertyFlags = HttpPropertyFlags(),
+    public var maxConnections: UInt = 0u,
+)
 
 public data class HttpCookedUrl(
     public var fullUrlLength: UShort = 0u,
@@ -53,7 +77,10 @@ public data class HttpCreateRequestQueuePropertyInfo(
     public var propertyInfo: COpaquePointer? = null,
 )
 
-public data class HttpDataChunk(public var dataChunkType: HttpDataChunkType = 0, public var anonymous: HttpDataChunk0 = HttpDataChunk0())
+public data class HttpDataChunk(
+    public var dataChunkType: HttpDataChunkType = 0,
+    public var anonymous: HttpDataChunk0 = HttpDataChunk0(),
+)
 
 public data class HttpDataChunk0(
     public var fromMemory: HttpDataChunk00 = HttpDataChunk00(),
@@ -63,15 +90,30 @@ public data class HttpDataChunk0(
     public var trailers: HttpDataChunk04 = HttpDataChunk04(),
 )
 
-public data class HttpDataChunk01(public var byteRange: HttpByteRange = HttpByteRange(), public var fileHandle: Handle = null)
+public data class HttpDataChunk01(
+    public var byteRange: HttpByteRange = HttpByteRange(),
+    public var fileHandle: Handle = null,
+)
 
-public data class HttpDataChunk03(public var byteRange: HttpByteRange = HttpByteRange(), public var pFragmentName: Pcwstr = null)
+public data class HttpDataChunk03(
+    public var byteRange: HttpByteRange = HttpByteRange(),
+    public var pFragmentName: Pcwstr = null,
+)
 
-public data class HttpDataChunk02(public var fragmentNameLength: UShort = 0u, public var pFragmentName: Pcwstr = null)
+public data class HttpDataChunk02(
+    public var fragmentNameLength: UShort = 0u,
+    public var pFragmentName: Pcwstr = null,
+)
 
-public data class HttpDataChunk00(public var pBuffer: COpaquePointer? = null, public var bufferLength: UInt = 0u)
+public data class HttpDataChunk00(
+    public var pBuffer: COpaquePointer? = null,
+    public var bufferLength: UInt = 0u,
+)
 
-public data class HttpDataChunk04(public var trailerCount: UShort = 0u, public var pTrailers: HttpUnknownHeader? = null)
+public data class HttpDataChunk04(
+    public var trailerCount: UShort = 0u,
+    public var pTrailers: HttpUnknownHeader? = null,
+)
 
 public data class HttpDelegateRequestPropertyInfo(
     public var propertyId: HttpDelegateRequestPropertyId = 0,
@@ -92,9 +134,15 @@ public data class HttpFlowrateInfo(
     public var burstSize: UInt = 0u,
 )
 
-public data class HttpKnownHeader(public var rawValueLength: UShort = 0u, public var pRawValue: Pcstr = null)
+public data class HttpKnownHeader(
+    public var rawValueLength: UShort = 0u,
+    public var pRawValue: Pcstr = null,
+)
 
-public data class HttpListenEndpointInfo(public var flags: HttpPropertyFlags = HttpPropertyFlags(), public var enableSharing: Boolean = false)
+public data class HttpListenEndpointInfo(
+    public var flags: HttpPropertyFlags = HttpPropertyFlags(),
+    public var enableSharing: Boolean = false,
+)
 
 public data class HttpLoggingInfo(
     public var flags: HttpPropertyFlags = HttpPropertyFlags(),
@@ -113,7 +161,9 @@ public data class HttpLoggingInfo(
     public var pSecurityDescriptor: PsecurityDescriptor = null,
 )
 
-public data class HttpLogData(public var type: HttpLogDataType = 0)
+public data class HttpLogData(
+    public var type: HttpLogDataType = 0,
+)
 
 public class HttpLogFieldsData(
     public var base: HttpLogData = HttpLogData(),
@@ -161,17 +211,32 @@ public data class HttpPerformanceParam(
     public var buffer: COpaquePointer? = null,
 )
 
-public data class HttpPropertyFlags(public var bitfield: UInt = 0u)
+public data class HttpPropertyFlags(
+    public var bitfield: UInt = 0u,
+)
 
-public data class HttpProtectionLevelInfo(public var flags: HttpPropertyFlags = HttpPropertyFlags(), public var level: HttpProtectionLevelType = 0)
+public data class HttpProtectionLevelInfo(
+    public var flags: HttpPropertyFlags = HttpPropertyFlags(),
+    public var level: HttpProtectionLevelType = 0,
+)
 
-public data class HttpQosSettingInfo(public var qosType: HttpQosSettingType = 0, public var qosSetting: COpaquePointer? = null)
+public data class HttpQosSettingInfo(
+    public var qosType: HttpQosSettingType = 0,
+    public var qosSetting: COpaquePointer? = null,
+)
 
-public data class HttpQueryRequestQualifierQuic(public var freshness: ULong = 0uL)
+public data class HttpQueryRequestQualifierQuic(
+    public var freshness: ULong = 0uL,
+)
 
-public data class HttpQueryRequestQualifierTcp(public var freshness: ULong = 0uL)
+public data class HttpQueryRequestQualifierTcp(
+    public var freshness: ULong = 0uL,
+)
 
-public data class HttpQuicApiTimings(public var connectionTimings: HttpQuicConnectionApiTimings = HttpQuicConnectionApiTimings(), public var streamTimings: HttpQuicStreamApiTimings = HttpQuicStreamApiTimings())
+public data class HttpQuicApiTimings(
+    public var connectionTimings: HttpQuicConnectionApiTimings = HttpQuicConnectionApiTimings(),
+    public var streamTimings: HttpQuicStreamApiTimings = HttpQuicStreamApiTimings(),
+)
 
 public data class HttpQuicConnectionApiTimings(
     public var openTime: ULong = 0uL,
@@ -258,7 +323,10 @@ public data class HttpRequestInfo(
     public var pInfo: COpaquePointer? = null,
 )
 
-public data class HttpRequestPropertySni(public var hostname: UShortArray = UShortArray(256), public var flags: UInt = 0u) {
+public data class HttpRequestPropertySni(
+    public var hostname: UShortArray = UShortArray(256),
+    public var flags: UInt = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is HttpRequestPropertySni) return false
@@ -274,7 +342,9 @@ public data class HttpRequestPropertySni(public var hostname: UShortArray = USho
     }
 }
 
-public data class HttpRequestPropertyStreamError(public var errorCode: UInt = 0u)
+public data class HttpRequestPropertyStreamError(
+    public var errorCode: UInt = 0u,
+)
 
 public data class HttpRequestSizingInfo(
     public var flags: ULong = 0uL,
@@ -301,7 +371,10 @@ public data class HttpRequestSizingInfo(
     }
 }
 
-public data class HttpRequestTimingInfo(public var requestTimingCount: UInt = 0u, public var requestTiming: ULongArray = ULongArray(30)) {
+public data class HttpRequestTimingInfo(
+    public var requestTimingCount: UInt = 0u,
+    public var requestTiming: ULongArray = ULongArray(30),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is HttpRequestTimingInfo) return false
@@ -383,7 +456,10 @@ public data class HttpResponseV2(
     public var pResponseInfo: HttpResponseInfo? = null,
 )
 
-public data class HttpServerAuthenticationBasicParams(public var realmLength: UShort = 0u, public var realm: Pwstr = null)
+public data class HttpServerAuthenticationBasicParams(
+    public var realmLength: UShort = 0u,
+    public var realm: Pwstr = null,
+)
 
 public data class HttpServerAuthenticationDigestParams(
     public var domainNameLength: UShort = 0u,
@@ -409,7 +485,9 @@ public data class HttpServiceBindingA(
     public var bufferSize: UInt = 0u,
 )
 
-public data class HttpServiceBindingBase(public var type: HttpServiceBindingType = 0)
+public data class HttpServiceBindingBase(
+    public var type: HttpServiceBindingType = 0,
+)
 
 public data class HttpServiceBindingW(
     public var base: HttpServiceBindingBase = HttpServiceBindingBase(),
@@ -417,15 +495,29 @@ public data class HttpServiceBindingW(
     public var bufferSize: UInt = 0u,
 )
 
-public data class HttpServiceConfigCacheSet(public var keyDesc: HttpServiceConfigCacheKey = 0, public var paramDesc: UInt = 0u)
+public data class HttpServiceConfigCacheSet(
+    public var keyDesc: HttpServiceConfigCacheKey = 0,
+    public var paramDesc: UInt = 0u,
+)
 
-public data class HttpServiceConfigIpListenParam(public var addrLength: UShort = 0u, public var pAddress: Sockaddr? = null)
+public data class HttpServiceConfigIpListenParam(
+    public var addrLength: UShort = 0u,
+    public var pAddress: Sockaddr? = null,
+)
 
-public data class HttpServiceConfigIpListenQuery(public var addrCount: UInt = 0u, public var addrList: List<SockaddrStorage> = List(1) { SockaddrStorage() })
+public data class HttpServiceConfigIpListenQuery(
+    public var addrCount: UInt = 0u,
+    public var addrList: List<SockaddrStorage> = List(1) { SockaddrStorage() },
+)
 
-public data class HttpServiceConfigSettingSet(public var keyDesc: HttpServiceConfigSettingKey = 0, public var paramDesc: UInt = 0u)
+public data class HttpServiceConfigSettingSet(
+    public var keyDesc: HttpServiceConfigSettingKey = 0,
+    public var paramDesc: UInt = 0u,
+)
 
-public data class HttpServiceConfigSslCcsKey(public var localAddress: SockaddrStorage = SockaddrStorage())
+public data class HttpServiceConfigSslCcsKey(
+    public var localAddress: SockaddrStorage = SockaddrStorage(),
+)
 
 public data class HttpServiceConfigSslCcsQuery(
     public var queryDesc: HttpServiceConfigQueryType = 0,
@@ -440,13 +532,23 @@ public data class HttpServiceConfigSslCcsQueryEx(
     public var paramType: HttpSslServiceConfigExParamType = 0,
 )
 
-public data class HttpServiceConfigSslCcsSet(public var keyDesc: HttpServiceConfigSslCcsKey = HttpServiceConfigSslCcsKey(), public var paramDesc: HttpServiceConfigSslParam = HttpServiceConfigSslParam())
+public data class HttpServiceConfigSslCcsSet(
+    public var keyDesc: HttpServiceConfigSslCcsKey = HttpServiceConfigSslCcsKey(),
+    public var paramDesc: HttpServiceConfigSslParam = HttpServiceConfigSslParam(),
+)
 
-public data class HttpServiceConfigSslCcsSetEx(public var keyDesc: HttpServiceConfigSslCcsKey = HttpServiceConfigSslCcsKey(), public var paramDesc: HttpServiceConfigSslParamEx = HttpServiceConfigSslParamEx())
+public data class HttpServiceConfigSslCcsSetEx(
+    public var keyDesc: HttpServiceConfigSslCcsKey = HttpServiceConfigSslCcsKey(),
+    public var paramDesc: HttpServiceConfigSslParamEx = HttpServiceConfigSslParamEx(),
+)
 
-public data class HttpServiceConfigSslKey(public var pIpPort: Sockaddr? = null)
+public data class HttpServiceConfigSslKey(
+    public var pIpPort: Sockaddr? = null,
+)
 
-public data class HttpServiceConfigSslKeyEx(public var ipPort: SockaddrStorage = SockaddrStorage())
+public data class HttpServiceConfigSslKeyEx(
+    public var ipPort: SockaddrStorage = SockaddrStorage(),
+)
 
 public data class HttpServiceConfigSslParam(
     public var sslHashLength: UInt = 0u,
@@ -489,11 +591,20 @@ public data class HttpServiceConfigSslQueryEx(
     public var paramType: HttpSslServiceConfigExParamType = 0,
 )
 
-public data class HttpServiceConfigSslSet(public var keyDesc: HttpServiceConfigSslKey = HttpServiceConfigSslKey(), public var paramDesc: HttpServiceConfigSslParam = HttpServiceConfigSslParam())
+public data class HttpServiceConfigSslSet(
+    public var keyDesc: HttpServiceConfigSslKey = HttpServiceConfigSslKey(),
+    public var paramDesc: HttpServiceConfigSslParam = HttpServiceConfigSslParam(),
+)
 
-public data class HttpServiceConfigSslSetEx(public var keyDesc: HttpServiceConfigSslKeyEx = HttpServiceConfigSslKeyEx(), public var paramDesc: HttpServiceConfigSslParamEx = HttpServiceConfigSslParamEx())
+public data class HttpServiceConfigSslSetEx(
+    public var keyDesc: HttpServiceConfigSslKeyEx = HttpServiceConfigSslKeyEx(),
+    public var paramDesc: HttpServiceConfigSslParamEx = HttpServiceConfigSslParamEx(),
+)
 
-public data class HttpServiceConfigSslSniKey(public var ipPort: SockaddrStorage = SockaddrStorage(), public var host: Pwstr = null)
+public data class HttpServiceConfigSslSniKey(
+    public var ipPort: SockaddrStorage = SockaddrStorage(),
+    public var host: Pwstr = null,
+)
 
 public data class HttpServiceConfigSslSniQuery(
     public var queryDesc: HttpServiceConfigQueryType = 0,
@@ -508,15 +619,28 @@ public data class HttpServiceConfigSslSniQueryEx(
     public var paramType: HttpSslServiceConfigExParamType = 0,
 )
 
-public data class HttpServiceConfigSslSniSet(public var keyDesc: HttpServiceConfigSslSniKey = HttpServiceConfigSslSniKey(), public var paramDesc: HttpServiceConfigSslParam = HttpServiceConfigSslParam())
+public data class HttpServiceConfigSslSniSet(
+    public var keyDesc: HttpServiceConfigSslSniKey = HttpServiceConfigSslSniKey(),
+    public var paramDesc: HttpServiceConfigSslParam = HttpServiceConfigSslParam(),
+)
 
-public data class HttpServiceConfigSslSniSetEx(public var keyDesc: HttpServiceConfigSslSniKey = HttpServiceConfigSslSniKey(), public var paramDesc: HttpServiceConfigSslParamEx = HttpServiceConfigSslParamEx())
+public data class HttpServiceConfigSslSniSetEx(
+    public var keyDesc: HttpServiceConfigSslSniKey = HttpServiceConfigSslSniKey(),
+    public var paramDesc: HttpServiceConfigSslParamEx = HttpServiceConfigSslParamEx(),
+)
 
-public data class HttpServiceConfigTimeoutSet(public var keyDesc: HttpServiceConfigTimeoutKey = 0, public var paramDesc: UShort = 0u)
+public data class HttpServiceConfigTimeoutSet(
+    public var keyDesc: HttpServiceConfigTimeoutKey = 0,
+    public var paramDesc: UShort = 0u,
+)
 
-public data class HttpServiceConfigUrlaclKey(public var pUrlPrefix: Pwstr = null)
+public data class HttpServiceConfigUrlaclKey(
+    public var pUrlPrefix: Pwstr = null,
+)
 
-public data class HttpServiceConfigUrlaclParam(public var pStringSecurityDescriptor: Pwstr = null)
+public data class HttpServiceConfigUrlaclParam(
+    public var pStringSecurityDescriptor: Pwstr = null,
+)
 
 public data class HttpServiceConfigUrlaclQuery(
     public var queryDesc: HttpServiceConfigQueryType = 0,
@@ -524,7 +648,10 @@ public data class HttpServiceConfigUrlaclQuery(
     public var dwToken: UInt = 0u,
 )
 
-public data class HttpServiceConfigUrlaclSet(public var keyDesc: HttpServiceConfigUrlaclKey = HttpServiceConfigUrlaclKey(), public var paramDesc: HttpServiceConfigUrlaclParam = HttpServiceConfigUrlaclParam())
+public data class HttpServiceConfigUrlaclSet(
+    public var keyDesc: HttpServiceConfigUrlaclKey = HttpServiceConfigUrlaclKey(),
+    public var paramDesc: HttpServiceConfigUrlaclParam = HttpServiceConfigUrlaclParam(),
+)
 
 public data class HttpSslClientCertInfo(
     public var certFlags: UInt = 0u,
@@ -555,7 +682,10 @@ public data class HttpSslProtocolInfo(
     public var keyExchangeStrength: UInt = 0u,
 )
 
-public data class HttpStateInfo(public var flags: HttpPropertyFlags = HttpPropertyFlags(), public var state: HttpEnabledState = 0)
+public data class HttpStateInfo(
+    public var flags: HttpPropertyFlags = HttpPropertyFlags(),
+    public var state: HttpEnabledState = 0,
+)
 
 public data class HttpTimeoutLimitInfo(
     public var flags: HttpPropertyFlags = HttpPropertyFlags(),
@@ -567,11 +697,20 @@ public data class HttpTimeoutLimitInfo(
     public var minSendRate: UInt = 0u,
 )
 
-public data class HttpTlsRestrictionsParam(public var restrictionCount: UInt = 0u, public var tlsRestrictions: COpaquePointer? = null)
+public data class HttpTlsRestrictionsParam(
+    public var restrictionCount: UInt = 0u,
+    public var tlsRestrictions: COpaquePointer? = null,
+)
 
-public data class HttpTlsSessionTicketKeysParam(public var sessionTicketKeyCount: UInt = 0u, public var sessionTicketKeys: COpaquePointer? = null)
+public data class HttpTlsSessionTicketKeysParam(
+    public var sessionTicketKeyCount: UInt = 0u,
+    public var sessionTicketKeys: COpaquePointer? = null,
+)
 
-public data class HttpTransportAddress(public var pRemoteAddress: Sockaddr? = null, public var pLocalAddress: Sockaddr? = null)
+public data class HttpTransportAddress(
+    public var pRemoteAddress: Sockaddr? = null,
+    public var pLocalAddress: Sockaddr? = null,
+)
 
 public data class HttpUnknownHeader(
     public var nameLength: UShort = 0u,
@@ -580,7 +719,10 @@ public data class HttpUnknownHeader(
     public var pRawValue: Pcstr = null,
 )
 
-public data class HttpVersion(public var majorVersion: UShort = 0u, public var minorVersion: UShort = 0u)
+public data class HttpVersion(
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
+)
 
 public data class HttpWskApiTimings(
     public var connectCount: ULong = 0uL,

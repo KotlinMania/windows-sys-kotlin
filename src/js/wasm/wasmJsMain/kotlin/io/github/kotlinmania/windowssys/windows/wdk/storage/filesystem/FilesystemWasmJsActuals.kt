@@ -2518,9 +2518,8 @@ public actual fun fsRtlDissectDbcs(path: String, firstname: COpaquePointer?, rem
     }
 }
 
-public actual fun fsRtlDissectName(path: UnicodeString, firstname: COpaquePointer?, remainingname: COpaquePointer?) {
+public actual fun fsRtlDissectName(path: UnicodeString, firstname: COpaquePointer?, remainingname: COpaquePointer?): Unit =
     throw UnsupportedOperationException("Native FFI addon is not available")
-}
 
 public actual fun fsRtlDoesDbcsContainWildCards(name: COpaquePointer?): Boolean =
     if (_windowsWdkStorageFilesystemNapiAvailable) _wasm_windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards((name?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
@@ -3369,9 +3368,8 @@ public actual fun ioUnregisterFileSystem(deviceobject: COpaquePointer?) {
     }
 }
 
-public actual fun ioUnregisterFsRegistrationChange(driverobject: COpaquePointer?, drivernotificationroutine: DriverFsNotification) {
+public actual fun ioUnregisterFsRegistrationChange(driverobject: COpaquePointer?, drivernotificationroutine: DriverFsNotification): Unit =
     throw UnsupportedOperationException("Native FFI addon is not available")
-}
 
 public actual fun ioVerifyVolume(deviceobject: COpaquePointer?, allowrawmount: Boolean): Ntstatus =
     if (_windowsWdkStorageFilesystemNapiAvailable) _wasm_windowssys_windows_wdk_storage_filesystem_ioVerifyVolume((deviceobject?.value ?: 0L).toString(), allowrawmount) else throw UnsupportedOperationException("Native FFI addon is not available")

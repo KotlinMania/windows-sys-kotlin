@@ -16,17 +16,14 @@ public actual fun hcsAttachLayerStorageFilter(layerpath: Pcwstr, layerdata: Pcws
 public actual fun hcsCancelOperation(operation: HcsOperation): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun hcsCloseComputeSystem(computesystem: HcsSystem) {
+public actual fun hcsCloseComputeSystem(computesystem: HcsSystem): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun hcsCloseOperation(operation: HcsOperation) {
+public actual fun hcsCloseOperation(operation: HcsOperation): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
-public actual fun hcsCloseProcess(process: HcsProcess) {
+public actual fun hcsCloseProcess(process: HcsProcess): Unit =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
-}
 
 public actual fun hcsCrashComputeSystem(computesystem: HcsSystem, operation: HcsOperation, options: Pcwstr): Hresult =
     throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

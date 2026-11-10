@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.systemservices
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -60,9 +61,14 @@ public data class ApplicationlaunchSettingValue(
     public var buttonInstanceID: UInt = 0u,
 )
 
-public data class ComponentFilter(public var componentFlags: UInt = 0u)
+public data class ComponentFilter(
+    public var componentFlags: UInt = 0u,
+)
 
-public data class DispatcherContextNonvolregArm64(public var buffer: UByteArray = UByteArray(152), public var anonymous: DispatcherContextNonvolregArm640 = DispatcherContextNonvolregArm640()) {
+public data class DispatcherContextNonvolregArm64(
+    public var buffer: UByteArray = UByteArray(152),
+    public var anonymous: DispatcherContextNonvolregArm640 = DispatcherContextNonvolregArm640(),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DispatcherContextNonvolregArm64) return false
@@ -78,7 +84,10 @@ public data class DispatcherContextNonvolregArm64(public var buffer: UByteArray 
     }
 }
 
-public data class DispatcherContextNonvolregArm640(public var gpNvRegs: ULongArray = ULongArray(11), public var fpNvRegs: DoubleArray = DoubleArray(8)) {
+public data class DispatcherContextNonvolregArm640(
+    public var gpNvRegs: ULongArray = ULongArray(11),
+    public var fpNvRegs: DoubleArray = DoubleArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is DispatcherContextNonvolregArm640) return false
@@ -167,15 +176,30 @@ public data class FileNotifyFullInformation(
     }
 }
 
-public data class FileNotifyFullInformation0(public var reparsePointTag: UInt = 0u, public var eaSize: UInt = 0u)
+public data class FileNotifyFullInformation0(
+    public var reparsePointTag: UInt = 0u,
+    public var eaSize: UInt = 0u,
+)
 
-public data class GdiNonremote(public var fContext: Int = 0, public var u: GdiNonremote0 = GdiNonremote0())
+public data class GdiNonremote(
+    public var fContext: Int = 0,
+    public var u: GdiNonremote0 = GdiNonremote0(),
+)
 
-public data class GdiNonremote0(public var hInproc: Int = 0, public var hRemote: DwordBlob? = null)
+public data class GdiNonremote0(
+    public var hInproc: Int = 0,
+    public var hRemote: DwordBlob? = null,
+)
 
-public data class HeapOptimizeResourcesInformation(public var version: UInt = 0u, public var flags: UInt = 0u)
+public data class HeapOptimizeResourcesInformation(
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
-public data class HiberfileBucket(public var maxPhysicalMemory: ULong = 0uL, public var physicalMemoryPercent: UIntArray = UIntArray(3)) {
+public data class HiberfileBucket(
+    public var maxPhysicalMemory: ULong = 0uL,
+    public var physicalMemoryPercent: UIntArray = UIntArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is HiberfileBucket) return false
@@ -207,9 +231,15 @@ public data class ImageAlphaRuntimeFunctionEntry(
     public var prologEndAddress: UInt = 0u,
 )
 
-public data class ImageArchitectureEntry(public var fixupInstRVA: UInt = 0u, public var newInst: UInt = 0u)
+public data class ImageArchitectureEntry(
+    public var fixupInstRVA: UInt = 0u,
+    public var newInst: UInt = 0u,
+)
 
-public data class ImageArchitectureHeader(public var bitfield: UInt = 0u, public var firstEntryRVA: UInt = 0u)
+public data class ImageArchitectureHeader(
+    public var bitfield: UInt = 0u,
+    public var firstEntryRVA: UInt = 0u,
+)
 
 public data class ImageArchiveMemberHeader(
     public var name: UByteArray = UByteArray(16),
@@ -245,15 +275,28 @@ public data class ImageArchiveMemberHeader(
     }
 }
 
-public data class ImageArm64RuntimeFunctionEntryXdata(public var headerData: UInt = 0u, public var anonymous: ImageArm64RuntimeFunctionEntryXdata0 = ImageArm64RuntimeFunctionEntryXdata0())
+public data class ImageArm64RuntimeFunctionEntryXdata(
+    public var headerData: UInt = 0u,
+    public var anonymous: ImageArm64RuntimeFunctionEntryXdata0 = ImageArm64RuntimeFunctionEntryXdata0(),
+)
 
-public data class ImageArm64RuntimeFunctionEntryXdata0(public var bitfield: UInt = 0u)
+public data class ImageArm64RuntimeFunctionEntryXdata0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ImageArmRuntimeFunctionEntry(public var beginAddress: UInt = 0u, public var anonymous: ImageArmRuntimeFunctionEntry0 = ImageArmRuntimeFunctionEntry0())
+public data class ImageArmRuntimeFunctionEntry(
+    public var beginAddress: UInt = 0u,
+    public var anonymous: ImageArmRuntimeFunctionEntry0 = ImageArmRuntimeFunctionEntry0(),
+)
 
-public data class ImageArmRuntimeFunctionEntry0(public var unwindData: UInt = 0u, public var anonymous: ImageArmRuntimeFunctionEntry00 = ImageArmRuntimeFunctionEntry00())
+public data class ImageArmRuntimeFunctionEntry0(
+    public var unwindData: UInt = 0u,
+    public var anonymous: ImageArmRuntimeFunctionEntry00 = ImageArmRuntimeFunctionEntry00(),
+)
 
-public data class ImageArmRuntimeFunctionEntry00(public var bitfield: UInt = 0u)
+public data class ImageArmRuntimeFunctionEntry00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class ImageAuxSymbol(
     public var sym: ImageAuxSymbol0 = ImageAuxSymbol0(),
@@ -263,7 +306,10 @@ public data class ImageAuxSymbol(
     public var crc: ImageAuxSymbol3 = ImageAuxSymbol3(),
 )
 
-public data class ImageAuxSymbol3(public var crc: UInt = 0u, public var rgbReserved: UByteArray = UByteArray(14)) {
+public data class ImageAuxSymbol3(
+    public var crc: UInt = 0u,
+    public var rgbReserved: UByteArray = UByteArray(14),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImageAuxSymbol3) return false
@@ -279,7 +325,9 @@ public data class ImageAuxSymbol3(public var crc: UInt = 0u, public var rgbReser
     }
 }
 
-public data class ImageAuxSymbol1(public var name: UByteArray = UByteArray(18)) {
+public data class ImageAuxSymbol1(
+    public var name: UByteArray = UByteArray(18),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImageAuxSymbol1) return false
@@ -287,9 +335,7 @@ public data class ImageAuxSymbol1(public var name: UByteArray = UByteArray(18)) 
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.name.contentHashCode()
-    }
+    override fun hashCode(): Int = this.name.contentHashCode()
 }
 
 public data class ImageAuxSymbol2(
@@ -310,9 +356,14 @@ public data class ImageAuxSymbol0(
     public var tvIndex: UShort = 0u,
 )
 
-public data class ImageAuxSymbol01(public var function: ImageAuxSymbol010 = ImageAuxSymbol010(), public var array: ImageAuxSymbol011 = ImageAuxSymbol011())
+public data class ImageAuxSymbol01(
+    public var function: ImageAuxSymbol010 = ImageAuxSymbol010(),
+    public var array: ImageAuxSymbol011 = ImageAuxSymbol011(),
+)
 
-public data class ImageAuxSymbol011(public var dimension: UShortArray = UShortArray(4)) {
+public data class ImageAuxSymbol011(
+    public var dimension: UShortArray = UShortArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImageAuxSymbol011) return false
@@ -320,16 +371,23 @@ public data class ImageAuxSymbol011(public var dimension: UShortArray = UShortAr
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.dimension.contentHashCode()
-    }
+    override fun hashCode(): Int = this.dimension.contentHashCode()
 }
 
-public data class ImageAuxSymbol010(public var pointerToLinenumber: UInt = 0u, public var pointerToNextFunction: UInt = 0u)
+public data class ImageAuxSymbol010(
+    public var pointerToLinenumber: UInt = 0u,
+    public var pointerToNextFunction: UInt = 0u,
+)
 
-public data class ImageAuxSymbol00(public var lnSz: ImageAuxSymbol000 = ImageAuxSymbol000(), public var totalSize: UInt = 0u)
+public data class ImageAuxSymbol00(
+    public var lnSz: ImageAuxSymbol000 = ImageAuxSymbol000(),
+    public var totalSize: UInt = 0u,
+)
 
-public data class ImageAuxSymbol000(public var linenumber: UShort = 0u, public var size: UShort = 0u)
+public data class ImageAuxSymbol000(
+    public var linenumber: UShort = 0u,
+    public var size: UShort = 0u,
+)
 
 public data class ImageAuxSymbolEx(
     public var sym: ImageAuxSymbolEx0 = ImageAuxSymbolEx0(),
@@ -339,7 +397,10 @@ public data class ImageAuxSymbolEx(
     public var crc: ImageAuxSymbolEx4 = ImageAuxSymbolEx4(),
 )
 
-public data class ImageAuxSymbolEx3(public var tokenDef: ImageAuxSymbolTokenDef = ImageAuxSymbolTokenDef(), public var rgbReserved: UByteArray = UByteArray(2)) {
+public data class ImageAuxSymbolEx3(
+    public var tokenDef: ImageAuxSymbolTokenDef = ImageAuxSymbolTokenDef(),
+    public var rgbReserved: UByteArray = UByteArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImageAuxSymbolEx3) return false
@@ -355,7 +416,10 @@ public data class ImageAuxSymbolEx3(public var tokenDef: ImageAuxSymbolTokenDef 
     }
 }
 
-public data class ImageAuxSymbolEx4(public var crc: UInt = 0u, public var rgbReserved: UByteArray = UByteArray(16)) {
+public data class ImageAuxSymbolEx4(
+    public var crc: UInt = 0u,
+    public var rgbReserved: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImageAuxSymbolEx4) return false
@@ -371,7 +435,9 @@ public data class ImageAuxSymbolEx4(public var crc: UInt = 0u, public var rgbRes
     }
 }
 
-public data class ImageAuxSymbolEx1(public var name: UByteArray = UByteArray(20)) {
+public data class ImageAuxSymbolEx1(
+    public var name: UByteArray = UByteArray(20),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImageAuxSymbolEx1) return false
@@ -379,9 +445,7 @@ public data class ImageAuxSymbolEx1(public var name: UByteArray = UByteArray(20)
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.name.contentHashCode()
-    }
+    override fun hashCode(): Int = this.name.contentHashCode()
 }
 
 public data class ImageAuxSymbolEx2(
@@ -471,7 +535,10 @@ public data class ImageAuxSymbolTokenDef(
     }
 }
 
-public data class ImageBaseRelocation(public var virtualAddress: UInt = 0u, public var sizeOfBlock: UInt = 0u)
+public data class ImageBaseRelocation(
+    public var virtualAddress: UInt = 0u,
+    public var sizeOfBlock: UInt = 0u,
+)
 
 public data class ImageBddDynamicRelocation(
     public var left: UShort = 0u,
@@ -479,7 +546,10 @@ public data class ImageBddDynamicRelocation(
     public var value: UInt = 0u,
 )
 
-public data class ImageBddInfo(public var version: UInt = 0u, public var bDDSize: UInt = 0u)
+public data class ImageBddInfo(
+    public var version: UInt = 0u,
+    public var bDDSize: UInt = 0u,
+)
 
 public data class ImageBoundForwarderRef(
     public var timeDateStamp: UInt = 0u,
@@ -493,7 +563,10 @@ public data class ImageBoundImportDescriptor(
     public var numberOfModuleForwarderRefs: UShort = 0u,
 )
 
-public data class ImageCeRuntimeFunctionEntry(public var funcStart: UInt = 0u, public var bitfield: UInt = 0u)
+public data class ImageCeRuntimeFunctionEntry(
+    public var funcStart: UInt = 0u,
+    public var bitfield: UInt = 0u,
+)
 
 public data class ImageDebugMisc(
     public var dataType: UInt = 0u,
@@ -545,7 +618,10 @@ public class ImageDosHeader(
     public var eLfanew: Int = 0,
 )
 
-public data class ImageDynamicRelocation32(public var symbol: UInt = 0u, public var baseRelocSize: UInt = 0u)
+public data class ImageDynamicRelocation32(
+    public var symbol: UInt = 0u,
+    public var baseRelocSize: UInt = 0u,
+)
 
 public data class ImageDynamicRelocation32V2(
     public var headerSize: UInt = 0u,
@@ -555,7 +631,10 @@ public data class ImageDynamicRelocation32V2(
     public var flags: UInt = 0u,
 )
 
-public data class ImageDynamicRelocation64(public var symbol: ULong = 0uL, public var baseRelocSize: UInt = 0u)
+public data class ImageDynamicRelocation64(
+    public var symbol: ULong = 0uL,
+    public var baseRelocSize: UInt = 0u,
+)
 
 public data class ImageDynamicRelocation64V2(
     public var headerSize: UInt = 0u,
@@ -565,7 +644,10 @@ public data class ImageDynamicRelocation64V2(
     public var flags: UInt = 0u,
 )
 
-public data class ImageDynamicRelocationTable(public var version: UInt = 0u, public var size: UInt = 0u)
+public data class ImageDynamicRelocationTable(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+)
 
 public data class ImageEpilogueDynamicRelocationHeader(
     public var epilogueCount: UInt = 0u,
@@ -595,7 +677,9 @@ public data class ImageFunctionOverrideDynamicRelocation(
     public var baseRelocSize: UInt = 0u,
 )
 
-public data class ImageFunctionOverrideHeader(public var funcOverrideSize: UInt = 0u)
+public data class ImageFunctionOverrideHeader(
+    public var funcOverrideSize: UInt = 0u,
+)
 
 public data class ImageHotPatchBase(
     public var sequenceNumber: UInt = 0u,
@@ -608,7 +692,10 @@ public data class ImageHotPatchBase(
     public var bufferOffset: UInt = 0u,
 )
 
-public data class ImageHotPatchHashes(public var sha256: UByteArray = UByteArray(32), public var sha1: UByteArray = UByteArray(20)) {
+public data class ImageHotPatchHashes(
+    public var sha256: UByteArray = UByteArray(32),
+    public var sha1: UByteArray = UByteArray(20),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImageHotPatchHashes) return false
@@ -634,7 +721,10 @@ public data class ImageHotPatchInfo(
     public var extraPatchSize: UInt = 0u,
 )
 
-public data class ImageImportByName(public var hint: UShort = 0u, public var name: ByteArray = ByteArray(1)) {
+public data class ImageImportByName(
+    public var hint: UShort = 0u,
+    public var name: ByteArray = ByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImageImportByName) return false
@@ -650,7 +740,9 @@ public data class ImageImportByName(public var hint: UShort = 0u, public var nam
     }
 }
 
-public data class ImageImportControlTransferDynamicRelocation(public var bitfield: UInt = 0u)
+public data class ImageImportControlTransferDynamicRelocation(
+    public var bitfield: UInt = 0u,
+)
 
 public data class ImageImportDescriptor(
     public var anonymous: ImageImportDescriptor0 = ImageImportDescriptor0(),
@@ -660,13 +752,24 @@ public data class ImageImportDescriptor(
     public var firstThunk: UInt = 0u,
 )
 
-public data class ImageImportDescriptor0(public var characteristics: UInt = 0u, public var originalFirstThunk: UInt = 0u)
+public data class ImageImportDescriptor0(
+    public var characteristics: UInt = 0u,
+    public var originalFirstThunk: UInt = 0u,
+)
 
-public data class ImageIndirControlTransferDynamicRelocation(public var bitfield: UShort = 0u)
+public data class ImageIndirControlTransferDynamicRelocation(
+    public var bitfield: UShort = 0u,
+)
 
-public data class ImageLinenumber(public var type: ImageLinenumber0 = ImageLinenumber0(), public var linenumber: UShort = 0u)
+public data class ImageLinenumber(
+    public var type: ImageLinenumber0 = ImageLinenumber0(),
+    public var linenumber: UShort = 0u,
+)
 
-public data class ImageLinenumber0(public var symbolTableIndex: UInt = 0u, public var virtualAddress: UInt = 0u)
+public data class ImageLinenumber0(
+    public var symbolTableIndex: UInt = 0u,
+    public var virtualAddress: UInt = 0u,
+)
 
 public class ImageOs2Header(
     public var neMagic: UShort = 0u,
@@ -747,7 +850,9 @@ public data class ImagePolicyMetadata(
     }
 }
 
-public data class ImagePrologueDynamicRelocationHeader(public var prologueByteCount: UByte = 0u)
+public data class ImagePrologueDynamicRelocationHeader(
+    public var prologueByteCount: UByte = 0u,
+)
 
 public data class ImageRelocation(
     public var anonymous: ImageRelocation0 = ImageRelocation0(),
@@ -755,7 +860,10 @@ public data class ImageRelocation(
     public var type: UShort = 0u,
 )
 
-public data class ImageRelocation0(public var virtualAddress: UInt = 0u, public var relocCount: UInt = 0u)
+public data class ImageRelocation0(
+    public var virtualAddress: UInt = 0u,
+    public var relocCount: UInt = 0u,
+)
 
 public data class ImageResourceDataEntry(
     public var offsetToData: UInt = 0u,
@@ -773,7 +881,10 @@ public data class ImageResourceDirectory(
     public var numberOfIdEntries: UShort = 0u,
 )
 
-public data class ImageResourceDirectoryEntry(public var anonymous1: ImageResourceDirectoryEntry0 = ImageResourceDirectoryEntry0(), public var anonymous2: ImageResourceDirectoryEntry1 = ImageResourceDirectoryEntry1())
+public data class ImageResourceDirectoryEntry(
+    public var anonymous1: ImageResourceDirectoryEntry0 = ImageResourceDirectoryEntry0(),
+    public var anonymous2: ImageResourceDirectoryEntry1 = ImageResourceDirectoryEntry1(),
+)
 
 public data class ImageResourceDirectoryEntry0(
     public var anonymous: ImageResourceDirectoryEntry00 = ImageResourceDirectoryEntry00(),
@@ -781,13 +892,23 @@ public data class ImageResourceDirectoryEntry0(
     public var id: UShort = 0u,
 )
 
-public data class ImageResourceDirectoryEntry00(public var bitfield: UInt = 0u)
+public data class ImageResourceDirectoryEntry00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ImageResourceDirectoryEntry1(public var offsetToData: UInt = 0u, public var anonymous: ImageResourceDirectoryEntry10 = ImageResourceDirectoryEntry10())
+public data class ImageResourceDirectoryEntry1(
+    public var offsetToData: UInt = 0u,
+    public var anonymous: ImageResourceDirectoryEntry10 = ImageResourceDirectoryEntry10(),
+)
 
-public data class ImageResourceDirectoryEntry10(public var bitfield: UInt = 0u)
+public data class ImageResourceDirectoryEntry10(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ImageResourceDirectoryString(public var length: UShort = 0u, public var nameString: ByteArray = ByteArray(1)) {
+public data class ImageResourceDirectoryString(
+    public var length: UShort = 0u,
+    public var nameString: ByteArray = ByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImageResourceDirectoryString) return false
@@ -803,7 +924,10 @@ public data class ImageResourceDirectoryString(public var length: UShort = 0u, p
     }
 }
 
-public data class ImageResourceDirStringU(public var length: UShort = 0u, public var nameString: UShortArray = UShortArray(1)) {
+public data class ImageResourceDirStringU(
+    public var length: UShort = 0u,
+    public var nameString: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ImageResourceDirStringU) return false
@@ -871,7 +995,9 @@ public data class ImageSeparateDebugHeader(
     }
 }
 
-public data class ImageSwitchtableBranchDynamicRelocation(public var bitfield: UShort = 0u)
+public data class ImageSwitchtableBranchDynamicRelocation(
+    public var bitfield: UShort = 0u,
+)
 
 public data class ImageSymbol(
     public var n: ImageSymbol0 = ImageSymbol0(),
@@ -904,7 +1030,10 @@ public data class ImageSymbol0(
     }
 }
 
-public data class ImageSymbol00(public var short: UInt = 0u, public var long: UInt = 0u)
+public data class ImageSymbol00(
+    public var short: UInt = 0u,
+    public var long: UInt = 0u,
+)
 
 public data class ImageSymbolEx(
     public var n: ImageSymbolEx0 = ImageSymbolEx0(),
@@ -937,7 +1066,10 @@ public data class ImageSymbolEx0(
     }
 }
 
-public data class ImageSymbolEx00(public var short: UInt = 0u, public var long: UInt = 0u)
+public data class ImageSymbolEx00(
+    public var short: UInt = 0u,
+    public var long: UInt = 0u,
+)
 
 public data class ImageTlsDirectory32(
     public var startAddressOfRawData: UInt = 0u,
@@ -948,9 +1080,14 @@ public data class ImageTlsDirectory32(
     public var anonymous: ImageTlsDirectory320 = ImageTlsDirectory320(),
 )
 
-public data class ImageTlsDirectory320(public var characteristics: UInt = 0u, public var anonymous: ImageTlsDirectory3200 = ImageTlsDirectory3200())
+public data class ImageTlsDirectory320(
+    public var characteristics: UInt = 0u,
+    public var anonymous: ImageTlsDirectory3200 = ImageTlsDirectory3200(),
+)
 
-public data class ImageTlsDirectory3200(public var bitfield: UInt = 0u)
+public data class ImageTlsDirectory3200(
+    public var bitfield: UInt = 0u,
+)
 
 public data class ImageTlsDirectory64(
     public var startAddressOfRawData: ULong = 0uL,
@@ -961,9 +1098,14 @@ public data class ImageTlsDirectory64(
     public var anonymous: ImageTlsDirectory640 = ImageTlsDirectory640(),
 )
 
-public data class ImageTlsDirectory640(public var characteristics: UInt = 0u, public var anonymous: ImageTlsDirectory6400 = ImageTlsDirectory6400())
+public data class ImageTlsDirectory640(
+    public var characteristics: UInt = 0u,
+    public var anonymous: ImageTlsDirectory6400 = ImageTlsDirectory6400(),
+)
 
-public data class ImageTlsDirectory6400(public var bitfield: UInt = 0u)
+public data class ImageTlsDirectory6400(
+    public var bitfield: UInt = 0u,
+)
 
 public class ImageVxdHeader(
     public var e32Magic: UShort = 0u,
@@ -1030,7 +1172,10 @@ public data class ImportObjectHeader(
     public var bitfield: UShort = 0u,
 )
 
-public data class ImportObjectHeader0(public var ordinal: UShort = 0u, public var hint: UShort = 0u)
+public data class ImportObjectHeader0(
+    public var ordinal: UShort = 0u,
+    public var hint: UShort = 0u,
+)
 
 public data class KernelCetContext(
     public var ssp: ULong = 0uL,
@@ -1060,9 +1205,14 @@ public data class KernelCetContext(
     }
 }
 
-public data class KernelCetContext0(public var allFlags: UShort = 0u, public var anonymous: KernelCetContext00 = KernelCetContext00())
+public data class KernelCetContext0(
+    public var allFlags: UShort = 0u,
+    public var anonymous: KernelCetContext00 = KernelCetContext00(),
+)
 
-public data class KernelCetContext00(public var bitfield: UShort = 0u)
+public data class KernelCetContext00(
+    public var bitfield: UShort = 0u,
+)
 
 public data class KtmobjectCursor(
     public var lastQuery: Guid = Guid(),
@@ -1070,9 +1220,14 @@ public data class KtmobjectCursor(
     public var objectIds: List<Guid> = List(1) { Guid() },
 )
 
-public data class MaxversiontestedInfo(public var maxVersionTested: ULong = 0uL)
+public data class MaxversiontestedInfo(
+    public var maxVersionTested: ULong = 0uL,
+)
 
-public data class NetworkAppInstanceEa(public var appInstanceID: Guid = Guid(), public var csvFlags: UInt = 0u)
+public data class NetworkAppInstanceEa(
+    public var appInstanceID: Guid = Guid(),
+    public var csvFlags: UInt = 0u,
+)
 
 public data class NonPagedDebugInfo(
     public var signature: UShort = 0u,
@@ -1086,7 +1241,9 @@ public data class NonPagedDebugInfo(
     public var imageBase: ULong = 0uL,
 )
 
-public data class NotifyUserPowerSetting(public var guid: Guid = Guid())
+public data class NotifyUserPowerSetting(
+    public var guid: Guid = Guid(),
+)
 
 public data class NtTib32(
     public var exceptionList: UInt = 0u,
@@ -1098,7 +1255,10 @@ public data class NtTib32(
     public var self: UInt = 0u,
 )
 
-public data class NtTib320(public var fiberData: UInt = 0u, public var version: UInt = 0u)
+public data class NtTib320(
+    public var fiberData: UInt = 0u,
+    public var version: UInt = 0u,
+)
 
 public data class NtTib64(
     public var exceptionList: ULong = 0uL,
@@ -1110,7 +1270,10 @@ public data class NtTib64(
     public var self: ULong = 0uL,
 )
 
-public data class NtTib640(public var fiberData: ULong = 0uL, public var version: UInt = 0u)
+public data class NtTib640(
+    public var fiberData: ULong = 0uL,
+    public var version: UInt = 0u,
+)
 
 public data class Packedeventinfo(
     public var ulSize: UInt = 0u,
@@ -1166,9 +1329,14 @@ public data class ProcessorIdlestatePolicy(
     public var policy: List<ProcessorIdlestateInfo> = List(3) { ProcessorIdlestateInfo() },
 )
 
-public data class ProcessorIdlestatePolicy0(public var asWORD: UShort = 0u, public var anonymous: ProcessorIdlestatePolicy00 = ProcessorIdlestatePolicy00())
+public data class ProcessorIdlestatePolicy0(
+    public var asWORD: UShort = 0u,
+    public var anonymous: ProcessorIdlestatePolicy00 = ProcessorIdlestatePolicy00(),
+)
 
-public data class ProcessorIdlestatePolicy00(public var bitfield: UShort = 0u)
+public data class ProcessorIdlestatePolicy00(
+    public var bitfield: UShort = 0u,
+)
 
 public data class ProcessorPerfstatePolicy(
     public var revision: UInt = 0u,
@@ -1183,125 +1351,267 @@ public data class ProcessorPerfstatePolicy(
     public var decreasePercent: UInt = 0u,
 )
 
-public data class ProcessorPerfstatePolicy0(public var spare: UByte = 0u, public var flags: ProcessorPerfstatePolicy00 = ProcessorPerfstatePolicy00())
+public data class ProcessorPerfstatePolicy0(
+    public var spare: UByte = 0u,
+    public var flags: ProcessorPerfstatePolicy00 = ProcessorPerfstatePolicy00(),
+)
 
-public data class ProcessorPerfstatePolicy00(public var asBYTE: UByte = 0u, public var anonymous: ProcessorPerfstatePolicy000 = ProcessorPerfstatePolicy000())
+public data class ProcessorPerfstatePolicy00(
+    public var asBYTE: UByte = 0u,
+    public var anonymous: ProcessorPerfstatePolicy000 = ProcessorPerfstatePolicy000(),
+)
 
-public data class ProcessorPerfstatePolicy000(public var bitfield: UByte = 0u)
+public data class ProcessorPerfstatePolicy000(
+    public var bitfield: UByte = 0u,
+)
 
-public data class ProcessMitigationActivationContextTrustPolicy(public var anonymous: ProcessMitigationActivationContextTrustPolicy0 = ProcessMitigationActivationContextTrustPolicy0())
+public data class ProcessMitigationActivationContextTrustPolicy(
+    public var anonymous: ProcessMitigationActivationContextTrustPolicy0 = ProcessMitigationActivationContextTrustPolicy0(),
+)
 
-public data class ProcessMitigationActivationContextTrustPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationActivationContextTrustPolicy00 = ProcessMitigationActivationContextTrustPolicy00())
+public data class ProcessMitigationActivationContextTrustPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationActivationContextTrustPolicy00 = ProcessMitigationActivationContextTrustPolicy00(),
+)
 
-public data class ProcessMitigationActivationContextTrustPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationActivationContextTrustPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationAslrPolicy(public var anonymous: ProcessMitigationAslrPolicy0 = ProcessMitigationAslrPolicy0())
+public data class ProcessMitigationAslrPolicy(
+    public var anonymous: ProcessMitigationAslrPolicy0 = ProcessMitigationAslrPolicy0(),
+)
 
-public data class ProcessMitigationAslrPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationAslrPolicy00 = ProcessMitigationAslrPolicy00())
+public data class ProcessMitigationAslrPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationAslrPolicy00 = ProcessMitigationAslrPolicy00(),
+)
 
-public data class ProcessMitigationAslrPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationAslrPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationBinarySignaturePolicy(public var anonymous: ProcessMitigationBinarySignaturePolicy0 = ProcessMitigationBinarySignaturePolicy0())
+public data class ProcessMitigationBinarySignaturePolicy(
+    public var anonymous: ProcessMitigationBinarySignaturePolicy0 = ProcessMitigationBinarySignaturePolicy0(),
+)
 
-public data class ProcessMitigationBinarySignaturePolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationBinarySignaturePolicy00 = ProcessMitigationBinarySignaturePolicy00())
+public data class ProcessMitigationBinarySignaturePolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationBinarySignaturePolicy00 = ProcessMitigationBinarySignaturePolicy00(),
+)
 
-public data class ProcessMitigationBinarySignaturePolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationBinarySignaturePolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationChildProcessPolicy(public var anonymous: ProcessMitigationChildProcessPolicy0 = ProcessMitigationChildProcessPolicy0())
+public data class ProcessMitigationChildProcessPolicy(
+    public var anonymous: ProcessMitigationChildProcessPolicy0 = ProcessMitigationChildProcessPolicy0(),
+)
 
-public data class ProcessMitigationChildProcessPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationChildProcessPolicy00 = ProcessMitigationChildProcessPolicy00())
+public data class ProcessMitigationChildProcessPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationChildProcessPolicy00 = ProcessMitigationChildProcessPolicy00(),
+)
 
-public data class ProcessMitigationChildProcessPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationChildProcessPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationControlFlowGuardPolicy(public var anonymous: ProcessMitigationControlFlowGuardPolicy0 = ProcessMitigationControlFlowGuardPolicy0())
+public data class ProcessMitigationControlFlowGuardPolicy(
+    public var anonymous: ProcessMitigationControlFlowGuardPolicy0 = ProcessMitigationControlFlowGuardPolicy0(),
+)
 
-public data class ProcessMitigationControlFlowGuardPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationControlFlowGuardPolicy00 = ProcessMitigationControlFlowGuardPolicy00())
+public data class ProcessMitigationControlFlowGuardPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationControlFlowGuardPolicy00 = ProcessMitigationControlFlowGuardPolicy00(),
+)
 
-public data class ProcessMitigationControlFlowGuardPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationControlFlowGuardPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationDepPolicy(public var anonymous: ProcessMitigationDepPolicy0 = ProcessMitigationDepPolicy0(), public var permanent: Boolean = false)
+public data class ProcessMitigationDepPolicy(
+    public var anonymous: ProcessMitigationDepPolicy0 = ProcessMitigationDepPolicy0(),
+    public var permanent: Boolean = false,
+)
 
-public data class ProcessMitigationDepPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationDepPolicy00 = ProcessMitigationDepPolicy00())
+public data class ProcessMitigationDepPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationDepPolicy00 = ProcessMitigationDepPolicy00(),
+)
 
-public data class ProcessMitigationDepPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationDepPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationDynamicCodePolicy(public var anonymous: ProcessMitigationDynamicCodePolicy0 = ProcessMitigationDynamicCodePolicy0())
+public data class ProcessMitigationDynamicCodePolicy(
+    public var anonymous: ProcessMitigationDynamicCodePolicy0 = ProcessMitigationDynamicCodePolicy0(),
+)
 
-public data class ProcessMitigationDynamicCodePolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationDynamicCodePolicy00 = ProcessMitigationDynamicCodePolicy00())
+public data class ProcessMitigationDynamicCodePolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationDynamicCodePolicy00 = ProcessMitigationDynamicCodePolicy00(),
+)
 
-public data class ProcessMitigationDynamicCodePolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationDynamicCodePolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationExtensionPointDisablePolicy(public var anonymous: ProcessMitigationExtensionPointDisablePolicy0 = ProcessMitigationExtensionPointDisablePolicy0())
+public data class ProcessMitigationExtensionPointDisablePolicy(
+    public var anonymous: ProcessMitigationExtensionPointDisablePolicy0 = ProcessMitigationExtensionPointDisablePolicy0(),
+)
 
-public data class ProcessMitigationExtensionPointDisablePolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationExtensionPointDisablePolicy00 = ProcessMitigationExtensionPointDisablePolicy00())
+public data class ProcessMitigationExtensionPointDisablePolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationExtensionPointDisablePolicy00 = ProcessMitigationExtensionPointDisablePolicy00(),
+)
 
-public data class ProcessMitigationExtensionPointDisablePolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationExtensionPointDisablePolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationFontDisablePolicy(public var anonymous: ProcessMitigationFontDisablePolicy0 = ProcessMitigationFontDisablePolicy0())
+public data class ProcessMitigationFontDisablePolicy(
+    public var anonymous: ProcessMitigationFontDisablePolicy0 = ProcessMitigationFontDisablePolicy0(),
+)
 
-public data class ProcessMitigationFontDisablePolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationFontDisablePolicy00 = ProcessMitigationFontDisablePolicy00())
+public data class ProcessMitigationFontDisablePolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationFontDisablePolicy00 = ProcessMitigationFontDisablePolicy00(),
+)
 
-public data class ProcessMitigationFontDisablePolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationFontDisablePolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationImageLoadPolicy(public var anonymous: ProcessMitigationImageLoadPolicy0 = ProcessMitigationImageLoadPolicy0())
+public data class ProcessMitigationImageLoadPolicy(
+    public var anonymous: ProcessMitigationImageLoadPolicy0 = ProcessMitigationImageLoadPolicy0(),
+)
 
-public data class ProcessMitigationImageLoadPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationImageLoadPolicy00 = ProcessMitigationImageLoadPolicy00())
+public data class ProcessMitigationImageLoadPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationImageLoadPolicy00 = ProcessMitigationImageLoadPolicy00(),
+)
 
-public data class ProcessMitigationImageLoadPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationImageLoadPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationPayloadRestrictionPolicy(public var anonymous: ProcessMitigationPayloadRestrictionPolicy0 = ProcessMitigationPayloadRestrictionPolicy0())
+public data class ProcessMitigationPayloadRestrictionPolicy(
+    public var anonymous: ProcessMitigationPayloadRestrictionPolicy0 = ProcessMitigationPayloadRestrictionPolicy0(),
+)
 
-public data class ProcessMitigationPayloadRestrictionPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationPayloadRestrictionPolicy00 = ProcessMitigationPayloadRestrictionPolicy00())
+public data class ProcessMitigationPayloadRestrictionPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationPayloadRestrictionPolicy00 = ProcessMitigationPayloadRestrictionPolicy00(),
+)
 
-public data class ProcessMitigationPayloadRestrictionPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationPayloadRestrictionPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationRedirectionTrustPolicy(public var anonymous: ProcessMitigationRedirectionTrustPolicy0 = ProcessMitigationRedirectionTrustPolicy0())
+public data class ProcessMitigationRedirectionTrustPolicy(
+    public var anonymous: ProcessMitigationRedirectionTrustPolicy0 = ProcessMitigationRedirectionTrustPolicy0(),
+)
 
-public data class ProcessMitigationRedirectionTrustPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationRedirectionTrustPolicy00 = ProcessMitigationRedirectionTrustPolicy00())
+public data class ProcessMitigationRedirectionTrustPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationRedirectionTrustPolicy00 = ProcessMitigationRedirectionTrustPolicy00(),
+)
 
-public data class ProcessMitigationRedirectionTrustPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationRedirectionTrustPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationSehopPolicy(public var anonymous: ProcessMitigationSehopPolicy0 = ProcessMitigationSehopPolicy0())
+public data class ProcessMitigationSehopPolicy(
+    public var anonymous: ProcessMitigationSehopPolicy0 = ProcessMitigationSehopPolicy0(),
+)
 
-public data class ProcessMitigationSehopPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationSehopPolicy00 = ProcessMitigationSehopPolicy00())
+public data class ProcessMitigationSehopPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationSehopPolicy00 = ProcessMitigationSehopPolicy00(),
+)
 
-public data class ProcessMitigationSehopPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationSehopPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationSideChannelIsolationPolicy(public var anonymous: ProcessMitigationSideChannelIsolationPolicy0 = ProcessMitigationSideChannelIsolationPolicy0())
+public data class ProcessMitigationSideChannelIsolationPolicy(
+    public var anonymous: ProcessMitigationSideChannelIsolationPolicy0 = ProcessMitigationSideChannelIsolationPolicy0(),
+)
 
-public data class ProcessMitigationSideChannelIsolationPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationSideChannelIsolationPolicy00 = ProcessMitigationSideChannelIsolationPolicy00())
+public data class ProcessMitigationSideChannelIsolationPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationSideChannelIsolationPolicy00 = ProcessMitigationSideChannelIsolationPolicy00(),
+)
 
-public data class ProcessMitigationSideChannelIsolationPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationSideChannelIsolationPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationStrictHandleCheckPolicy(public var anonymous: ProcessMitigationStrictHandleCheckPolicy0 = ProcessMitigationStrictHandleCheckPolicy0())
+public data class ProcessMitigationStrictHandleCheckPolicy(
+    public var anonymous: ProcessMitigationStrictHandleCheckPolicy0 = ProcessMitigationStrictHandleCheckPolicy0(),
+)
 
-public data class ProcessMitigationStrictHandleCheckPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationStrictHandleCheckPolicy00 = ProcessMitigationStrictHandleCheckPolicy00())
+public data class ProcessMitigationStrictHandleCheckPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationStrictHandleCheckPolicy00 = ProcessMitigationStrictHandleCheckPolicy00(),
+)
 
-public data class ProcessMitigationStrictHandleCheckPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationStrictHandleCheckPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationSystemCallDisablePolicy(public var anonymous: ProcessMitigationSystemCallDisablePolicy0 = ProcessMitigationSystemCallDisablePolicy0())
+public data class ProcessMitigationSystemCallDisablePolicy(
+    public var anonymous: ProcessMitigationSystemCallDisablePolicy0 = ProcessMitigationSystemCallDisablePolicy0(),
+)
 
-public data class ProcessMitigationSystemCallDisablePolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationSystemCallDisablePolicy00 = ProcessMitigationSystemCallDisablePolicy00())
+public data class ProcessMitigationSystemCallDisablePolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationSystemCallDisablePolicy00 = ProcessMitigationSystemCallDisablePolicy00(),
+)
 
-public data class ProcessMitigationSystemCallDisablePolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationSystemCallDisablePolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationSystemCallFilterPolicy(public var anonymous: ProcessMitigationSystemCallFilterPolicy0 = ProcessMitigationSystemCallFilterPolicy0())
+public data class ProcessMitigationSystemCallFilterPolicy(
+    public var anonymous: ProcessMitigationSystemCallFilterPolicy0 = ProcessMitigationSystemCallFilterPolicy0(),
+)
 
-public data class ProcessMitigationSystemCallFilterPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationSystemCallFilterPolicy00 = ProcessMitigationSystemCallFilterPolicy00())
+public data class ProcessMitigationSystemCallFilterPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationSystemCallFilterPolicy00 = ProcessMitigationSystemCallFilterPolicy00(),
+)
 
-public data class ProcessMitigationSystemCallFilterPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationSystemCallFilterPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationUserPointerAuthPolicy(public var anonymous: ProcessMitigationUserPointerAuthPolicy0 = ProcessMitigationUserPointerAuthPolicy0())
+public data class ProcessMitigationUserPointerAuthPolicy(
+    public var anonymous: ProcessMitigationUserPointerAuthPolicy0 = ProcessMitigationUserPointerAuthPolicy0(),
+)
 
-public data class ProcessMitigationUserPointerAuthPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationUserPointerAuthPolicy00 = ProcessMitigationUserPointerAuthPolicy00())
+public data class ProcessMitigationUserPointerAuthPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationUserPointerAuthPolicy00 = ProcessMitigationUserPointerAuthPolicy00(),
+)
 
-public data class ProcessMitigationUserPointerAuthPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationUserPointerAuthPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
-public data class ProcessMitigationUserShadowStackPolicy(public var anonymous: ProcessMitigationUserShadowStackPolicy0 = ProcessMitigationUserShadowStackPolicy0())
+public data class ProcessMitigationUserShadowStackPolicy(
+    public var anonymous: ProcessMitigationUserShadowStackPolicy0 = ProcessMitigationUserShadowStackPolicy0(),
+)
 
-public data class ProcessMitigationUserShadowStackPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationUserShadowStackPolicy00 = ProcessMitigationUserShadowStackPolicy00())
+public data class ProcessMitigationUserShadowStackPolicy0(
+    public var flags: UInt = 0u,
+    public var anonymous: ProcessMitigationUserShadowStackPolicy00 = ProcessMitigationUserShadowStackPolicy00(),
+)
 
-public data class ProcessMitigationUserShadowStackPolicy00(public var bitfield: UInt = 0u)
+public data class ProcessMitigationUserShadowStackPolicy00(
+    public var bitfield: UInt = 0u,
+)
 
 public data class QuotaLimitsEx(
     public var pagedPoolLimit: Int = 0,
@@ -1318,9 +1628,14 @@ public data class QuotaLimitsEx(
     public var cpuRateLimit: RateQuotaLimit = RateQuotaLimit(),
 )
 
-public data class RateQuotaLimit(public var rateData: UInt = 0u, public var anonymous: RateQuotaLimit0 = RateQuotaLimit0())
+public data class RateQuotaLimit(
+    public var rateData: UInt = 0u,
+    public var anonymous: RateQuotaLimit0 = RateQuotaLimit0(),
+)
 
-public data class RateQuotaLimit0(public var bitfield: UInt = 0u)
+public data class RateQuotaLimit0(
+    public var bitfield: UInt = 0u,
+)
 
 public data class RearrangeFileData(
     public var sourceStartingOffset: ULong = 0uL,
@@ -1367,9 +1682,15 @@ public data class ResourcemanagerBasicInformation(
     }
 }
 
-public data class ResourcemanagerCompletionInformation(public var ioCompletionPortHandle: Handle = null, public var completionKey: Int = 0)
+public data class ResourcemanagerCompletionInformation(
+    public var ioCompletionPortHandle: Handle = null,
+    public var completionKey: Int = 0,
+)
 
-public data class RemHBITMAP(public var cbData: UInt = 0u, public var data: UByteArray = UByteArray(1)) {
+public data class RemHBITMAP(
+    public var cbData: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is RemHBITMAP) return false
@@ -1385,7 +1706,10 @@ public data class RemHBITMAP(public var cbData: UInt = 0u, public var data: UByt
     }
 }
 
-public data class RemHBRUSH(public var cbData: UInt = 0u, public var data: UByteArray = UByteArray(1)) {
+public data class RemHBRUSH(
+    public var cbData: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is RemHBRUSH) return false
@@ -1401,7 +1725,10 @@ public data class RemHBRUSH(public var cbData: UInt = 0u, public var data: UByte
     }
 }
 
-public data class RemHENHMETAFILE(public var cbData: UInt = 0u, public var data: UByteArray = UByteArray(1)) {
+public data class RemHENHMETAFILE(
+    public var cbData: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is RemHENHMETAFILE) return false
@@ -1467,7 +1794,10 @@ public data class RemHMETAFILEPICT(
     }
 }
 
-public data class RemHPALETTE(public var cbData: UInt = 0u, public var data: UByteArray = UByteArray(1)) {
+public data class RemHPALETTE(
+    public var cbData: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is RemHPALETTE) return false
@@ -1483,11 +1813,20 @@ public data class RemHPALETTE(public var cbData: UInt = 0u, public var data: UBy
     }
 }
 
-public data class RemotableHandle(public var fContext: Int = 0, public var u: RemotableHandle0 = RemotableHandle0())
+public data class RemotableHandle(
+    public var fContext: Int = 0,
+    public var u: RemotableHandle0 = RemotableHandle0(),
+)
 
-public data class RemotableHandle0(public var hInproc: Int = 0, public var hRemote: Int = 0)
+public data class RemotableHandle0(
+    public var hInproc: Int = 0,
+    public var hRemote: Int = 0,
+)
 
-public data class ScopeTableAmd64(public var count: UInt = 0u, public var scopeRecord: List<ScopeTableAmd640> = List(1) { ScopeTableAmd640() })
+public data class ScopeTableAmd64(
+    public var count: UInt = 0u,
+    public var scopeRecord: List<ScopeTableAmd640> = List(1) { ScopeTableAmd640() },
+)
 
 public data class ScopeTableAmd640(
     public var beginAddress: UInt = 0u,
@@ -1496,7 +1835,10 @@ public data class ScopeTableAmd640(
     public var jumpTarget: UInt = 0u,
 )
 
-public data class ScopeTableArm(public var count: UInt = 0u, public var scopeRecord: List<ScopeTableArm0> = List(1) { ScopeTableArm0() })
+public data class ScopeTableArm(
+    public var count: UInt = 0u,
+    public var scopeRecord: List<ScopeTableArm0> = List(1) { ScopeTableArm0() },
+)
 
 public data class ScopeTableArm0(
     public var beginAddress: UInt = 0u,
@@ -1505,7 +1847,10 @@ public data class ScopeTableArm0(
     public var jumpTarget: UInt = 0u,
 )
 
-public data class ScopeTableArm64(public var count: UInt = 0u, public var scopeRecord: List<ScopeTableArm640> = List(1) { ScopeTableArm640() })
+public data class ScopeTableArm64(
+    public var count: UInt = 0u,
+    public var scopeRecord: List<ScopeTableArm640> = List(1) { ScopeTableArm640() },
+)
 
 public data class ScopeTableArm640(
     public var beginAddress: UInt = 0u,
@@ -1572,7 +1917,10 @@ public class ScrubDataOutput(
     public var resumeContext: UByteArray = UByteArray(1040),
 )
 
-public data class ScrubParityExtent(public var offset: Long = 0L, public var length: ULong = 0uL)
+public data class ScrubParityExtent(
+    public var offset: Long = 0L,
+    public var length: ULong = 0uL,
+)
 
 public data class ScrubParityExtentData(
     public var size: UShort = 0u,
@@ -1582,7 +1930,10 @@ public data class ScrubParityExtentData(
     public var parityExtents: List<ScrubParityExtent> = List(1) { ScrubParityExtent() },
 )
 
-public data class SecurityObjectAiParams(public var size: UInt = 0u, public var constraintMask: UInt = 0u)
+public data class SecurityObjectAiParams(
+    public var size: UInt = 0u,
+    public var constraintMask: UInt = 0u,
+)
 
 public data class ServersiloBasicInformation(
     public var serviceSessionId: UInt = 0u,
@@ -1593,11 +1944,20 @@ public data class ServersiloBasicInformation(
     public var hostApiSetSchema: COpaquePointer? = null,
 )
 
-public data class SeTokenUser(public var anonymous1: SeTokenUser0 = SeTokenUser0(), public var anonymous2: SeTokenUser1 = SeTokenUser1())
+public data class SeTokenUser(
+    public var anonymous1: SeTokenUser0 = SeTokenUser0(),
+    public var anonymous2: SeTokenUser1 = SeTokenUser1(),
+)
 
-public data class SeTokenUser0(public var tokenUser: TokenUser = TokenUser(), public var user: SidAndAttributes = SidAndAttributes())
+public data class SeTokenUser0(
+    public var tokenUser: TokenUser = TokenUser(),
+    public var user: SidAndAttributes = SidAndAttributes(),
+)
 
-public data class SeTokenUser1(public var sid: Sid = Sid(), public var buffer: UByteArray = UByteArray(68)) {
+public data class SeTokenUser1(
+    public var sid: Sid = Sid(),
+    public var buffer: UByteArray = UByteArray(68),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SeTokenUser1) return false
@@ -1613,7 +1973,10 @@ public data class SeTokenUser1(public var sid: Sid = Sid(), public var buffer: U
     }
 }
 
-public data class SharedVirtualDiskSupport(public var sharedVirtualDiskSupport: SharedVirtualDiskSupportType = 0, public var handleState: SharedVirtualDiskHandleState = 0)
+public data class SharedVirtualDiskSupport(
+    public var sharedVirtualDiskSupport: SharedVirtualDiskSupportType = 0,
+    public var handleState: SharedVirtualDiskHandleState = 0,
+)
 
 public data class ShuffleFileData(
     public var startingOffset: Long = 0L,
@@ -1649,7 +2012,10 @@ public data class SiloobjectBasicInformation(
     }
 }
 
-public data class SupportedOsInfo(public var majorVersion: UShort = 0u, public var minorVersion: UShort = 0u)
+public data class SupportedOsInfo(
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
+)
 
 public data class TapeCreatePartition(
     public var method: UInt = 0u,
@@ -1687,7 +2053,9 @@ public data class TapeSetDriveParameters(
     public var eOTWarningZoneSize: UInt = 0u,
 )
 
-public data class TapeSetMediaParameters(public var blockSize: UInt = 0u)
+public data class TapeSetMediaParameters(
+    public var blockSize: UInt = 0u,
+)
 
 public data class TapeWmiOperations(
     public var method: UInt = 0u,
@@ -1695,13 +2063,24 @@ public data class TapeWmiOperations(
     public var dataBuffer: COpaquePointer? = null,
 )
 
-public data class TokenBnoIsolationInformation(public var isolationPrefix: Pwstr = null, public var isolationEnabled: Boolean = false)
+public data class TokenBnoIsolationInformation(
+    public var isolationPrefix: Pwstr = null,
+    public var isolationEnabled: Boolean = false,
+)
 
-public data class TokenSidInformation(public var sid: Psid = null)
+public data class TokenSidInformation(
+    public var sid: Psid = null,
+)
 
-public data class TransactionmanagerBasicInformation(public var tmIdentity: Guid = Guid(), public var virtualClock: Long = 0L)
+public data class TransactionmanagerBasicInformation(
+    public var tmIdentity: Guid = Guid(),
+    public var virtualClock: Long = 0L,
+)
 
-public data class TransactionmanagerLogpathInformation(public var logPathLength: UInt = 0u, public var logPath: UShortArray = UShortArray(1)) {
+public data class TransactionmanagerLogpathInformation(
+    public var logPathLength: UInt = 0u,
+    public var logPath: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is TransactionmanagerLogpathInformation) return false
@@ -1717,11 +2096,17 @@ public data class TransactionmanagerLogpathInformation(public var logPathLength:
     }
 }
 
-public data class TransactionmanagerLogInformation(public var logIdentity: Guid = Guid())
+public data class TransactionmanagerLogInformation(
+    public var logIdentity: Guid = Guid(),
+)
 
-public data class TransactionmanagerOldestInformation(public var oldestTransactionGuid: Guid = Guid())
+public data class TransactionmanagerOldestInformation(
+    public var oldestTransactionGuid: Guid = Guid(),
+)
 
-public data class TransactionmanagerRecoveryInformation(public var lastRecoveredLsn: ULong = 0uL)
+public data class TransactionmanagerRecoveryInformation(
+    public var lastRecoveredLsn: ULong = 0uL,
+)
 
 public data class TransactionBasicInformation(
     public var transactionId: Guid = Guid(),
@@ -1729,15 +2114,28 @@ public data class TransactionBasicInformation(
     public var outcome: UInt = 0u,
 )
 
-public data class TransactionBindInformation(public var tmHandle: Handle = null)
+public data class TransactionBindInformation(
+    public var tmHandle: Handle = null,
+)
 
-public data class TransactionEnlistmentsInformation(public var numberOfEnlistments: UInt = 0u, public var enlistmentPair: List<TransactionEnlistmentPair> = List(1) { TransactionEnlistmentPair() })
+public data class TransactionEnlistmentsInformation(
+    public var numberOfEnlistments: UInt = 0u,
+    public var enlistmentPair: List<TransactionEnlistmentPair> = List(1) { TransactionEnlistmentPair() },
+)
 
-public data class TransactionEnlistmentPair(public var enlistmentId: Guid = Guid(), public var resourceManagerId: Guid = Guid())
+public data class TransactionEnlistmentPair(
+    public var enlistmentId: Guid = Guid(),
+    public var resourceManagerId: Guid = Guid(),
+)
 
-public data class TransactionListEntry(public var uow: Guid = Guid())
+public data class TransactionListEntry(
+    public var uow: Guid = Guid(),
+)
 
-public data class TransactionListInformation(public var numberOfTransactions: UInt = 0u, public var transactionInformation: List<TransactionListEntry> = List(1) { TransactionListEntry() })
+public data class TransactionListInformation(
+    public var numberOfTransactions: UInt = 0u,
+    public var transactionInformation: List<TransactionListEntry> = List(1) { TransactionListEntry() },
+)
 
 public data class TransactionPropertiesInformation(
     public var isolationLevel: UInt = 0u,
@@ -1770,7 +2168,9 @@ public data class TransactionPropertiesInformation(
     }
 }
 
-public data class TransactionSuperiorEnlistmentInformation(public var superiorEnlistmentPair: TransactionEnlistmentPair = TransactionEnlistmentPair())
+public data class TransactionSuperiorEnlistmentInformation(
+    public var superiorEnlistmentPair: TransactionEnlistmentPair = TransactionEnlistmentPair(),
+)
 
 public data class UmsCreateThreadAttributes(
     public var umsVersion: UInt = 0u,
@@ -1778,7 +2178,10 @@ public data class UmsCreateThreadAttributes(
     public var umsCompletionList: COpaquePointer? = null,
 )
 
-public data class XsaveCetUFormat(public var ia32CetUMsr: ULong = 0uL, public var ia32Pl3SspMsr: ULong = 0uL)
+public data class XsaveCetUFormat(
+    public var ia32CetUMsr: ULong = 0uL,
+    public var ia32Pl3SspMsr: ULong = 0uL,
+)
 
 public data class RemoteMetafilepict(
     public var mm: Int = 0,
@@ -1824,11 +2227,20 @@ public data class UserBitmap(
     }
 }
 
-public data class UserClipformat(public var fContext: Int = 0, public var u: UserClipformat0 = UserClipformat0())
+public data class UserClipformat(
+    public var fContext: Int = 0,
+    public var u: UserClipformat0 = UserClipformat0(),
+)
 
-public data class UserClipformat0(public var dwValue: UInt = 0u, public var pwszName: Pwstr = null)
+public data class UserClipformat0(
+    public var dwValue: UInt = 0u,
+    public var pwszName: Pwstr = null,
+)
 
-public data class UserHbitmap(public var fContext: Int = 0, public var u: UserHbitmap0 = UserHbitmap0())
+public data class UserHbitmap(
+    public var fContext: Int = 0,
+    public var u: UserHbitmap0 = UserHbitmap0(),
+)
 
 public data class UserHbitmap0(
     public var hInproc: Int = 0,
@@ -1836,7 +2248,10 @@ public data class UserHbitmap0(
     public var hInproc64: Long = 0L,
 )
 
-public data class UserHenhmetafile(public var fContext: Int = 0, public var u: UserHenhmetafile0 = UserHenhmetafile0())
+public data class UserHenhmetafile(
+    public var fContext: Int = 0,
+    public var u: UserHenhmetafile0 = UserHenhmetafile0(),
+)
 
 public data class UserHenhmetafile0(
     public var hInproc: Int = 0,
@@ -1844,7 +2259,10 @@ public data class UserHenhmetafile0(
     public var hInproc64: Long = 0L,
 )
 
-public data class UserHglobal(public var fContext: Int = 0, public var u: UserHglobal0 = UserHglobal0())
+public data class UserHglobal(
+    public var fContext: Int = 0,
+    public var u: UserHglobal0 = UserHglobal0(),
+)
 
 public data class UserHglobal0(
     public var hInproc: Int = 0,
@@ -1852,7 +2270,10 @@ public data class UserHglobal0(
     public var hInproc64: Long = 0L,
 )
 
-public data class UserHmetafile(public var fContext: Int = 0, public var u: UserHmetafile0 = UserHmetafile0())
+public data class UserHmetafile(
+    public var fContext: Int = 0,
+    public var u: UserHmetafile0 = UserHmetafile0(),
+)
 
 public data class UserHmetafile0(
     public var hInproc: Int = 0,

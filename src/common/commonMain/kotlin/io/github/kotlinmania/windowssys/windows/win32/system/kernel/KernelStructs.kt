@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.kernel
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -12,7 +13,10 @@ public data class Cstring(
     public var buffer: Pcstr = null,
 )
 
-public data class ExceptionRegistrationRecord(public var next: ExceptionRegistrationRecord? = null, public var handler: ExceptionRoutine = null)
+public data class ExceptionRegistrationRecord(
+    public var next: ExceptionRegistrationRecord? = null,
+    public var handler: ExceptionRoutine = null,
+)
 
 public data class FloatingSaveArea(
     public var controlWord: UInt = 0u,
@@ -54,11 +58,20 @@ public data class FloatingSaveArea(
     }
 }
 
-public data class ListEntry(public var flink: ListEntry? = null, public var blink: ListEntry? = null)
+public data class ListEntry(
+    public var flink: ListEntry? = null,
+    public var blink: ListEntry? = null,
+)
 
-public data class ListEntry32(public var flink: UInt = 0u, public var blink: UInt = 0u)
+public data class ListEntry32(
+    public var flink: UInt = 0u,
+    public var blink: UInt = 0u,
+)
 
-public data class ListEntry64(public var flink: ULong = 0uL, public var blink: ULong = 0uL)
+public data class ListEntry64(
+    public var flink: ULong = 0uL,
+    public var blink: ULong = 0uL,
+)
 
 public data class NtTib(
     public var exceptionList: ExceptionRegistrationRecord? = null,
@@ -70,9 +83,15 @@ public data class NtTib(
     public var self: NtTib? = null,
 )
 
-public data class NtTib0(public var fiberData: COpaquePointer? = null, public var version: UInt = 0u)
+public data class NtTib0(
+    public var fiberData: COpaquePointer? = null,
+    public var version: UInt = 0u,
+)
 
-public data class Objectid(public var lineage: Guid = Guid(), public var uniquifier: UInt = 0u)
+public data class Objectid(
+    public var lineage: Guid = Guid(),
+    public var uniquifier: UInt = 0u,
+)
 
 public data class ProcessorNumber(
     public var group: UShort = 0u,
@@ -80,29 +99,61 @@ public data class ProcessorNumber(
     public var reserved: UByte = 0u,
 )
 
-public data class Quad(public var anonymous: Quad0 = Quad0())
+public data class Quad(
+    public var anonymous: Quad0 = Quad0(),
+)
 
-public data class Quad0(public var useThisFieldToCopy: Long = 0L, public var doNotUseThisField: Double = 0.0)
+public data class Quad0(
+    public var useThisFieldToCopy: Long = 0L,
+    public var doNotUseThisField: Double = 0.0,
+)
 
-public data class RtlBalancedNode(public var anonymous1: RtlBalancedNode0 = RtlBalancedNode0(), public var anonymous2: RtlBalancedNode1 = RtlBalancedNode1())
+public data class RtlBalancedNode(
+    public var anonymous1: RtlBalancedNode0 = RtlBalancedNode0(),
+    public var anonymous2: RtlBalancedNode1 = RtlBalancedNode1(),
+)
 
-public data class RtlBalancedNode0(public var children: List<RtlBalancedNode> = List(2) { RtlBalancedNode() }, public var anonymous: RtlBalancedNode00 = RtlBalancedNode00())
+public data class RtlBalancedNode0(
+    public var children: List<RtlBalancedNode> = List(2) { RtlBalancedNode() },
+    public var anonymous: RtlBalancedNode00 = RtlBalancedNode00(),
+)
 
-public data class RtlBalancedNode00(public var left: RtlBalancedNode? = null, public var right: RtlBalancedNode? = null)
+public data class RtlBalancedNode00(
+    public var left: RtlBalancedNode? = null,
+    public var right: RtlBalancedNode? = null,
+)
 
-public data class RtlBalancedNode1(public var bitfield: UByte = 0u, public var parentValue: Int = 0)
+public data class RtlBalancedNode1(
+    public var bitfield: UByte = 0u,
+    public var parentValue: Int = 0,
+)
 
-public data class SingleListEntry(public var next: SingleListEntry? = null)
+public data class SingleListEntry(
+    public var next: SingleListEntry? = null,
+)
 
-public data class SingleListEntry32(public var next: UInt = 0u)
+public data class SingleListEntry32(
+    public var next: UInt = 0u,
+)
 
-public data class SlistEntry(public var next: SlistEntry? = null)
+public data class SlistEntry(
+    public var next: SlistEntry? = null,
+)
 
-public data class SlistHeader(public var anonymous: SlistHeader0 = SlistHeader0(), public var headerX64: SlistHeader1 = SlistHeader1())
+public data class SlistHeader(
+    public var anonymous: SlistHeader0 = SlistHeader0(),
+    public var headerX64: SlistHeader1 = SlistHeader1(),
+)
 
-public data class SlistHeader0(public var alignment: ULong = 0uL, public var region: ULong = 0uL)
+public data class SlistHeader0(
+    public var alignment: ULong = 0uL,
+    public var region: ULong = 0uL,
+)
 
-public data class SlistHeader1(public var bitfield1: ULong = 0uL, public var bitfield2: ULong = 0uL)
+public data class SlistHeader1(
+    public var bitfield1: ULong = 0uL,
+    public var bitfield2: ULong = 0uL,
+)
 
 public data class String(
     public var length: UShort = 0u,
@@ -122,7 +173,9 @@ public data class String64(
     public var buffer: ULong = 0uL,
 )
 
-public data class WnfStateName(public var data: UIntArray = UIntArray(2)) {
+public data class WnfStateName(
+    public var data: UIntArray = UIntArray(2),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WnfStateName) return false
@@ -130,7 +183,5 @@ public data class WnfStateName(public var data: UIntArray = UIntArray(2)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.data.contentHashCode()
-    }
+    override fun hashCode(): Int = this.data.contentHashCode()
 }

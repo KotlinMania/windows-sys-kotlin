@@ -1,10 +1,14 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.multicast
 
 import io.github.kotlinmania.windowssys.COpaquePointer
 import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
 
-public data class IpngAddress(public var ipAddrV4: UInt = 0u, public var ipAddrV6: UByteArray = UByteArray(16)) {
+public data class IpngAddress(
+    public var ipAddrV4: UInt = 0u,
+    public var ipAddrV6: UByteArray = UByteArray(16),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is IpngAddress) return false
@@ -20,7 +24,10 @@ public data class IpngAddress(public var ipAddrV4: UInt = 0u, public var ipAddrV
     }
 }
 
-public data class McastClientUid(public var clientUID: COpaquePointer? = null, public var clientUIDLength: UInt = 0u)
+public data class McastClientUid(
+    public var clientUID: COpaquePointer? = null,
+    public var clientUIDLength: UInt = 0u,
+)
 
 public data class McastLeaseRequest(
     public var leaseStartTime: Int = 0,

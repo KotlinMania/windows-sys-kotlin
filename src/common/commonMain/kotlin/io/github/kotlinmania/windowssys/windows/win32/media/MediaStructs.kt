@@ -1,7 +1,11 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.media
 
-public data class Mmtime(public var wType: UInt = 0u, public var u: Mmtime0 = Mmtime0())
+public data class Mmtime(
+    public var wType: UInt = 0u,
+    public var u: Mmtime0 = Mmtime0(),
+)
 
 public data class Mmtime0(
     public var ms: UInt = 0u,
@@ -12,7 +16,9 @@ public data class Mmtime0(
     public var midi: Mmtime01 = Mmtime01(),
 )
 
-public data class Mmtime01(public var songptrpos: UInt = 0u)
+public data class Mmtime01(
+    public var songptrpos: UInt = 0u,
+)
 
 public data class Mmtime00(
     public var hour: UByte = 0u,
@@ -48,9 +54,15 @@ public data class Mmtime00(
     }
 }
 
-public data class Timecaps(public var wPeriodMin: UInt = 0u, public var wPeriodMax: UInt = 0u)
+public data class Timecaps(
+    public var wPeriodMin: UInt = 0u,
+    public var wPeriodMax: UInt = 0u,
+)
 
-public data class Timecode(public var anonymous: Timecode0 = Timecode0(), public var qw: ULong = 0uL)
+public data class Timecode(
+    public var anonymous: Timecode0 = Timecode0(),
+    public var qw: ULong = 0uL,
+)
 
 public data class Timecode0(
     public var wFrameRate: UShort = 0u,

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
 import io.github.kotlinmania.windowssys.core.Guid
@@ -11,9 +12,15 @@ public data class UsnTrackModifiedRanges(
     public var fileSizeThreshold: Long = 0L,
 )
 
-public data class VerifyInformation(public var startingOffset: Long = 0L, public var length: UInt = 0u)
+public data class VerifyInformation(
+    public var startingOffset: Long = 0L,
+    public var length: UInt = 0u,
+)
 
-public data class VirtualizationInstanceInfoInput(public var numberOfWorkerThreads: UInt = 0u, public var flags: UInt = 0u)
+public data class VirtualizationInstanceInfoInput(
+    public var numberOfWorkerThreads: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
 public data class VirtualizationInstanceInfoInputEx(
     public var headerSize: UShort = 0u,
@@ -23,9 +30,14 @@ public data class VirtualizationInstanceInfoInputEx(
     public var providerMajorVersion: UShort = 0u,
 )
 
-public data class VirtualizationInstanceInfoOutput(public var virtualizationInstanceID: Guid = Guid())
+public data class VirtualizationInstanceInfoOutput(
+    public var virtualizationInstanceID: Guid = Guid(),
+)
 
-public data class VirtualStorageSetBehaviorInput(public var size: UInt = 0u, public var behaviorCode: VirtualStorageBehaviorCode = 0)
+public data class VirtualStorageSetBehaviorInput(
+    public var size: UInt = 0u,
+    public var behaviorCode: VirtualStorageBehaviorCode = 0,
+)
 
 public data class VolumeBitmapBuffer(
     public var startingLcn: Long = 0L,
@@ -49,9 +61,14 @@ public data class VolumeBitmapBuffer(
     }
 }
 
-public data class VolumeDiskExtents(public var numberOfDiskExtents: UInt = 0u, public var extents: List<DiskExtent> = List(1) { DiskExtent() })
+public data class VolumeDiskExtents(
+    public var numberOfDiskExtents: UInt = 0u,
+    public var extents: List<DiskExtent> = List(1) { DiskExtent() },
+)
 
-public data class VolumeGetGptAttributesInformation(public var gptAttributes: ULong = 0uL)
+public data class VolumeGetGptAttributesInformation(
+    public var gptAttributes: ULong = 0uL,
+)
 
 public data class WimProviderAddOverlayInput(
     public var wimType: UInt = 0u,
@@ -95,9 +112,13 @@ public data class WimProviderOverlayEntry(
     public var flags: UInt = 0u,
 )
 
-public data class WimProviderRemoveOverlayInput(public var dataSourceId: Long = 0L)
+public data class WimProviderRemoveOverlayInput(
+    public var dataSourceId: Long = 0L,
+)
 
-public data class WimProviderSuspendOverlayInput(public var dataSourceId: Long = 0L)
+public data class WimProviderSuspendOverlayInput(
+    public var dataSourceId: Long = 0L,
+)
 
 public data class WimProviderUpdateOverlayInput(
     public var dataSourceId: Long = 0L,
@@ -105,10 +126,20 @@ public data class WimProviderUpdateOverlayInput(
     public var wimFileNameLength: UInt = 0u,
 )
 
-public data class WofExternalFileId(public var fileId: FileId128 = FileId128())
+public data class WofExternalFileId(
+    public var fileId: FileId128 = FileId128(),
+)
 
-public data class WofExternalInfo(public var version: UInt = 0u, public var provider: UInt = 0u)
+public data class WofExternalInfo(
+    public var version: UInt = 0u,
+    public var provider: UInt = 0u,
+)
 
-public data class WofVersionInfo(public var wofVersion: UInt = 0u)
+public data class WofVersionInfo(
+    public var wofVersion: UInt = 0u,
+)
 
-public data class WriteUsnReasonInput(public var flags: UInt = 0u, public var usnReasonToWrite: UInt = 0u)
+public data class WriteUsnReasonInput(
+    public var flags: UInt = 0u,
+    public var usnReasonToWrite: UInt = 0u,
+)

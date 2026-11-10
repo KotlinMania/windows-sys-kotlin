@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.core
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -41,9 +42,7 @@ public data class Guid(
     }
 
     public companion object {
-        public fun fromU128(uuid: U128): Guid {
-            return Guid(data1 = (uuid shr 96).toUInt(), data2 = (uuid shr 80 and U128(0x0uL, 0xffffuL)).toUShort(), data3 = (uuid shr 64 and U128(0x0uL, 0xffffuL)).toUShort(), data4 = run { val _b = ((uuid.toULong())).toULong(); ubyteArrayOf((_b shr 56).toUByte(), (_b shr 48).toUByte(), (_b shr 40).toUByte(), (_b shr 32).toUByte(), (_b shr 24).toUByte(), (_b shr 16).toUByte(), (_b shr 8).toUByte(), _b.toUByte()) })
-        }
+        public fun fromU128(uuid: U128): Guid = Guid(data1 = (uuid shr 96).toUInt(), data2 = (uuid shr 80 and U128(0x0uL, 0xffffuL)).toUShort(), data3 = (uuid shr 64 and U128(0x0uL, 0xffffuL)).toUShort(), data4 = run { val _b = ((uuid.toULong())).toULong(); ubyteArrayOf((_b shr 56).toUByte(), (_b shr 48).toUByte(), (_b shr 40).toUByte(), (_b shr 32).toUByte(), (_b shr 24).toUByte(), (_b shr 16).toUByte(), (_b shr 8).toUByte(), _b.toUByte()) })
     }
 }
 

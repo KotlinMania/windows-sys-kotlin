@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement
 
 import io.github.kotlinmania.windowssys.COpaquePointer

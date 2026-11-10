@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -91,7 +92,10 @@ public data class WlanConnectionParametersV2(
     public var pDot11AccessNetworkOptions: Dot11Accessnetworkoptions? = null,
 )
 
-public data class WlanCountryOrRegionStringList(public var dwNumberOfItems: UInt = 0u, public var pCountryOrRegionStringList: UByteArray = UByteArray(3)) {
+public data class WlanCountryOrRegionStringList(
+    public var dwNumberOfItems: UInt = 0u,
+    public var pCountryOrRegionStringList: UByteArray = UByteArray(3),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WlanCountryOrRegionStringList) return false
@@ -138,7 +142,10 @@ public data class WlanDeviceServiceNotificationData(
     }
 }
 
-public data class WlanHostedNetworkConnectionSettings(public var hostedNetworkSSID: Dot11Ssid = Dot11Ssid(), public var dwMaxNumberOfPeers: UInt = 0u)
+public data class WlanHostedNetworkConnectionSettings(
+    public var hostedNetworkSSID: Dot11Ssid = Dot11Ssid(),
+    public var dwMaxNumberOfPeers: UInt = 0u,
+)
 
 public data class WlanHostedNetworkDataPeerStateChange(
     public var oldState: WlanHostedNetworkPeerState = WlanHostedNetworkPeerState(),
@@ -146,7 +153,10 @@ public data class WlanHostedNetworkDataPeerStateChange(
     public var peerStateChangeReason: WlanHostedNetworkReason = 0,
 )
 
-public data class WlanHostedNetworkPeerState(public var peerMacAddress: UByteArray = UByteArray(6), public var peerAuthState: WlanHostedNetworkPeerAuthState = 0) {
+public data class WlanHostedNetworkPeerState(
+    public var peerMacAddress: UByteArray = UByteArray(6),
+    public var peerAuthState: WlanHostedNetworkPeerAuthState = 0,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WlanHostedNetworkPeerState) return false
@@ -162,9 +172,15 @@ public data class WlanHostedNetworkPeerState(public var peerMacAddress: UByteArr
     }
 }
 
-public data class WlanHostedNetworkRadioState(public var dot11SoftwareRadioState: Dot11RadioState = 0, public var dot11HardwareRadioState: Dot11RadioState = 0)
+public data class WlanHostedNetworkRadioState(
+    public var dot11SoftwareRadioState: Dot11RadioState = 0,
+    public var dot11HardwareRadioState: Dot11RadioState = 0,
+)
 
-public data class WlanHostedNetworkSecuritySettings(public var dot11AuthAlgo: Dot11AuthAlgorithm = 0, public var dot11CipherAlgo: Dot11CipherAlgorithm = 0)
+public data class WlanHostedNetworkSecuritySettings(
+    public var dot11AuthAlgo: Dot11AuthAlgorithm = 0,
+    public var dot11CipherAlgo: Dot11CipherAlgorithm = 0,
+)
 
 public data class WlanHostedNetworkStateChange(
     public var oldState: WlanHostedNetworkState = 0,
@@ -347,7 +363,10 @@ public data class WlanPhyRadioState(
     public var dot11HardwareRadioState: Dot11RadioState = 0,
 )
 
-public data class WlanProfileInfo(public var strProfileName: UShortArray = UShortArray(256), public var dwFlags: UInt = 0u) {
+public data class WlanProfileInfo(
+    public var strProfileName: UShortArray = UShortArray(256),
+    public var dwFlags: UInt = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WlanProfileInfo) return false
@@ -369,9 +388,15 @@ public data class WlanProfileInfoList(
     public var profileInfo: List<WlanProfileInfo> = List(1) { WlanProfileInfo() },
 )
 
-public data class WlanRadioState(public var dwNumberOfPhys: UInt = 0u, public var phyRadioState: List<WlanPhyRadioState> = List(64) { WlanPhyRadioState() })
+public data class WlanRadioState(
+    public var dwNumberOfPhys: UInt = 0u,
+    public var phyRadioState: List<WlanPhyRadioState> = List(64) { WlanPhyRadioState() },
+)
 
-public data class WlanRateSet(public var uRateSetLength: UInt = 0u, public var usRateSet: UShortArray = UShortArray(126)) {
+public data class WlanRateSet(
+    public var uRateSetLength: UInt = 0u,
+    public var usRateSet: UShortArray = UShortArray(126),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WlanRateSet) return false
@@ -387,7 +412,10 @@ public data class WlanRateSet(public var uRateSetLength: UInt = 0u, public var u
     }
 }
 
-public data class WlanRawData(public var dwDataSize: UInt = 0u, public var dataBlob: UByteArray = UByteArray(1)) {
+public data class WlanRawData(
+    public var dwDataSize: UInt = 0u,
+    public var dataBlob: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is WlanRawData) return false
@@ -409,7 +437,10 @@ public data class WlanRawDataList(
     public var dataList: List<WlanRawDataList0> = List(1) { WlanRawDataList0() },
 )
 
-public data class WlanRawDataList0(public var dwDataOffset: UInt = 0u, public var dwDataSize: UInt = 0u)
+public data class WlanRawDataList0(
+    public var dwDataOffset: UInt = 0u,
+    public var dwDataSize: UInt = 0u,
+)
 
 public data class WlanSecurityAttributes(
     public var bSecurityEnabled: Bool = 0,

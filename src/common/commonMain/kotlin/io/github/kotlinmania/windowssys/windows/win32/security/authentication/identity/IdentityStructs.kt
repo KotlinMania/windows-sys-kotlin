@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -62,7 +63,9 @@ public data class CentralAccessPolicyEntry(
     public var flags: UInt = 0u,
 )
 
-public data class ClearBlock(public var data: ByteArray = ByteArray(8)) {
+public data class ClearBlock(
+    public var data: ByteArray = ByteArray(8),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is ClearBlock) return false
@@ -70,9 +73,7 @@ public data class ClearBlock(public var data: ByteArray = ByteArray(8)) {
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.data.contentHashCode()
-    }
+    override fun hashCode(): Int = this.data.contentHashCode()
 }
 
 public data class CryptoSettings(
@@ -92,7 +93,10 @@ public data class DomainPasswordInformation(
     public var minPasswordAge: Long = 0L,
 )
 
-public data class EncryptedCredentialw(public var cred: Credentialw = Credentialw(), public var clearCredentialBlobSize: UInt = 0u)
+public data class EncryptedCredentialw(
+    public var cred: Credentialw = Credentialw(),
+    public var clearCredentialBlobSize: UInt = 0u,
+)
 
 public data class KdcProxyCacheEntryData(
     public var sinceLastUsed: ULong = 0uL,
@@ -153,9 +157,15 @@ public data class KerbBindingCacheEntryData(
     public var kdcName: LsaUnicodeString = LsaUnicodeString(),
 )
 
-public data class KerbCertificateHashinfo(public var storeNameLength: UShort = 0u, public var hashLength: UShort = 0u)
+public data class KerbCertificateHashinfo(
+    public var storeNameLength: UShort = 0u,
+    public var hashLength: UShort = 0u,
+)
 
-public data class KerbCertificateInfo(public var certInfoSize: UInt = 0u, public var infoType: UInt = 0u)
+public data class KerbCertificateInfo(
+    public var certInfoSize: UInt = 0u,
+    public var infoType: UInt = 0u,
+)
 
 public data class KerbCertificateLogon(
     public var messageType: KerbLogonSubmitType = 0,
@@ -176,7 +186,10 @@ public data class KerbCertificateS4uLogon(
     public var certificate: COpaquePointer? = null,
 )
 
-public data class KerbCertificateUnlockLogon(public var logon: KerbCertificateLogon = KerbCertificateLogon(), public var logonId: Luid = Luid())
+public data class KerbCertificateUnlockLogon(
+    public var logon: KerbCertificateLogon = KerbCertificateLogon(),
+    public var logonId: Luid = Luid(),
+)
 
 public data class KerbChangepasswordRequest(
     public var messageType: KerbProtocolMessageType = 0,
@@ -187,13 +200,23 @@ public data class KerbChangepasswordRequest(
     public var impersonating: Boolean = false,
 )
 
-public data class KerbCleanupMachinePkinitCredsRequest(public var messageType: KerbProtocolMessageType = 0, public var logonId: Luid = Luid())
+public data class KerbCleanupMachinePkinitCredsRequest(
+    public var messageType: KerbProtocolMessageType = 0,
+    public var logonId: Luid = Luid(),
+)
 
-public data class KerbCloudKerberosDebugData(public var bitfield: UInt = 0u)
+public data class KerbCloudKerberosDebugData(
+    public var bitfield: UInt = 0u,
+)
 
-public data class KerbCloudKerberosDebugDataV0(public var bitfield: UInt = 0u)
+public data class KerbCloudKerberosDebugDataV0(
+    public var bitfield: UInt = 0u,
+)
 
-public data class KerbCloudKerberosDebugRequest(public var messageType: KerbProtocolMessageType = 0, public var logonId: Luid = Luid())
+public data class KerbCloudKerberosDebugRequest(
+    public var messageType: KerbProtocolMessageType = 0,
+    public var logonId: Luid = Luid(),
+)
 
 public data class KerbCloudKerberosDebugResponse(
     public var messageType: KerbProtocolMessageType = 0,
@@ -245,7 +268,9 @@ public data class KerbDecryptRequest(
     public var encryptedData: COpaquePointer? = null,
 )
 
-public data class KerbDecryptResponse(public var decryptedData: UByteArray = UByteArray(1)) {
+public data class KerbDecryptResponse(
+    public var decryptedData: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is KerbDecryptResponse) return false
@@ -253,9 +278,7 @@ public data class KerbDecryptResponse(public var decryptedData: UByteArray = UBy
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.decryptedData.contentHashCode()
-    }
+    override fun hashCode(): Int = this.decryptedData.contentHashCode()
 }
 
 public data class KerbExternalName(
@@ -309,7 +332,10 @@ public data class KerbInteractiveProfile(
     public var userFlags: UInt = 0u,
 )
 
-public data class KerbInteractiveUnlockLogon(public var logon: KerbInteractiveLogon = KerbInteractiveLogon(), public var logonId: Luid = Luid())
+public data class KerbInteractiveUnlockLogon(
+    public var logon: KerbInteractiveLogon = KerbInteractiveLogon(),
+    public var logonId: Luid = Luid(),
+)
 
 public data class KerbNetAddress(
     public var family: UInt = 0u,
@@ -317,9 +343,14 @@ public data class KerbNetAddress(
     public var address: Pstr = null,
 )
 
-public data class KerbNetAddresses(public var number: UInt = 0u, public var addresses: List<KerbNetAddress> = List(1) { KerbNetAddress() })
+public data class KerbNetAddresses(
+    public var number: UInt = 0u,
+    public var addresses: List<KerbNetAddress> = List(1) { KerbNetAddress() },
+)
 
-public data class KerbPurgeBindingCacheRequest(public var messageType: KerbProtocolMessageType = 0)
+public data class KerbPurgeBindingCacheRequest(
+    public var messageType: KerbProtocolMessageType = 0,
+)
 
 public data class KerbPurgeKdcProxyCacheRequest(
     public var messageType: KerbProtocolMessageType = 0,
@@ -327,7 +358,10 @@ public data class KerbPurgeKdcProxyCacheRequest(
     public var logonId: Luid = Luid(),
 )
 
-public data class KerbPurgeKdcProxyCacheResponse(public var messageType: KerbProtocolMessageType = 0, public var countOfPurged: UInt = 0u)
+public data class KerbPurgeKdcProxyCacheResponse(
+    public var messageType: KerbProtocolMessageType = 0,
+    public var countOfPurged: UInt = 0u,
+)
 
 public data class KerbPurgeTktCacheExRequest(
     public var messageType: KerbProtocolMessageType = 0,
@@ -343,7 +377,9 @@ public data class KerbPurgeTktCacheRequest(
     public var realmName: LsaUnicodeString = LsaUnicodeString(),
 )
 
-public data class KerbQueryBindingCacheRequest(public var messageType: KerbProtocolMessageType = 0)
+public data class KerbQueryBindingCacheRequest(
+    public var messageType: KerbProtocolMessageType = 0,
+)
 
 public data class KerbQueryBindingCacheResponse(
     public var messageType: KerbProtocolMessageType = 0,
@@ -406,7 +442,10 @@ public data class KerbQueryTktCacheExResponse(
     public var tickets: List<KerbTicketCacheInfoEx> = List(1) { KerbTicketCacheInfoEx() },
 )
 
-public data class KerbQueryTktCacheRequest(public var messageType: KerbProtocolMessageType = 0, public var logonId: Luid = Luid())
+public data class KerbQueryTktCacheRequest(
+    public var messageType: KerbProtocolMessageType = 0,
+    public var logonId: Luid = Luid(),
+)
 
 public data class KerbQueryTktCacheResponse(
     public var messageType: KerbProtocolMessageType = 0,
@@ -414,9 +453,15 @@ public data class KerbQueryTktCacheResponse(
     public var tickets: List<KerbTicketCacheInfo> = List(1) { KerbTicketCacheInfo() },
 )
 
-public data class KerbRefreshPolicyRequest(public var messageType: KerbProtocolMessageType = 0, public var flags: UInt = 0u)
+public data class KerbRefreshPolicyRequest(
+    public var messageType: KerbProtocolMessageType = 0,
+    public var flags: UInt = 0u,
+)
 
-public data class KerbRefreshPolicyResponse(public var messageType: KerbProtocolMessageType = 0, public var flags: UInt = 0u)
+public data class KerbRefreshPolicyResponse(
+    public var messageType: KerbProtocolMessageType = 0,
+    public var flags: UInt = 0u,
+)
 
 public data class KerbRefreshSccredRequest(
     public var messageType: KerbProtocolMessageType = 0,
@@ -449,7 +494,9 @@ public data class KerbRetrieveTktRequest(
     public var credentialsHandle: SecHandle = SecHandle(),
 )
 
-public data class KerbRetrieveTktResponse(public var ticket: KerbExternalTicket = KerbExternalTicket())
+public data class KerbRetrieveTktResponse(
+    public var ticket: KerbExternalTicket = KerbExternalTicket(),
+)
 
 public data class KerbS4u2proxyCacheEntryInfo(
     public var serverName: LsaUnicodeString = LsaUnicodeString(),
@@ -513,7 +560,10 @@ public data class KerbSmartCardProfile(
     public var certificateData: COpaquePointer? = null,
 )
 
-public data class KerbSmartCardUnlockLogon(public var logon: KerbSmartCardLogon = KerbSmartCardLogon(), public var logonId: Luid = Luid())
+public data class KerbSmartCardUnlockLogon(
+    public var logon: KerbSmartCardLogon = KerbSmartCardLogon(),
+    public var logonId: Luid = Luid(),
+)
 
 public data class KerbSubmitTktRequest(
     public var messageType: KerbProtocolMessageType = 0,
@@ -585,9 +635,15 @@ public data class KerbTicketLogon(
     public var ticketGrantingTicket: COpaquePointer? = null,
 )
 
-public data class KerbTicketProfile(public var profile: KerbInteractiveProfile = KerbInteractiveProfile(), public var sessionKey: KerbCryptoKey = KerbCryptoKey())
+public data class KerbTicketProfile(
+    public var profile: KerbInteractiveProfile = KerbInteractiveProfile(),
+    public var sessionKey: KerbCryptoKey = KerbCryptoKey(),
+)
 
-public data class KerbTicketUnlockLogon(public var logon: KerbTicketLogon = KerbTicketLogon(), public var logonId: Luid = Luid())
+public data class KerbTicketUnlockLogon(
+    public var logon: KerbTicketLogon = KerbTicketLogon(),
+    public var logonId: Luid = Luid(),
+)
 
 public data class KerbTransferCredRequest(
     public var messageType: KerbProtocolMessageType = 0,
@@ -604,7 +660,10 @@ public data class KsecListEntry(
     public var reserved: COpaquePointer? = null,
 )
 
-public data class LogonHours(public var unitsPerWeek: UShort = 0u, public var logonHours: COpaquePointer? = null)
+public data class LogonHours(
+    public var unitsPerWeek: UShort = 0u,
+    public var logonHours: COpaquePointer? = null,
+)
 
 public data class LsaAuthInformation(
     public var lastUpdateTime: Long = 0L,
@@ -627,11 +686,19 @@ public data class LsaDispatchTable(
     public var copyFromClientBuffer: PlsaCopyFromClientBuffer = null,
 )
 
-public data class LsaEnumerationInformation(public var sid: Psid = null)
+public data class LsaEnumerationInformation(
+    public var sid: Psid = null,
+)
 
-public data class LsaForestTrustBinaryData(public var length: UInt = 0u, public var buffer: COpaquePointer? = null)
+public data class LsaForestTrustBinaryData(
+    public var length: UInt = 0u,
+    public var buffer: COpaquePointer? = null,
+)
 
-public data class LsaForestTrustCollisionInformation(public var recordCount: UInt = 0u, public var entries: COpaquePointer? = null)
+public data class LsaForestTrustCollisionInformation(
+    public var recordCount: UInt = 0u,
+    public var entries: COpaquePointer? = null,
+)
 
 public data class LsaForestTrustCollisionRecord(
     public var index: UInt = 0u,
@@ -646,9 +713,15 @@ public data class LsaForestTrustDomainInfo(
     public var netbiosName: LsaUnicodeString = LsaUnicodeString(),
 )
 
-public data class LsaForestTrustInformation(public var recordCount: UInt = 0u, public var entries: COpaquePointer? = null)
+public data class LsaForestTrustInformation(
+    public var recordCount: UInt = 0u,
+    public var entries: COpaquePointer? = null,
+)
 
-public data class LsaForestTrustInformation2(public var recordCount: UInt = 0u, public var entries: COpaquePointer? = null)
+public data class LsaForestTrustInformation2(
+    public var recordCount: UInt = 0u,
+    public var entries: COpaquePointer? = null,
+)
 
 public data class LsaForestTrustRecord(
     public var flags: UInt = 0u,
@@ -698,7 +771,10 @@ public data class LsaObjectAttributes(
     public var securityQualityOfService: COpaquePointer? = null,
 )
 
-public data class LsaReferencedDomainList(public var entries: UInt = 0u, public var domains: LsaTrustInformation? = null)
+public data class LsaReferencedDomainList(
+    public var entries: UInt = 0u,
+    public var domains: LsaTrustInformation? = null,
+)
 
 public class LsaSecpkgFunctionTable(
     public var createLogonSession: PlsaCreateLogonSession = null,
@@ -773,7 +849,10 @@ public data class LsaString(
     public var buffer: Pstr = null,
 )
 
-public data class LsaTokenInformationNull(public var expirationTime: Long = 0L, public var groups: TokenGroups? = null)
+public data class LsaTokenInformationNull(
+    public var expirationTime: Long = 0L,
+    public var groups: TokenGroups? = null,
+)
 
 public data class LsaTokenInformationV1(
     public var expirationTime: Long = 0L,
@@ -817,7 +896,10 @@ public data class LsaTranslatedSid2(
     public var flags: UInt = 0u,
 )
 
-public data class LsaTrustInformation(public var name: LsaUnicodeString = LsaUnicodeString(), public var sid: Psid = null)
+public data class LsaTrustInformation(
+    public var name: LsaUnicodeString = LsaUnicodeString(),
+    public var sid: Psid = null,
+)
 
 public data class LsaUnicodeString(
     public var length: UShort = 0u,
@@ -825,7 +907,10 @@ public data class LsaUnicodeString(
     public var buffer: Pwstr = null,
 )
 
-public data class Msv10AvPair(public var avId: UShort = 0u, public var avLen: UShort = 0u)
+public data class Msv10AvPair(
+    public var avId: UShort = 0u,
+    public var avLen: UShort = 0u,
+)
 
 public data class Msv10ChangepasswordRequest(
     public var messageType: Msv10ProtocolMessageType = 0,
@@ -842,7 +927,9 @@ public data class Msv10ChangepasswordResponse(
     public var domainPasswordInfo: DomainPasswordInformation = DomainPasswordInformation(),
 )
 
-public data class Msv10CredentialKey(public var data: UByteArray = UByteArray(20)) {
+public data class Msv10CredentialKey(
+    public var data: UByteArray = UByteArray(20),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Msv10CredentialKey) return false
@@ -850,9 +937,7 @@ public data class Msv10CredentialKey(public var data: UByteArray = UByteArray(20
         return true
     }
 
-    override fun hashCode(): Int {
-        return this.data.contentHashCode()
-    }
+    override fun hashCode(): Int = this.data.contentHashCode()
 }
 
 public data class Msv10InteractiveLogon(
@@ -1220,9 +1305,15 @@ public data class Msv10ValidationInfo(
     public var userId: UInt = 0u,
 )
 
-public data class NegotiateCallerNameRequest(public var messageType: UInt = 0u, public var logonId: Luid = Luid())
+public data class NegotiateCallerNameRequest(
+    public var messageType: UInt = 0u,
+    public var logonId: Luid = Luid(),
+)
 
-public data class NegotiateCallerNameResponse(public var messageType: UInt = 0u, public var callerName: Pwstr = null)
+public data class NegotiateCallerNameResponse(
+    public var messageType: UInt = 0u,
+    public var callerName: Pwstr = null,
+)
 
 public data class NegotiatePackagePrefix(
     public var packageId: Int = 0,
@@ -1302,7 +1393,10 @@ public data class Pku2uCertificateS4uLogon(
     public var certificate: COpaquePointer? = null,
 )
 
-public data class Pku2uCertBlob(public var certOffset: UInt = 0u, public var certLength: UShort = 0u)
+public data class Pku2uCertBlob(
+    public var certOffset: UInt = 0u,
+    public var certLength: UShort = 0u,
+)
 
 public data class Pku2uCreduiContext(
     public var version: ULong = 0uL,
@@ -1312,9 +1406,15 @@ public data class Pku2uCreduiContext(
     public var certArrayOffset: UInt = 0u,
 )
 
-public data class PolicyAccountDomainInfo(public var domainName: LsaUnicodeString = LsaUnicodeString(), public var domainSid: Psid = null)
+public data class PolicyAccountDomainInfo(
+    public var domainName: LsaUnicodeString = LsaUnicodeString(),
+    public var domainSid: Psid = null,
+)
 
-public data class PolicyAuditCategoriesInfo(public var maximumCategoryCount: UInt = 0u, public var subCategoriesInfo: PolicyAuditSubcategoriesInfo? = null)
+public data class PolicyAuditCategoriesInfo(
+    public var maximumCategoryCount: UInt = 0u,
+    public var subCategoriesInfo: PolicyAuditSubcategoriesInfo? = null,
+)
 
 public data class PolicyAuditEventsInfo(
     public var auditingMode: Boolean = false,
@@ -1322,9 +1422,14 @@ public data class PolicyAuditEventsInfo(
     public var maximumAuditEventCount: UInt = 0u,
 )
 
-public data class PolicyAuditFullQueryInfo(public var shutDownOnFull: Boolean = false, public var logIsFull: Boolean = false)
+public data class PolicyAuditFullQueryInfo(
+    public var shutDownOnFull: Boolean = false,
+    public var logIsFull: Boolean = false,
+)
 
-public data class PolicyAuditFullSetInfo(public var shutDownOnFull: Boolean = false)
+public data class PolicyAuditFullSetInfo(
+    public var shutDownOnFull: Boolean = false,
+)
 
 public data class PolicyAuditLogInfo(
     public var auditLogPercentFull: UInt = 0u,
@@ -1335,11 +1440,19 @@ public data class PolicyAuditLogInfo(
     public var nextAuditRecordId: UInt = 0u,
 )
 
-public data class PolicyAuditSidArray(public var usersCount: UInt = 0u, public var userSidArray: Psid? = null)
+public data class PolicyAuditSidArray(
+    public var usersCount: UInt = 0u,
+    public var userSidArray: Psid? = null,
+)
 
-public data class PolicyAuditSubcategoriesInfo(public var maximumSubCategoryCount: UInt = 0u, public var eventAuditingOptions: UInt? = null)
+public data class PolicyAuditSubcategoriesInfo(
+    public var maximumSubCategoryCount: UInt = 0u,
+    public var eventAuditingOptions: UInt? = null,
+)
 
-public data class PolicyDefaultQuotaInfo(public var quotaLimits: QuotaLimits = QuotaLimits())
+public data class PolicyDefaultQuotaInfo(
+    public var quotaLimits: QuotaLimits = QuotaLimits(),
+)
 
 public data class PolicyDnsDomainInfo(
     public var name: LsaUnicodeString = LsaUnicodeString(),
@@ -1349,7 +1462,10 @@ public data class PolicyDnsDomainInfo(
     public var sid: Psid = null,
 )
 
-public data class PolicyDomainEfsInfo(public var infoLength: UInt = 0u, public var efsBlob: COpaquePointer? = null)
+public data class PolicyDomainEfsInfo(
+    public var infoLength: UInt = 0u,
+    public var efsBlob: COpaquePointer? = null,
+)
 
 public data class PolicyDomainKerberosTicketInfo(
     public var authenticationOptions: UInt = 0u,
@@ -1360,9 +1476,14 @@ public data class PolicyDomainKerberosTicketInfo(
     public var reserved: Long = 0L,
 )
 
-public data class PolicyLsaServerRoleInfo(public var lsaServerRole: PolicyLsaServerRole = 0)
+public data class PolicyLsaServerRoleInfo(
+    public var lsaServerRole: PolicyLsaServerRole = 0,
+)
 
-public data class PolicyMachineAcctInfo(public var rid: UInt = 0u, public var sid: Psid = null)
+public data class PolicyMachineAcctInfo(
+    public var rid: UInt = 0u,
+    public var sid: Psid = null,
+)
 
 public data class PolicyMachineAcctInfo2(
     public var rid: UInt = 0u,
@@ -1370,13 +1491,24 @@ public data class PolicyMachineAcctInfo2(
     public var objectGuid: Guid = Guid(),
 )
 
-public data class PolicyModificationInfo(public var modifiedId: Long = 0L, public var databaseCreationTime: Long = 0L)
+public data class PolicyModificationInfo(
+    public var modifiedId: Long = 0L,
+    public var databaseCreationTime: Long = 0L,
+)
 
-public data class PolicyPdAccountInfo(public var name: LsaUnicodeString = LsaUnicodeString())
+public data class PolicyPdAccountInfo(
+    public var name: LsaUnicodeString = LsaUnicodeString(),
+)
 
-public data class PolicyPrimaryDomainInfo(public var name: LsaUnicodeString = LsaUnicodeString(), public var sid: Psid = null)
+public data class PolicyPrimaryDomainInfo(
+    public var name: LsaUnicodeString = LsaUnicodeString(),
+    public var sid: Psid = null,
+)
 
-public data class PolicyReplicaSourceInfo(public var replicaSource: LsaUnicodeString = LsaUnicodeString(), public var replicaAccountName: LsaUnicodeString = LsaUnicodeString())
+public data class PolicyReplicaSourceInfo(
+    public var replicaSource: LsaUnicodeString = LsaUnicodeString(),
+    public var replicaAccountName: LsaUnicodeString = LsaUnicodeString(),
+)
 
 public data class PctPublicKey(
     public var type: UInt = 0u,
@@ -1406,9 +1538,15 @@ public data class SamRegisterMappingElement(
     public var continuable: Boolean = false,
 )
 
-public data class SamRegisterMappingList(public var count: UInt = 0u, public var elements: SamRegisterMappingElement? = null)
+public data class SamRegisterMappingList(
+    public var count: UInt = 0u,
+    public var elements: SamRegisterMappingElement? = null,
+)
 
-public data class SamRegisterMappingTable(public var count: UInt = 0u, public var lists: SamRegisterMappingList? = null)
+public data class SamRegisterMappingTable(
+    public var count: UInt = 0u,
+    public var lists: SamRegisterMappingList? = null,
+)
 
 public data class SchannelAlertToken(
     public var dwTokenType: UInt = 0u,
@@ -1514,7 +1652,10 @@ public data class SchannelCred(
     public var dwCredFormat: UInt = 0u,
 )
 
-public data class SchannelSessionToken(public var dwTokenType: UInt = 0u, public var dwFlags: SchannelSessionTokenFlags = 0u)
+public data class SchannelSessionToken(
+    public var dwTokenType: UInt = 0u,
+    public var dwFlags: SchannelSessionTokenFlags = 0u,
+)
 
 public data class SchCred(
     public var dwVersion: UInt = 0u,
@@ -1545,7 +1686,10 @@ public data class SchCredPublicCertchain(
     public var pCertChain: COpaquePointer? = null,
 )
 
-public data class SchCredSecretCapi(public var dwType: UInt = 0u, public var hProv: Int = 0)
+public data class SchCredSecretCapi(
+    public var dwType: UInt = 0u,
+    public var hProv: Int = 0,
+)
 
 public data class SchCredSecretPrivkey(
     public var dwType: UInt = 0u,
@@ -1568,7 +1712,10 @@ public data class SecpkgAppModeInfo(
     public var returnToLsa: Boolean = false,
 )
 
-public data class SecpkgByteVector(public var byteArrayOffset: UInt = 0u, public var byteArrayLength: UShort = 0u)
+public data class SecpkgByteVector(
+    public var byteArrayOffset: UInt = 0u,
+    public var byteArrayLength: UShort = 0u,
+)
 
 public data class SecpkgCallInfo(
     public var processId: UInt = 0u,
@@ -1593,7 +1740,10 @@ public data class SecpkgCallPackageTransferCredRequest(
     public var flags: UInt = 0u,
 )
 
-public data class SecpkgCallPackageUnpinAllDcsRequest(public var messageType: UInt = 0u, public var flags: UInt = 0u)
+public data class SecpkgCallPackageUnpinAllDcsRequest(
+    public var messageType: UInt = 0u,
+    public var flags: UInt = 0u,
+)
 
 public data class SecpkgClientInfo(
     public var logonId: Luid = Luid(),
@@ -1621,7 +1771,10 @@ public data class SecpkgClientInfoEx(
     public var identificationToken: Handle = null,
 )
 
-public data class SecpkgContextThunks(public var infoLevelCount: UInt = 0u, public var levels: UIntArray = UIntArray(1)) {
+public data class SecpkgContextThunks(
+    public var infoLevelCount: UInt = 0u,
+    public var levels: UIntArray = UIntArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SecpkgContextThunks) return false
@@ -1675,9 +1828,15 @@ public data class SecpkgEventPackageChange(
     public var packageName: SecurityString = SecurityString(),
 )
 
-public data class SecpkgEventRoleChange(public var previousRole: UInt = 0u, public var newRole: UInt = 0u)
+public data class SecpkgEventRoleChange(
+    public var previousRole: UInt = 0u,
+    public var newRole: UInt = 0u,
+)
 
-public data class SecpkgExtendedInformation(public var cls: SecpkgExtendedInformationClass = 0, public var info: SecpkgExtendedInformation0 = SecpkgExtendedInformation0())
+public data class SecpkgExtendedInformation(
+    public var cls: SecpkgExtendedInformationClass = 0,
+    public var info: SecpkgExtendedInformation0 = SecpkgExtendedInformation0(),
+)
 
 public data class SecpkgExtendedInformation0(
     public var gssInfo: SecpkgGssInfo = SecpkgGssInfo(),
@@ -1688,7 +1847,10 @@ public data class SecpkgExtendedInformation0(
     public var nego2Info: SecpkgNego2Info = SecpkgNego2Info(),
 )
 
-public data class SecpkgExtraOids(public var oidCount: UInt = 0u, public var oids: List<SecpkgSerializedOid> = List(1) { SecpkgSerializedOid() })
+public data class SecpkgExtraOids(
+    public var oidCount: UInt = 0u,
+    public var oids: List<SecpkgSerializedOid> = List(1) { SecpkgSerializedOid() },
+)
 
 public class SecpkgFunctionTable(
     public var initializePackage: PlsaApInitializePackage = null,
@@ -1736,7 +1898,10 @@ public class SecpkgFunctionTable(
     public var extractTargetInfo: SpExtractTargetInfoFn = null,
 )
 
-public data class SecpkgGssInfo(public var encodedIdLength: UInt = 0u, public var encodedId: UByteArray = UByteArray(4)) {
+public data class SecpkgGssInfo(
+    public var encodedIdLength: UInt = 0u,
+    public var encodedId: UByteArray = UByteArray(4),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SecpkgGssInfo) return false
@@ -1782,9 +1947,14 @@ public data class SecpkgKernelFunctionTable(
     public var serializeAuthData: KspSerializeAuthDataFn = null,
 )
 
-public data class SecpkgMutualAuthLevel(public var mutualAuthLevel: UInt = 0u)
+public data class SecpkgMutualAuthLevel(
+    public var mutualAuthLevel: UInt = 0u,
+)
 
-public data class SecpkgNego2Info(public var authScheme: UByteArray = UByteArray(16), public var packageFlags: UInt = 0u) {
+public data class SecpkgNego2Info(
+    public var authScheme: UByteArray = UByteArray(16),
+    public var packageFlags: UInt = 0u,
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SecpkgNego2Info) return false
@@ -1898,7 +2068,10 @@ public data class SecpkgSerializedOid(
     }
 }
 
-public data class SecpkgShortVector(public var shortArrayOffset: UInt = 0u, public var shortArrayCount: UShort = 0u)
+public data class SecpkgShortVector(
+    public var shortArrayOffset: UInt = 0u,
+    public var shortArrayCount: UShort = 0u,
+)
 
 public data class SecpkgSupplementalCred(
     public var packageName: LsaUnicodeString = LsaUnicodeString(),
@@ -1906,7 +2079,10 @@ public data class SecpkgSupplementalCred(
     public var credentials: COpaquePointer? = null,
 )
 
-public data class SecpkgSupplementalCredArray(public var credentialCount: UInt = 0u, public var credentials: List<SecpkgSupplementalCred> = List(1) { SecpkgSupplementalCred() })
+public data class SecpkgSupplementalCredArray(
+    public var credentialCount: UInt = 0u,
+    public var credentials: List<SecpkgSupplementalCred> = List(1) { SecpkgSupplementalCred() },
+)
 
 public data class SecpkgSuppliedCredential(
     public var cbHeaderLength: UShort = 0u,
@@ -1924,9 +2100,15 @@ public data class SecpkgSurrogateLogon(
     public var entries: SecpkgSurrogateLogonEntry? = null,
 )
 
-public data class SecpkgSurrogateLogonEntry(public var type: Guid = Guid(), public var data: COpaquePointer? = null)
+public data class SecpkgSurrogateLogonEntry(
+    public var type: Guid = Guid(),
+    public var data: COpaquePointer? = null,
+)
 
-public data class SecpkgTargetinfo(public var domainSid: Psid = null, public var computerName: Pcwstr = null)
+public data class SecpkgTargetinfo(
+    public var domainSid: Psid = null,
+    public var computerName: Pcwstr = null,
+)
 
 public data class SecpkgUserFunctionTable(
     public var instanceInit: SpInstanceInitFn = null,
@@ -1946,7 +2128,9 @@ public data class SecpkgUserFunctionTable(
     public var marshalAttributeData: SpMarshalAttributeDataFn = null,
 )
 
-public data class SecpkgWowClientDll(public var wowClientDllPath: SecurityString = SecurityString())
+public data class SecpkgWowClientDll(
+    public var wowClientDllPath: SecurityString = SecurityString(),
+)
 
 public class SecurityLogonSessionData(
     public var size: UInt = 0u,
@@ -1974,10 +2158,14 @@ public class SecurityLogonSessionData(
     public var passwordMustChange: Long = 0L,
 )
 
-public data class SecurityLogonType(public var value: Int = 0) {
+public data class SecurityLogonType(
+    public var value: Int = 0,
+) {
     public var field0: Int
         get() = value
-        set(v) { value = v }
+        set(v) {
+            value = v
+        }
 
     public companion object {
         public val UNDEFINED_LOGON_TYPE: SecurityLogonType = SecurityLogonType(0)
@@ -2029,7 +2217,10 @@ public data class SecurityUserData(
     public var pSid: Psid = null,
 )
 
-public data class SecApplicationProtocols(public var protocolListsSize: UInt = 0u, public var protocolLists: List<SecApplicationProtocolList> = List(1) { SecApplicationProtocolList() })
+public data class SecApplicationProtocols(
+    public var protocolListsSize: UInt = 0u,
+    public var protocolLists: List<SecApplicationProtocolList> = List(1) { SecApplicationProtocolList() },
+)
 
 public data class SecApplicationProtocolList(
     public var protoNegoExt: SecApplicationProtocolNegotiationExt = 0,
@@ -2053,7 +2244,10 @@ public data class SecApplicationProtocolList(
     }
 }
 
-public data class SecCertificateRequestContext(public var cbCertificateRequestContext: UByte = 0u, public var rgCertificateRequestContext: UByteArray = UByteArray(1)) {
+public data class SecCertificateRequestContext(
+    public var cbCertificateRequestContext: UByte = 0u,
+    public var rgCertificateRequestContext: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SecCertificateRequestContext) return false
@@ -2095,11 +2289,17 @@ public data class SecChannelBindingsEx(
     public var dwApplicationDataOffset: UInt = 0u,
 )
 
-public data class SecChannelBindingsResult(public var flags: UInt = 0u)
+public data class SecChannelBindingsResult(
+    public var flags: UInt = 0u,
+)
 
-public data class SecDtlsMtu(public var pathMTU: UShort = 0u)
+public data class SecDtlsMtu(
+    public var pathMTU: UShort = 0u,
+)
 
-public data class SecFlags(public var flags: ULong = 0uL)
+public data class SecFlags(
+    public var flags: ULong = 0uL,
+)
 
 public data class SecNegotiationInfo(
     public var size: UInt = 0u,
@@ -2108,7 +2308,10 @@ public data class SecNegotiationInfo(
     public var reserved: COpaquePointer? = null,
 )
 
-public data class SecPresharedkey(public var keySize: UShort = 0u, public var key: UByteArray = UByteArray(1)) {
+public data class SecPresharedkey(
+    public var keySize: UShort = 0u,
+    public var key: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SecPresharedkey) return false
@@ -2124,7 +2327,10 @@ public data class SecPresharedkey(public var keySize: UShort = 0u, public var ke
     }
 }
 
-public data class SecPresharedkeyIdentity(public var keyIdentitySize: UShort = 0u, public var keyIdentity: UByteArray = UByteArray(1)) {
+public data class SecPresharedkeyIdentity(
+    public var keyIdentitySize: UShort = 0u,
+    public var keyIdentity: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SecPresharedkeyIdentity) return false
@@ -2140,7 +2346,10 @@ public data class SecPresharedkeyIdentity(public var keyIdentitySize: UShort = 0
     }
 }
 
-public data class SecSrtpMasterKeyIdentifier(public var masterKeyIdentifierSize: UByte = 0u, public var masterKeyIdentifier: UByteArray = UByteArray(1)) {
+public data class SecSrtpMasterKeyIdentifier(
+    public var masterKeyIdentifierSize: UByte = 0u,
+    public var masterKeyIdentifier: UByteArray = UByteArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SecSrtpMasterKeyIdentifier) return false
@@ -2156,7 +2365,10 @@ public data class SecSrtpMasterKeyIdentifier(public var masterKeyIdentifierSize:
     }
 }
 
-public data class SecSrtpProtectionProfiles(public var profilesSize: UShort = 0u, public var profilesList: UShortArray = UShortArray(1)) {
+public data class SecSrtpProtectionProfiles(
+    public var profilesSize: UShort = 0u,
+    public var profilesList: UShortArray = UShortArray(1),
+) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is SecSrtpProtectionProfiles) return false
@@ -2371,7 +2583,10 @@ public data class SeAdtAccessReason(
     }
 }
 
-public data class SeAdtClaims(public var length: UInt = 0u, public var claims: COpaquePointer? = null)
+public data class SeAdtClaims(
+    public var length: UInt = 0u,
+    public var claims: COpaquePointer? = null,
+)
 
 public data class SeAdtObjectType(
     public var objectType: Guid = Guid(),
@@ -2428,7 +2643,10 @@ public data class SeAdtParameterArrayEx(
     public var parameters: List<SeAdtParameterArrayEntry> = List(32) { SeAdtParameterArrayEntry() },
 )
 
-public data class SlActivationInfoHeader(public var cbSize: UInt = 0u, public var type: SlActivationType = 0)
+public data class SlActivationInfoHeader(
+    public var cbSize: UInt = 0u,
+    public var type: SlActivationType = 0,
+)
 
 public data class SlAdActivationInfo(
     public var header: SlActivationInfoHeader = SlActivationInfoHeader(),

@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.clrhosting
 
 import io.github.kotlinmania.windowssys.core.Bool
@@ -88,11 +89,19 @@ public data class CorGcStats(
     }
 }
 
-public data class CorGcThreadStats(public var perThreadAllocation: ULong = 0uL, public var flags: UInt = 0u)
+public data class CorGcThreadStats(
+    public var perThreadAllocation: ULong = 0uL,
+    public var flags: UInt = 0u,
+)
 
-public data class CustomDumpItem(public var itemKind: ECustomDumpItemKind = 0, public var anonymous: CustomDumpItem0 = CustomDumpItem0())
+public data class CustomDumpItem(
+    public var itemKind: ECustomDumpItemKind = 0,
+    public var anonymous: CustomDumpItem0 = CustomDumpItem0(),
+)
 
-public data class CustomDumpItem0(public var pReserved: Int = 0)
+public data class CustomDumpItem0(
+    public var pReserved: Int = 0,
+)
 
 public data class MDAInfo(
     public var lpMDACaption: Pcwstr = null,
@@ -106,4 +115,7 @@ public data class ModuleBindInfo(
     public var lpModuleName: Pcwstr = null,
 )
 
-public data class StackOverflowInfo(public var soType: StackOverflowType = 0, public var pExceptionInfo: ExceptionPointers? = null)
+public data class StackOverflowInfo(
+    public var soType: StackOverflowType = 0,
+    public var pExceptionInfo: ExceptionPointers? = null,
+)

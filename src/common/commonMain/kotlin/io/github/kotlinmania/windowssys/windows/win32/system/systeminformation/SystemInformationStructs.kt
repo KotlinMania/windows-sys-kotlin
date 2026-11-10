@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.systeminformation
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -48,7 +49,10 @@ public data class CacheRelationship(
     }
 }
 
-public data class CacheRelationship0(public var groupMask: GroupAffinity = GroupAffinity(), public var groupMasks: List<GroupAffinity> = List(1) { GroupAffinity() })
+public data class CacheRelationship0(
+    public var groupMask: GroupAffinity = GroupAffinity(),
+    public var groupMasks: List<GroupAffinity> = List(1) { GroupAffinity() },
+)
 
 public data class GroupAffinity(
     public var mask: Int = 0,
@@ -145,7 +149,10 @@ public data class NumaNodeRelationship(
     }
 }
 
-public data class NumaNodeRelationship0(public var groupMask: GroupAffinity = GroupAffinity(), public var groupMasks: List<GroupAffinity> = List(1) { GroupAffinity() })
+public data class NumaNodeRelationship0(
+    public var groupMask: GroupAffinity = GroupAffinity(),
+    public var groupMasks: List<GroupAffinity> = List(1) { GroupAffinity() },
+)
 
 public data class Osversioninfoa(
     public var dwOSVersionInfoSize: UInt = 0u,
@@ -360,7 +367,9 @@ public data class SystemCpuSetInformation(
     public var anonymous: SystemCpuSetInformation0 = SystemCpuSetInformation0(),
 )
 
-public data class SystemCpuSetInformation0(public var cpuSet: SystemCpuSetInformation00 = SystemCpuSetInformation00())
+public data class SystemCpuSetInformation0(
+    public var cpuSet: SystemCpuSetInformation00 = SystemCpuSetInformation00(),
+)
 
 public data class SystemCpuSetInformation00(
     public var id: UInt = 0u,
@@ -375,11 +384,19 @@ public data class SystemCpuSetInformation00(
     public var allocationTag: ULong = 0uL,
 )
 
-public data class SystemCpuSetInformation000(public var allFlags: UByte = 0u, public var anonymous: SystemCpuSetInformation0000 = SystemCpuSetInformation0000())
+public data class SystemCpuSetInformation000(
+    public var allFlags: UByte = 0u,
+    public var anonymous: SystemCpuSetInformation0000 = SystemCpuSetInformation0000(),
+)
 
-public data class SystemCpuSetInformation0000(public var bitfield: UByte = 0u)
+public data class SystemCpuSetInformation0000(
+    public var bitfield: UByte = 0u,
+)
 
-public data class SystemCpuSetInformation001(public var reserved: UInt = 0u, public var schedulingClass: UByte = 0u)
+public data class SystemCpuSetInformation001(
+    public var reserved: UInt = 0u,
+    public var schedulingClass: UByte = 0u,
+)
 
 public data class SystemInfo(
     public var anonymous: SystemInfo0 = SystemInfo0(),
@@ -394,9 +411,15 @@ public data class SystemInfo(
     public var wProcessorRevision: UShort = 0u,
 )
 
-public data class SystemInfo0(public var dwOemId: UInt = 0u, public var anonymous: SystemInfo00 = SystemInfo00())
+public data class SystemInfo0(
+    public var dwOemId: UInt = 0u,
+    public var anonymous: SystemInfo00 = SystemInfo00(),
+)
 
-public data class SystemInfo00(public var wProcessorArchitecture: ProcessorArchitecture = 0u, public var wReserved: UShort = 0u)
+public data class SystemInfo00(
+    public var wProcessorArchitecture: ProcessorArchitecture = 0u,
+    public var wReserved: UShort = 0u,
+)
 
 public data class SystemLogicalProcessorInformation(
     public var processorMask: Int = 0,
@@ -429,9 +452,13 @@ public data class SystemLogicalProcessorInformation0(
     }
 }
 
-public data class SystemLogicalProcessorInformation01(public var nodeNumber: UInt = 0u)
+public data class SystemLogicalProcessorInformation01(
+    public var nodeNumber: UInt = 0u,
+)
 
-public data class SystemLogicalProcessorInformation00(public var flags: UByte = 0u)
+public data class SystemLogicalProcessorInformation00(
+    public var flags: UByte = 0u,
+)
 
 public data class SystemLogicalProcessorInformationEx(
     public var relationship: LogicalProcessorRelationship = 0,
@@ -446,8 +473,14 @@ public data class SystemLogicalProcessorInformationEx0(
     public var group: GroupRelationship = GroupRelationship(),
 )
 
-public data class SystemPoolZeroingInformation(public var poolZeroingSupportPresent: Boolean = false)
+public data class SystemPoolZeroingInformation(
+    public var poolZeroingSupportPresent: Boolean = false,
+)
 
-public data class SystemProcessorCycleTimeInformation(public var cycleTime: ULong = 0uL)
+public data class SystemProcessorCycleTimeInformation(
+    public var cycleTime: ULong = 0uL,
+)
 
-public data class SystemSupportedProcessorArchitecturesInformation(public var bitfield: UInt = 0u)
+public data class SystemSupportedProcessorArchitecturesInformation(
+    public var bitfield: UInt = 0u,
+)

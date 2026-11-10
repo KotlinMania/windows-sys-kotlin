@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
+
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
 import io.github.kotlinmania.windowssys.COpaquePointer
@@ -18,7 +19,9 @@ public data class AppMemoryInformation(
     public var totalCommitUsage: ULong = 0uL,
 )
 
-public data class ConditionVariable(public var ptr: COpaquePointer? = null)
+public data class ConditionVariable(
+    public var ptr: COpaquePointer? = null,
+)
 
 public data class CriticalSection(
     public var debugInfo: CriticalSectionDebug? = null,
@@ -41,7 +44,9 @@ public data class CriticalSectionDebug(
     public var identifier: UShort = 0u,
 )
 
-public data class InitOnce(public var ptr: COpaquePointer? = null)
+public data class InitOnce(
+    public var ptr: COpaquePointer? = null,
+)
 
 public data class IoCounters(
     public var readOperationCount: ULong = 0uL,
@@ -52,9 +57,13 @@ public data class IoCounters(
     public var otherTransferCount: ULong = 0uL,
 )
 
-public data class MemoryPriorityInformation(public var memoryPriority: MemoryPriority = 0u)
+public data class MemoryPriorityInformation(
+    public var memoryPriority: MemoryPriority = 0u,
+)
 
-public data class OverridePrefetchParameter(public var value: UInt = 0u)
+public data class OverridePrefetchParameter(
+    public var value: UInt = 0u,
+)
 
 public class Peb(
     public var reserved1: UByteArray = UByteArray(2),
@@ -109,7 +118,10 @@ public data class ProcessBasicInformation(
     public var inheritedFromUniqueProcessId: Int = 0,
 )
 
-public data class ProcessDynamicEhContinuationTarget(public var targetAddress: Int = 0, public var flags: Int = 0)
+public data class ProcessDynamicEhContinuationTarget(
+    public var targetAddress: Int = 0,
+    public var flags: Int = 0,
+)
 
 public data class ProcessDynamicEhContinuationTargetsInformation(
     public var numberOfTargets: UShort = 0u,
@@ -138,7 +150,10 @@ public data class ProcessInformation(
     public var dwThreadId: UInt = 0u,
 )
 
-public data class ProcessLeapSecondInfo(public var flags: UInt = 0u, public var reserved: UInt = 0u)
+public data class ProcessLeapSecondInfo(
+    public var flags: UInt = 0u,
+    public var reserved: UInt = 0u,
+)
 
 public data class ProcessMachineInformation(
     public var processMachine: ImageFileMachine = 0u,
@@ -159,7 +174,9 @@ public data class ProcessPowerThrottlingState(
     public var stateMask: UInt = 0u,
 )
 
-public data class ProcessProtectionLevelInformation(public var protectionLevel: ProcessProtectionLevel = 0u)
+public data class ProcessProtectionLevelInformation(
+    public var protectionLevel: ProcessProtectionLevel = 0u,
+)
 
 public data class ReasonContext(
     public var version: UInt = 0u,
@@ -167,7 +184,10 @@ public data class ReasonContext(
     public var reason: ReasonContext0 = ReasonContext0(),
 )
 
-public data class ReasonContext0(public var detailed: ReasonContext00 = ReasonContext00(), public var simpleReasonString: Pwstr = null)
+public data class ReasonContext0(
+    public var detailed: ReasonContext00 = ReasonContext00(),
+    public var simpleReasonString: Pwstr = null,
+)
 
 public data class ReasonContext00(
     public var localizedReasonModule: Hmodule = null,
@@ -201,7 +221,9 @@ public data class RtlUserProcessParameters(
     }
 }
 
-public data class Srwlock(public var ptr: COpaquePointer? = null)
+public data class Srwlock(
+    public var ptr: COpaquePointer? = null,
+)
 
 public class Startupinfoa(
     public var cb: UInt = 0u,
@@ -224,9 +246,15 @@ public class Startupinfoa(
     public var hStdError: Handle = null,
 )
 
-public data class Startupinfoexa(public var startupInfo: Startupinfoa = Startupinfoa(), public var lpAttributeList: LpprocThreadAttributeList = null)
+public data class Startupinfoexa(
+    public var startupInfo: Startupinfoa = Startupinfoa(),
+    public var lpAttributeList: LpprocThreadAttributeList = null,
+)
 
-public data class Startupinfoexw(public var startupInfo: Startupinfow = Startupinfow(), public var lpAttributeList: LpprocThreadAttributeList = null)
+public data class Startupinfoexw(
+    public var startupInfo: Startupinfow = Startupinfow(),
+    public var lpAttributeList: LpprocThreadAttributeList = null,
+)
 
 public class Startupinfow(
     public var cb: UInt = 0u,
@@ -339,11 +367,19 @@ public data class TpCallbackEnvironV3(
     public var size: UInt = 0u,
 )
 
-public data class TpCallbackEnvironV30(public var flags: UInt = 0u, public var s: TpCallbackEnvironV300 = TpCallbackEnvironV300())
+public data class TpCallbackEnvironV30(
+    public var flags: UInt = 0u,
+    public var s: TpCallbackEnvironV300 = TpCallbackEnvironV300(),
+)
 
-public data class TpCallbackEnvironV300(public var bitfield: UInt = 0u)
+public data class TpCallbackEnvironV300(
+    public var bitfield: UInt = 0u,
+)
 
-public data class TpPoolStackInformation(public var stackReserve: Int = 0, public var stackCommit: Int = 0)
+public data class TpPoolStackInformation(
+    public var stackReserve: Int = 0,
+    public var stackCommit: Int = 0,
+)
 
 public data class UmsSchedulerStartupInfo(
     public var umsVersion: UInt = 0u,
@@ -352,8 +388,16 @@ public data class UmsSchedulerStartupInfo(
     public var schedulerParam: COpaquePointer? = null,
 )
 
-public data class UmsSystemThreadInformation(public var umsVersion: UInt = 0u, public var anonymous: UmsSystemThreadInformation0 = UmsSystemThreadInformation0())
+public data class UmsSystemThreadInformation(
+    public var umsVersion: UInt = 0u,
+    public var anonymous: UmsSystemThreadInformation0 = UmsSystemThreadInformation0(),
+)
 
-public data class UmsSystemThreadInformation0(public var anonymous: UmsSystemThreadInformation00 = UmsSystemThreadInformation00(), public var threadUmsFlags: UInt = 0u)
+public data class UmsSystemThreadInformation0(
+    public var anonymous: UmsSystemThreadInformation00 = UmsSystemThreadInformation00(),
+    public var threadUmsFlags: UInt = 0u,
+)
 
-public data class UmsSystemThreadInformation00(public var bitfield: UInt = 0u)
+public data class UmsSystemThreadInformation00(
+    public var bitfield: UInt = 0u,
+)
