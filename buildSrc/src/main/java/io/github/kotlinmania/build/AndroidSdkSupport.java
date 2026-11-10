@@ -169,7 +169,7 @@ public final class AndroidSdkSupport {
                 return false;
             }
             String lower = name.toLowerCase(Locale.ROOT);
-            if (lower.contains("androidnative")) {
+            if (lower.contains("androidnative") && !lower.startsWith("validateandroidnative")) {
                 return false;
             }
             return lower.contains("android")
@@ -191,13 +191,18 @@ public final class AndroidSdkSupport {
                 }
             );
         });
+
+        project.getTasks().matching(task -> {
+            String lower = task.getName().toLowerCase(Locale.ROOT);
+            return lower.startsWith("validateandroidnative");
+        }).configureEach(task -> task.dependsOn(ensureAndroidEmulator));
     }
 
     private static boolean requestedTaskWantsAndroid(String rawTaskName) {
         int colon = rawTaskName.lastIndexOf(':');
         String taskName = colon >= 0 ? rawTaskName.substring(colon + 1) : rawTaskName;
         String lower = taskName.toLowerCase(Locale.ROOT);
-        if (lower.contains("androidnative")) {
+        if (lower.contains("androidnative") && !lower.startsWith("validateandroidnative")) {
             return false;
         }
         if (lower.contains("android") || lower.contains("unittest")
